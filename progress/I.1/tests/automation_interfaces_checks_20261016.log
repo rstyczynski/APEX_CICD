@@ -1,0 +1,5 @@
+PASS: local Markdown link targets, fences and whitespace in five edited documents.
+PASS: single FR-13 automation requirement; FR-1 through FR-13 unique.
+PASS: AI-1 through AI-10 each enumerate tool, purpose, interface, access and Elaboration proof.
+PASS: git diff --check.
+Scope: document checks only. Oracle interfaces and automation remain proposed/unvalidated; no application tests executed.

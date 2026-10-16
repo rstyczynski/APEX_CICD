@@ -109,6 +109,18 @@ they are not blank bootstrap templates. Later iterations refine them when
 validation evidence or product decisions change their content. The Inception
 review evaluates them together with the Product Backlog and test profile.
 
+## P1.3. Adopt RUP analysis and use-case modeling explicitly
+
+By explicit Product Owner instruction on 2026-10-16, RUP Strikes Back is the project's agentic adaptation of the Rational Unified Process (RUP). Apply RUP's use-case-driven, architecture-centric, iterative and risk-driven approach throughout delivery. The implementor is responsible for performing the analysis and explaining technical recommendations; the Product Owner supplies product intent, priorities and acceptance decisions.
+
+Identify the system boundary and external interactions before designing the solution. The SRS must contain a separate **Actors** chapter that explicitly enumerates human roles and relevant external-system actors, gives each a stable identifier, and describes its responsibilities and goals. Distinguish actors from stakeholders, internal system components and individual people occupying the same role. Do not substitute scattered references to participants for an actor model.
+
+Define actor-goal use cases covering the representative end-to-end journeys. Each use case must identify its primary actor, supporting actors where applicable, observable outcome and success criterion. Describe triggers/preconditions, the main flow, material alternative/failure flows and postconditions for architecturally significant or high-risk cases. Identify the remaining cases at a proportionate level during Inception and refine them from evidence during Elaboration. Include onboarding, environment preparation, ordinary work, integration, operation and recovery when they are part of the accepted system boundary; technical pipeline steps alone do not describe a complete actor journey.
+
+Keep requirements focused on externally observable behavior. Put implementation mechanisms and technical recommendations in the architecture/design and trace them to actor goals, requirements, risks and validation evidence. Review actor coverage and complete journeys before presenting the Inception baseline for acceptance; missing actors or unexplained gaps must be corrected. Scale detail to the project's size and phase under P1; use diagrams when they improve understanding and avoid duplicating the same specification across artifacts.
+
+General RUP supplies the analysis discipline; the canonical RUP Strikes Back procedures and this local patch govern artifact routing, approvals and sprint transitions. References: [IBM Rational RUP best practices](https://public.dhe.ibm.com/software/rational/web/whitepapers/2003/rup_bestpractices.pdf), [actors in modeling](https://www.ibm.com/docs/en/dma?topic=diagrams-actors), and [use-case specification outline](https://www.ibm.com/docs/en/engineering-lifecycle-management-suite/doors-next/7.2.0?topic=cases-use-case-specification-outline).
+
 ## P2. Project lifecycle phases set emphasis; they do not prohibit refinement
 
 The project lifecycle remains Inception, Elaboration, Construction, and Transition. These phases establish the dominant emphasis of the work:

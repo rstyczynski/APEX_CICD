@@ -1,15 +1,16 @@
 # Local Oracle APEX with Podman (Apple Silicon)
 
-## Preliminary work status
+## Ownership and lifecycle purpose
 
-The Product Owner recognized this setup as completed preliminary work on
-2026-10-16. It is available for potential reuse by the APEX CI/CD laboratory;
-adoption will depend on the research and candidate architecture. The
-verification record below describes the earlier setup work, not a new Sprint 0
-execution. Commands run from the project root, although this runbook now lives
-in `docs/`. No setup or cleanup commands were rerun when relocating it.
+I.1 owns this procedure as a sprint product and has assessed it as the infrastructure basis for the CI/CD laboratory. Elaboration must take this procedure and its supporting scripts, assume responsibility for execution/adaptation, and use them to create, verify, stop, restart and destroy APEX experiment infrastructure as needed. A particular running VM is not the project baseline; this reproducible lifecycle procedure is. The [architecture](architecture.md) defines the application targets and the [assessment](cicd-research.md) records the analysis.
 
-This runbook adapts [Raoul Mangoensentono's recipe](https://www.linkedin.com/pulse/simple-way-run-oracle-apex-apple-silicon-raoul-mangoensentono-5rrde/) to Podman. It installs APEX in `FREEPDB1` on `gvenzl/oracle-free`, with a separate Oracle ORDS container. All runtime resources belong to the dedicated `apex-cicd` VM. Existing Podman machines are preserved. Run commands in Bash from this directory.
+Analysis reference, 2026-10-16: Podman 6.0.0, Oracle AI Database 26ai Free 23.26.3.0.0, APEX 24.2.0 and ORDS 25.3.0.r2671248, with the image digests in `scripts/apex-images.env`. I.1 [read-only checks](../progress/I.1/tests/environment_20261016.log) confirmed database/APEX versions, registry validity, zero invalid APEX objects, matching static assets and shell syntax. The browser-login/full-restart record below comes from the preliminary deployment. I.1 did not repeat provisioning or teardown; end-to-end lifecycle validation belongs to Elaboration.
+
+Before executing lifecycle operations, Elaboration must record its procedure/script revision, tool/image versions, selected instance/resource names and which data is disposable or retained. Adapt names and connection settings consistently if the developer/task topology needs multiple targets. Scope teardown to that owned instance and its disposable fixtures, preserving retained data, credentials and evidence plus all unrelated resources. Normal application deployments use migrations and retain history; they do not recreate infrastructure.
+
+The supporting scripts and `.gitignore` have been inspected but remain untracked at this analysis checkpoint. Review and commit those sources with the procedure's adoption before claiming reproducibility from Git. Replace `/path/to/APEX_CICD` with the operator's actual checkout. The initial supported proof uses private developer/task areas and disposable validation roles on one host; their schema/workspace/application provisioning and the durable control authority must be automated and validated during Elaboration. These logical areas do not require additional permanent VMs. Commands below run from the project root; “this directory” means the project root. Infrastructure lifecycle sections are available for experiment provisioning/teardown, not steps to execute on every application release.
+
+This runbook adapts [Raoul Mangoensentono's recipe](https://www.linkedin.com/pulse/simple-way-run-oracle-apex-apple-silicon-raoul-mangoensentono-5rrde/) to Podman. It installs APEX in `FREEPDB1` on `gvenzl/oracle-free`, with a separate Oracle ORDS container. All runtime resources belong to the dedicated `apex-cicd` VM. Unrelated Podman machines are preserved. Run commands in Bash from this directory.
 
 Versions selected for this deployment: Oracle AI Database Free 23.26.3, APEX 24.2, and ORDS 25.3. Native ARM64 database and ORDS images are locked by digest.
 
@@ -18,7 +19,7 @@ Versions selected for this deployment: Oracle AI Database Free 23.26.3, APEX 24.
 Prerequisites: macOS Apple Silicon, Podman installed, `curl`, `openssl`, and internet access. Only one Podman machine can run at a time with this provider. If an unrelated VM is running, stop it deliberately before proceeding. Do not delete it.
 
 ```bash
-cd /Users/rstyczynski/projects/APEX_CICD
+cd /path/to/APEX_CICD
 podman machine list
 podman system connection list
 df -h .
@@ -86,7 +87,7 @@ Expect APEX registry status `VALID` and zero invalid APEX objects. Allow up to a
 
 The database script uses a Podman secret for the initial SYS/SYSTEM password. It creates no application schema. The APEX administrator is `ADMIN` in workspace `INTERNAL`, with the password in `.local-apex/credentials.env`. For unattended setup, `apex-configure.sh` uses the same administrator API as `apxchpwd.sql` and the parameterized core of `apex_rest_config.sql`. SQL*Plus `ACCEPT ... HIDE` failed with piped stdin on this installation, so the script avoids those interactive prompts. Do not enable shell tracing (`set -x`) around credential handling.
 
-Image tags used to select these releases were `gvenzl/oracle-free:23.26.3` and `database/ords:25.3.0`. The checked-in `scripts/apex-images.env` pins their digests so a later tag change does not silently change a repeat deployment.
+Image tags used to select these releases were `gvenzl/oracle-free:23.26.3` and `database/ords:25.3.0`. The assessed `scripts/apex-images.env` pins their digests so a later tag change does not silently change a repeat deployment.
 
 ## Install ORDS and publish APEX
 
@@ -164,10 +165,10 @@ Keep sufficient disk space for image downloads, Oracle datafiles, and APEX insta
 
 ## Remove the runtime completely
 
-These commands destroy this environment's database and configuration. Leave the source files and runbook in place for another deployment.
+These commands destroy the procedure's named instance, including its database and configuration. Before running them, identify the owned resources and preserve all retained data, credentials and evidence outside the teardown scope. Only disposable experiment content may be discarded. Leave this procedure and its source scripts in place so the infrastructure can be recreated.
 
 ```bash
-cd /Users/rstyczynski/projects/APEX_CICD
+cd /path/to/APEX_CICD
 export CONTAINERS_CONF_OVERRIDE="$PWD/.local-apex/containers.conf"
 bash scripts/apex-stop.sh
 launchctl bootout "gui/$(id -u)/local.apex-cicd.vm-start"
@@ -182,16 +183,7 @@ Removing the dedicated VM removes its containers, volumes, networks and download
 
 If the VM is already stopped, skip the stop command. If it is stuck during its very first boot, preserve its log before removal (`$(getconf DARWIN_USER_TEMP_DIR)/podman/apex-cicd.log`). A force removal of this dedicated VM is the reset boundary; do not delete or reset another machine.
 
-To undo the documentation/source changes too, run the following after runtime cleanup. All listed files were created by this task; the original PDF is preserved.
-
-```bash
-rm -f -- scripts/apex-helper-setup.sh scripts/apex-vm-start.sh \
-  scripts/apex-images.env scripts/apex-db-start.sh scripts/apex-db-install.sql \
-  scripts/apex-configure.sh scripts/apex-db-verify.sql scripts/apex-ords-install.sh \
-  scripts/apex-verify.sh scripts/apex-start.sh scripts/apex-stop.sh
-# Remove these only if you have not added your own content to them:
-rm -f -- .gitignore docs/deploy.md
-```
+Runtime teardown does not remove project sources. Keep `docs/deploy.md`, `scripts/` and `.gitignore`; they are owned delivery assets needed to recreate the infrastructure.
 
 References: [database image documentation](https://github.com/gvenzl/oci-oracle-free), [Oracle ORDS installation guide](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/25.3/ordig/installing-and-configuring-oracle-rest-data-services.html), and [krunkit releases](https://github.com/libkrun/krunkit/releases/tag/v1.3.2).
 
@@ -208,4 +200,4 @@ References: [database image documentation](https://github.com/gvenzl/oci-oracle-
 | Administrator authentication | Browser login reached Welcome to Oracle APEX; admin / internal |
 | Full VM stop and restart | SQL and HTTP access checks passed afterward |
 
-Local evidence: `.local-apex/access-verification.log`, `.local-apex/restart-verification.log`, `.local-apex/db-verification.log`, `.local-apex/ords-repair.log`, and `.local-apex/apex-admin-verified.png`. Credentials and session cookies stay in the ignored directory. Full cleanup of the working database has intentionally not been executed; the environment is left running for use and can be removed with the commands above. Empty failed VM attempts were removed during setup without changing the original VM.
+Local evidence: `.local-apex/access-verification.log`, `.local-apex/restart-verification.log`, `.local-apex/db-verification.log`, `.local-apex/ords-repair.log`, and `.local-apex/apex-admin-verified.png`. Credentials and session cookies stay in the ignored directory. At the time of this verification record, full teardown had not been executed and the assessed instance was left running. This is historical evidence, not a prerequisite that the instance remain present. Empty failed VM attempts were removed during setup without changing unrelated machines.

@@ -23,7 +23,7 @@ is preserved as an external reference for the research.
 The Product Owner accepted the vision, roadmap, and next-sprint proposal on
 2026-10-16 and explicitly requested Sprint 0 closure. The mapping is now
 Sprint 1 → I.1 and Sprint 2 → E.1, following the local phase-based ID policy.
-Sprint 0 keeps its original identifier. Both later sprints remain Planned.
+Sprint 0 keeps its original identifier. I.1 was activated and later explicitly closed with all material accepted by the Product Owner on 2026-10-16. E.1 activation is authorized following I.1 closure.
 See the [Sprint 0 handover](progress/sprint_0/sprint_0_handover.md) for outcomes,
 review evidence, and the next-session prompt.
 
@@ -41,7 +41,7 @@ Backlog Items:
 
 ## Sprint I.1 - APEX CI/CD research and Inception baseline
 
-Status: Planned
+Status: Done
 Mode: managed
 Test: none
 Regression: none
@@ -53,6 +53,10 @@ stakeholders, use cases, requirements, priorities, release scope and risks;
 then materialize the SRS, candidate architecture and exact test-profile
 commands. Review this coherent baseline before proposing executable work.
 This iteration changes documents and decisions, not application code.
+
+The Product Owner accepted the revised baseline with the presentation wording
+correction and explicitly closed I.1 with all material accepted on 2026-10-16.
+See its handover and review results for actual evidence and remaining limits.
 
 Backlog Items:
 

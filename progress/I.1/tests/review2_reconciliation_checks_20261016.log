@@ -1,0 +1,16 @@
+Review 2 reconciliation checks — 2026-10-16
+PASS: local Markdown file links and heading fragments in 11 edited documents.
+PASS: balanced fences and no trailing whitespace.
+PASS: five actors, twelve use cases, thirteen functional requirements, ten interface entries and twelve integration cases retained.
+PASS: R1–R6 decisions present; obsolete same-archive repair, target-only and checked-in claims removed from current documents.
+UNCHANGED SHA256 PLAN.md 9c83cbb0368c3df50d934a841f1dba12192c58b75c69d0377ba939740da9526c
+UNCHANGED SHA256 BACKLOG.md 2a000f5e31e24d8f0365a020b8e6b16516dab91463a5b6da7b2def97381403af
+UNCHANGED SHA256 PROGRESS_BOARD.md bebe8e7c1cba2a54bf47cb123f21e6a0438e6dfbb7e5c40781cda415c36937ba
+UNCHANGED SHA256 progress/I.1/analysis_review_1.md 215f6d0004731d8f4d621b133f56d726281bc488acd4f5b2828d5000171ef238
+UNCHANGED SHA256 progress/I.1/analysis_review-answers_1.md df1b96ba63fe1889e7266b84d7ab7450730463bc125d5a6f9fe9cf4946a610c9
+UNCHANGED SHA256 progress/I.1/analysis_review_2.md 3004652b93f308625f8d4899885b1e9fe225a2aefedb1af3bdf34f81bf39ce78
+PASS: supplied reference PDF checksum preserved.
+PASS: git diff --check.
+Engineering review: R1–R6 traced to SRS/architecture policy and representative test-profile success/failure assertions. Checked artifact qualification, initial assembly, restricted verification and inspected partial recovery together.
+Initial link check found the not-yet-written check-record path; created the record and reran the checks successfully.
+Limits: document checks and engineering review only. Runtime isolation, reservation races, maintenance across import and repair remain unvalidated. No application tests, runtime changes, commits or pushes. Design remains Proposed.

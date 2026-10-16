@@ -1,0 +1,4 @@
+Checked 5 documents, 19 local links.
+PASS: corrected technical attribution and added developer-capture design; commands remain unrun.
+git diff --check: 0
+RESULT: PASS (document checks only)

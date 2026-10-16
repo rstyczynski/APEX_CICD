@@ -1,0 +1,13 @@
+I.1 acceptance reconciliation checks — 2026-10-16
+Reviewed 24 Markdown documents; checked 133 local links/anchors.
+PPTX SHA256 62f29eb9471af9f9cf84d78470a63ed983eefcd10b488c7391f8e66a359ee3ba
+PPTX: 9 slide XML documents parsed; ZIP integrity checked.
+All eight lifecycle shell scripts checked with bash -n; no script executed.
+Checked five actor definitions, twelve use cases and thirteen functional requirements.
+Reused slide visual inspection from presentation_wording_checks_20261016.log; unchanged deck bytes, no new visual inspection claimed.
+Reviewed REV-1–4 against accepted baseline and final decisions R1–R6; document evidence only.
+Application smoke/unit/integration and regression gates: not applicable to I.1, not run.
+Live display: open_in_codex returned queued for three artifacts; no confirmed display or Product Owner interaction claimed.
+Acceptance of analysis is explicit. Separate P9 handover decision remains pending.
+PASS: local links/anchors, document structure, baseline definitions, deck identity/integrity, shell syntax and git diff --check.
+Final closure recheck: 25 documents, 146 local links/anchors, all 40 new traceability links, assigned PBI existence and git diff --check PASS. No active sprint at closure checkpoint; I.1 PLAN/board Done. Product Owner subsequently explicitly closed I.1 with all material accepted; earlier pending decision lines are historical.

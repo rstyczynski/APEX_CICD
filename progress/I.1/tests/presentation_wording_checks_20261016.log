@@ -1,0 +1,6 @@
+PASS: removed investment wording from deck text/notes and current handover/README/walkthrough.
+PASS: changed slides 1 and 9 rendered and visually inspected; slides 2–8 render byte-identically to the preceding deck.
+PASS: package/layout/font/import checks, local document links/anchors and git diff --check.
+Current PPTX SHA256 62f29eb9471af9f9cf84d78470a63ed983eefcd10b488c7391f8e66a359ee3ba
+Corrected a walkthrough anchor to match the current handover Recommendation heading.
+No runtime validation or sprint transition performed.

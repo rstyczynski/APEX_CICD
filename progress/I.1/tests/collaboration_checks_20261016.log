@@ -1,0 +1,5 @@
+Checked 8 revised Markdown files and 28 local links.
+PASS: UC-1–7 and FR-8 collaboration requirement; PR/CI/CD flow; design remains Proposed.
+PASS: no application test tree; no runtime provisioning or import performed.
+git diff --check: return 0
+RESULT: PASS (document mechanics only; proposed workflows unrun)

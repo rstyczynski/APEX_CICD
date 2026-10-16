@@ -1,0 +1,11 @@
+docs/architecture.md: 366 -> 131 lines; prose content, structural lines and fenced blocks preserved
+docs/cicd-research.md: 295 -> 85 lines; prose content, structural lines and fenced blocks preserved
+docs/deploy.md: 225 -> 210 lines; prose content, structural lines and fenced blocks preserved
+docs/srs.md: 258 -> 81 lines; prose content, structural lines and fenced blocks preserved
+docs/test-profile.md: 186 -> 88 lines; prose content, structural lines and fenced blocks preserved
+progress/I.1/sprint_I.1_design.md: 87 -> 39 lines; prose content, structural lines and fenced blocks preserved
+progress/I.1/sprint_I.1_documentation_audit.md: 122 -> 45 lines; prose content, structural lines and fenced blocks preserved
+progress/I.1/sprint_I.1_proposedchanges.md: 96 -> 53 lines; prose content, structural lines and fenced blocks preserved
+progress/I.1/sprint_I.1_setup.md: 52 -> 21 lines; prose content, structural lines and fenced blocks preserved
+git diff --check: PASS
+Formatting only; no managed artifact/status changes or runtime actions.

@@ -1,0 +1,5 @@
+Checked 7 Markdown documents, 27 local links.
+PASS: A/B/C core journey, early exactly-one Hello owner, distinct deployment-race and runtime-state controls.
+PASS: twelve UC identities retained; design Proposed; implementation/proof unrun.
+git diff --check: 0
+RESULT: PASS (document checks only)

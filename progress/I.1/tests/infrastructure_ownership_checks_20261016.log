@@ -1,0 +1,5 @@
+Checked 9 revised Markdown documents and 38 local links.
+PASS: procedure ownership, assessed versions and E.1 lifecycle responsibility recorded.
+PASS: running-VM dependency removed; obsolete source-deletion examples removed.
+git diff --check: return 0
+RESULT: PASS (documentation only; no infrastructure operations)

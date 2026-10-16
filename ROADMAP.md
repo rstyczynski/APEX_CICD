@@ -3,16 +3,13 @@
 ## Basis and decision status
 
 The Product Owner accepted this roadmap and the next-sprint proposal on
-2026-10-16, following acceptance of the README vision. Existing local
-APEX/Podman setup remains completed preliminary work available for potential
-reuse. Sprint 0 is complete. I.1 and E.1 remain Planned.
+2026-10-16, following acceptance of the README vision. The platform installation is preliminary historical work; I.1 owns the maintained infrastructure lifecycle procedure and its assessment. Sprint 0 is complete. I.1 is closed with all material explicitly accepted by the Product Owner on 2026-10-16; E.1 activation is authorized following closure.
 
 ## Completed preliminary work
 
 The local Oracle Database, APEX, and ORDS setup, lifecycle scripts, and
 access/restart verification are documented in [docs/deploy.md](docs/deploy.md).
-Assess these assets for reuse rather than assuming a fresh installation is
-needed. Their adoption as the project baseline is not yet a technical decision.
+Elaboration takes this procedure and supporting scripts to provision, verify and destroy scoped experiment infrastructure. The analysis reference versions and historical checks are recorded there; the architecture does not depend on a particular VM continuing to run. Supporting sources still require reviewed Git adoption before reproducibility can be claimed.
 Retain the supplied [Oracle APEX lifecycle paper](refs/apex-lifecycle-management-v3.pdf)
 as external research input. Any fresh validation will be targeted to the
 selected approach and clearly distinguished from the historical checks.
@@ -27,7 +24,7 @@ the [handover](progress/sprint_0/sprint_0_handover.md) records the decision and 
 
 ## Inception — Research and candidate approach
 
-I.1 is the next planned iteration, formerly labeled Sprint 1. Keep PBI-003 through PBI-010 as one proportionate baseline:
+I.1 is complete, formerly labeled Sprint 1. Its accepted analysis retains the following scope. Keep PBI-003 through PBI-010 as one proportionate baseline:
 define users, system boundary, representative change journeys and success
 criteria; materialize the SRS; refine priorities and scope; assess risks;
 and deliver a candidate architecture and exact test-profile commands.

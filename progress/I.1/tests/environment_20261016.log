@@ -1,0 +1,88 @@
+Read-only assessment 2026-10-16T15:09:56.820657+00:00
+
+$ podman --version
+podman version 6.0.0
+RETURN 0
+
+$ podman --connection apex-cicd ps --format {{.Names}} {{.Status}} {{.Image}}
+apex-db Up About an hour docker.io/gvenzl/oracle-free:23.26.3
+apex-ords Up About an hour container-registry.oracle.com/database/ords@sha256:1551b5c51faf47a1e961ddbacf7d75262e686108b165d96c42542f0bae79e6de
+RETURN 0
+
+$ java -version
+openjdk version "25.0.1" 2025-10-21
+OpenJDK Runtime Environment Homebrew (build 25.0.1)
+OpenJDK 64-Bit Server VM Homebrew (build 25.0.1, mixed mode, sharing)
+RETURN 0
+
+$ shasum -a 256 refs/apex-lifecycle-management-v3.pdf
+6f41b2f4511bfc3e3e4bbe28f3240c897a56006a42e46177d62a06d493cc4425  refs/apex-lifecycle-management-v3.pdf
+RETURN 0
+
+$ podman --connection apex-cicd exec -i apex-db sqlplus -s / as sysdba
+INPUT:
+set pagesize 50 linesize 160
+select banner_full from v$version;
+alter session set container=FREEPDB1;
+select version_no from apex_release;
+select comp_id,version,status from dba_registry where comp_id = 'APEX';
+select count(*) as invalid_apex_objects from dba_objects where owner='APEX_240200' and status='INVALID';
+exit
+OUTPUT:
+
+BANNER_FULL
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+
+
+Session altered.
+
+
+VERSION_NO
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+24.2.0
+
+
+COMP_ID 		       VERSION			      STATUS
+------------------------------ ------------------------------ -----------
+APEX			       24.2.0			      VALID
+
+
+INVALID_APEX_OBJECTS
+--------------------
+		   0
+
+RETURN 0
+
+$ curl --fail --silent --show-error http://127.0.0.1:8080/i/apex_version.txt
+Oracle APEX Version:  24.2
+
+RETURN 0
+
+SQLcl: command -v sql returned no path during assessment. No connection profile or application fixture exists as a sprint deliverable.
+
+$ bash -n scripts/apex-configure.sh
+RETURN 0
+
+$ bash -n scripts/apex-db-start.sh
+RETURN 0
+
+$ bash -n scripts/apex-helper-setup.sh
+RETURN 0
+
+$ bash -n scripts/apex-ords-install.sh
+RETURN 0
+
+$ bash -n scripts/apex-start.sh
+RETURN 0
+
+$ bash -n scripts/apex-stop.sh
+RETURN 0
+
+$ bash -n scripts/apex-verify.sh
+RETURN 0
+
+$ bash -n scripts/apex-vm-start.sh
+RETURN 0

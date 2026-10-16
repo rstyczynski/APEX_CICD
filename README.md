@@ -22,17 +22,17 @@ A successful demonstration takes a reviewed source change through the selected p
 
 ## Local environment and constraints
 
-Model the workflow on a local Oracle APEX service, preferably using Podman. The Product Owner recognizes the existing environment setup, [local deployment runbook](docs/deploy.md), lifecycle scripts in `scripts/`, and recorded access/restart checks as completed preliminary work available for potential reuse. Assess its suitability for the selected CI/CD approach and verify the current runtime when needed. Preserve existing data, configuration, credentials, and unrelated Podman resources during that assessment.
+Model the workflow on a local Oracle APEX service, preferably using Podman. I.1 owns the [infrastructure lifecycle procedure](docs/deploy.md) and its assessment. Elaboration takes this procedure and supporting scripts to create, verify and destroy the experiment infrastructure as needed; the project does not depend on a particular VM remaining present. The assessed versions and preliminary verification evidence are recorded with the procedure. Preserve retained data, configuration, credentials and unrelated Podman resources during lifecycle work.
 
 Keep the application small and use synthetic greeting data. Keep secrets outside version control, identify exact tool and runtime versions, and state local resource requirements. Cloud deployment, production operations, high availability, and a feature-rich business application are outside the initial demonstration scope. The CI service, migration tool, packaging strategy, and physical separation of targets remain open choices.
 
 ## Delivery method and current state
 
-The project uses [RUP Strikes Back](AGENTS.md) with the [local policy](RUP_patch.md). Sprint 0 is complete: PBI-001 delivered the accepted vision and PBI-002 delivered the accepted [roadmap](ROADMAP.md) and next-sprint plan. The [plan](PLAN.md) identifies I.1 (formerly Sprint 1) as the next iteration, still Planned. The [backlog](BACKLOG.md) defines its assigned outcomes.
+The project uses [RUP Strikes Back](AGENTS.md) with the [local policy](RUP_patch.md). Sprint 0 is complete: PBI-001 delivered the accepted vision and PBI-002 delivered the accepted [roadmap](ROADMAP.md) and next-sprint plan. The [plan](PLAN.md) records I.1 (formerly Sprint 1) as closed in managed mode. The Product Owner accepted its revised analysis baseline with the presentation wording correction on 2026-10-16. The Product Owner subsequently accepted all I.1 material and explicitly closed the sprint. E.1 activation is authorized and follows this closure increment. The [Product Owner handover](progress/I.1/sprint_I.1_handover.md) summarizes the concept, six demonstration scenarios and proposed Elaboration scope. Its [presentation walkthrough](progress/I.1/sprint_I.1_increment_demo.md) links the PowerPoint companion. The [final engineering review decisions](progress/I.1/analysis_review-answers_2.md) link the reconciled contracts and remaining Elaboration proof. The [backlog](BACKLOG.md) defines its assigned outcomes.
 
 ### Sprint 0 — Vision and initial plan
 
-The Product Owner accepted the vision and roadmap and requested closure on 2026-10-16. Preliminary deployment work and external references are recorded for potential reuse. See the [handover and new-session prompt](progress/sprint_0/sprint_0_handover.md) and [document walkthrough](progress/sprint_0/sprint_0_increment_demo.md). No application code or runtime validation was delivered in Sprint 0. The [test profile](docs/test-profile.md) remains pending candidate architecture in I.1.
+The Product Owner accepted the vision and roadmap and requested closure on 2026-10-16. Preliminary deployment work and external references are recorded for potential reuse. See the [handover and new-session prompt](progress/sprint_0/sprint_0_handover.md) and [document walkthrough](progress/sprint_0/sprint_0_increment_demo.md). No application code or runtime validation was delivered in Sprint 0. The [test profile](docs/test-profile.md) contains accepted future E.1 command contracts; none has been executed as an application test.
 
 ## External references
 

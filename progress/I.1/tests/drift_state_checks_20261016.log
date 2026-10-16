@@ -1,0 +1,5 @@
+Checked 8 revised Markdown files and 29 local links.
+PASS: UC-1–7, FR-1–10, ten risks; drift/state chapters and SM-3/IT-7–9 cases present.
+PASS: design Proposed; no root application-test tree.
+git diff --check: return 0
+RESULT: PASS (document mechanics only; no application tests or runtime changes)
