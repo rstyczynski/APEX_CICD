@@ -1,0 +1,21 @@
+RUN integration:test_development.sh:test_IT11_isolation
+PASS lab-dev: effective schema/PDB/workspace mapping
+PASS lab-dev-b: effective schema/PDB/workspace mapping
+PASS lab-dev-c: effective schema/PDB/workspace mapping
+PASS lab-qualify: effective schema/PDB/workspace mapping
+PASS lab-test: effective schema/PDB/workspace mapping
+PASS lab-dev: cross-area read/write denied
+PASS lab-dev-b: cross-area read/write denied
+PASS lab-dev-c: cross-area read/write denied
+PASS lab-qualify: cross-area read/write denied
+PASS lab-test: cross-area read/write denied
+Provisioned lab-dev: E1_DEV_A / E1_DEV_A
+Provisioned lab-dev-b: E1_DEV_B / E1_DEV_B
+Provisioned lab-dev-c: E1_DEV_C / E1_DEV_C
+Provisioned lab-qualify: E1_QUALIFY / E1_QUALIFY
+Provisioned lab-test: E1_TEST / E1_TEST
+Disposable qualification area recreated; other areas retained.
+PASS: Oracle failure propagates as failure.
+PASS: committed TEST marker survived qualification-area recreation.
+PASS test_IT11_isolation
+Tests: 1; failed: 0

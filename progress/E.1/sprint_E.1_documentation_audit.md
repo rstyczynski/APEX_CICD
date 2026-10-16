@@ -1,0 +1,24 @@
+# E.1 — Documentation audit
+
+## Setup and proposed design — 2026-10-16
+
+Reviewed the accepted SRS, candidate architecture, test profile, README, assigned PBI-011–016 and final I.1 decisions against E.1's requested proofs. The setup/design preserve one application per target, the three components, private single-host areas, supported Oracle interfaces, exact-byte qualification and observed-state repair. Eight child definitions include parent, bounded outcome, dependencies, acceptance cases and estimates. PBI-012–016 remain separate evidence/refinement/decision outcomes. Other sprint artifacts are unchanged.
+
+Read-only environment checks establish Podman 6.0.0, the owned four-CPU/6-GiB VM and running DB/ORDS containers, 48 GiB host RAM/twelve logical CPUs and approximately 13 GiB free host disk. No runtime mutation, tool installation or credential operation was performed. Existing scripts/.gitignore remain untracked; review/adoption belongs to child 1. Oracle reference pages for installation, export checksums, restricted availability and Liquibase were checked; local compatibility remains untested.
+
+Updated the shared deployment procedure for E.1 ownership and the authorized reuse/reconstruction of the current environment. Removed the teardown step that deleted the host .local-apex directory so credentials, installers and evidence survive VM removal. Reconstruction will be executed after approval, before retained prototype history is established. The initial disk observation is not a fixed limit; measure again when executing. User preferences now state concise records and current-sprint-only work.
+
+The selected design is accepted and construction/functional-test records now track the actual work. The design states proposed interfaces and unrun cases explicitly. Local P8 defers executable skeletons until approval and completion commits until an audited increment is complete. This is a proposal audit, not a PBI completion or runtime pass. No push is authorized.
+
+Validation: python3 /private/tmp/apex-rup-document-check.py passed for 28 documents and 150 local links/anchors, Markdown fences, traceability targets, assigned-PBI existence and exactly one active sprint. A separate Python assertion check passed for eight sequential children with parent/dependency/evidence/estimate, fourteen E.1 board rows and the testing strategy/specification. Compared previous PLAN sections, board rows and prior sprint directories with HEAD: unchanged. git diff --check passed. No runtime tests or executable skeletons were run. The selected scope is approved; completed implementation increments are audited and committed together.
+
+
+## Platform increment — PBI-011.1
+
+The selected platform scope is complete: private checksum-pinned tools, adopted lifecycle sources, owned-area inventory, dedicated named connections, five isolated private/qualification/TEST areas and separate control-schema bootstrap. Inspected effective identities, ordinary grants, public provisioning API calls and saved-connection/secret handling. The platform smoke and isolation/reset integration subset passed with actual logs in the test record. A retained TEST marker survives disposable-area recreation. The SQLcl script-file/completion-marker fix is included with its preservation/error-propagation evidence. Fresh VM reconstruction was not needed for this selected slice and is not claimed as executed.
+
+Reconciled shared SRS/architecture/test-profile expectations with the selected design, setup, current construction/test records, README, deployment procedure and board. The accepted command contract remains future work for release build/qualification/promotion; no complete pipeline or application pass is claimed. Supporting lifecycle scripts were syntax checked and reviewed, not all rerun. Shared approved design/test skeletons and scaffolding are included with the first increment that depends on them; they do not complete later children. Other sprint directories, earlier PLAN sections and earlier board rows remain unchanged.
+
+Commit scope is platform code/configuration/tests, adopted lifecycle sources/ignore rules, active-sprint documents and shared E.1 orientation/activation changes. Foundation/application/ownership work remains under construction and is excluded from this completion commit where separable. No credentials, local tool binaries, session files or unrelated untracked files are staged. No push is authorized.
+
+Pre-commit checks passed: 31 Markdown documents/157 local links and anchors; shell syntax for the runner, tool bootstrap and eight lifecycle scripts; Python compilation; Git ignore coverage for secrets/tools/history; git diff --check. B1 smoke regression passed. The prior sprint directory diff is empty. Full application unit/integration gates remain pending and are not hidden by this platform checkpoint.

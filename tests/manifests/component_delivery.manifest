@@ -1,0 +1,9 @@
+smoke:test_platform.sh:test_SM1_platform
+unit:test_greeting.sh:test_UT1_composition
+unit:test_greeting.sh:test_UT2_history
+integration:test_development.sh:test_IT11_isolation
+integration:test_development.sh:test_IT4_assembly
+integration:test_release.sh:test_IT1_release
+integration:test_release.sh:test_IT2_patch
+integration:test_controls.sh:test_SM2_compatibility
+integration:test_controls.sh:test_IT7_drift

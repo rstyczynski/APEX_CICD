@@ -71,10 +71,13 @@ Backlog Items:
 
 ## Sprint E.1 - Validate the local APEX delivery path
 
-Status: Planned
+Status: Progress
 Mode: managed
 Test: smoke, unit, integration
 Regression: smoke, unit, integration
+
+Activated on 2026-10-16 under the Product Owner's explicit authorization
+after I.1 closure. Prototype construction awaits E.1 design approval.
 
 This provisional Elaboration iteration uses a minimal Hello/World architectural
 prototype to validate the highest-risk technical assumptions and use cases,

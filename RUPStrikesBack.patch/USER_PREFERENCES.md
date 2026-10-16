@@ -22,3 +22,13 @@ this preference.
 Use the full name “Word Error Rate” in explanations, presentations and
 project-authored narrative documents. Do not shorten this metric to initials.
 Retain machine-readable field names and historical raw test evidence.
+
+## Working style and sprint boundaries — 2026-10-16
+
+Avoid unnecessary bureaucracy. Keep sprint records focused on useful decisions,
+deliverables and evidence; do not turn conversation wording into a running
+incident account. Communicate directly and keep routine process detail brief.
+
+Work only on the current sprint. Do not edit other sprints' artifacts. Shared
+product documents and the current sprint's plan/board entries may be updated
+as required for its authorized work.

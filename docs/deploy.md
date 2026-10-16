@@ -2,13 +2,13 @@
 
 ## Ownership and lifecycle purpose
 
-I.1 owns this procedure as a sprint product and has assessed it as the infrastructure basis for the CI/CD laboratory. Elaboration must take this procedure and its supporting scripts, assume responsibility for execution/adaptation, and use them to create, verify, stop, restart and destroy APEX experiment infrastructure as needed. A particular running VM is not the project baseline; this reproducible lifecycle procedure is. The [architecture](architecture.md) defines the application targets and the [assessment](cicd-research.md) records the analysis.
+E.1 owns this procedure and its supporting lifecycle scripts. Maintain it while creating, verifying, stopping, restarting and recreating the local APEX laboratory. Use the current `apex-cicd` Podman environment; the Product Owner explicitly authorized destroying and recreating that environment as needed on 2026-10-16. The [architecture](architecture.md) defines the application targets and the [assessment](cicd-research.md) records the initial analysis.
 
 Analysis reference, 2026-10-16: Podman 6.0.0, Oracle AI Database 26ai Free 23.26.3.0.0, APEX 24.2.0 and ORDS 25.3.0.r2671248, with the image digests in `scripts/apex-images.env`. I.1 [read-only checks](../progress/I.1/tests/environment_20261016.log) confirmed database/APEX versions, registry validity, zero invalid APEX objects, matching static assets and shell syntax. The browser-login/full-restart record below comes from the preliminary deployment. I.1 did not repeat provisioning or teardown; end-to-end lifecycle validation belongs to Elaboration.
 
-Before executing lifecycle operations, Elaboration must record its procedure/script revision, tool/image versions, selected instance/resource names and which data is disposable or retained. Adapt names and connection settings consistently if the developer/task topology needs multiple targets. Scope teardown to that owned instance and its disposable fixtures, preserving retained data, credentials and evidence plus all unrelated resources. Normal application deployments use migrations and retain history; they do not recreate infrastructure.
+For lifecycle experiments, note the procedure/script revision, actual versions and affected resource names with the result. Scope teardown to the owned instance, preserving retained data, host credentials and evidence plus unrelated resources. Private developer areas use the same database runtime. Normal application deployments use migrations and retain history; they do not recreate infrastructure. The current infrastructure may be rebuilt for the E.1 lifecycle proof; retained application fixtures established later must be exported or otherwise preserved before such a rebuild.
 
-The supporting scripts and `.gitignore` have been inspected but remain untracked at this analysis checkpoint. Review and commit those sources with the procedure's adoption before claiming reproducibility from Git. Replace `/path/to/APEX_CICD` with the operator's actual checkout. The initial supported proof uses private developer/task areas and disposable validation roles on one host; their schema/workspace/application provisioning and the durable control authority must be automated and validated during Elaboration. These logical areas do not require additional permanent VMs. Commands below run from the project root; “this directory” means the project root. Infrastructure lifecycle sections are available for experiment provisioning/teardown, not steps to execute on every application release.
+E.1 adopts the reviewed lifecycle scripts and `.gitignore` with its platform increment. Replace `/path/to/APEX_CICD` with the operator's actual checkout. The initial supported proof uses private developer/task areas and disposable validation roles on one host; E.1's construction record tracks their provisioning and control validation. These logical areas do not require additional permanent VMs. Commands below run from the project root; “this directory” means the project root. Infrastructure lifecycle sections are available for experiment provisioning/teardown, not steps to execute on every application release.
 
 This runbook adapts [Raoul Mangoensentono's recipe](https://www.linkedin.com/pulse/simple-way-run-oracle-apex-apple-silicon-raoul-mangoensentono-5rrde/) to Podman. It installs APEX in `FREEPDB1` on `gvenzl/oracle-free`, with a separate Oracle ORDS container. All runtime resources belong to the dedicated `apex-cicd` VM. Unrelated Podman machines are preserved. Run commands in Bash from this directory.
 
@@ -165,7 +165,7 @@ Keep sufficient disk space for image downloads, Oracle datafiles, and APEX insta
 
 ## Remove the runtime completely
 
-These commands destroy the procedure's named instance, including its database and configuration. Before running them, identify the owned resources and preserve all retained data, credentials and evidence outside the teardown scope. Only disposable experiment content may be discarded. Leave this procedure and its source scripts in place so the infrastructure can be recreated.
+These commands destroy only the named `apex-cicd` instance, including its database and VM-local configuration. Preserve retained data outside the VM first. Keep `.local-apex/` on the host: it contains credentials, downloaded installers, helper configuration and evidence needed for reconstruction. Leave this procedure and its source scripts in place.
 
 ```bash
 cd /path/to/APEX_CICD
@@ -173,13 +173,14 @@ export CONTAINERS_CONF_OVERRIDE="$PWD/.local-apex/containers.conf"
 bash scripts/apex-stop.sh
 launchctl bootout "gui/$(id -u)/local.apex-cicd.vm-start"
 podman machine rm --force apex-cicd
-rm -rf -- .local-apex
 unset CONTAINERS_CONF_OVERRIDE
 podman machine list
 podman system connection list
 ```
 
 Removing the dedicated VM removes its containers, volumes, networks and downloaded container images. It does not remove `podman-machine-default`. No global prune or reset is needed.
+
+To recreate, follow the preparation and installation sections with the same instance name and retained host credentials. Do not rerun password generation over an existing credentials file. Restore retained application data before checking its preservation; an empty replacement database is not evidence of a data-preserving upgrade. E.1 records the actual reconstruction result here after execution.
 
 If the VM is already stopped, skip the stop command. If it is stuck during its very first boot, preserve its log before removal (`$(getconf DARWIN_USER_TEMP_DIR)/podman/apex-cicd.log`). A force removal of this dedicated VM is the reset boundary; do not delete or reset another machine.
 

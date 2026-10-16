@@ -3,7 +3,7 @@
 ## Basis and decision status
 
 The Product Owner accepted this roadmap and the next-sprint proposal on
-2026-10-16, following acceptance of the README vision. The platform installation is preliminary historical work; I.1 owns the maintained infrastructure lifecycle procedure and its assessment. Sprint 0 is complete. I.1 is closed with all material explicitly accepted by the Product Owner on 2026-10-16; E.1 activation is authorized following closure.
+2026-10-16, following acceptance of the README vision. The platform installation is preliminary historical work; I.1 owns the maintained infrastructure lifecycle procedure and its assessment. Sprint 0 is complete. I.1 is closed with all material explicitly accepted by the Product Owner on 2026-10-16; E.1 is now active under that authorization.
 
 ## Completed preliminary work
 
@@ -48,7 +48,7 @@ approving an executable iteration.
 
 ## Elaboration — Validate the risky delivery path
 
-E.1, formerly labeled Sprint 2, is planned with
+E.1, formerly labeled Sprint 2, is active in managed mode with
 PBI-011 through PBI-016. Use a thin Hello/World slice to validate source export,
 database evolution, packaging, target deployment, and an observable behavior
 change. Reuse existing assets where the accepted design supports them.

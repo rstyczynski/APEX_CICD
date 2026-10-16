@@ -1,0 +1,2 @@
+smoke:test_platform.sh:test_SM1_platform
+integration:test_development.sh:test_IT11_isolation

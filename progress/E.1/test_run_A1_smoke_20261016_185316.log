@@ -1,0 +1,56 @@
+RUN smoke:test_platform.sh:test_SM1_platform
+PASS lab-dev: effective schema/PDB/workspace mapping
+PASS lab-dev-b: effective schema/PDB/workspace mapping
+PASS lab-dev-c: effective schema/PDB/workspace mapping
+PASS lab-qualify: effective schema/PDB/workspace mapping
+PASS lab-test: effective schema/PDB/workspace mapping
+
+Session altered.
+
+
+CONTAINER_NAME
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+FREEPDB1
+
+
+COMP_ID 		       VERSION			      STATUS
+------------------------------ ------------------------------ -----------
+APEX			       24.2.0			      VALID
+
+
+VERSION_NO
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+24.2.0
+
+
+USERNAME															 ACCOUNT_STATUS
+-------------------------------------------------------------------------------------------------------------------------------- --------------------------------
+APEX_LISTENER															 OPEN
+APEX_PUBLIC_USER														 OPEN
+APEX_REST_PUBLIC_USER														 OPEN
+ORDS_PUBLIC_USER														 OPEN
+
+
+INVALID_APEX_OBJECTS
+--------------------
+		   0
+
+
+PL/SQL procedure successfully completed.
+
+
+USER
+--------------------------------------------------------------------------------
+PDB
+--------------------------------------------------------------------------------
+SYSTEM
+FREEPDB1
+
+
+ORDS landing: HTTP 200
+APEX login: HTTP 200
+Oracle APEX Version:  24.2
+
+Database SQL, ORDS, APEX sign-in and static version checks passed.
+PASS test_SM1_platform
+Tests: 1; failed: 0
