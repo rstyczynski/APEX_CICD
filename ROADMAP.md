@@ -1,35 +1,93 @@
-# Generic RUP Lifecycle Roadmap Template
+# Oracle APEX CI/CD Laboratory Roadmap
 
-This is a reusable lifecycle outline. A project creates its own roadmap from its accepted vision; it does not inherit project scope from this template.
+## Basis and decision status
 
-## Inception
+This proposed roadmap follows the README vision accepted on 2026-10-16.
+The Product Owner recognizes the existing local APEX/Podman setup as completed
+preliminary work available for potential reuse. The roadmap and next-sprint
+scope await acceptance under PBI-002. No later sprint starts through this proposal.
 
-1. Establish the product vision and intended outcomes.
-2. Define stakeholders, use cases, and success criteria.
-3. Materialize the Software Requirements Specification (SRS).
-4. Establish and prioritize the Product Backlog.
-5. Define the initial release scope and acceptance criteria.
-6. Identify constraints, assumptions, and major risks.
-7. Materialize the candidate architecture.
-8. Review the Inception baseline for consistency and viability.
+## Completed preliminary work
 
-## Elaboration
+The local Oracle Database, APEX, and ORDS setup, lifecycle scripts, and
+access/restart verification are documented in [docs/deploy.md](docs/deploy.md).
+Assess these assets for reuse rather than assuming a fresh installation is
+needed. Their adoption as the project baseline is not yet a technical decision.
+Retain the supplied [Oracle APEX lifecycle paper](refs/apex-lifecycle-management-v3.pdf)
+as external research input. Any fresh validation will be targeted to the
+selected approach and clearly distinguished from the historical checks.
 
-1. When a prototype PBI spans independently reviewable work, refine it during
-   iteration setup/design from the accepted candidate architecture.
-2. Build an executable architectural prototype and validate significant
-   technical assumptions and representative use cases.
-3. Refine requirements, design, and the release plan from validation evidence,
-   then establish the executable architecture baseline.
-4. Assess the Lifecycle Architecture milestone and create or revise the
-   Construction plan from the evidence.
+## Sprint 0 — Vision and initial plan
 
-## Construction
+PBI-001 has delivered the accepted vision for a reproducible CI/CD laboratory
+and a minimal application with greeting history and Hello/World data and
+configuration pages. PBI-002 proposes this roadmap and the next iteration.
+Sprint closure still requires the document demonstration, review, and handover
+decision prescribed by the local method.
 
-1. Deliver prioritized backlog increments through iterative analysis, design, implementation, and testing.
-2. Maintain traceability, quality evidence, and risk management.
+## Inception — Research and candidate approach
 
-## Transition
+Propose I.1 as the next iteration, replacing the generic Sprint 1 label after
+acceptance. Keep PBI-003 through PBI-010 as one proportionate baseline:
+define users, system boundary, representative change journeys and success
+criteria; materialize the SRS; refine priorities and scope; assess risks;
+and deliver a candidate architecture and exact test-profile commands.
 
-1. Prepare release, deployment, adoption, support, and feedback activities.
-2. Stabilize the product and plan the next lifecycle iteration.
+Compare SQLcl PROJECT workflows with explicit APEX export/import plus
+versioned database migrations, including applicable Liquibase integration.
+Assess reviewable source, reproducible exports, release packaging, ordering
+of database and application changes, configuration and secrets, developer
+collaboration, runner access to the local service, target isolation, failure
+detection, and recovery. These are research candidates, not tool selections
+or claims of local compatibility.
+
+Use the external paper and version-specific primary documentation, then
+recommend the smallest approach that demonstrates the accepted vision.
+Define what the Hello and World components own and whether one application
+is sufficient. Resolve data/configuration behavior and history preservation
+before construction. Select a CI execution model and development/test
+separation compatible with local resources. Review requirements, research
+conclusions, candidate architecture, and quality profile together before
+approving an executable iteration.
+
+## Elaboration — Validate the risky delivery path
+
+Propose E.1, replacing the generic Sprint 2 label after acceptance, with
+PBI-011 through PBI-016. Use a thin Hello/World slice to validate source export,
+database evolution, packaging, target deployment, and an observable behavior
+change. Reuse existing assets where the accepted design supports them.
+Refine PBI-011 into bounded sprint children before construction, with Product
+Owner approval.
+
+Test repeat deployment and a failing change, inspect its effect on saved
+history, and demonstrate recovery or forward repair. Record actual version
+compatibility, runner/network constraints, evidence, and remaining limits.
+Revise the approach when evidence contradicts the research. Assess the
+Lifecycle Architecture milestone before committing to full Construction
+scope; retain further Elaboration if needed.
+
+## Construction — Complete the reusable example
+
+Define C.n iterations from the validated architecture and remaining backlog.
+Complete Hello and World data/configuration pages and greeting history, then
+deliver the chosen review, build/check, release, and deployment workflow.
+Show a component change and a database change with traceable release artifacts,
+preserved data, and failure handling. Prefer a few coherent increments over
+separate iterations for every generic discipline. No C.n assignment is made here.
+
+## Transition — Reproduce and hand over
+
+Have an operator follow the local workflow from prerequisites to a deployed
+change and known failure/recovery case. Deliver operating guidance, evidence,
+limitations, and the comparison explaining why the selected approach fits.
+Demonstrate the actual increment and capture the Product Owner decision.
+Production rollout, cloud hosting, and high availability remain outside the
+accepted initial scope.
+
+## Refinement and acceptance
+
+I.1 refines this plan using research and requirements; E.1 refines it again
+using executable evidence. Merge or split later work when outcomes,
+dependencies, or risks justify it. See the [Sprint 0 proposal](progress/sprint_0/sprint_0_proposedchanges.md)
+for the decision sought and proposed label mapping. The current [plan](PLAN.md)
+retains existing sprint entries until that decision is recorded.

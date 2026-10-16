@@ -1,5 +1,32 @@
 # Sprint Plan
 
+## Completed preliminary work
+
+The Product Owner confirmed on 2026-10-16 that the existing local Oracle APEX
+setup is completed initial work. The baseline includes the Podman environment,
+Oracle Database/APEX/ORDS installation, lifecycle and verification scripts,
+and the [deployment runbook](docs/deploy.md). Its verification record documents
+database and HTTP access, administrator login, and a full VM stop/restart.
+This work predates Sprint 0; it is not a retrospectively executed RUP sprint.
+
+Treat this as completed preliminary work available for potential reuse.
+Future work will assess suitability for the chosen CI/CD approach and
+validate current runtime behavior as needed. Historical checks remain
+historical evidence; this entry does not claim a fresh execution or completion
+of the Hello World application or its CI/CD pipeline.
+
+The supplied [Oracle APEX lifecycle PDF](refs/apex-lifecycle-management-v3.pdf)
+is preserved as an external reference for the research.
+
+## Planning decisions
+
+The Product Owner accepted the README vision on 2026-10-16. Sprint 0 remains
+in progress for the initial plan and handover. The project-specific
+[roadmap](ROADMAP.md) and [next-sprint proposal](progress/sprint_0/sprint_0_proposedchanges.md)
+are proposed for review. The later sprint entries below remain bootstrap
+defaults until that proposal is accepted; they are not new authorization to
+start implementation.
+
 ## Sprint 0 - Vision and initial plan
 
 Status: Progress
