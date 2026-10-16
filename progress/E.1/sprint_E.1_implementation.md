@@ -128,3 +128,13 @@ Added explicit SRS UC mappings for the selected A/B/C journey, configuration/gre
 - Authored Hello pages 100/101 and configuration pages 110/111 as DEV_B. The captured form's SQL selector filters active entries; configuration creation/deletion and entry deletion are hidden. Database guards enforce those rules independently.
 - Two unchanged B exports are byte-identical. Reviewed generated original-ID offsets, manifest comments, component-map cache and per-target UI identity as comparison-only metadata. Raw Oracle export files remain unmodified. Foundation page behavior is unchanged; Hello owns the added pages/LOV, with declared generated navigation/include additions.
 - B remains unavailable with an accurate World-not-installed message. Its task is released after scoped verification/source review. Combined browser behavior is tested after C; this intermediate contribution does not complete child 5 or release qualification.
+
+## World and combined database construction
+
+- Hello source accepted as f511ab8 and integrated locally before C's task. C reserved World at that Git base (world-initial, generation 4), reconstructed Foundation/Hello into E1_DEV_C/application 810003 through the supported mappings, and passed the inherited Hello assembly checks.
+- Applied immutable migration 004-world and authored World pages 200/201/210/211 as DEV_C. Root maintenance is retained while source/combined browser verification is in progress.
+- UT-1 and UT-2 now run real Oracle assertions on C and pass: exact defaults/trim/prefix/Unicode composition, explicit selections, missing entry/default deactivation rejection, blank/oversize input and maximum length; unchanged original history snapshots after settings/data changes and rejected history update/delete. Fixtures roll back, including the temporary ready state; no seed entries/history remain from the unit suite.
+- Capturing/reviewing C's scoped source next, before the shared composition refinement and restricted browser verification.
+
+
+World source review passed against f511ab8: four World pages, its LOV and generated navigation/includes; existing Hello/Foundation behavior and original component identities are preserved. Two repeated C exports match byte-for-byte. Reviewed source copies remain raw Oracle output. World task generation 4 is released; the next shared composition change requires its own complete reservation before authoring.

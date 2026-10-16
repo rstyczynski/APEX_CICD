@@ -329,7 +329,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev
 - The pipeline-stage list at the end tracks what works and what remains under construction.
 
 - For another area's inventory, connect with lab-dev-b, lab-dev-c, lab-qualify or lab-test and run the same application_inventory.sql.
-- B contains a Foundation-plus-Hello assembly; C and TEST still have no application. Qualification contains Foundation only.
+- B contains Foundation plus Hello; C contains all three components under verification; TEST has no application. Qualification contains Foundation only.
 - Only A has Foundation installed at this stage.
 
 ## Developer A — Foundation
@@ -385,8 +385,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev
 
 - At the SQLcl prompt, run @deploy/operator/application_inventory.sql and leave with Ctrl+D.
 - The schema is E1_DEV_C and the saved connection is lab-dev-c.
-- The workspace/account exists, but no application has been imported here yet.
-- Application ID 810003 is reserved, not deployed.
+- Application 810003 now contains Foundation, Hello and World, including World pages 200/201 and 210/211. It remains blocked until shared composition/browser verification is complete.
 
 ## Qualification and TEST
 

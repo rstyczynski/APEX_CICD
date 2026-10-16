@@ -67,3 +67,12 @@ Earlier interactive command results support the additional Foundation/capture ob
 - Hello assembly checks passed: Foundation/Hello 1.0.0, World absent, no seeded entries, incomplete runtime rejects mutation.
 - Repeated B exports are byte-identical. [Scope review](tests/hello_source_review.txt) identifies generated identity metadata and preserves Foundation behavior; the final form source contains active-entry lookup and disabled configuration creation/deletion.
 - Hello task generation 3 was released after verification. Combined runtime behavior remains pending C.
+
+
+## World contribution and combined database
+
+- C reconstructed accepted Foundation/Hello f511ab8 and passed inherited Hello assembly checks before migration 004.
+- World migration 004 compiled cleanly; all components report 1.0.0 while root remains maintenance.
+- Registered unit suite passed 2 tests, 0 failures, on real Oracle with rolled-back fixtures.
+- [World source review](tests/world_source_review.txt) passed repeated byte-identical export, original-ID preservation, untouched Hello/Foundation behavior and final form controls.
+- World generation 4 released. Complete browser result/publication remains pending shared-composition verification.

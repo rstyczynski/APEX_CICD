@@ -33,7 +33,7 @@
 
 - A's Foundation database and application shell exist. Its runtime displays the assembly-blocked message.
 - The script can show that current runtime result after internal database checks. This is not a new deployment.
-- B now contains the reviewed Foundation-plus-Hello intermediate assembly; the grouped B delivery operation, C/World, release/patch and rejection demonstrations remain under construction.
+- B contains reviewed Foundation/Hello source; C contains the reviewed World addition and all three database components. Shared composition/browser verification and the grouped delivery/release/rejection demonstrations remain under construction.
 - The complete positive/negative deployment demonstration is therefore **not ready**.
 - The current script stops with **PENDING**, status 3, before B. It does not print successful deployment or rejection claims for those missing operations.
 
@@ -123,7 +123,7 @@
 
 - The terminal shows versions **1.0.0 / 1.0.0 / 1.0.0** and actual successful verification output.
 - The first slice runs B/C sequentially; it does not claim concurrent-development proof.
-- E1_DEV_C / application 810003 is currently reserved without a deployed application.
+- E1_DEV_C / application 810003 contains all three components under verification; its runtime is not yet published.
 
 ## Release and compatible update — pending construction
 

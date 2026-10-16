@@ -1,18 +1,18 @@
 prompt --application/user_interfaces
 begin
 --   Manifest
---     USER INTERFACES: 810002
+--     USER INTERFACES: 810003
 --   Manifest End
 wwv_flow_imp.component_begin (
  p_version_yyyy_mm_dd=>'2024.11.30'
 ,p_release=>'24.2.0'
 ,p_default_workspace_id=>3164667463725942
 ,p_default_application_id=>810001
-,p_default_id_offset=>4766506890374761
+,p_default_id_offset=>4796272935437553
 ,p_default_owner=>'E1_DEV_A'
 );
 wwv_flow_imp_shared.create_user_interface(
- p_id=>wwv_flow_imp.id(4766506889564759)
+ p_id=>wwv_flow_imp.id(4796272934627550)
 ,p_theme_id=>42
 ,p_home_url=>'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:::'
 ,p_login_url=>'f?p=&APP_ID.:LOGIN:&APP_SESSION.::&DEBUG.:::'

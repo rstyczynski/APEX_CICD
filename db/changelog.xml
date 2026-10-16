@@ -11,4 +11,7 @@
   <changeSet id="003-hello" author="apex-lab">
     <sqlFile path="changes/003-hello.sql" relativeToChangelogFile="true" splitStatements="true" endDelimiter="/"/>
   </changeSet>
+  <changeSet id="004-world" author="apex-lab">
+    <sqlFile path="changes/004-world.sql" relativeToChangelogFile="true" splitStatements="true" endDelimiter="/"/>
+  </changeSet>
 </databaseChangeLog>

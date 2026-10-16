@@ -18,6 +18,7 @@ prompt --install
 @@application/shared_components/navigation/tabs/standard.sql
 @@application/shared_components/navigation/tabs/parent.sql
 @@application/shared_components/user_interface/lovs/hello_entries_entry_text.sql
+@@application/shared_components/user_interface/lovs/world_entries_entry_text.sql
 @@application/pages/page_groups.sql
 @@application/shared_components/navigation/breadcrumbs/breadcrumb.sql
 @@application/shared_components/navigation/breadcrumbentry.sql
@@ -40,5 +41,9 @@ prompt --install
 @@application/pages/page_00101.sql
 @@application/pages/page_00110.sql
 @@application/pages/page_00111.sql
+@@application/pages/page_00200.sql
+@@application/pages/page_00201.sql
+@@application/pages/page_00210.sql
+@@application/pages/page_00211.sql
 @@application/pages/page_09999.sql
 @@application/end_environment.sql
