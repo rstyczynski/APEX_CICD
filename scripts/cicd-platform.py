@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 import secrets as random_secrets
 import sys
+import subprocess
 
 from apex_sql import LOCAL, ROOT, run
 
@@ -80,40 +81,12 @@ def bootstrap():
 
 
 def check():
-    for name, area in CONFIG['areas'].items():
-        run(f"""declare n number; begin
-          if user<>'{area['schema']}' or sys_context('USERENV','CON_NAME')<>'FREEPDB1' then
-            raise_application_error(-20010,'Wrong effective target'); end if;
-          select count(*) into n from apex_workspace_schemas where workspace_name='{area['workspace']}' and schema='{area['schema']}';
-          if n<>1 then raise_application_error(-20011,'Wrong workspace/schema association'); end if;
-        end;
-        /""", connection=name)
-        print(f'PASS {name}: effective schema/PDB/workspace mapping')
+    for name in CONFIG['areas']:
+        subprocess.run([sys.executable,str(ROOT/'scripts/cicd-isolation.py'),'identity',name],check=True)
 
 
 def isolation():
-    for name, area in CONFIG['areas'].items():
-        run("""declare n number; begin
-          select count(*) into n from user_tables where table_name='E1_PRIVATE_PROBE';
-          if n=0 then execute immediate 'create table e1_private_probe (id number primary key)'; end if;
-        end;
-        /""", connection=name)
-    names = list(CONFIG['areas'])
-    for index, name in enumerate(names):
-        foreign = CONFIG['areas'][names[(index+1) % len(names)]]['schema']
-        run(f"""declare n number; begin
-          begin
-            execute immediate 'select count(*) from {foreign}.e1_private_probe' into n;
-            raise_application_error(-20020,'Cross-area read was permitted');
-          exception when others then if sqlcode not in (-942,-1031) then raise; end if; end;
-          begin
-            execute immediate 'insert into {foreign}.e1_private_probe values (1)';
-            rollback;
-            raise_application_error(-20021,'Cross-area write was permitted');
-          exception when others then if sqlcode not in (-942,-1031) then raise; end if; end;
-        end;
-        /""", connection=name)
-        print(f'PASS {name}: cross-area read/write denied')
+    subprocess.run([sys.executable,str(ROOT/'scripts/cicd-isolation.py'),'all'],check=True)
 
 
 def reset_qualification():
@@ -167,6 +140,6 @@ if __name__ == '__main__':
             preservation_check()
         else:
             raise ValueError('Usage: cicd-platform.py bootstrap|check|isolation|reset-qualify|preservation-check')
-    except (ValueError, RuntimeError) as exc:
+    except (ValueError, RuntimeError, subprocess.CalledProcessError) as exc:
         print(exc, file=sys.stderr)
         sys.exit(1)

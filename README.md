@@ -22,7 +22,7 @@ A successful demonstration takes a reviewed source change through the selected p
 
 ## Local environment and constraints
 
-Model the workflow on a local Oracle APEX service, preferably using Podman. I.1 owns the [infrastructure lifecycle procedure](docs/deploy.md) and its assessment. Elaboration takes this procedure and supporting scripts to create, verify and destroy the experiment infrastructure as needed; the project does not depend on a particular VM remaining present. The assessed versions and preliminary verification evidence are recorded with the procedure. Preserve retained data, configuration, credentials and unrelated Podman resources during lifecycle work.
+Model the workflow on a local Oracle APEX service, preferably using Podman. E.1 maintains the [infrastructure lifecycle procedure](docs/deploy.md), building on the initial assessment. Elaboration takes this procedure and supporting scripts to create, verify and destroy the experiment infrastructure as needed; the project does not depend on a particular VM remaining present. The assessed versions and preliminary verification evidence are recorded with the procedure. Preserve retained data, configuration, credentials and unrelated Podman resources during lifecycle work.
 
 Keep the application small and use synthetic greeting data. Keep secrets outside version control, identify exact tool and runtime versions, and state local resource requirements. Cloud deployment, production operations, high availability, and a feature-rich business application are outside the initial demonstration scope. The CI service, migration tool, packaging strategy, and physical separation of targets remain open choices.
 
@@ -37,6 +37,8 @@ The Product Owner accepted the vision and roadmap and requested closure on 2026-
 ### Sprint E.1 — Validate the local APEX delivery path
 
 E.1 is active in managed mode. Its [setup](progress/E.1/sprint_E.1_setup.md) and [design](progress/E.1/sprint_E.1_design.md) define the bounded prototype and selected construction scope. The [construction document](progress/E.1/sprint_E.1_implementation.md) tracks the working platform, private areas, Foundation and pending application/release work. The approved slice covers the happy path, compatible versioned patch, incompatible Foundation-upgrade rejection and live-drift rejection. E.1 owns the infrastructure lifecycle procedure and may recreate the current scoped Podman environment as experiments require.
+
+Use the [E.1 operator guide](progress/E.1/user_manual.md) for the current application/workspace inventory, endpoints, logins, local password retrieval, atomic SQL checks and pipeline stage-by-stage status. Run bash scripts/cicd-walkthrough.sh for chapter-linked, keypress-guided execution of the implemented operator stages. The manual and script are maintained as one artifact. The [developer outcome walkthrough](progress/E.1/developer_walkthrough.md) groups A/B/C delivery stages with Product Owner URL checkpoints; its current runner inspects Foundation and stops before pending Hello construction.
 
 ## External references
 

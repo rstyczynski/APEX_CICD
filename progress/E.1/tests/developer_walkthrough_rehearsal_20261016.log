@@ -1,0 +1,149 @@
+OK: required tools/files and chapter references found. Database access is checked in A.
+High-level manual: /Users/rstyczynski/projects/APEX_CICD/progress/E.1/developer_walkthrough.md
+Current scope: inspect A’s existing Foundation result, then Product Owner URL checkpoints. B/C construction remains pending.
+## A. Deliver Foundation
+
+### Developer operation — target journey
+
+1. Reserve Foundation against the accepted Git base.
+2. Create its database contracts, component registry, maintenance state and greeting-history storage.
+3. Author the initial authenticated application in App Builder.
+4. Capture its source, review the diff and verify the Foundation-only assembly.
+5. Accept the source increment and release A's reservation.
+
+- Construction has already created the database and shell. This walkthrough currently checks that existing result; steps 4–5 are not complete.
+- The current scripted inspection checks A's schema/PDB/workspace, application inventory, Foundation-only database assertions and component state, then displays the separate control reservations.
+- Connection targets are **lab-dev** and **lab-control**.
+- Expected current state is Foundation **1.0.0**, Hello/World absent and application maintenance.
+
+### Product Owner checkpoint
+
+1. Open [A's runtime](http://127.0.0.1:8080/ords/f?p=810001:1).
+2. Confirm **Application Not Available** and **Foundation assembly: Hello and World are not installed.**
+3. Open [App Builder](http://127.0.0.1:8080/ords/f?p=4550:1).
+4. Sign in with workspace **E1_DEV_A**, username **DEV_A**; retrieve the local password with:
+
+   ```bash
+   python3 scripts/cicd-password.py DEV_A
+   ```
+
+5. Select application **810001** by ID. Its current saved display name is **1**; the intended source name is **APEX Delivery Laboratory**. Follow detailed manual **4.2–4.4** for navigation to the application home, Version, Home and Login definitions. This walkthrough does not rename the application.
+6. Compare the visible application with the inventory output. If a name/version differs, inspect it before proceeding; do not automatically accept or overwrite a live edit.
+7. Press a key in the terminal after inspection, or **q** to stop.
+
+REHEARSAL: pause/human inspection skipped; no browser verification claimed.
+
+Developer operation target: lab-dev
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/identity.sql" E1_DEV_A E1_DEV_A
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/application_inventory.sql"
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/component_inventory.sql"
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/foundation_verify.sql"
+
+
+SQLcl: Release 25.3 Production on Fri Oct 16 22:06:33 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_A","FREEPDB1"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_A","E1_DEV_A"
+
+Target identity verified.
+
+
+PL/SQL procedure successfully completed.
+
+"WORKSPACE","APPLICATION_ID","APPLICATION_NAME","ALIAS","VERSION","AVAILABILITY_STATUS"
+"E1_DEV_A",810001,"1","APEX-DELIVERY-LABORATORY","1.0.0","Unavailable"
+
+"COMPONENT","INSTALLED","VERSION"
+"Foundation",1,"1.0.0"
+"Hello",0,""
+"World",0,""
+
+"STATE_KEY","PARENT_KEY","STATE","REASON"
+"Application","","maintenance","Initial assembly incomplete"
+"Foundation","Application","ready","Foundation installed"
+"Hello","Application","maintenance","Not installed"
+"World","Application","maintenance","Not installed"
+
+"SAVED_GREETINGS"
+0
+
+Foundation verified; Hello/World absent; application remains in maintenance.
+
+
+PL/SQL procedure successfully completed.
+
+DEVELOPER_CHECK_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-dev inspection completed. Compare the output with the checklist.
+
+Developer operation target: lab-control
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/show_reservations.sql"
+
+
+SQLcl: Release 25.3 Production on Fri Oct 16 22:06:35 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"COMPONENT","OWNER_NAME","TASK_ID","BASE_REVISION","GENERATION"
+"Foundation","E1_DEV_A","foundation-initial","ebf1a1a1d05ec17b444b2d3df3bc36bd75a97f0e",1
+"Hello","","","",
+"World","","","",
+
+DEVELOPER_CHECK_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-control inspection completed. Compare the output with the checklist.
+PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810001:1
+Expected: Foundation assembly: Hello and World are not installed.
+REHEARSAL: pause/human inspection skipped; no browser verification claimed.
+PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=4550:1
+Use DEV_A / E1_DEV_A and the manual’s A checkpoint. No password is printed automatically.
+REHEARSAL: pause/human inspection skipped; no browser verification claimed.
+## B. Deliver Hello — pending construction
+
+### Developer operation — target journey
+
+1. Reserve Hello and prepare B's private area from accepted Foundation source.
+2. Author Hello's entry/configuration pages and database migration.
+3. Capture B's scoped changes and review the resulting source diff.
+4. Validate the candidate, accept/integrate the source and release B's reservation.
+
+- Workspace/schema: **E1_DEV_B**; connection: **lab-dev-b**; mapped application ID: **810002**.
+- The mapped ID is currently reserved, with no deployed application. Do not treat it as a working runtime URL.
+- The script must not perform this stage until its actual operations and acceptance checks are implemented.
+
+### Product Owner checkpoint — available after construction
+
+1. Open the B runtime URL printed by the completed stage.
+2. Check its declared assembly state; Foundation plus Hello still lacks World, so ordinary complete-application access remains blocked.
+3. Open [App Builder](http://127.0.0.1:8080/ords/f?p=4550:1), sign in as **DEV_B / E1_DEV_B**, and open the mapped application.
+4. Inspect Hello's new pages and configuration definitions.
+5. Inspect the operation's version, source-review and migration results in the terminal.
+6. Continue after confirming the outcome, or stop on an unexpected difference.
+
+- Interactive component behavior must be verified through the selected controlled verification path or a complete assembly. Do not bypass maintenance just for this checkpoint.
+
+PENDING: Hello developer delivery is not implemented. B/C and release stages have not run.
+Stopped before any B-area mutation. This is not a completed A/B/C delivery.

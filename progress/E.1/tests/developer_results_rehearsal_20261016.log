@@ -1,0 +1,132 @@
+OK: required tools/files and chapter references found. Database access is checked in A.
+High-level manual: /Users/rstyczynski/projects/APEX_CICD/progress/E.1/developer_walkthrough.md
+Current scope: show A’s existing runtime result. No new deployment is performed; positive release and rejection demonstrations remain pending.
+## A. Deliver Foundation
+
+### Developer operations inside the stage
+
+1. Establish Foundation from its accepted source and database changes.
+2. Verify installed Foundation version, absent Hello/World and blocked incomplete assembly.
+3. Show the real operation result.
+
+- The current implementation performs only checks of the already existing Foundation, not steps to redeploy it.
+- Internal checks use lab-dev and lab-control; their output is visible but does not require Product Owner technical inspection.
+
+### Product Owner result
+
+1. Open [A's runtime](http://127.0.0.1:8080/ords/f?p=810001:1).
+2. See **Application Not Available** and **Foundation assembly: Hello and World are not installed.**
+3. Continue in the terminal.
+
+- The useful result at this stage is protection from using an incomplete application.
+- This maintenance screen does not prove protection against an incompatible or drifted deployment. Those scenarios require the later real rejection checks.
+
+REHEARSAL: pause/human viewing skipped; no browser verification claimed.
+
+Developer operation target: lab-dev
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/identity.sql" E1_DEV_A E1_DEV_A
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/application_inventory.sql"
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/component_inventory.sql"
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/foundation_verify.sql"
+
+
+SQLcl: Release 25.3 Production on Fri Oct 16 22:10:14 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_A","FREEPDB1"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_A","E1_DEV_A"
+
+Target identity verified.
+
+
+PL/SQL procedure successfully completed.
+
+"WORKSPACE","APPLICATION_ID","APPLICATION_NAME","ALIAS","VERSION","AVAILABILITY_STATUS"
+"E1_DEV_A",810001,"1","APEX-DELIVERY-LABORATORY","1.0.0","Unavailable"
+
+"COMPONENT","INSTALLED","VERSION"
+"Foundation",1,"1.0.0"
+"Hello",0,""
+"World",0,""
+
+"STATE_KEY","PARENT_KEY","STATE","REASON"
+"Application","","maintenance","Initial assembly incomplete"
+"Foundation","Application","ready","Foundation installed"
+"Hello","Application","maintenance","Not installed"
+"World","Application","maintenance","Not installed"
+
+"SAVED_GREETINGS"
+0
+
+Foundation verified; Hello/World absent; application remains in maintenance.
+
+
+PL/SQL procedure successfully completed.
+
+DEVELOPER_CHECK_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-dev internal verification completed.
+
+Developer operation target: lab-control
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/show_reservations.sql"
+
+
+SQLcl: Release 25.3 Production on Fri Oct 16 22:10:17 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"COMPONENT","OWNER_NAME","TASK_ID","BASE_REVISION","GENERATION"
+"Foundation","E1_DEV_A","foundation-initial","ebf1a1a1d05ec17b444b2d3df3bc36bd75a97f0e",1
+"Hello","","","",
+"World","","","",
+
+DEVELOPER_CHECK_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-control internal verification completed.
+PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810001:1
+Expected: Foundation assembly: Hello and World are not installed.
+REHEARSAL: pause/human viewing skipped; no browser verification claimed.
+## B. Deliver Hello — pending construction
+
+### Developer operations inside the stage
+
+1. Reserve Hello and prepare B's private area from accepted Foundation source.
+2. Apply the reviewed Hello change and its database migration.
+3. Capture/validate/integrate the scoped source and verify the resulting assembly.
+4. Show the operation result and resulting runtime URL.
+
+### Product Owner result — available after construction
+
+1. Open the runtime URL printed by the stage.
+2. See that complete-application access remains blocked while World is missing.
+3. Continue to World delivery.
+
+- No page-definition review is required.
+- Hello's usable behavior is demonstrated in the completed application after World is integrated.
+- E1_DEV_B / application 810002 is a reserved mapping; no application is deployed there yet.
+
+PENDING: Hello developer delivery is not implemented. B/C and release stages have not run.
+Positive deployments, the usable greeting and wrong-deployment protection are pending. No DEPLOYED/REJECTED outcome is claimed.
+Stopped before any B-area mutation.

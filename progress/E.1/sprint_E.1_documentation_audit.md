@@ -22,3 +22,72 @@ Reconciled shared SRS/architecture/test-profile expectations with the selected d
 Commit scope is platform code/configuration/tests, adopted lifecycle sources/ignore rules, active-sprint documents and shared E.1 orientation/activation changes. Foundation/application/ownership work remains under construction and is excluded from this completion commit where separable. No credentials, local tool binaries, session files or unrelated untracked files are staged. No push is authorized.
 
 Pre-commit checks passed: 31 Markdown documents/157 local links and anchors; shell syntax for the runner, tool bootstrap and eight lifecycle scripts; Python compilation; Git ignore coverage for secrets/tools/history; git diff --check. B1 smoke regression passed. The prior sprint directory diff is empty. Full application unit/integration gates remain pending and are not hidden by this platform checkpoint.
+
+
+## Operator procedure refinement — in-progress construction
+
+The operator guide is now the primary procedure for the constructed stages: native SQLcl target and ownership inspection, changelog validation/status, separate migration application, APEX export, and source diff inspection. Workspace/app endpoints, actual deployed versus reserved application IDs, usernames and protected local password retrieval are explicit. Python isolation helpers remain supporting checks with visible atomic SQL. The implementation record tracks the same state; no release, qualification or full-suite success is claimed.
+
+Executed the native identity/ownership, Liquibase validation/status, component/Foundation inventory and migration-receipt sequence successfully after correcting SQLcl's script-directory resolution with an explicit cd. Exported live application 810001 to a separate staging directory and reviewed its two-field version/SCN diff. A wrong target was rejected with ORA-20010. Initial Foundation migration application is earlier construction evidence; this refinement did not redeploy or reset the database. Application import, controlled capture reconciliation and release operations remain unfinished, so this is an in-progress review rather than a completed Foundation increment or sprint gate.
+
+Documentation validation passed for 32 documents, 171 local links/anchors, Markdown fences, traceability targets, assigned PBIs and the single active sprint. bash -n scripts/cicd-env.sh and git diff --check passed. No other sprint artifact was edited. The current construction changes remain uncommitted until the coherent increment's remaining verification is complete.
+
+
+## Podman-to-APEX operating procedure refinement
+
+Expanded docs/deploy.md into individually inspectable operator stages: resource inventory, local helper, VM creation/start, guarded credential generation, pinned installer/images, network/volumes/secret, database, APEX installation/configuration, ORDS installation/settings/serve, access checks, logical-area boundary, ordered stop/start, repair and scoped reconstruction. Compared commands with the adopted shell/SQL sources. Corrected README's current lifecycle owner to E.1. Retained-data loss on VM deletion and the missing validated backup/restore path are explicit. Logical-area operator provisioning remains pending; no application seed or complete release workflow is claimed.
+
+Reconciled the procedure with SRS/architecture preservation and isolation requirements, the test profile's platform boundary, E.1 setup/design/test/implementation records, README and the current board. This refines the already delivered PBI-011.1 platform documentation; it does not close other construction children. No other sprint artifact or status changed.
+
+Actual checks passed: current Podman inventory, both pinned ARM64 image digests, krunkit 1.3.2, database healthcheck and apex-verify.sh (APEX 24.2 VALID, zero invalid objects, SYSTEM/FREEPDB1 host-port authentication, ORDS/login HTTP 200 and matching assets). Syntax checked all 36 Bash blocks without executing provisioning, shutdown, repair or destructive operations. Document checker passed 32 documents and 181 local links/anchors; git diff --check passed. Fresh full reconstruction and retained-data restoration remain unvalidated. Changes stay with the current construction increment for its completion commit; no push.
+
+
+## App Builder instruction detail
+
+Replaced the vague manual step 4 with exact login, application and control names, expected page definitions, version value, saving semantics, maintenance message and the next operator step. Browser inspection confirmed Workspace/Username/Password/Sign In labels and the live Foundation-only unavailable message. Page properties/login item names match the Oracle export; Version/Apply Changes follows the earlier executed authoring step. No new authoring operation or authenticated Builder rehearsal is claimed for this documentation refinement.
+
+
+## Operator-document formatting
+
+Applied numbered steps and bullet points throughout user_manual.md and docs/deploy.md, including all App Builder subchapters. Checked list indentation, command fences and step references. Shell syntax passed for 55 Bash examples without executing runtime operations. Local document validation passed for 32 documents and 181 links/anchors; git diff --check passed. Scope is documentation readability only.
+
+
+## Guided manual/script pair
+
+Implemented the requested guided execution for the current operator journey; the script reads chapter text from user_manual.md and shows native SQLcl commands/output with a keypress before execution. Browser stages display URLs and wait for human inspection; later stages remain pending. Both the manual and deployment guide require paired updates as one artifact and preserve numbered/bulleted instructions. README and construction/test records describe the same scope. No pipeline completion or deployment was inferred from a successful runner invocation.
+
+Preflight, live pause/quit and noninteractive rejection checks passed. Rehearsal passed 15 SQLcl operations, staged export and diff review reporting, with browser/password/human steps explicitly skipped. An isolated real-Oracle failure fixture proved visible error/stop behavior. Reviewed command equivalence against manual chapters 1–8, error handling, secret display and staging-only effects. Reconciled SRS/architecture/test-profile expectations with the existing E.1 scope; no managed status or other sprint artifact changed. Script syntax, local document links/anchors and git diff --check passed. Construction remains in progress; this pair belongs with its supporting implementation in the next completed increment commit. No push.
+
+
+## Separate developer outcome walkthrough
+
+Added developer_walkthrough.md and cicd-developer-walkthrough.sh without changing the existing operator manual, operator runner or deployment guide. README links the new artifact. The A/B/C and integrated-release chapter sequence follows the accepted design. Runtime checkpoints preserve maintenance for incomplete assemblies; the current executable inspects A and explicitly stops before pending B/C work. It does not pretend to author/import/release an unimplemented component. The new manual/runner pair carries its own maintenance rule.
+
+Native A and control inspection, live pause flow, local preflight and unattended rehearsal passed, with the expected PENDING/status 3 at B. Browser human checks remain unverified by these runner tests. Reconciled current app inventory (ID 810001, display name 1) in the new guide without modifying live content or the existing walkthrough. Syntax, 33-document/190-link validation and git diff --check passed. Other sprint artifacts and managed statuses are unchanged; no push.
+
+
+## Runtime-only outcome checkpoints
+
+Updated only the new outcome manual/runner pair to remove App Builder and technical inspection from Product Owner actions. Runtime result checkpoints now distinguish incomplete-assembly blocking, successful deployment/patch behavior, known-incompatibility rejection and live-drift rejection. Negative scenarios require the specific rejection reason, no precheck mutation and preserved behavior/history; arbitrary pipeline failure cannot pass. These follow the already accepted selected scenarios and remain pending construction. The runner makes no success claim for them. Existing walkthroughs and deployment guide were not changed.
+
+
+Validation passed: Bash syntax, local preflight, existing Foundation/control rehearsal and expected pending boundary, absence of Builder inspection prompts, local document links/anchors and git diff --check. Rehearsal skips human viewing and does not prove a deployment/rejection.
+
+
+## Selected use-case traceability
+
+Compared the outcome walkthrough with SRS UC-1–12 and the accepted E.1 happy path, DevOps patch and two selected rejection scenarios. Added explicit UC links/mappings and later/unselected boundaries to the new guide; labelled its runner as the use-case walkthrough. No acceptance scope or status changed. Only Foundation's current check/result is executable; no full use-case success is claimed. Existing walkthroughs are unchanged. Script syntax/preflight, document links/anchors and git diff --check passed.
+
+
+## Foundation completion increment — PBI-011.3 selected scope
+
+Reviewed immutable migrations 001/002, package compilation/guards, Oracle-generated Home/history source, supported target import mapping and task release. Foundation-only database/runtime assertions passed on A and reconstructed qualification. Two repeated captures and the new fresh-reservation operator capture are byte-identical. The new initial-import helper refuses wrong schema/workspace and existing applications; its successful mapped import was exercised before adding that fail-closed guard, and B's next initial preparation will exercise the final form.
+
+Reconciled current application pages/name, released task and qualification assembly state in the manual, detailed runner and construction/test records. Existing workflow purposes and numbered/bulleted format are preserved. SRS/architecture/test-profile and accepted design retain full application/compatibility/maintenance/release obligations; those remain pending and are not completed by Foundation-only evidence. Broad reservation and cross-private-source tests remain child 2/4 work. Shared control/check/operator/guide code is included with this first completed dependent increment; incomplete cicd-capture.py is excluded. No other sprint artifact or status is changed.
+
+Pre-commit scope is the Foundation source/runtime, supported initial-import source, registered Foundation-only test, current operator/result guides and supporting atomic checks. No credentials/local tools/session data or unrelated files are included. Link/anchor/fence checks, Bash/Python syntax, Foundation IT-4 and capture comparisons passed; platform smoke result follows below. No push.
+
+
+Platform smoke passed: 1 test, 0 failures. Restored tests/run.sh executable permission so its documented direct entry point works. PBI-011.3 is tested for the approved Foundation-only selection; the sprint, parent and other prototype children remain in progress. Secret-value scan of staged sources passed before commit.
+
+Oracle-generated comment headings and verbatim SQLcl evidence include trailing spaces. Preserve those raw bytes; .gitattributes scopes the end-of-line whitespace exception to Oracle exports and E.1 raw logs. Project-authored sources retain normal whitespace checks.

@@ -1,0 +1,807 @@
+OK: tools, required files and manual chapter mapping found. Database access is checked in chapter 2.
+MODE: --rehearse
+Manual: /Users/rstyczynski/projects/APEX_CICD/progress/E.1/user_manual.md
+Current Foundation walkthrough only. No infrastructure reset, migration update, source replacement, commit or release is performed.
+
+========== MANUAL ### 1. Select the local tools and connection store ==========
+### 1. Select the local tools and connection store
+
+```bash
+source scripts/cicd-env.sh
+sql -version
+```
+
+- The sourced file only sets this terminal's Java, PATH and APEX_CICD_CONNECTIONS.
+- It performs no provisioning or deployment.
+- Expected SQLcl version: 25.3.0.274.1210.
+- Keep this named terminal for the following commands.
+
+COMMAND: sql -version
+REHEARSAL: keypress skipped; no human inspection claimed.
+
+SQLcl: Release 25.3.0.0 Production Build: 25.3.0.274.1210
+
+========== MANUAL ### 2. Connect to A and identify the target ==========
+### 2. Connect to A and identify the target
+
+```bash
+sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev
+```
+
+- You are now at the SQLcl prompt. Run these operations one at a time:
+
+  ```sql
+  @deploy/operator/identity.sql E1_DEV_A E1_DEV_A
+  @deploy/operator/application_inventory.sql
+  @deploy/operator/component_inventory.sql
+  @deploy/operator/foundation_verify.sql
+  ```
+
+- The first operation returns E1_DEV_A and FREEPDB1, checks its E1_DEV_A workspace mapping and refuses a mismatch.
+- The next operation shows application 810001, APEX Delivery Laboratory, version 1.0.0 and Unavailable.
+- The component inventory shows Foundation 1.0.0 installed, Hello/World absent, the maintenance root and zero saved greetings.
+- The final operation checks this declared Foundation-only assembly.
+- These commands have been executed successfully through native SQLcl.
+
+- Their readable SQL files are [identity](../../deploy/operator/identity.sql), [application inventory](../../deploy/operator/application_inventory.sql), [component/state inventory](../../deploy/operator/component_inventory.sql) and [Foundation verification](../../deploy/operator/foundation_verify.sql).
+- They do not call the Python test runner.
+- Press Ctrl+D to leave SQLcl when finished.
+
+
+TARGET: lab-dev
+SQLcl operation:
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/identity.sql" E1_DEV_A E1_DEV_A
+REHEARSAL: keypress skipped; no human inspection claimed.
+
+
+SQLcl: Release 25.3 Production on Fri Oct 16 21:55:02 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_A","FREEPDB1"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_A","E1_DEV_A"
+
+Target identity verified.
+
+
+PL/SQL procedure successfully completed.
+
+OPERATOR_STEP_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-dev operation completed. Inspect the output above.
+
+TARGET: lab-dev
+SQLcl operation:
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/application_inventory.sql"
+REHEARSAL: keypress skipped; no human inspection claimed.
+
+
+SQLcl: Release 25.3 Production on Fri Oct 16 21:55:05 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"WORKSPACE","APPLICATION_ID","APPLICATION_NAME","ALIAS","VERSION","AVAILABILITY_STATUS"
+"E1_DEV_A",810001,"1","APEX-DELIVERY-LABORATORY","1.0.0","Unavailable"
+
+OPERATOR_STEP_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-dev operation completed. Inspect the output above.
+
+TARGET: lab-dev
+SQLcl operation:
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/component_inventory.sql"
+REHEARSAL: keypress skipped; no human inspection claimed.
+
+
+SQLcl: Release 25.3 Production on Fri Oct 16 21:55:07 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"COMPONENT","INSTALLED","VERSION"
+"Foundation",1,"1.0.0"
+"Hello",0,""
+"World",0,""
+
+"STATE_KEY","PARENT_KEY","STATE","REASON"
+"Application","","maintenance","Initial assembly incomplete"
+"Foundation","Application","ready","Foundation installed"
+"Hello","Application","maintenance","Not installed"
+"World","Application","maintenance","Not installed"
+
+"SAVED_GREETINGS"
+0
+
+OPERATOR_STEP_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-dev operation completed. Inspect the output above.
+
+TARGET: lab-dev
+SQLcl operation:
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/foundation_verify.sql"
+REHEARSAL: keypress skipped; no human inspection claimed.
+
+
+SQLcl: Release 25.3 Production on Fri Oct 16 21:55:09 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+Foundation verified; Hello/World absent; application remains in maintenance.
+
+
+PL/SQL procedure successfully completed.
+
+OPERATOR_STEP_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-dev operation completed. Inspect the output above.
+
+========== MANUAL ### 3. Inspect the ownership authority separately ==========
+### 3. Inspect the ownership authority separately
+
+- From the same terminal after leaving the previous session:
+
+  ```bash
+  sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-control
+  ```
+
+- At its SQLcl prompt:
+
+  ```sql
+  @deploy/operator/show_reservations.sql
+  ```
+
+- The executed result shows Foundation owned by E1_DEV_A for foundation-initial, generation 1, with its recorded Git base.
+- Hello and World have no owner.
+- This authority is in E1_CTRL, outside the application Foundation schema.
+- This inspection does not release or change any reservation.
+- Leave with Ctrl+D.
+
+
+TARGET: lab-control
+SQLcl operation:
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/show_reservations.sql"
+REHEARSAL: keypress skipped; no human inspection claimed.
+
+
+SQLcl: Release 25.3 Production on Fri Oct 16 21:55:11 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"COMPONENT","OWNER_NAME","TASK_ID","BASE_REVISION","GENERATION"
+"Foundation","E1_DEV_A","foundation-initial","ebf1a1a1d05ec17b444b2d3df3bc36bd75a97f0e",1
+"Hello","","","",
+"World","","","",
+
+OPERATOR_STEP_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-control operation completed. Inspect the output above.
+
+========== MANUAL #### 4.1 Sign in as Developer A ==========
+#### 4.1 Sign in as Developer A
+
+1. In your terminal, retrieve A's Builder password:
+
+   ```bash
+   python3 scripts/cicd-password.py DEV_A
+   ```
+
+2. Open [App Builder sign-in](http://127.0.0.1:8080/ords/f?p=4550:1).
+3. Fill **Workspace** with **E1_DEV_A**.
+4. Fill **Username** with **DEV_A**.
+5. Fill **Password** with the value printed in step 1.
+6. Click **Sign In**.
+
+- Use the developer account here; INTERNAL/ADMIN and LAB_USER have different roles.
+- If another workspace is signed in, sign out of that Builder session first.
+- If login fails, check the workspace/username and retrieve DEV_A's password again. Do not reset instance credentials.
+
+
+BROWSER URL: http://127.0.0.1:8080/ords/f?p=4550:1
+SKIPPED: password display, browser interaction and human verification. No browser pass claimed.
+
+========== MANUAL #### 4.2 Open application 810001 ==========
+#### 4.2 Open application 810001
+
+1. On the workspace home, click **App Builder**.
+2. Open **APEX Delivery Laboratory**, application **810001**, from the application list.
+3. Confirm the application number before editing.
+4. Locate the page list on the **application home**.
+
+- If the screen heading says **Edit Application Definition**, click **Cancel** to leave without saving.
+- If needed, click **Application 810001** in the upper-left breadcrumb to reach the application home.
+- The expected page list contains:
+  - **0 — Global Page**: shared page components.
+  - **1 — Home**: initial application home shell.
+  - **9999 — Login Page**: generated runtime login page.
+- Hello, World and history pages are not implemented yet.
+- If the page list is empty or the application number differs, return to workspace/application selection. Do not create a replacement application.
+
+
+BROWSER URL: http://127.0.0.1:8080/ords/f?p=4550:1
+SKIPPED: password display, browser interaction and human verification. No browser pass claimed.
+
+========== MANUAL #### 4.3 Inspect the application version ==========
+#### 4.3 Inspect the application version
+
+1. On the application home, click **Edit Application Definition**.
+2. Locate **Version** and check that its value is **1.0.0**.
+3. Leave the value unchanged and click **Cancel**.
+4. If needed, click **Application 810001** in the upper-left breadcrumb to return to the page list.
+
+- If you accidentally change **Name**, **Version** or another field, use **Cancel** to discard the unsaved edit.
+- The earlier construction operation was:
+  1. Open the same application-definition form.
+  2. Replace **Release 1.0** in **Version** with **1.0.0**.
+  3. Click **Apply Changes** to save to the live APEX repository.
+- That change has already been saved; do not repeat it for this inspection.
+- The display version and database component version are separate metadata. Editing this field alone does not migrate the database or release a component.
+
+
+BROWSER URL: http://127.0.0.1:8080/ords/f?p=4550:1
+SKIPPED: password display, browser interaction and human verification. No browser pass claimed.
+
+========== MANUAL #### 4.4 Inspect the Home and Login definitions ==========
+#### 4.4 Inspect the Home and Login definitions
+
+1. Leave **Edit Application Definition** with **Cancel**.
+2. If needed, click **Application 810001** in the upper-left breadcrumb.
+3. On the application home, open **1 — Home** from the page list. Page Designer opens.
+4. In the **Rendering** tree, select the page node.
+5. Check **Name = Home** and **Title = APEX Delivery Laboratory**.
+6. Locate the **APEX Delivery Laboratory** region. No greeting interaction is available yet.
+7. Use the application breadcrumb to return to the page list.
+8. Open **9999 — Login Page**.
+9. In its **Rendering** tree, inspect the login region and its existing controls:
+   - **P9999_USERNAME**
+   - **P9999_PASSWORD**
+   - **P9999_REMEMBER**
+   - **LOGIN** button, displayed as **Sign In**.
+10. Leave these definitions unchanged; do not create duplicate items.
+
+- **Save** in Page Designer saves page edits to the live APEX application.
+- **Apply Changes** in the application-definition form saves application-level edits.
+- Neither action exports source or creates a Git commit.
+- Use the later capture/review steps to bring an authorized edit into source control.
+
+
+BROWSER URL: http://127.0.0.1:8080/ords/f?p=4550:1
+SKIPPED: password display, browser interaction and human verification. No browser pass claimed.
+
+========== MANUAL #### 4.5 Check runtime availability, then continue to SQLcl ==========
+#### 4.5 Check runtime availability, then continue to SQLcl
+
+1. Open the [application runtime](http://127.0.0.1:8080/ords/f?p=810001:1) in another tab.
+2. Check that the page heading is **Application Not Available**.
+3. Check that it displays **Foundation assembly: Hello and World are not installed.**
+4. Leave availability set to **Unavailable** while Hello/World and their guards are unfinished.
+5. Continue to **step 5** below for database migration inspection.
+6. Continue to **step 6** for application source capture.
+
+- App Builder can inspect page definitions while runtime access is blocked.
+- No artificial page edit is needed before capture.
+
+
+BROWSER URL: http://127.0.0.1:8080/ords/f?p=810001:1
+SKIPPED: password display, browser interaction and human verification. No browser pass claimed.
+
+========== MANUAL ### 5. Inspect migration state before applying anything ==========
+### 5. Inspect migration state before applying anything
+
+- Connect to lab-dev as in step 2. At the SQLcl prompt, execute each command separately:
+
+  ```sql
+  @deploy/operator/identity.sql E1_DEV_A E1_DEV_A
+  @deploy/operator/assert_ownership.sql Foundation foundation-initial 1
+  cd /Users/rstyczynski/projects/APEX_CICD
+  lb validate -changelog-file db/changelog.xml
+  lb status -changelog-file db/changelog.xml
+  ```
+
+- Identity and ownership must pass before proceeding.
+- SQLcl can change its script search directory after an @file operation; the explicit SQLcl cd restores the checkout root before Liquibase resolves the changelog.
+- Validation checks the changelog; status reports unapplied changesets.
+- A already has 001-foundation installed, so no changesets should be outstanding.
+- This is the inspection part of the same migration procedure used during construction.
+
+- On the initial empty A area, the next distinct operation was:
+
+  ```sql
+  lb update -changelog-file db/changelog.xml
+  ```
+
+- First run the SQLcl cd command above again if you have executed another @file since validation.
+- The update applies the database migration and records its checksum in DATABASECHANGELOG.
+- It has already been performed on A.
+- Repeating it against that unchanged baseline should apply no new changesets; it is not a reset.
+- Never change an already applied migration to force an upgrade: add a new migration for the next version.
+- On any validation or migration error, stop and inspect the output before another write.
+- Follow the update with these separate inspections:
+
+  ```sql
+  @deploy/operator/component_inventory.sql
+  @deploy/operator/foundation_verify.sql
+  select id, author, filename, exectype from databasechangelog order by orderexecuted;
+  ```
+
+- Expected: Foundation 1.0.0, Hello/World absent, maintenance state and the executed 001-foundation migration.
+- This is a prototype Foundation procedure; the general release preflight and promotion procedure is still being built.
+
+
+TARGET: lab-dev
+SQLcl operation:
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/identity.sql" E1_DEV_A E1_DEV_A
+REHEARSAL: keypress skipped; no human inspection claimed.
+
+
+SQLcl: Release 25.3 Production on Fri Oct 16 21:55:13 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_A","FREEPDB1"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_A","E1_DEV_A"
+
+Target identity verified.
+
+
+PL/SQL procedure successfully completed.
+
+OPERATOR_STEP_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-dev operation completed. Inspect the output above.
+
+TARGET: lab-dev
+SQLcl operation:
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/assert_ownership.sql" Foundation foundation-initial 1
+REHEARSAL: keypress skipped; no human inspection claimed.
+
+
+SQLcl: Release 25.3 Production on Fri Oct 16 21:55:16 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+Task ownership verified for connected schema.
+
+
+PL/SQL procedure successfully completed.
+
+OPERATOR_STEP_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-dev operation completed. Inspect the output above.
+
+TARGET: lab-dev
+SQLcl operation:
+lb validate -changelog-file db/changelog.xml
+REHEARSAL: keypress skipped; no human inspection claimed.
+
+
+SQLcl: Release 25.3 Production on Fri Oct 16 21:55:18 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+--Starting Liquibase at 2026-10-16T21:55:19.124709 using Java 21.0.12.1 (version 4.30.0 #0 built at 2025-04-01 10:24+0000)
+No validation errors found.
+
+
+Operation completed successfully.
+
+OPERATOR_STEP_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-dev operation completed. Inspect the output above.
+
+TARGET: lab-dev
+SQLcl operation:
+lb status -changelog-file db/changelog.xml
+REHEARSAL: keypress skipped; no human inspection claimed.
+
+
+SQLcl: Release 25.3 Production on Fri Oct 16 21:55:21 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+--Starting Liquibase at 2026-10-16T21:55:22.042640 using Java 21.0.12.1 (version 4.30.0 #0 built at 2025-04-01 10:24+0000)
+E1_DEV_A@jdbc:oracle:thin:@//127.0.0.1:1521/FREEPDB1 is up to date
+
+
+Operation completed successfully.
+
+OPERATOR_STEP_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-dev operation completed. Inspect the output above.
+INFO: lb update is historical initial-install context in the manual. Foundation is already installed; this inspection walkthrough does not apply migrations.
+
+TARGET: lab-dev
+SQLcl operation:
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/component_inventory.sql"
+REHEARSAL: keypress skipped; no human inspection claimed.
+
+
+SQLcl: Release 25.3 Production on Fri Oct 16 21:55:24 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"COMPONENT","INSTALLED","VERSION"
+"Foundation",1,"1.0.0"
+"Hello",0,""
+"World",0,""
+
+"STATE_KEY","PARENT_KEY","STATE","REASON"
+"Application","","maintenance","Initial assembly incomplete"
+"Foundation","Application","ready","Foundation installed"
+"Hello","Application","maintenance","Not installed"
+"World","Application","maintenance","Not installed"
+
+"SAVED_GREETINGS"
+0
+
+OPERATOR_STEP_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-dev operation completed. Inspect the output above.
+
+TARGET: lab-dev
+SQLcl operation:
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/foundation_verify.sql"
+REHEARSAL: keypress skipped; no human inspection claimed.
+
+
+SQLcl: Release 25.3 Production on Fri Oct 16 21:55:26 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+Foundation verified; Hello/World absent; application remains in maintenance.
+
+
+PL/SQL procedure successfully completed.
+
+OPERATOR_STEP_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-dev operation completed. Inspect the output above.
+
+TARGET: lab-dev
+SQLcl operation:
+select id, author, filename, exectype from databasechangelog order by orderexecuted;
+REHEARSAL: keypress skipped; no human inspection claimed.
+
+
+SQLcl: Release 25.3 Production on Fri Oct 16 21:55:28 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+
+ID             AUTHOR   FILENAME         EXECTYPE 
+______________ ________ ________________ ________ 
+001-foundation apex-lab db/changelog.xml EXECUTED 
+
+OPERATOR_STEP_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-dev operation completed. Inspect the output above.
+
+========== MANUAL ### 6. Capture APEX source as an operator ==========
+### 6. Capture APEX source as an operator
+
+- Leave SQLcl with Ctrl+D. In the same terminal create a new staging directory; the capture does not overwrite the source checkout:
+
+  ```bash
+  mkdir -p .local-apex/captures/foundation-operator-review
+  sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev
+  ```
+
+- At the SQLcl prompt, verify the target and reservation, select its workspace and run the native export as separate operations:
+
+  ```sql
+  @deploy/operator/identity.sql E1_DEV_A E1_DEV_A
+  @deploy/operator/assert_ownership.sql Foundation foundation-initial 1
+  begin
+    apex_util.set_workspace('E1_DEV_A');
+  end;
+  /
+  @deploy/operator/application_inventory.sql
+  apex export -applicationid 810001 -split -skipExportDate -expOriginalIds -expSupportingObjects N -dir .local-apex/captures/foundation-operator-review
+  ```
+
+- Stop if identity/ownership fails or inventory does not show application 810001 in E1_DEV_A.
+- Export should report the workspace and creation of f810001/install.sql.
+- The flags request split source, omit the changing export timestamp, retain original component IDs and exclude supporting-object installation.
+- Database changes are managed separately by the changelog.
+- Leave SQLcl before returning to shell commands.
+
+COMMAND: mkdir -p .local-apex/captures/foundation-operator-review
+REHEARSAL: keypress skipped; no human inspection claimed.
+
+TARGET: lab-dev
+SQLcl operation:
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/identity.sql" E1_DEV_A E1_DEV_A
+REHEARSAL: keypress skipped; no human inspection claimed.
+
+
+SQLcl: Release 25.3 Production on Fri Oct 16 21:55:30 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_A","FREEPDB1"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_A","E1_DEV_A"
+
+Target identity verified.
+
+
+PL/SQL procedure successfully completed.
+
+OPERATOR_STEP_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-dev operation completed. Inspect the output above.
+
+TARGET: lab-dev
+SQLcl operation:
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/assert_ownership.sql" Foundation foundation-initial 1
+REHEARSAL: keypress skipped; no human inspection claimed.
+
+
+SQLcl: Release 25.3 Production on Fri Oct 16 21:55:32 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+Task ownership verified for connected schema.
+
+
+PL/SQL procedure successfully completed.
+
+OPERATOR_STEP_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-dev operation completed. Inspect the output above.
+
+TARGET: lab-dev
+SQLcl operation:
+begin apex_util.set_workspace('E1_DEV_A'); end;
+/
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/application_inventory.sql"
+apex export -applicationid 810001 -split -skipExportDate -expOriginalIds -expSupportingObjects N -dir /Users/rstyczynski/projects/APEX_CICD/.local-apex/captures/foundation-operator-review
+REHEARSAL: keypress skipped; no human inspection claimed.
+
+
+SQLcl: Release 25.3 Production on Fri Oct 16 21:55:35 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+
+PL/SQL procedure successfully completed.
+
+"WORKSPACE","APPLICATION_ID","APPLICATION_NAME","ALIAS","VERSION","AVAILABILITY_STATUS"
+"E1_DEV_A",810001,"1","APEX-DELIVERY-LABORATORY","1.0.0","Unavailable"
+
+Exporting Workspace E1_DEV_A - application 810001:1
+File .local-apex/captures/foundation-operator-review/f810001/install.sql created
+
+OPERATOR_STEP_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-dev operation completed. Inspect the output above.
+
+========== MANUAL ### 7. Review the captured changes before accepting source ==========
+### 7. Review the captured changes before accepting source
+
+- In the terminal:
+
+  ```bash
+  git status --short
+  diff -ru apex/f810001 .local-apex/captures/foundation-operator-review/f810001
+  ```
+
+- For diff, status 0 means identical; status 1 means differences to review.
+- The checked-out initial export still uses Release 1.0, while the live application now uses 1.0.0; its version change and Oracle-generated version SCN should therefore be visible.
+- The observed diff contains only those two changed fields.
+- Review every additional difference rather than assuming it belongs to this task.
+- Do not copy the staging tree over the source until its component scope and deletions have been checked.
+- The controlled source reconciliation and cross-area import steps are still under construction.
+
+- This sequence uses the native Oracle export operation.
+- The bounded capture.sql convenience script combines its preconditions and export, but it is not required to understand or perform these steps.
+
+COMMAND: git status --short
+REHEARSAL: keypress skipped; no human inspection claimed.
+ M README.md
+ M docs/deploy.md
+ M progress/E.1/sprint_E.1_documentation_audit.md
+ M progress/E.1/sprint_E.1_implementation.md
+ M scripts/cicd-platform.py
+?? .DS_Store
+?? apex/
+?? db/
+?? deploy/
+?? progress/.DS_Store
+?? progress/E.1/tests/
+?? progress/E.1/user_manual.md
+?? scripts/cicd-capture.py
+?? scripts/cicd-env.sh
+?? scripts/cicd-isolation.py
+?? scripts/cicd-password.py
+?? scripts/cicd-task.py
+?? scripts/cicd-walkthrough.sh
+COMMAND: diff -ru apex/f810001 .local-apex/captures/foundation-operator-review/f810001
+REHEARSAL: keypress skipped; no human inspection claimed.
+diff -ru apex/f810001/application/create_application.sql .local-apex/captures/foundation-operator-review/f810001/application/create_application.sql
+--- apex/f810001/application/create_application.sql	2026-10-16 20:53:50
++++ .local-apex/captures/foundation-operator-review/f810001/application/create_application.sql	2026-10-16 21:55:36
+@@ -14,7 +14,7 @@
+ wwv_imp_workspace.create_flow(
+  p_id=>wwv_flow.g_flow_id
+ ,p_owner=>nvl(wwv_flow_application_install.get_schema,'E1_DEV_A')
+-,p_name=>nvl(wwv_flow_application_install.get_application_name,'APEX Delivery Laboratory')
++,p_name=>nvl(wwv_flow_application_install.get_application_name,'1')
+ ,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'APEX-DELIVERY-LABORATORY')
+ ,p_page_view_logging=>'YES'
+ ,p_page_protection_enabled_y_n=>'Y'
+@@ -34,7 +34,7 @@
+ ,p_logo_text=>'APEX Delivery Laboratory'
+ ,p_proxy_server=>nvl(wwv_flow_application_install.get_proxy,'')
+ ,p_no_proxy_domains=>nvl(wwv_flow_application_install.get_no_proxy_domains,'')
+-,p_flow_version=>'Release 1.0'
++,p_flow_version=>'1.0.0'
+ ,p_flow_status=>'UNAVAILABLE'
+ ,p_flow_unavailable_text=>'Foundation assembly: Hello and World are not installed.'
+ ,p_exact_substitutions_only=>'Y'
+@@ -47,7 +47,7 @@
+ ,p_substitution_value_01=>'APEX Delivery Laboratory'
+ ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
+ ,p_files_version=>6
+-,p_version_scn=>3259660
++,p_version_scn=>3281330
+ ,p_print_server_type=>'NATIVE'
+ ,p_file_storage=>'DB'
+ ,p_is_pwa=>'Y'
+REVIEW REQUIRED: differences shown above; no source was replaced or accepted automatically.
+REHEARSAL: keypress skipped; no human inspection claimed.
+
+========== MANUAL ### 8. Continue through the remaining delivery stages ==========
+### 8. Continue through the remaining delivery stages
+
+- The remaining operator journey will provide distinct task reservation, Git branch, private-area preparation, source acceptance, immutable build, qualification, TEST preflight/promotion and post-deployment verification operations.
+- Each will state its target, required input, command, visible result and stop condition.
+- The pipeline-stage list at the end tracks what works and what remains under construction.
+
+- For another area's inventory, connect with lab-dev-b, lab-dev-c, lab-qualify or lab-test and run the same application_inventory.sql.
+- Their workspaces currently contain no applications.
+- Only A has Foundation installed at this stage.
+
+END: current working walkthrough completed. Release/qualification/promotion remain under construction.
+REHEARSAL ONLY: browser steps and human review were skipped.
