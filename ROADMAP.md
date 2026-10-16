@@ -2,10 +2,10 @@
 
 ## Basis and decision status
 
-This proposed roadmap follows the README vision accepted on 2026-10-16.
-The Product Owner recognizes the existing local APEX/Podman setup as completed
-preliminary work available for potential reuse. The roadmap and next-sprint
-scope await acceptance under PBI-002. No later sprint starts through this proposal.
+The Product Owner accepted this roadmap and the next-sprint proposal on
+2026-10-16, following acceptance of the README vision. Existing local
+APEX/Podman setup remains completed preliminary work available for potential
+reuse. Sprint 0 is complete. I.1 and E.1 remain Planned.
 
 ## Completed preliminary work
 
@@ -21,14 +21,13 @@ selected approach and clearly distinguished from the historical checks.
 
 PBI-001 has delivered the accepted vision for a reproducible CI/CD laboratory
 and a minimal application with greeting history and Hello/World data and
-configuration pages. PBI-002 proposes this roadmap and the next iteration.
-Sprint closure still requires the document demonstration, review, and handover
-decision prescribed by the local method.
+configuration pages. PBI-002 delivered this accepted roadmap and the next-iteration plan. The
+Product Owner explicitly requested closure after reviewing these documents;
+the [handover](progress/sprint_0/sprint_0_handover.md) records the decision and review limits.
 
 ## Inception — Research and candidate approach
 
-Propose I.1 as the next iteration, replacing the generic Sprint 1 label after
-acceptance. Keep PBI-003 through PBI-010 as one proportionate baseline:
+I.1 is the next planned iteration, formerly labeled Sprint 1. Keep PBI-003 through PBI-010 as one proportionate baseline:
 define users, system boundary, representative change journeys and success
 criteria; materialize the SRS; refine priorities and scope; assess risks;
 and deliver a candidate architecture and exact test-profile commands.
@@ -52,7 +51,7 @@ approving an executable iteration.
 
 ## Elaboration — Validate the risky delivery path
 
-Propose E.1, replacing the generic Sprint 2 label after acceptance, with
+E.1, formerly labeled Sprint 2, is planned with
 PBI-011 through PBI-016. Use a thin Hello/World slice to validate source export,
 database evolution, packaging, target deployment, and an observable behavior
 change. Reuse existing assets where the accepted design supports them.
@@ -89,5 +88,5 @@ accepted initial scope.
 I.1 refines this plan using research and requirements; E.1 refines it again
 using executable evidence. Merge or split later work when outcomes,
 dependencies, or risks justify it. See the [Sprint 0 proposal](progress/sprint_0/sprint_0_proposedchanges.md)
-for the decision sought and proposed label mapping. The current [plan](PLAN.md)
-retains existing sprint entries until that decision is recorded.
+for the original proposal and recorded acceptance. The current [plan](PLAN.md)
+contains the accepted label mapping and next-sprint context.

@@ -31,3 +31,12 @@ and Transition assignments for evidence-based refinement.
 Acceptance of this proposal authorizes updating the planned labels and
 context in PLAN.md, and records PBI-002's planning decision. It does not
 start I.1, authorize a remote push, or close Sprint 0 before its handover.
+
+## Product Owner decision — 2026-10-16
+
+Status: Accepted
+
+The Product Owner accepted the roadmap and next-sprint proposal and explicitly
+requested Sprint 0 closure, with the next sprint to run in a new session.
+The plan now uses I.1 and E.1 for the former Sprint 1 and Sprint 2 entries.
+Neither later sprint is activated by this decision.

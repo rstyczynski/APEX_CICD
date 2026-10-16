@@ -28,7 +28,7 @@ Sprint 0 can establish this vision without proving runtime feasibility. Podman s
 
 ### PBI-002 — Derive the initial project plan
 
-The PBI-001 dependency is now accepted. ROADMAP.md and sprint_0_proposedchanges.md propose proportionate work for the research comparison, requirements and candidate architecture, a risk-focused executable experiment, and the eventual delivery demonstration. The proposal retains the connected Inception outcomes together, incorporates research as supporting evidence, and avoids scheduling the preliminary installation again. The proposed I.1/E.1 label mapping and next-sprint context await acceptance; existing planned assignments remain unchanged.
+The PBI-001 dependency is now accepted. ROADMAP.md and sprint_0_proposedchanges.md propose proportionate work for the research comparison, requirements and candidate architecture, a risk-focused executable experiment, and the eventual delivery demonstration. The proposal retains the connected Inception outcomes together, incorporates research as supporting evidence, and avoids scheduling the preliminary installation again. The Product Owner accepted the I.1/E.1 label mapping and next-sprint context on 2026-10-16; assigned PBIs remain unchanged.
 
 ### Existing assets and compatibility
 
@@ -46,10 +46,12 @@ Oracle's [SQLcl 24.3 release notes](https://www.oracle.com/tools/sqlcl/sqlcl-rel
 
 For PBI-001, the developer checked the README against the supplied intent: local APEX, Podman preference, persistent history, separate Hello and World data/configuration pages, source-backed research, and a reproducible CI/CD demonstration. The Product Owner explicitly accepted the vision. The board marks PBI-001 tested on this document-review evidence; no application test or fresh environment validation is implied.
 
-For PBI-002, review traceability from the accepted vision to proposed work and next-sprint outcomes, dependencies, unresolved risks, quality expectations, and a proportionate lifecycle. The developer has prepared the proposal; the Product Owner decision is pending.
+For PBI-002, review traceability from the accepted vision to proposed work and next-sprint outcomes, dependencies, unresolved risks, quality expectations, and a proportionate lifecycle. The Product Owner accepted the proposal and requested sprint closure on 2026-10-16.
 
 No production code changes, automated test skeletons, or runtime gates apply to this document-only increment. The test-profile template remains pending. Later candidate architecture work must define actual commands before a code-bearing iteration. Before any completion commit, record the P8 documentation audit and run applicable link and whitespace checks. Final sprint handover still requires the P9 demonstration of the actual documents and Product Owner decision; this vision review does not close the sprint.
 
-## Current decision point
+## Closure decision
 
-The vision is accepted. The next decision is acceptance or revision of ROADMAP.md and the I.1/E.1 proposal in sprint_0_proposedchanges.md. No later sprint has started. Sprint 0 remains in progress; its final document demonstration and handover decision have not occurred.
+The vision, roadmap, and next-sprint proposal are accepted. The Product Owner
+explicitly requested Sprint 0 closure on 2026-10-16 and will start I.1 in a new
+session. See sprint_0_handover.md for the document review and its limits.

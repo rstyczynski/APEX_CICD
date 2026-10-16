@@ -59,3 +59,33 @@ Stage only the vision, planning/evidence documents, moved runbook, and external
 PDF. Leave .DS_Store, .gitignore, scripts and ignored runtime files outside
 this increment. The completion commit will identify PBI-001; record its hash
 in the next audit or sprint wrap-up.
+
+## Closure audit — 2026-10-16
+
+The preceding sections describe the 317a642 vision increment and its then-open
+planning decision. The Product Owner has now accepted the roadmap/proposal
+and explicitly directed closure. PBI-002's acceptance dependency is resolved.
+PLAN.md now records Sprint 0 Done and the accepted former Sprint 1 → I.1,
+former Sprint 2 → E.1 mapping. Both later entries remain Planned, with their
+original PBI assignments. BACKLOG.md is unchanged.
+
+README, roadmap, setup and proposal decision record were reconciled with the
+closure. Delivery, review results, documentation summary, walkthrough,
+operating reference and handover now exist and agree on outcomes and limits.
+PBI-001 and PBI-002 are tested through accepted document review. The separate
+P9 live demonstration and PPTX activities were not performed or asserted;
+the handover explicitly records closure on the Product Owner's instruction.
+No exception is carried into the next sprint by that record.
+
+SRS and candidate architecture remain later work, the test-profile commands
+remain pending, and no production design or application behavior is claimed.
+No environment commands or code gates were needed for these document changes.
+The supplied deployment runbook remains historical preliminary work, available
+for potential reuse. Existing scripts, .gitignore and runtime data are untouched.
+
+A Python pathlib/re/hashlib validation passed for 34 local Markdown links,
+14 backlog traceability symlinks, all three sprint lifecycle states, assigned
+PBI existence, and the unchanged PDF hash. `git diff --check` passed.
+The new-session prompt explicitly authorizes I.1 activation in the next
+session, while requiring local procedures and managed review gates. No push
+is authorized. This commit completes PBI-002 and records Sprint 0 closure.

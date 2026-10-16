@@ -20,16 +20,16 @@ is preserved as an external reference for the research.
 
 ## Planning decisions
 
-The Product Owner accepted the README vision on 2026-10-16. Sprint 0 remains
-in progress for the initial plan and handover. The project-specific
-[roadmap](ROADMAP.md) and [next-sprint proposal](progress/sprint_0/sprint_0_proposedchanges.md)
-are proposed for review. The later sprint entries below remain bootstrap
-defaults until that proposal is accepted; they are not new authorization to
-start implementation.
+The Product Owner accepted the vision, roadmap, and next-sprint proposal on
+2026-10-16 and explicitly requested Sprint 0 closure. The mapping is now
+Sprint 1 → I.1 and Sprint 2 → E.1, following the local phase-based ID policy.
+Sprint 0 keeps its original identifier. Both later sprints remain Planned.
+See the [Sprint 0 handover](progress/sprint_0/sprint_0_handover.md) for outcomes,
+review evidence, and the next-session prompt.
 
 ## Sprint 0 - Vision and initial plan
 
-Status: Progress
+Status: Done
 Mode: managed
 Test: none
 Regression: none
@@ -39,19 +39,20 @@ Backlog Items:
 * PBI-001. Establish the product vision
 * PBI-002. Derive the initial project plan from the vision
 
-## Sprint 1 - Inception baseline
+## Sprint I.1 - APEX CI/CD research and Inception baseline
 
 Status: Planned
 Mode: managed
 Test: none
 Regression: none
 
-Confirm the accepted vision and intended outcomes; define the system view and
-stakeholders; define actors, use cases, and success criteria; define
-requirements; establish and prioritize the Product Backlog; define the initial
-release scope, acceptance criteria, and exclusions; identify constraints,
-assumptions, and major risks; define a candidate architecture; then review the
-Inception baseline for consistency and viability.
+Research credible APEX and database CI/CD alternatives against the accepted
+vision and supplied external reference. Assess the preliminary Podman setup
+for potential reuse. Define the Hello/World behavior, system boundary,
+stakeholders, use cases, requirements, priorities, release scope and risks;
+then materialize the SRS, candidate architecture and exact test-profile
+commands. Review this coherent baseline before proposing executable work.
+This iteration changes documents and decisions, not application code.
 
 Backlog Items:
 
@@ -64,18 +65,17 @@ Backlog Items:
 * PBI-009. Materialize the candidate architecture
 * PBI-010. Review the Inception baseline for consistency and viability
 
-## Sprint 2 - Elaboration 1: architecture-risk reduction
+## Sprint E.1 - Validate the local APEX delivery path
 
 Status: Planned
 Mode: managed
 Test: smoke, unit, integration
 Regression: smoke, unit, integration
 
-This provisional Elaboration iteration uses an executable architectural
+This provisional Elaboration iteration uses a minimal Hello/World architectural
 prototype to validate the highest-risk technical assumptions and use cases,
 refine requirements, stabilize the architecture baseline, assess the
-Lifecycle Architecture milestone, and create the Construction plan. Sprint 0
-and Sprint 1 may retain, refine, split, reorder, or replace it; before
+Lifecycle Architecture milestone, and create the Construction plan. I.1 may retain, refine, split, reorder, or replace it; before
 prototype construction, iteration setup/design refines the prototype PBI into
 independently reviewable `PBI-XX.YY` sub-PBIs from the accepted candidate
 architecture without inventing work during Inception.

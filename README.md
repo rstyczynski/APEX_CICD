@@ -28,9 +28,11 @@ Keep the application small and use synthetic greeting data. Keep secrets outside
 
 ## Delivery method and current state
 
-The project uses [RUP Strikes Back](AGENTS.md) with the [local policy](RUP_patch.md). Sprint 0 is running in managed mode for PBI-001 (accepted vision) and PBI-002 (initial plan). The [roadmap](ROADMAP.md) proposes the delivery sequence from this vision; its next-sprint proposal awaits Product Owner review. The [backlog](BACKLOG.md) retains the bootstrap definitions, and the [plan](PLAN.md) records completed preliminary work alongside the current sprint entries.
+The project uses [RUP Strikes Back](AGENTS.md) with the [local policy](RUP_patch.md). Sprint 0 is complete: PBI-001 delivered the accepted vision and PBI-002 delivered the accepted [roadmap](ROADMAP.md) and next-sprint plan. The [plan](PLAN.md) identifies I.1 (formerly Sprint 1) as the next iteration, still Planned. The [backlog](BACKLOG.md) defines its assigned outcomes.
 
-The [Sprint 0 setup](progress/sprint_0/sprint_0_setup.md) records scope, review criteria, existing assets, and outstanding decisions. No application implementation or runtime validation is claimed by this document. The [test profile](docs/test-profile.md) remains pending candidate architecture.
+### Sprint 0 — Vision and initial plan
+
+The Product Owner accepted the vision and roadmap and requested closure on 2026-10-16. Preliminary deployment work and external references are recorded for potential reuse. See the [handover and new-session prompt](progress/sprint_0/sprint_0_handover.md) and [document walkthrough](progress/sprint_0/sprint_0_increment_demo.md). No application code or runtime validation was delivered in Sprint 0. The [test profile](docs/test-profile.md) remains pending candidate architecture in I.1.
 
 ## External references
 
