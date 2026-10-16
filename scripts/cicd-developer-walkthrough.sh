@@ -69,7 +69,7 @@ echo 'PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810001:1'
 echo 'Expected: Foundation assembly: Hello and World are not installed.'
 pause 'Open that runtime URL to see the blocked incomplete application, then press any key; q to quit.'
 section '## B. Deliver Hello — pending construction'
-echo 'PENDING: Hello developer delivery is not implemented. B/C and release stages have not run.'
+echo 'PENDING: B has reviewed Hello source; grouped developer delivery replay and later stages are not implemented.'
 echo 'Positive deployments, the usable greeting and wrong-deployment protection are pending. No DEPLOYED/REJECTED outcome is claimed.'
 echo 'Stopped before any B-area mutation.'
 exit 3

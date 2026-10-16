@@ -91,3 +91,10 @@ Pre-commit scope is the Foundation source/runtime, supported initial-import sour
 Platform smoke passed: 1 test, 0 failures. Restored tests/run.sh executable permission so its documented direct entry point works. PBI-011.3 is tested for the approved Foundation-only selection; the sprint, parent and other prototype children remain in progress. Secret-value scan of staged sources passed before commit.
 
 Oracle-generated comment headings and verbatim SQLcl evidence include trailing spaces. Preserve those raw bytes; .gitattributes scopes the end-of-line whitespace exception to Oracle exports and E.1 raw logs. Project-authored sources retain normal whitespace checks.
+
+
+## Hello source increment — PBI-011.5 in progress
+
+Reviewed B's contribution against Foundation e9a490f. Native private reconstruction, migration 003, compile checks and Hello blocked-assembly assertions passed. The declared diff adds four Hello pages, its LOV, generated navigation/includes and target metadata. Repeated captures match; raw Oracle files remain unchanged. Code-editor validation was fixed through native OK/save and final export verifies the SQL selector. The owned intermediate task is complete/released, while the complete integration child remains in progress.
+
+Updated current B readiness and A's older source-baseline comparison in the existing guide without changing its purpose; the separate result guide retains the pending grouped delivery operation. Construction/test records and board agree. Reviewed SRS/architecture/test-profile and selected-design expectations; no full greeting/release/control success is claimed. Stage this scoped Hello source contribution so C can start from an accepted revision. Source/link/whitespace and staged secret checks apply before local commit; no push.

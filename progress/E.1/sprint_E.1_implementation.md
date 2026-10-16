@@ -119,3 +119,12 @@ Added explicit SRS UC mappings for the selected A/B/C journey, configuration/gre
 - Two unchanged native captures match byte-for-byte. Reconstructed the same Foundation source/database in E1_QUALIFY through public APEX_APPLICATION_INSTALL mapping; registry, absent-component state, compile checks and maintenance assertions passed. This is an assembly experiment, not a qualified complete release.
 - Released A's foundation-initial reservation after verification. The detailed capture operation now acquires/releases its own new reservation instead of depending on that closed task's generation; the fresh capture matched source exactly.
 - Registered IT-4's Foundation-only assertions passed. Complete application and release tests remain pending.
+
+
+## Hello intermediate assembly
+
+- Accepted Foundation increment committed locally as e9a490f. B reserved Hello at that base (hello-initial, generation 3) on codex/e1-hello before preparing its private area.
+- Applied accepted Foundation migrations/source to E1_DEV_B/application 810002, then new migration 003-hello. Compile and blocked-assembly checks pass; no business entries seeded.
+- Authored Hello pages 100/101 and configuration pages 110/111 as DEV_B. The captured form's SQL selector filters active entries; configuration creation/deletion and entry deletion are hidden. Database guards enforce those rules independently.
+- Two unchanged B exports are byte-identical. Reviewed generated original-ID offsets, manifest comments, component-map cache and per-target UI identity as comparison-only metadata. Raw Oracle export files remain unmodified. Foundation page behavior is unchanged; Hello owns the added pages/LOV, with declared generated navigation/include additions.
+- B remains unavailable with an accurate World-not-installed message. Its task is released after scoped verification/source review. Combined browser behavior is tested after C; this intermediate contribution does not complete child 5 or release qualification.

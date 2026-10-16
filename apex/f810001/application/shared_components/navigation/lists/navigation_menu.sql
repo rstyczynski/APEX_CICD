@@ -8,14 +8,14 @@ wwv_flow_imp.component_begin (
 ,p_release=>'24.2.0'
 ,p_default_workspace_id=>3164667463725942
 ,p_default_application_id=>810001
-,p_default_id_offset=>0
+,p_default_id_offset=>4766506890374761
 ,p_default_owner=>'E1_DEV_A'
 );
 wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(3770389353801277)
 ,p_name=>'Navigation Menu'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>3311349
+,p_version_scn=>3322210
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(3782159331801329)
@@ -33,6 +33,24 @@ wwv_flow_imp_shared.create_list_item(
 ,p_list_item_icon=>'fa-table'
 ,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
 ,p_list_item_current_for_pages=>'10'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(10501949012121)
+,p_list_item_display_sequence=>30
+,p_list_item_link_text=>'Hello entries'
+,p_list_item_link_target=>'f?p=&APP_ID.:100:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-table'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'100,101'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(23626740016392)
+,p_list_item_display_sequence=>40
+,p_list_item_link_text=>'Hello configuration'
+,p_list_item_link_target=>'f?p=&APP_ID.:110:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-table'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'110,111'
 );
 wwv_flow_imp.component_end;
 end;

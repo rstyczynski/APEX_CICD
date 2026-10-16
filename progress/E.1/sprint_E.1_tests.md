@@ -59,3 +59,11 @@ Earlier interactive command results support the additional Foundation/capture ob
 - IT-4 Foundation-only function passed on A, including actual HTTP assembly-blocked message.
 - A's initial reservation was released; a separate capture reservation acquired/exported/released successfully.
 - Full greeting/history behavior is not yet exercised; Hello/World are absent.
+
+
+## Hello intermediate-source verification
+
+- Native Foundation reconstruction in B and immutable migration 003 passed; USER_ERRORS is empty.
+- Hello assembly checks passed: Foundation/Hello 1.0.0, World absent, no seeded entries, incomplete runtime rejects mutation.
+- Repeated B exports are byte-identical. [Scope review](tests/hello_source_review.txt) identifies generated identity metadata and preserves Foundation behavior; the final form source contains active-entry lookup and disabled configuration creation/deletion.
+- Hello task generation 3 was released after verification. Combined runtime behavior remains pending C.

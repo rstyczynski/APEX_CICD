@@ -8,7 +8,7 @@ wwv_flow_imp.component_begin (
 ,p_release=>'24.2.0'
 ,p_default_workspace_id=>3164667463725942
 ,p_default_application_id=>810001
-,p_default_id_offset=>0
+,p_default_id_offset=>4766506890374761
 ,p_default_owner=>'E1_DEV_A'
 );
 wwv_flow_imp_page.create_page(
@@ -19,6 +19,7 @@ wwv_flow_imp_page.create_page(
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'C'
+,p_page_component_map=>'18'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(4570963224335277)

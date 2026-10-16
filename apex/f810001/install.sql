@@ -17,6 +17,7 @@ prompt --install
 @@application/shared_components/logic/application_settings.sql
 @@application/shared_components/navigation/tabs/standard.sql
 @@application/shared_components/navigation/tabs/parent.sql
+@@application/shared_components/user_interface/lovs/hello_entries_entry_text.sql
 @@application/pages/page_groups.sql
 @@application/shared_components/navigation/breadcrumbs/breadcrumb.sql
 @@application/shared_components/navigation/breadcrumbentry.sql
@@ -35,5 +36,9 @@ prompt --install
 @@application/pages/page_00000.sql
 @@application/pages/page_00001.sql
 @@application/pages/page_00010.sql
+@@application/pages/page_00100.sql
+@@application/pages/page_00101.sql
+@@application/pages/page_00110.sql
+@@application/pages/page_00111.sql
 @@application/pages/page_09999.sql
 @@application/end_environment.sql

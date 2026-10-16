@@ -8,12 +8,24 @@ wwv_flow_imp.component_begin (
 ,p_release=>'24.2.0'
 ,p_default_workspace_id=>3164667463725942
 ,p_default_application_id=>810001
-,p_default_id_offset=>0
+,p_default_id_offset=>4766506890374761
 ,p_default_owner=>'E1_DEV_A'
 );
 wwv_flow_imp_shared.create_menu(
  p_id=>wwv_flow_imp.id(3769886927801275)
 ,p_name=>'Breadcrumb'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(14546689012130)
+,p_short_name=>'Hello entries'
+,p_link=>'f?p=&APP_ID.:100:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>100
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(27538619016400)
+,p_short_name=>'Hello configuration'
+,p_link=>'f?p=&APP_ID.:110:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>110
 );
 wwv_flow_imp_shared.create_menu_option(
  p_id=>wwv_flow_imp.id(3770014920801276)

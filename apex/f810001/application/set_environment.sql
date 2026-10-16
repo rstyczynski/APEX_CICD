@@ -22,7 +22,7 @@ wwv_flow_imp.import_begin (
 ,p_release=>'24.2.0'
 ,p_default_workspace_id=>3164667463725942
 ,p_default_application_id=>810001
-,p_default_id_offset=>0
+,p_default_id_offset=>4766506890374761
 ,p_default_owner=>'E1_DEV_A'
 );
 end;

@@ -33,7 +33,7 @@
 
 - A's Foundation database and application shell exist. Its runtime displays the assembly-blocked message.
 - The script can show that current runtime result after internal database checks. This is not a new deployment.
-- B/Hello, C/World, qualification/promotion, the compatible patch and deployment-rejection controls are not implemented yet.
+- B now contains the reviewed Foundation-plus-Hello intermediate assembly; the grouped B delivery operation, C/World, release/patch and rejection demonstrations remain under construction.
 - The complete positive/negative deployment demonstration is therefore **not ready**.
 - The current script stops with **PENDING**, status 3, before B. It does not print successful deployment or rejection claims for those missing operations.
 
@@ -102,7 +102,7 @@
 
 - No page-definition review is required.
 - Hello's usable behavior is demonstrated in the completed application after World is integrated.
-- E1_DEV_B / application 810002 is a reserved mapping; no application is deployed there yet.
+- E1_DEV_B / application 810002 now contains the blocked Hello assembly. The grouped delivery/replay operation is still pending.
 
 ## C. Deliver World and complete the assembly — pending construction
 

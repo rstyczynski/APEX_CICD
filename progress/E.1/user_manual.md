@@ -314,7 +314,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev
   ```
 
 - For diff, status 0 means identical; status 1 means differences to review.
-- The accepted Foundation source now includes Version 1.0.0, the Create greeting action and the history report. An unchanged fresh capture should match it; any live edits require explicit review.
+- A retains the accepted Foundation-only checkpoint e9a490f. The current integrated source may additionally contain Hello/World work; compare A against its recorded Foundation baseline and do not accept apparent component removals from an older private area. Any live edits require review.
 - Review every additional difference rather than assuming it belongs to this task.
 - Do not copy the staging tree over the source until its component scope and deletions have been checked.
 - The controlled source reconciliation and cross-area import steps are still under construction.
@@ -329,7 +329,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev
 - The pipeline-stage list at the end tracks what works and what remains under construction.
 
 - For another area's inventory, connect with lab-dev-b, lab-dev-c, lab-qualify or lab-test and run the same application_inventory.sql.
-- B/C and TEST currently contain no application. Qualification contains a Foundation-only import experiment.
+- B contains a Foundation-plus-Hello assembly; C and TEST still have no application. Qualification contains Foundation only.
 - Only A has Foundation installed at this stage.
 
 ## Developer A — Foundation
@@ -371,8 +371,8 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev
 
 - At the SQLcl prompt, run @deploy/operator/application_inventory.sql and leave with Ctrl+D.
 - The schema is E1_DEV_B and the saved connection is lab-dev-b.
-- The workspace/account exists, but no application has been imported here yet.
-- Application ID 810002 is reserved in the target mapping; it is not a deployed endpoint yet.
+- Application 810002 now contains Foundation plus Hello pages 100/101 and 110/111. Its runtime is blocked while World is absent.
+- Open http://127.0.0.1:8080/ords/f?p=810002:1 to see the Hello assembly message. This is not a complete release.
 
 ## Developer C — World
 

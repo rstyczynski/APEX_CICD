@@ -1,0 +1,8 @@
+Hello source review: PASS
+Base: e9a490f, Foundation
+Scope: pages 100/101/110/111, Hello LOV, generated navigation/breadcrumb/includes.
+Private-import differences: original-ID offset, manifest comments, page component map cache and per-target UI identity. Comparison only; Oracle files are not normalized or edited.
+Runtime metadata: target alias, unavailable message and generated SCNs.
+No deleted files. Foundation page behavior unchanged.
+Repeated unchanged B export is byte-identical.
+Configuration selector filters active entries; config creation/deletion and entry deletion are hidden.

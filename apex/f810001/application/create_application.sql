@@ -1,21 +1,21 @@
 prompt --application/create_application
 begin
 --   Manifest
---     FLOW: 810001
+--     FLOW: 810002
 --   Manifest End
 wwv_flow_imp.component_begin (
  p_version_yyyy_mm_dd=>'2024.11.30'
 ,p_release=>'24.2.0'
 ,p_default_workspace_id=>3164667463725942
 ,p_default_application_id=>810001
-,p_default_id_offset=>0
+,p_default_id_offset=>4766506890374761
 ,p_default_owner=>'E1_DEV_A'
 );
 wwv_imp_workspace.create_flow(
  p_id=>wwv_flow.g_flow_id
 ,p_owner=>nvl(wwv_flow_application_install.get_schema,'E1_DEV_A')
 ,p_name=>nvl(wwv_flow_application_install.get_application_name,'APEX Delivery Laboratory')
-,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'APEX-DELIVERY-LABORATORY')
+,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'APEX-DELIVERY-LABORATORY-B')
 ,p_page_view_logging=>'YES'
 ,p_page_protection_enabled_y_n=>'Y'
 ,p_checksum_salt=>'59EEC5DFFC07FF8C22AD0EFA1BC54193CFDE680960C2F68F83A676D72090DAB9'
@@ -36,7 +36,7 @@ wwv_imp_workspace.create_flow(
 ,p_no_proxy_domains=>nvl(wwv_flow_application_install.get_no_proxy_domains,'')
 ,p_flow_version=>'1.0.0'
 ,p_flow_status=>'UNAVAILABLE'
-,p_flow_unavailable_text=>'Foundation assembly: Hello and World are not installed.'
+,p_flow_unavailable_text=>'Hello assembly: World is not installed.'
 ,p_exact_substitutions_only=>'Y'
 ,p_browser_cache=>'N'
 ,p_browser_frame=>'D'
@@ -47,7 +47,7 @@ wwv_imp_workspace.create_flow(
 ,p_substitution_value_01=>'APEX Delivery Laboratory'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>6
-,p_version_scn=>3311371
+,p_version_scn=>3322776
 ,p_print_server_type=>'NATIVE'
 ,p_file_storage=>'DB'
 ,p_is_pwa=>'Y'
