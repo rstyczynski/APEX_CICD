@@ -1,3 +1,4 @@
 # Preserve Oracle-generated export bytes and verbatim runtime evidence.
 apex/** whitespace=-blank-at-eol
 progress/E.1/tests/*.log whitespace=-blank-at-eol
+tests/fixtures/drift-changed/** whitespace=-blank-at-eol

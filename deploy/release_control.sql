@@ -28,10 +28,23 @@ begin
   end if;
   select count(*) into n from user_tab_columns where table_name='E1_RELEASE_ATTEMPTS' and column_name='FAILURE_REASON';
   if n=0 then execute immediate 'alter table e1_release_attempts add (failure_reason varchar2(1000))'; end if;
+  select count(*) into n from user_tables where table_name='E1_PATCH_QUALIFICATIONS';
+  if n=0 then
+    execute immediate q'[create table e1_patch_qualifications (
+      artifact_hash varchar2(64) not null, starting_state varchar2(20) not null,
+      source_commit varchar2(40) not null, config_hash varchar2(64) not null,
+      base_artifact varchar2(64) not null, qualification_epoch number not null,
+      qualified_at timestamp with time zone default systimestamp,
+      primary key(artifact_hash,starting_state))]';
+  end if;
+  select count(*) into n from user_tab_columns where table_name='E1_RELEASE_ATTEMPTS' and column_name='BASE_ARTIFACT';
+  if n=0 then execute immediate 'alter table e1_release_attempts add (base_artifact varchar2(64))'; end if;
 end;
 /
 create or replace package e1_release authid definer as
   procedure begin_initial(p_expected_epoch number,p_hash varchar2,p_commit varchar2,p_config varchar2);
+  procedure begin_patch(p_expected_epoch number,p_hash varchar2,p_commit varchar2,p_config varchar2,
+    p_base varchar2,p_start varchar2,p_expected_fingerprint varchar2);
   procedure assert_attempt(p_epoch number,p_hash varchar2);
   procedure verifying(p_epoch number,p_hash varchar2);
   procedure publish_initial(p_epoch number,p_hash varchar2,p_fingerprint varchar2);
@@ -70,6 +83,40 @@ create or replace package body e1_release as
     dbms_output.put_line('ADMITTED INITIAL ATTEMPT epoch '||(r.epoch+1)||'; durable ownership survives disconnects and DDL commits.');
   exception when others then rollback; raise;
   end;
+  procedure begin_patch(p_expected_epoch number,p_hash varchar2,p_commit varchar2,p_config varchar2,
+    p_base varchar2,p_start varchar2,p_expected_fingerprint varchar2) is
+    who varchar2(30):=actor; r e1_release_targets%rowtype; n number;
+  begin
+    if p_start is null or p_start not in ('empty','1.0.0') or
+       p_hash is null or not regexp_like(p_hash,'^[0-9a-f]{64}$') or
+       p_base is null or not regexp_like(p_base,'^[0-9a-f]{64}$') or
+       p_commit is null or not regexp_like(p_commit,'^[0-9a-f]{40}$') or
+       p_config is null or not regexp_like(p_config,'^[0-9a-f]{64}$') then
+      raise_application_error(-20640,'Invalid bounded patch identity/start');
+    end if;
+    select * into r from e1_release_targets where schema_name=who for update nowait;
+    if r.epoch<>p_expected_epoch or r.owner_name is not null or r.phase not in ('new','ready') then
+      raise_application_error(-20613,'Stale epoch or active attempt');
+    end if;
+    if p_start='1.0.0' and (r.phase<>'ready' or r.artifact_hash<>p_base or r.fingerprint is null or
+       p_expected_fingerprint is null or r.fingerprint<>p_expected_fingerprint) then
+      raise_application_error(-20641,'Patch baseline artifact/fingerprint changed');
+    end if;
+    select count(*) into n from e1_qualified_artifacts where artifact_hash=p_base and starting_state='empty' and config_hash=p_config;
+    if n<>1 then raise_application_error(-20642,'Accepted initial baseline required'); end if;
+    if who='E1_TEST' then
+      if p_start<>'1.0.0' then raise_application_error(-20643,'TEST patch requires retained initial baseline'); end if;
+      select count(*) into n from e1_patch_qualifications where artifact_hash=p_hash and source_commit=p_commit and config_hash=p_config and base_artifact=p_base and starting_state in ('empty','1.0.0');
+      if n<>2 then raise_application_error(-20644,'Patch requires fresh AND baseline-upgrade qualification of identical bytes'); end if;
+    end if;
+    update e1_release_targets set epoch=epoch+1,phase='installing',owner_name=who,
+      artifact_hash=p_hash,source_commit=p_commit,config_hash=p_config,fingerprint=null where schema_name=who;
+    insert into e1_release_attempts(schema_name,epoch,artifact_hash,source_commit,config_hash,starting_state,outcome,base_artifact)
+      values(who,r.epoch+1,p_hash,p_commit,p_config,p_start,'installing',p_base);
+    commit;
+    dbms_output.put_line('ADMITTED PATCH epoch '||(r.epoch+1)||' from '||p_start);
+  exception when others then rollback; raise;
+  end;
   procedure assert_attempt(p_epoch number,p_hash varchar2) is who varchar2(30):=actor; n number;
   begin
     select count(*) into n from e1_release_targets where schema_name=who and owner_name=who and epoch=p_epoch and artifact_hash=p_hash and phase in ('installing','verifying');
@@ -84,14 +131,21 @@ create or replace package body e1_release as
     -- Caller commits atomically with restricted native availability.
   end;
   procedure publish_initial(p_epoch number,p_hash varchar2,p_fingerprint varchar2) is
-    who varchar2(30):=actor; r e1_release_targets%rowtype;
+    who varchar2(30):=actor; r e1_release_targets%rowtype; a e1_release_attempts%rowtype; n number;
   begin
     assert_attempt(p_epoch,p_hash);
     select * into r from e1_release_targets where schema_name=who for update nowait;
     if r.phase<>'verifying' or p_fingerprint is null or not regexp_like(p_fingerprint,'^SH256:[A-Za-z0-9+/]{43}=$') then raise_application_error(-20616,'Verification and final fingerprint required'); end if;
-    if who='E1_QUALIFY' then
+    select * into a from e1_release_attempts where schema_name=who and epoch=p_epoch;
+    if who='E1_QUALIFY' and a.base_artifact is not null then
+      insert into e1_patch_qualifications(artifact_hash,starting_state,source_commit,config_hash,base_artifact,qualification_epoch)
+        values(r.artifact_hash,a.starting_state,r.source_commit,r.config_hash,a.base_artifact,r.epoch);
+    elsif who='E1_QUALIFY' then
+      select count(*) into n from e1_qualified_artifacts where artifact_hash=r.artifact_hash;
+      if n=0 then
       insert into e1_qualified_artifacts(artifact_hash,source_commit,config_hash,qualification_epoch,starting_state)
         values(r.artifact_hash,r.source_commit,r.config_hash,r.epoch,'empty');
+      end if;
     end if;
     update e1_release_attempts set outcome='succeeded',finished_at=systimestamp,fingerprint=p_fingerprint where schema_name=who and epoch=p_epoch;
     update e1_release_targets set phase='ready',owner_name=null,fingerprint=p_fingerprint where schema_name=who;
