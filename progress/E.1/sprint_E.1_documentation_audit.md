@@ -132,3 +132,8 @@ The results guide now lists cleanup as numbered run step 2, its PASS/backup chec
 ## Toolchain explanation in the results guide — 2026-10-17
 
 Added Applied tools and techniques immediately after Deep dive. Explained Podman/logical areas, Oracle/PLSQL, APEX/ORDS, SQLcl/Java, Liquibase, Git and small operator/test helpers; source capture/review, Foundation-first assembly, versions versus archive/live fingerprints, fail-stop checks and retained-history evidence. Reconciled statements against the SRS, architecture, test profile, accepted design and actual development tests. Exact-artifact release, patch, rejection, full maintenance and recovery remain explicitly pending. The paired runner validates the new chapter reference and points readers to it without changing deployment behavior. Shell syntax, preflight, local links and whitespace checks pass; no runtime tests are needed for this explanatory change.
+
+
+## Toolchain reading order — 2026-10-17
+
+Reordered the results guide for Oracle database specialists: Database/PLSQL, SQLcl, Liquibase, APEX/ORDS, Git, shell/Python helpers, then Podman lab infrastructure. Responsibilities and readiness claims are unchanged. Reconciled the companion runner comment; syntax, chapter preflight, local links and whitespace checks pass. This editorial change requires no database operation.

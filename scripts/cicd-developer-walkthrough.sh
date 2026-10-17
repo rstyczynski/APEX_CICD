@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Use-case/result companion to developer_walkthrough.md; current A/B/C development results.
+# Toolchain chapter orders Oracle DB, SQLcl, migrations and APEX before supporting/lab tools.
 set -Eeuo pipefail
 ROOT="$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --show-toplevel)"
 cd "$ROOT"
