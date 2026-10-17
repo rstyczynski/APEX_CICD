@@ -536,3 +536,21 @@ podman --connection apex-cicd volume create apex-images
 - New results belong in the current sprint's construction/test records.
 
 - References: [database image documentation](https://github.com/gvenzl/oci-oracle-free), [Oracle ORDS installation guide](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/25.3/ordig/installing-and-configuring-oracle-rest-data-services.html), [krunkit 1.3.2 release](https://github.com/libkrun/krunkit/releases/tag/v1.3.2), and the [initial technical assessment](cicd-research.md).
+
+## Disposable qualification lifecycle
+
+1. Discover the repository root with `cd "$(git rev-parse --show-toplevel)"`.
+2. Inspect release receipts and require idle ownership before resetting qualification:
+
+   ```bash
+   python3 scripts/apex_sql.py lab-control deploy/operator/show_release_receipts.sql
+   python3 scripts/apex_sql.py lab-control deploy/operator/walkthrough_idle.sql
+   ```
+
+3. If an initial experiment failed, inspect its attempt and transcripts first. Only the bound `E1_CTRL.e1_release.retire_disposable_qualification(epoch,hash,reason)` procedure may retire its active qualification attempt. It retains failure/history. There is no automatic TEST retirement or recovery.
+4. Only when a new empty qualification area is required, run `python3 scripts/cicd-platform.py reset-qualify`. This checks the local ownership receipt, removes E1_QUALIFY through public APEX_INSTANCE_ADMIN and bootstraps its schema/workspace. Other areas are checked, not dropped. The reset helper does not itself acquire deployment ownership; the explicit idle check and operator sequencing are required.
+5. Unpack the selected verified release with `python3 scripts/cicd-artifact.py unpack "$archive" .local-apex/releases/control-bootstrap-new` using a fresh destination. Execute its `deploy/release_control.sql` with `python3 scripts/apex_sql.py lab-control .local-apex/releases/control-bootstrap-new/deploy/release_control.sql`. Reapply it after a qualification reset to restore the schema's package grant. Existing control records/epochs remain retained.
+6. Continue with the [initial-release operator chapter](../progress/E.1/user_manual.md#initial-release-build-qualify-and-promote). A normal rerun verifies the already qualified result; reconstruction/publication of the same previously qualified hash is not supported.
+
+- This procedure preserves retained TEST, credentials, release history and unrelated Podman resources. It does not recreate the VM or containers.
+- Do not use this disposable-area procedure as a retained-target upgrade or repair mechanism.

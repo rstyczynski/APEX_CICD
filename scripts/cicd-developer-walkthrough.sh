@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Use-case/result companion to developer_walkthrough.md; current A/B/C development results.
+# Use-case/result companion to developer_walkthrough.md; existing A/B/C and initial release results.
 # Toolchain chapter starts with APEX/ORDS and SQLcl, followed by DB/migrations and supporting tools.
 set -Eeuo pipefail
 ROOT="$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --show-toplevel)"
@@ -49,9 +49,10 @@ command -v rg >/dev/null
 for name in identity application_inventory component_inventory foundation_verify show_reservations; do
   test -r "$ROOT/deploy/operator/$name.sql"
 done
-for heading in '## Applied tools and techniques' '## Prepare a repeatable walkthrough' '## A. Deliver Foundation' '## B. Deliver Hello' '## C. Deliver World and complete the assembly' '## Release boundary — not implemented'; do
+for heading in '## Applied tools and techniques' '## Prepare a repeatable walkthrough' '## A. Deliver Foundation' '## B. Deliver Hello' '## C. Deliver World and complete the assembly' '## D. Qualify the initial release' '## E. Promote the same initial artifact to TEST' '## Remaining release scenarios — pending construction'; do
   if ! rg -Fqx -- "$heading" "$MANUAL"; then echo "ERROR: manual/script mismatch: $heading" >&2; exit 1; fi
 done
+for helper in cicd-release-result.sh cicd-release-step.sh cicd-artifact.py; do test -r "$ROOT/scripts/$helper"; done
 echo 'OK: required tools/files and chapter references found. Database access is checked in A.'
 bash scripts/cicd-walkthrough-cleanup.sh --preflight
 if [ "$MODE" = --preflight ]; then exit 0; fi
@@ -60,7 +61,7 @@ mkdir -p .local-apex/operator
 work="$(mktemp -d "$ROOT/.local-apex/operator/developer.XXXXXX")"
 echo "Use-case walkthrough: $MANUAL"
 echo 'Background: manual chapter "Applied tools and techniques" explains the toolchain, checks and pending release gates.'
-echo 'Current scope: verify existing A/B/C development results. No redeployment is performed; release and rejection demonstrations remain pending.'
+echo 'Current scope: verify existing A/B/C and initial qualification/TEST results. No redeployment is performed; patch and rejection demonstrations remain pending.'
 echo 'PREREQUISITE: run bash scripts/cicd-walkthrough-cleanup.sh separately before this walkthrough (manual run step 2).'
 section '## A. Deliver Foundation'
 pause 'Press any key to check the existing Foundation result; q to quit.'
@@ -89,8 +90,18 @@ echo 'VERIFIED EXISTING RESULT: C development application, three components at 1
 echo 'PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810003:1 and sign in as LAB_USER.'
 echo 'Select Hello/World, Create greeting, reopen Greeting history and Installed components.'
 pause 'Use the application to see its result, then press any key; q to quit.'
-section '## Release boundary — not implemented'
-echo 'PENDING: exact-artifact qualification/promotion, compatible patch and specific deployment rejection checks.'
-echo 'COMPLETED: implemented A/B/C results walkthrough. Cleanup is a separate prerequisite.'
-echo 'INCOMPLETE END-TO-END PIPELINE (exit 3): release stages are unimplemented, not a rerun/configuration failure. TEST unchanged.'
+archive="$(cat .local-apex/releases/initial-selected.txt)"
+section '## D. Qualify the initial release'
+pause 'Press any key to verify the existing qualified release; q to quit.'
+bash scripts/cicd-release-result.sh "$archive" lab-qualify
+echo 'PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810004:1 as LAB_USER.'
+pause 'Create a greeting, reopen history and installed components, then press any key; q to quit.'
+section '## E. Promote the same initial artifact to TEST'
+pause 'Press any key to verify TEST received the same archive; q to quit.'
+bash scripts/cicd-release-result.sh "$archive" lab-test
+echo 'PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810005:1 as LAB_USER.'
+pause 'Create a greeting, reopen history and installed components, then press any key; q to quit.'
+section '## Remaining release scenarios — pending construction'
+echo 'COMPLETED: existing A/B/C, initial qualification and same-artifact TEST results verified.'
+echo 'PENDING (exit 3): compatible patch and specific incompatible/drift deployment rejection scenarios.'
 exit 3

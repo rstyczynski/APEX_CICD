@@ -14,7 +14,7 @@
 - Infrastructure start/stop/recreation belongs to the shared [deployment procedure](../../docs/deploy.md).
 
 - The application pipeline is under construction.
-- A/B retain incomplete assembly checkpoints; C has the working Foundation/Hello/World development application. The retained TEST release remains under construction.
+- A/B retain incomplete assembly checkpoints; C has the working Foundation/Hello/World development application. Initial qualification and retained TEST are published at 1.0.0; upgrades remain under construction.
 - Use the areas below to inspect the actual current state.
 - This guide is updated as construction makes each operation usable.
 
@@ -329,8 +329,8 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev @deploy/o
 - The pipeline-stage list at the end tracks what works and what remains under construction.
 
 - For another area's inventory, connect with lab-dev-b, lab-dev-c, lab-qualify or lab-test and run the same application_inventory.sql.
-- B contains Foundation plus Hello; C contains the published complete development assembly; TEST has no application. Qualification contains Foundation only.
-- Foundation is installed in A, B, C and the Foundation-only qualification experiment.
+- B contains Foundation plus Hello; C contains the published complete development assembly; qualification and TEST contain the published complete 1.0.0 release.
+- Foundation is installed in A/B/C, qualification and TEST.
 
 ## Developer A — Foundation
 
@@ -392,8 +392,8 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev @deploy/o
 - Qualification uses workspace/schema E1_QUALIFY, connection lab-qualify and reserved application ID 810004.
 - This area is disposable.
 - TEST uses workspace/schema E1_TEST, connection lab-test and reserved application ID 810005; it is retained.
-- Qualification currently contains the reconstructed Foundation-only application 810004 for the initial import experiment. TEST still has no application.
-- Qualification’s current runtime remains blocked for incomplete assembly; this is not a qualified complete release. TEST has no deployed runtime yet.
+- Qualification application 810004 and TEST application 810005 contain the complete qualified/promoted 1.0.0 release.
+- Both runtimes are published for LAB_USER: [qualification](http://127.0.0.1:8080/ords/f?p=810004:1) and [TEST](http://127.0.0.1:8080/ords/f?p=810005:1).
 
 ```bash
 sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
@@ -489,16 +489,16 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
 3. **Author Foundation — working initial assembly.** Liquibase validates db/changelog.xml, applies 001-foundation, then assertions check Foundation 1.0.0, absent Hello/World and root maintenance. deploy/foundation.sql records the bounded initial construction operation with its ownership token. That task is now closed: do not replay it as a general release installer.
 4. **Capture and review — initial capture working.** SQLcl exports the application to staging; source is reviewed in Git. Repeated unchanged capture matches all 38 files. The reusable ownership/scope-aware capture command and private-copy normalization are still being completed.
 5. **Author Hello and World — working development assembly.** B and C worked sequentially in private copies, captured native source and integrated reviewed contributions. No completed component application is supplied as a seed.
-6. **Validate candidate, then accept source — pending.** Validate the combined revision before local integration. Preserve its review/check evidence. Remote PR publication is outside the current local execution.
-7. **Build once — pending.** Package the accepted revision, migrations and component/compatibility metadata into an immutable archive. Record its hash and source revision.
-8. **Qualify exact bytes — pending.** Import that archive into the disposable area and verify versions and greeting/history. The patch release must also qualify from its declared earlier baseline.
+6. **Validate candidate, then accept source.** Validate the combined revision before local integration. Preserve its review/check evidence. Remote PR publication is outside the current local execution.
+7. **Build once.** Package the accepted revision, migrations and component/compatibility metadata into an immutable archive. Record its hash and source revision.
+8. **Qualify initial exact bytes.** Import that archive into the disposable area and verify versions and greeting/history. The patch release must also qualify from its declared earlier baseline.
 9. **Preflight TEST — pending.** Verify compatibility, expected installed revision and live fingerprints before mutation. Reject the incompatible Foundation upgrade or unexpected APEX drift with a clear reason and unchanged working target.
-10. **Promote and verify — pending.** Install the same qualified archive under controlled availability, check behavior/history and installed metadata, then publish readiness. A successful database step alone cannot publish application success.
+10. **Promote initial release and verify.** Install the same qualified archive under controlled availability, check behavior/history and installed metadata, then publish readiness. A successful database step alone cannot publish application success.
 11. **Demonstrate the patch — pending.** Upgrade Hello from 1.0.0 to 1.0.1 while Foundation and World remain 1.0.0. Show preserved configuration/history and source/artifact/deployment receipts.
 
 - The [construction document](sprint_E.1_implementation.md) records code changes, tests and remaining work.
 - The [design](sprint_E.1_design.md) retains acceptance criteria and later experiments.
-- The operator guide will gain the exact runnable release commands and deployed TEST URL as those stages are built.
+- The initial commands and TEST URL are documented below. Retained-target upgrades and deployment-rejection scenarios remain pending.
 
 
 ## Use the complete development application
@@ -522,7 +522,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
 - Blank/oversize entries, deactivating a configured default and editing/deleting history are rejected by database guards.
 - The development example values and verification history were entered through the browser; no seed application/business data is distributed.
 - Publication used separate identity, ownership, compilation/page/version checks, restricted browser verification and `deploy/operator/publish_development.sql`. These bounded scripts name C and the completed construction task; do not replay them as generic release scripts or reuse closed ownership tokens.
-- Qualification and retained TEST publication, patch and incompatible/drift deployment rejection remain under construction.
+- Initial qualification and retained TEST publication are complete. Patch and incompatible/drift deployment rejection remain under construction.
 - Maintain this chapter with its companion results runner and guide; the existing Foundation operator walkthrough remains a separate detailed view.
 
 
@@ -554,3 +554,52 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
 - `--preflight` on cleanup checks local tools/files only. The walkthrough's `--rehearse` performs CLI checks without browser pauses; run cleanup separately first.
 - The implemented A/B/C walkthrough ends with **exit 3** because later release stages are unimplemented. This is an explicit incomplete-pipeline outcome, not failure caused by rerunning a configured system.
 - Maintain this chapter, the results chapters and their scripts together.
+
+## Initial release: build, qualify and promote
+
+### Inspect or repeat the existing result
+
+1. Position inside the checkout and select the retained archive:
+
+   ```bash
+   cd "$(git rev-parse --show-toplevel)"
+   archive="$(cat .local-apex/releases/initial-selected.txt)"
+   python3 scripts/cicd-artifact.py inspect "$archive"
+   ```
+
+2. Verify qualification and TEST without redeploying:
+
+   ```bash
+   bash scripts/cicd-qualify.sh "$archive"
+   bash scripts/cicd-promote.sh "$archive" lab-test
+   ```
+
+3. Expect **ALREADY DELIVERED** after actual version, readiness and live APEX fingerprint checks. A mismatch fails without overwriting. These commands preserve configuration/history and do not repeat migration/import.
+4. Open [TEST](http://127.0.0.1:8080/ords/f?p=810005:1) as **LAB_USER**. Follow the entry/configuration/greeting/history operations in [the runtime chapter](#use-the-complete-development-application), using TEST instead of C.
+5. Keep cleanup separate. Walkthrough cleanup prepares C only; it never resets qualification or TEST.
+
+### First installation on an empty target
+
+1. Validate the clean candidate with `bash scripts/cicd-candidate-check.sh`, integrate the accepted commit locally and build once with `python3 scripts/cicd-artifact.py build`. Preserve the archive/sidecar; never overwrite or rebuild it for promotion. The builder records the selected archive path above.
+2. Follow [the infrastructure procedure](../../docs/deploy.md#disposable-qualification-lifecycle) for any required disposable qualification reset and control bootstrap. Inspect active ownership first. Never reset TEST. Normal reruns use existing-result verification, not reconstruction of an already qualified hash.
+3. Run `bash scripts/cicd-qualify.sh "$archive"`. On an empty target the wrapper pauses before each operation and prints native SQLcl output. It refuses active/interrupted attempts and never resets a target automatically.
+4. For individual operations, execute `bash scripts/cicd-release-step.sh "$archive" lab-qualify status 0`, inspect its current epoch and use that value for **admit**. Admission increments it; all following operations require the resulting epoch. Our completed run used expected epoch 1 → actual 2 for qualification, and expected 0 → actual 1 for TEST. These are historical values, not repeat-run instructions.
+5. Run each atomic operation separately with `bash scripts/cicd-release-step.sh "$archive" lab-qualify OPERATION EPOCH`, substituting **admit**, then **migrate**, **import**, **units**, **verify**. Use the pre-admission epoch only for admit. Migrate exposes SQLcl `lb validate/update/status`; import executes unchanged native split APEX source mapped through public APIs.
+6. At verify, open qualification as **VERIFIER**. Using the runtime chapter, create active Hello/World entries, configure both defaults, create **Hello World**, then reopen and refresh its saved history. Retrieve only that account's password with `python3 scripts/cicd-password.py VERIFIER`.
+7. Run the **publish** operation with the admitted epoch, then `bash scripts/cicd-release-result.sh "$archive" lab-qualify`. Verify ordinary LAB_USER access afterward.
+8. Run `bash scripts/cicd-promote.sh "$archive" lab-test` against empty TEST. It uses the identical archive, requires its qualification receipt and repeats the visible migration/import/unit/integrity/VERIFIER/publication stages. Do not rebuild between targets.
+
+- These primitive stages and both browser flows passed. The fresh-install wrapper's human keypress journey is not a separate second-operator reproduction acceptance.
+- Admission supports **empty application targets only**, retaining the isolation probe. An existing application/schema requires the future supported upgrade path.
+- SQL is extracted from the verified archive on every operation; archive membership/content/configuration and controller identity are checked before execution. Private transcripts remain under `.local-apex/releases/`.
+- Native availability changes the APEX checksum, and APEX_EXPORT starts a read-only transaction. Publication therefore prepares native AVAILABLE while the external session-initialization gate still restricts business requests, computes the final checksum in a fresh transaction, then commits successful receipt and external ready state together. Login page access remains available; VERIFIER alone can exercise business pages during verification.
+- This initial-install proof does not establish full upgrade request draining, schema-drift detection, repair or concurrent deployment safety.
+- Twenty VERIFIER greeting snapshots were explicitly created **after** TEST publication with `tests/sql/prepare_history_sentinels.sql` for later upgrade comparisons. The repeatable fixture appends only missing verification snapshots; it never distributes seed data or deletes existing history.
+
+### Recorded initial result
+
+- Source commit: `0f7c500e064e4f262a42fb74f4984eb0e4349c88`.
+- Qualified/promoted archive SHA-256: `6a1da4a940586541cbb034277605d7ed36e5d1ad305554f9a2fe4c64cd59411c`.
+- Qualification 810004 epoch 2 and TEST 810005 epoch 1 are **ready**; Foundation/Hello/World are all **1.0.0**.
+- The earlier qualification publication experiment failed before promotion. Its archive and failed attempt remain retained; no failed-release repair acceptance is inferred.
+- Maintain this chapter, the release wrappers and the results walkthrough together as one operator artifact.

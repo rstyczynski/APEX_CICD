@@ -1,0 +1,39 @@
+Initial release proof — 2026-10-18
+Source: 0f7c500e064e4f262a42fb74f4984eb0e4349c88
+Archive SHA256: 6a1da4a940586541cbb034277605d7ed36e5d1ad305554f9a2fe4c64cd59411c
+Configuration SHA256: 32884ea95c97ecb7256f8dcae86c6ca1c86b27ac521a17d1a957cbbc3bce5fd1
+Q: E1_QUALIFY / 810004 / epoch 2 / ready
+Q fingerprint: SH256:5rGcXiERSqxqGBRYw1f0J3MoW1MkelPpDE/A4n3oeug=
+TEST: E1_TEST / 810005 / epoch 1 / ready
+TEST fingerprint: SH256:sImTVvubclbrs86w8XGjk3jwWb/OpO8BFehYVHaYyQk=
+Versions: Foundation=1.0.0 Hello=1.0.0 World=1.0.0
+Four changesets, thirteen APEX pages, zero compilation errors.
+
+Actual operations: admit -> migrate -> import -> units -> verify -> browser -> publish.
+Both targets executed SQL from the same verified archive, not a rebuilt checkout.
+VERIFIER: entries/defaults/Hello World/history passed in Q and TEST.
+Ordinary LAB_USER: greeting/history passed after publication in Q and TEST.
+Rollback: final external ready gate and successful receipt roll back together.
+Native AVAILABLE while external verifying: ordinary business access remains denied.
+The browser showed a generic invalid-login error during that interruption; no specific deployment rejection is inferred from that message.
+
+Registered test:
+bash tests/run.sh --integration --new-only tests/manifests/initial_release.manifest
+RUN integration:test_release.sh:test_IT1_initial_result
+PASS initial receipts, live fingerprints, repeat no-op and all retained history/configuration fields.
+PASS test_IT1_initial_result
+Tests: 1; failed: 0
+
+Private full transcripts: .local-apex/releases/guarded-qualification-*.log,
+test-{admit,migrate,import,units,verify,publish,status}.log,
+guarded-publication-rollback.log, initial-integration.log,
+results-rehearsal.log and per-operation runs/ directories.
+Private field-level comparison: initial-check.gpyt0u/{before,after}.txt.
+TEST holds 20 explicit VERIFIER snapshots plus 1 LAB_USER snapshot.
+The fixture was created after publication, not distributed as seed.
+
+Walkthrough preflight passes. Rehearsal verifies A/B/C/Q/TEST then deliberately exits 3 at pending patch/rejection scenarios.
+Unit 2/0; smoke 1/0. Full IT-1 upgrade/reconstruction and IT-2 patch remain pending.
+Earlier d0e4d37 archive is retained, unqualified and never promoted: native availability changed its checksum and export-after-DML raised ORA-01453.
+Its failed disposable attempt was retained before source correction/reconstruction.
+Initial release proof is not retained-target repair or upgrade acceptance.

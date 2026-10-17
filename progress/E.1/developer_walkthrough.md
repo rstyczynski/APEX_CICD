@@ -11,11 +11,11 @@
 
 ## Deep dive
 
-Thi document is business level presentation of detailed pipelines described in [detailed operator walkthrough](user_manual.md) with accomaning runner script [cicd-developer-walkthrough.sh](../../scripts/cicd-developer-walkthrough.sh) are **one artifact**. All three artifacts are describing one system, and are always updated and reviewed together.
+This document presents the business outcomes of the detailed pipelines described in [detailed operator walkthrough](user_manual.md) with its companion runner script [cicd-developer-walkthrough.sh](../../scripts/cicd-developer-walkthrough.sh) are **one artifact**. All three artifacts are describing one system, and are always updated and reviewed together.
 
 ## Applied tools and techniques
 
-The deployment has two kinds of source: **APEX application definitions** and **database migrations**. Git keeps both together. Operators use small shell scripts and visible SQLcl commands to assemble and check one application in each target. The working development assembly demonstrates this approach; the complete qualification/promotion pipeline is still being built.
+The deployment has two kinds of source: **APEX application definitions** and **database migrations**. Git keeps both together. Operators use small shell scripts and visible SQLcl commands to assemble and check one application in each target. The working development assembly demonstrates this approach; initial qualification and promotion now execute the same verified archive; compatible upgrade and rejection scenarios remain under construction.
 
 ### Toolchain and responsibilities
 
@@ -23,7 +23,7 @@ The deployment has two kinds of source: **APEX application definitions** and **d
 2. **SQLcl 25.3 with Java 21** connects through private saved connections, runs explicit SQL/PLSQL and performs native APEX export/import. Capture uses split files, original component IDs, no export date and no supporting-object installation. Oracle-generated export files are executed unchanged. Public APIs such as **APEX_APPLICATION_INSTALL** map the source to a target workspace/schema/application; **APEX_APPLICATION_ADMIN** controls native availability.
 3. **Oracle Database and PL/SQL** hold component data, configuration, installed versions and immutable greeting snapshots. Database constraints, packages and triggers enforce the business rules even when a caller bypasses the browser. A separate **E1_CTRL** schema keeps managed task ownership outside ordinary application migrations/imports.
 4. **Liquibase through SQLcl** applies ordered database changesets and records their identities/checksums in **DATABASECHANGELOG**. An applied migration is retained unchanged; a later correction needs a new changeset. The application export and database migrations remain distinct parts of the same reviewed source revision.
-5. **Git** identifies the reviewed source commit and shows the component diff. Foundation is established first; Hello and World are integrated from bounded private work. The current demonstration used sequential B/C development. Durable task reservations record owner, task, base commit and generation; they are separate from the planned release/deployment ownership controls.
+5. **Git** identifies the reviewed source commit and shows the component diff. Foundation is established first; Hello and World are integrated from bounded private work. The current demonstration used sequential B/C development. Durable task reservations record owner, task, base commit and generation; they are separate from the durable initial-release ownership controls.
 6. **Bash, small Python standard-library helpers and SQL assertions** expose operator stages, handle files/connections and check outcomes. The results script pauses at runtime URLs; the detailed operator guide explains individual commands. Credentials stay in protected local storage, outside Git and release contents. Repository positioning comes from Git discovery.
 7. **Podman** runs the local Oracle Database and ORDS containers. Separate database schemas, APEX workspaces and application IDs provide A/B/C development areas, disposable qualification and retained TEST on the same host. This is logical isolation; it does not model independent production hosts. Infrastructure lifecycle operations follow [deploy.md](../../docs/deploy.md).
 
@@ -31,9 +31,9 @@ The deployment has two kinds of source: **APEX application definitions** and **d
 
 1. **Prepare and identify the target.** Check the effective database user, PDB, workspace and application mapping before writes. Reserve the declared component work before managed authoring. Keep Foundation-only and incomplete assemblies unavailable.
 2. **Capture and review source.** Export native APEX definitions, review the declared component changes and inherited/shared definitions, run candidate checks, then commit the accepted source. Repeated unchanged exports must match; a live development application is not itself a release artifact.
-3. **Build once — pending end-to-end proof.** Package the accepted Git revision, migrations, deployment SQL and nonsecret manifest. Record the source commit, supported starting state, component dependencies, tool/configuration versions and the archive's **SHA-256**. Qualification and promotion must execute files from that verified archive rather than a changing checkout.
-4. **Qualify, then promote the same bytes — pending.** Reconstruct and test in the disposable area first. Retained TEST may receive only the identical qualified artifact for its supported starting state. The selected patch must also qualify against its declared earlier baseline; successful fresh installation alone does not prove an upgrade.
-5. **Verify before publishing.** Development verification already uses native restricted access for **VERIFIER**, followed by integrity/browser checks and a separate publication operation. The release design additionally requires persistent attempt ownership, maintenance fencing, final live fingerprints and a receipt before readiness. Those complete release controls remain unproved.
+3. **Build once.** Package the accepted Git revision, migrations, deployment SQL and nonsecret manifest. Record the source commit, supported starting state, component dependencies, tool/configuration versions and the archive's **SHA-256**. Qualification and promotion must execute files from that verified archive rather than a changing checkout.
+4. **Qualify, then promote the same bytes.** Reconstruct and test in the disposable area first. Retained TEST may receive only the identical qualified artifact for its supported starting state. The selected patch must also qualify against its declared earlier baseline; successful fresh installation alone does not prove an upgrade.
+5. **Verify before publishing.** Development verification already uses native restricted access for **VERIFIER**, followed by integrity/browser checks and a separate publication operation. The release design additionally requires persistent attempt ownership, maintenance fencing, final live fingerprints and a receipt before readiness. The initial release now uses persistent attempt ownership, an external runtime gate and a final fingerprint. Native availability is prepared while the external gate still restricts business requests; successful receipt and external readiness commit together. Upgrade maintenance and in-flight request draining remain unproved.
 
 ### How correctness is checked
 
@@ -41,9 +41,9 @@ The deployment has two kinds of source: **APEX application definitions** and **d
 2. **Dependency and version rules:** Foundation must precede its dependents, and installed components must form a supported complete combination. Semantic versions describe contracts: a compatible Hello correction is planned as **1.0.0 → 1.0.1**; a breaking Foundation change requires compatible dependents. Version labels alone do not establish compatibility. Pre-deployment rejection of the selected incompatible upgrade is still pending.
 3. **Behavior and retained data:** Oracle unit assertions check exact greeting composition, defaults, explicit selections, prefixes, Unicode, limits and rejected input. Snapshot tests check that changed configuration affects new greetings while old snapshots remain unchanged, and that history update/delete is rejected. Browser checks exercise the actual runtime as verifier and ordinary user.
 4. **Repeatability and failure reporting:** cleanup is an explicit separate step, backs up configuration and compares every existing history row before/after preparation. Scripts check Oracle errors and successful completion markers, stop on unexpected failure and show the reason. A failed connection or arbitrary error is not evidence that a bad deployment was correctly rejected.
-5. **Traceability and drift — release checks pending:** a Git commit identifies source; a semantic version describes its contract; an archive hash identifies exact packaged bytes; a recomputed live APEX/schema fingerprint detects unexpected target changes. These serve different purposes. The selected drift scenario must reject before overwriting the target and show the prior working application/history afterward. A matching hash alone does not prove functional correctness.
+5. **Traceability and drift:** a Git commit identifies source; a semantic version describes its contract; an archive hash identifies exact packaged bytes; a recomputed live APEX fingerprint detects changed application definitions; schema checks cover the declared migrations and component versions. These serve different purposes. The selected drift scenario must reject before overwriting the target and show the prior working application/history afterward. A matching hash alone does not prove functional correctness.
 
-The [current verification evidence](sprint_E.1_tests.md) supports the development assembly, its behavior and repeatable preparation. Exact-artifact promotion, the Hello patch, incompatible/drift deployment rejection, complete maintenance fencing, concurrency and automated failed-deployment repair are not yet demonstrated. Correctness is established by the checks actually passed for the stated scope; this chapter does not turn the [accepted design](sprint_E.1_design.md) into a completed guarantee.
+The [current verification evidence](sprint_E.1_tests.md) supports development, repeatable preparation and initial exact-artifact qualification/promotion. The Hello patch, incompatible/drift deployment rejection, complete maintenance fencing, concurrency and automated failed-deployment repair are not yet demonstrated. Correctness is established by the checks actually passed for the stated scope; this chapter does not turn the [accepted design](sprint_E.1_design.md) into a completed guarantee.
 
 ## Alignment with selected Elaboration use cases
 
@@ -62,14 +62,15 @@ The [current verification evidence](sprint_E.1_tests.md) supports the developmen
 - **Reproduction:** this guide contributes to UC-6; its full success criterion is not met by an unattended runner execution.
 - **Later evidence outside this selected walkthrough:** parallel Hello/World work, the competing Hello race and other reservation alternatives in UC-9; deployment races/interruption; failed additive deployment and automated repair in UC-5. These remain in the broader design.
 - **Unselected:** UC-12 adoption of an existing application. This prototype creates the application from scratch without constructing a supplied seed application.
-- **Execution status:** this mapping describes intended coverage, not passed acceptance. A/B/C development checks and runtime checkpoints execute. Release, patch and rejection stages remain pending.
+- **Execution status:** this mapping describes intended coverage, not passed acceptance. A/B/C development checks and runtime checkpoints execute. Initial qualification/promotion also execute. Patch and rejection stages remain pending.
 
 ## Current readiness
 
 - A has Foundation only; B has Foundation plus Hello. Both incomplete applications stay unavailable.
 - C/application 810003 is published for development use: Foundation, Hello and World **1.0.0**, selectable greetings, configuration and saved history.
 - The runner checks these existing results and shows their URLs. It does not redeploy or replay the completed developer authoring work.
-- Qualification, TEST promotion, patch and deployment-rejection demonstrations remain **PENDING**. The runner stops at that boundary with status 3.
+- Qualification 810004 and retained TEST 810005 are published with all three components at **1.0.0** from identical archive bytes. The runner verifies these existing results and shows both URLs.
+- Patch and deployment-rejection demonstrations remain **PENDING**. The runner stops at that remaining boundary with status 3.
 
 ## Run the results walkthrough
 
@@ -174,31 +175,48 @@ The [current verification evidence](sprint_E.1_tests.md) supports the developmen
 4. Open **Greeting history** in the navigation menu. Refresh and confirm the new row and earlier snapshots remain.
 5. Open **Installed components** and see Foundation/Hello/World **1.0.0**.
 6. To try your own data, follow the [runtime instructions](user_manual.md#use-the-complete-development-application) for entry/configuration pages.
-7. Continue in the terminal to the pending release boundary.
+7. Continue in the terminal to qualification and TEST results.
 
 - The terminal shows versions **1.0.0 / 1.0.0 / 1.0.0** and actual successful verification output.
 - The first slice runs B/C sequentially; it does not claim concurrent-development proof.
 - C is a development result, not a qualified release or retained TEST promotion. Browser-created verification examples remain in its history; application exports contain no business seed.
 
-## Release boundary — not implemented
+## D. Qualify the initial release
 
-- The implemented A/B/C results walkthrough is complete at this point.
-- The end-to-end release pipeline is still incomplete: qualification/promotion, the compatible Hello patch and the specific deployment rejection demonstrations below have not been implemented.
-- The runner stops here with **exit 3**, without modifying TEST. This outcome is the same on a first or repeated run; cleanup cannot implement unfinished release stages.
-- The following chapters describe planned acceptance, not operation output or a completed deployment.
+1. The terminal verifies the retained archive, qualification receipt, component versions, ready state and live APEX fingerprint.
+2. Open [qualification](http://127.0.0.1:8080/ords/f?p=810004:1) as **LAB_USER**.
+3. Create a greeting, reopen **Greeting history** and inspect **Installed components**: Foundation, Hello and World are **1.0.0**.
+4. Continue in the terminal.
 
-## Release and compatible update — pending construction
+- This is an existing qualified result, not a new deployment on each walkthrough run.
+- The initial deployment actually ran admission, migrations, native import, unit/integrity checks, VERIFIER browser verification and guarded publication from the archive. Individual commands are in the [operator guide](user_manual.md#initial-release-build-qualify-and-promote).
 
-1. Run the stage that builds one accepted artifact and qualifies it in the disposable area.
-2. Open the printed qualification URL and use the greeting application.
-3. Continue to promotion of the **same artifact bytes** into retained TEST.
-4. Open the printed TEST URL, create a greeting and reopen its saved history.
-5. Continue to the compatible Hello patch deployment.
-6. Reopen TEST and see the corrected Hello behavior, retained configuration and earlier greetings.
+## E. Promote the same initial artifact to TEST
 
-- The pipeline shows the same qualified/promoted artifact hash and real deployment outcomes.
-- The patch advances Hello to **1.0.1**, with Foundation and World remaining **1.0.0**.
-- Qualification 810004 contains an earlier Foundation-only reconstruction experiment. The complete release is not qualified; TEST 810005 has no application.
+1. Read the matching archive hash and successful TEST verification in the terminal.
+2. Open [retained TEST](http://127.0.0.1:8080/ords/f?p=810005:1) as **LAB_USER**. Retrieve its local password with `python3 scripts/cicd-password.py LAB_USER` if needed.
+3. Select **Hello** and **World**, then **Create greeting**. See **Hello World — saved to history.**
+4. Open **Greeting history**, refresh and confirm the new greeting and earlier snapshots remain.
+5. Open **Installed components**: Foundation, Hello and World remain **1.0.0**.
+6. Continue in the terminal to the remaining construction boundary.
+
+- Qualified and promoted SHA-256: `6a1da4a940586541cbb034277605d7ed36e5d1ad305554f9a2fe4c64cd59411c`.
+- Source: `0f7c500e064e4f262a42fb74f4984eb0e4349c88`; qualification epoch **2**, TEST epoch **1**. Target-specific APEX fingerprints differ because application mappings differ; archive bytes match.
+- Existing-result checks do not reinstall, reset configuration or delete history. TEST contains explicit post-delivery verification data, including twenty verifier snapshots for later upgrade comparisons. No business seed is distributed.
+
+## Remaining release scenarios — pending construction
+
+- Initial qualification and identical-byte TEST promotion are complete.
+- The compatible Hello patch and the specific deployment rejection demonstrations below remain pending. The runner stops here with **exit 3**.
+- Initial fresh installation does not prove retained-target upgrade, parallel development, in-flight request draining or failed additive deployment repair.
+
+## Compatible Hello update — pending construction
+
+1. Qualify the patch against its declared earlier baseline.
+2. Promote the same qualified patch archive into retained TEST.
+3. Reopen TEST and verify corrected Hello behavior, retained configuration and every earlier greeting snapshot.
+
+- Hello advances to **1.0.1**, with Foundation and World remaining **1.0.0**. This has not yet been deployed.
 
 ## Reject an incompatible database upgrade — pending construction
 
