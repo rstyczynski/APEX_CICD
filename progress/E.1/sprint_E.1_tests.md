@@ -87,3 +87,11 @@ Earlier interactive command results support the additional Foundation/capture ob
 - Repeated complete native captures are byte-identical. Scoped source review accounts for shared composition, read-only versions and native default report layouts; no source deletion or manual rewrite of Oracle output.
 - Results runner preflight passes. Unattended rehearsal checks A/B/C successfully and deliberately exits 3 at pending qualification; human URL viewing is skipped and is not an automated browser result.
 - Full integration/release suite remains incomplete. No exact-artifact promotion, patch, drift/incompatibility deployment rejection, concurrency or additive-failure repair acceptance is claimed.
+
+## Walkthrough portability and repeatability — 2026-10-17
+
+- [Verification record](tests/walkthrough_repeatability.txt): two unattended A/B/C rehearsals reach the same exit-3 unfinished release boundary after successful preparation/results checks.
+- An active Hello task produces the specific ORA-20701 refusal before cleanup writes. The test reservation is released afterward.
+- Configuration restore SQL executes in C. A further cleanup leaves Hello/World entry counts at 1/2 and preserves all fields of the seven existing history rows. No duplicate demo entries or history deletion occurs.
+- Git-root discovery/preflight passes from a repository subdirectory and invocation outside the checkout. SQLcl receives the discovered root. Shell/Python syntax, unit tests (2/0), smoke (1/0), local links and whitespace checks pass.
+- Browser pauses are skipped during rehearsal. Qualification, TEST promotion, patch and deployment-rejection scenarios remain pending; cleanup does not provide that acceptance.

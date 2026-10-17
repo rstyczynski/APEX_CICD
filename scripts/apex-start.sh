@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-cd "$(dirname "$0")/.."
+cd "$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --show-toplevel)"
 p() { podman --connection apex-cicd "$@"; }
 if ! p info >/dev/null 2>&1; then bash scripts/apex-vm-start.sh; fi
 p start apex-db

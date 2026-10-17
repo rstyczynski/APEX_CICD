@@ -1,0 +1,14 @@
+Walkthrough portability/preparation verification — 2026-10-17
+PASS shell syntax for scripts/*.sh; Python syntax for apex_sql.py.
+PASS preflight from repository root, scripts subdirectory and outside-checkout invocation by script filename.
+PASS SQLcl session_root initialization with the Git-discovered root.
+PASS preparation: idle control, supported A/B/C identities/versions and C readiness checked before writes.
+PASS two complete A/B/C unattended rehearsals; each exits 3 only at the explicitly unimplemented release boundary. Browser viewing is skipped, not claimed passed.
+PASS specific negative guard: active Hello ownership rejects preparation with ORA-20701 before configuration writes; test task released afterward.
+PASS configuration restoration SQL executes successfully in C and checks its identity/readiness.
+PASS subsequent cleanup: entry counts unchanged (Hello=1, World=2), all seven retained history rows unchanged, including every field's per-row SHA-256 snapshot.
+PASS registered Oracle unit suite: 2 tests, 0 failures; platform smoke: 1 test, 0 failures.
+PASS maintained shared/E.1 instructions contain no developer-home checkout literal; historical raw logs are retained as evidence.
+PASS local documentation: 33 documents, 206 links/anchors, traceability links and single-active-sprint check.
+No qualification/TEST reset, VM operation, release promotion or deployment-protection acceptance is claimed.
+Private operation transcripts and restore SQL are under .local-apex/operator; generated paths are runtime-discovered, not hard-coded instructions.

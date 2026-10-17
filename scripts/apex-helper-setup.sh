@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Project-local workaround for Podman 6.0 + krunkit 1.1.1 on this Mac.
 set -euo pipefail
-cd "$(dirname "$0")/.."
+cd "$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --show-toplevel)"
 mkdir -p .local-apex/helper
 curl -fL --retry 3 -o .local-apex/krunkit-1.3.2.tgz \
   https://github.com/libkrun/krunkit/releases/download/v1.3.2/krunkit-podman-unsigned-1.3.2.tgz

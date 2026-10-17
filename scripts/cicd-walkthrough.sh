@@ -2,7 +2,7 @@
 # Manual chapter 5: integrated changelog status on preserved A lists Hello/World pending; never auto-apply them.
 # Guided execution of the current manual; Oracle operations stay visible.
 set -Eeuo pipefail
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+ROOT="$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --show-toplevel)"
 cd "$ROOT"
 MANUAL="$ROOT/progress/E.1/user_manual.md"
 MODE="${1:---live}"

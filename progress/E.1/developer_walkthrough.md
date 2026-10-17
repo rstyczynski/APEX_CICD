@@ -2,13 +2,16 @@
 
 ## What this walkthrough shows
 
+- This lab simulates work of 3 developers (identified as A, B, and C) dedicated to development of APEX style Hello World application architected as composition of three components: database and two user facing ones.
 - The Product Owner sees application outcomes after successful deployments and evidence that wrong deployments are blocked.
 - Developer A/B/C operations run inside the guided stages. The Product Owner does not inspect App Builder, page definitions, SQL source or Git diffs in this workflow.
 - Show the actual operation output and a short result: **DEPLOYED**, **REJECTED**, **ERROR** or **PENDING**.
 - After a successful deployment, show its result in the running application at the printed URL.
 - After an expected rejection, show the exact reason, verify the target was not overwritten, then open the application to demonstrate that its prior behavior and saved history remain intact.
-- Keep the [detailed operator walkthrough](user_manual.md) unchanged as the separate technical operating reference.
-- This document and [cicd-developer-walkthrough.sh](../../scripts/cicd-developer-walkthrough.sh) are **one artifact**. Always update and review both together.
+
+## Deep dive
+
+Thi document is business level presentation of detailed pipelines described in [detailed operator walkthrough](user_manual.md) with accomaning runner script [cicd-developer-walkthrough.sh](../../scripts/cicd-developer-walkthrough.sh) are **one artifact**. All three artifacts are describing one system, and are always updated and reviewed together.
 
 ## Alignment with selected Elaboration use cases
 
@@ -41,7 +44,7 @@
 1. Open a Bash terminal in the project:
 
    ```bash
-   cd /Users/rstyczynski/projects/APEX_CICD
+   cd "$(git rev-parse --show-toplevel)"
    ```
 
 2. Start this separate walkthrough:
@@ -63,6 +66,18 @@
 - Run with **--preflight** for local tool/file/chapter checks without Oracle access.
 - Run with **--rehearse** for the implemented CLI checks without pauses; human viewing is explicitly skipped.
 - Current modes all leave unfinished delivery stages pending. Rehearsal also ends with status 3.
+
+## Prepare a repeatable walkthrough
+
+1. The script first checks that no managed authoring/deployment is active and that A/B/C still match the supported development checkpoints.
+2. Press a key to run the displayed cleanup/preparation operations. The same standalone operation is `bash scripts/cicd-walkthrough-cleanup.sh`.
+3. It backs up C's configuration, restores active **Hello** / **World** defaults and empty prefixes, then checks that all existing history snapshots are unchanged. Existing matching demo entries are reused.
+4. Keep the printed private evidence/restore path if you want to restore your previous settings after the demonstration.
+5. Continue to A's runtime result.
+
+- This prepares an existing development demonstration. It does not erase history or rebuild the application from scratch.
+- A/B, qualification, TEST, credentials, deployment records and Podman resources are retained.
+- For exact SQL and restoration details, see [the operator chapter](user_manual.md#prepare-a-repeatable-walkthrough).
 
 ## A. Deliver Foundation
 
@@ -125,6 +140,13 @@
 - The terminal shows versions **1.0.0 / 1.0.0 / 1.0.0** and actual successful verification output.
 - The first slice runs B/C sequentially; it does not claim concurrent-development proof.
 - C is a development result, not a qualified release or retained TEST promotion. Browser-created verification examples remain in its history; application exports contain no business seed.
+
+## Release boundary — not implemented
+
+- The implemented A/B/C results walkthrough is complete at this point.
+- The end-to-end release pipeline is still incomplete: qualification/promotion, the compatible Hello patch and the specific deployment rejection demonstrations below have not been implemented.
+- The runner stops here with **exit 3**, without modifying TEST. This outcome is the same on a first or repeated run; cleanup cannot implement unfinished release stages.
+- The following chapters describe planned acceptance, not operation output or a completed deployment.
 
 ## Release and compatible update — pending construction
 

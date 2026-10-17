@@ -5,7 +5,7 @@
 - Run commands from the project checkout:
 
   ```bash
-  cd /Users/rstyczynski/projects/APEX_CICD
+  cd "$(git rev-parse --show-toplevel)"
   ```
 
 - The existing apex-cicd Podman VM hosts Oracle Database, APEX 24.2 and ORDS.
@@ -14,7 +14,7 @@
 - Infrastructure start/stop/recreation belongs to the shared [deployment procedure](../../docs/deploy.md).
 
 - The application pipeline is under construction.
-- A's Foundation shell is deployed; Hello, World and a runnable TEST release are not deployed yet.
+- A/B retain incomplete assembly checkpoints; C has the working Foundation/Hello/World development application. The retained TEST release remains under construction.
 - Use the areas below to inspect the actual current state.
 - This guide is updated as construction makes each operation usable.
 
@@ -99,7 +99,7 @@ sql -version
 ### 2. Connect to A and identify the target
 
 ```bash
-sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev
+sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev @deploy/operator/session_root.sql "$PWD"
 ```
 
 - You are now at the SQLcl prompt. Run these operations one at a time:
@@ -237,13 +237,13 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev
 
   ```sql
   @deploy/operator/identity.sql E1_DEV_A E1_DEV_A
-  cd /Users/rstyczynski/projects/APEX_CICD
+  cd "&REPO_ROOT"
   lb validate -changelog-file db/changelog.xml
   lb status -changelog-file db/changelog.xml
   ```
 
 - Target identity must pass before proceeding. These migration inspections are read-only; the historical Foundation construction task is already released.
-- SQLcl can change its script search directory after an @file operation; the explicit SQLcl cd restores the checkout root before Liquibase resolves the changelog.
+- SQLcl can change its script search directory after an @file operation. Chapter 2 passes the Git-discovered shell root into `session_root.sql`; SQLcl `cd "&REPO_ROOT"` restores that location. `git rev-parse` belongs in the shell, not at the SQLcl prompt.
 - Validation checks the changelog; status reports unapplied changesets.
 - A has 001-foundation and 002-foundation-runtime installed. The current integrated changelog also contains Hello/World: status on A therefore reports 003/004 pending. This is expected for its preserved Foundation-only checkpoint.
 - This is the inspection part of the same migration procedure used during construction.
@@ -524,3 +524,33 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
 - Publication used separate identity, ownership, compilation/page/version checks, restricted browser verification and `deploy/operator/publish_development.sql`. These bounded scripts name C and the completed construction task; do not replay them as generic release scripts or reuse closed ownership tokens.
 - Qualification and retained TEST publication, patch and incompatible/drift deployment rejection remain under construction.
 - Maintain this chapter with its companion results runner and guide; the existing Foundation operator walkthrough remains a separate detailed view.
+
+
+## Prepare a repeatable walkthrough
+
+1. Open a terminal anywhere inside the checkout and select its root using Git:
+
+   ```bash
+   cd "$(git rev-parse --show-toplevel)"
+   ```
+
+2. Run the bounded cleanup/preparation operation before another results demonstration:
+
+   ```bash
+   bash scripts/cicd-walkthrough-cleanup.sh
+   ```
+
+3. Read each printed SQL operation and its actual result. Preparation refuses active authoring/deployment ownership, incorrect target identities, unsupported component versions or a non-ready C application. It does not repair a failed deployment.
+4. Note the private `.local-apex/operator/walkthrough-prepare.*` evidence directory. It holds **restore-defaults.sql**, containing the original Hello/World configuration, plus before/after hashes of every existing history row.
+5. C's defaults become active **Hello** / **World**, with empty prefixes. Existing matching entries are reused; only a missing demo entry is created. Other entries and every greeting snapshot remain. Repeating preparation does not add duplicate demo entries.
+6. If you want the previous settings back, connect to **lab-dev-c**, verify its identity and run the recorded private restore SQL. It only restores configuration; current default-entry guards still apply.
+7. Start the results walkthrough. It invokes this same preparation operation before its URL checkpoints:
+
+   ```bash
+   bash scripts/cicd-developer-walkthrough.sh
+   ```
+
+- Neither operation drops/recreates applications, schemas, credentials or Podman resources. Qualification, retained TEST and release/audit history remain untouched. Destructive disposable-area lifecycle operations remain separate in [deploy.md](../../docs/deploy.md).
+- `--preflight` on cleanup checks local tools/files only. The walkthrough's `--rehearse` performs preparation and CLI checks without browser pauses.
+- The implemented A/B/C walkthrough ends with **exit 3** because later release stages are unimplemented. This is an explicit incomplete-pipeline outcome, not failure caused by rerunning a configured system.
+- Maintain this chapter, the results chapters and their scripts together.

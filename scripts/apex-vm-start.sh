@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Use launchd so the VM outlives the terminal/automation session that starts it.
 set -euo pipefail
-cd "$(dirname "$0")/.."
+cd "$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --show-toplevel)"
 mkdir -p .local-apex
 label=local.apex-cicd.vm-start
 domain="gui/$(id -u)"

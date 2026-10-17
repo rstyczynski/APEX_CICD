@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Use-case/result companion to developer_walkthrough.md; current A/B/C development results.
 set -Eeuo pipefail
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+ROOT="$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --show-toplevel)"
 cd "$ROOT"
 MANUAL="$ROOT/progress/E.1/developer_walkthrough.md"
 MODE="${1:---live}"
@@ -48,16 +48,20 @@ command -v rg >/dev/null
 for name in identity application_inventory component_inventory foundation_verify show_reservations; do
   test -r "$ROOT/deploy/operator/$name.sql"
 done
-for heading in '## A. Deliver Foundation' '## B. Deliver Hello' '## C. Deliver World and complete the assembly' '## Release and compatible update — pending construction'; do
+for heading in '## Prepare a repeatable walkthrough' '## A. Deliver Foundation' '## B. Deliver Hello' '## C. Deliver World and complete the assembly' '## Release boundary — not implemented'; do
   if ! rg -Fqx -- "$heading" "$MANUAL"; then echo "ERROR: manual/script mismatch: $heading" >&2; exit 1; fi
 done
 echo 'OK: required tools/files and chapter references found. Database access is checked in A.'
+bash scripts/cicd-walkthrough-cleanup.sh --preflight
 if [ "$MODE" = --preflight ]; then exit 0; fi
 umask 077
 mkdir -p .local-apex/operator
 work="$(mktemp -d "$ROOT/.local-apex/operator/developer.XXXXXX")"
 echo "Use-case walkthrough: $MANUAL"
 echo 'Current scope: verify existing A/B/C development results. No redeployment is performed; release and rejection demonstrations remain pending.'
+section '## Prepare a repeatable walkthrough'
+pause 'Press any key to back up configuration and restore demo defaults while retaining history; q to quit.'
+bash scripts/cicd-walkthrough-cleanup.sh
 section '## A. Deliver Foundation'
 pause 'Press any key to check the existing Foundation result; q to quit.'
 check_result lab-dev "@\"$ROOT/deploy/operator/identity.sql\" E1_DEV_A E1_DEV_A
@@ -85,7 +89,8 @@ echo 'VERIFIED EXISTING RESULT: C development application, three components at 1
 echo 'PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810003:1 and sign in as LAB_USER.'
 echo 'Select Hello/World, Create greeting, reopen Greeting history and Installed components.'
 pause 'Use the application to see its result, then press any key; q to quit.'
-section '## Release and compatible update — pending construction'
+section '## Release boundary — not implemented'
 echo 'PENDING: exact-artifact qualification/promotion, compatible patch and specific deployment rejection checks.'
-echo 'Stopped before qualification or retained TEST mutation. No release/protection acceptance is claimed.'
+echo 'COMPLETED: implemented A/B/C results walkthrough, including repeatable preparation.'
+echo 'INCOMPLETE END-TO-END PIPELINE (exit 3): release stages are unimplemented, not a rerun/configuration failure. TEST unchanged.'
 exit 3

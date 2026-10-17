@@ -32,14 +32,14 @@
 - In Bash:
 
   ```bash
-  cd /Users/rstyczynski/projects/APEX_CICD
+  cd "$(git rev-parse --show-toplevel)"
   podman --version
   podman machine list
   podman system connection list
   df -h .
   ```
 
-- For a checkout elsewhere, use its actual absolute path throughout this procedure.
+- Start from any directory inside the checkout; Git selects its root. Do not copy a developer-specific home path into commands.
 - A sparse VM disk consumes host space as it grows; its configured 30 GiB is not reserved host space.
 - Current free host space is approximately 61 GiB, not a minimum sizing guarantee.
 
@@ -512,6 +512,14 @@ podman --connection apex-cicd volume create apex-images
 - Fresh full teardown/reconstruction has not been executed for the current E.1 increment.
 - The active runtime remains in place.
 - The procedure is documented for authorized use; destructive steps were source-reviewed rather than rerun to edit this document.
+
+## Repeatable application demonstrations
+
+1. From inside the checkout, use `cd "$(git rev-parse --show-toplevel)"`.
+2. Run `bash scripts/cicd-walkthrough-cleanup.sh` to restore development demo defaults while preserving history, credentials and all infrastructure.
+3. Follow [the preparation chapter](../progress/E.1/user_manual.md#prepare-a-repeatable-walkthrough) and the paired results walkthrough.
+
+- This is configuration preparation, not VM/schema reset. It never changes qualification or retained TEST. Provisioning, disposable-area recreation and teardown stay separate lifecycle operations.
 
 ## Verification scope and references
 

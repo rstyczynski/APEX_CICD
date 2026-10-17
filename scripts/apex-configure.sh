@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-cd "$(dirname "$0")/.."
+cd "$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --show-toplevel)"
 source .local-apex/credentials.env
 # Avoid SQL*Plus ACCEPT ... HIDE: it does not reliably read piped stdin.
 # Generated passwords contain only letters, digits, underscore and # (no SQL quotes).

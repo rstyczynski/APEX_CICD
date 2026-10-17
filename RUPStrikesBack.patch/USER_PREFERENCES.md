@@ -32,3 +32,12 @@ incident account. Communicate directly and keep routine process detail brief.
 Work only on the current sprint. Do not edit other sprints' artifacts. Shared
 product documents and the current sprint's plan/board entries may be updated
 as required for its authorized work.
+
+
+## Portable operating instructions — 2026-10-17
+
+Use Git repository discovery to position commands at the repository root. Never
+hard-code a developer's home directory or host-specific checkout path in
+maintained instructions or scripts. Preserve historical raw evidence as recorded;
+new executable examples must be portable. Keep cleanup/preparation and walkthrough
+chapters/scripts synchronized, with explicit scope and preservation behavior.
