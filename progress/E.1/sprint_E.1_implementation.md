@@ -180,3 +180,11 @@ Reordered the results guide for Oracle database specialists: Database/PLSQL, SQL
 
 
 Toolchain order refined: APEX/ORDS first, SQLcl second, then Database/PLSQL, Liquibase, Git, shell/Python helpers and Podman. Content and operating behavior unchanged; companion comment, syntax, chapter preflight and whitespace checked.
+
+## Initial release artifact/controller source increment — 2026-10-17
+
+- Reviewed two byte-identical native release captures: source imports as UNAVAILABLE; C's live development availability was restored. Only status/message/SCN and native versions-report default layout changed from the reviewed development source; raw Oracle files remain unedited.
+- Added clean-Git packaging, an explicit candidate-validation receipt, complete member hashes, a retained archive SHA-256 and safe extraction. Native SQLcl/PLSQL remain the deployment interface. The one-operation controller prints every SQLcl command and executes SQL only from a newly verified archive, checks its own archived controller bytes, pins target configuration/tools and refuses any existing target for this initial path.
+- Release control is outside application migrations. Initial attempts bind target schema identity, expected epoch, artifact hash, source commit and configuration digest. Missing qualification and stale epochs/tokens reject; ownership persists across installation commits/disconnects. No arbitrary-state resume or upgrade path is supplied.
+- Separate initial operations are admission, migration, unavailable import, transactional unit checks, restricted verification, and final publication/receipt. Every operation must bind the same archive hash and epoch. Preliminary integrity checks exact component/migration/application versions and pages. Publication/fingerprint atomicity and native end-to-end delivery are still to be exercised in disposable qualification before TEST admission.
+- Packaging fixture checks pass, including a path containing spaces, overwrite/dirty-source/changed-byte/traversal rejection. Native control compilation and specific missing-qualification/stale-token checks pass without target mutation. This source increment enables the next archive experiment; it is not a qualified or promoted release.

@@ -23,6 +23,6 @@
 | Sprint E.1 | under_construction | PBI-011.3 | tested |
 | Sprint E.1 | under_construction | PBI-011.4 | under_construction |
 | Sprint E.1 | under_construction | PBI-011.5 | under_construction |
-| Sprint E.1 | under_construction | PBI-011.6 | under_design |
-| Sprint E.1 | under_construction | PBI-011.7 | under_design |
+| Sprint E.1 | under_construction | PBI-011.6 | under_construction |
+| Sprint E.1 | under_construction | PBI-011.7 | under_construction |
 | Sprint E.1 | under_construction | PBI-011.8 | under_design |

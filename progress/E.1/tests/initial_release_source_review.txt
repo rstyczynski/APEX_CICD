@@ -1,0 +1,3 @@
+PASS: release capture review against development baseline 6ab2621.
+Two unchanged native release captures match. Raw Oracle source retained unchanged.
+Only native UNAVAILABLE status/message/generated SCN and the installed-components default report layout differ. No business behavior change, source deletion, seed or runtime data added.

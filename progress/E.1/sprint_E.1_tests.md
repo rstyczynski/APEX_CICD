@@ -95,3 +95,10 @@ Earlier interactive command results support the additional Foundation/capture ob
 - Configuration restore SQL executes in C. A further cleanup leaves Hello/World entry counts at 1/2 and preserves all fields of the seven existing history rows. No duplicate demo entries or history deletion occurs.
 - Git-root discovery/preflight passes from a repository subdirectory and invocation outside the checkout. SQLcl receives the discovered root. Shell/Python syntax, unit tests (2/0), smoke (1/0), local links and whitespace checks pass.
 - Browser pauses are skipped during rehearsal. Qualification, TEST promotion, patch and deployment-rejection scenarios remain pending; cleanup does not provide that acceptance.
+
+## Initial release preparation checks — 2026-10-17
+
+- [Archive checks](tests/initial_artifact_checks.txt): clean Git fixture build/unpack preserves raw source; dirty source, overwrite, altered bytes and path traversal reject. No Oracle qualification is implied.
+- [Control checks](tests/initial_control_checks.txt): package compiles; missing qualification, stale expected epoch and stale ownership token reject specifically. Both controlled targets remain at initial epoch zero.
+- [Source review](tests/initial_release_source_review.txt): repeated captures match; only controlled unavailable status and the native versions-report layout differ from the reviewed development source.
+- Fresh Oracle qualification, publication atomicity, ordinary/verifier browser checks and identical-byte TEST promotion are the next pending IT-1 initial-install experiment. Broader IT-1 repeat/upgrade acceptance remains pending.

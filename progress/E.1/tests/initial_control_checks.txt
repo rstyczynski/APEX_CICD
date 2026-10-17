@@ -1,0 +1,5 @@
+PASS missing qualification: TEST admission rejected with ORA-20614 before target mutation.
+PASS stale expected epoch rejected with ORA-20613.
+PASS stale ownership token rejected with ORA-20615.
+Control package compiles without errors. Both target epochs remain zero after rejected checks.
+These checks do not establish upgrade concurrency or maintenance fencing.

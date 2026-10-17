@@ -35,8 +35,8 @@ wwv_imp_workspace.create_flow(
 ,p_proxy_server=>nvl(wwv_flow_application_install.get_proxy,'')
 ,p_no_proxy_domains=>nvl(wwv_flow_application_install.get_no_proxy_domains,'')
 ,p_flow_version=>'1.0.0'
-,p_flow_status=>'AVAILABLE'
-,p_flow_unavailable_text=>'Development verification in progress.'
+,p_flow_status=>'UNAVAILABLE'
+,p_flow_unavailable_text=>'Release installation or verification in progress.'
 ,p_restrict_to_user_list=>'VERIFIER'
 ,p_exact_substitutions_only=>'Y'
 ,p_browser_cache=>'N'
@@ -48,7 +48,7 @@ wwv_imp_workspace.create_flow(
 ,p_substitution_value_01=>'APEX Delivery Laboratory'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>6
-,p_version_scn=>3349370
+,p_version_scn=>3418984
 ,p_print_server_type=>'NATIVE'
 ,p_file_storage=>'DB'
 ,p_is_pwa=>'Y'

@@ -1,0 +1,7 @@
+PASS clean committed Git build and verified unpack in an isolated repository with spaces in its path.
+PASS raw Oracle source preserved unchanged in artifact.
+PASS retained archive overwrite rejected; original SHA-256 unchanged.
+PASS changed archive bytes rejected before extraction.
+PASS traversal member rejected before destination creation.
+PASS unreviewed/untracked product source blocks build.
+This fixture tests packaging; it is not Oracle qualification or TEST promotion.

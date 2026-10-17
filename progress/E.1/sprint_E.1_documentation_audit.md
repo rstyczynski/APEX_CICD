@@ -140,3 +140,9 @@ Reordered the results guide for Oracle database specialists: Database/PLSQL, SQL
 
 
 Toolchain order refined: APEX/ORDS first, SQLcl second, then Database/PLSQL, Liquibase, Git, shell/Python helpers and Podman. Content and operating behavior unchanged; companion comment, syntax, chapter preflight and whitespace checked.
+
+## Initial release source/controller audit — 2026-10-17
+
+Checked SRS UC-4/7/11, architecture artifact/identity/retention/publication contracts, test profile, accepted initial-install selection, sprint setup/design/tests, construction record, README/operator/results status and current board. This increment implements only the empty-target initial contract; upgrade/repeat installation, full maintenance concurrency, patch, drift/incompatibility deployment scenarios and repair remain pending. The results walkthrough correctly still stops before release operations until actual archive qualification/promotion passes.
+
+Inspected raw native captures, archive fixture checks and control rejection evidence. New SQL operations bind named epoch/application/hash variables across nested SQLcl includes, validate exact environment/identity and retain interrupted ownership. No migrated database history/checksum is edited. Candidate development checks and post-integration fresh-archive qualification are separate. Atomic publication with public APEX export/status APIs remains an explicit disposable-target experiment, not an assumed guarantee. Only the bounded packaging/control source increment is ready for local commit; no actual build, complete qualification or TEST mutation is claimed by this audit. Syntax/link/whitespace and staged credential checks apply before commit.
