@@ -177,3 +177,6 @@ Added Applied tools and techniques immediately after Deep dive. Explained Podman
 ## Toolchain reading order — 2026-10-17
 
 Reordered the results guide for Oracle database specialists: Database/PLSQL, SQLcl, Liquibase, APEX/ORDS, Git, shell/Python helpers, then Podman lab infrastructure. Responsibilities and readiness claims are unchanged. Reconciled the companion runner comment; syntax, chapter preflight, local links and whitespace checks pass. This editorial change requires no database operation.
+
+
+Toolchain order refined: APEX/ORDS first, SQLcl second, then Database/PLSQL, Liquibase, Git, shell/Python helpers and Podman. Content and operating behavior unchanged; companion comment, syntax, chapter preflight and whitespace checked.
