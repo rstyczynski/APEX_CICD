@@ -47,17 +47,24 @@ Thi document is business level presentation of detailed pipelines described in [
    cd "$(git rev-parse --show-toplevel)"
    ```
 
-2. Start this separate walkthrough:
+2. **Run cleanup/preparation separately before every walkthrough:**
+
+   ```bash
+   bash scripts/cicd-walkthrough-cleanup.sh
+   ```
+
+3. Wait for **PASS preparation**. Keep the printed configuration backup/restore path. Cleanup preserves greeting history.
+4. **Start the results walkthrough:**
 
    ```bash
    bash scripts/cicd-developer-walkthrough.sh
    ```
 
-3. Read the next developer operation's purpose.
-4. Press any key to run it, or **q** to stop.
-5. Read the displayed pipeline outcome and any error or rejection reason.
-6. When prompted, open the printed **runtime URL** and use the application as described.
-7. Press a key to proceed to the next implemented stage.
+5. Read the next developer operation's purpose.
+6. Press any key to run it, or **q** to stop.
+7. Read the displayed pipeline outcome and any error or rejection reason.
+8. When prompted, open the printed **runtime URL** and use the application as described.
+9. Press a key to proceed to the next implemented stage.
 
 - No App Builder login or technical inspection is requested.
 - An unexpected error stops the workflow.
@@ -69,11 +76,11 @@ Thi document is business level presentation of detailed pipelines described in [
 
 ## Prepare a repeatable walkthrough
 
-1. The script first checks that no managed authoring/deployment is active and that A/B/C still match the supported development checkpoints.
-2. Press a key to run the displayed cleanup/preparation operations. The same standalone operation is `bash scripts/cicd-walkthrough-cleanup.sh`.
+1. Run `bash scripts/cicd-walkthrough-cleanup.sh` as the separate preparation step above.
+2. Cleanup checks that no managed authoring/deployment is active and that A/B/C still match the supported development checkpoints.
 3. It backs up C's configuration, restores active **Hello** / **World** defaults and empty prefixes, then checks that all existing history snapshots are unchanged. Existing matching demo entries are reused.
 4. Keep the printed private evidence/restore path if you want to restore your previous settings after the demonstration.
-5. Continue to A's runtime result.
+5. Start `bash scripts/cicd-developer-walkthrough.sh` to continue to A's runtime result. The results script does not run cleanup automatically.
 
 - This prepares an existing development demonstration. It does not erase history or rebuild the application from scratch.
 - A/B, qualification, TEST, credentials, deployment records and Podman resources are retained.

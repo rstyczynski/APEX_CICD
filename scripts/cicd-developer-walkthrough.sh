@@ -59,9 +59,7 @@ mkdir -p .local-apex/operator
 work="$(mktemp -d "$ROOT/.local-apex/operator/developer.XXXXXX")"
 echo "Use-case walkthrough: $MANUAL"
 echo 'Current scope: verify existing A/B/C development results. No redeployment is performed; release and rejection demonstrations remain pending.'
-section '## Prepare a repeatable walkthrough'
-pause 'Press any key to back up configuration and restore demo defaults while retaining history; q to quit.'
-bash scripts/cicd-walkthrough-cleanup.sh
+echo 'PREREQUISITE: run bash scripts/cicd-walkthrough-cleanup.sh separately before this walkthrough (manual run step 2).'
 section '## A. Deliver Foundation'
 pause 'Press any key to check the existing Foundation result; q to quit.'
 check_result lab-dev "@\"$ROOT/deploy/operator/identity.sql\" E1_DEV_A E1_DEV_A
@@ -91,6 +89,6 @@ echo 'Select Hello/World, Create greeting, reopen Greeting history and Installed
 pause 'Use the application to see its result, then press any key; q to quit.'
 section '## Release boundary — not implemented'
 echo 'PENDING: exact-artifact qualification/promotion, compatible patch and specific deployment rejection checks.'
-echo 'COMPLETED: implemented A/B/C results walkthrough, including repeatable preparation.'
+echo 'COMPLETED: implemented A/B/C results walkthrough. Cleanup is a separate prerequisite.'
 echo 'INCOMPLETE END-TO-END PIPELINE (exit 3): release stages are unimplemented, not a rerun/configuration failure. TEST unchanged.'
 exit 3

@@ -162,3 +162,8 @@ This is the selected sequential development prototype increment. Retain it as pr
 - Before/after SHA-256 snapshots cover all fields of each retained greeting. Preparation never resets qualification, TEST, schemas, credentials, Podman resources or release records. Failed/unsupported target states require inspection instead of automatic recovery.
 - The results runner no longer prints planned release instructions as though they had executed. It explicitly completes the implemented A/B/C checks and then reports an incomplete release pipeline (exit 3). Repeating cleanup cannot implement the unfinished release stages.
 - The earlier release-control/archive work remains separate and under construction. This correction does not qualify/promote an artifact or change the selected design.
+
+
+## Explicit cleanup step — 2026-10-17
+
+The results guide now lists cleanup as numbered run step 2, its PASS/backup check as step 3, and starting the walkthrough as step 4. Removed the automatic cleanup call from the results runner so following the documented sequence performs cleanup once. Reconciled the operator guide and README. Cleanup behavior and preservation scope are unchanged; no release or sprint status change. Verified shell syntax, chapter/preflight mapping, local links and whitespace.

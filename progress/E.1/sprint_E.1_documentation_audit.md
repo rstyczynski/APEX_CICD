@@ -122,3 +122,8 @@ Reviewed SRS UC-3/6/9, architecture retention/ownership constraints, test profil
 Removed developer-home checkout literals from maintained shared/E.1 instructions and replaced script-root positioning with Git discovery. Historical raw logs remain historical evidence rather than runnable instructions. SQLcl root substitution is initialized from the shell's Git-discovered directory. Recorded the explicit portability preference locally.
 
 Cleanup and chapters form one artifact: exact operations, scope, private restore SQL, preserved targets/history and clear stop conditions match. The runner invokes cleanup before A/B/C, exposes SQL results, and distinguishes a completed implemented walkthrough from the exit-3 unfinished release boundary. Local preflight, subdirectory invocation, SQLcl root initialization, shell/Python syntax, actual repeated preparation/walkthrough checks, restoration SQL and retained-history comparisons are the relevant verification. No infrastructure teardown or older sprint edits are included. Stage this correction separately from unfinished release-control work; do not push.
+
+
+## Explicit cleanup step — 2026-10-17
+
+The results guide now lists cleanup as numbered run step 2, its PASS/backup check as step 3, and starting the walkthrough as step 4. Removed the automatic cleanup call from the results runner so following the documented sequence performs cleanup once. Reconciled the operator guide and README. Cleanup behavior and preservation scope are unchanged; no release or sprint status change. Verified shell syntax, chapter/preflight mapping, local links and whitespace.

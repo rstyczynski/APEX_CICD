@@ -544,13 +544,13 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
 4. Note the private `.local-apex/operator/walkthrough-prepare.*` evidence directory. It holds **restore-defaults.sql**, containing the original Hello/World configuration, plus before/after hashes of every existing history row.
 5. C's defaults become active **Hello** / **World**, with empty prefixes. Existing matching entries are reused; only a missing demo entry is created. Other entries and every greeting snapshot remain. Repeating preparation does not add duplicate demo entries.
 6. If you want the previous settings back, connect to **lab-dev-c**, verify its identity and run the recorded private restore SQL. It only restores configuration; current default-entry guards still apply.
-7. Start the results walkthrough. It invokes this same preparation operation before its URL checkpoints:
+7. After cleanup reports **PASS preparation**, start the results walkthrough as a separate command. It does not repeat cleanup automatically:
 
    ```bash
    bash scripts/cicd-developer-walkthrough.sh
    ```
 
 - Neither operation drops/recreates applications, schemas, credentials or Podman resources. Qualification, retained TEST and release/audit history remain untouched. Destructive disposable-area lifecycle operations remain separate in [deploy.md](../../docs/deploy.md).
-- `--preflight` on cleanup checks local tools/files only. The walkthrough's `--rehearse` performs preparation and CLI checks without browser pauses.
+- `--preflight` on cleanup checks local tools/files only. The walkthrough's `--rehearse` performs CLI checks without browser pauses; run cleanup separately first.
 - The implemented A/B/C walkthrough ends with **exit 3** because later release stages are unimplemented. This is an explicit incomplete-pipeline outcome, not failure caused by rerunning a configured system.
 - Maintain this chapter, the results chapters and their scripts together.
