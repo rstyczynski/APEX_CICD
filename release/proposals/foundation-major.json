@@ -1,15 +1,14 @@
 {
   "format": 1,
-  "release": "1.0.1",
-  "stage": "complete-patch",
+  "release": "2.0.0",
+  "stage": "proposed-breaking-upgrade",
   "components": {
     "Foundation": "2.0.0",
     "Hello": "1.0.1",
     "World": "1.0.0"
   },
   "supported_starts": [
-    "empty",
-    "1.0.0"
+    "1.0.1"
   ],
   "dependencies": {
     "Hello": {
@@ -30,5 +29,5 @@
   },
   "publication_profile": "native-prepare/read-only-fingerprint/external-ready-v1",
   "runtime_gate": "E1_CTRL.e1_release.assert_runtime",
-  "base_artifact": "6a1da4a940586541cbb034277605d7ed36e5d1ad305554f9a2fe4c64cd59411c"
+  "base_artifact": "200ebefff13e87600699adfebbbe71158962dc80a02d1b8e6dbd9a829dd9e1ce"
 }

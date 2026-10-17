@@ -49,10 +49,10 @@ command -v rg >/dev/null
 for name in identity application_inventory component_inventory foundation_verify show_reservations; do
   test -r "$ROOT/deploy/operator/$name.sql"
 done
-for heading in '## Applied tools and techniques' '## Prepare a repeatable walkthrough' '## A. Deliver Foundation' '## B. Deliver Hello' '## C. Deliver World and complete the assembly' '## D. Qualify the initial release' '## E. Promote the same initial artifact to TEST' '## Remaining release scenarios — pending construction'; do
+for heading in '## Applied tools and techniques' '## Prepare a repeatable walkthrough' '## A. Deliver Foundation' '## B. Deliver Hello' '## C. Deliver World and complete the assembly' '## D. Qualify the initial release' '## E. Promote the same initial artifact to TEST' '## F. Deliver the compatible Hello patch' '## G. Reject an incompatible database upgrade' '## H. Reject deployment over unexpected live change'; do
   if ! rg -Fqx -- "$heading" "$MANUAL"; then echo "ERROR: manual/script mismatch: $heading" >&2; exit 1; fi
 done
-for helper in cicd-release-result.sh cicd-release-step.sh cicd-artifact.py; do test -r "$ROOT/scripts/$helper"; done
+for helper in cicd-patch-result.sh cicd-patch-step.sh cicd-preservation.py cicd-protection-check.sh cicd-drift-demo.py cicd-artifact.py; do test -r "$ROOT/scripts/$helper"; done
 echo 'OK: required tools/files and chapter references found. Database access is checked in A.'
 bash scripts/cicd-walkthrough-cleanup.sh --preflight
 if [ "$MODE" = --preflight ]; then exit 0; fi
@@ -61,7 +61,7 @@ mkdir -p .local-apex/operator
 work="$(mktemp -d "$ROOT/.local-apex/operator/developer.XXXXXX")"
 echo "Use-case walkthrough: $MANUAL"
 echo 'Background: manual chapter "Applied tools and techniques" explains the toolchain, checks and pending release gates.'
-echo 'Current scope: verify existing A/B/C and initial qualification/TEST results. No redeployment is performed; patch and rejection demonstrations remain pending.'
+echo 'Current scope: verify existing A/B/C, initial receipts and current patch results; then selected rejections and explicit TEST page-fixture restoration.'
 echo 'PREREQUISITE: run bash scripts/cicd-walkthrough-cleanup.sh separately before this walkthrough (manual run step 2).'
 section '## A. Deliver Foundation'
 pause 'Press any key to check the existing Foundation result; q to quit.'
@@ -86,22 +86,45 @@ pause 'Press any key to verify the published development assembly; q to quit.'
 check_result lab-dev-c "@\"$ROOT/deploy/operator/identity.sql\" E1_DEV_C E1_DEV_C
 @\"$ROOT/deploy/operator/component_inventory.sql\"
 @\"$ROOT/deploy/checks/published_development.sql\""
-echo 'VERIFIED EXISTING RESULT: C development application, three components at 1.0.0.'
+echo 'VERIFIED EXISTING RESULT: C development application, supported 1.0.0 / 1.0.1 / 1.0.0 components.'
 echo 'PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810003:1 and sign in as LAB_USER.'
 echo 'Select Hello/World, Create greeting, reopen Greeting history and Installed components.'
 pause 'Use the application to see its result, then press any key; q to quit.'
 archive="$(cat .local-apex/releases/initial-selected.txt)"
+initial_hash="$(shasum -a 256 "$archive" | awk '{print $1}')"
 section '## D. Qualify the initial release'
-pause 'Press any key to verify the existing qualified release; q to quit.'
-bash scripts/cicd-release-result.sh "$archive" lab-qualify
-echo 'PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810004:1 as LAB_USER.'
-pause 'Create a greeting, reopen history and installed components, then press any key; q to quit.'
+pause 'Press any key to verify the retained initial archive/receipts; q to quit.'
+python3 scripts/cicd-artifact.py inspect "$archive"
+check_result lab-control "@\"$ROOT/deploy/operator/show_initial_proof.sql\" $initial_hash"
+echo 'PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810004:1 as LAB_USER. The live area now runs the later patch.'
+pause 'View the current application; initial delivery is evidenced by the retained receipts, then press any key; q to quit.'
 section '## E. Promote the same initial artifact to TEST'
-pause 'Press any key to verify TEST received the same archive; q to quit.'
-bash scripts/cicd-release-result.sh "$archive" lab-test
-echo 'PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810005:1 as LAB_USER.'
-pause 'Create a greeting, reopen history and installed components, then press any key; q to quit.'
-section '## Remaining release scenarios — pending construction'
-echo 'COMPLETED: existing A/B/C, initial qualification and same-artifact TEST results verified.'
-echo 'PENDING (exit 3): compatible patch and specific incompatible/drift deployment rejection scenarios.'
-exit 3
+echo 'VERIFIED HISTORICAL RESULT: the TEST epoch-1 receipt above has the same initial archive hash.'
+echo 'PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810005:1 as LAB_USER; it now runs 1.0.1.'
+pause 'View TEST, then press any key for current patch verification; q to quit.'
+section '## F. Deliver the compatible Hello patch'
+pause 'Press any key to verify the existing qualified/promoted patch and retained fields; q to quit.'
+bash scripts/cicd-patch-result.sh lab-qualify
+bash scripts/cicd-patch-result.sh lab-test
+python3 scripts/cicd-preservation.py compare lab-test .local-apex/releases/test-initial-preservation.json
+python3 scripts/apex_sql.py lab-test tests/sql/hello_patch.sql
+echo 'PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810005:1; create a greeting, refresh history and inspect Installed components.'
+pause 'Use TEST and see Foundation 1.0.0 / Hello 1.0.1 / World 1.0.0, then press any key; q to quit.'
+section '## G. Reject an incompatible database upgrade'
+pause 'Press any key to submit the incompatible Foundation-major proposal; q to quit.'
+bash scripts/cicd-protection-check.sh compatibility
+echo 'PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810005:1; the existing greeting/history application still works.'
+pause 'See the retained application after rejection, then press any key; q to quit.'
+section '## H. Reject deployment over unexpected live change'
+pause 'Press any key to save TEST and install the controlled page-drift fixture; q to quit.'
+python3 scripts/cicd-drift-demo.py inject
+echo 'PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810005:1 and re-login if needed; see DIRECT CHANGE - deployment must stop.'
+pause 'View the changed page, then press any key to attempt redeployment preflight; q leaves the fixture active for explicit restoration.'
+bash scripts/cicd-protection-check.sh drift
+pause 'Reopen TEST to see the changed page/history retained, then press any key for the separate RESTORE operation; q leaves the fixture active.'
+python3 scripts/cicd-drift-demo.py restore
+bash scripts/cicd-patch-result.sh lab-test
+echo 'PRODUCT OWNER: reopen http://127.0.0.1:8080/ords/f?p=810005:1; re-login if needed. The banner is gone and history remains.'
+pause 'View the restored application, then press any key to finish; q to quit.'
+echo 'PASS selected walkthrough: initial receipts, Hello patch, retained fields, incompatible proposal rejection, live drift rejection and explicit restoration.'
+echo 'OPEN E.1 WORK: broader concurrency, complete maintenance fencing, schema-drift coverage and failed-additive-deployment repair. No sprint closure claimed.'

@@ -1,0 +1,64 @@
+Hello patch and selected protection proof — 2026-10-18 (client Europe/Warsaw)
+Source: 752eb47ec59daeb625c3849bfed87fc230295e20
+Patch SHA256: 200ebefff13e87600699adfebbbe71158962dc80a02d1b8e6dbd9a829dd9e1ce
+Initial SHA256: 6a1da4a940586541cbb034277605d7ed36e5d1ad305554f9a2fe4c64cd59411c
+Configuration SHA256: 32884ea95c97ecb7256f8dcae86c6ca1c86b27ac521a17d1a957cbbc3bce5fd1
+Patch fresh qualification: E1_QUALIFY / epoch 3 / start empty / succeeded
+Initial reconstruction: E1_QUALIFY / epoch 4 / start empty / succeeded
+Patch upgrade qualification: E1_QUALIFY / epoch 5 / start 1.0.0 / succeeded
+TEST patch: E1_TEST / epoch 2 / start 1.0.0 / succeeded
+Current Q fingerprint: SH256:ZPpo6caDunZgiZcBqCXJiUgcB7Yn92VA9/Ayxz97CQ4=
+Current TEST fingerprint: SH256:M+FbVzLC1T2TqtaHuVDhLGWDq8OXo70fVFO+MsTut4s=
+Example injected drift fingerprint: SH256:JWj22oXzdRAJ89Xjkuln7W0U0e/RopIrLBN3xfZB2wM=
+Versions: Foundation=1.0.0 Hello=1.0.1 World=1.0.0; APEX release=1.0.1
+Five immutable migration identities; thirteen required pages; zero compilation errors.
+All four earlier migration files compared byte-identical between initial/patch archives.
+
+Behavior: TAB/newline-padded Hello normalizes; whitespace-only text rejects -20314.
+Fresh VERIFIER browser entries/defaults/greeting/history pass.
+Upgrade Q keeps nonempty prefixes and all fields of 21 earlier snapshots/settings/entries.
+TEST keeps all fields of 21 earlier snapshots/settings/entries; ordinary and verifier browser checks pass.
+Final refreshed TEST history: 25 rows; old rows retained, new verification greetings explicitly appended.
+The original two retained TEST isolation-probe rows are unchanged.
+
+Active mutation guard causes admission ORA-00054 before writes; epoch 4 baseline stays ready.
+An existing ordinary TEST browser session is blocked before patch DDL (generic APEX setup error, not a specific deployment rejection).
+Fresh-only qualification was refused by the server before the upgrade qualification receipt existed (code -20644); target stayed ready/epoch 1.
+
+Specific incompatible proposal rejection:
+REJECTED INCOMPATIBLE: Hello requires Foundation 1.0.0; proposed Foundation 2.0.0
+Specific live-page rejection:
+REJECTED DRIFT: live APEX fingerprint differs from the successful receipt. No maintenance, migration or import.
+Both checks compare complete target/control snapshots before/after rejection.
+The direct-change banner remains visible and ordinary greeting creation still works after rejection.
+Explicit fixture restoration matches the original successful fingerprint, without adopting drift as a new baseline.
+Restoration preserves the additional greeting created during the changed-page demonstration.
+Manual, registered integration and results-walkthrough fixture cycles all restored successfully.
+
+Registered command:
+bash tests/run.sh --integration --new-only tests/manifests/patch_protections.manifest
+PASS test_IT2_patch
+PASS test_SM2_compatibility
+PASS test_IT7_drift
+Tests: 3; failed: 0
+Unit: 2/0. Platform smoke: 1/0.
+SQL boundary: structured retained error-code data reads successfully; a real raised exception fails.
+Separate preparation PASS; updated selected A–H rehearsal exit 0.
+Browser checkpoints skipped during rehearsal; actual browser checks performed separately.
+
+Private transcripts:
+.local-apex/releases/patch-fresh-*.log
+.local-apex/releases/patch-baseline-*.log
+.local-apex/releases/patch-upgrade-*.log
+.local-apex/releases/patch-test-*.log
+.local-apex/releases/patch-{compatibility-rejection,drift-inject,drift-rejection,drift-restore}.log
+.local-apex/releases/patch-selected-integration.log
+.local-apex/releases/patch-final-{units,smoke,compatibility,result,preservation}.log
+.local-apex/releases/patch-walkthrough-{preparation,rehearsal}.log
+.local-apex/releases/qualification-initial-preservation.json
+.local-apex/releases/test-initial-preservation.json
+.local-apex/releases/drift-demo.*/ (saved native TEST exports, data, import/restore logs)
+
+Limits: candidate checks used private C; full IT-1 fresh-candidate reconstruction remains pending.
+No comprehensive schema fingerprint, full read/asynchronous request drain, attempt-bound verifier fencing, deployment race or failed additive deployment/automated repair acceptance.
+Selected slice complete; further Elaboration needed for those broader questions. No sprint closure or other-sprint change.

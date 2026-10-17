@@ -14,7 +14,7 @@
 - Infrastructure start/stop/recreation belongs to the shared [deployment procedure](../../docs/deploy.md).
 
 - The application pipeline is under construction.
-- A/B retain incomplete assembly checkpoints; C has the working Foundation/Hello/World development application. Initial qualification and retained TEST are published at 1.0.0; upgrades remain under construction.
+- A/B retain incomplete assembly checkpoints; C has the working Foundation/Hello/World development application. Qualification and retained TEST are published at application release 1.0.1: Foundation/World 1.0.0, Hello 1.0.1.
 - Use the areas below to inspect the actual current state.
 - This guide is updated as construction makes each operation usable.
 
@@ -324,12 +324,12 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev @deploy/o
 
 ### 8. Continue through the remaining delivery stages
 
-- The remaining operator journey will provide distinct task reservation, Git branch, private-area preparation, source acceptance, immutable build, qualification, TEST preflight/promotion and post-deployment verification operations.
+- The operator journey now includes task reservation, private-area preparation/capture, source acceptance, immutable build, initial/patch qualification, TEST promotion and post-deployment verification. Broader alternatives remain unproved.
 - Each will state its target, required input, command, visible result and stop condition.
 - The pipeline-stage list at the end tracks what works and what remains under construction.
 
 - For another area's inventory, connect with lab-dev-b, lab-dev-c, lab-qualify or lab-test and run the same application_inventory.sql.
-- B contains Foundation plus Hello; C contains the published complete development assembly; qualification and TEST contain the published complete 1.0.0 release.
+- B contains Foundation plus Hello; C contains the published complete development assembly; qualification and TEST contain the published Hello 1.0.1 patch over Foundation/World 1.0.0.
 - Foundation is installed in A/B/C, qualification and TEST.
 
 ## Developer A — Foundation
@@ -392,7 +392,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev @deploy/o
 - Qualification uses workspace/schema E1_QUALIFY, connection lab-qualify and reserved application ID 810004.
 - This area is disposable.
 - TEST uses workspace/schema E1_TEST, connection lab-test and reserved application ID 810005; it is retained.
-- Qualification application 810004 and TEST application 810005 contain the complete qualified/promoted 1.0.0 release.
+- Qualification application 810004 and TEST application 810005 contain the qualified/promoted 1.0.1 application release: Foundation/World 1.0.0, Hello 1.0.1.
 - Both runtimes are published for LAB_USER: [qualification](http://127.0.0.1:8080/ords/f?p=810004:1) and [TEST](http://127.0.0.1:8080/ords/f?p=810005:1).
 
 ```bash
@@ -491,14 +491,14 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
 5. **Author Hello and World — working development assembly.** B and C worked sequentially in private copies, captured native source and integrated reviewed contributions. No completed component application is supplied as a seed.
 6. **Validate candidate, then accept source.** Validate the combined revision before local integration. Preserve its review/check evidence. Remote PR publication is outside the current local execution.
 7. **Build once.** Package the accepted revision, migrations and component/compatibility metadata into an immutable archive. Record its hash and source revision.
-8. **Qualify initial exact bytes.** Import that archive into the disposable area and verify versions and greeting/history. The patch release must also qualify from its declared earlier baseline.
-9. **Preflight TEST — pending.** Verify compatibility, expected installed revision and live fingerprints before mutation. Reject the incompatible Foundation upgrade or unexpected APEX drift with a clear reason and unchanged working target.
+8. **Qualify initial exact bytes.** Import that archive into the disposable area and verify versions and greeting/history. The patch qualifies from both empty and initial 1.0.0 starts.
+9. **Preflight supported TEST upgrade.** Verify compatibility, expected installed revision and live fingerprints before mutation. Reject the incompatible Foundation upgrade or unexpected APEX drift with a clear reason and unchanged working target.
 10. **Promote initial release and verify.** Install the same qualified archive under controlled availability, check behavior/history and installed metadata, then publish readiness. A successful database step alone cannot publish application success.
-11. **Demonstrate the patch — pending.** Upgrade Hello from 1.0.0 to 1.0.1 while Foundation and World remain 1.0.0. Show preserved configuration/history and source/artifact/deployment receipts.
+11. **Demonstrate the patch.** Upgrade Hello from 1.0.0 to 1.0.1 while Foundation and World remain 1.0.0. Show preserved configuration/history and source/artifact/deployment receipts.
 
 - The [construction document](sprint_E.1_implementation.md) records code changes, tests and remaining work.
 - The [design](sprint_E.1_design.md) retains acceptance criteria and later experiments.
-- The initial commands and TEST URL are documented below. Retained-target upgrades and deployment-rejection scenarios remain pending.
+- Initial commands are retained below for historical reproduction. The later patch and selected protection chapters describe the current live release.
 
 
 ## Use the complete development application
@@ -512,7 +512,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
 
 3. On **Home**, choose **Hello** and **World**, or leave the configured-default options selected. Press **Create greeting** and see the saved-greeting success message.
 4. Open **Greeting history** using the navigation menu. Refresh to verify the new snapshot remains. Earlier snapshots retain the text/prefixes used when saved.
-5. Open **Installed components** to see Foundation, Hello and World at **1.0.0**.
+5. Open **Installed components** to see Foundation **1.0.0**, Hello **1.0.1** and World **1.0.0**.
 6. To add a value, open **Hello entries** or **World entries**, press **Create**, enter **Entry Text** and **Active = Y**, then save with **Create**.
 7. To change a default or prefix, open the corresponding **Hello configuration** or **World configuration** report. Open its row using the edit icon, select an active default, enter an optional prefix and press **Apply Changes**.
 8. Return **Home**, generate another greeting and reopen history. The new settings affect new snapshots; earlier rows remain unchanged.
@@ -522,7 +522,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
 - Blank/oversize entries, deactivating a configured default and editing/deleting history are rejected by database guards.
 - The development example values and verification history were entered through the browser; no seed application/business data is distributed.
 - Publication used separate identity, ownership, compilation/page/version checks, restricted browser verification and `deploy/operator/publish_development.sql`. These bounded scripts name C and the completed construction task; do not replay them as generic release scripts or reuse closed ownership tokens.
-- Initial qualification and retained TEST publication are complete. Patch and incompatible/drift deployment rejection remain under construction.
+- Initial and patch qualification/TEST publication and the selected incompatible/page-drift rejections are complete. Broader concurrency, maintenance and repair remain open.
 - Maintain this chapter with its companion results runner and guide; the existing Foundation operator walkthrough remains a separate detailed view.
 
 
@@ -574,14 +574,14 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
    bash scripts/cicd-promote.sh "$archive" lab-test
    ```
 
-3. Expect **ALREADY DELIVERED** after actual version, readiness and live APEX fingerprint checks. A mismatch fails without overwriting. These commands preserve configuration/history and do not repeat migration/import.
+3. These initial-only commands apply while the live targets still contain 1.0.0. After the patch, use `bash scripts/cicd-patch-result.sh lab-test` instead; initial-only verification correctly refuses a newer live release. For a matching initial installation, expect **ALREADY DELIVERED** after actual version, readiness and live APEX fingerprint checks. A mismatch fails without overwriting. These commands preserve configuration/history and do not repeat migration/import.
 4. Open [TEST](http://127.0.0.1:8080/ords/f?p=810005:1) as **LAB_USER**. Follow the entry/configuration/greeting/history operations in [the runtime chapter](#use-the-complete-development-application), using TEST instead of C.
 5. Keep cleanup separate. Walkthrough cleanup prepares C only; it never resets qualification or TEST.
 
 ### First installation on an empty target
 
 1. Validate the clean candidate with `bash scripts/cicd-candidate-check.sh`, integrate the accepted commit locally and build once with `python3 scripts/cicd-artifact.py build`. Preserve the archive/sidecar; never overwrite or rebuild it for promotion. The builder records the selected archive path above.
-2. Follow [the infrastructure procedure](../../docs/deploy.md#disposable-qualification-lifecycle) for any required disposable qualification reset and control bootstrap. Inspect active ownership first. Never reset TEST. Normal reruns use existing-result verification, not reconstruction of an already qualified hash.
+2. Follow [the infrastructure procedure](../../docs/deploy.md#disposable-qualification-lifecycle) for any required disposable qualification reset and control bootstrap. Inspect active ownership first. Never reset TEST. Normal reruns use existing-result verification. An explicitly requested disposable initial reconstruction is supported for patch-baseline qualification, with a new attempt epoch and the first qualification receipt retained.
 3. Run `bash scripts/cicd-qualify.sh "$archive"`. On an empty target the wrapper pauses before each operation and prints native SQLcl output. It refuses active/interrupted attempts and never resets a target automatically.
 4. For individual operations, execute `bash scripts/cicd-release-step.sh "$archive" lab-qualify status 0`, inspect its current epoch and use that value for **admit**. Admission increments it; all following operations require the resulting epoch. Our completed run used expected epoch 1 → actual 2 for qualification, and expected 0 → actual 1 for TEST. These are historical values, not repeat-run instructions.
 5. Run each atomic operation separately with `bash scripts/cicd-release-step.sh "$archive" lab-qualify OPERATION EPOCH`, substituting **admit**, then **migrate**, **import**, **units**, **verify**. Use the pre-admission epoch only for admit. Migrate exposes SQLcl `lb validate/update/status`; import executes unchanged native split APEX source mapped through public APIs.
@@ -614,7 +614,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
 6. Qualification requires two successful executions of the **same archive**: an empty reconstruction, then an upgrade over the accepted initial release reconstructed in the disposable area. Follow [the scoped qualification lifecycle](../../docs/deploy.md#disposable-qualification-lifecycle); never reset TEST. The initial qualification receipt is retained if its archive is reconstructed again; each new attempt keeps its own epoch/history.
 7. Only after both qualification starts pass may TEST admit the patch over its unchanged initial baseline. Capture retained data first with `python3 scripts/cicd-preservation.py capture lab-test FILE`, using a new private evidence filename; compare afterward with `python3 scripts/cicd-preservation.py compare lab-test FILE`. New history/entries may append; every old field and complete configuration must match.
 
-- These stages are under validation. Construction evidence records which native stages actually passed; source availability alone does not imply qualification.
+- Fresh and initial-baseline upgrade qualification, TEST promotion and both selected rejection demonstrations passed. Native stage logs, field comparisons and runtime screenshots are linked in the construction/test evidence.
 - The mutation-state lock does not establish complete read-request draining, asynchronous request fencing or stale verifier exclusion. Those broader maintenance tests remain pending.
 
 ## Selected deployment protection operations
@@ -627,4 +627,24 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
 6. Reopen TEST and confirm the banner is gone and history remains. An interrupted fixture operation remains recorded privately for inspection; do not reset retained TEST.
 
 - Run this controlled fixture sequence with other TEST authoring/deployment stopped. It replaces only APEX definitions; concurrent application-definition authoring is unsupported during the demonstration.
-- The Product Owner results walkthrough will call these operations and pause at runtime URLs once their live validation is complete. No App Builder inspection is needed for that walkthrough.
+- The Product Owner results walkthrough calls these operations and pauses at runtime URLs. No App Builder inspection is needed for that walkthrough.
+
+### Read the current patch result
+
+1. Run `bash scripts/cicd-patch-result.sh lab-qualify` or `bash scripts/cicd-patch-result.sh lab-test`. The helper discovers the current epoch and invokes the verified archive's result check. It never reinstalls.
+2. After upgrading the live targets, initial 1.0.0 receipts remain historical evidence. The initial-release result helper appropriately rejects a live 1.0.1 target; do not interpret that as an initial deployment failure.
+3. The optional `tests/sql/prepare_qualification_fixture.sql` creates twenty verification snapshots only in a freshly reconstructed disposable baseline, after restricted verification is enabled. It is separate test preparation, not release seeding. It refuses a nonempty baseline; the browser verification still follows.
+
+### Current patch result and repeatable demonstration
+
+1. Patch source is `752eb47ec59daeb625c3849bfed87fc230295e20`; qualified/promoted SHA-256 is `200ebefff13e87600699adfebbbe71158962dc80a02d1b8e6dbd9a829dd9e1ce`.
+2. Fresh patch qualification used epoch **3**. Initial reconstruction used epoch **4**, followed by patch-upgrade qualification **5**. TEST upgrade used epoch **2**. These historical epochs must not be reused as admission commands.
+3. Current results: `bash scripts/cicd-patch-result.sh lab-qualify`, then `bash scripts/cicd-patch-result.sh lab-test`. Normal repeat commands verify without reinstalling.
+4. The pre-upgrade TEST field baseline is `.local-apex/releases/test-initial-preservation.json`; the qualification upgrade baseline is `.local-apex/releases/qualification-initial-preservation.json`. Both retain all 21 prior snapshot rows plus entries and settings. Qualification's explicit **[Q] / [W]** prefixes demonstrate preservation of nonempty settings.
+5. Run the separate C preparation first, then the [results walkthrough](developer_walkthrough.md). It verifies initial receipts/current patch, rejects the incompatible proposal, installs the controlled page fixture, rejects drift and performs explicit restoration. Native imports may log users out; sign in again with the same account.
+6. To run the selected registered assertions without human checkpoints, use `bash tests/run.sh --integration --new-only tests/manifests/patch_protections.manifest`. This includes controlled TEST page-fixture replacement/restoration; stop other TEST authoring/deployment first. Expected result: **3 tests, 0 failures**.
+7. Historical initial-only evidence remains valid for that release. Current targets are newer; do not reinstall/downgrade them to make an old result check pass.
+
+- This is the selected patch/protection slice. Full IT-1 candidate reconstruction, broader schema drift, concurrency, complete request/verifier fencing and failed additive deployment repair remain open.
+
+- If a walkthrough is stopped while its drift fixture is active, run `python3 scripts/cicd-drift-demo.py restore` explicitly before restarting. Ordinary C preparation never overwrites TEST drift or repairs an interrupted deployment. If restoration reports an unexplained additional change, inspect the retained journal/logs instead of resetting TEST.

@@ -62,7 +62,7 @@ def run(body, connection=None, admin=False, save=None):
     for value in sorted(private.values(), key=len, reverse=True):
         if isinstance(value, str) and value:
             output = output.replace(value, '[REDACTED]')
-    if result.returncode or re.search(r'(?m)(ORA-|PLS-|SP2-|Unknown Command|Error starting at line|ERROR:)', output):
+    if result.returncode or re.search(r'(?m)^\s*(?:ORA-[0-9]{5}:|PLS-[0-9]{5}:|SP2-[0-9]+:|Unknown Command|Error starting at line|ERROR(?: at line|:))', output):
         raise RuntimeError(output.strip())
     if not re.search(r'(?m)^E1_SQL_COMPLETE\s*$', output):
         raise RuntimeError('SQLcl did not reach its server-side completion marker.\n' + output.strip())

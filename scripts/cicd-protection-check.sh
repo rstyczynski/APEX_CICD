@@ -8,7 +8,7 @@ kind="$1"; case "$kind" in compatibility|drift) ;; *) exit 2 ;; esac
 archive="$(cat .local-apex/releases/patch-selected.txt)"
 umask 077
 work="$(mktemp -d .local-apex/releases/protection-$kind.XXXXXX)"
-printf '%s\n' 'begin E1_CTRL.e1_release.show_status; end;' '/' > "$work/status.sql"
+printf '%s\n' 'set serveroutput on' 'begin E1_CTRL.e1_release.show_status; end;' '/' > "$work/status.sql"
 python3 scripts/apex_sql.py lab-test "$work/status.sql" > "$work/status.log"
 epoch="$(sed -n 's/^TARGET=.* EPOCH=\([0-9]*\) PHASE=.*$/\1/p' "$work/status.log" | tr -d '\r')"
 [[ "$epoch" =~ ^[0-9]+$ ]] || exit 1

@@ -4,9 +4,15 @@ test_IT1_release() {
   return 1
 }
 test_IT2_patch() {
-  # TODO: implement — compatible patch preserves complete greeting snapshots.
-  echo 'IT-2 patch implementation pending' >&2
-  return 1
+  local archive
+  archive="$(cat .local-apex/releases/patch-selected.txt)"
+  bash scripts/cicd-patch-result.sh lab-qualify
+  bash scripts/cicd-patch-result.sh lab-test
+  python3 scripts/cicd-preservation.py compare lab-qualify .local-apex/releases/qualification-initial-preservation.json
+  python3 scripts/cicd-preservation.py compare lab-test .local-apex/releases/test-initial-preservation.json
+  python3 scripts/apex_sql.py lab-test tests/sql/hello_patch.sql
+  python3 scripts/apex_sql.py lab-control tests/sql/patch_receipts.sql
+  echo 'PASS IT-2: same patch qualified fresh/from initial, promoted, repeat checked without writes; retained fields and behavior verified.'
 }
 
 # Bounded IT-1 initial-install evidence; full upgrade/reconstruction remains pending above.

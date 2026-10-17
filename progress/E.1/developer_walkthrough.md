@@ -11,11 +11,11 @@
 
 ## Deep dive
 
-This document presents the business outcomes of the detailed pipelines described in [detailed operator walkthrough](user_manual.md) with its companion runner script [cicd-developer-walkthrough.sh](../../scripts/cicd-developer-walkthrough.sh) are **one artifact**. All three artifacts are describing one system, and are always updated and reviewed together.
+This business-level walkthrough, its [runner](../../scripts/cicd-developer-walkthrough.sh) and the [detailed operator guide](user_manual.md) describe one system. Maintain and review them together as **one artifact**.
 
 ## Applied tools and techniques
 
-The deployment has two kinds of source: **APEX application definitions** and **database migrations**. Git keeps both together. Operators use small shell scripts and visible SQLcl commands to assemble and check one application in each target. The working development assembly demonstrates this approach; initial qualification and promotion now execute the same verified archive; compatible upgrade and rejection scenarios remain under construction.
+The deployment has two kinds of source: **APEX application definitions** and **database migrations**. Git keeps both together. Operators use small shell scripts and visible SQLcl commands to assemble and check one application in each target. The working development assembly demonstrates this approach; initial delivery and the compatible Hello upgrade execute verified archives; the selected incompatibility and page-drift rejection scenarios now have executable demonstrations.
 
 ### Toolchain and responsibilities
 
@@ -33,17 +33,17 @@ The deployment has two kinds of source: **APEX application definitions** and **d
 2. **Capture and review source.** Export native APEX definitions, review the declared component changes and inherited/shared definitions, run candidate checks, then commit the accepted source. Repeated unchanged exports must match; a live development application is not itself a release artifact.
 3. **Build once.** Package the accepted Git revision, migrations, deployment SQL and nonsecret manifest. Record the source commit, supported starting state, component dependencies, tool/configuration versions and the archive's **SHA-256**. Qualification and promotion must execute files from that verified archive rather than a changing checkout.
 4. **Qualify, then promote the same bytes.** Reconstruct and test in the disposable area first. Retained TEST may receive only the identical qualified artifact for its supported starting state. The selected patch must also qualify against its declared earlier baseline; successful fresh installation alone does not prove an upgrade.
-5. **Verify before publishing.** Development verification already uses native restricted access for **VERIFIER**, followed by integrity/browser checks and a separate publication operation. The release design additionally requires persistent attempt ownership, maintenance fencing, final live fingerprints and a receipt before readiness. The initial release now uses persistent attempt ownership, an external runtime gate and a final fingerprint. Native availability is prepared while the external gate still restricts business requests; successful receipt and external readiness commit together. Upgrade maintenance and in-flight request draining remain unproved.
+5. **Verify before publishing.** Development verification already uses native restricted access for **VERIFIER**, followed by integrity/browser checks and a separate publication operation. The release design additionally requires persistent attempt ownership, maintenance fencing, final live fingerprints and a receipt before readiness. The initial release now uses persistent attempt ownership, an external runtime gate and a final fingerprint. Native availability is prepared while the external gate still restricts business requests; successful receipt and external readiness commit together. Guarded mutation admission and ordinary-request blocking passed for the patch; complete read/asynchronous request draining and stale-verifier fencing remain unproved.
 
 ### How correctness is checked
 
 1. **Isolation and identity:** actual cross-area read/write denial tests supplement configuration inspection. A correct application sent to the wrong schema still fails the target check.
-2. **Dependency and version rules:** Foundation must precede its dependents, and installed components must form a supported complete combination. Semantic versions describe contracts: a compatible Hello correction is planned as **1.0.0 → 1.0.1**; a breaking Foundation change requires compatible dependents. Version labels alone do not establish compatibility. Pre-deployment rejection of the selected incompatible upgrade is still pending.
+2. **Dependency and version rules:** Foundation must precede its dependents, and installed components must form a supported complete combination. Semantic versions describe contracts: the compatible Hello correction advances **1.0.0 → 1.0.1**; a breaking Foundation change requires compatible dependents. Version labels alone do not establish compatibility. The Foundation 2.0.0 proposal is rejected because its dependents still require Foundation 1.0.0.
 3. **Behavior and retained data:** Oracle unit assertions check exact greeting composition, defaults, explicit selections, prefixes, Unicode, limits and rejected input. Snapshot tests check that changed configuration affects new greetings while old snapshots remain unchanged, and that history update/delete is rejected. Browser checks exercise the actual runtime as verifier and ordinary user.
 4. **Repeatability and failure reporting:** cleanup is an explicit separate step, backs up configuration and compares every existing history row before/after preparation. Scripts check Oracle errors and successful completion markers, stop on unexpected failure and show the reason. A failed connection or arbitrary error is not evidence that a bad deployment was correctly rejected.
-5. **Traceability and drift:** a Git commit identifies source; a semantic version describes its contract; an archive hash identifies exact packaged bytes; a recomputed live APEX fingerprint detects changed application definitions; schema checks cover the declared migrations and component versions. These serve different purposes. The selected drift scenario must reject before overwriting the target and show the prior working application/history afterward. A matching hash alone does not prove functional correctness.
+5. **Traceability and drift:** a Git commit identifies source; a semantic version describes its contract; an archive hash identifies exact packaged bytes; a recomputed live APEX fingerprint detects changed application definitions; schema checks cover the declared migrations and component versions. These serve different purposes. The selected drift scenario rejects a changed Home title/banner before maintenance, migration or import and leaves the changed page/history intact until explicit restoration. A matching hash alone does not prove functional correctness.
 
-The [current verification evidence](sprint_E.1_tests.md) supports development, repeatable preparation and initial exact-artifact qualification/promotion. The Hello patch, incompatible/drift deployment rejection, complete maintenance fencing, concurrency and automated failed-deployment repair are not yet demonstrated. Correctness is established by the checks actually passed for the stated scope; this chapter does not turn the [accepted design](sprint_E.1_design.md) into a completed guarantee.
+The [current verification evidence](sprint_E.1_tests.md) supports development, repeatable preparation, both release paths, preserved settings/history and the two selected rejection scenarios. Complete request draining/fencing, concurrency and automated failed-deployment repair remain unproved. Correctness is established by the checks actually passed for the stated scope; this chapter does not turn the [accepted design](sprint_E.1_design.md) into a completed guarantee.
 
 ## Alignment with selected Elaboration use cases
 
@@ -62,15 +62,15 @@ The [current verification evidence](sprint_E.1_tests.md) supports development, r
 - **Reproduction:** this guide contributes to UC-6; its full success criterion is not met by an unattended runner execution.
 - **Later evidence outside this selected walkthrough:** parallel Hello/World work, the competing Hello race and other reservation alternatives in UC-9; deployment races/interruption; failed additive deployment and automated repair in UC-5. These remain in the broader design.
 - **Unselected:** UC-12 adoption of an existing application. This prototype creates the application from scratch without constructing a supplied seed application.
-- **Execution status:** this mapping describes intended coverage, not passed acceptance. A/B/C development checks and runtime checkpoints execute. Initial qualification/promotion also execute. Patch and rejection stages remain pending.
+- **Execution status:** this mapping describes intended coverage, not passed acceptance. A/B/C development checks and runtime checkpoints execute. Initial receipts remain verifiable after upgrade; the patch and two selected rejection stages execute. Broader use-case alternatives remain pending.
 
 ## Current readiness
 
-- A has Foundation only; B has Foundation plus Hello. Both incomplete applications stay unavailable.
-- C/application 810003 is published for development use: Foundation, Hello and World **1.0.0**, selectable greetings, configuration and saved history.
-- The runner checks these existing results and shows their URLs. It does not redeploy or replay the completed developer authoring work.
-- Qualification 810004 and retained TEST 810005 are published with all three components at **1.0.0** from identical archive bytes. The runner verifies these existing results and shows both URLs.
-- Patch and deployment-rejection demonstrations remain **PENDING**. The runner stops at that remaining boundary with status 3.
+- A and B retain their unavailable incomplete checkpoints.
+- C, qualification 810004 and retained TEST 810005 run **Foundation 1.0.0 / Hello 1.0.1 / World 1.0.0**. The application release version is **1.0.1**.
+- Initial 1.0.0 receipts remain visible as historical delivery evidence. The walkthrough does not downgrade/reinstall retained TEST to replay that earlier release.
+- The runner verifies current results, demonstrates both selected rejections and restores its controlled page-drift fixture explicitly. It finishes with exit **0** when these selected stages pass.
+- Full E.1 concurrency, complete maintenance fencing and failed-additive-deployment repair remain open. This walkthrough does not close the sprint.
 
 ## Run the results walkthrough
 
@@ -105,7 +105,7 @@ The [current verification evidence](sprint_E.1_tests.md) supports development, r
 - Browser continuation is not reported as an automated browser test.
 - Run with **--preflight** for local tool/file/chapter checks without Oracle access.
 - Run with **--rehearse** for the implemented CLI checks without pauses; human viewing is explicitly skipped.
-- Current modes all leave unfinished delivery stages pending. Rehearsal also ends with status 3.
+- **--rehearse** executes the CLI stages, including the controlled TEST page fixture/rejection/restoration, without human viewing. It is not read-only. Successful selected coverage ends with status 0; broader E.1 work remains open.
 
 ## Prepare a repeatable walkthrough
 
@@ -173,77 +173,71 @@ The [current verification evidence](sprint_E.1_tests.md) supports development, r
 2. Retrieve its local password with `python3 scripts/cicd-password.py LAB_USER` if needed.
 3. Select **Hello** and **World**, then press **Create greeting**. See **Hello World — saved to history.**
 4. Open **Greeting history** in the navigation menu. Refresh and confirm the new row and earlier snapshots remain.
-5. Open **Installed components** and see Foundation/Hello/World **1.0.0**.
+5. Open **Installed components** and see Foundation **1.0.0**, Hello **1.0.1** and World **1.0.0**.
 6. To try your own data, follow the [runtime instructions](user_manual.md#use-the-complete-development-application) for entry/configuration pages.
 7. Continue in the terminal to qualification and TEST results.
 
-- The terminal shows versions **1.0.0 / 1.0.0 / 1.0.0** and actual successful verification output.
+- The terminal shows the current versions **1.0.0 / 1.0.1 / 1.0.0** and actual successful verification output.
 - The first slice runs B/C sequentially; it does not claim concurrent-development proof.
 - C is a development result, not a qualified release or retained TEST promotion. Browser-created verification examples remain in its history; application exports contain no business seed.
 
 ## D. Qualify the initial release
 
-1. The terminal verifies the retained archive, qualification receipt, component versions, ready state and live APEX fingerprint.
-2. Open [qualification](http://127.0.0.1:8080/ords/f?p=810004:1) as **LAB_USER**.
-3. Create a greeting, reopen **Greeting history** and inspect **Installed components**: Foundation, Hello and World are **1.0.0**.
-4. Continue in the terminal.
+1. Read the initial archive verification and historical qualification receipt in the terminal.
+2. Open [qualification](http://127.0.0.1:8080/ords/f?p=810004:1) as **LAB_USER**. The live area now contains the later patch; initial delivery is shown through its retained receipts.
+3. Continue to the initial TEST receipt.
 
-- This is an existing qualified result, not a new deployment on each walkthrough run.
-- The initial deployment actually ran admission, migrations, native import, unit/integrity checks, VERIFIER browser verification and guarded publication from the archive. Individual commands are in the [operator guide](user_manual.md#initial-release-build-qualify-and-promote).
+- Initial source: `0f7c500e064e4f262a42fb74f4984eb0e4349c88`; initial archive SHA-256: `6a1da4a940586541cbb034277605d7ed36e5d1ad305554f9a2fe4c64cd59411c`.
+- The first initial qualification used epoch 2. A later disposable reconstruction at epoch 4 supplied the baseline for patch-upgrade qualification. Both successful attempts remain retained.
 
 ## E. Promote the same initial artifact to TEST
 
-1. Read the matching archive hash and successful TEST verification in the terminal.
-2. Open [retained TEST](http://127.0.0.1:8080/ords/f?p=810005:1) as **LAB_USER**. Retrieve its local password with `python3 scripts/cicd-password.py LAB_USER` if needed.
-3. Select **Hello** and **World**, then **Create greeting**. See **Hello World — saved to history.**
-4. Open **Greeting history**, refresh and confirm the new greeting and earlier snapshots remain.
-5. Open **Installed components**: Foundation, Hello and World remain **1.0.0**.
-6. Continue in the terminal to the remaining construction boundary.
+1. Read the successful historical TEST epoch-1 receipt for the **same initial archive hash**.
+2. Open [TEST](http://127.0.0.1:8080/ords/f?p=810005:1) as **LAB_USER**. It now runs 1.0.1; this stage does not reinstall or downgrade it.
+3. Continue to the current patch result and preservation checks.
 
-- Qualified and promoted SHA-256: `6a1da4a940586541cbb034277605d7ed36e5d1ad305554f9a2fe4c64cd59411c`.
-- Source: `0f7c500e064e4f262a42fb74f4984eb0e4349c88`; qualification epoch **2**, TEST epoch **1**. Target-specific APEX fingerprints differ because application mappings differ; archive bytes match.
-- Existing-result checks do not reinstall, reset configuration or delete history. TEST contains explicit post-delivery verification data, including twenty verifier snapshots for later upgrade comparisons. No business seed is distributed.
+- The initial archive and receipts are retained unchanged. Qualification/TEST runtime data is not packaged business seed.
+- Retrieve the local password with `python3 scripts/cicd-password.py LAB_USER` if needed. Native imports may require re-login.
 
-## Remaining release scenarios — pending construction
+## F. Deliver the compatible Hello patch
 
-- Initial qualification and identical-byte TEST promotion are complete.
-- The compatible Hello patch and the specific deployment rejection demonstrations below remain pending. The runner stops here with **exit 3**.
-- Initial fresh installation does not prove retained-target upgrade, parallel development, in-flight request draining or failed additive deployment repair.
+1. The terminal verifies the current qualification and TEST artifact, installed versions and live APEX fingerprints.
+2. Read the passing field-level comparison: every earlier greeting snapshot, entry and setting remains unchanged. New greetings may append.
+3. Read the correction check: tab/newline-padded text normalizes; whitespace-only Hello text rejects. Its test changes roll back.
+4. Open [TEST](http://127.0.0.1:8080/ords/f?p=810005:1), sign in as **LAB_USER**, select **Hello/World** and **Create greeting**.
+5. Reopen **Greeting history**, refresh and see the new greeting alongside earlier snapshots.
+6. Open **Installed components**: **Foundation 1.0.0 / Hello 1.0.1 / World 1.0.0**. The footer shows application release **1.0.1**.
+7. Continue to the incompatible deployment proposal.
 
-## Compatible Hello update — pending construction
+- Patch source: `752eb47ec59daeb625c3849bfed87fc230295e20`.
+- Patch SHA-256: `200ebefff13e87600699adfebbbe71158962dc80a02d1b8e6dbd9a829dd9e1ce`.
+- Identical bytes passed fresh qualification (epoch 3), baseline-upgrade qualification (epoch 5), then TEST upgrade (epoch 2). Qualification also preserves explicit **[Q] / [W]** prefixes; TEST retains its own settings.
+- Repeating this result stage verifies the installed release without migration/import. Detailed fresh/upgrade operations are in the [operator guide](user_manual.md#hello-101-operator-stages).
 
-1. Qualify the patch against its declared earlier baseline.
-2. Promote the same qualified patch archive into retained TEST.
-3. Reopen TEST and verify corrected Hello behavior, retained configuration and every earlier greeting snapshot.
+## G. Reject an incompatible database upgrade
 
-- Hello advances to **1.0.1**, with Foundation and World remaining **1.0.0**. This has not yet been deployed.
+1. Press a key to submit the Foundation **2.0.0** proposal to the deployment compatibility gate.
+2. Read **REJECTED INCOMPATIBLE: Hello requires Foundation 1.0.0; proposed Foundation 2.0.0**. World has the same declared Foundation requirement.
+3. Read the unchanged-target verification: definitions, versions, entries, settings, history and control receipts match before/after rejection. Maintenance, migrations and import were not entered.
+4. Open [TEST](http://127.0.0.1:8080/ords/f?p=810005:1), create a greeting and reopen history. The current release still works.
+5. Continue to the controlled page-drift demonstration.
 
-## Reject an incompatible database upgrade — pending construction
+- This is a rejected deployment proposal; no destructive Foundation 2.0.0 migration is constructed or executed.
+- The accepted patch above proves the pipeline also admits a supported change.
 
-1. Start from the working TEST release with saved greetings.
-2. Press a key to attempt the proposed Foundation major upgrade while its installed dependents still require the older contract.
-3. Read **REJECTED**, with the specific incompatible dependency/version reason.
-4. See the pipeline verification that rejection occurred before database migration or application import, with installed versions/definitions and history unchanged.
-5. Open the same TEST URL and use the existing greeting behavior.
-6. Reopen earlier history to see that the rejected deployment left it intact.
+## H. Reject deployment over unexpected live change
 
-- Success means a known incompatible change was stopped before it changed the database.
-- A failed database migration is not the intended protection result.
-- The compatible patch above must succeed as well, so a pipeline that rejects everything cannot pass.
+1. Press a key for the explicit **TEST-only page-drift fixture**. It verifies the current release, saves the actual native target export/data, then installs the separately authored Home title/banner change with the existing ID offset.
+2. Open [TEST](http://127.0.0.1:8080/ords/f?p=810005:1), re-login if needed and see **DIRECT CHANGE - deployment must stop**. Installed component versions still describe 1.0.1; the live content fingerprint has changed.
+3. Continue to the attempted redeployment preflight.
+4. Read **REJECTED DRIFT**, with the actual fingerprint mismatch, followed by unchanged-target/control-receipt checks. No maintenance, migration or release import occurred.
+5. Reopen TEST: the direct change remains visible and the application/history still work. Rejection has not overwritten it.
+6. Press a key for the **separate explicit restoration**. It refuses another unexplained definition/release change, restores the saved native TEST definition and requires the original successful fingerprint. All data/settings present before restoration must survive.
+7. Reopen TEST and re-login if required. The banner is gone; earlier and newly appended greetings remain.
 
-## Reject deployment over unexpected live change — pending construction
-
-1. Start from the working TEST release and its accepted fingerprint.
-2. Run the controlled scenario that changes a visible page attribute without changing its component version.
-3. Open TEST to see that deliberately changed result.
-4. Continue to a deployment attempt against the earlier accepted baseline.
-5. Read **REJECTED**, with the actual live-fingerprint mismatch reason.
-6. See verification that no migration/import overwrote the target and retained history is unchanged.
-7. Refresh the same URL to see that the direct change and earlier greetings are still present.
-
-- Do not silently capture or accept that change as a new release baseline.
-- Any restoration/reconciliation follows the reviewed procedure after the demonstration.
-- This is a controlled prototype scenario, not permission for unrestricted target editing.
+- The fixture replacement is test setup outside release delivery. Run it with other TEST authoring/deployment stopped.
+- Restoration is controlled demonstration cleanup, not automatic deployment repair or silent acceptance of drift.
+- Broader schema-drift coverage, concurrent requests, verifier fencing and failed additive deployment repair remain pending.
 
 ## Maintain this artifact
 
@@ -251,5 +245,5 @@ The [current verification evidence](sprint_E.1_tests.md) supports development, r
 - Use numbered actions, short outcome bullets and runtime URLs.
 - Keep developer mechanics inside the stage; retain their real output for diagnosis.
 - Add **DEPLOYED** or **REJECTED** only after the corresponding operation and verification exist.
-- Keep incomplete stages **PENDING** and preserve existing operator walkthroughs.
+- Keep unproved broader capabilities **PENDING** and preserve the separate detailed operator walkthroughs.
 - The [accepted design](sprint_E.1_design.md) remains the source for the positive patch, incompatibility and drift acceptance criteria.

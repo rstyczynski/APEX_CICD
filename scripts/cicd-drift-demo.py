@@ -16,7 +16,7 @@ def fingerprint():
     return found[0]
 
 def identity():
-    output=run('begin E1_CTRL.e1_release.show_status; end;\n/',connection=TARGET)
+    output=run('set serveroutput on\nbegin E1_CTRL.e1_release.show_status; end;\n/',connection=TARGET)
     if not re.search(r'TARGET=E1_TEST APP=810005 EPOCH=\d+ PHASE=ready',output): raise ValueError('Ready retained TEST required')
     return output
 
@@ -68,7 +68,7 @@ def main(action):
         journal.update(phase='changed',changed=changed)
         POINTER.write_text(json.dumps(journal,indent=2)+'\n')
         print('DIRECT PAGE CHANGE INSTALLED: version and release receipt unchanged; live fingerprint differs.')
-        print('Open http://127.0.0.1:8080/ords/f?p=810005:1 to see DIRECT CHANGE — deployment must stop.')
+        print('Open http://127.0.0.1:8080/ords/f?p=810005:1 to see DIRECT CHANGE - deployment must stop.')
         print('Next: bash scripts/cicd-protection-check.sh drift; restoration is a separate explicit operation.')
     elif action=='restore':
         journal=json.loads(POINTER.read_text());work=ROOT/journal['work']
