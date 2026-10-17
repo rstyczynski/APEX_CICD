@@ -55,6 +55,8 @@ def inspect(path):
     source = files['apex/f810001/application/create_application.sql'].decode()
     if ",p_flow_status=>'UNAVAILABLE'" not in source:
         raise ValueError('Initial release must import with native UNAVAILABLE status')
+    if 'E1_CTRL.e1_release.assert_runtime' not in source:
+        raise ValueError('External request gate missing from application initialization')
     for page in (0,1,10,20,100,101,110,111,200,201,210,211,9999):
         if f'apex/f810001/application/pages/page_{page:05}.sql' not in files:
             raise ValueError('Incomplete APEX source')

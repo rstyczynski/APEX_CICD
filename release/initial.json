@@ -2,11 +2,31 @@
   "format": 1,
   "release": "1.0.0",
   "stage": "complete-initial",
-  "components": {"Foundation": "1.0.0", "Hello": "1.0.0", "World": "1.0.0"},
-  "supported_starts": ["empty"],
-  "dependencies": {"Hello": {"Foundation": "1.0.0"}, "World": {"Foundation": "1.0.0"}},
+  "components": {
+    "Foundation": "1.0.0",
+    "Hello": "1.0.0",
+    "World": "1.0.0"
+  },
+  "supported_starts": [
+    "empty"
+  ],
+  "dependencies": {
+    "Hello": {
+      "Foundation": "1.0.0"
+    },
+    "World": {
+      "Foundation": "1.0.0"
+    }
+  },
   "capture_profile": "split-skipDate-originalIds-noSupportingObjects",
   "fingerprint_profile": "CHECKSUM-SH256-noDate-noAudit-noSupportingObjects-v1",
   "native_import_status": "UNAVAILABLE",
-  "tools": {"sqlcl": "25.3.0.274.1210", "apex": "24.2.0", "database": "23.26.3.0.0", "java": "21.0.12.1+1"}
+  "tools": {
+    "sqlcl": "25.3.0.274.1210",
+    "apex": "24.2.0",
+    "database": "23.26.3.0.0",
+    "java": "21.0.12.1+1"
+  },
+  "publication_profile": "native-prepare/read-only-fingerprint/external-ready-v1",
+  "runtime_gate": "E1_CTRL.e1_release.assert_runtime"
 }

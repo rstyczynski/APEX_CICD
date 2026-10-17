@@ -1,0 +1,9 @@
+APEX 24.2 publication feasibility experiment in disposable qualification.
+Observed ORA-01453: APEX_EXPORT starts a read-only transaction and cannot follow availability DML.
+Native Restricted/Unavailable/Available states produce different CHECKSUM-SH256 values.
+Therefore the first d0e4d37 archive is unqualified and retained; no TEST installation occurred.
+Added the already-designed external initialization gate to keep ordinary access blocked across native availability preparation and read-only fingerprint capture. Final gate/receipt publication is a separate atomic transaction.
+Native API experiment used synthetic disposable qualification only; full transition browser checks follow reconstruction of the guarded archive.
+External gate PL/SQL unit checks pass for ordinary denial, active verifier and missing target.
+Raw guarded captures match byte-for-byte; reviewed request initialization hook, explicit default public user, generated SCN/component map only.
+The failed first attempt is retained with its artifact/source identities; qualification-only retirement is explicit and cannot retire TEST.

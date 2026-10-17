@@ -26,6 +26,8 @@ begin
       starting_state varchar2(20) not null, qualified_at timestamp with time zone default systimestamp)]';
     commit;
   end if;
+  select count(*) into n from user_tab_columns where table_name='E1_RELEASE_ATTEMPTS' and column_name='FAILURE_REASON';
+  if n=0 then execute immediate 'alter table e1_release_attempts add (failure_reason varchar2(1000))'; end if;
 end;
 /
 create or replace package e1_release authid definer as
@@ -34,6 +36,8 @@ create or replace package e1_release authid definer as
   procedure verifying(p_epoch number,p_hash varchar2);
   procedure publish_initial(p_epoch number,p_hash varchar2,p_fingerprint varchar2);
   procedure show_status;
+  procedure assert_runtime;
+  procedure retire_disposable_qualification(p_epoch number,p_hash varchar2,p_reason varchar2);
 end;
 /
 create or replace package body e1_release as
@@ -84,7 +88,7 @@ create or replace package body e1_release as
   begin
     assert_attempt(p_epoch,p_hash);
     select * into r from e1_release_targets where schema_name=who for update nowait;
-    if r.phase<>'verifying' or p_fingerprint is null then raise_application_error(-20616,'Verification and final fingerprint required'); end if;
+    if r.phase<>'verifying' or p_fingerprint is null or not regexp_like(p_fingerprint,'^SH256:[A-Za-z0-9+/]{43}=$') then raise_application_error(-20616,'Verification and final fingerprint required'); end if;
     if who='E1_QUALIFY' then
       insert into e1_qualified_artifacts(artifact_hash,source_commit,config_hash,qualification_epoch,starting_state)
         values(r.artifact_hash,r.source_commit,r.config_hash,r.epoch,'empty');
@@ -92,6 +96,31 @@ create or replace package body e1_release as
     update e1_release_attempts set outcome='succeeded',finished_at=systimestamp,fingerprint=p_fingerprint where schema_name=who and epoch=p_epoch;
     update e1_release_targets set phase='ready',owner_name=null,fingerprint=p_fingerprint where schema_name=who;
     -- No commit: root readiness/native availability/receipt publish together.
+  end;
+  procedure assert_runtime is
+    app number:=apex_application.g_flow_id; phase varchar2(20);
+  begin
+    -- The three private authoring checkpoints are not controlled release targets.
+    if app in (810001,810002,810003) then return; end if;
+    select t.phase into phase from e1_release_targets t where t.app_id=app;
+    -- Login can authenticate the verifier; all business pages still check below.
+    if apex_application.g_flow_step_id=9999 then return; end if;
+    if phase='ready' then return; end if;
+    if phase='verifying' and upper(apex_application.g_user)='VERIFIER' then return; end if;
+    raise_application_error(-20631,'Release verification in progress: ordinary application access is blocked.');
+  exception when no_data_found then
+    raise_application_error(-20632,'Missing controlled-target state: application access blocked.');
+  end;
+  procedure retire_disposable_qualification(p_epoch number,p_hash varchar2,p_reason varchar2) is
+    who varchar2(30):=actor;
+  begin
+    if who<>'E1_QUALIFY' or p_reason is null or length(p_reason)<20 then
+      raise_application_error(-20633,'Only an inspected disposable qualification attempt may be retired');
+    end if;
+    assert_attempt(p_epoch,p_hash);
+    update e1_release_attempts set outcome='failed',finished_at=systimestamp,failure_reason=p_reason where schema_name=who and epoch=p_epoch;
+    update e1_release_targets set phase='new',owner_name=null where schema_name=who;
+    commit;
   end;
   procedure show_status is r e1_release_targets%rowtype; who varchar2(30):=actor;
   begin
@@ -104,7 +133,7 @@ create or replace package body e1_release as
   end;
 end;
 /
-grant execute on e1_release to E1_QUALIFY, E1_TEST;
+grant execute on e1_release to E1_QUALIFY, E1_TEST, E1_DEV_A, E1_DEV_B, E1_DEV_C;
 select name,type,line,text from user_errors where name='E1_RELEASE';
 declare n number;
 begin

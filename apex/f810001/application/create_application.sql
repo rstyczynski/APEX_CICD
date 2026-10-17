@@ -32,6 +32,7 @@ wwv_imp_workspace.create_flow(
 ,p_application_tab_set=>0
 ,p_logo_type=>'T'
 ,p_logo_text=>'APEX Delivery Laboratory'
+,p_public_user=>'APEX_PUBLIC_USER'
 ,p_proxy_server=>nvl(wwv_flow_application_install.get_proxy,'')
 ,p_no_proxy_domains=>nvl(wwv_flow_application_install.get_no_proxy_domains,'')
 ,p_flow_version=>'1.0.0'
@@ -41,6 +42,7 @@ wwv_imp_workspace.create_flow(
 ,p_exact_substitutions_only=>'Y'
 ,p_browser_cache=>'N'
 ,p_browser_frame=>'D'
+,p_vpd=>'begin E1_CTRL.e1_release.assert_runtime; end;   '
 ,p_rejoin_existing_sessions=>'N'
 ,p_csv_encoding=>'Y'
 ,p_auto_time_zone=>'N'
@@ -48,7 +50,7 @@ wwv_imp_workspace.create_flow(
 ,p_substitution_value_01=>'APEX Delivery Laboratory'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>6
-,p_version_scn=>3418984
+,p_version_scn=>3554712
 ,p_print_server_type=>'NATIVE'
 ,p_file_storage=>'DB'
 ,p_is_pwa=>'Y'
