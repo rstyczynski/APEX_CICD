@@ -48,7 +48,7 @@ command -v rg >/dev/null
 for name in identity application_inventory component_inventory foundation_verify show_reservations; do
   test -r "$ROOT/deploy/operator/$name.sql"
 done
-for heading in '## Prepare a repeatable walkthrough' '## A. Deliver Foundation' '## B. Deliver Hello' '## C. Deliver World and complete the assembly' '## Release boundary — not implemented'; do
+for heading in '## Applied tools and techniques' '## Prepare a repeatable walkthrough' '## A. Deliver Foundation' '## B. Deliver Hello' '## C. Deliver World and complete the assembly' '## Release boundary — not implemented'; do
   if ! rg -Fqx -- "$heading" "$MANUAL"; then echo "ERROR: manual/script mismatch: $heading" >&2; exit 1; fi
 done
 echo 'OK: required tools/files and chapter references found. Database access is checked in A.'
@@ -58,6 +58,7 @@ umask 077
 mkdir -p .local-apex/operator
 work="$(mktemp -d "$ROOT/.local-apex/operator/developer.XXXXXX")"
 echo "Use-case walkthrough: $MANUAL"
+echo 'Background: manual chapter "Applied tools and techniques" explains the toolchain, checks and pending release gates.'
 echo 'Current scope: verify existing A/B/C development results. No redeployment is performed; release and rejection demonstrations remain pending.'
 echo 'PREREQUISITE: run bash scripts/cicd-walkthrough-cleanup.sh separately before this walkthrough (manual run step 2).'
 section '## A. Deliver Foundation'

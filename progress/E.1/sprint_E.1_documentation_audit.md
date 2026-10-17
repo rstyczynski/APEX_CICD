@@ -127,3 +127,8 @@ Cleanup and chapters form one artifact: exact operations, scope, private restore
 ## Explicit cleanup step — 2026-10-17
 
 The results guide now lists cleanup as numbered run step 2, its PASS/backup check as step 3, and starting the walkthrough as step 4. Removed the automatic cleanup call from the results runner so following the documented sequence performs cleanup once. Reconciled the operator guide and README. Cleanup behavior and preservation scope are unchanged; no release or sprint status change. Verified shell syntax, chapter/preflight mapping, local links and whitespace.
+
+
+## Toolchain explanation in the results guide — 2026-10-17
+
+Added Applied tools and techniques immediately after Deep dive. Explained Podman/logical areas, Oracle/PLSQL, APEX/ORDS, SQLcl/Java, Liquibase, Git and small operator/test helpers; source capture/review, Foundation-first assembly, versions versus archive/live fingerprints, fail-stop checks and retained-history evidence. Reconciled statements against the SRS, architecture, test profile, accepted design and actual development tests. Exact-artifact release, patch, rejection, full maintenance and recovery remain explicitly pending. The paired runner validates the new chapter reference and points readers to it without changing deployment behavior. Shell syntax, preflight, local links and whitespace checks pass; no runtime tests are needed for this explanatory change.

@@ -13,6 +13,38 @@
 
 Thi document is business level presentation of detailed pipelines described in [detailed operator walkthrough](user_manual.md) with accomaning runner script [cicd-developer-walkthrough.sh](../../scripts/cicd-developer-walkthrough.sh) are **one artifact**. All three artifacts are describing one system, and are always updated and reviewed together.
 
+## Applied tools and techniques
+
+The deployment has two kinds of source: **APEX application definitions** and **database migrations**. Git keeps both together. Operators use small shell scripts and visible SQLcl commands to assemble and check one application in each target. The working development assembly demonstrates this approach; the complete qualification/promotion pipeline is still being built.
+
+### Toolchain and responsibilities
+
+1. **Podman** runs the local Oracle Database and ORDS containers. Separate database schemas, APEX workspaces and application IDs provide A/B/C development areas, disposable qualification and retained TEST on the same host. This is logical isolation; it does not model independent production hosts. Infrastructure lifecycle operations follow [deploy.md](../../docs/deploy.md).
+2. **Oracle Database and PL/SQL** hold component data, configuration, installed versions and immutable greeting snapshots. Database constraints, packages and triggers enforce the business rules even when a caller bypasses the browser. A separate **E1_CTRL** schema keeps managed task ownership outside ordinary application migrations/imports.
+3. **Oracle APEX 24.2 App Builder** authors pages and shared components. **ORDS** serves their browser URLs. A save in App Builder changes the live development application; capture and Git review are separate operations.
+4. **SQLcl 25.3 with Java 21** connects through private saved connections, runs explicit SQL/PLSQL and performs native APEX export/import. Capture uses split files, original component IDs, no export date and no supporting-object installation. Oracle-generated export files are executed unchanged. Public APIs such as **APEX_APPLICATION_INSTALL** map the source to a target workspace/schema/application; **APEX_APPLICATION_ADMIN** controls native availability.
+5. **Liquibase through SQLcl** applies ordered database changesets and records their identities/checksums in **DATABASECHANGELOG**. An applied migration is retained unchanged; a later correction needs a new changeset. The application export and database migrations remain distinct parts of the same reviewed source revision.
+6. **Git** identifies the reviewed source commit and shows the component diff. Foundation is established first; Hello and World are integrated from bounded private work. The current demonstration used sequential B/C development. Durable task reservations record owner, task, base commit and generation; they are separate from the planned release/deployment ownership controls.
+7. **Bash, small Python standard-library helpers and SQL assertions** expose operator stages, handle files/connections and check outcomes. The results script pauses at runtime URLs; the detailed operator guide explains individual commands. Credentials stay in protected local storage, outside Git and release contents. Repository positioning comes from Git discovery.
+
+### How delivery is organized
+
+1. **Prepare and identify the target.** Check the effective database user, PDB, workspace and application mapping before writes. Reserve the declared component work before managed authoring. Keep Foundation-only and incomplete assemblies unavailable.
+2. **Capture and review source.** Export native APEX definitions, review the declared component changes and inherited/shared definitions, run candidate checks, then commit the accepted source. Repeated unchanged exports must match; a live development application is not itself a release artifact.
+3. **Build once — pending end-to-end proof.** Package the accepted Git revision, migrations, deployment SQL and nonsecret manifest. Record the source commit, supported starting state, component dependencies, tool/configuration versions and the archive's **SHA-256**. Qualification and promotion must execute files from that verified archive rather than a changing checkout.
+4. **Qualify, then promote the same bytes — pending.** Reconstruct and test in the disposable area first. Retained TEST may receive only the identical qualified artifact for its supported starting state. The selected patch must also qualify against its declared earlier baseline; successful fresh installation alone does not prove an upgrade.
+5. **Verify before publishing.** Development verification already uses native restricted access for **VERIFIER**, followed by integrity/browser checks and a separate publication operation. The release design additionally requires persistent attempt ownership, maintenance fencing, final live fingerprints and a receipt before readiness. Those complete release controls remain unproved.
+
+### How correctness is checked
+
+1. **Isolation and identity:** actual cross-area read/write denial tests supplement configuration inspection. A correct application sent to the wrong schema still fails the target check.
+2. **Dependency and version rules:** Foundation must precede its dependents, and installed components must form a supported complete combination. Semantic versions describe contracts: a compatible Hello correction is planned as **1.0.0 → 1.0.1**; a breaking Foundation change requires compatible dependents. Version labels alone do not establish compatibility. Pre-deployment rejection of the selected incompatible upgrade is still pending.
+3. **Behavior and retained data:** Oracle unit assertions check exact greeting composition, defaults, explicit selections, prefixes, Unicode, limits and rejected input. Snapshot tests check that changed configuration affects new greetings while old snapshots remain unchanged, and that history update/delete is rejected. Browser checks exercise the actual runtime as verifier and ordinary user.
+4. **Repeatability and failure reporting:** cleanup is an explicit separate step, backs up configuration and compares every existing history row before/after preparation. Scripts check Oracle errors and successful completion markers, stop on unexpected failure and show the reason. A failed connection or arbitrary error is not evidence that a bad deployment was correctly rejected.
+5. **Traceability and drift — release checks pending:** a Git commit identifies source; a semantic version describes its contract; an archive hash identifies exact packaged bytes; a recomputed live APEX/schema fingerprint detects unexpected target changes. These serve different purposes. The selected drift scenario must reject before overwriting the target and show the prior working application/history afterward. A matching hash alone does not prove functional correctness.
+
+The [current verification evidence](sprint_E.1_tests.md) supports the development assembly, its behavior and repeatable preparation. Exact-artifact promotion, the Hello patch, incompatible/drift deployment rejection, complete maintenance fencing, concurrency and automated failed-deployment repair are not yet demonstrated. Correctness is established by the checks actually passed for the stated scope; this chapter does not turn the [accepted design](sprint_E.1_design.md) into a completed guarantee.
+
 ## Alignment with selected Elaboration use cases
 
 - This is an **end-to-end use-case walkthrough** of the selected E.1 slice. A/B/C stages organize the journey; the Product Owner sees application results and deployment protection.
