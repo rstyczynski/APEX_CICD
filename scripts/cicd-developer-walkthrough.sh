@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Use-case/result companion to developer_walkthrough.md; current A result only.
+# Use-case/result companion to developer_walkthrough.md; current A/B/C development results.
 set -Eeuo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
@@ -48,7 +48,7 @@ command -v rg >/dev/null
 for name in identity application_inventory component_inventory foundation_verify show_reservations; do
   test -r "$ROOT/deploy/operator/$name.sql"
 done
-for heading in '## A. Deliver Foundation' '## B. Deliver Hello — pending construction'; do
+for heading in '## A. Deliver Foundation' '## B. Deliver Hello' '## C. Deliver World and complete the assembly' '## Release and compatible update — pending construction'; do
   if ! rg -Fqx -- "$heading" "$MANUAL"; then echo "ERROR: manual/script mismatch: $heading" >&2; exit 1; fi
 done
 echo 'OK: required tools/files and chapter references found. Database access is checked in A.'
@@ -57,7 +57,7 @@ umask 077
 mkdir -p .local-apex/operator
 work="$(mktemp -d "$ROOT/.local-apex/operator/developer.XXXXXX")"
 echo "Use-case walkthrough: $MANUAL"
-echo 'Current scope: show A’s existing runtime result. No new deployment is performed; positive release and rejection demonstrations remain pending.'
+echo 'Current scope: verify existing A/B/C development results. No redeployment is performed; release and rejection demonstrations remain pending.'
 section '## A. Deliver Foundation'
 pause 'Press any key to check the existing Foundation result; q to quit.'
 check_result lab-dev "@\"$ROOT/deploy/operator/identity.sql\" E1_DEV_A E1_DEV_A
@@ -68,8 +68,24 @@ check_result lab-control "@\"$ROOT/deploy/operator/show_reservations.sql\""
 echo 'PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810001:1'
 echo 'Expected: Foundation assembly: Hello and World are not installed.'
 pause 'Open that runtime URL to see the blocked incomplete application, then press any key; q to quit.'
-section '## B. Deliver Hello — pending construction'
-echo 'PENDING: B/C component source exists; combined runtime verification and grouped delivery replay remain in construction.'
-echo 'Positive deployments, the usable greeting and wrong-deployment protection are pending. No DEPLOYED/REJECTED outcome is claimed.'
-echo 'Stopped before any B-area mutation.'
+section '## B. Deliver Hello'
+pause 'Press any key to verify the existing Hello assembly; q to quit.'
+check_result lab-dev-b "@\"$ROOT/deploy/operator/identity.sql\" E1_DEV_B E1_DEV_B
+@\"$ROOT/deploy/operator/component_inventory.sql\"
+@\"$ROOT/deploy/checks/hello_assembly.sql\""
+echo 'VERIFIED EXISTING RESULT: B remains blocked while World is missing.'
+echo 'PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810002:1'
+pause 'See the World-not-installed message, then press any key; q to quit.'
+section '## C. Deliver World and complete the assembly'
+pause 'Press any key to verify the published development assembly; q to quit.'
+check_result lab-dev-c "@\"$ROOT/deploy/operator/identity.sql\" E1_DEV_C E1_DEV_C
+@\"$ROOT/deploy/operator/component_inventory.sql\"
+@\"$ROOT/deploy/checks/published_development.sql\""
+echo 'VERIFIED EXISTING RESULT: C development application, three components at 1.0.0.'
+echo 'PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810003:1 and sign in as LAB_USER.'
+echo 'Select Hello/World, Create greeting, reopen Greeting history and Installed components.'
+pause 'Use the application to see its result, then press any key; q to quit.'
+section '## Release and compatible update — pending construction'
+echo 'PENDING: exact-artifact qualification/promotion, compatible patch and specific deployment rejection checks.'
+echo 'Stopped before qualification or retained TEST mutation. No release/protection acceptance is claimed.'
 exit 3

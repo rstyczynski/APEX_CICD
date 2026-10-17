@@ -77,7 +77,7 @@ if __name__ == '__main__':
             env.pop('JAVA_TOOL_OPTIONS', None)
             subprocess.run(command()[:-1] + ['-version'], env=env, check=True)
         elif len(sys.argv) == 3:
-            print(run(Path(sys.argv[2]).read_text(), connection=sys.argv[1]))
+            print(run('@"' + str(Path(sys.argv[2]).resolve()) + '"', connection=sys.argv[1]))
         else:
             raise ValueError('Usage: apex_sql.py --version | CONNECTION SQL_FILE')
     except (ValueError, RuntimeError, subprocess.SubprocessError) as exc:

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Manual chapter 5: integrated changelog status on preserved A lists Hello/World pending; never auto-apply them.
 # Guided execution of the current manual; Oracle operations stay visible.
 set -Eeuo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"

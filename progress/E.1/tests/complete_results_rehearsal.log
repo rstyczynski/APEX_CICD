@@ -1,0 +1,287 @@
+OK: required tools/files and chapter references found. Database access is checked in A.
+Use-case walkthrough: /Users/rstyczynski/projects/APEX_CICD/progress/E.1/developer_walkthrough.md
+Current scope: verify existing A/B/C development results. No redeployment is performed; release and rejection demonstrations remain pending.
+## A. Deliver Foundation
+
+### Developer operations inside the stage
+
+1. Establish Foundation from its accepted source and database changes.
+2. Verify installed Foundation version, absent Hello/World and blocked incomplete assembly.
+3. Show the real operation result.
+
+- The current implementation performs only checks of the already existing Foundation, not steps to redeploy it.
+- Internal checks use lab-dev and lab-control; their output is visible but does not require Product Owner technical inspection.
+
+### Product Owner result
+
+1. Open [A's runtime](http://127.0.0.1:8080/ords/f?p=810001:1).
+2. See **Application Not Available** and **Foundation assembly: Hello and World are not installed.**
+3. Continue in the terminal.
+
+- The useful result at this stage is protection from using an incomplete application.
+- This maintenance screen does not prove protection against an incompatible or drifted deployment. Those scenarios require the later real rejection checks.
+
+REHEARSAL: pause/human viewing skipped; no browser verification claimed.
+
+Developer operation target: lab-dev
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/identity.sql" E1_DEV_A E1_DEV_A
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/application_inventory.sql"
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/component_inventory.sql"
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/foundation_verify.sql"
+
+
+SQLcl: Release 25.3 Production on Sat Oct 17 07:18:35 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_A","FREEPDB1"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_A","E1_DEV_A"
+
+Target identity verified.
+
+
+PL/SQL procedure successfully completed.
+
+"WORKSPACE","APPLICATION_ID","APPLICATION_NAME","ALIAS","VERSION","AVAILABILITY_STATUS"
+"E1_DEV_A",810001,"APEX Delivery Laboratory","APEX-DELIVERY-LABORATORY","1.0.0","Unavailable"
+
+"COMPONENT","INSTALLED","VERSION"
+"Foundation",1,"1.0.0"
+"Hello",0,""
+"World",0,""
+
+"STATE_KEY","PARENT_KEY","STATE","REASON"
+"Application","","maintenance","Initial assembly incomplete"
+"Foundation","Application","ready","Foundation installed"
+"Hello","Application","maintenance","Not installed"
+"World","Application","maintenance","Not installed"
+
+"SAVED_GREETINGS"
+0
+
+Foundation verified; Hello/World absent; application remains in maintenance.
+
+
+PL/SQL procedure successfully completed.
+
+DEVELOPER_CHECK_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-dev internal verification completed.
+
+Developer operation target: lab-control
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/show_reservations.sql"
+
+
+SQLcl: Release 25.3 Production on Sat Oct 17 07:18:38 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"COMPONENT","OWNER_NAME","TASK_ID","BASE_REVISION","GENERATION"
+"Foundation","E1_DEV_C","compose-initial","96f603c86c54d09e6393188118e0e19db43d52c3",5
+"Hello","E1_DEV_C","compose-initial","96f603c86c54d09e6393188118e0e19db43d52c3",5
+"World","E1_DEV_C","compose-initial","96f603c86c54d09e6393188118e0e19db43d52c3",5
+
+DEVELOPER_CHECK_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-control internal verification completed.
+PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810001:1
+Expected: Foundation assembly: Hello and World are not installed.
+REHEARSAL: pause/human viewing skipped; no browser verification claimed.
+## B. Deliver Hello
+
+### Developer operations inside the stage
+
+1. Reserve Hello and prepare B's private area from accepted Foundation source.
+2. Apply the reviewed Hello change and its database migration.
+3. Capture/validate/integrate the scoped source and verify the resulting assembly.
+4. Show the operation result and resulting runtime URL.
+
+### Product Owner result
+
+1. Open [B's runtime](http://127.0.0.1:8080/ords/f?p=810002:1).
+2. See that complete-application access remains blocked while World is missing.
+3. Continue to World delivery.
+
+- No page-definition review is required.
+- Hello's usable behavior is demonstrated in the completed application after World is integrated.
+- B is verified as an existing blocked assembly. Replaying its source preparation, authoring and integration remains a separate operator operation.
+
+REHEARSAL: pause/human viewing skipped; no browser verification claimed.
+
+Developer operation target: lab-dev-b
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/identity.sql" E1_DEV_B E1_DEV_B
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/component_inventory.sql"
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/checks/hello_assembly.sql"
+
+
+SQLcl: Release 25.3 Production on Sat Oct 17 07:18:40 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_B","FREEPDB1"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_B","E1_DEV_B"
+
+Target identity verified.
+
+
+PL/SQL procedure successfully completed.
+
+"COMPONENT","INSTALLED","VERSION"
+"Foundation",1,"1.0.0"
+"Hello",1,"1.0.0"
+"World",0,""
+
+"STATE_KEY","PARENT_KEY","STATE","REASON"
+"Application","","maintenance","Initial assembly incomplete"
+"Foundation","Application","ready","Foundation installed"
+"Hello","Application","ready","Hello installed; complete application still blocked"
+"World","Application","maintenance","Not installed"
+
+"SAVED_GREETINGS"
+0
+
+PASS Hello assembly: compiled; Foundation/Hello 1.0.0; World absent; runtime blocked.
+
+
+PL/SQL procedure successfully completed.
+
+DEVELOPER_CHECK_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-dev-b internal verification completed.
+VERIFIED EXISTING RESULT: B remains blocked while World is missing.
+PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810002:1
+REHEARSAL: pause/human viewing skipped; no browser verification claimed.
+## C. Deliver World and complete the assembly
+
+### Developer operations inside the stage
+
+1. Prepare C from the accepted Foundation-plus-Hello baseline.
+2. Apply and integrate the reviewed World change and migration.
+3. Verify the complete Foundation/Hello/World assembly before publishing readiness.
+4. Show the resulting application URL and installed versions.
+
+### Product Owner result
+
+1. Open [C's working application](http://127.0.0.1:8080/ords/f?p=810003:1) and sign in as **LAB_USER**.
+2. Retrieve its local password with `python3 scripts/cicd-password.py LAB_USER_PASSWORD` if needed.
+3. Select **Hello** and **World**, then press **Create greeting**. See **Hello World — saved to history.**
+4. Open **Greeting history** in the navigation menu. Refresh and confirm the new row and earlier snapshots remain.
+5. Open **Installed components** and see Foundation/Hello/World **1.0.0**.
+6. To try your own data, follow the [runtime instructions](user_manual.md#use-the-complete-development-application) for entry/configuration pages.
+7. Continue in the terminal to the pending release boundary.
+
+- The terminal shows versions **1.0.0 / 1.0.0 / 1.0.0** and actual successful verification output.
+- The first slice runs B/C sequentially; it does not claim concurrent-development proof.
+- C is a development result, not a qualified release or retained TEST promotion. Browser-created verification examples remain in its history; application exports contain no business seed.
+
+REHEARSAL: pause/human viewing skipped; no browser verification claimed.
+
+Developer operation target: lab-dev-c
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/identity.sql" E1_DEV_C E1_DEV_C
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/operator/component_inventory.sql"
+@"/Users/rstyczynski/projects/APEX_CICD/deploy/checks/published_development.sql"
+
+
+SQLcl: Release 25.3 Production on Sat Oct 17 07:18:42 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_C","FREEPDB1"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_C","E1_DEV_C"
+
+Target identity verified.
+
+
+PL/SQL procedure successfully completed.
+
+"COMPONENT","INSTALLED","VERSION"
+"Foundation",1,"1.0.0"
+"Hello",1,"1.0.0"
+"World",1,"1.0.0"
+
+"STATE_KEY","PARENT_KEY","STATE","REASON"
+"Application","","ready","Development assembly: verified greeting and history"
+"Foundation","Application","ready","Foundation installed"
+"Hello","Application","ready","Hello installed; complete application still blocked"
+"World","Application","ready","World installed; complete application still blocked"
+
+"SAVED_GREETINGS"
+2
+
+PASS complete development assembly: compiled, three 1.0.0 components and thirteen required pages.
+
+
+PL/SQL procedure successfully completed.
+
+PASS published development: native availability and application ready state.
+
+
+PL/SQL procedure successfully completed.
+
+DEVELOPER_CHECK_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-dev-c internal verification completed.
+VERIFIED EXISTING RESULT: C development application, three components at 1.0.0.
+PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810003:1 and sign in as LAB_USER.
+Select Hello/World, Create greeting, reopen Greeting history and Installed components.
+REHEARSAL: pause/human viewing skipped; no browser verification claimed.
+## Release and compatible update — pending construction
+
+1. Run the stage that builds one accepted artifact and qualifies it in the disposable area.
+2. Open the printed qualification URL and use the greeting application.
+3. Continue to promotion of the **same artifact bytes** into retained TEST.
+4. Open the printed TEST URL, create a greeting and reopen its saved history.
+5. Continue to the compatible Hello patch deployment.
+6. Reopen TEST and see the corrected Hello behavior, retained configuration and earlier greetings.
+
+- The pipeline shows the same qualified/promoted artifact hash and real deployment outcomes.
+- The patch advances Hello to **1.0.1**, with Foundation and World remaining **1.0.0**.
+- Qualification 810004 contains an earlier Foundation-only reconstruction experiment. The complete release is not qualified; TEST 810005 has no application.
+
+PENDING: exact-artifact qualification/promotion, compatible patch and specific deployment rejection checks.
+Stopped before qualification or retained TEST mutation. No release/protection acceptance is claimed.

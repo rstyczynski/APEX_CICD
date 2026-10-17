@@ -16,6 +16,7 @@ wwv_flow_imp_page.create_page(
 ,p_name=>'Home'
 ,p_alias=>'HOME'
 ,p_step_title=>'APEX Delivery Laboratory'
+,p_allow_duplicate_submissions=>'N'
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'C'
@@ -46,13 +47,47 @@ wwv_flow_imp_page.create_page_button(
 ,p_button_template_id=>4072362960822175091
 ,p_button_image_alt=>'Create greeting'
 );
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(30045675059848)
+,p_name=>'P1_HELLO_CHOICE'
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(3783024278801331)
+,p_prompt=>'Hello'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov=>'select entry_text d, entry_id r from hello_entries where active=''Y'' order by entry_text,entry_id'
+,p_lov_display_null=>'YES'
+,p_lov_null_text=>'Configured Hello default'
+,p_cHeight=>1
+,p_field_template=>1609121967514267634
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'YES'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'page_action_on_selection', 'NONE')).to_clob
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(30145981059849)
+,p_name=>'P1_WORLD_CHOICE'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(3783024278801331)
+,p_prompt=>'World'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_lov=>'select entry_text d, entry_id r from world_entries where active=''Y'' order by entry_text,entry_id'
+,p_lov_display_null=>'YES'
+,p_lov_null_text=>'Configured World default'
+,p_cHeight=>1
+,p_field_template=>1609121967514267634
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'YES'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'page_action_on_selection', 'NONE')).to_clob
+);
 wwv_flow_imp_page.create_page_process(
  p_id=>wwv_flow_imp.id(4564852750325002)
 ,p_process_sequence=>10
 ,p_process_point=>'ON_SUBMIT_BEFORE_COMPUTATION'
 ,p_process_type=>'NATIVE_PLSQL'
 ,p_process_name=>'Save greeting snapshot'
-,p_process_sql_clob=>unistr('declare v varchar2(261); begin v:=lab_runtime.record_greeting; apex_application.g_print_success_message:=apex_escape.html(v)||'' \2014 saved to history.''; end;')
+,p_process_sql_clob=>unistr('declare v varchar2(261 char); begin v:=lab_runtime.record_greeting(:P1_HELLO_CHOICE,:P1_WORLD_CHOICE); apex_application.g_print_success_message:=apex_escape.html(v)||'' \2014 saved to history.''; end;')
 ,p_process_clob_language=>'PLSQL'
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 ,p_process_when_button_id=>wwv_flow_imp.id(4564701405325001)

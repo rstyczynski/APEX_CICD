@@ -40,6 +40,12 @@ wwv_flow_imp_shared.create_menu_option(
 ,p_page_id=>210
 );
 wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(195712555249669)
+,p_short_name=>'Installed components'
+,p_link=>'f?p=&APP_ID.:20:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>20
+);
+wwv_flow_imp_shared.create_menu_option(
  p_id=>wwv_flow_imp.id(3770014920801276)
 ,p_short_name=>'Home'
 ,p_link=>'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:::'

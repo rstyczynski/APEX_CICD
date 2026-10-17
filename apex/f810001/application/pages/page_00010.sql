@@ -149,6 +149,15 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_tz_dependent=>'N'
 ,p_use_as_row_header=>'N'
 );
+wwv_flow_imp_page.create_worksheet_rpt(
+ p_id=>wwv_flow_imp.id(38479616107357)
+,p_application_user=>'APXWS_DEFAULT'
+,p_report_seq=>10
+,p_report_alias=>'48348'
+,p_status=>'PUBLIC'
+,p_is_default=>'Y'
+,p_report_columns=>'GREETING_ID:GREETING_TEXT:HELLO_TEXT:WORLD_TEXT:HELLO_PREFIX:WORLD_PREFIX:CREATED_AT:ACTOR'
+);
 wwv_flow_imp.component_end;
 end;
 /

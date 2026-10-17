@@ -245,7 +245,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev
 - Target identity must pass before proceeding. These migration inspections are read-only; the historical Foundation construction task is already released.
 - SQLcl can change its script search directory after an @file operation; the explicit SQLcl cd restores the checkout root before Liquibase resolves the changelog.
 - Validation checks the changelog; status reports unapplied changesets.
-- A already has 001-foundation installed, so no changesets should be outstanding.
+- A has 001-foundation and 002-foundation-runtime installed. The current integrated changelog also contains Hello/World: status on A therefore reports 003/004 pending. This is expected for its preserved Foundation-only checkpoint.
 - This is the inspection part of the same migration procedure used during construction.
 
 - On the initial empty A area, the next distinct operation was:
@@ -257,7 +257,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev
 - First run the SQLcl cd command above again if you have executed another @file since validation.
 - The update applies the database migration and records its checksum in DATABASECHANGELOG.
 - It has already been performed on A.
-- Repeating it against that unchanged baseline should apply no new changesets; it is not a reset.
+- Do not run this historical update command on A against the newer integrated changelog: it would install Hello/World and change the walkthrough checkpoint. C has all four changesets; qualification/release uses its own controlled procedure.
 - Never change an already applied migration to force an upgrade: add a new migration for the next version.
 - On any validation or migration error, stop and inspect the output before another write.
 - Follow the update with these separate inspections:
@@ -268,7 +268,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev
   select id, author, filename, exectype from databasechangelog order by orderexecuted;
   ```
 
-- Expected: Foundation 1.0.0, Hello/World absent, maintenance state and the executed 001-foundation migration.
+- Expected: Foundation 1.0.0, Hello/World absent, maintenance state and the executed 001/002 Foundation migrations.
 - This is a prototype Foundation procedure; the general release preflight and promotion procedure is still being built.
 
 ### 6. Capture APEX source as an operator
@@ -329,8 +329,8 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev
 - The pipeline-stage list at the end tracks what works and what remains under construction.
 
 - For another area's inventory, connect with lab-dev-b, lab-dev-c, lab-qualify or lab-test and run the same application_inventory.sql.
-- B contains Foundation plus Hello; C contains all three components under verification; TEST has no application. Qualification contains Foundation only.
-- Only A has Foundation installed at this stage.
+- B contains Foundation plus Hello; C contains the published complete development assembly; TEST has no application. Qualification contains Foundation only.
+- Foundation is installed in A, B, C and the Foundation-only qualification experiment.
 
 ## Developer A — Foundation
 
@@ -385,7 +385,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev
 
 - At the SQLcl prompt, run @deploy/operator/application_inventory.sql and leave with Ctrl+D.
 - The schema is E1_DEV_C and the saved connection is lab-dev-c.
-- Application 810003 now contains Foundation, Hello and World, including World pages 200/201 and 210/211. It remains blocked until shared composition/browser verification is complete.
+- Application 810003 now contains Foundation, Hello and World, including World pages 200/201 and 210/211. It is published after restricted browser verification; ordinary LAB_USER can now create greetings and view saved history.
 
 ## Qualification and TEST
 
@@ -485,10 +485,10 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
 - Only the operations marked working have been executed successfully so far; later commands are added here when implemented rather than presented as working examples prematurely.
 
 1. **Prepare and identify the area — working.** Provision its schema/grants, workspace association, developer/runtime users and saved connection; inspect actual identity before writes. The command/API breakdown for provisioning is being separated from the original combined helper.
-2. **Reserve the component — working for Foundation.** The control package records owner, task, Git base and generation before managed work. It lives in E1_CTRL outside application migrations. A's current Foundation reservation remains active; do not acquire a duplicate task just to inspect it. General acquisition/release examples will accompany the completed task handover.
-3. **Author Foundation — working initial assembly.** Liquibase validates db/changelog.xml, applies 001-foundation, then assertions check Foundation 1.0.0, absent Hello/World and root maintenance. deploy/foundation.sql performs these commands separately after verifying the current Foundation ownership token. This script currently targets A's active initial task and is not a general release installer.
+2. **Reserve the component — working for Foundation.** The control package records owner, task, Git base and generation before managed work. It lives in E1_CTRL outside application migrations. A's initial reservation is released; inspection does not acquire ownership. General acquisition/release examples will accompany the completed task handover.
+3. **Author Foundation — working initial assembly.** Liquibase validates db/changelog.xml, applies 001-foundation, then assertions check Foundation 1.0.0, absent Hello/World and root maintenance. deploy/foundation.sql records the bounded initial construction operation with its ownership token. That task is now closed: do not replay it as a general release installer.
 4. **Capture and review — initial capture working.** SQLcl exports the application to staging; source is reviewed in Git. Repeated unchanged capture matches all 38 files. The reusable ownership/scope-aware capture command and private-copy normalization are still being completed.
-5. **Author Hello and World — pending.** B and C will work sequentially in private copies, capture their changes and integrate reviewed source. No completed component application is supplied as a seed.
+5. **Author Hello and World — working development assembly.** B and C worked sequentially in private copies, captured native source and integrated reviewed contributions. No completed component application is supplied as a seed.
 6. **Validate candidate, then accept source — pending.** Validate the combined revision before local integration. Preserve its review/check evidence. Remote PR publication is outside the current local execution.
 7. **Build once — pending.** Package the accepted revision, migrations and component/compatibility metadata into an immutable archive. Record its hash and source revision.
 8. **Qualify exact bytes — pending.** Import that archive into the disposable area and verify versions and greeting/history. The patch release must also qualify from its declared earlier baseline.
@@ -499,3 +499,28 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
 - The [construction document](sprint_E.1_implementation.md) records code changes, tests and remaining work.
 - The [design](sprint_E.1_design.md) retains acceptance criteria and later experiments.
 - The operator guide will gain the exact runnable release commands and deployed TEST URL as those stages are built.
+
+
+## Use the complete development application
+
+1. Open [C / application 810003](http://127.0.0.1:8080/ords/f?p=810003:1).
+2. Sign in as **LAB_USER**. Retrieve only its password locally:
+
+   ```bash
+   python3 scripts/cicd-password.py LAB_USER
+   ```
+
+3. On **Home**, choose **Hello** and **World**, or leave the configured-default options selected. Press **Create greeting** and see the saved-greeting success message.
+4. Open **Greeting history** using the navigation menu. Refresh to verify the new snapshot remains. Earlier snapshots retain the text/prefixes used when saved.
+5. Open **Installed components** to see Foundation, Hello and World at **1.0.0**.
+6. To add a value, open **Hello entries** or **World entries**, press **Create**, enter **Entry Text** and **Active = Y**, then save with **Create**.
+7. To change a default or prefix, open the corresponding **Hello configuration** or **World configuration** report. Open its row using the edit icon, select an active default, enter an optional prefix and press **Apply Changes**.
+8. Return **Home**, generate another greeting and reopen history. The new settings affect new snapshots; earlier rows remain unchanged.
+9. Sign out when finished.
+
+- Expand the menu with **Main Navigation**. Direct entry URLs (a new login may be required): [Hello](http://127.0.0.1:8080/ords/f?p=810003:100), [Hello configuration](http://127.0.0.1:8080/ords/f?p=810003:110), [World](http://127.0.0.1:8080/ords/f?p=810003:200), [World configuration](http://127.0.0.1:8080/ords/f?p=810003:210), [history](http://127.0.0.1:8080/ords/f?p=810003:10), [versions](http://127.0.0.1:8080/ords/f?p=810003:20).
+- Blank/oversize entries, deactivating a configured default and editing/deleting history are rejected by database guards.
+- The development example values and verification history were entered through the browser; no seed application/business data is distributed.
+- Publication used separate identity, ownership, compilation/page/version checks, restricted browser verification and `deploy/operator/publish_development.sql`. These bounded scripts name C and the completed construction task; do not replay them as generic release scripts or reuse closed ownership tokens.
+- Qualification and retained TEST publication, patch and incompatible/drift deployment rejection remain under construction.
+- Maintain this chapter with its companion results runner and guide; the existing Foundation operator walkthrough remains a separate detailed view.

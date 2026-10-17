@@ -1,0 +1,7 @@
+PASS: complete development source review against 96f603c.
+Two unchanged C captures byte-identical; no deleted source. Oracle files copied unchanged.
+Home: independent active Hello/World selectors, explicit IDs passed to composition, character-length result, duplicate-submit prevention.
+New page 20: read-only installed component/version report; generated navigation and include entries.
+Existing component forms and report queries unchanged. Native runtime generated default report layouts for pages 10/100/110/200/210; expected original columns, PUBLIC APXWS_DEFAULT only. Component-map cache differences reviewed separately.
+Application status AVAILABLE after restricted browser verification; retained VERIFIER list applies only to restricted status. Import maintenance override for qualified delivery remains to be implemented.
+No business entries, passwords or saved history embedded in export.

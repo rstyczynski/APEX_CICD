@@ -138,3 +138,19 @@ Added explicit SRS UC mappings for the selected A/B/C journey, configuration/gre
 
 
 World source review passed against f511ab8: four World pages, its LOV and generated navigation/includes; existing Hello/Foundation behavior and original component identities are preserved. Two repeated C exports match byte-for-byte. Reviewed source copies remain raw Oracle output. World task generation 4 is released; the next shared composition change requires its own complete reservation before authoring.
+
+
+## Complete development assembly — 2026-10-17
+
+1. Reserved Foundation/Hello/World together for `compose-initial`, generation 5, from accepted World source 96f603c before shared authoring in C.
+2. Authored Home's independent active Hello/World selectors in App Builder, passed their selected IDs to the existing composition API, used character-length result storage and enabled duplicate-submit prevention. Added read-only page 20, Installed components.
+3. Ran separate C identity, all-three ownership and complete-assembly SQL checks. The bounded `deploy/operator/verify_development.sql` set native restricted access for VERIFIER before enabling development verification. Ordinary LAB_USER received **Development verification in progress.**
+4. Through runtime pages, entered Hello/World, selected both defaults and saved **Hello World** as VERIFIER. Reopened history. These explicit verification inputs remain in C; no business data is embedded in the application export.
+5. Ran `deploy/operator/publish_development.sql` after those checks. It requires the verification snapshot and publishes only C. As LAB_USER, selected Hello/World explicitly, saved another greeting and reopened/refreshed history: row 41 remains alongside the earlier verifier row 21. Installed components displays all three at 1.0.0.
+6. Exported twice through native SQLcl with `apex export -applicationid 810003 -split -skipExportDate -expOriginalIds -expSupportingObjects N -dir <fresh-private-directory>`. Both complete captures match byte-for-byte. Reviewed shared Home/report/navigation edits plus native default-report layouts materialized by first runtime use. Existing component form behavior/report queries remain unchanged. Copied raw Oracle source into the canonical source directory without editing generated calls.
+7. Released the complete composition reservation after source/browser verification. The verification/publication scripts intentionally reference that closed construction token; they are evidence-backed bounded operations, not reusable release installers.
+8. Updated both results-runner and chapters: check preserved A/B incomplete results, then C's published development result and runtime URL, then stop at the pending release boundary. The runner does not redeploy historical developer work. The detailed operator guide retains its existing purpose and now explains current migration state and runtime use.
+
+Evidence: [source review](tests/complete_source_review.txt), [unit assertions](tests/complete_unit.log), [smoke](tests/complete_smoke.log), [Foundation regression](tests/complete_foundation_regression.log), [results-runner rehearsal](tests/complete_results_rehearsal.log), [saved history](tests/development-history.jpg), [component versions](tests/development-versions.jpg).
+
+This is the selected sequential development prototype increment. Retain it as prototype source/operating guidance; no production suitability decision is implied. Qualification/promotion of identical release bytes, Hello 1.0.1, incompatible-major pre-write rejection and drift-stop evidence remain under construction. Full maintenance/verifier fencing, parallel reservations/races and automated additive-failure repair remain unproved broader risks; do not infer them from native restricted development access.

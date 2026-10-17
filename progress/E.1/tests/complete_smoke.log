@@ -1,0 +1,86 @@
+RUN smoke:test_platform.sh:test_SM1_platform
+OPERATION identity: lab-dev as E1_DEV_A
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_A","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_A","E1_DEV_A"
+PASS identity: lab-dev
+OPERATION identity: lab-dev-b as E1_DEV_B
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_B","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_B","E1_DEV_B"
+PASS identity: lab-dev-b
+OPERATION identity: lab-dev-c as E1_DEV_C
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_C","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_C","E1_DEV_C"
+PASS identity: lab-dev-c
+OPERATION identity: lab-qualify as E1_QUALIFY
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_QUALIFY","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_QUALIFY","E1_QUALIFY"
+PASS identity: lab-qualify
+OPERATION identity: lab-test as E1_TEST
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_TEST","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_TEST","E1_TEST"
+PASS identity: lab-test
+
+Session altered.
+
+
+CONTAINER_NAME
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+FREEPDB1
+
+
+COMP_ID 		       VERSION			      STATUS
+------------------------------ ------------------------------ -----------
+APEX			       24.2.0			      VALID
+
+
+VERSION_NO
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+24.2.0
+
+
+USERNAME															 ACCOUNT_STATUS
+-------------------------------------------------------------------------------------------------------------------------------- --------------------------------
+APEX_LISTENER															 OPEN
+APEX_PUBLIC_USER														 OPEN
+APEX_REST_PUBLIC_USER														 OPEN
+ORDS_PUBLIC_USER														 OPEN
+
+
+INVALID_APEX_OBJECTS
+--------------------
+		   0
+
+
+PL/SQL procedure successfully completed.
+
+
+USER
+--------------------------------------------------------------------------------
+PDB
+--------------------------------------------------------------------------------
+SYSTEM
+FREEPDB1
+
+
+ORDS landing: HTTP 200
+APEX login: HTTP 200
+Oracle APEX Version:  24.2
+
+Database SQL, ORDS, APEX sign-in and static version checks passed.
+PASS test_SM1_platform
+Tests: 1; failed: 0

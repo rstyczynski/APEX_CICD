@@ -76,3 +76,14 @@ Earlier interactive command results support the additional Foundation/capture ob
 - Registered unit suite passed 2 tests, 0 failures, on real Oracle with rolled-back fixtures.
 - [World source review](tests/world_source_review.txt) passed repeated byte-identical export, original-ID preservation, untouched Hello/Foundation behavior and final form controls.
 - World generation 4 released. Complete browser result/publication remains pending shared-composition verification.
+
+
+## Complete development increment — 2026-10-17
+
+- UT-1/UT-2: real Oracle composition/history assertions pass (2 tests, 0 failures); fixture changes roll back. CLI SQL-file execution now preserves native nested include resolution.
+- Platform smoke: 1 test, 0 failures. Foundation IT-4 regression passes against preserved A, including blocked HTTP runtime.
+- C complete/published development checks pass: zero compile errors, three 1.0.0 components, thirteen required pages, application ready and native available status.
+- Browser: VERIFIER greeting/default/history flow passes; ordinary LAB_USER is blocked while restricted, then creates a greeting after publication. Re-login and refresh show both saved history rows. Installed components shows Foundation/Hello/World 1.0.0.
+- Repeated complete native captures are byte-identical. Scoped source review accounts for shared composition, read-only versions and native default report layouts; no source deletion or manual rewrite of Oracle output.
+- Results runner preflight passes. Unattended rehearsal checks A/B/C successfully and deliberately exits 3 at pending qualification; human URL viewing is skipped and is not an automated browser result.
+- Full integration/release suite remains incomplete. No exact-artifact promotion, patch, drift/incompatibility deployment rejection, concurrency or additive-failure repair acceptance is claimed.

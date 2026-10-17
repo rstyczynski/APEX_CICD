@@ -27,15 +27,14 @@
 - **Reproduction:** this guide contributes to UC-6; its full success criterion is not met by an unattended runner execution.
 - **Later evidence outside this selected walkthrough:** parallel Hello/World work, the competing Hello race and other reservation alternatives in UC-9; deployment races/interruption; failed additive deployment and automated repair in UC-5. These remain in the broader design.
 - **Unselected:** UC-12 adoption of an existing application. This prototype creates the application from scratch without constructing a supplied seed application.
-- **Execution status:** this mapping describes intended coverage, not passed acceptance. Only the current Foundation checks/runtime checkpoint execute; the stages below remain pending as stated.
+- **Execution status:** this mapping describes intended coverage, not passed acceptance. A/B/C development checks and runtime checkpoints execute. Release, patch and rejection stages remain pending.
 
 ## Current readiness
 
-- A's Foundation database and application shell exist. Its runtime displays the assembly-blocked message.
-- The script can show that current runtime result after internal database checks. This is not a new deployment.
-- B contains reviewed Foundation/Hello source; C contains the reviewed World addition and all three database components. Shared composition/browser verification and the grouped delivery/release/rejection demonstrations remain under construction.
-- The complete positive/negative deployment demonstration is therefore **not ready**.
-- The current script stops with **PENDING**, status 3, before B. It does not print successful deployment or rejection claims for those missing operations.
+- A has Foundation only; B has Foundation plus Hello. Both incomplete applications stay unavailable.
+- C/application 810003 is published for development use: Foundation, Hello and World **1.0.0**, selectable greetings, configuration and saved history.
+- The runner checks these existing results and shows their URLs. It does not redeploy or replay the completed developer authoring work.
+- Qualification, TEST promotion, patch and deployment-rejection demonstrations remain **PENDING**. The runner stops at that boundary with status 3.
 
 ## Run the results walkthrough
 
@@ -85,7 +84,7 @@
 - The useful result at this stage is protection from using an incomplete application.
 - This maintenance screen does not prove protection against an incompatible or drifted deployment. Those scenarios require the later real rejection checks.
 
-## B. Deliver Hello — pending construction
+## B. Deliver Hello
 
 ### Developer operations inside the stage
 
@@ -94,17 +93,17 @@
 3. Capture/validate/integrate the scoped source and verify the resulting assembly.
 4. Show the operation result and resulting runtime URL.
 
-### Product Owner result — available after construction
+### Product Owner result
 
-1. Open the runtime URL printed by the stage.
+1. Open [B's runtime](http://127.0.0.1:8080/ords/f?p=810002:1).
 2. See that complete-application access remains blocked while World is missing.
 3. Continue to World delivery.
 
 - No page-definition review is required.
 - Hello's usable behavior is demonstrated in the completed application after World is integrated.
-- E1_DEV_B / application 810002 now contains the blocked Hello assembly. The grouped delivery/replay operation is still pending.
+- B is verified as an existing blocked assembly. Replaying its source preparation, authoring and integration remains a separate operator operation.
 
-## C. Deliver World and complete the assembly — pending construction
+## C. Deliver World and complete the assembly
 
 ### Developer operations inside the stage
 
@@ -113,17 +112,19 @@
 3. Verify the complete Foundation/Hello/World assembly before publishing readiness.
 4. Show the resulting application URL and installed versions.
 
-### Product Owner result — available after construction
+### Product Owner result
 
-1. Open the printed runtime URL and sign in with the provided runtime account.
-2. Enter Hello and World values through the application.
-3. Generate a composed greeting and save it.
-4. Refresh and reopen history to see the saved snapshot.
-5. Continue in the terminal.
+1. Open [C's working application](http://127.0.0.1:8080/ords/f?p=810003:1) and sign in as **LAB_USER**.
+2. Retrieve its local password with `python3 scripts/cicd-password.py LAB_USER` if needed.
+3. Select **Hello** and **World**, then press **Create greeting**. See **Hello World — saved to history.**
+4. Open **Greeting history** in the navigation menu. Refresh and confirm the new row and earlier snapshots remain.
+5. Open **Installed components** and see Foundation/Hello/World **1.0.0**.
+6. To try your own data, follow the [runtime instructions](user_manual.md#use-the-complete-development-application) for entry/configuration pages.
+7. Continue in the terminal to the pending release boundary.
 
 - The terminal shows versions **1.0.0 / 1.0.0 / 1.0.0** and actual successful verification output.
 - The first slice runs B/C sequentially; it does not claim concurrent-development proof.
-- E1_DEV_C / application 810003 contains all three components under verification; its runtime is not yet published.
+- C is a development result, not a qualified release or retained TEST promotion. Browser-created verification examples remain in its history; application exports contain no business seed.
 
 ## Release and compatible update — pending construction
 
@@ -136,7 +137,7 @@
 
 - The pipeline shows the same qualified/promoted artifact hash and real deployment outcomes.
 - The patch advances Hello to **1.0.1**, with Foundation and World remaining **1.0.0**.
-- Qualification application 810004 and TEST application 810005 are not deployed yet.
+- Qualification 810004 contains an earlier Foundation-only reconstruction experiment. The complete release is not qualified; TEST 810005 has no application.
 
 ## Reject an incompatible database upgrade — pending construction
 

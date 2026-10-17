@@ -87,6 +87,15 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_tz_dependent=>'N'
 ,p_use_as_row_header=>'N'
 );
+wwv_flow_imp_page.create_worksheet_rpt(
+ p_id=>wwv_flow_imp.id(36712796102715)
+,p_application_user=>'APXWS_DEFAULT'
+,p_report_seq=>10
+,p_report_alias=>'48330'
+,p_status=>'PUBLIC'
+,p_is_default=>'Y'
+,p_report_columns=>'ENTRY_ID:ENTRY_TEXT:ACTIVE'
+);
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(14921301008208)
 ,p_plug_name=>'Breadcrumb'
