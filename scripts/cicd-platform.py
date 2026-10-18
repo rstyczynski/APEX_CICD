@@ -8,6 +8,7 @@ import sys
 import subprocess
 
 from apex_sql import LOCAL, ROOT, run
+from cicd_environments import canonical, display
 
 CONFIG = json.loads((ROOT / 'config/areas.json').read_text())
 
@@ -65,6 +66,7 @@ def control_identity():
 
 
 def provision(name):
+    name = canonical(name)
     if name not in CONFIG['areas']: raise ValueError('Select one declared area')
     owned_inventory()
     run("declare n number; begin select count(*) into n from dba_objects where owner='E1_CTRL' and object_name in ('E1_OWNERSHIP','E1_RELEASE') and object_type='PACKAGE BODY' and status='VALID'; if n<>2 then raise_application_error(-20810,'Initialize project control first'); end if; end;\n/",admin=True)
@@ -100,7 +102,7 @@ def provision(name):
     end;
     /""", admin=True)
     run('select user from dual;', save=(name, user, user))
-    print(f'Provisioned ONLY {name}: {user} / {area["workspace"]}')
+    print(f'Provisioned ONLY {display(name)}: {user} / {area["workspace"]}')
     grants=f"grant execute on E1_CTRL.e1_release to {user};\n"
     if developer: grants+=f"grant execute on E1_CTRL.e1_ownership to {user};\n"
     run(grants,admin=True)
@@ -119,13 +121,13 @@ def reset_qualification():
     receipt = LOCAL / 'e1-owned.json'
     if not receipt.exists() or json.loads(receipt.read_text()) != CONFIG:
         raise RuntimeError('No matching owned-area inventory')
-    area = CONFIG['areas']['lab-qualify']
+    area = CONFIG['areas']['integration_test']
     # Only the explicitly disposable qualification area is a reset target.
     run(f"""begin
       apex_instance_admin.remove_workspace(p_workspace=>'{area['workspace']}',p_drop_users=>'Y',p_drop_tablespaces=>'N');
     end;
     /""", admin=True)
-    provision('lab-qualify')
+    provision('integration_test')
     print('Disposable qualification area recreated; other areas retained.')
 
 
@@ -134,17 +136,17 @@ def preservation_check():
       begin insert into e1_private_probe values (1001); exception when dup_val_on_index then null; end;
       commit;
     end;
-    /""", connection='lab-test')
+    /""", connection='user_acceptance_test')
     assertion = """declare n number; begin
       select count(*) into n from e1_private_probe where id=1001;
       if n<>1 then raise_application_error(-20030,'Retained TEST marker missing'); end if;
     end;
     /"""
-    run(assertion, connection='lab-test')
+    run(assertion, connection='user_acceptance_test')
     reset_qualification()
-    run(assertion, connection='lab-test')
+    run(assertion, connection='user_acceptance_test')
     try:
-        run("begin raise_application_error(-20031,'Expected failure propagation check'); end;\n/", connection='lab-test')
+        run("begin raise_application_error(-20031,'Expected failure propagation check'); end;\n/", connection='user_acceptance_test')
     except RuntimeError:
         print('PASS: Oracle failure propagates as failure.')
     else:
@@ -164,12 +166,12 @@ if __name__ == '__main__':
             check()
         elif sys.argv[1:] == ['isolation']:
             isolation()
-        elif sys.argv[1:] == ['reset-qualify']:
+        elif sys.argv[1:] in (['reset-integration-test'], ['reset-qualify']):
             reset_qualification()
         elif sys.argv[1:] == ['preservation-check']:
             preservation_check()
         else:
-            raise ValueError('Usage: cicd-platform.py control-identity|provision TARGET|check|check-empty|isolation|reset-qualify|preservation-check')
+            raise ValueError('Usage: cicd-platform.py control-identity|provision TARGET|check|check-empty|isolation|reset-integration-test|preservation-check')
     except (ValueError, RuntimeError, subprocess.CalledProcessError) as exc:
         print(exc, file=sys.stderr)
         sys.exit(1)

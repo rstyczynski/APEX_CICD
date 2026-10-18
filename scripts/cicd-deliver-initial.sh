@@ -3,9 +3,9 @@
 set -Eeuo pipefail
 ROOT="$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --show-toplevel)"
 cd "$ROOT"
-[ "$#" -eq 2 ] || { echo 'Usage: bash scripts/cicd-deliver-initial.sh ARCHIVE lab-qualify|lab-test' >&2; exit 2; }
-archive="$1"; target="$2"
-case "$target" in lab-qualify) app=810004 ;; lab-test) app=810005 ;; *) echo 'ERROR: unsupported target' >&2; exit 2 ;; esac
+[ "$#" -eq 2 ] || { echo 'Usage: bash scripts/cicd-deliver-initial.sh ARCHIVE integration_test|user_acceptance_test' >&2; exit 2; }
+archive="$1"; target="$(python3 "$ROOT/scripts/cicd_environments.py" "$2")"
+case "$target" in integration_test) app=810004 ;; user_acceptance_test) app=810005 ;; *) echo 'ERROR: unsupported target' >&2; exit 2 ;; esac
 status="$(bash scripts/cicd-release-step.sh "$archive" "$target" status 0)"
 printf '%s\n' "$status"
 phase="$(printf '%s\n' "$status" | sed -n 's/^TARGET=.* PHASE=//p' | tr -d '\r')"

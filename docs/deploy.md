@@ -27,7 +27,7 @@
 
 ## Fresh walkthrough infrastructure sequence
 
-This is the entry point before the [A–H application walkthrough](../progress/E.1/cicd-walkthrough.md). Use one operation at a time and wait for PASS. The Product Owner explicitly requested a completely disposable lab on 2026-10-18: **all current lab database data, including TEST and greeting history, may be discarded for this fresh-start demonstration**. This exception does not apply to an ordinary release, upgrade, restart or unrelated resources.
+This is the entry point before the [A–H application walkthrough](../progress/E.1/cicd-walkthrough.md). Use one operation at a time and wait for PASS. The Product Owner explicitly requested a completely disposable lab on 2026-10-18: **all current lab database data, including user_acceptance_test and greeting history, may be discarded for this fresh-start demonstration**. This exception does not apply to an ordinary release, upgrade, restart or unrelated resources.
 
 1. Position at the repository root:
 
@@ -403,18 +403,22 @@ Follow the numbered [post-install verification steps and account guide](../progr
 
 ## 9. Provisioning boundary for application areas
 
+Current deployment areas are **integration_test / E1_INTEGRATION / 810004** and **user_acceptance_test / E1_UAT / 810005**. These replace the former lab-qualify/E1_QUALIFY and lab-test/E1_TEST identities. They remain separate workspaces/schemas in the same Oracle/APEX installation. Script aliases normalize old connection tokens; use the new saved connection names for direct SQLcl.
+
+The authorized one-time transition on 2026-10-18 stopped the paused D process, preserved native APEX export plus table/control rows under protected `.local-apex/environment-rename-20261018/`, retired its uncompleted attempt with a reason, and recreated only those two disposable areas. Control attempt history and A/B/C work were retained. Target epochs remain monotonic; the integration target's prior epoch is not reset to zero. New source/configuration identities require newly built archives and fresh qualification. The old immutable archives and historical evidence remain; do not edit them or treat them as evidence for the renamed mappings. Do not rerun the transition over unrelated or completed work.
+
 The [repository and pipeline draft](../progress/E.1/repo_layout.md#private-areas-and-assembled-applications) explains how these areas relate to shared source and release delivery. Keep its mappings consistent with this procedure and areas.json.
 
 Infrastructure installation stops at a working Oracle Database/APEX/ORDS runtime. `cicd-walkthrough-apex-init.sh` must not create **any project schemas**, workspaces, developer accounts or delivery-control tables. Project-specific verification is an external test, not part of the generic installer. It checks that all six E1 schemas and five project workspaces are absent after installation.
 
 1. **Project operator:** `bash scripts/cicd-control-init.sh` creates only E1_CTRL and installs control packages. There are no grants to not-yet-provisioned areas.
-2. **Privileged provisioning operator:** `bash scripts/cicd-area-provision.sh TARGET` provisions exactly one of lab-dev, lab-dev-b, lab-dev-c, lab-qualify or lab-test, using [areas.json](../config/areas.json). It creates that schema/workspace/accounts, grants its delivery interfaces and saves its central operator automation connection. Other areas remain unchanged.
+2. **Privileged provisioning operator:** `bash scripts/cicd-area-provision.sh TARGET` provisions exactly one of lab-dev, lab-dev-b, lab-dev-c, integration_test or user_acceptance_test, using [areas.json](../config/areas.json). It creates that schema/workspace/accounts, grants its delivery interfaces and saves its central operator automation connection. Other areas remain unchanged.
 3. **Local walkthrough operator:** `(set -o pipefail; python3 scripts/cicd-password.py E1_DEV_A | bash scripts/cicd-developer-init.sh A --password-stdin)` configures A's private SQLcl profile; use the matching B/C commands in the walkthrough. The password helper reads the protected operator store and pipes only the assigned schema password into setup. Setup checks identity/workspace and performs no project DDL or SYS login.
 4. **Walkthrough operator:** `bash scripts/cicd-walkthrough-ready.sh` checks identities/isolation and the empty fresh state, then enables entry to A. This is separate from infrastructure initialization.
 
 The [onboarding walkthrough](../progress/E.1/cicd-walkthrough.md#provision-each-assigned-area) supplies the exact commands, actors, password distinctions and expected outcomes. The operator's protected .local-apex/e1-secrets.json remains separate from developer connection profiles. Normal developer setup never runs the privileged provisioning helper. This single-host lab's role separation does not establish separate OS-user security boundaries.
 
-Qualification reset reprovisions **only lab-qualify** and restores only its grants. It must not silently rerun every developer/target's onboarding. Reapplying control packages preserves existing grants; target-specific grants belong to area provisioning. Infrastructure lifecycle, project control, developer onboarding and application migrations are distinct operations.
+Qualification reset reprovisions **only integration_test** and restores only its grants. It must not silently rerun every developer/target's onboarding. Reapplying control packages preserves existing grants; target-specific grants belong to area provisioning. Infrastructure lifecycle, project control, developer onboarding and application migrations are distinct operations.
 
 ## 10. Stop and restart without deleting data
 
@@ -514,7 +518,7 @@ The requested fresh walkthrough discards all lab data. The destructive command i
 
 
 - The Product Owner authorized recreation of the current apex-cicd prototype runtime.
-- Removing the VM destroys its database, every private area, retained TEST data, control reservations/events, ORDS wallet/configuration and VM-local images.
+- Removing the VM destroys its database, every private area, retained user_acceptance_test data, control reservations/events, ORDS wallet/configuration and VM-local images.
 - Host credentials alone cannot recover that data.
 
 - Before removal, identify what must survive.
@@ -591,10 +595,10 @@ The requested fresh walkthrough discards all lab data. The destructive command i
    python3 scripts/apex_sql.py lab-control deploy/operator/walkthrough_idle.sql
    ```
 
-3. If an initial experiment failed, inspect its attempt and transcripts first. Only the bound `E1_CTRL.e1_release.retire_disposable_qualification(epoch,hash,reason)` procedure may retire its active qualification attempt. It retains failure/history. There is no automatic TEST retirement or recovery.
-4. Only when a new empty qualification area is required, run `python3 scripts/cicd-platform.py reset-qualify`. This checks the local ownership receipt, removes E1_QUALIFY through public APEX_INSTANCE_ADMIN and reprovisions only that schema/workspace, its accounts and grants. Other areas are not reprovisioned. The reset helper does not itself acquire deployment ownership; the explicit idle check and operator sequencing are required.
-5. Project control is installed separately with `bash scripts/cicd-control-init.sh`. Qualification reset restores only the new qualification schema's grants through its targeted provisioning operation; no global package/grant bootstrap is needed. Existing control records/epochs remain retained.
+3. If an initial experiment failed, inspect its attempt and transcripts first. Only the bound `E1_CTRL.e1_release.retire_disposable_qualification(epoch,hash,reason)` procedure may retire its active qualification attempt. It retains failure/history. There is no automatic user_acceptance_test retirement or recovery.
+4. Only when a new empty integration_test area is required, run `python3 scripts/cicd-platform.py reset-integration-test`. This checks the local ownership receipt, removes E1_INTEGRATION through public APEX_INSTANCE_ADMIN and reprovisions only that schema/workspace, its accounts and grants. Other areas are not reprovisioned. The reset helper does not itself acquire deployment ownership; the explicit idle check and operator sequencing are required.
+5. Project control is installed separately with `bash scripts/cicd-control-init.sh`. Qualification reset restores only the new integration_test schema's grants through its targeted provisioning operation; no global package/grant bootstrap is needed. Existing control records/epochs remain retained.
 6. Continue with the [initial-release operator chapter](../progress/E.1/user_manual.md#initial-release-build-qualify-and-promote). A normal rerun verifies the already qualified result. The current control package also supports an explicitly requested initial reconstruction for patch-baseline qualification: it retains the first qualification receipt and records the reconstruction under a new attempt epoch.
 
-- This procedure preserves retained TEST, credentials, release history and unrelated Podman resources. It does not recreate the VM or containers.
+- This procedure preserves retained user_acceptance_test, credentials, release history and unrelated Podman resources. It does not recreate the VM or containers.
 - Do not use this disposable-area procedure as a retained-target upgrade or repair mechanism.

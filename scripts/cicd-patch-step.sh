@@ -4,11 +4,11 @@ set -Eeuo pipefail
 ROOT="$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --show-toplevel)"
 cd "$ROOT"
 [ "$#" -ge 5 ] && [ "$#" -le 6 ] || { echo 'Usage: cicd-patch-step.sh ARCHIVE TARGET OPERATION EPOCH empty|1.0.0 [PROPOSAL-for-preflight-only]' >&2; exit 2; }
-archive="$1"; target="$2"; operation="$3"; epoch="$4"; start="$5"
-case "$target" in lab-qualify) schema=E1_QUALIFY; app=810004; alias=APEX-DELIVERY-LABORATORY-Q ;; lab-test) schema=E1_TEST; app=810005; alias=APEX-DELIVERY-LABORATORY-T ;; *) exit 2 ;; esac
+archive="$1"; target="$(python3 "$ROOT/scripts/cicd_environments.py" "$2")"; operation="$3"; epoch="$4"; start="$5"
+case "$target" in integration_test) schema=E1_INTEGRATION; app=810004; alias=APEX-DELIVERY-LABORATORY-Q ;; user_acceptance_test) schema=E1_UAT; app=810005; alias=APEX-DELIVERY-LABORATORY-T ;; *) exit 2 ;; esac
 case "$operation" in preflight|admit|migrate|import|units|verify|publish|result) ;; *) exit 2 ;; esac
 [[ "$epoch" =~ ^[0-9]+$ ]] || exit 2
-case "$start" in empty) [ "$target" = lab-qualify ] || exit 2 ;; 1.0.0) ;; *) exit 2 ;; esac
+case "$start" in empty) [ "$target" = integration_test ] || exit 2 ;; 1.0.0) ;; *) exit 2 ;; esac
 [ "$#" -eq 5 ] || [ "$operation" = preflight ] || exit 2
 source scripts/cicd-env.sh
 umask 077

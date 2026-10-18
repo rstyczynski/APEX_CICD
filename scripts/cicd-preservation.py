@@ -3,13 +3,15 @@
 import json,sys
 from pathlib import Path
 from apex_sql import run
+from cicd_environments import canonical
 
 TABLES={'history':('greeting_history','GREETING_ID'),'hello':('hello_entries','ENTRY_ID'),
         'world':('world_entries','ENTRY_ID'),'hello_config':('hello_config','CONFIG_ID'),
         'world_config':('world_config','CONFIG_ID')}
 
 def snapshot(target):
-    if target not in ('lab-test','lab-qualify','lab-dev-c'): raise ValueError('Unsupported preservation target')
+    target = canonical(target)
+    if target not in ('user_acceptance_test','integration_test','lab-dev-c'): raise ValueError('Unsupported preservation target')
     body='set heading off feedback off pagesize 0 linesize 32767 sqlformat default\n'
     for label,(table,key) in TABLES.items():
         body+=f"select '{label}|'||json_object(* returning varchar2(4000)) from {table} order by {key};\n"
@@ -27,7 +29,7 @@ def snapshot(target):
 if __name__=='__main__':
     try:
         if len(sys.argv)!=4 or sys.argv[1] not in ('capture','compare'): raise ValueError('Usage: cicd-preservation.py capture|compare TARGET FILE')
-        action,target,path=sys.argv[1:]; path=Path(path); now=snapshot(target)
+        action,target,path=sys.argv[1:]; target=canonical(target); path=Path(path); now=snapshot(target)
         if action=='capture':
             with path.open('x') as f: json.dump({'target':target,'tables':now},f,ensure_ascii=False,indent=2)
             print(f'CAPTURED retained fields: {len(now["history"])} history rows; {path}')

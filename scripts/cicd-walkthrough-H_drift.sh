@@ -14,7 +14,7 @@ pause 'View the changed page, then press any key to attempt redeployment preflig
 bash scripts/cicd-protection-check.sh drift
 pause 'Reopen TEST to see the changed page/history retained, then press any key for the separate RESTORE operation; q leaves the fixture active.'
 python3 scripts/cicd-drift-demo.py restore
-bash scripts/cicd-patch-result.sh lab-test
+bash scripts/cicd-patch-result.sh user_acceptance_test
 echo 'PRODUCT OWNER: reopen http://127.0.0.1:8080/ords/f?p=810005:1; re-login if needed. The banner is gone and history remains.'
 pause 'View the restored application, then press any key to finish; q to quit.'
 echo 'PASS result stage H_drift.'

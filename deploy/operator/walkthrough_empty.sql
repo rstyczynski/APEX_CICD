@@ -3,7 +3,7 @@ declare n number;
 begin
  select count(*) into n from apex_applications where application_id between 810001 and 810005;
  if n<>0 then raise_application_error(-20800,'Fresh walkthrough requires absent applications'); end if;
- select count(*) into n from dba_tables where owner in ('E1_DEV_A','E1_DEV_B','E1_DEV_C','E1_QUALIFY','E1_TEST')
+ select count(*) into n from dba_tables where owner in ('E1_DEV_A','E1_DEV_B','E1_DEV_C','E1_INTEGRATION','E1_UAT')
   and table_name<>'E1_PRIVATE_PROBE';
  if n<>0 then raise_application_error(-20804,'Business objects survive in fresh areas'); end if;
  select (select count(*) from E1_CTRL.e1_control_events)+(select count(*) from E1_CTRL.e1_release_attempts) into n from dual;

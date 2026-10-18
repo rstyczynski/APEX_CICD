@@ -113,7 +113,7 @@ verify_c_runtime() {
 }
 
 initial_install() {
-  local target="$1" schema="$2" app="$3" fixture="${4:-none}"
+  local target="$(python3 "$ROOT/scripts/cicd_environments.py" "$1")" schema="$2" app="$3" fixture="${4:-none}"
   local status epoch
   status="$(bash scripts/cicd-release-step.sh "$archive" "$target" status 0)"
   printf '%s\n' "$status"
@@ -138,7 +138,7 @@ initial_install() {
   bash scripts/cicd-release-result.sh "$archive" "$target"
 }
 patch_install() {
-  local target="$1" schema="$2" app="$3" start="$4" epoch operation
+  local target="$(python3 "$ROOT/scripts/cicd_environments.py" "$1")" schema="$2" app="$3" start="$4" epoch operation
   check_result "$target" 'begin E1_CTRL.e1_release.show_status; end;
 /'
   epoch="$(sed -n 's/^TARGET=.* EPOCH=\([0-9]*\) PHASE=.*$/\1/p' "$work/output" | tr -d '\r')"

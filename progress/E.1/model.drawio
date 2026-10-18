@@ -14,10 +14,10 @@
         <mxCell id="git" value="Shared source and package" vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;verticalAlign=top;spacingTop=15;fontSize=20;fontStyle=1;fillColor=#f8fafc;">
           <mxGeometry x="520" y="80" width="330" height="760" as="geometry" />
         </mxCell>
-        <mxCell id="q" value="D — Qualification · 810004" vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;verticalAlign=top;spacingTop=15;fontSize=20;fontStyle=1;fillColor=#f0fdf4;">
+        <mxCell id="q" value="D — integration_test · 810004" vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;verticalAlign=top;spacingTop=15;fontSize=20;fontStyle=1;fillColor=#f0fdf4;">
           <mxGeometry x="890" y="80" width="360" height="760" as="geometry" />
         </mxCell>
-        <mxCell id="t" value="E — TEST · 810005" vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;verticalAlign=top;spacingTop=15;fontSize=20;fontStyle=1;fillColor=#fff7ed;">
+        <mxCell id="t" value="E — user_acceptance_test · 810005" vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;verticalAlign=top;spacingTop=15;fontSize=20;fontStyle=1;fillColor=#fff7ed;">
           <mxGeometry x="1290" y="80" width="360" height="760" as="geometry" />
         </mxCell>
         <mxCell id="devnote" value="Private schemas/workspaces/apps on one host.&#10;A: Foundation · B: + Hello · C: complete assembly.&#10;Hello and World both depend on Foundation.&#10;No World → Hello dependency; no shared editing area." vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;strokeColor=none;fillColor=#eff6ff;fontSize=14;">
@@ -56,7 +56,7 @@
         <mxCell id="wf" source="w" target="f" value="" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=14;labelBackgroundColor=#ffffff;strokeColor=#475569;exitX=1;exitY=0.5;entryX=1;entryY=0.3;">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="devcheck" value="Development team / Packager smoke check&#10;Uses VERIFIER in C application 810003&#10;Passing opens C to LAB_USER, not TEST" vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;fillColor=#dbeafe;">
+        <mxCell id="devcheck" value="Development team / Packager smoke check&#10;Uses VERIFIER in C application 810003&#10;Passing opens C to LAB_USER, not user_acceptance_test" vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;fillColor=#dbeafe;">
           <mxGeometry x="55" y="550" width="410" height="90" as="geometry" />
         </mxCell>
         <mxCell id="capture" value="Native capture + migration files&#10;Review accepted changes in Git" vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;" link="repo_layout.md#developer-branches-and-integration">
@@ -92,7 +92,7 @@
         <mxCell id="testnote" value="Complete Hello World application&#10;Foundation + Hello + World&#10;Guarded install → verification → publish&#10;LAB_USER sees the delivered release" vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;fillColor=#ffedd5;">
           <mxGeometry x="1310" y="150" width="320" height="240" as="geometry" />
         </mxCell>
-        <mxCell id="retain" value="Normal upgrades preserve&#10;TEST settings and greeting history.&#10;Whole-lab destruction is separate." vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;">
+        <mxCell id="retain" value="Normal upgrades preserve&#10;user_acceptance_test settings and greeting history.&#10;Whole-lab destruction is separate." vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;">
           <mxGeometry x="1310" y="445" width="320" height="135" as="geometry" />
         </mxCell>
         <mxCell id="same" value="Promote the SAME qualified archive&#10;Require its successful qualification receipt" vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;fillColor=#ffedd5;">
@@ -113,7 +113,7 @@
         <mxCell id="dt" source="deployer" target="same" value="runs E" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=14;labelBackgroundColor=#ffffff;strokeColor=#475569;exitX=1;exitY=0.5;entryX=0.5;entryY=1;">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="footer" value="Development team / Packager smoke-checks and releases one reviewed package. Deployer takes it through qualification, then promotes identical bytes to TEST.&#10;* D uses an already reviewed Git archive; it does not export C. VERIFIER / LAB_USER are runtime accounts. UC-4 / UC-11; PBI-011.6 under PBI-011. See “D qualification”." vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;strokeColor=none;fontSize=14;">
+        <mxCell id="footer" value="Development team / Packager smoke-checks and releases one reviewed package. Deployer takes it through qualification, then promotes identical bytes to user_acceptance_test.&#10;* D uses an already reviewed Git archive; it does not export C. VERIFIER / LAB_USER are runtime accounts. UC-4 / UC-11; PBI-011.6 under PBI-011. See “D qualification”." vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;strokeColor=none;fontSize=14;">
           <mxGeometry x="20" y="980" width="1640" height="55" as="geometry" />
         </mxCell>
         <mxCell id="deployer-label" value="Deployer — A-03 Delivery operator" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;fontFamily=Helvetica;fontSize=17;align=center;verticalAlign=middle;">
@@ -280,13 +280,13 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="dtitle" value="D — Qualify initial 1.0.0 archive in lab-qualify / E1_QUALIFY / application 810004" vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;strokeColor=none;fontSize=23;fontStyle=1;">
+        <mxCell id="dtitle" value="D — Qualify initial 1.0.0 archive in integration_test / E1_INTEGRATION / application 810004" vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;strokeColor=none;fontSize=23;fontStyle=1;">
           <mxGeometry x="20" y="15" width="1560" height="55" as="geometry" />
         </mxCell>
         <mxCell id="dactor" value="Deployer&#10;A-03" vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;fillColor=none;" link="../../docs/srs.md#actors">
           <mxGeometry x="50" y="105" width="60" height="85" as="geometry" />
         </mxCell>
-        <mxCell id="dscope" value="Runs the CLI steps and browser checkpoints. Switches to VERIFIER and LAB_USER runtime accounts when prompted.&#10;UC-4 delivery; UC-11 verification support; UC-2/3 runtime behavior. PBI-011.6 / PBI-011; evidence PBI-012.&#10;D qualifies an existing archive. It does not export C, rebuild the archive, promote TEST or copy developer data." vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;fillColor=#f1f5f9;" link="sprint_E.1_design.md#pbi-0116--qualify-and-promote-identical-artifacts">
+        <mxCell id="dscope" value="Runs the CLI steps and browser checkpoints. Switches to VERIFIER and LAB_USER runtime accounts when prompted.&#10;UC-4 delivery; UC-11 verification support; UC-2/3 runtime behavior. PBI-011.6 / PBI-011; evidence PBI-012.&#10;D qualifies an existing archive. It does not export C, rebuild the archive, promote user_acceptance_test or copy developer data." vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;fillColor=#f1f5f9;" link="sprint_E.1_design.md#pbi-0116--qualify-and-promote-identical-artifacts">
           <mxGeometry x="180" y="95" width="1370" height="115" as="geometry" />
         </mxCell>
         <mxCell id="step1" value="1. Prerequisites&#10;Require C_world.done; create a new D attempt directory." vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;fillColor=#eff6ff;fontSize=15;" link="cicd-walkthrough.md#d-qualify-the-initial-release">
@@ -316,7 +316,7 @@
         <mxCell id="flow4" source="step4" target="step5" value="" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=14;labelBackgroundColor=#ffffff;strokeColor=#475569;">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="step6" value="6. Import&#10;Prompt → import native split source into app 810004.&#10;Map E1_QUALIFY; assert ordinary runtime is still blocked." vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;fillColor=#eff6ff;fontSize=15;" link="cicd-walkthrough.md#d-qualify-the-initial-release">
+        <mxCell id="step6" value="6. Import&#10;Prompt → import native split source into app 810004.&#10;Map E1_INTEGRATION; assert ordinary runtime is still blocked." vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;fillColor=#eff6ff;fontSize=15;" link="cicd-walkthrough.md#d-qualify-the-initial-release">
           <mxGeometry x="35" y="825" width="725" height="90" as="geometry" />
         </mxCell>
         <mxCell id="flow5" source="step5" target="step6" value="" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=14;labelBackgroundColor=#ffffff;strokeColor=#475569;">
@@ -367,7 +367,7 @@
         <mxCell id="flow13" source="step13" target="step14" value="" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=14;labelBackgroundColor=#ffffff;strokeColor=#475569;">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="step15" value="15. Finish D&#10;Return to CLI; press key → PASS result stage D_qualification.&#10;Next: E promotes the same qualified archive to TEST." vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;fillColor=#eff6ff;fontSize=15;" link="cicd-walkthrough.md#d-qualify-the-initial-release">
+        <mxCell id="step15" value="15. Finish D&#10;Return to CLI; press key → PASS result stage D_qualification.&#10;Next: E promotes the same qualified archive to user_acceptance_test." vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;fillColor=#eff6ff;fontSize=15;" link="cicd-walkthrough.md#d-qualify-the-initial-release">
           <mxGeometry x="830" y="940" width="725" height="90" as="geometry" />
         </mxCell>
         <mxCell id="flow14" source="step14" target="step15" value="" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=14;labelBackgroundColor=#ffffff;strokeColor=#475569;">
@@ -379,7 +379,7 @@
         <mxCell id="turn" source="step8" target="step9" value="continue" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=14;labelBackgroundColor=#ffffff;strokeColor=#475569;exitX=1;exitY=0.5;entryX=0;entryY=0.5;">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="dfail" value="FAILURE RULE: any unexpected operation failure stops D and retains the attempt for inspection. No automatic reset or TEST promotion.&#10;All archive operations recheck identity/environment and use verified archive SQL. --rehearse substitutes runtime API examples; no browser acceptance claimed.&#10;Source: cicd-walkthrough-D_qualification.sh → initial_install() → cicd-release-step.sh / cicd-release-result.sh. Exact actions: main walkthrough D." vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;strokeColor=none;fontSize=14;" link="cicd-walkthrough.md#d-qualify-the-initial-release">
+        <mxCell id="dfail" value="FAILURE RULE: any unexpected operation failure stops D and retains the attempt for inspection. No automatic reset or user_acceptance_test promotion.&#10;All archive operations recheck identity/environment and use verified archive SQL. --rehearse substitutes runtime API examples; no browser acceptance claimed.&#10;Source: cicd-walkthrough-D_qualification.sh → initial_install() → cicd-release-step.sh / cicd-release-result.sh. Exact actions: main walkthrough D." vertex="1" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Helvetica;fontSize=16;strokeColor=#334155;fillColor=#ffffff;strokeColor=none;fontSize=14;" link="cicd-walkthrough.md#d-qualify-the-initial-release">
           <mxGeometry x="25" y="1190" width="1550" height="65" as="geometry" />
         </mxCell>
       </root>

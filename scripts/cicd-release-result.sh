@@ -3,9 +3,9 @@
 set -Eeuo pipefail
 ROOT="$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --show-toplevel)"
 cd "$ROOT"
-[ "$#" -eq 2 ] || { echo 'Usage: bash scripts/cicd-release-result.sh ARCHIVE lab-qualify|lab-test' >&2; exit 2; }
-archive="$1"; target="$2"
-case "$target" in lab-qualify) schema=E1_QUALIFY; app=810004 ;; lab-test) schema=E1_TEST; app=810005 ;; *) echo 'ERROR: unsupported target' >&2; exit 2 ;; esac
+[ "$#" -eq 2 ] || { echo 'Usage: bash scripts/cicd-release-result.sh ARCHIVE integration_test|user_acceptance_test' >&2; exit 2; }
+archive="$1"; target="$(python3 "$ROOT/scripts/cicd_environments.py" "$2")"
+case "$target" in integration_test) schema=E1_INTEGRATION; app=810004 ;; user_acceptance_test) schema=E1_UAT; app=810005 ;; *) echo 'ERROR: unsupported target' >&2; exit 2 ;; esac
 umask 077
 mkdir -p .local-apex/operator
 work="$(mktemp -d "$ROOT/.local-apex/operator/release-result.XXXXXX")"

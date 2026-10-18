@@ -30,5 +30,5 @@
   },
   "publication_profile": "native-prepare/read-only-fingerprint/external-ready-v1",
   "runtime_gate": "E1_CTRL.e1_release.assert_runtime",
-  "base_artifact": "6a1da4a940586541cbb034277605d7ed36e5d1ad305554f9a2fe4c64cd59411c"
+  "base_artifact": "d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45"
 }

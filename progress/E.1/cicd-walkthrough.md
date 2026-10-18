@@ -18,15 +18,15 @@ Use these links to move between preparation, delivery and protection demonstrati
 - [Initialize project delivery control](#initialize-project-delivery-control)
 - [Provision each assigned area](#provision-each-assigned-area)
   - [A/B/C — private development areas](#abc--private-development-areas)
-  - [Qualification — disposable release validation](#qualification--disposable-release-validation)
-  - [TEST — retained release demonstration](#test--retained-release-demonstration)
+  - [integration_test — disposable release validation](#integration_test--disposable-release-validation)
+  - [user_acceptance_test — retained release demonstration](#user_acceptance_test--retained-release-demonstration)
 - [Configure each developer environment](#configure-each-developer-environment)
 - [Check project readiness before A](#check-project-readiness-before-a)
 - [A. Deliver Foundation](#a-deliver-foundation)
 - [B. Deliver Hello](#b-deliver-hello)
 - [C. Deliver World and complete the assembly](#c-deliver-world-and-complete-the-assembly)
 - [D. Qualify the initial release](#d-qualify-the-initial-release)
-- [E. Promote the same initial artifact to TEST](#e-promote-the-same-initial-artifact-to-test)
+- [E. Promote the same initial artifact to user_acceptance_test](#e-promote-the-same-initial-artifact-to-user_acceptance_test)
 - [F. Deliver the compatible Hello patch](#f-deliver-the-compatible-hello-patch)
 - [G. Reject an incompatible database upgrade](#g-reject-an-incompatible-database-upgrade)
 - [H. Reject deployment over unexpected live change](#h-reject-deployment-over-unexpected-live-change)
@@ -64,7 +64,7 @@ These tools cover authoring, database changes, release delivery and the supporti
 4. **Liquibase through SQLcl** applies ordered database changesets and records their identities/checksums in **DATABASECHANGELOG**. An applied migration is retained unchanged; a later correction needs a new changeset. The application export and database migrations remain distinct parts of the same reviewed source revision.
 5. **Git** identifies the reviewed source commit and shows the component diff. Foundation is established first; Hello and World are integrated from bounded private work. The replay uses reviewed sequential B/C source snapshots; it does not simulate new authoring. Durable task reservations record owner, task, base commit and generation; they are separate from the durable initial-release ownership controls.
 6. **Bash, small Python standard-library helpers and SQL assertions** expose operator stages, handle files/connections and check outcomes. The results script pauses at runtime URLs; the detailed operator guide explains individual commands. Credentials stay in protected local storage, outside Git and release contents. Repository positioning comes from Git discovery.
-7. **Podman** runs the local Oracle Database and ORDS containers. Separate database schemas, APEX workspaces and application IDs provide A/B/C development areas, disposable qualification and retained TEST on the same host. This is logical isolation; it does not model independent production hosts. Infrastructure lifecycle operations follow [deploy.md](../../docs/deploy.md).
+7. **Podman** runs the local Oracle Database and ORDS containers. Separate database schemas, APEX workspaces and application IDs provide A/B/C development areas, disposable integration_test and retained user_acceptance_test on the same host. This is logical isolation; it does not model independent production hosts. Infrastructure lifecycle operations follow [deploy.md](../../docs/deploy.md).
 
 ### How delivery is organized
 
@@ -73,7 +73,7 @@ The pipeline turns reviewed source into a verified release through these explici
 1. **Prepare and identify the target.** Check the effective database user, PDB, workspace and application mapping before writes. Reserve the declared component work before managed authoring. Keep Foundation-only and incomplete assemblies unavailable.
 2. **Capture and review source.** Export native APEX definitions, review the declared component changes and inherited/shared definitions, run candidate checks, then commit the accepted source. Repeated unchanged exports must match; a live development application is not itself a release artifact.
 3. **Build once.** Package the accepted Git revision, migrations, deployment SQL and nonsecret manifest. Record the source commit, supported starting state, component dependencies, tool/configuration versions and the archive's **SHA-256**. Qualification and promotion must execute files from that verified archive rather than a changing checkout.
-4. **Qualify, then promote the same bytes.** Reconstruct and test in the disposable area first. Retained TEST may receive only the identical qualified artifact for its supported starting state. The selected patch must also qualify against its declared earlier baseline; successful fresh installation alone does not prove an upgrade.
+4. **Qualify, then promote the same bytes.** Reconstruct and test in the disposable area first. Retained user_acceptance_test may receive only the identical qualified artifact for its supported starting state. The selected patch must also qualify against its declared earlier baseline; successful fresh installation alone does not prove an upgrade.
 5. **Verify before publishing.** Development verification already uses native restricted access for **VERIFIER**, followed by integrity/browser checks and a separate publication operation. The release design additionally requires persistent attempt ownership, maintenance fencing, final live fingerprints and a receipt before readiness. The initial release now uses persistent attempt ownership, an external runtime gate and a final fingerprint. Native availability is prepared while the external gate still restricts business requests; successful receipt and external readiness commit together. Guarded mutation admission and ordinary-request blocking passed for the patch; complete read/asynchronous request draining and stale-verifier fencing remain unproved.
 
 ### How correctness is checked
@@ -113,12 +113,12 @@ This chapter connects each demonstration to the accepted use cases and makes the
 
 This checkpoint describes the delivered lab state and the boundaries of what has been demonstrated.
 
-- **Delivered checkpoint:** infrastructure and the separate onboarding steps have been verified; the five lab applications and their business/history tables are absent. The lab is ready for A. When restarting from cleanup, follow every infrastructure and onboarding chapter below before A. The earlier A–H rehearsal remains historical evidence.
+- **Delivered checkpoint:** A/B/C development work is retained. The renamed integration_test/E1_INTEGRATION and user_acceptance_test/E1_UAT areas are empty and separately provisioned; D must start a new attempt using the newly selected archive. The old interrupted D attempt was retired and preserved; it is not qualification evidence for these new mappings. When restarting from cleanup, follow every infrastructure and onboarding chapter below before A. The earlier A–H rehearsal remains historical evidence.
 - This walkthrough now starts with explicit prerequisite checking, Podman host preparation, complete lab cleanup and fresh database/APEX/ORDS installation.
-- Cleanup destroys **all database state in this lab**, including A/B/C, qualification, TEST, entries, settings, greeting history and database control receipts. Host credentials, tools, reviewed source/release archives and historical evidence remain available; unrelated Podman resources are preserved.
+- Cleanup destroys **all database state in this lab**, including A/B/C, qualification, user_acceptance_test, entries, settings, greeting history and database control receipts. Host credentials, tools, reviewed source/release archives and historical evidence remain available; unrelated Podman resources are preserved.
 - Infrastructure installation ends with **only Oracle Database/APEX/ORDS**. It creates no E1_CTRL, developer/target schemas, project workspaces or developer accounts. Project control and named-area provisioning follow separately.
 - A–C install the reviewed Foundation, Hello and complete World snapshots. A/B remain unavailable while incomplete; C starts at **1.0.0**.
-- D/E execute real qualification and promotion of the **same initial artifact** in this cycle. F qualifies Hello **1.0.1** both fresh and over 1.0.0, then upgrades TEST with those identical bytes, preserving only the data created during this cycle.
+- D/E execute real qualification and promotion of the **same initial artifact** in this cycle. F qualifies Hello **1.0.1** both fresh and over 1.0.0, then upgrades user_acceptance_test with those identical bytes, preserving only the data created during this cycle.
 - G/H demonstrate the selected rejections and explicit controlled page restoration. Rehearsal uses clearly identified NEW runtime test examples and skips human browser viewing.
 - Broader E.1 concurrency, complete maintenance fencing, schema-drift coverage and failed-additive-deployment repair remain open. This walkthrough does not close the sprint.
 
@@ -146,7 +146,7 @@ Start here for the complete Product Owner journey: prepare a fresh lab, run each
 
 - A–F now install/deploy, rather than only display an earlier result. Repeating an already attempted construction chapter stops for inspection. C provides an explicit resume command only for its restricted-verification pause; other partial states require inspection. Start a new demonstration with the explicit infrastructure destruction/install sequence.
 - **--preflight** on A–H checks local tools/files/chapter mapping without connecting to Oracle. It does not substitute for the infrastructure precheck below.
-- **--rehearse** executes real installations, qualification/promotion and the TEST page fixture without pauses. Its explicit runtime API test examples are not browser verification. It requires the fresh infrastructure preparation first.
+- **--rehearse** executes real installations, qualification/promotion and the user_acceptance_test page fixture without pauses. Its explicit runtime API test examples are not browser verification. It requires the fresh infrastructure preparation first.
 - Normal release result inspection remains read-only through the separate operator result commands. No App Builder inspection is required in this Product Owner journey.
 
 ## Run one chapter at a time
@@ -314,7 +314,7 @@ bash scripts/cicd-control-init.sh
 
 ## Provision each assigned area
 
-Create separate empty work areas for developers A/B/C, disposable qualification and retained TEST. Each area has its own database schema and APEX workspace, allowing work and validation without sharing business data. This is environment preparation under UC-8; no application is installed yet.
+Create separate empty work areas for developers A/B/C, disposable integration_test and retained user_acceptance_test. Each area has its own database schema and APEX workspace, allowing work and validation without sharing business data. This is environment preparation under UC-8; no application is installed yet.
 
 The intended delivery flow is:
 
@@ -323,11 +323,11 @@ The intended delivery flow is:
 3. Review and accept those files in Git.
 4. Build one release archive from the accepted Git revision.
 5. Deploy and verify that archive in qualification.
-6. Promote the same archive to TEST.
+6. Promote the same archive to user_acceptance_test.
 
-We do not copy the live developer database or its business data into TEST.
+We do not copy the live developer database or its business data into user_acceptance_test.
 
-This prototype has no separate shared DEV deployment target. A/B/C are its development areas; C demonstrates the complete development assembly. Qualification is the next deployment target before TEST. The walkthrough replays already reviewed source snapshots rather than performing new engineer authoring.
+This prototype has no separate shared DEV deployment target. A/B/C are its development areas; C demonstrates the complete development assembly. Qualification is the next deployment target before user_acceptance_test. The walkthrough replays already reviewed source snapshots rather than performing new engineer authoring.
 
 **Actor: privileged provisioning operator.** Each invocation creates/checks exactly one declared schema, workspace, workspace accounts, delivery-interface grants and central automation connection. It does not install applications or business data.
 
@@ -353,34 +353,38 @@ Each engineer gets a separate schema, APEX workspace and assigned application ID
    bash scripts/cicd-area-provision.sh lab-dev-c
    ```
 
-4. Wait for each **PASS assigned area**. A command naming A never creates/changes B or C's accounts, nor qualification/TEST.
+4. Wait for each **PASS assigned area**. A command naming A never creates/changes B or C's accounts, nor qualification/user_acceptance_test.
 5. Give each developer only their assigned schema password and App Builder login. The operator can retrieve a specific schema password with `python3 scripts/cicd-password.py E1_DEV_A` (or E1_DEV_B/E1_DEV_C). Do not give developers the administrator credential store. Developers configure their private profiles in the next main chapter; the central automation connections belong to the operator's lab runner.
 
-### Qualification — disposable release validation
+### integration_test — disposable release validation
 
-**lab-qualify** is the release-validation area before TEST. The pipeline installs the packaged archive here, checks migrations, APEX import, component compatibility and application behavior, then records qualification against the exact archive hash. A patch must pass both fresh installation and upgrade from its supported previous release. Only the same successfully qualified archive may proceed to TEST.
+**DevOps role:** integration/release testing before UAT. The actual schema and workspace are **E1_INTEGRATION**, application **810004**. Qualification is the activity performed in this area.
 
-1. Provision the empty qualification area:
+**integration_test** is the release-validation area before user_acceptance_test. The pipeline installs the packaged archive here, checks migrations, APEX import, component compatibility and application behavior, then records qualification against the exact archive hash. A patch must pass both fresh installation and upgrade from its supported previous release. Only the same successfully qualified archive may proceed to user_acceptance_test.
+
+1. Provision the empty integration_test area:
 
    ```bash
-   bash scripts/cicd-area-provision.sh lab-qualify
+   bash scripts/cicd-area-provision.sh integration_test
    ```
 
 2. Wait for **PASS assigned area**. Provisioning creates the area only; release qualification happens in D and F.
-3. Treat qualification as disposable: its application and test data can be removed and reconstructed for a declared qualification scenario. This is where installation/upgrade failures should be discovered before changing TEST.
+3. Treat qualification as disposable: its application and test data can be removed and reconstructed for a declared qualification scenario. This is where installation/upgrade failures should be discovered before changing user_acceptance_test.
 
-### TEST — retained release demonstration
+### user_acceptance_test — retained release demonstration
 
-**lab-test** receives the identical qualified archive and provides the application used to demonstrate the delivered release. Its settings and greeting history are retained across normal upgrades, allowing the Product Owner to see both the new behavior and preservation of earlier data.
+**DevOps role:** UAT, using actual schema/workspace **E1_UAT**, application **810005**. The Product Owner decides acceptance after reviewing the delivered application; pipeline success alone does not grant acceptance.
 
-1. Provision the empty TEST area:
+**user_acceptance_test** receives the identical qualified archive and provides the application used to demonstrate the delivered release. Its settings and greeting history are retained across normal upgrades, allowing the Product Owner to see both the new behavior and preservation of earlier data.
+
+1. Provision the empty user_acceptance_test area:
 
    ```bash
-   bash scripts/cicd-area-provision.sh lab-test
+   bash scripts/cicd-area-provision.sh user_acceptance_test
    ```
 
 2. Wait for **PASS assigned area**. Initial promotion happens in E; the compatible patch upgrade happens in F.
-3. Keep TEST data during normal deployments. Do not reset it as a qualification fixture. The separately invoked **apex-destroy.sh** is an explicit whole-lab restart and deletes TEST along with every other lab area.
+3. Keep user_acceptance_test data during normal deployments. Do not reset it as a qualification fixture. The separately invoked **apex-destroy.sh** is an explicit whole-lab restart and deletes user_acceptance_test along with every other lab area.
 
 
 ## Configure each developer environment
@@ -462,7 +466,7 @@ bash scripts/cicd-walkthrough-B_hello.sh
 
 ## C. Deliver World and complete the assembly
 
-Add World to complete the first working application in **C’s private development area (810003)**. VERIFIER checks it there; publication opens that same development application to LAB_USER. This is not release qualification or promotion to TEST. The archive is independently installed/verified in **qualification (810004) in D**, then the identical qualified archive is promoted to **TEST (810005) in E**.
+Add World to complete the first working application in **C’s private development area (810003)**. VERIFIER checks it there; publication opens that same development application to LAB_USER. This is not release qualification or promotion to user_acceptance_test. The archive is independently installed/verified in **qualification (810004) in D**, then the identical qualified archive is promoted to **user_acceptance_test (810005) in E**.
 
 Run this chapter from the repository root:
 
@@ -521,9 +525,9 @@ This checks the retained task owner/base/generation, complete 1.0.0 assembly and
 
 ## D. Qualify the initial release
 
-Install the packaged release in disposable qualification and test it before allowing delivery to TEST.
+Install the packaged release in disposable qualification and test it before allowing delivery to user_acceptance_test.
 
-**Actor: Deployer — A-03 Delivery operator**, as defined in the [SRS actors](../../docs/srs.md#actors). The development team/Packager (A-02) has already smoke-checked the development assembly and released the reviewed package. The deployer takes that package through qualification in D and TEST promotion in E, executes the CLI steps and switches to the VERIFIER/LAB_USER runtime accounts for browser checks. These accounts are not additional system actors. This is the qualification part of [UC-4](../../docs/srs.md#uc-4--deliver-a-reviewed-change), with verification support under [UC-11](../../docs/srs.md#uc-11--verify-delivery-and-prepare-the-next-task) and runtime behavior from UC-2/3. It implements the selected [PBI-011.6 qualification/promotion slice](sprint_E.1_design.md#pbi-0116--qualify-and-promote-identical-artifacts) under [PBI-011](../../BACKLOG.md#pbi-011-build-an-executable-architectural-prototype); broader acceptance remains as recorded in the design/results.
+**Actor: Deployer — A-03 Delivery operator**, as defined in the [SRS actors](../../docs/srs.md#actors). The development team/Packager (A-02) has already smoke-checked the development assembly and released the reviewed package. The deployer takes that package through qualification in D and user_acceptance_test promotion in E, executes the CLI steps and switches to the VERIFIER/LAB_USER runtime accounts for browser checks. These accounts are not additional system actors. This is the qualification part of [UC-4](../../docs/srs.md#uc-4--deliver-a-reviewed-change), with verification support under [UC-11](../../docs/srs.md#uc-11--verify-delivery-and-prepare-the-next-task) and runtime behavior from UC-2/3. It implements the selected [PBI-011.6 qualification/promotion slice](sprint_E.1_design.md#pbi-0116--qualify-and-promote-identical-artifacts) under [PBI-011](../../BACKLOG.md#pbi-011-build-an-executable-architectural-prototype); broader acceptance remains as recorded in the design/results.
 
 Run this chapter from the repository root:
 
@@ -535,10 +539,10 @@ The script executes these operations in order. Each controller operation recheck
 
 1. **Check prerequisites:** require C's completion marker and create a new D attempt directory. An already attempted D stage stops for inspection; C's resume option does not apply to D.
 2. **Select and inspect the archive:** read `.local-apex/releases/initial-selected.txt`; verify the archive SHA-256, member checksums, manifest and candidate/source identity. D uses the retained reviewed **1.0.0** archive. It does not export C, rebuild the archive or copy business data.
-3. **Read target status:** run controller **status** for `lab-qualify`, schema/workspace **E1_QUALIFY**, application **810004**. Read its current epoch, which identifies the controlled deployment generation.
+3. **Read target status:** run controller **status** for `integration_test`, schema/workspace **E1_INTEGRATION**, application **810004**. Read its current epoch, which identifies the controlled deployment generation.
 4. **Admit the empty target:** at the terminal prompt, press a key for **admit**. The control authority checks the expected epoch and empty initial target, records the owned attempt and advances its epoch. Ordinary runtime access remains blocked.
 5. **Apply database migrations:** press a key for **migrate**. SQLcl runs Liquibase **validate → update → status** using the archive's changelog. The initial archive contains migrations 001–004; this is not the current checkout's later patch changelog.
-6. **Import the APEX definition:** press a key for **import**. Import the archive's unchanged split export into application **810004**, mapped to E1_QUALIFY. Check that ordinary access is still blocked.
+6. **Import the APEX definition:** press a key for **import**. Import the archive's unchanged split export into application **810004**, mapped to E1_INTEGRATION. Check that ordinary access is still blocked.
 7. **Run automated checks:** press a key for **units**. Check release versions, required pages and compilation, then execute greeting-composition and immutable-history tests. Their transactional fixtures are rolled back.
 8. **Enable restricted verification:** press a key for **verify**. Recheck release integrity and absence of packaged business data, then allow **VERIFIER** and record the attempt as verifying. This controller operation prepares the browser test; it does not perform it.
 9. **Retrieve the VERIFIER password in a second terminal:**
@@ -547,29 +551,29 @@ The script executes these operations in order. Each controller operation recheck
    python3 scripts/cicd-password.py VERIFIER
    ```
 
-10. **Act as VERIFIER in qualification:** leave the script waiting at its browser pause and open [qualification / application 810004](http://127.0.0.1:8080/ords/f?p=810004:1). Sign out of any other account and sign in as **VERIFIER**.
+10. **Act as VERIFIER in integration_test:** leave the script waiting at its browser pause and open [integration_test / application 810004](http://127.0.0.1:8080/ords/f?p=810004:1). Sign out of any other account and sign in as **VERIFIER**.
 
     1. Create active **Hello** and **World** entries, using those exact example texts.
     2. Edit the existing Hello/World configuration rows to select those defaults with empty prefixes; save each change.
     3. On **Home**, press **Create greeting**. Open **Greeting history** and refresh to confirm **Hello World** saved by VERIFIER. These are new qualification test data, not developer data copied by the release.
 
 11. **Publish qualification:** return to the waiting terminal and press a key. Controller **publish** requires the saved VERIFIER **Hello World** snapshot, prepares native availability, captures the final live APEX fingerprint, and commits the successful receipt with the external ready gate. A missing snapshot stops D; C's verification retry loop is specific to C.
-12. **Verify the published result:** the script's result command checks ready state, component versions, matching archive hash and equality of the live fingerprint to its receipt. Only then mark D complete and report **DEPLOYED AND QUALIFIED**. This is qualification, not TEST promotion.
+12. **Verify the published result:** the script's result command checks ready state, component versions, matching archive hash and equality of the live fingerprint to its receipt. Only then mark D complete and report **DEPLOYED AND QUALIFIED**. This is qualification, not user_acceptance_test promotion.
 13. **Retrieve LAB_USER's password in the second terminal:**
 
     ```bash
     python3 scripts/cicd-password.py LAB_USER
     ```
 
-14. **Act as LAB_USER:** sign out of VERIFIER, reopen qualification and sign in as **LAB_USER**. Create a greeting and refresh history to confirm ordinary access after publication.
-15. Return to the script terminal and press a key. Wait for **PASS result stage D_qualification**. Continue to **E** to promote the same archive to TEST.
+14. **Act as LAB_USER:** sign out of VERIFIER, reopen integration_test and sign in as **LAB_USER**. Create a greeting and refresh history to confirm ordinary access after publication.
+15. Return to the script terminal and press a key. Wait for **PASS result stage D_qualification**. Continue to **E** to promote the same archive to user_acceptance_test.
 
-- Initial SHA-256: `6a1da4a940586541cbb034277605d7ed36e5d1ad305554f9a2fe4c64cd59411c`. This cycle obtains a new database receipt; historical host evidence does not substitute for qualification.
+- Initial SHA-256: `d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45`. This cycle obtains a new database receipt; historical host evidence does not substitute for qualification.
 - **--rehearse** executes real operations, substitutes explicit runtime API examples for step 10, and skips human browser/password checkpoints. It does not establish browser acceptance.
 
-## E. Promote the same initial artifact to TEST
+## E. Promote the same initial artifact to user_acceptance_test
 
-Deliver the exact qualified archive to TEST, establishing the first usable release without rebuilding its contents.
+Deliver the exact qualified archive to user_acceptance_test, establishing the first usable release without rebuilding its contents.
 
 Run this chapter from the repository root:
 
@@ -578,17 +582,17 @@ bash scripts/cicd-walkthrough-E_promotion.sh
 ```
 
 1. After D passes, select and verify the **same initial archive**; do not rebuild it.
-2. Admit empty TEST. The control authority requires this cycle's matching qualification receipt before promotion.
-3. Execute **migrate → import → units → verify**, then use [TEST](http://127.0.0.1:8080/ords/f?p=810005:1) as **VERIFIER** to create/configure Hello/World and verify the new greeting/history.
-4. Continue to publish and compare the qualification/TEST archive hashes and new successful receipts.
-5. Open TEST as **LAB_USER**. It now runs **1.0.0** with only this cycle's data.
+2. Admit empty user_acceptance_test. The control authority requires this cycle's matching qualification receipt before promotion.
+3. Execute **migrate → import → units → verify**, then use [user_acceptance_test](http://127.0.0.1:8080/ords/f?p=810005:1) as **VERIFIER** to create/configure Hello/World and verify the new greeting/history.
+4. Continue to publish and compare the integration_test/user_acceptance_test archive hashes and new successful receipts.
+5. Open user_acceptance_test as **LAB_USER**. It now runs **1.0.0** with only this cycle's data.
 6. Continue to the explicitly announced twenty verification-history examples and field-level baseline capture for F. These are new test examples for preservation checks, not restored history or release seed.
 
 - Retrieve the password with `python3 scripts/cicd-password.py LAB_USER`. Imports may require re-login.
 
 ## F. Deliver the compatible Hello patch
 
-Demonstrate a compatible 1.0.1 upgrade: qualify the patch, promote the same bytes and preserve existing TEST settings and greeting history.
+Demonstrate a compatible 1.0.1 upgrade: qualify the patch, promote the same bytes and preserve existing user_acceptance_test settings and greeting history.
 
 Run this chapter from the repository root:
 
@@ -596,15 +600,15 @@ Run this chapter from the repository root:
 bash scripts/cicd-walkthrough-F_hello_patch.sh
 ```
 
-1. After E passes, verify the reviewed Hello **1.0.1** archive. The initial TEST field baseline is already captured.
+1. After E passes, verify the reviewed Hello **1.0.1** archive. The initial user_acceptance_test field baseline is already captured.
 2. Explicitly recreate **only disposable qualification**; install/test/publish the patch from empty using **preflight → admit → migrate → import → units → verify → publish → result**.
 3. Explicitly recreate only qualification again. Reconstruct initial 1.0.0 from its archive, create new verification examples and capture the upgrade baseline.
 4. Upgrade qualification with the same patch archive. Verify both required qualification starts and compare every pre-upgrade data/configuration field.
-5. Upgrade retained TEST from 1.0.0 with those **identical patch bytes**. TEST is not reset during this upgrade.
+5. Upgrade retained user_acceptance_test from 1.0.0 with those **identical patch bytes**. user_acceptance_test is not reset during this upgrade.
 6. At each restricted verification checkpoint, open the printed URL as **VERIFIER**, create a greeting and refresh history, then continue to publish. Read the real outputs and stop on any failure.
-7. Compare TEST's earlier rows/settings, then open [TEST](http://127.0.0.1:8080/ords/f?p=810005:1) as **LAB_USER**. See **Foundation 1.0.0 / Hello 1.0.1 / World 1.0.0**, and greetings created before/after the upgrade in this cycle.
+7. Compare user_acceptance_test's earlier rows/settings, then open [user_acceptance_test](http://127.0.0.1:8080/ords/f?p=810005:1) as **LAB_USER**. See **Foundation 1.0.0 / Hello 1.0.1 / World 1.0.0**, and greetings created before/after the upgrade in this cycle.
 
-- Patch SHA-256: `200ebefff13e87600699adfebbbe71158962dc80a02d1b8e6dbd9a829dd9e1ce`. C remains the development **1.0.0** checkpoint; F upgrades qualification and TEST.
+- Selected patch SHA-256: `4ba3abb8709f256c7a47e3e9294d3e7303f742145a95cb58d808ca6c6bcf7200`. Read it again with `shasum -a 256 "$(cat .local-apex/releases/patch-selected.txt)"`. C remains the development **1.0.0** checkpoint; F upgrades qualification and user_acceptance_test.
 - Restricted verification creates current-cycle evidence. --rehearse uses explicit runtime API examples and skips browser checks. Broader request draining/fencing remains open.
 
 ## G. Reject an incompatible database upgrade
@@ -620,7 +624,7 @@ bash scripts/cicd-walkthrough-G_incompatible_upgrade.sh
 1. Press a key to submit the Foundation **2.0.0** proposal to the deployment compatibility gate.
 2. Read **REJECTED INCOMPATIBLE: Hello requires Foundation 1.0.0; proposed Foundation 2.0.0**. World has the same declared Foundation requirement.
 3. Read the unchanged-target verification: definitions, versions, entries, settings, history and control receipts match before/after rejection. Maintenance, migrations and import were not entered.
-4. Open [TEST](http://127.0.0.1:8080/ords/f?p=810005:1), create a greeting and reopen history. The current release still works.
+4. Open [user_acceptance_test](http://127.0.0.1:8080/ords/f?p=810005:1), create a greeting and reopen history. The current release still works.
 5. Continue to the controlled page-drift demonstration.
 
 - This is a rejected deployment proposal; no destructive Foundation 2.0.0 migration is constructed or executed.
@@ -636,15 +640,15 @@ Run this chapter from the repository root:
 bash scripts/cicd-walkthrough-H_drift.sh
 ```
 
-1. Press a key for the explicit **TEST-only page-drift fixture**. It verifies the current release, saves the actual native target export/data, then installs the separately authored Home title/banner change with the existing ID offset.
-2. Open [TEST](http://127.0.0.1:8080/ords/f?p=810005:1), re-login if needed and see **DIRECT CHANGE - deployment must stop**. Installed component versions still describe 1.0.1; the live content fingerprint has changed.
+1. Press a key for the explicit **user_acceptance_test-only page-drift fixture**. It verifies the current release, saves the actual native target export/data, then installs the separately authored Home title/banner change with the existing ID offset.
+2. Open [user_acceptance_test](http://127.0.0.1:8080/ords/f?p=810005:1), re-login if needed and see **DIRECT CHANGE - deployment must stop**. Installed component versions still describe 1.0.1; the live content fingerprint has changed.
 3. Continue to the attempted redeployment preflight.
 4. Read **REJECTED DRIFT**, with the actual fingerprint mismatch, followed by unchanged-target/control-receipt checks. No maintenance, migration or release import occurred.
-5. Reopen TEST: the direct change remains visible and the application/history still work. Rejection has not overwritten it.
-6. Press a key for the **separate explicit restoration**. It refuses another unexplained definition/release change, restores the saved native TEST definition and requires the original successful fingerprint. All data/settings present before restoration must survive.
-7. Reopen TEST and re-login if required. The banner is gone; earlier and newly appended greetings remain.
+5. Reopen user_acceptance_test: the direct change remains visible and the application/history still work. Rejection has not overwritten it.
+6. Press a key for the **separate explicit restoration**. It refuses another unexplained definition/release change, restores the saved native user_acceptance_test definition and requires the original successful fingerprint. All data/settings present before restoration must survive.
+7. Reopen user_acceptance_test and re-login if required. The banner is gone; earlier and newly appended greetings remain.
 
-- The fixture replacement is test setup outside release delivery. Run it with other TEST authoring/deployment stopped.
+- The fixture replacement is test setup outside release delivery. Run it with other user_acceptance_test authoring/deployment stopped.
 - Restoration is controlled demonstration cleanup, not automatic deployment repair or silent acceptance of drift.
 - Broader schema-drift coverage, concurrent requests, verifier fencing and failed additive deployment repair remain pending.
 

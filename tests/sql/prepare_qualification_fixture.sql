@@ -2,10 +2,10 @@
 set serveroutput on
 declare h number; w number; greeting varchar2(32767); session_id number; n number;
 begin
- if user<>'E1_QUALIFY' then raise_application_error(-20782,'Disposable qualification fixture only'); end if;
+ if user<>'E1_INTEGRATION' then raise_application_error(-20782,'Disposable qualification fixture only'); end if;
  select count(*) into n from greeting_history;
  if n<>0 then raise_application_error(-20783,'Fresh reconstructed baseline required; fixture never overwrites'); end if;
- apex_util.set_workspace('E1_QUALIFY');
+ apex_util.set_workspace('E1_INTEGRATION');
  apex_session.create_session(p_app_id=>810004,p_page_id=>1,p_username=>'VERIFIER');
  session_id:=apex_application.g_instance;
  insert into hello_entries(entry_text) values('Hello') returning entry_id into h;

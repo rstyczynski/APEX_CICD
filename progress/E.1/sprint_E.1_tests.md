@@ -158,3 +158,7 @@ The [real PTY continuation check](tests/c_resume_verification_20261018.txt) pass
 ## C missing-snapshot retry — 2026-10-18
 
 [Retry evidence](tests/c_verification_retry_20261018.txt): focused control-flow unit suite passes 3/0. Native read-only loop retries an explicitly forced missing-row fixture, then accepts the actual current Hello World snapshot. Browser pause is stubbed; no publication or data write occurs. A separate read-only missing-row assertion confirms the clearer ORA-20803 text. C development verification/publication is distinct from D archive qualification and E same-archive TEST promotion.
+
+## Renamed integration/UAT identities — 2026-10-18
+
+[Rename verification](tests/environment_rename_20261018.txt): native new-schema/workspace mappings and control-package compilation pass; new initial archive/controller status reaches E1_INTEGRATION. An actual UAT admission attempt rejects ORA-20614 for missing qualification, retaining epoch zero with no UAT attempt or migration/import. Original D attempt remains as a failed historical row; A/B/C applications remain. Local lifecycle policy suite passes 3/0 (eleven subcases), plus C verification-loop 3/0. Initial candidate composition/history passes 2/0, fixtures rolled back. New patch candidate explicitly reuses prior byte-identical APEX/db functional evidence; this is not new patch runtime qualification. No new D/F/UAT or browser acceptance is claimed.

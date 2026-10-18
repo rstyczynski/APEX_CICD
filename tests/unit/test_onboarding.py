@@ -55,7 +55,7 @@ class Boundaries(unittest.TestCase):
             Path(folder, 'e1-owned.json').write_text(json.dumps(platform.CONFIG))
             with patch.object(platform, 'LOCAL', Path(folder)), patch.object(platform, 'run'), patch.object(platform, 'provision') as provision, contextlib.redirect_stdout(io.StringIO()):
                 platform.reset_qualification()
-                provision.assert_called_once_with('lab-qualify')
+                provision.assert_called_once_with('integration_test')
 
     def test_developer_uses_only_assigned_password_and_private_home(self):
         with tempfile.TemporaryDirectory() as folder:

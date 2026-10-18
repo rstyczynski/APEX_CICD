@@ -1,0 +1,51 @@
+E.1 environment rename — 2026-10-18
+
+integration_test -> schema/workspace E1_INTEGRATION, app 810004
+user_acceptance_test -> schema/workspace E1_UAT, app 810005
+
+Product Owner selected stopping old D and rebuilding these two areas.
+Paused process stopped; native APEX export, old table/control rows and
+configuration retained in protected local evidence. No passwords or business
+rows are committed here. Old epoch-1 attempt retired through its public API
+with a reason; its failed history row is retained. A/B/C remain intact.
+
+Native post-rename state and actual missing-qualification UAT denial:
+PASS UAT admission rejected: no qualification for the new archive/configuration; no migration/import.
+
+"SCHEMA_NAME","APP_ID","EPOCH","PHASE"
+"E1_INTEGRATION",810004,1,"new"
+"E1_UAT",810005,0,"new"
+"SCHEMA_NAME","EPOCH","OUTCOME"
+"E1_QUALIFY",1,"failed"
+"APPLICATION_ID","WORKSPACE"
+810001,"E1_DEV_A"
+810002,"E1_DEV_B"
+810003,"E1_DEV_C"
+"USERNAME"
+"E1_INTEGRATION"
+"E1_UAT"
+
+
+Both new saved connections passed native schema/workspace identity checks.
+New initial archive/controller status passed through E1_INTEGRATION.
+Initial candidate native composition/history tests passed 2/0 and rolled back.
+Patch APEX/db bytes equal the original accepted 752eb47 source. Original
+immutable functional candidate evidence was explicitly reused alongside new
+mapping/control checks. C was not upgraded just to repackage unchanged code.
+This is not a fresh patch runtime test or qualification.
+
+New archives are BUILT, NOT QUALIFIED. D/F must create new receipts under
+these mappings before UAT promotion. No new browser/UAT acceptance claimed.
+
+Archive SHA-256 checks; originals retained unchanged:
+lab-1.0.0-0f7c500e064e.tar 6a1da4a940586541cbb034277605d7ed36e5d1ad305554f9a2fe4c64cd59411c
+lab-1.0.1-752eb47ec59d.tar 200ebefff13e87600699adfebbbe71158962dc80a02d1b8e6dbd9a829dd9e1ce
+lab-1.0.0-08a5cf27e8a3.tar d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+lab-1.0.1-ee8f1af8e35f.tar 4ba3abb8709f256c7a47e3e9294d3e7303f742145a95cb58d808ca6c6bcf7200
+
+Local checks: lifecycle/identity policy 3 tests /0 failures (11 subcases),
+C retry control 3/0. All script syntax and A-H local preflight pass.
+Model XML/edges and updated native renders inspected; links checked.
+Legacy script target tokens normalize to new identities. Direct SQLcl uses
+new saved names. Physical E1_QUALIFY/E1_TEST no longer exist.
+No other sprint or Podman resources changed. No push.

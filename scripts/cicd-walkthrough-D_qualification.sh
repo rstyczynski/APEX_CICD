@@ -9,7 +9,7 @@ archive="$(cat .local-apex/releases/initial-selected.txt)"
 python3 scripts/cicd-artifact.py inspect "$archive"
 # 3-12. Status -> admit -> migrate -> import -> units -> verify -> browser VERIFIER
 # -> publish -> result/receipt/fingerprint. Each controller operation remains visible.
-initial_install lab-qualify E1_QUALIFY 810004
+initial_install integration_test E1_INTEGRATION 810004
 touch .local-apex/walkthrough/current/D_qualification.done
 echo 'DEPLOYED AND QUALIFIED initial release 1.0.0 from the verified archive in this cycle.'
 # 13-15. Retrieve LAB_USER password, check ordinary runtime, finish D.

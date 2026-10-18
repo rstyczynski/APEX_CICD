@@ -6,3 +6,7 @@ test_lab_cleanup_boundary() {
 test_onboarding_boundaries() {
   python3 tests/unit/test_onboarding.py
 }
+
+test_environment_name_boundary() {
+  python3 tests/unit/test_environment_names.py
+}

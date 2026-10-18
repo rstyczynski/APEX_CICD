@@ -7,9 +7,9 @@ test_IT7_drift() {
 import sys
 sys.path.insert(0,'scripts')
 from apex_sql import run
-assert 'ORA-20998' in run("set sqlformat csv\nselect 'ORA-20998: retained diagnostic' as failure_reason from dual;",connection='lab-test')
+assert 'ORA-20998' in run("set sqlformat csv\nselect 'ORA-20998: retained diagnostic' as failure_reason from dual;",connection='user_acceptance_test')
 try:
-    run("begin raise_application_error(-20998,'Boundary assertion'); end;\n/",connection='lab-test')
+    run("begin raise_application_error(-20998,'Boundary assertion'); end;\n/",connection='user_acceptance_test')
 except RuntimeError as exc:
     assert 'ORA-20998' in str(exc)
 else:
@@ -19,5 +19,5 @@ BOUNDARY
   python3 scripts/cicd-drift-demo.py inject
   bash scripts/cicd-protection-check.sh drift
   python3 scripts/cicd-drift-demo.py restore
-  bash scripts/cicd-patch-result.sh lab-test
+  bash scripts/cicd-patch-result.sh user_acceptance_test
 }
