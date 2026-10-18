@@ -31,3 +31,26 @@ test_baseline_requires_clean_target() {
 test_compatibility_still_requires_specific_rejection() {
   _protection_case 'REJECTED INCOMPATIBLE: Hello requires Foundation 1.0.0; proposed Foundation 2.0.0' compatibility 1 any 0 incompatible
 }
+
+test_show_option_combines_with_expected_drift() (
+  source scripts/cicd-protection-check.sh
+  protection_options drift --show --expect-drift
+  [ "$kind" = drift ] && [ "$show" -eq 1 ] && [ "$expect" = --expect-drift ]
+  protection_options drift --expect-clean --show
+  [ "$show" -eq 1 ] && [ "$expect" = --expect-clean ]
+)
+test_show_is_not_a_compatibility_option() (
+  source scripts/cicd-protection-check.sh
+  status=0
+  protection_options compatibility --show || status=$?
+  [ "$status" -eq 2 ]
+)
+test_conflicting_drift_options_are_rejected() (
+  source scripts/cicd-protection-check.sh
+  status=0
+  protection_options drift --expect-clean --expect-drift || status=$?
+  [ "$status" -eq 2 ]
+  status=0
+  protection_options drift --show --show || status=$?
+  [ "$status" -eq 2 ]
+)

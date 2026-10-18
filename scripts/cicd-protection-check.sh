@@ -26,14 +26,27 @@ protection_outcome() {
   printf '%s\n' "$outcome"
 }
 
+protection_options() {
+  [ "$#" -ge 1 ] || { echo 'Usage: cicd-protection-check.sh compatibility|drift [--show] [--expect-clean|--expect-drift]' >&2; return 2; }
+  kind="$1"; shift
+  case "$kind" in compatibility|drift) ;; *) return 2 ;; esac
+  expect=any
+  show=0
+  while [ "$#" -gt 0 ]; do
+    [ "$kind" = drift ] || { echo 'ERROR: options apply only to drift.' >&2; return 2; }
+    case "$1" in
+      --show) [ "$show" -eq 0 ] || return 2; show=1 ;;
+      --expect-clean|--expect-drift) [ "$expect" = any ] || return 2; expect="$1" ;;
+      *) echo "ERROR: unknown option: $1" >&2; return 2 ;;
+    esac
+    shift
+  done
+}
+
 main() {
   ROOT="$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --show-toplevel)"
   cd "$ROOT"
-  [ "$#" -ge 1 ] && [ "$#" -le 2 ] || { echo 'Usage: cicd-protection-check.sh compatibility|drift [--expect-clean|--expect-drift]' >&2; return 2; }
-  expect="${2:-any}"
-  case "$expect" in any|--expect-clean|--expect-drift) ;; *) return 2 ;; esac
-  [ "$#" -eq 1 ] || [ "$1" = drift ] || return 2
-  kind="$1"; case "$kind" in compatibility|drift) ;; *) exit 2 ;; esac
+  protection_options "$@" || return $?
   archive="$(cat .local-apex/releases/patch-selected.txt)"
   umask 077
   work="$(mktemp -d .local-apex/releases/protection-$kind.XXXXXX)"
@@ -60,6 +73,14 @@ main() {
     drift) echo 'DETECTED DRIFT: deployment rejected before maintenance, migration or import.' ;;
     incompatible) echo 'DETECTED INCOMPATIBILITY: deployment rejected before maintenance, migration or import.' ;;
   esac
+  if [ "$show" -eq 1 ]; then
+    if [ "$outcome" = drift ]; then
+      echo 'SHOW: compare the preserved live edit with the published source.'
+      python3 scripts/cicd-drift-diff.py || { echo 'ERROR: source review failed; no restoration performed.' >&2; return 1; }
+    else
+      echo 'SHOW: no unexpected live changes to display; fingerprint matches the published receipt.'
+    fi
+  fi
   echo "PASS $kind protection: target definitions, versions, entries, configuration, history and release records unchanged. Evidence: $work"
   echo 'Open http://127.0.0.1:8080/ords/f?p=810005:1 as LAB_USER to see the retained application.'
 }

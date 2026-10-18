@@ -731,16 +731,16 @@ Change UAT's Home page title, then try deployment. See the pipeline stop and lea
 
    Look for **REJECTED DRIFT**, **DETECTED DRIFT** and **PASS drift protection**. Refresh UAT: your changed title and greeting history should still be there. The rejected deployment has not overwritten them.
 
-6. **See what changed.** Run the read-only source comparison:
+6. **See what changed.** Repeat the regular drift check with **--show**:
 
    ```bash
-   python3 scripts/cicd-drift-diff.py
+   bash scripts/cicd-protection-check.sh drift --show
    ```
 
-   1. Read the changed page attributes: **published value → live value**. For example, a page Title or region Name may have changed.
+   1. Read **DETECTED DRIFT**, then the changed page attributes: **published value → live value**. For example, a page Title or region Name may have changed.
    2. Read the SQL diff: lines beginning **-** are the published code; lines beginning **+** are the live code.
    3. Open the file printed after **REVIEW** for all differences. **COMPLETE RAW DIFF** also retains import-offset and generated-comment differences, which are omitted from the shorter comparison. Application alias, availability and generated metadata can differ between packaged source and a running target; review them separately from page edits.
-   4. The script verifies that the selected archive matches UAT's successful receipt, exports the live definition and saves both sides locally. It changes neither UAT nor Git, and checks that the target did not change during capture.
+   4. With **--show**, a clean target reports **NO DRIFT** and no unexpected changes to display. On a drifted target, the script verifies that the selected archive matches UAT's successful receipt, exports the live definition and saves both sides locally. It changes neither UAT nor Git, and checks that the target did not change during capture.
 
 7. **Decide whether to keep or undo the change.**
    - **Undo it:** use the published values shown in the report and follow step 8.
@@ -776,7 +776,7 @@ bash scripts/cicd-walkthrough-H_drift.sh
 1. The script first requires **NO DRIFT**. Then press a key for the explicit **user_acceptance_test-only page-drift fixture**. It verifies the current release, saves the actual native target export/data, then installs the separately authored Home title/banner change with the existing ID offset.
 2. Open [user_acceptance_test](http://127.0.0.1:8080/ords/f?p=810005:1), re-login if needed and see **DIRECT CHANGE - deployment must stop**. Installed component versions still describe 1.0.1; the live content fingerprint has changed.
 3. Continue to the attempted redeployment preflight.
-4. Read **REJECTED DRIFT** and **DETECTED DRIFT**, with the actual fingerprint mismatch, followed by unchanged-target/control-receipt checks. No maintenance, migration or release import occurred.
+4. Read **REJECTED DRIFT** and **DETECTED DRIFT**, followed by the published/live page differences and unchanged-target/control-receipt checks. The script adds **--show** to the regular check at this point. No maintenance, migration or release import occurred.
 5. Reopen user_acceptance_test: the direct change remains visible and the application/history still work. Rejection has not overwritten it.
 6. Press a key for the **separate explicit restoration**. It refuses another unexplained definition/release change, restores the saved native user_acceptance_test definition and requires the original successful fingerprint. All data/settings present before restoration must survive.
 7. Read **NO DRIFT** after restoration. Reopen user_acceptance_test and re-login if required. The banner is gone; earlier and newly appended greetings remain.

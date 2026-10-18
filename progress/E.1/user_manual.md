@@ -706,9 +706,9 @@ Both recognized drift-check outcomes finish with **PASS drift protection** only 
 Follow [H.1 steps 6–9](cicd-walkthrough.md#h1-change-a-page-in-app-builder) after a manual drift rejection.
 
 ```bash
-python3 scripts/cicd-drift-diff.py
+bash scripts/cicd-protection-check.sh drift --show
 ```
 
-The read-only command verifies the selected patch archive against UAT's successful receipt, captures the native live definition and prints changed page values plus a SQL diff. Published lines have a minus sign; live lines have a plus sign. The saved review omits target-offset lines and generated Manifest comments only; a full raw diff and both source trees remain available. Other deployment metadata differences are retained rather than silently treated as page edits. Neither the live definition nor Git is overwritten.
+The regular drift check with **--show** first verifies protection and unchanged snapshots, then displays the read-only source comparison when drift is detected. A clean target reports no unexpected changes to display. The comparison verifies the selected patch archive against UAT's successful receipt, captures the native live definition and prints changed page values plus a SQL diff. Published lines have a minus sign; live lines have a plus sign. The saved review omits target-offset lines and generated Manifest comments only; a full raw diff and both source trees remain available. Other deployment metadata differences are retained rather than silently treated as page edits. Neither the live definition nor Git is overwritten.
 
 Choose whether to restore the published page/region values in Page Designer or retain the captured edit for Git review and a new release. Restoration is manual and explicit; the tool has no restore action. After restoring all edited attributes, run `bash scripts/cicd-protection-check.sh drift` and require NO DRIFT against the original receipt. If differences remain, inspect again rather than changing the accepted baseline. See the [test profile](../../docs/test-profile.md#read-only-drift-source-review).
