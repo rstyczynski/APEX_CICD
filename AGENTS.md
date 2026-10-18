@@ -10,6 +10,14 @@ The root `BACKLOG.md` is the Product Owner’s prioritized backlog. The root `PL
 
 For an explicit request to start, plan, inspect, or manage a RUP Strikes Back sprint in Codex, read and use `.agents/skills/rup-strikes-back/SKILL.md`. Do not load that workflow for ordinary product, documentation, or implementation requests.
 
+## External expert review
+
+For a request to start or continue an external expert review, use
+`.agents/skills/rup-external-review/SKILL.md`. Codex coordinates the round,
+prepares prompts for the Product Owner to relay, reads expert replies from
+files and writes engineering responses and decisions. The skill owns the
+external-review procedure; review alone does not start or close a sprint.
+
 ## Mandatory RUP artifact routing
 
 RUP Strikes Back procedures are mandatory for every change to its managed

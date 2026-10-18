@@ -6,4 +6,4 @@ Read that file after this compatibility entry point. It contains the project-spe
 
 RUP Strikes Back adopts Rational Unified Process analysis discipline. The full policy's [P1.3](RUPStrikesBack.patch/RUP_patch.md#p13-adopt-rup-analysis-and-use-case-modeling-explicitly) requires an explicit Actors chapter and actor-led end-to-end use cases, with detail proportionate to the lifecycle phase.
 
-The local [external-review convention (P10)](RUPStrikesBack.patch/RUP_patch.md#p10-use-proportionate-external-review-rounds) defines review → response → feedback → decisions, stable round filenames and phase-appropriate selection of corrections.
+The [rup-external-review skill](.agents/skills/rup-external-review/SKILL.md) coordinates external review through files: Codex prepares prompts for the Product Owner to relay, answers returned expert messages and tracks evidence-based decisions. The skill owns the complete procedure formerly maintained as P10.

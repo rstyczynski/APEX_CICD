@@ -5,7 +5,7 @@ Prepared on 2026-10-18 for review of the APEX CI/CD delivery pipeline prototype.
 
 The [first external review](sprint_E.1_review-1.md) and [engineering response](sprint_E.1_review-1-response.md) add concrete reproducibility, privileged-input, migration-recovery, exit-status and provenance findings. In particular, the demonstrated host rebuild retains archives; the initial release-input acquisition defect is addressed by [exact archive reconstruction](cicd-walkthrough.md#prepare-reviewed-release-inputs), and the [independent clean-checkout A–I rehearsal](tests/clean_checkout_20261018.txt) now passes from newly provisioned infrastructure. Six selected corrections are registered individually in the [bug register](sprint_E.1_bugs.md). This API-driven rehearsal supplements the earlier assisted walkthrough; wider sprint gates remain open.
 
-[Expert feedback on the response](sprint_E.1_review-1-feedback.md) is retained with the same review round. Selection of corrections remains a separate Product Owner decision under the [external-review convention](../../RUPStrikesBack.patch/RUP_patch.md#p10-use-proportionate-external-review-rounds).
+[Expert feedback on the response](sprint_E.1_review-1-feedback.md) is retained with the same review round. Selection of corrections remains a separate Product Owner decision under the [external-review skill](../../.agents/skills/rup-external-review/SKILL.md).
 
 ## The important outcomes
 

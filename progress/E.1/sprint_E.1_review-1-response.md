@@ -2,7 +2,7 @@
 
 Response to [sprint_E.1_review-1.md](sprint_E.1_review-1.md), reviewed on 2026-10-18. The expert reviewed public commit `0f5ce70`; the local committed baseline is the same. This response checks the findings against source, existing evidence and a small read-only experiment. It proposes corrections; it does not claim they are implemented or change sprint/backlog status.
 
-Review-round navigation: [expert feedback](sprint_E.1_review-1-feedback.md), [selected decisions](sprint_E.1_review-1-decisions.md) and [current bug/fix status](sprint_E.1_bugs.md). The [local external-review convention](../../RUPStrikesBack.patch/RUP_patch.md#p10-use-proportionate-external-review-rounds) defines filenames and how findings become selected actions.
+Review-round navigation: [expert feedback](sprint_E.1_review-1-feedback.md), [selected decisions](sprint_E.1_review-1-decisions.md) and [current bug/fix status](sprint_E.1_bugs.md). The [external-review skill](../../.agents/skills/rup-external-review/SKILL.md) defines filenames and how findings become selected actions.
 
 ## Overall answer
 
