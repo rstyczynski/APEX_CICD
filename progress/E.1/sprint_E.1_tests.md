@@ -150,3 +150,7 @@ After recording the successful complete rehearsal, repeated the explicit scoped 
 ## Infrastructure/onboarding responsibility checks — 2026-10-18
 
 The separate fresh-infrastructure boundary assertion passed: zero E.1 schemas/workspaces after database/APEX/ORDS installation, with APEX/ORDS HTTP checks passing. Control initialization compiled without area schemas present. After provisioning only A, native dictionary assertions found only E1_CTRL/E1_DEV_A and workspace A. Three real developer configurations passed using their own schema passwords and private SQLcl homes. All five areas were subsequently provisioned by five named invocations. See [the complete result and limits](tests/onboarding_boundaries_20261018.txt). Local lifecycle policy tests pass, 2 registered tests/0 failures, including five onboarding cases and four cleanup cases; mocks verify command responsibility boundaries only.
+
+## C restricted-verification continuation — 2026-10-18
+
+The [real PTY continuation check](tests/c_resume_verification_20261018.txt) passes ownership/state/assembly inspection and reaches VERIFIER's browser pause. Explicit q returns 130; C remains restricted with no new greeting/publication. Fresh/default and resume local preflight plus Bash syntax pass. This does not rerun C installation, accept browser verification or prove general failed-deployment recovery.

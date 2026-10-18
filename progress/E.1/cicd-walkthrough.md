@@ -144,7 +144,7 @@ Start here for the complete Product Owner journey: prepare a fresh lab, run each
 6. At a verification checkpoint, use the printed URL as **VERIFIER**. After publication, use **LAB_USER** to see the result. Retrieve the account password with `python3 scripts/cicd-password.py VERIFIER` or `python3 scripts/cicd-password.py LAB_USER`.
 7. After A reports PASS, run B using its chapter command. Continue through C–H the same way.
 
-- A–F now install/deploy, rather than only display an earlier result. Repeating an already attempted construction chapter stops for inspection; start a new demonstration with the explicit infrastructure cleanup/install sequence.
+- A–F now install/deploy, rather than only display an earlier result. Repeating an already attempted construction chapter stops for inspection. C provides an explicit resume command only for its restricted-verification pause; other partial states require inspection. Start a new demonstration with the explicit infrastructure destruction/install sequence.
 - **--preflight** on A–H checks local tools/files/chapter mapping without connecting to Oracle. It does not substitute for the infrastructure precheck below.
 - **--rehearse** executes real installations, qualification/promotion and the TEST page fixture without pauses. Its explicit runtime API test examples are not browser verification. It requires the fresh infrastructure preparation first.
 - Normal release result inspection remains read-only through the separate operator result commands. No App Builder inspection is required in this Product Owner journey.
@@ -155,7 +155,7 @@ Run each stage separately so you can pause, review the outcome and continue only
 
 1. Complete infrastructure installation, then explicit project control, named-area provisioning, developer configuration and readiness below once for this cycle.
 2. Execute A–H in order. Each chapter contains its exact command, actual operation output, expected outcome and runtime URL.
-3. Each script stops on errors. Do not advance after a failed or interrupted attempt; retain its transcript and inspect ownership/partial state. Full cleanup is a separate deliberate restart of the demonstration, not deployment repair.
+3. Each script stops on errors. Do not advance after a failed or interrupted attempt; retain its transcript and inspect ownership/partial state. C can resume its documented restricted-verification pause. Full destruction is a separate deliberate restart of the demonstration, not deployment repair.
 
 - A: `bash scripts/cicd-walkthrough-A_foundation.sh`
 - B: `bash scripts/cicd-walkthrough-B_hello.sh`
@@ -470,6 +470,14 @@ Run this chapter from the repository root:
 bash scripts/cicd-walkthrough-C_world.sh
 ```
 
+If C was already installed and the script stopped at restricted browser verification, resume that checkpoint instead of installing again:
+
+```bash
+bash scripts/cicd-walkthrough-C_world.sh --resume-verification
+```
+
+This checks the retained task owner/base/generation, complete 1.0.0 assembly and restricted-verification state. It does not repeat migrations, import or reservation acquisition. Continue at step 3 below when the verification pause appears. If you already created Hello/World entries, reuse them. A state mismatch stops for inspection; this is not general failed-deployment recovery. Do not delete the retained C_world directory or destroy the lab to resume this pause.
+
 1. **Act as the walkthrough operator:** after B passes, start the script above and press a key when prompted. The script acquires the integration scope and installs the reviewed complete **1.0.0** source into empty C.
 2. Read the migration, compilation, version and page-check results. Wait for the script's browser-verification pause. C is now restricted to **VERIFIER**; leave the script waiting while you perform the next steps.
 3. **Get the VERIFIER password in a second terminal:**
@@ -479,19 +487,30 @@ bash scripts/cicd-walkthrough-C_world.sh
    ```
 
 4. **Act as user VERIFIER:** open [C / application 810003](http://127.0.0.1:8080/ords/f?p=810003:1) and sign in as **VERIFIER** with that password. Sign out of another application account first if necessary.
-5. Open **Hello entries**, press **Create**, enter **Entry Text = Hello** and **Active = Y**, then press **Create** to save.
-6. Open **World entries**, press **Create**, enter **Entry Text = World** and **Active = Y**, then press **Create** to save.
-7. Open **Hello configuration**, edit its existing row, select **Hello** as the default and leave the prefix empty. Press **Apply Changes**. Repeat in **World configuration**, selecting **World** and leaving the prefix empty.
-8. Open **Home** and press **Create greeting** using the configured defaults. Open **Greeting history** and refresh; confirm a saved **Hello World** row. This exact VERIFIER greeting is required before the script will publish C.
-9. **Act as the walkthrough operator again:** return to the waiting script terminal and press a key. The script checks the greeting, publishes C for ordinary users and releases ownership. Wait for **DEPLOYED C_world** and the final browser pause.
-10. **Get the LAB_USER password in the second terminal:**
+   a) Open **Hello entries**, press **Create**, enter **Entry Text = Hello** and **Active = Y**, then press **Create** to save.
+   b) Open **World entries**, press **Create**, enter **Entry Text = World** and **Active = Y**, then press **Create** to save.
+   c) Open **Hello configuration**, edit its existing row, select **Hello** as the default and leave the prefix empty. Press **Apply Changes**. Repeat in **World configuration**, selecting **World** and leaving the prefix empty.
+   d) Open **Home** and press **Create greeting** using the configured defaults. Open **Greeting history** and refresh; confirm a saved **Hello World** row. This exact VERIFIER greeting is required before the script will publish C.
+5. **Act as the walkthrough operator again:**
+   a) return to the waiting script terminal and press a key - the script checks the greeting, publishes C for ordinary users and releases ownership.
+   b) Wait for **DEPLOYED C_world** and the final browser pause.
+6. **Get the LAB_USER password in the second terminal:**
 
     ```bash
     python3 scripts/cicd-password.py LAB_USER
     ```
 
-11. **Act as user LAB_USER:** sign out of VERIFIER, reopen [C](http://127.0.0.1:8080/ords/f?p=810003:1) and sign in as **LAB_USER**. Create another greeting, open **Greeting history**, then **Installed components**. All three components must show **1.0.0**; history contains only data created during this fresh cycle.
-12. Return to the script terminal and press a key to finish. Wait for **PASS result stage C_world** before starting D.
+7. **Act as user LAB_USER:**
+   a) sign out of VERIFIER,
+   b) reopen [C](http://127.0.0.1:8080/ords/f?p=810003:1)
+   c) sign in as **LAB_USER**.
+   d) Create another greeting,
+   e) open **Greeting history**,
+   f) open then **Installed components**
+
+   All three components must show **1.0.0**; history contains only data created during this fresh cycle.
+
+8. Return to the script terminal and press a key to finish. Wait for **PASS result stage C_world** before starting D.
 
 - In **--rehearse**, the script announces and creates the runtime verification examples automatically, skipping browser/password steps. Import itself supplies no business seed.
 

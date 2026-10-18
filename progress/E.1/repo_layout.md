@@ -77,7 +77,7 @@ The intended developer workflow uses independent checkouts/task branches against
 
 The same source organization supports several bounded paths. An initial assembly checkpoint is different from a qualified complete release.
 
-1. **Development assembly — A/B/C:** install reviewed Foundation-only, Foundation/Hello and complete source checkpoints into their private areas. Incomplete A/B remain unavailable. These steps do not pass through qualification or promote anything to TEST.
+1. **Development assembly — A/B/C:** install reviewed Foundation-only, Foundation/Hello and complete source checkpoints into their private areas. Incomplete A/B remain unavailable. These steps do not pass through qualification or promote anything to TEST. C has an explicit bounded resume at its restricted-verification pause; it is not a general deployment-recovery mechanism. See [C’s continuation command](cicd-walkthrough.md#c-deliver-world-and-complete-the-assembly).
 2. **Candidate validation:** check the combined revision before packaging. The current [candidate checker](../../scripts/cicd-candidate-check.sh) and [packager](../../scripts/cicd-artifact.py) bind validation evidence to the source commit; intended PR automation remains distinct from the scripted replay.
 3. **Initial complete release — D/E:** verify one immutable 1.0.0 archive, qualify a fresh installation, then promote identical bytes to empty TEST. Build does not copy live developer data or re-export DEV during promotion.
 4. **Compatible patch — F:** verify the 1.0.1 archive; qualify both a fresh installation and upgrade from 1.0.0. Upgrade retained TEST with those same bytes and compare pre-upgrade history/settings. Qualification may be recreated; TEST is not reset by the patch.
