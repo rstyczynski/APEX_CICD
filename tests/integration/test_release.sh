@@ -8,7 +8,7 @@ test_IT2_patch() {
   archive="$(cat .local-apex/releases/patch-selected.txt)"
   bash scripts/cicd-patch-result.sh integration_test
   bash scripts/cicd-patch-result.sh user_acceptance_test
-  python3 scripts/cicd-preservation.py compare integration_test .local-apex/releases/qualification-initial-preservation.json
+  python3 scripts/cicd-preservation.py compare integration_test .local-apex/releases/integration_test-initial-preservation.json
   python3 scripts/cicd-preservation.py compare user_acceptance_test .local-apex/releases/test-initial-preservation.json
   python3 scripts/apex_sql.py user_acceptance_test tests/sql/hello_patch.sql
   python3 scripts/apex_sql.py lab-control tests/sql/patch_receipts.sql
@@ -22,9 +22,9 @@ test_IT1_initial_result() {
   work="$(mktemp -d .local-apex/releases/initial-check.XXXXXX)"
   hash="$(shasum -a 256 "$archive" | awk '{print $1}')"
   python3 scripts/apex_sql.py user_acceptance_test tests/sql/initial_preservation_snapshot.sql > "$work/before.txt"
-  bash scripts/cicd-qualify.sh "$archive" > "$work/qualify.log" 2>&1
+  bash scripts/cicd-integration-test.sh "$archive" > "$work/integration-test.log" 2>&1
   bash scripts/cicd-promote.sh "$archive" user_acceptance_test > "$work/test.log" 2>&1
-  rg -q 'ALREADY DELIVERED' "$work/qualify.log"
+  rg -q 'ALREADY DELIVERED' "$work/integration-test.log"
   rg -q 'ALREADY DELIVERED' "$work/test.log"
   python3 scripts/apex_sql.py user_acceptance_test tests/sql/prepare_history_sentinels.sql > "$work/fixture-repeat.log"
   python3 scripts/apex_sql.py user_acceptance_test tests/sql/initial_preservation_snapshot.sql > "$work/after.txt"

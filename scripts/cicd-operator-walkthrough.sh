@@ -172,5 +172,5 @@ case "$status" in
 esac
 pause 'Inspect the diff before continuing; any key continues without accepting source, q quits.'
 chapter '### 8. Continue through the remaining delivery stages'
-echo 'END: current working walkthrough completed. Release/qualification/promotion remain under construction.'
+echo 'END: current working walkthrough completed. Release/integration_test/promotion remain under construction.'
 if [ "$MODE" = --rehearse ]; then echo 'REHEARSAL ONLY: browser steps and human review were skipped.'; fi

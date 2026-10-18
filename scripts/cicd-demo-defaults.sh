@@ -68,4 +68,4 @@ if ! cmp -s "$work/history-before.txt" "$work/history-after.txt"; then
   echo 'ERROR: history differs during preparation; inspect the evidence (including concurrent use).' >&2; exit 1
 fi
 echo 'PASS preparation: deterministic defaults; complete existing history snapshots unchanged.'
-echo 'A/B/C schemas, credentials, qualification, TEST, release records and Podman resources retained.'
+echo 'A/B/C schemas, credentials, integration_test, TEST, release records and Podman resources retained.'

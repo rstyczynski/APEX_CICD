@@ -405,7 +405,7 @@ Follow the numbered [post-install verification steps and account guide](../progr
 
 Current deployment areas are **integration_test / E1_INTEGRATION / 810004** and **user_acceptance_test / E1_UAT / 810005**. These replace the former lab-qualify/E1_QUALIFY and lab-test/E1_TEST identities. They remain separate workspaces/schemas in the same Oracle/APEX installation. Script aliases normalize old connection tokens; use the new saved connection names for direct SQLcl.
 
-The authorized one-time transition on 2026-10-18 stopped the paused D process, preserved native APEX export plus table/control rows under protected `.local-apex/environment-rename-20261018/`, retired its uncompleted attempt with a reason, and recreated only those two disposable areas. Control attempt history and A/B/C work were retained. Target epochs remain monotonic; the integration target's prior epoch is not reset to zero. New source/configuration identities require newly built archives and fresh qualification. The old immutable archives and historical evidence remain; do not edit them or treat them as evidence for the renamed mappings. Do not rerun the transition over unrelated or completed work.
+The authorized one-time transition on 2026-10-18 stopped the paused D process, preserved native APEX export plus table/control rows under protected `.local-apex/environment-rename-20261018/`, retired its uncompleted attempt with a reason, and recreated only those two disposable areas. Control attempt history and A/B/C work were retained. Target epochs remain monotonic; the integration target's prior epoch is not reset to zero. New source/configuration identities require newly built archives and fresh integration_test. The old immutable archives and historical evidence remain; do not edit them or treat them as evidence for the renamed mappings. Do not rerun the transition over unrelated or completed work.
 
 The [repository and pipeline draft](../progress/E.1/repo_layout.md#private-areas-and-assembled-applications) explains how these areas relate to shared source and release delivery. Keep its mappings consistent with this procedure and areas.json.
 
@@ -418,7 +418,7 @@ Infrastructure installation stops at a working Oracle Database/APEX/ORDS runtime
 
 The [onboarding walkthrough](../progress/E.1/cicd-walkthrough.md#provision-each-assigned-area) supplies the exact commands, actors, password distinctions and expected outcomes. The operator's protected .local-apex/e1-secrets.json remains separate from developer connection profiles. Normal developer setup never runs the privileged provisioning helper. This single-host lab's role separation does not establish separate OS-user security boundaries.
 
-Qualification reset reprovisions **only integration_test** and restores only its grants. It must not silently rerun every developer/target's onboarding. Reapplying control packages preserves existing grants; target-specific grants belong to area provisioning. Infrastructure lifecycle, project control, developer onboarding and application migrations are distinct operations.
+integration_test reset reprovisions **only integration_test** and restores only its grants. It must not silently rerun every developer/target's onboarding. Reapplying control packages preserves existing grants; target-specific grants belong to area provisioning. Infrastructure lifecycle, project control, developer onboarding and application migrations are distinct operations.
 
 ## 10. Stop and restart without deleting data
 
@@ -585,20 +585,20 @@ The requested fresh walkthrough discards all lab data. The destructive command i
 
 - References: [database image documentation](https://github.com/gvenzl/oci-oracle-free), [Oracle ORDS installation guide](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/25.3/ordig/installing-and-configuring-oracle-rest-data-services.html), [krunkit 1.3.2 release](https://github.com/libkrun/krunkit/releases/tag/v1.3.2), and the [initial technical assessment](cicd-research.md).
 
-## Disposable qualification lifecycle
+## Disposable integration_test lifecycle
 
 1. Discover the repository root with `cd "$(git rev-parse --show-toplevel)"`.
-2. Inspect release receipts and require idle ownership before resetting qualification:
+2. Inspect release receipts and require idle ownership before resetting integration_test:
 
    ```bash
    python3 scripts/apex_sql.py lab-control deploy/operator/show_release_receipts.sql
    python3 scripts/apex_sql.py lab-control deploy/operator/walkthrough_idle.sql
    ```
 
-3. If an initial experiment failed, inspect its attempt and transcripts first. Only the bound `E1_CTRL.e1_release.retire_disposable_qualification(epoch,hash,reason)` procedure may retire its active qualification attempt. It retains failure/history. There is no automatic user_acceptance_test retirement or recovery.
+3. If an initial experiment failed, inspect its attempt and transcripts first. Only the bound `E1_CTRL.e1_release.retire_disposable_qualification(epoch,hash,reason)` procedure may retire its active integration_test attempt. It retains failure/history. There is no automatic user_acceptance_test retirement or recovery.
 4. Only when a new empty integration_test area is required, run `python3 scripts/cicd-platform.py reset-integration-test`. This checks the local ownership receipt, removes E1_INTEGRATION through public APEX_INSTANCE_ADMIN and reprovisions only that schema/workspace, its accounts and grants. Other areas are not reprovisioned. The reset helper does not itself acquire deployment ownership; the explicit idle check and operator sequencing are required.
-5. Project control is installed separately with `bash scripts/cicd-control-init.sh`. Qualification reset restores only the new integration_test schema's grants through its targeted provisioning operation; no global package/grant bootstrap is needed. Existing control records/epochs remain retained.
-6. Continue with the [initial-release operator chapter](../progress/E.1/user_manual.md#initial-release-build-qualify-and-promote). A normal rerun verifies the already qualified result. The current control package also supports an explicitly requested initial reconstruction for patch-baseline qualification: it retains the first qualification receipt and records the reconstruction under a new attempt epoch.
+5. Project control is installed separately with `bash scripts/cicd-control-init.sh`. integration_test reset restores only the new integration_test schema's grants through its targeted provisioning operation; no global package/grant bootstrap is needed. Existing control records/epochs remain retained.
+6. Continue with the [initial-release operator chapter](../progress/E.1/user_manual.md#initial-release-build-qualify-and-promote). A normal rerun verifies the already qualified result. The current control package also supports an explicitly requested initial reconstruction for patch-baseline integration_test: it retains the first integration_test receipt and records the reconstruction under a new attempt epoch.
 
 - This procedure preserves retained user_acceptance_test, credentials, release history and unrelated Podman resources. It does not recreate the VM or containers.
 - Do not use this disposable-area procedure as a retained-target upgrade or repair mechanism.

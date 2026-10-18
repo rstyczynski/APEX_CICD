@@ -122,13 +122,13 @@ def reset_qualification():
     if not receipt.exists() or json.loads(receipt.read_text()) != CONFIG:
         raise RuntimeError('No matching owned-area inventory')
     area = CONFIG['areas']['integration_test']
-    # Only the explicitly disposable qualification area is a reset target.
+    # Only the explicitly disposable integration_test area is a reset target.
     run(f"""begin
       apex_instance_admin.remove_workspace(p_workspace=>'{area['workspace']}',p_drop_users=>'Y',p_drop_tablespaces=>'N');
     end;
     /""", admin=True)
     provision('integration_test')
-    print('Disposable qualification area recreated; other areas retained.')
+    print('Disposable integration_test area recreated; other areas retained.')
 
 
 def preservation_check():
@@ -151,7 +151,7 @@ def preservation_check():
         print('PASS: Oracle failure propagates as failure.')
     else:
         raise RuntimeError('Oracle failure incorrectly reported success')
-    print('PASS: committed TEST marker survived qualification-area recreation.')
+    print('PASS: committed TEST marker survived integration_test-area recreation.')
 
 
 if __name__ == '__main__':

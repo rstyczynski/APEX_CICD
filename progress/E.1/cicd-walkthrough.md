@@ -72,7 +72,7 @@ The pipeline turns reviewed source into a verified release through these explici
 
 1. **Prepare and identify the target.** Check the effective database user, PDB, workspace and application mapping before writes. Reserve the declared component work before managed authoring. Keep Foundation-only and incomplete assemblies unavailable.
 2. **Capture and review source.** Export native APEX definitions, review the declared component changes and inherited/shared definitions, run candidate checks, then commit the accepted source. Repeated unchanged exports must match; a live development application is not itself a release artifact.
-3. **Build once.** Package the accepted Git revision, migrations, deployment SQL and nonsecret manifest. Record the source commit, supported starting state, component dependencies, tool/configuration versions and the archive's **SHA-256**. Qualification and promotion must execute files from that verified archive rather than a changing checkout.
+3. **Build once.** Package the accepted Git revision, migrations, deployment SQL and nonsecret manifest. Record the source commit, supported starting state, component dependencies, tool/configuration versions and the archive's **SHA-256**. integration_test and promotion must execute files from that verified archive rather than a changing checkout.
 4. **Qualify, then promote the same bytes.** Reconstruct and test in the disposable area first. Retained user_acceptance_test may receive only the identical qualified artifact for its supported starting state. The selected patch must also qualify against its declared earlier baseline; successful fresh installation alone does not prove an upgrade.
 5. **Verify before publishing.** Development verification already uses native restricted access for **VERIFIER**, followed by integrity/browser checks and a separate publication operation. The release design additionally requires persistent attempt ownership, maintenance fencing, final live fingerprints and a receipt before readiness. The initial release now uses persistent attempt ownership, an external runtime gate and a final fingerprint. Native availability is prepared while the external gate still restricts business requests; successful receipt and external readiness commit together. Guarded mutation admission and ordinary-request blocking passed for the patch; complete read/asynchronous request draining and stale-verifier fencing remain unproved.
 
@@ -113,12 +113,12 @@ This chapter connects each demonstration to the accepted use cases and makes the
 
 This checkpoint describes the delivered lab state and the boundaries of what has been demonstrated.
 
-- **Delivered checkpoint:** A/B/C development work is retained. The renamed integration_test/E1_INTEGRATION and user_acceptance_test/E1_UAT areas are empty and separately provisioned; D must start a new attempt using the newly selected archive. The old interrupted D attempt was retired and preserved; it is not qualification evidence for these new mappings. When restarting from cleanup, follow every infrastructure and onboarding chapter below before A. The earlier A–H rehearsal remains historical evidence.
+- **Delivered checkpoint:** A/B/C development work is retained. D has passed for **integration_test / E1_INTEGRATION / application 810004**, running the complete **1.0.0** release. Its archive hash and live APEX fingerprint pass the read-only result check. **user_acceptance_test / E1_UAT / application 810005** is provisioned; **E is next** to promote the same archive. The interrupted old D attempt remains preserved as historical evidence. When restarting from cleanup, follow every infrastructure and onboarding chapter below before A.
 - This walkthrough now starts with explicit prerequisite checking, Podman host preparation, complete lab cleanup and fresh database/APEX/ORDS installation.
-- Cleanup destroys **all database state in this lab**, including A/B/C, qualification, user_acceptance_test, entries, settings, greeting history and database control receipts. Host credentials, tools, reviewed source/release archives and historical evidence remain available; unrelated Podman resources are preserved.
+- Cleanup destroys **all database state in this lab**, including A/B/C, integration_test, user_acceptance_test, entries, settings, greeting history and database control receipts. Host credentials, tools, reviewed source/release archives and historical evidence remain available; unrelated Podman resources are preserved.
 - Infrastructure installation ends with **only Oracle Database/APEX/ORDS**. It creates no E1_CTRL, developer/target schemas, project workspaces or developer accounts. Project control and named-area provisioning follow separately.
 - A–C install the reviewed Foundation, Hello and complete World snapshots. A/B remain unavailable while incomplete; C starts at **1.0.0**.
-- D/E execute real qualification and promotion of the **same initial artifact** in this cycle. F qualifies Hello **1.0.1** both fresh and over 1.0.0, then upgrades user_acceptance_test with those identical bytes, preserving only the data created during this cycle.
+- D/E execute real integration_test and promotion of the **same initial artifact** in this cycle. F qualifies Hello **1.0.1** both fresh and over 1.0.0, then upgrades user_acceptance_test with those identical bytes, preserving only the data created during this cycle.
 - G/H demonstrate the selected rejections and explicit controlled page restoration. Rehearsal uses clearly identified NEW runtime test examples and skips human browser viewing.
 - Broader E.1 concurrency, complete maintenance fencing, schema-drift coverage and failed-additive-deployment repair remain open. This walkthrough does not close the sprint.
 
@@ -146,7 +146,7 @@ Start here for the complete Product Owner journey: prepare a fresh lab, run each
 
 - A–F now install/deploy, rather than only display an earlier result. Repeating an already attempted construction chapter stops for inspection. C provides an explicit resume command only for its restricted-verification pause; other partial states require inspection. Start a new demonstration with the explicit infrastructure destruction/install sequence.
 - **--preflight** on A–H checks local tools/files/chapter mapping without connecting to Oracle. It does not substitute for the infrastructure precheck below.
-- **--rehearse** executes real installations, qualification/promotion and the user_acceptance_test page fixture without pauses. Its explicit runtime API test examples are not browser verification. It requires the fresh infrastructure preparation first.
+- **--rehearse** executes real installations, integration_test/promotion and the user_acceptance_test page fixture without pauses. Its explicit runtime API test examples are not browser verification. It requires the fresh infrastructure preparation first.
 - Normal release result inspection remains read-only through the separate operator result commands. No App Builder inspection is required in this Product Owner journey.
 
 ## Run one chapter at a time
@@ -160,7 +160,7 @@ Run each stage separately so you can pause, review the outcome and continue only
 - A: `bash scripts/cicd-walkthrough-A_foundation.sh`
 - B: `bash scripts/cicd-walkthrough-B_hello.sh`
 - C: `bash scripts/cicd-walkthrough-C_world.sh`
-- D: `bash scripts/cicd-walkthrough-D_qualification.sh`
+- D: `bash scripts/cicd-walkthrough-D_integration_test.sh`
 - E: `bash scripts/cicd-walkthrough-E_promotion.sh`
 - F: `bash scripts/cicd-walkthrough-F_hello_patch.sh`
 - G: `bash scripts/cicd-walkthrough-G_incompatible_upgrade.sh`
@@ -243,7 +243,7 @@ bash scripts/cicd-walkthrough-apex-init.sh
 6. Wait for **PASS APEX init**: vanilla Oracle infrastructure only, with no project-specific checks or configuration. The separate verification test confirms zero project schemas/workspaces.
 7. Continue to the separate **Initialize project delivery control** chapter. Do not run A yet.
 
-- This script cannot call project provisioning or create user-level project schemas. Only required Oracle/APEX/ORDS system accounts are installed. Application construction belongs to A–C after explicit onboarding, with qualification/promotion in D–F.
+- This script cannot call project provisioning or create user-level project schemas. Only required Oracle/APEX/ORDS system accounts are installed. Application construction belongs to A–C after explicit onboarding, with integration_test/promotion in D–F.
 - If installation fails, inspect its log. Do not blindly rerun APEX installation over partial data. Use the separate scoped cleanup when deliberately restarting from scratch.
 - Each native command is expanded in [deploy.md sections 5–9](../../docs/deploy.md#5-create-the-network-volumes-and-database--fresh-setup-only).
 
@@ -322,12 +322,12 @@ The intended delivery flow is:
 2. Capture APEX definitions and maintain database migrations as files.
 3. Review and accept those files in Git.
 4. Build one release archive from the accepted Git revision.
-5. Deploy and verify that archive in qualification.
+5. Deploy and verify that archive in integration_test.
 6. Promote the same archive to user_acceptance_test.
 
 We do not copy the live developer database or its business data into user_acceptance_test.
 
-This prototype has no separate shared DEV deployment target. A/B/C are its development areas; C demonstrates the complete development assembly. Qualification is the next deployment target before user_acceptance_test. The walkthrough replays already reviewed source snapshots rather than performing new engineer authoring.
+This prototype has no separate shared DEV deployment target. A/B/C are its development areas; C demonstrates the complete development assembly. integration_test is the next deployment target before user_acceptance_test. The walkthrough replays already reviewed source snapshots rather than performing new engineer authoring.
 
 **Actor: privileged provisioning operator.** Each invocation creates/checks exactly one declared schema, workspace, workspace accounts, delivery-interface grants and central automation connection. It does not install applications or business data.
 
@@ -353,14 +353,14 @@ Each engineer gets a separate schema, APEX workspace and assigned application ID
    bash scripts/cicd-area-provision.sh lab-dev-c
    ```
 
-4. Wait for each **PASS assigned area**. A command naming A never creates/changes B or C's accounts, nor qualification/user_acceptance_test.
+4. Wait for each **PASS assigned area**. A command naming A never creates/changes B or C's accounts, nor integration_test/user_acceptance_test.
 5. Give each developer only their assigned schema password and App Builder login. The operator can retrieve a specific schema password with `python3 scripts/cicd-password.py E1_DEV_A` (or E1_DEV_B/E1_DEV_C). Do not give developers the administrator credential store. Developers configure their private profiles in the next main chapter; the central automation connections belong to the operator's lab runner.
 
 ### integration_test — disposable release validation
 
-**DevOps role:** integration/release testing before UAT. The actual schema and workspace are **E1_INTEGRATION**, application **810004**. Qualification is the activity performed in this area.
+**DevOps role:** integration/release testing before UAT. The actual schema and workspace are **E1_INTEGRATION**, application **810004**. This area is the release-validation gate before UAT.
 
-**integration_test** is the release-validation area before user_acceptance_test. The pipeline installs the packaged archive here, checks migrations, APEX import, component compatibility and application behavior, then records qualification against the exact archive hash. A patch must pass both fresh installation and upgrade from its supported previous release. Only the same successfully qualified archive may proceed to user_acceptance_test.
+**integration_test** is the release-validation area before user_acceptance_test. The pipeline installs the packaged archive here, checks migrations, APEX import, component compatibility and application behavior, then records a successful integration_test result against the exact archive hash. A patch must pass both fresh installation and upgrade from its supported previous release. Only the same successfully qualified archive may proceed to user_acceptance_test.
 
 1. Provision the empty integration_test area:
 
@@ -368,8 +368,8 @@ Each engineer gets a separate schema, APEX workspace and assigned application ID
    bash scripts/cicd-area-provision.sh integration_test
    ```
 
-2. Wait for **PASS assigned area**. Provisioning creates the area only; release qualification happens in D and F.
-3. Treat qualification as disposable: its application and test data can be removed and reconstructed for a declared qualification scenario. This is where installation/upgrade failures should be discovered before changing user_acceptance_test.
+2. Wait for **PASS assigned area**. Provisioning creates the area only; release integration_test happens in D and F.
+3. Treat integration_test as disposable: its application and test data can be removed and reconstructed for a declared integration_test scenario. This is where installation/upgrade failures should be discovered before changing user_acceptance_test.
 
 ### user_acceptance_test — retained release demonstration
 
@@ -384,7 +384,7 @@ Each engineer gets a separate schema, APEX workspace and assigned application ID
    ```
 
 2. Wait for **PASS assigned area**. Initial promotion happens in E; the compatible patch upgrade happens in F.
-3. Keep user_acceptance_test data during normal deployments. Do not reset it as a qualification fixture. The separately invoked **apex-destroy.sh** is an explicit whole-lab restart and deletes user_acceptance_test along with every other lab area.
+3. Keep user_acceptance_test data during normal deployments. Do not reset it as a integration_test fixture. The separately invoked **apex-destroy.sh** is an explicit whole-lab restart and deletes user_acceptance_test along with every other lab area.
 
 
 ## Configure each developer environment
@@ -466,7 +466,7 @@ bash scripts/cicd-walkthrough-B_hello.sh
 
 ## C. Deliver World and complete the assembly
 
-Add World to complete the first working application in **C’s private development area (810003)**. VERIFIER checks it there; publication opens that same development application to LAB_USER. This is not release qualification or promotion to user_acceptance_test. The archive is independently installed/verified in **qualification (810004) in D**, then the identical qualified archive is promoted to **user_acceptance_test (810005) in E**.
+Add World to complete the first working application in **C’s private development area (810003)**. VERIFIER checks it there; publication opens that same development application to LAB_USER. This is not the integration_test gate or promotion to user_acceptance_test. The archive is independently installed/verified in **integration_test (810004) in D**, then the identical qualified archive is promoted to **user_acceptance_test (810005) in E**.
 
 Run this chapter from the repository root:
 
@@ -525,17 +525,17 @@ This checks the retained task owner/base/generation, complete 1.0.0 assembly and
 
 ## D. Qualify the initial release
 
-Install the packaged release in disposable qualification and test it before allowing delivery to user_acceptance_test.
+Install the packaged release in disposable integration_test and test it before allowing delivery to user_acceptance_test.
 
-**Actor: Deployer — A-03 Delivery operator**, as defined in the [SRS actors](../../docs/srs.md#actors). The development team/Packager (A-02) has already smoke-checked the development assembly and released the reviewed package. The deployer takes that package through qualification in D and user_acceptance_test promotion in E, executes the CLI steps and switches to the VERIFIER/LAB_USER runtime accounts for browser checks. These accounts are not additional system actors. This is the qualification part of [UC-4](../../docs/srs.md#uc-4--deliver-a-reviewed-change), with verification support under [UC-11](../../docs/srs.md#uc-11--verify-delivery-and-prepare-the-next-task) and runtime behavior from UC-2/3. It implements the selected [PBI-011.6 qualification/promotion slice](sprint_E.1_design.md#pbi-0116--qualify-and-promote-identical-artifacts) under [PBI-011](../../BACKLOG.md#pbi-011-build-an-executable-architectural-prototype); broader acceptance remains as recorded in the design/results.
+**Actor: Deployer — A-03 Delivery operator**, as defined in the [SRS actors](../../docs/srs.md#actors). The development team/Packager (A-02) has already smoke-checked the development assembly and released the reviewed package. The deployer takes that package through integration_test in D and user_acceptance_test promotion in E, executes the CLI steps and switches to the VERIFIER/LAB_USER runtime accounts for browser checks. These accounts are not additional system actors. This is the integration_test part of [UC-4](../../docs/srs.md#uc-4--deliver-a-reviewed-change), with verification support under [UC-11](../../docs/srs.md#uc-11--verify-delivery-and-prepare-the-next-task) and runtime behavior from UC-2/3. It implements the selected [PBI-011.6 integration_test/promotion slice](sprint_E.1_design.md#pbi-0116--qualify-and-promote-identical-artifacts) under [PBI-011](../../BACKLOG.md#pbi-011-build-an-executable-architectural-prototype); broader acceptance remains as recorded in the design/results.
 
 Run this chapter from the repository root:
 
 ```bash
-bash scripts/cicd-walkthrough-D_qualification.sh
+bash scripts/cicd-walkthrough-D_integration_test.sh
 ```
 
-The script executes these operations in order. Each controller operation rechecks the archive, controller revision, target mapping and tool environment; a failed command stops before the next operation. See the editable [delivery model](model.drawio), pages **lifecycle** and **D qualification**.
+The script executes these operations in order. Each controller operation rechecks the archive, controller revision, target mapping and tool environment; a failed command stops before the next operation. See the editable [delivery model](model.drawio), pages **lifecycle** and **D integration_test**.
 
 1. **Check prerequisites:** require C's completion marker and create a new D attempt directory. An already attempted D stage stops for inspection; C's resume option does not apply to D.
 2. **Select and inspect the archive:** read `.local-apex/releases/initial-selected.txt`; verify the archive SHA-256, member checksums, manifest and candidate/source identity. D uses the retained reviewed **1.0.0** archive. It does not export C, rebuild the archive or copy business data.
@@ -555,10 +555,10 @@ The script executes these operations in order. Each controller operation recheck
 
     1. Create active **Hello** and **World** entries, using those exact example texts.
     2. Edit the existing Hello/World configuration rows to select those defaults with empty prefixes; save each change.
-    3. On **Home**, press **Create greeting**. Open **Greeting history** and refresh to confirm **Hello World** saved by VERIFIER. These are new qualification test data, not developer data copied by the release.
+    3. On **Home**, press **Create greeting**. Open **Greeting history** and refresh to confirm **Hello World** saved by VERIFIER. These are new integration_test test data, not developer data copied by the release.
 
-11. **Publish qualification:** return to the waiting terminal and press a key. Controller **publish** requires the saved VERIFIER **Hello World** snapshot, prepares native availability, captures the final live APEX fingerprint, and commits the successful receipt with the external ready gate. A missing snapshot stops D; C's verification retry loop is specific to C.
-12. **Verify the published result:** the script's result command checks ready state, component versions, matching archive hash and equality of the live fingerprint to its receipt. Only then mark D complete and report **DEPLOYED AND QUALIFIED**. This is qualification, not user_acceptance_test promotion.
+11. **Publish integration_test:** return to the waiting terminal and press a key. Controller **publish** requires the saved VERIFIER **Hello World** snapshot, prepares native availability, captures the final live APEX fingerprint, and commits the successful receipt with the external ready gate. A missing snapshot stops D; C's verification retry loop is specific to C.
+12. **Verify the published result:** the script's result command checks ready state, component versions, matching archive hash and equality of the live fingerprint to its receipt. Only then mark D complete and report **DEPLOYED AND INTEGRATION_TEST PASSED**. This is integration_test, not user_acceptance_test promotion.
 13. **Retrieve LAB_USER's password in the second terminal:**
 
     ```bash
@@ -566,9 +566,9 @@ The script executes these operations in order. Each controller operation recheck
     ```
 
 14. **Act as LAB_USER:** sign out of VERIFIER, reopen integration_test and sign in as **LAB_USER**. Create a greeting and refresh history to confirm ordinary access after publication.
-15. Return to the script terminal and press a key. Wait for **PASS result stage D_qualification**. Continue to **E** to promote the same archive to user_acceptance_test.
+15. Return to the script terminal and press a key. Wait for **PASS result stage D_integration_test**. Continue to **E** to promote the same archive to user_acceptance_test.
 
-- Initial SHA-256: `d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45`. This cycle obtains a new database receipt; historical host evidence does not substitute for qualification.
+- Initial SHA-256: `d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45`. This cycle obtains a new database receipt; historical host evidence does not substitute for integration_test.
 - **--rehearse** executes real operations, substitutes explicit runtime API examples for step 10, and skips human browser/password checkpoints. It does not establish browser acceptance.
 
 ## E. Promote the same initial artifact to user_acceptance_test
@@ -582,7 +582,7 @@ bash scripts/cicd-walkthrough-E_promotion.sh
 ```
 
 1. After D passes, select and verify the **same initial archive**; do not rebuild it.
-2. Admit empty user_acceptance_test. The control authority requires this cycle's matching qualification receipt before promotion.
+2. Admit empty user_acceptance_test. The control authority requires this cycle's matching integration_test receipt before promotion.
 3. Execute **migrate → import → units → verify**, then use [user_acceptance_test](http://127.0.0.1:8080/ords/f?p=810005:1) as **VERIFIER** to create/configure Hello/World and verify the new greeting/history.
 4. Continue to publish and compare the integration_test/user_acceptance_test archive hashes and new successful receipts.
 5. Open user_acceptance_test as **LAB_USER**. It now runs **1.0.0** with only this cycle's data.
@@ -601,14 +601,14 @@ bash scripts/cicd-walkthrough-F_hello_patch.sh
 ```
 
 1. After E passes, verify the reviewed Hello **1.0.1** archive. The initial user_acceptance_test field baseline is already captured.
-2. Explicitly recreate **only disposable qualification**; install/test/publish the patch from empty using **preflight → admit → migrate → import → units → verify → publish → result**.
-3. Explicitly recreate only qualification again. Reconstruct initial 1.0.0 from its archive, create new verification examples and capture the upgrade baseline.
-4. Upgrade qualification with the same patch archive. Verify both required qualification starts and compare every pre-upgrade data/configuration field.
+2. Explicitly recreate **only disposable integration_test**; install/test/publish the patch from empty using **preflight → admit → migrate → import → units → verify → publish → result**.
+3. Explicitly recreate only integration_test again. Reconstruct initial 1.0.0 from its archive, create new verification examples and capture the upgrade baseline.
+4. Upgrade integration_test with the same patch archive. Verify both required integration_test starts and compare every pre-upgrade data/configuration field.
 5. Upgrade retained user_acceptance_test from 1.0.0 with those **identical patch bytes**. user_acceptance_test is not reset during this upgrade.
 6. At each restricted verification checkpoint, open the printed URL as **VERIFIER**, create a greeting and refresh history, then continue to publish. Read the real outputs and stop on any failure.
 7. Compare user_acceptance_test's earlier rows/settings, then open [user_acceptance_test](http://127.0.0.1:8080/ords/f?p=810005:1) as **LAB_USER**. See **Foundation 1.0.0 / Hello 1.0.1 / World 1.0.0**, and greetings created before/after the upgrade in this cycle.
 
-- Selected patch SHA-256: `4ba3abb8709f256c7a47e3e9294d3e7303f742145a95cb58d808ca6c6bcf7200`. Read it again with `shasum -a 256 "$(cat .local-apex/releases/patch-selected.txt)"`. C remains the development **1.0.0** checkpoint; F upgrades qualification and user_acceptance_test.
+- Selected patch SHA-256: `4ba3abb8709f256c7a47e3e9294d3e7303f742145a95cb58d808ca6c6bcf7200`. Read it again with `shasum -a 256 "$(cat .local-apex/releases/patch-selected.txt)"`. C remains the development **1.0.0** checkpoint; F upgrades integration_test and user_acceptance_test.
 - Restricted verification creates current-cycle evidence. --rehearse uses explicit runtime API examples and skips browser checks. Broader request draining/fencing remains open.
 
 ## G. Reject an incompatible database upgrade
@@ -668,7 +668,7 @@ bash scripts/apex-destroy.sh
 
 ## Maintain this artifact
 
-Keep the editable [delivery model](model.drawio), especially its lifecycle and D qualification pages, synchronized with the actor handoff and numbered operations below.
+Keep the editable [delivery model](model.drawio), especially its lifecycle and D integration_test pages, synchronized with the actor handoff and numbered operations below.
 
 Keep the Product Owner explanations, operator commands and actual script behavior aligned whenever this walkthrough changes.
 

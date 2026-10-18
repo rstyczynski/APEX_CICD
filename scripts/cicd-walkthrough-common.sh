@@ -128,8 +128,8 @@ initial_install() {
     bash scripts/cicd-release-step.sh "$archive" "$target" "$operation" "$epoch"
   done
   if [ "$fixture" = sentinels ]; then
-    echo 'EXPLICIT TEST FIXTURE: twenty NEW qualification snapshots for the coming upgrade comparison.'
-    python3 scripts/apex_sql.py "$target" tests/sql/prepare_qualification_fixture.sql
+    echo 'EXPLICIT TEST FIXTURE: twenty NEW integration_test snapshots for the coming upgrade comparison.'
+    python3 scripts/apex_sql.py "$target" tests/sql/prepare_integration_test_fixture.sql
   fi
   local kind=fresh
   if [ "$fixture" = sentinels ]; then kind=existing; fi

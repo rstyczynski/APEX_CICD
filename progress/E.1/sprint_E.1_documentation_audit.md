@@ -311,3 +311,11 @@ The old D process was stopped at the Product Owner's explicit request. Protected
 New initial candidate native composition/history passes; patch functional evidence reuse is explicitly scoped and supported by byte-identical APEX/db against the original retained archive. New archives carry new source/configuration/controller identities and are not called qualified until D/F run. This is evidence reuse, not fabricated candidate/browser/qualification execution. Current C remains its 1.0.0 checkpoint.
 
 Focused policy/alias tests 3/0 and C loop 3/0, all script syntax and A–H local preflights pass. XML/model links and document anchors/fences/traceability/whitespace are checked; updated model renders are inspected. Staged credential/scope checks precede commit. Local source branches retain the two build revisions; temporary source worktrees are removed after builds. Previous handoff/model increment is 93876a0. No push.
+
+## Current integration_test operator naming — 2026-10-18
+
+Reviewed SRS, architecture, test profile, current setup/design/test specification, implementation/results, README and board against the requested naming and actual D runner. Updated current guide/manual/model, related documents and executable references as one artifact. D's completed marker is carried forward to D_integration_test; E checks that token. The existing native D result passes read-only verification, so current readiness now says D complete and E next. PBI-011/012 scope and UC-4/11 handoff remain unchanged; no backlog/plan/board or other sprint changes.
+
+Syntax, local preflights, focused lifecycle and C-loop tests, document links/anchors/fences/traceability and whitespace pass. Immutable release-controller bytes remain unchanged; historical evidence and exact deployed API identifiers are preserved. Staged scope and credential checks precede commit. Previous physical-name increment is 44be6e3. No push.
+
+The updated D integration_test diagram was exported with native draw.io and visually inspected; labels, flow and final stage name are readable.

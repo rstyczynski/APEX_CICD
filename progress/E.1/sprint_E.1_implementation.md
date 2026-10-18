@@ -298,3 +298,9 @@ The Product Owner explicitly chose to stop the paused old D attempt and rebuild 
 Kept the old immutable 1.0.0/1.0.1 archives. Built new mapping archives from local source revisions 08a5cf27e8a31ff7b77b6fd694f673847726eda1 and ee8f1af8e35f81bb3b75051243df2ab9c6e4c0e5, with hashes d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45 and 4ba3abb8709f256c7a47e3e9294d3e7303f742145a95cb58d808ca6c6bcf7200. Initial candidate reran native composition/history tests on retained C. Patch APEX/db are byte-identical to the previous accepted patch; its candidate explicitly reuses that immutable functional evidence plus new identity/control checks rather than pretending C was upgraded. Both new archives remain unqualified: D and F must obtain new receipts before UAT promotion. The incompatible proposal now names the selected new patch as its base.
 
 [Rename evidence](tests/environment_rename_20261018.txt) covers exact identity checks, retained history, missing-qualification UAT rejection, candidate/build checks and scope limits. The artifact/controller source revisions changed deliberately; the original archives were never edited. No full new delivery or acceptance is claimed.
+
+## Complete current integration_test naming — 2026-10-18
+
+Renamed the D runner to scripts/cicd-walkthrough-D_integration_test.sh and its stage token to D_integration_test; renamed the integration-test wrapper and fixture too. Updated current scripts, operator chapters, model and related product documents together. Carried the completed local D marker forward to the new token so E can proceed without reinstallation. Immutable archives/controllers and historical evidence retain their original identifiers.
+
+The existing selected initial archive passes the read-only integration_test result check: complete 1.0.0, ready state and live APEX fingerprint match. Current readiness now reflects completed D and pending E. No deployment or data fixture was rerun.

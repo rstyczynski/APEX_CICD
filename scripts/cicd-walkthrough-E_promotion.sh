@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 source "$(dirname "${BASH_SOURCE[0]}")/cicd-walkthrough-common.sh"
 prepare_stage '## E. Promote the same initial artifact to user_acceptance_test' scripts/cicd-release-step.sh scripts/cicd-release-result.sh tests/sql/prepare_history_sentinels.sql
-test -f .local-apex/walkthrough/current/D_qualification.done
+test -f .local-apex/walkthrough/current/D_integration_test.done
 new_stage_source E_promotion
 archive="$(cat .local-apex/releases/initial-selected.txt)"
 initial_hash="$(shasum -a 256 "$archive" | awk '{print $1}')"

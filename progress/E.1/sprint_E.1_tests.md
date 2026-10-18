@@ -162,3 +162,9 @@ The [real PTY continuation check](tests/c_resume_verification_20261018.txt) pass
 ## Renamed integration/UAT identities — 2026-10-18
 
 [Rename verification](tests/environment_rename_20261018.txt): native new-schema/workspace mappings and control-package compilation pass; new initial archive/controller status reaches E1_INTEGRATION. An actual UAT admission attempt rejects ORA-20614 for missing qualification, retaining epoch zero with no UAT attempt or migration/import. Original D attempt remains as a failed historical row; A/B/C applications remain. Local lifecycle policy suite passes 3/0 (eleven subcases), plus C verification-loop 3/0. Initial candidate composition/history passes 2/0, fixtures rolled back. New patch candidate explicitly reuses prior byte-identical APEX/db functional evidence; this is not new patch runtime qualification. No new D/F/UAT or browser acceptance is claimed.
+
+## Integration_test operator naming checks — 2026-10-18
+
+D_integration_test, E and the detailed operator runner pass local preflight. All Bash/Python syntax checks pass. Walkthrough lifecycle tests pass 3/0 (eleven underlying cases); C verification-loop tests pass 3/0. Documentation checks pass for 34 documents and 375 links/anchors, fences, traceability and whitespace. Current scripts/tests have no references to the removed D runner, wrapper or fixture filenames. Pinned initial/patch controllers remain byte-identical to HEAD.
+
+Read-only command: bash scripts/cicd-release-result.sh "$(cat .local-apex/releases/initial-selected.txt)" integration_test. Exit 0; complete 1.0.0, ready state, archive SHA256 d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45 and live APEX fingerprint match. This verifies the already completed D result; it does not repeat deployment or claim UAT acceptance.

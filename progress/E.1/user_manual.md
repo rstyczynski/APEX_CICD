@@ -16,7 +16,7 @@ The [repository and pipeline draft](repo_layout.md) explains the source director
 - Infrastructure start/stop/recreation belongs to the shared [deployment procedure](../../docs/deploy.md).
 
 - The application pipeline is under construction.
-- A/B retain incomplete assembly checkpoints; C has the working Foundation/Hello/World development application. Qualification and retained user_acceptance_test are published at application release 1.0.1: Foundation/World 1.0.0, Hello 1.0.1.
+- A/B retain incomplete assembly checkpoints; C has the working Foundation/Hello/World development application. integration_test and retained user_acceptance_test are published at application release 1.0.1: Foundation/World 1.0.0, Hello 1.0.1.
 - Use the areas below to inspect the actual current state.
 - This guide is updated as construction makes each operation usable.
 
@@ -259,7 +259,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev @deploy/o
 - First run the SQLcl cd command above again if you have executed another @file since validation.
 - The update applies the database migration and records its checksum in DATABASECHANGELOG.
 - It has already been performed on A.
-- Do not run this historical update command on A against the newer integrated changelog: it would install Hello/World and change the walkthrough checkpoint. C has all four changesets; qualification/release uses its own controlled procedure.
+- Do not run this historical update command on A against the newer integrated changelog: it would install Hello/World and change the walkthrough checkpoint. C has all four changesets; integration_test/release uses its own controlled procedure.
 - Never change an already applied migration to force an upgrade: add a new migration for the next version.
 - On any validation or migration error, stop and inspect the output before another write.
 - Follow the update with these separate inspections:
@@ -326,13 +326,13 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev @deploy/o
 
 ### 8. Continue through the remaining delivery stages
 
-- The operator journey now includes task reservation, private-area preparation/capture, source acceptance, immutable build, initial/patch qualification, user_acceptance_test promotion and post-deployment verification. Broader alternatives remain unproved.
+- The operator journey now includes task reservation, private-area preparation/capture, source acceptance, immutable build, initial/patch integration_test, user_acceptance_test promotion and post-deployment verification. Broader alternatives remain unproved.
 - Each will state its target, required input, command, visible result and stop condition.
 - The pipeline-stage list at the end tracks what works and what remains under construction.
 
 - For another area's inventory, connect with lab-dev-b, lab-dev-c, integration_test or user_acceptance_test and run the same application_inventory.sql.
-- After infrastructure installation there are no project schemas/workspaces. Explicit project/area onboarding follows; after readiness, all five lab applications remain absent. After B, B contains Foundation plus Hello; after C, C contains the published complete 1.0.0 development assembly; after F, qualification and user_acceptance_test contain Hello 1.0.1 over Foundation/World 1.0.0.
-- Foundation is installed in A/B/C, qualification and user_acceptance_test.
+- After infrastructure installation there are no project schemas/workspaces. Explicit project/area onboarding follows; after readiness, all five lab applications remain absent. After B, B contains Foundation plus Hello; after C, C contains the published complete 1.0.0 development assembly; after F, integration_test and user_acceptance_test contain Hello 1.0.1 over Foundation/World 1.0.0.
+- Foundation is installed in A/B/C, integration_test and user_acceptance_test.
 
 ## Developer A — Foundation
 
@@ -391,12 +391,12 @@ For an interrupted results walkthrough already at C's restricted-verification ch
 - The schema is E1_DEV_C and the saved connection is lab-dev-c.
 - Application 810003 now contains Foundation, Hello and World, including World pages 200/201 and 210/211. It is published after restricted browser verification; ordinary LAB_USER can now create greetings and view saved history.
 
-## Qualification and user_acceptance_test
+## integration_test and user_acceptance_test
 
-- Qualification uses workspace/schema E1_INTEGRATION, connection integration_test and reserved application ID 810004.
+- integration_test uses workspace/schema E1_INTEGRATION, connection integration_test and reserved application ID 810004.
 - This area is disposable.
 - user_acceptance_test uses workspace/schema E1_UAT, connection user_acceptance_test and reserved application ID 810005; it is retained.
-- Qualification application 810004 and user_acceptance_test application 810005 contain the qualified/promoted 1.0.1 application release: Foundation/World 1.0.0, Hello 1.0.1.
+- integration_test application 810004 and user_acceptance_test application 810005 contain the qualified/promoted 1.0.1 application release: Foundation/World 1.0.0, Hello 1.0.1.
 - Both runtimes are published for LAB_USER: [integration_test](http://127.0.0.1:8080/ords/f?p=810004:1) and [user_acceptance_test](http://127.0.0.1:8080/ords/f?p=810005:1).
 
 ```bash
@@ -479,7 +479,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name integration_test
   python3 scripts/cicd-isolation.py show deny-write lab-dev lab-dev-b
   ```
 
-- The combined isolation test is a convenience that performs probe creation and five read/write pairs: A→B, B→C, C→qualification, qualification→user_acceptance_test and user_acceptance_test→A.
+- The combined isolation test is a convenience that performs probe creation and five read/write pairs: A→B, B→C, C→integration_test, integration_test→user_acceptance_test and user_acceptance_test→A.
 - It does not prove every possible pair or browser access control.
 - The individual commands above let you perform and inspect each operation yourself.
 
@@ -516,7 +516,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name integration_test
 
 3. On **Home**, choose **Hello** and **World**, or leave the configured-default options selected. Press **Create greeting** and see the saved-greeting success message.
 4. Open **Greeting history** using the navigation menu. Refresh to verify the new snapshot remains. Earlier snapshots retain the text/prefixes used when saved.
-5. Open **Installed components**. Fresh chapter C shows all three at **1.0.0**. After F, qualification and user_acceptance_test show Foundation **1.0.0**, Hello **1.0.1**, World **1.0.0**.
+5. Open **Installed components**. Fresh chapter C shows all three at **1.0.0**. After F, integration_test and user_acceptance_test show Foundation **1.0.0**, Hello **1.0.1**, World **1.0.0**.
 6. To add a value, open **Hello entries** or **World entries**, press **Create**, enter **Entry Text** and **Active = Y**, then save with **Create**.
 7. To change a default or prefix, open the corresponding **Hello configuration** or **World configuration** report. Open its row using the edit icon, select an active default, enter an optional prefix and press **Apply Changes**.
 8. Return **Home**, generate another greeting and reopen history. The new settings affect new snapshots; earlier rows remain unchanged.
@@ -526,7 +526,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name integration_test
 - Blank/oversize entries, deactivating a configured default and editing/deleting history are rejected by database guards.
 - The development example values and verification history were entered through the browser; no seed application/business data is distributed.
 - Publication used separate identity, ownership, compilation/page/version checks, restricted browser verification and `deploy/operator/publish_development.sql`. These bounded scripts name C and the completed construction task; do not replay them as generic release scripts or reuse closed ownership tokens.
-- Initial and patch qualification/user_acceptance_test publication and the selected incompatible/page-drift rejections are complete. Broader concurrency, maintenance and repair remain open.
+- Initial and patch integration_test/user_acceptance_test publication and the selected incompatible/page-drift rejections are complete. Broader concurrency, maintenance and repair remain open.
 - Maintain this chapter with its companion results runner and guide; the existing Foundation operator walkthrough remains a separate detailed view.
 
 
@@ -571,10 +571,10 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name integration_test
    python3 scripts/cicd-artifact.py inspect "$archive"
    ```
 
-2. Verify qualification and user_acceptance_test without redeploying:
+2. Verify integration_test and user_acceptance_test without redeploying:
 
    ```bash
-   bash scripts/cicd-qualify.sh "$archive"
+   bash scripts/cicd-integration-test.sh "$archive"
    bash scripts/cicd-promote.sh "$archive" user_acceptance_test
    ```
 
@@ -585,13 +585,13 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name integration_test
 ### First installation on an empty target
 
 1. Validate the clean candidate with `bash scripts/cicd-candidate-check.sh`, integrate the accepted commit locally and build once with `python3 scripts/cicd-artifact.py build`. Preserve the archive/sidecar; never overwrite or rebuild it for promotion. The builder records the selected archive path above.
-2. Follow [the infrastructure procedure](../../docs/deploy.md#disposable-qualification-lifecycle) for any required disposable qualification reset and control bootstrap. Inspect active ownership first. Never reset user_acceptance_test. Normal reruns use existing-result verification. An explicitly requested disposable initial reconstruction is supported for patch-baseline qualification, with a new attempt epoch and the first qualification receipt retained.
-3. Run `bash scripts/cicd-qualify.sh "$archive"`. On an empty target the wrapper pauses before each operation and prints native SQLcl output. It refuses active/interrupted attempts and never resets a target automatically.
-4. For individual operations, execute `bash scripts/cicd-release-step.sh "$archive" integration_test status 0`, inspect its current epoch and use that value for **admit**. Admission increments it; all following operations require the resulting epoch. Our completed run used expected epoch 1 → actual 2 for qualification, and expected 0 → actual 1 for user_acceptance_test. These are historical values, not repeat-run instructions.
+2. Follow [the infrastructure procedure](../../docs/deploy.md#disposable-integration_test-lifecycle) for any required disposable integration_test reset and control bootstrap. Inspect active ownership first. Never reset user_acceptance_test. Normal reruns use existing-result verification. An explicitly requested disposable initial reconstruction is supported for patch-baseline integration_test, with a new attempt epoch and the first integration_test receipt retained.
+3. Run `bash scripts/cicd-integration-test.sh "$archive"`. On an empty target the wrapper pauses before each operation and prints native SQLcl output. It refuses active/interrupted attempts and never resets a target automatically.
+4. For individual operations, execute `bash scripts/cicd-release-step.sh "$archive" integration_test status 0`, inspect its current epoch and use that value for **admit**. Admission increments it; all following operations require the resulting epoch. Our completed run used expected epoch 1 → actual 2 for integration_test, and expected 0 → actual 1 for user_acceptance_test. These are historical values, not repeat-run instructions.
 5. Run each atomic operation separately with `bash scripts/cicd-release-step.sh "$archive" integration_test OPERATION EPOCH`, substituting **admit**, then **migrate**, **import**, **units**, **verify**. Use the pre-admission epoch only for admit. Migrate exposes SQLcl `lb validate/update/status`; import executes unchanged native split APEX source mapped through public APIs.
-6. At verify, open qualification as **VERIFIER**. Using the runtime chapter, create active Hello/World entries, configure both defaults, create **Hello World**, then reopen and refresh its saved history. Retrieve only that account's password with `python3 scripts/cicd-password.py VERIFIER`.
+6. At verify, open integration_test as **VERIFIER**. Using the runtime chapter, create active Hello/World entries, configure both defaults, create **Hello World**, then reopen and refresh its saved history. Retrieve only that account's password with `python3 scripts/cicd-password.py VERIFIER`.
 7. Run the **publish** operation with the admitted epoch, then `bash scripts/cicd-release-result.sh "$archive" integration_test`. Verify ordinary LAB_USER access afterward.
-8. Run `bash scripts/cicd-promote.sh "$archive" user_acceptance_test` against empty user_acceptance_test. It uses the identical archive, requires its qualification receipt and repeats the visible migration/import/unit/integrity/VERIFIER/publication stages. Do not rebuild between targets.
+8. Run `bash scripts/cicd-promote.sh "$archive" user_acceptance_test` against empty user_acceptance_test. It uses the identical archive, requires its integration_test receipt and repeats the visible migration/import/unit/integrity/VERIFIER/publication stages. Do not rebuild between targets.
 
 - These primitive stages and both browser flows passed. The fresh-install wrapper's human keypress journey is not a separate second-operator reproduction acceptance.
 - Admission supports **empty application targets only**, retaining the isolation probe. An existing application/schema requires the future supported upgrade path.
@@ -608,21 +608,21 @@ These are historical observations from the earlier database. Fresh D/E obtain ne
 
 - Source commit: `0f7c500e064e4f262a42fb74f4984eb0e4349c88`.
 - Qualified/promoted archive SHA-256: `6a1da4a940586541cbb034277605d7ed36e5d1ad305554f9a2fe4c64cd59411c`.
-- Qualification 810004 epoch 2 and user_acceptance_test 810005 epoch 1 are **ready**; Foundation/Hello/World are all **1.0.0**.
-- The earlier qualification publication experiment failed before promotion. Its archive and failed attempt remain retained; no failed-release repair acceptance is inferred.
+- integration_test 810004 epoch 2 and user_acceptance_test 810005 epoch 1 are **ready**; Foundation/Hello/World are all **1.0.0**.
+- The earlier integration_test publication experiment failed before promotion. Its archive and failed attempt remain retained; no failed-release repair acceptance is inferred.
 - Maintain this chapter, the release wrappers and the results walkthrough together as one operator artifact.
 
 ## Hello 1.0.1 operator stages
 
 1. The correction normalizes all surrounding whitespace in Hello entries and rejects whitespace-only text. Existing entry text, settings and immutable greeting snapshots are retained. Foundation/World remain 1.0.0; migration **005-hello-1.0.1** adds validation without editing migrations 001–004.
 2. Select the new archive after candidate validation/local integration/build: `archive="$(cat .local-apex/releases/patch-selected.txt)"`. The current source manifest is `release/manifest.json`; retained initial archives keep their original manifest filename.
-3. Execute **one operation at a time** with `bash scripts/cicd-patch-step.sh "$archive" TARGET OPERATION EPOCH START`. TARGET is integration_test or user_acceptance_test; START is empty (qualification only) or 1.0.0. Use the currently observed epoch for preflight/admit; admission increments it, and subsequent operations use the new epoch.
+3. Execute **one operation at a time** with `bash scripts/cicd-patch-step.sh "$archive" TARGET OPERATION EPOCH START`. TARGET is integration_test or user_acceptance_test; START is empty (integration_test only) or 1.0.0. Use the currently observed epoch for preflight/admit; admission increments it, and subsequent operations use the new epoch.
 4. Operations are **preflight**, **admit**, **migrate**, **import**, **units**, **verify**, **publish** and **result**. Preflight is read-only: compatibility, identity, supported initial artifact and live fingerprint. Admission locks the application state row before maintenance and commits durable attempt ownership; existing guarded mutations must finish first. Migration exposes native SQLcl/Liquibase commands; import maps the existing target and executes unchanged native source.
-5. At **verify**, open the printed target URL as VERIFIER, create a greeting and refresh history. After **publish**, open it as LAB_USER and repeat. **result** verifies matching versions/artifact/fingerprint without reinstalling; use START **1.0.0** for this existing-result check, including after fresh qualification. A failed operation retains ownership/partial state; no automatic reset or success is performed.
-6. Qualification requires two successful executions of the **same archive**: an empty reconstruction, then an upgrade over the accepted initial release reconstructed in the disposable area. Follow [the scoped qualification lifecycle](../../docs/deploy.md#disposable-qualification-lifecycle); never reset user_acceptance_test. The initial qualification receipt is retained if its archive is reconstructed again; each new attempt keeps its own epoch/history.
-7. Only after both qualification starts pass may user_acceptance_test admit the patch over its unchanged initial baseline. Capture retained data first with `python3 scripts/cicd-preservation.py capture user_acceptance_test FILE`, using a new private evidence filename; compare afterward with `python3 scripts/cicd-preservation.py compare user_acceptance_test FILE`. New history/entries may append; every old field and complete configuration must match.
+5. At **verify**, open the printed target URL as VERIFIER, create a greeting and refresh history. After **publish**, open it as LAB_USER and repeat. **result** verifies matching versions/artifact/fingerprint without reinstalling; use START **1.0.0** for this existing-result check, including after fresh integration_test. A failed operation retains ownership/partial state; no automatic reset or success is performed.
+6. integration_test requires two successful executions of the **same archive**: an empty reconstruction, then an upgrade over the accepted initial release reconstructed in the disposable area. Follow [the scoped integration_test lifecycle](../../docs/deploy.md#disposable-integration_test-lifecycle); never reset user_acceptance_test. The initial integration_test receipt is retained if its archive is reconstructed again; each new attempt keeps its own epoch/history.
+7. Only after both integration_test starts pass may user_acceptance_test admit the patch over its unchanged initial baseline. Capture retained data first with `python3 scripts/cicd-preservation.py capture user_acceptance_test FILE`, using a new private evidence filename; compare afterward with `python3 scripts/cicd-preservation.py compare user_acceptance_test FILE`. New history/entries may append; every old field and complete configuration must match.
 
-- Fresh and initial-baseline upgrade qualification, user_acceptance_test promotion and both selected rejection demonstrations passed. Native stage logs, field comparisons and runtime screenshots are linked in the construction/test evidence.
+- Fresh and initial-baseline upgrade integration_test, user_acceptance_test promotion and both selected rejection demonstrations passed. Native stage logs, field comparisons and runtime screenshots are linked in the construction/test evidence.
 - The mutation-state lock does not establish complete read-request draining, asynchronous request fencing or stale verifier exclusion. Those broader maintenance tests remain pending.
 
 ## Selected deployment protection operations
@@ -641,16 +641,16 @@ These are historical observations from the earlier database. Fresh D/E obtain ne
 
 1. Run `bash scripts/cicd-patch-result.sh integration_test` or `bash scripts/cicd-patch-result.sh user_acceptance_test`. The helper discovers the current epoch and invokes the verified archive's result check. It never reinstalls.
 2. After upgrading the live targets, initial 1.0.0 receipts remain historical evidence. The initial-release result helper appropriately rejects a live 1.0.1 target; do not interpret that as an initial deployment failure.
-3. The optional `tests/sql/prepare_qualification_fixture.sql` creates twenty verification snapshots only in a freshly reconstructed disposable baseline, after restricted verification is enabled. It is separate test preparation, not release seeding. It refuses a nonempty baseline; the browser verification still follows.
+3. The optional `tests/sql/prepare_integration_test_fixture.sql` creates twenty verification snapshots only in a freshly reconstructed disposable baseline, after restricted verification is enabled. It is separate test preparation, not release seeding. It refuses a nonempty baseline; the browser verification still follows.
 
 ### Historical patch result and repeatable demonstration
 
-**Historical:** this is the pre-rename patch result. The renamed environment mapping needs its own D/E/F runs; this earlier hash/receipt is not reused as qualification.
+**Historical:** this is the pre-rename patch result. The renamed environment mapping needs its own D/E/F runs; this earlier hash/receipt is not reused as integration_test.
 
 1. Patch source is `752eb47ec59daeb625c3849bfed87fc230295e20`; qualified/promoted SHA-256 is `200ebefff13e87600699adfebbbe71158962dc80a02d1b8e6dbd9a829dd9e1ce`.
-2. Before the fresh reset, patch qualification used epochs **3/5** and user_acceptance_test **2**. These are historical values. Fresh D–F discover and use the new database epochs through the native status/admission operations; do not copy an old epoch into a new command.
+2. Before the fresh reset, patch integration_test used epochs **3/5** and user_acceptance_test **2**. These are historical values. Fresh D–F discover and use the new database epochs through the native status/admission operations; do not copy an old epoch into a new command.
 3. Current results: `bash scripts/cicd-patch-result.sh integration_test`, then `bash scripts/cicd-patch-result.sh user_acceptance_test`. Normal repeat commands verify without reinstalling.
-4. Current-cycle pre-upgrade baselines are `.local-apex/releases/test-initial-preservation.json` and `.local-apex/releases/qualification-initial-preservation.json`. E/F capture newly created rows/settings there and print their actual counts. Cleanup moves earlier baselines out of the active cycle. The earlier 21-row and **[Q] / [W]** evidence remains historical; it is not restored into this fresh demonstration.
+4. Current-cycle pre-upgrade baselines are `.local-apex/releases/test-initial-preservation.json` and `.local-apex/releases/integration_test-initial-preservation.json`. E/F capture newly created rows/settings there and print their actual counts. Cleanup moves earlier baselines out of the active cycle. The earlier 21-row and **[Q] / [W]** evidence remains historical; it is not restored into this fresh demonstration.
 5. For a new demonstration, follow the [fresh infrastructure sequence](../../docs/deploy.md#fresh-walkthrough-infrastructure-sequence), then the [A–H walkthrough](cicd-walkthrough.md#run-one-chapter-at-a-time). It constructs the reviewed source, qualifies/promotes initial and patch archives in the new database and demonstrates both protections. For read-only inspection of an already delivered patch, use the result commands in step 3 instead. Imports may require re-login.
 6. To run the selected registered assertions without human checkpoints, use `bash tests/run.sh --integration --new-only tests/manifests/patch_protections.manifest`. This includes controlled user_acceptance_test page-fixture replacement/restoration; stop other user_acceptance_test authoring/deployment first. Expected result: **3 tests, 0 failures**.
 7. Historical initial-only evidence remains valid for that release. Current targets are newer; do not reinstall/downgrade them to make an old result check pass.
@@ -659,6 +659,6 @@ These are historical observations from the earlier database. Fresh D/E obtain ne
 
 - If a walkthrough is stopped while its drift fixture is active, run `python3 scripts/cicd-drift-demo.py restore` explicitly before restarting. Settings-only C preparation never overwrites user_acceptance_test drift or repairs an interrupted deployment. Fresh-demo cleanup instead deliberately discards the entire lab. If restoration reports an unexplained additional change, inspect the retained journal/logs instead of resetting user_acceptance_test.
 
-## Qualification actor handoff and exact sequence
+## integration_test actor handoff and exact sequence
 
-The development team/Packager (SRS A-02) smoke-checks the development assembly and supplies the reviewed package. Deployer (A-03) runs qualification before promoting that same package to user_acceptance_test. VERIFIER and LAB_USER are runtime accounts used during checks, not separate human actors. Follow the [numbered D operations](cicd-walkthrough.md#d-qualify-the-initial-release) and editable [delivery model](model.drawio); they trace to UC-4/11 and the selected PBI-011.6 qualification/promotion work. Keep these references synchronized.
+The development team/Packager (SRS A-02) smoke-checks the development assembly and supplies the reviewed package. Deployer (A-03) runs integration_test before promoting that same package to user_acceptance_test. VERIFIER and LAB_USER are runtime accounts used during checks, not separate human actors. Follow the [numbered D operations](cicd-walkthrough.md#d-qualify-the-initial-release) and editable [delivery model](model.drawio); they trace to UC-4/11 and the selected PBI-011.6 integration_test/promotion work. Keep these references synchronized.

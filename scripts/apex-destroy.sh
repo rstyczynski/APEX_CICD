@@ -14,7 +14,7 @@ if [ "$MODE" = --preflight ]; then echo 'OK: APEX destruction files/tools found;
 podman --connection apex-cicd info >/dev/null
 python3 scripts/cicd-lab-inventory.py
 p() { printf 'OPERATION: podman --connection apex-cicd'; printf ' %q' "$@"; printf '\n'; podman --connection apex-cicd "$@"; }
-echo 'DESTROY: deleting ALL A/B/C, qualification and TEST applications, entries, settings, greeting history and database control receipts.'
+echo 'DESTROY: deleting ALL A/B/C, integration_test and user_acceptance_test applications, entries, settings, greeting history and database control receipts.'
 for container in apex-ords apex-db; do
   if podman --connection apex-cicd container exists "$container"; then
     p stop --time 120 "$container"
@@ -30,7 +30,7 @@ if podman --connection apex-cicd secret inspect apex-db-password >/dev/null 2>&1
 umask 077
 mkdir -p .local-apex/walkthrough
 previous="$(mktemp -d "$ROOT/.local-apex/walkthrough/previous.XXXXXX")"
-for file in drift-active.json test-initial-preservation.json qualification-initial-preservation.json; do
+for file in drift-active.json test-initial-preservation.json integration_test-initial-preservation.json; do
   if [ -e ".local-apex/releases/$file" ]; then mv ".local-apex/releases/$file" "$previous/"; fi
 done
 if [ -e .local-apex/walkthrough/current ]; then mv .local-apex/walkthrough/current "$previous/cycle"; fi

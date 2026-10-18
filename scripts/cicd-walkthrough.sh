@@ -14,7 +14,7 @@ stages=(
   scripts/cicd-walkthrough-A_foundation.sh
   scripts/cicd-walkthrough-B_hello.sh
   scripts/cicd-walkthrough-C_world.sh
-  scripts/cicd-walkthrough-D_qualification.sh
+  scripts/cicd-walkthrough-D_integration_test.sh
   scripts/cicd-walkthrough-E_promotion.sh
   scripts/cicd-walkthrough-F_hello_patch.sh
   scripts/cicd-walkthrough-G_incompatible_upgrade.sh
@@ -26,5 +26,5 @@ for stage in "${stages[@]}"; do bash "$stage" --preflight; done
 if [ "$MODE" = --preflight ]; then exit 0; fi
 echo 'PREREQUISITE: complete precheck, host preparation, destructive cleanup, infrastructure-only APEX installation and explicit project/area onboarding/readiness from the manual.'
 for stage in "${stages[@]}"; do bash "$stage" "$MODE"; done
-echo 'PASS selected fresh walkthrough: construction, initial qualification/promotion, Hello patch, this-cycle preservation, incompatible proposal rejection, drift rejection and restoration.'
+echo 'PASS selected fresh walkthrough: construction, initial integration_test/promotion, Hello patch, this-cycle preservation, incompatible proposal rejection, drift rejection and restoration.'
 echo 'OPEN E.1 WORK: broader concurrency, complete maintenance fencing, schema-drift coverage and failed-additive-deployment repair. No sprint closure claimed.'

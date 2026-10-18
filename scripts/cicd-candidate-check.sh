@@ -27,6 +27,6 @@ python3 - "$revision" "$log" "$receipt" <<'PY'
 import hashlib,json,sys
 from pathlib import Path
 revision,log,receipt=sys.argv[1:]
-Path(receipt).write_text(json.dumps({'source_commit':revision,'status':'passed','scope':'development integrity and transactional UT-1/UT-2; separate from fresh archive qualification','log_sha256':hashlib.sha256(Path(log).read_bytes()).hexdigest()},indent=2)+'\n')
+Path(receipt).write_text(json.dumps({'source_commit':revision,'status':'passed','scope':'development integrity and transactional UT-1/UT-2; separate from fresh archive integration_test','log_sha256':hashlib.sha256(Path(log).read_bytes()).hexdigest()},indent=2)+'\n')
 PY
 echo "CANDIDATE PASSED: $receipt. Integrate locally before building the release."
