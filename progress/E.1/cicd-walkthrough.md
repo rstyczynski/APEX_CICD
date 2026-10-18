@@ -157,6 +157,12 @@ bash scripts/cicd-walkthrough-B_hello.sh
 
 ## Prepare a repeatable walkthrough
 
+Run this separate preparation operation from the repository root:
+
+```bash
+bash scripts/cicd-walkthrough-cleanup.sh
+```
+
 1. Run `bash scripts/cicd-walkthrough-cleanup.sh` as the separate preparation step above.
 2. Cleanup checks that no managed authoring/deployment is active and that A/B/C still match the supported development checkpoints.
 3. It backs up C's configuration, restores active **Hello** / **World** defaults and empty prefixes, then checks that all existing history snapshots are unchanged. Existing matching demo entries are reused.
@@ -168,6 +174,12 @@ bash scripts/cicd-walkthrough-B_hello.sh
 - For exact SQL and restoration details, see [the operator chapter](user_manual.md#prepare-a-repeatable-walkthrough).
 
 ## A. Deliver Foundation
+
+Run this chapter from the repository root:
+
+```bash
+bash scripts/cicd-walkthrough-A_foundation.sh
+```
 
 ### Developer operations inside the stage
 
@@ -189,6 +201,12 @@ bash scripts/cicd-walkthrough-B_hello.sh
 
 ## B. Deliver Hello
 
+Run this chapter from the repository root:
+
+```bash
+bash scripts/cicd-walkthrough-B_hello.sh
+```
+
 ### Developer operations inside the stage
 
 1. Reserve Hello and prepare B's private area from accepted Foundation source.
@@ -207,6 +225,12 @@ bash scripts/cicd-walkthrough-B_hello.sh
 - B is verified as an existing blocked assembly. Replaying its source preparation, authoring and integration remains a separate operator operation.
 
 ## C. Deliver World and complete the assembly
+
+Run this chapter from the repository root:
+
+```bash
+bash scripts/cicd-walkthrough-C_world.sh
+```
 
 ### Developer operations inside the stage
 
@@ -231,6 +255,12 @@ bash scripts/cicd-walkthrough-B_hello.sh
 
 ## D. Qualify the initial release
 
+Run this chapter from the repository root:
+
+```bash
+bash scripts/cicd-walkthrough-D_qualification.sh
+```
+
 1. Read the initial archive verification and historical qualification receipt in the terminal.
 2. Open [qualification](http://127.0.0.1:8080/ords/f?p=810004:1) as **LAB_USER**. The live area now contains the later patch; initial delivery is shown through its retained receipts.
 3. Continue to the initial TEST receipt.
@@ -240,6 +270,12 @@ bash scripts/cicd-walkthrough-B_hello.sh
 
 ## E. Promote the same initial artifact to TEST
 
+Run this chapter from the repository root:
+
+```bash
+bash scripts/cicd-walkthrough-E_promotion.sh
+```
+
 1. Read the successful historical TEST epoch-1 receipt for the **same initial archive hash**.
 2. Open [TEST](http://127.0.0.1:8080/ords/f?p=810005:1) as **LAB_USER**. It now runs 1.0.1; this stage does not reinstall or downgrade it.
 3. Continue to the current patch result and preservation checks.
@@ -248,6 +284,12 @@ bash scripts/cicd-walkthrough-B_hello.sh
 - Retrieve the local password with `python3 scripts/cicd-password.py LAB_USER` if needed. Native imports may require re-login.
 
 ## F. Deliver the compatible Hello patch
+
+Run this chapter from the repository root:
+
+```bash
+bash scripts/cicd-walkthrough-F_hello_patch.sh
+```
 
 1. The terminal verifies the current qualification and TEST artifact, installed versions and live APEX fingerprints.
 2. Read the passing field-level comparison: every earlier greeting snapshot, entry and setting remains unchanged. New greetings may append.
@@ -264,6 +306,12 @@ bash scripts/cicd-walkthrough-B_hello.sh
 
 ## G. Reject an incompatible database upgrade
 
+Run this chapter from the repository root:
+
+```bash
+bash scripts/cicd-walkthrough-G_incompatible_upgrade.sh
+```
+
 1. Press a key to submit the Foundation **2.0.0** proposal to the deployment compatibility gate.
 2. Read **REJECTED INCOMPATIBLE: Hello requires Foundation 1.0.0; proposed Foundation 2.0.0**. World has the same declared Foundation requirement.
 3. Read the unchanged-target verification: definitions, versions, entries, settings, history and control receipts match before/after rejection. Maintenance, migrations and import were not entered.
@@ -274,6 +322,12 @@ bash scripts/cicd-walkthrough-B_hello.sh
 - The accepted patch above proves the pipeline also admits a supported change.
 
 ## H. Reject deployment over unexpected live change
+
+Run this chapter from the repository root:
+
+```bash
+bash scripts/cicd-walkthrough-H_drift.sh
+```
 
 1. Press a key for the explicit **TEST-only page-drift fixture**. It verifies the current release, saves the actual native target export/data, then installs the separately authored Home title/banner change with the existing ID offset.
 2. Open [TEST](http://127.0.0.1:8080/ords/f?p=810005:1), re-login if needed and see **DIRECT CHANGE - deployment must stop**. Installed component versions still describe 1.0.1; the live content fingerprint has changed.
@@ -289,6 +343,7 @@ bash scripts/cicd-walkthrough-B_hello.sh
 
 ## Maintain this artifact
 
+- Put the exact runnable script command directly below each action chapter heading; keep it synchronized with that chapter script.
 - Always update and review this document, its launcher, A–H chapter scripts, shared helper, cleanup instructions and detailed operator guide together as **one artifact**. Keep chapter names, script names, commands and outcomes synchronized.
 - Use numbered actions, short outcome bullets and runtime URLs.
 - Keep developer mechanics inside the stage; retain their real output for diagnosis.

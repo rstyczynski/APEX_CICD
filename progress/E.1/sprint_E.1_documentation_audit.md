@@ -195,3 +195,7 @@ Local checks passed for 33 documents and 261 links/anchors, fences and traceabil
 ## Main walkthrough navigation — 2026-10-18
 
 Added a linked Contents section immediately below the title in [cicd-walkthrough.md](cicd-walkthrough.md), covering all 17 existing main chapters. Reviewed the paired launcher/chapter scripts: chapter headings and operations are unchanged, so no script change is needed. All A–H local preflight checks pass. The documentation checker passes for 33 documents and 278 local links/anchors, fences, traceability and whitespace. Scope, use-case coverage, readiness and other sprint artifacts remain unchanged. Previous walkthrough split is local commit c3b165c.
+
+## Commands in each walkthrough chapter — 2026-10-18
+
+Added the exact standalone Bash invocation directly below every A–H action heading in [cicd-walkthrough.md](cicd-walkthrough.md), including E promotion, plus a visible cleanup command in the preparation chapter. The maintenance rule now requires chapter-local invocation blocks. Checked all eight commands against their actual script files and prepare_stage headings; all A–H preflight checks pass. Documentation links/anchors/fences, traceability and whitespace checks pass. Paired script behavior, existing use-case scope/readiness and other sprint artifacts are unchanged; no Oracle mutation or repeated application tests were needed for this presentation correction.
