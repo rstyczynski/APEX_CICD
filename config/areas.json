@@ -5,7 +5,7 @@
     "lab-dev": {"schema": "E1_DEV_A", "workspace": "E1_DEV_A", "application_id": 810001},
     "lab-dev-b": {"schema": "E1_DEV_B", "workspace": "E1_DEV_B", "application_id": 810002},
     "lab-dev-c": {"schema": "E1_DEV_C", "workspace": "E1_DEV_C", "application_id": 810003},
-    "lab-qualify": {"schema": "E1_QUALIFY", "workspace": "E1_QUALIFY", "application_id": 810004},
-    "lab-test": {"schema": "E1_TEST", "workspace": "E1_TEST", "application_id": 810005}
+    "integration_test": {"schema": "E1_INTEGRATION", "workspace": "E1_INTEGRATION", "application_id": 810004},
+    "user_acceptance_test": {"schema": "E1_UAT", "workspace": "E1_UAT", "application_id": 810005}
   }
 }

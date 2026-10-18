@@ -3,9 +3,9 @@
 set -Eeuo pipefail
 ROOT="$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --show-toplevel)"
 cd "$ROOT"
-if [ "$#" -ne 4 ]; then echo 'Usage: bash scripts/cicd-release-step.sh ARCHIVE lab-qualify|lab-test admit|migrate|import|units|verify|publish|status EPOCH' >&2; exit 2; fi
-archive="$1"; target="$2"; operation="$3"; epoch="$4"
-case "$target" in lab-qualify) schema=E1_QUALIFY; app=810004; alias=APEX-DELIVERY-LABORATORY-Q ;; lab-test) schema=E1_TEST; app=810005; alias=APEX-DELIVERY-LABORATORY-T ;; *) echo 'ERROR: unsupported target' >&2; exit 2 ;; esac
+if [ "$#" -ne 4 ]; then echo 'Usage: bash scripts/cicd-release-step.sh ARCHIVE integration_test|user_acceptance_test admit|migrate|import|units|verify|publish|status EPOCH' >&2; exit 2; fi
+archive="$1"; target="$(python3 "$ROOT/scripts/cicd_environments.py" "$2")"; operation="$3"; epoch="$4"
+case "$target" in integration_test) schema=E1_INTEGRATION; app=810004; alias=APEX-DELIVERY-LABORATORY-Q ;; user_acceptance_test) schema=E1_UAT; app=810005; alias=APEX-DELIVERY-LABORATORY-T ;; *) echo 'ERROR: unsupported target' >&2; exit 2 ;; esac
 case "$operation" in admit|migrate|import|units|verify|publish|status) ;; *) echo 'ERROR: unknown operation' >&2; exit 2 ;; esac
 [[ "$epoch" =~ ^[0-9]+$ ]] || { echo 'ERROR: integer epoch required' >&2; exit 2; }
 source scripts/cicd-env.sh

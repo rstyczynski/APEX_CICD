@@ -37,7 +37,7 @@ begin
   begin
     insert into hello_entries(entry_text) values ('   ');
     raise_application_error(-20506,'Blank entry accepted');
-  exception when others then if sqlcode not in (-1400,-2290) then raise; end if; end;
+  exception when others then if sqlcode not in (-1400,-2290,-20314) then raise; end if; end;
   begin
     insert into world_entries(entry_text) values (rpad('X',101,'X'));
     raise_application_error(-20507,'Oversize entry accepted');

@@ -86,4 +86,3 @@ declare n number; begin
   if n>0 then raise_application_error(-20106,'Control package compilation failed'); end if;
 end;
 /
-grant execute on e1_ownership to E1_DEV_A, E1_DEV_B, E1_DEV_C;

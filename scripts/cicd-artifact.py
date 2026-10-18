@@ -44,15 +44,25 @@ def inspect(path):
     candidate = json.loads(files['candidate.json'])
     if candidate['source_commit'] != info['source_commit'] or candidate['status'] != 'passed' or candidate['log_sha256'] != sha(files['candidate.log']):
         raise ValueError('Candidate validation does not match release source')
-    manifest = json.loads(files['release/initial.json'])
-    if manifest['stage'] != 'complete-initial' or manifest['supported_starts'] != ['empty']:
-        raise ValueError('Only the declared empty-target initial release is implemented')
-    if manifest['components'] != {'Foundation':'1.0.0','Hello':'1.0.0','World':'1.0.0'}:
+    manifest = json.loads(files['release/manifest.json'] if 'release/manifest.json' in files else files['release/initial.json'])
+    if manifest['stage']=='complete-initial':
+        if manifest['supported_starts']!=['empty'] or manifest['release']!='1.0.0':
+            raise ValueError('Invalid initial release profile')
+        expected={'Foundation':'1.0.0','Hello':'1.0.0','World':'1.0.0'}
+    elif manifest['stage']=='complete-patch':
+        if manifest['supported_starts']!=['empty','1.0.0'] or manifest['release']!='1.0.1' or not re.fullmatch(r'[0-9a-f]{64}',manifest['base_artifact']):
+            raise ValueError('Invalid bounded patch profile')
+        expected={'Foundation':'1.0.0','Hello':'1.0.1','World':'1.0.0'}
+    else:
+        raise ValueError('Unsupported release profile')
+    if manifest['components']!=expected:
         raise ValueError('Unsupported component combination')
     for dependency in ('Hello','World'):
-        if manifest['dependencies'][dependency]['Foundation'] != manifest['components']['Foundation']:
+        if manifest['dependencies'][dependency]['Foundation']!=expected['Foundation']:
             raise ValueError('Incompatible Foundation dependency')
     source = files['apex/f810001/application/create_application.sql'].decode()
+    if f",p_flow_version=>'{manifest['release']}'" not in source:
+        raise ValueError('Native APEX version differs from manifest')
     if ",p_flow_status=>'UNAVAILABLE'" not in source:
         raise ValueError('Initial release must import with native UNAVAILABLE status')
     if 'E1_CTRL.e1_release.assert_runtime' not in source:
@@ -82,7 +92,10 @@ def build():
     info = {'format':1,'source_commit':commit,'files':{n:sha(v) for n,v in files.items()},
             'configuration_sha256':sha(files['config/areas.json'])}
     files['artifact.json'] = (json.dumps(info,sort_keys=True,indent=2)+'\n').encode()
-    out = ROOT/'.local-apex/releases'/('lab-1.0.0-'+commit[:12]+'.tar')
+    manifest=json.loads(files['release/manifest.json'] if 'release/manifest.json' in files else files['release/initial.json'])
+    version=manifest['release']
+    if version not in ('1.0.0','1.0.1'): raise ValueError('Unsupported release version')
+    out = ROOT/'.local-apex/releases'/('lab-'+version+'-'+commit[:12]+'.tar')
     out.parent.mkdir(parents=True,exist_ok=True)
     if out.exists() or out.with_suffix('.tar.sha256').exists():
         raise ValueError('Retained artifact already exists; never overwrite')
@@ -101,7 +114,7 @@ def build():
     out.chmod(0o444)
     out.with_suffix('.tar.sha256').chmod(0o444)
     inspect(out)
-    (out.parent/'initial-selected.txt').write_text(str(out.relative_to(ROOT))+'\n')
+    (out.parent/('initial-selected.txt' if version=='1.0.0' else 'patch-selected.txt')).write_text(str(out.relative_to(ROOT))+'\n')
     print('BUILT '+str(out.relative_to(ROOT)))
     print('SHA256 '+sha(payload))
     print('SOURCE '+commit)

@@ -5,6 +5,7 @@ import json
 import re
 import sys
 from apex_sql import ROOT, run
+from cicd_environments import canonical, display
 
 AREAS = json.loads((ROOT/'config/areas.json').read_text())['areas']
 FILES = {'identity':'identity.sql', 'create-probe':'create_probe.sql',
@@ -12,6 +13,8 @@ FILES = {'identity':'identity.sql', 'create-probe':'create_probe.sql',
 
 
 def sql_for(operation, connection, other=None):
+    connection = canonical(connection)
+    if other is not None: other = canonical(other)
     area = AREAS[connection]
     values = {'schema':area['schema'], 'workspace':area['workspace']}
     if operation.startswith('deny-'):
@@ -27,8 +30,10 @@ def sql_for(operation, connection, other=None):
 
 
 def execute(operation, connection, other=None):
+    connection = canonical(connection)
+    if other is not None: other = canonical(other)
     sql = sql_for(operation,connection,other)
-    print(f'OPERATION {operation}: {connection} as {AREAS[connection]["schema"]}',flush=True)
+    print(f'OPERATION {operation}: {display(connection)} as {AREAS[connection]["schema"]}',flush=True)
     if operation.startswith('deny-'):
         foreign = AREAS[other]['schema']
         statement = (f'SELECT COUNT(*) FROM {foreign}.E1_PRIVATE_PROBE;' if operation=='deny-read'
@@ -44,7 +49,7 @@ def execute(operation, connection, other=None):
             print(f'ACTUAL ORA-{abs(int(code)):05d}: {message}')
         elif line.strip():
             print(line)
-    print(f'PASS {operation}: {connection}',flush=True)
+    print(f'PASS {operation}: {display(connection)}',flush=True)
 
 
 def all_checks():

@@ -1,0 +1,3 @@
+integration:test_release.sh:test_IT2_patch
+integration:test_controls.sh:test_SM2_compatibility
+integration:test_controls.sh:test_IT7_drift
