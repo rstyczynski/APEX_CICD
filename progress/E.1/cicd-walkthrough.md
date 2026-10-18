@@ -468,13 +468,30 @@ Run this chapter from the repository root:
 bash scripts/cicd-walkthrough-C_world.sh
 ```
 
-1. After B passes, acquire the complete integration scope and install the reviewed complete 1.0.0 source into empty C.
-2. Check migrations, compilation, component versions and required pages. Enable restricted verification.
-3. Open [C](http://127.0.0.1:8080/ords/f?p=810003:1) as **VERIFIER**. Create **Hello** and **World**, configure defaults, create **Hello World** and refresh its new history.
-4. Continue in the terminal to publish and release ownership.
-5. Open C as **LAB_USER**. Use the application and see only data created in this fresh cycle. All three components are **1.0.0**.
+1. **Act as the walkthrough operator:** after B passes, start the script above and press a key when prompted. The script acquires the integration scope and installs the reviewed complete **1.0.0** source into empty C.
+2. Read the migration, compilation, version and page-check results. Wait for the script's browser-verification pause. C is now restricted to **VERIFIER**; leave the script waiting while you perform the next steps.
+3. **Get the VERIFIER password in a second terminal:**
 
-- In --rehearse, the explicitly announced runtime API fixture performs step 3; browser viewing is skipped. Import itself supplies no business seed.
+   ```bash
+   python3 scripts/cicd-password.py VERIFIER
+   ```
+
+4. **Act as user VERIFIER:** open [C / application 810003](http://127.0.0.1:8080/ords/f?p=810003:1) and sign in as **VERIFIER** with that password. Sign out of another application account first if necessary.
+5. Open **Hello entries**, press **Create**, enter **Entry Text = Hello** and **Active = Y**, then press **Create** to save.
+6. Open **World entries**, press **Create**, enter **Entry Text = World** and **Active = Y**, then press **Create** to save.
+7. Open **Hello configuration**, edit its existing row, select **Hello** as the default and leave the prefix empty. Press **Apply Changes**. Repeat in **World configuration**, selecting **World** and leaving the prefix empty.
+8. Open **Home** and press **Create greeting** using the configured defaults. Open **Greeting history** and refresh; confirm a saved **Hello World** row. This exact VERIFIER greeting is required before the script will publish C.
+9. **Act as the walkthrough operator again:** return to the waiting script terminal and press a key. The script checks the greeting, publishes C for ordinary users and releases ownership. Wait for **DEPLOYED C_world** and the final browser pause.
+10. **Get the LAB_USER password in the second terminal:**
+
+    ```bash
+    python3 scripts/cicd-password.py LAB_USER
+    ```
+
+11. **Act as user LAB_USER:** sign out of VERIFIER, reopen [C](http://127.0.0.1:8080/ords/f?p=810003:1) and sign in as **LAB_USER**. Create another greeting, open **Greeting history**, then **Installed components**. All three components must show **1.0.0**; history contains only data created during this fresh cycle.
+12. Return to the script terminal and press a key to finish. Wait for **PASS result stage C_world** before starting D.
+
+- In **--rehearse**, the script announces and creates the runtime verification examples automatically, skipping browser/password steps. Import itself supplies no business seed.
 
 ## D. Qualify the initial release
 

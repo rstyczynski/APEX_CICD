@@ -71,13 +71,17 @@ new_stage_source() {
 }
 verify_runtime() {
   local connection="$1" schema="$2" app="$3" kind="${4:-fresh}"
-  echo "VERIFICATION URL: http://127.0.0.1:8080/ords/f?p=$app:1 — sign in as VERIFIER."
+  echo '1. Leave this script waiting. In another terminal, retrieve the password:'
+  echo '   python3 scripts/cicd-password.py VERIFIER'
+  echo "2. Act as VERIFIER: open http://127.0.0.1:8080/ords/f?p=$app:1 and sign in as VERIFIER; sign out of any other account first."
   if [ "$kind" = fresh ]; then
-    echo 'Create active Hello and World entries, select them as defaults, create Hello World and refresh Greeting history.'
+    echo '3. Hello entries: Create, Entry Text = Hello, Active = Y, Create. Repeat in World entries with Entry Text = World.'
+    echo '4. Edit each existing configuration row: select Hello/World as its default, leave prefixes empty, Apply Changes.'
+    echo '5. Home: Create greeting. Greeting history: refresh and confirm Hello World.'
   else
-    echo 'Use the EXISTING entries/defaults, create Hello World and refresh Greeting history. Keep existing settings unchanged.'
+    echo '3. Keep the EXISTING entries/defaults/settings. Home: Create greeting. Greeting history: refresh and confirm Hello World.'
   fi
-  echo 'Password: python3 scripts/cicd-password.py VERIFIER'
+  echo 'Then return to this waiting terminal to continue publication.'
   if [ "$MODE" = --rehearse ]; then
     echo 'REHEARSAL: create a NEW explicit verification greeting through the runtime API; browser checks skipped.'
     check_result "$connection" "@\"$ROOT/deploy/operator/walkthrough_runtime.sql\" $schema $app"

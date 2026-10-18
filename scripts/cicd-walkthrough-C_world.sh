@@ -46,6 +46,9 @@ check_result lab-dev-c "begin E1_CTRL.e1_ownership.release_task('walkthrough-C_w
 /"
 touch .local-apex/walkthrough/current/C_world.done
 echo 'DEPLOYED C_world: reviewed source installed in this fresh cycle.'
-echo 'PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810003:1; sign in as LAB_USER.'
+echo '1. In another terminal: python3 scripts/cicd-password.py LAB_USER'
+echo '2. Sign out of VERIFIER. Open http://127.0.0.1:8080/ords/f?p=810003:1 and sign in as LAB_USER.'
+echo '3. Create a greeting; refresh Greeting history; check Installed components shows all three at 1.0.0.'
+echo '4. Return to this terminal to finish chapter C.'
 pause 'View this chapter result at the runtime URL, then press any key to finish; q to quit.'
 echo 'PASS result stage C_world.'

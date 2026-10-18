@@ -259,3 +259,9 @@ Placed the exact E1_DEV_A password-retrieval command beside the developer prompt
 ## Piped developer setup as the lab default — 2026-10-18
 
 Replaced the main walkthrough's interactive A/B/C setup invocations with matching password-helper pipes and --password-stdin, as requested. Removed duplicate alternatives/manual password steps. Deployment summary uses the same invocation and actor: the local operator reads the protected store; setup receives only the selected schema password. Retained private profile and same-OS-account limits. Paired scripts already support these commands, so no implementation change. Previous handoff clarification is 7116d35. Documentation checks and onboarding policy regression pass; no runtime mutation or new acceptance is claimed. Other sprint artifacts/statuses unchanged; no push.
+
+## Explicit runtime actor/password steps — 2026-10-18
+
+Expanded C into numbered operator/VERIFIER/operator/LAB_USER actions: password retrieval in a second terminal, exact entry/configuration/greeting/history steps, publication pause and account switch. Checked UI labels against the operator runtime chapter and C's existing exact VERIFIER Hello World assertion. Updated the shared verification prompts and C's final runtime prompt together; deployment/SQL behavior is unchanged. Shared prompts retain existing-settings behavior for patch verification. Previous setup simplification is 2b85d35.
+
+Bash syntax, C local preflight and documentation checks pass (33 documents, 300 links/anchors, fences, traceability and whitespace). No deployment or browser operation was rerun for wording changes; no new runtime acceptance is claimed. Scope/status and other sprint artifacts remain unchanged. No push.
