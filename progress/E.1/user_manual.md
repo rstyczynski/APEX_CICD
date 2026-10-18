@@ -685,7 +685,7 @@ It validates the same ready release and live fingerprint, shows the LAB_USER res
 
 ## Manual Page Designer drift demonstration
 
-Use [H.1's numbered operator procedure](cicd-walkthrough.md#h1-manual-variant-change-a-page-in-app-builder) for a real App Builder save in UAT instead of the imported fixture.
+Use [H.1's numbered operator procedure](cicd-walkthrough.md#h1-change-a-page-in-app-builder) for a real App Builder save in UAT instead of the imported fixture.
 
 ```bash
 bash scripts/cicd-protection-check.sh drift
