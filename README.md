@@ -1,49 +1,94 @@
 # Oracle APEX CI/CD Laboratory
 
-## Vision
+**From Git to APEX: traceable releases, safe upgrades and protected deployments.**
 
-Accepted by the Product Owner on 2026-10-16.
+An executable delivery example for Oracle APEX and Oracle Database. A small Foundation/Hello/World application makes the important operations visible: capture source, review it in Git, build one release, validate it in integration testing, promote the same artifact to UAT and preserve application data through an upgrade.
 
-Help Oracle APEX developers and DevOps engineers choose and reproduce a practical approach to continuous integration and continuous delivery. Research the available automation options, explain their tradeoffs against established DevOps practices, and validate the selected approach with a small local application. The main product is an evidenced, reusable delivery example and its operating guidance.
+The prototype runs on one Podman host using supported Oracle automation interfaces and small Bash/Python scripts. The source is public at [rstyczynski/APEX_CICD](https://github.com/rstyczynski/APEX_CICD). Hosted CI automation and production operation remain future work.
 
-The laboratory should make changes to database objects, APEX application definitions, and application configuration understandable in version control, reviewable before release, and repeatable when deployed. It should demonstrate automated checks, traceable release artifacts, controlled promotion between logically separate development and test targets, and a documented response to failed changes. The exact automation tools and environment topology remain decisions for research and validation.
+## What works today
 
-## Reference application
+The assisted A–H walkthrough demonstrates:
 
-Use a deliberately simple Hello World application with persistent greeting history. A Hello component has its own data and configuration pages; a World component has its own data and configuration pages. Together they provide the greeting recorded in the history. The example should support a visible change to either component and a database change so that the delivery workflow exercises more than a static page deployment.
+1. **Separate infrastructure and project setup.** Provision Oracle Database/APEX/ORDS first, then delivery control and individually assigned project schemas/workspaces. Check target identity and logical isolation.
+2. **Foundation-first assembly.** A, B and C have private areas. Reviewed source snapshots build Foundation, Foundation/Hello and the complete application respectively. Incomplete checkpoints remain unavailable.
+3. **Delivery of the same release artifact.** Build an immutable archive from reviewed Git source, validate it in **integration_test**, then promote those identical bytes to **user_acceptance_test**. Receipts bind the source revision, archive hash and target state.
+4. **A compatible Hello patch.** Advance Hello from **1.0.0 to 1.0.1** while Foundation and World remain **1.0.0**. Integration testing checks fresh installation and upgrade from the initial release. The UAT preservation check confirms all fields of **21 baseline greeting-history rows**, earlier entries and complete configuration remain unchanged.
+5. **Rejection of a known incompatible upgrade.** A Foundation **2.0.0** proposal conflicts with Hello/World dependencies and stops before maintenance, migration or application import.
+6. **Detection and inspection of live drift.** A real Page Designer edit changes the live fingerprint without changing the component version. Deployment stops; the operator can compare published/live source before choosing restoration or Git reconciliation.
 
-One APEX application with separate Hello, World, and history areas is the initial proposal. Here, a component means a bounded functional area; it does not yet imply a separate APEX application, schema, service, or independently deployable package. Research may propose a different shape when it demonstrates useful CI/CD cases more clearly without adding unnecessary application complexity. Exact data fields, configuration semantics, and deployment boundaries will be defined in the requirements and candidate architecture.
+These are demonstrated prototype outcomes, not a declaration that the complete sprint acceptance scope or full test suite has passed. See the [handover](progress/E.1/sprint_E.1_handover.md), [test evidence](progress/E.1/sprint_E.1_tests.md) and [completion assessment](progress/E.1/sprint_E.1_assessment.md).
 
-## Research and demonstration outcomes
+## Explore the delivery story
 
-Compare credible approaches for capturing APEX and database changes, reviewing them in Git, packaging releases, and deploying them through automated checks. Assess configuration and secret handling, environment separation, dependencies between components and schema changes, and recovery or forward repair after a failed deployment. Explain what the evidence supports and where each approach has limits; do not treat “industry standard” as a single prescribed toolchain.
+- **[From Git to APEX — presentation](progress/E.1/sprint_E.1_increment_demo.pptx):** 28 slides covering architecture, Oracle interfaces, Git layout/cooperation, the A–H results and future CI pipelines. Includes editable diagrams adapted from the [draw.io model](progress/E.1/model.drawio).
+- **[Presentation walkthrough](progress/E.1/sprint_E.1_increment_demo.md):** slide-linked review, commands, visible results and decisions.
+- **[A–H use-case walkthrough](progress/E.1/cicd-walkthrough.md):** the main guided operating journey, with a separate script for each stage.
+- **[Operator manual](progress/E.1/user_manual.md):** application inventory, endpoints, accounts and detailed operations.
+- **[Repository and pipeline guide](progress/E.1/repo_layout.md):** shared source, private areas, merge guidance and proposed CI automation. This remains an Elaboration draft for [PBI-017](BACKLOG.md#pbi-017-deliver-a-repository-and-pipeline-reference-guide).
 
-A successful demonstration takes a reviewed source change through the selected pipeline into a local target, shows the changed behavior and retained greeting history, and identifies the source revision and release artifact responsible. It also shows an intentionally failing check or deployment and the agreed recovery procedure. A second operator should be able to reproduce the documented path with the stated prerequisites. Detailed acceptance criteria and executable quality gates will be agreed before implementation.
+## Oracle interfaces and toolchain
 
-## Local environment and constraints
+1. **APEX / ORDS:** App Builder authors application definitions; ORDS serves the HTTP runtime.
+2. **SQLcl with Java:** native `apex export` captures split SQL source for Git. Deployment maps the target through `APEX_APPLICATION_INSTALL` and executes the exported `install.sql`.
+3. **SQLcl's bundled Liquibase:** applies separate, ordered database migrations. An application export does not contain the runtime greeting data or replace schema migration management.
+4. **APEX export fingerprint:** `APEX_EXPORT.GET_APPLICATION` with `CHECKSUM-SH256` compares live application definitions with the successful deployment receipt.
+5. **Git, SHA-256 and E1_CTRL:** identify accepted source/package bytes and manage reservations, deployment epochs and receipts.
+6. **Bash/Python and Podman:** expose operator steps, run focused checks and host the lab.
 
-Model the workflow on a local Oracle APEX service, preferably using Podman. E.1 maintains the [infrastructure lifecycle procedure](docs/deploy.md), building on the initial assessment. Elaboration takes this procedure and supporting scripts to create, verify and destroy the experiment infrastructure as needed; the project does not depend on a particular VM remaining present. The assessed versions and preliminary verification evidence are recorded with the procedure. Preserve retained data, configuration, credentials and unrelated Podman resources during lifecycle work.
+Git is the integration authority. APEX Working Copies and Team Development are not used for release integration or promotion in this prototype. Split exports are text and can be diffed/merged by Git; shared files, IDs and dependencies still need review, followed by complete-candidate import and testing. See the [merge guidance](progress/E.1/repo_layout.md#merging-apex-export-files).
 
-Keep the application small and use synthetic greeting data. Keep secrets outside version control, identify exact tool and runtime versions, and state local resource requirements. Cloud deployment, production operations, high availability, and a feature-rich business application are outside the initial demonstration scope. The CI service, migration tool, packaging strategy, and physical separation of targets remain open choices.
+## Repository layout and environments
 
-## Delivery method and current state
+One repository contains all three components:
 
-For the current result, start with the [E.1 Product Owner handover](progress/E.1/sprint_E.1_handover.md), [presentation walkthrough](progress/E.1/sprint_E.1_increment_demo.md) and [PowerPoint](progress/E.1/sprint_E.1_increment_demo.pptx). The [completion assessment](progress/E.1/sprint_E.1_assessment.md) separates the demonstrated A–H slice from remaining sprint acceptance work.
+- [apex/f810001/](apex/f810001/): complete canonical split APEX application export, mapped to each target on import.
+- [db/changes/](db/changes/) and [changelog](db/changelog.xml): versioned database migrations.
+- [release/](release/): component versions, dependencies, supported starts and release proposals.
+- [deploy/](deploy/): control definitions, guards, verification, import and publication SQL.
+- [config/areas.json](config/areas.json): schema/workspace/application mappings.
+- [scripts/](scripts/) and [tests/](tests/): operator entry points and executable checks.
+- [docs/](docs/) and [progress/E.1/](progress/E.1/): requirements, architecture, procedures and current evidence.
 
-The [E.1 repository and pipeline draft](progress/E.1/repo_layout.md) maps shared sources, private areas, integration and release paths. It is an Elaboration draft for [PBI-017](BACKLOG.md#pbi-017-deliver-a-repository-and-pipeline-reference-guide), not final acceptance.
+A/B/C use **E1_DEV_A/B/C**, applications **810001/810002/810003**. The disposable integration area is **E1_INTEGRATION / 810004**; retained UAT is **E1_UAT / 810005**. These are private logical areas in one Oracle installation, not separate component repositories or isolated database servers. Hello and World both depend on Foundation.
 
-The project uses [RUP Strikes Back](AGENTS.md) with the [local policy](RUP_patch.md). Sprint 0 is complete: PBI-001 delivered the accepted vision and PBI-002 delivered the accepted [roadmap](ROADMAP.md) and next-sprint plan. The [plan](PLAN.md) records I.1 (formerly Sprint 1) as closed in managed mode. The Product Owner accepted its revised analysis baseline with the presentation wording correction on 2026-10-16. The Product Owner subsequently accepted all I.1 material and explicitly closed the sprint. E.1 is now active under that authorization. The [Product Owner handover](progress/I.1/sprint_I.1_handover.md) summarizes the concept, six demonstration scenarios and proposed Elaboration scope. Its [presentation walkthrough](progress/I.1/sprint_I.1_increment_demo.md) links the PowerPoint companion. The [final engineering review decisions](progress/I.1/analysis_review-answers_2.md) link the reconciled contracts and remaining Elaboration proof. The [backlog](BACKLOG.md) defines its assigned outcomes.
+Current A–C scripts replay reviewed sequential Git snapshots. Independent task branches, genuine parallel Hello/World integration and hosted PR/CI execution are proposed extensions, not demonstrated by that replay. Ignored `.local-apex/` contains local tools, credentials, staging, release archives and host evidence; credentials and runtime business data stay outside Git.
 
-### Sprint 0 — Vision and initial plan
+## Run the walkthrough
 
-The Product Owner accepted the vision and roadmap and requested closure on 2026-10-16. Preliminary deployment work and external references are recorded for potential reuse. See the [handover and new-session prompt](progress/sprint_0/sprint_0_handover.md) and [document walkthrough](progress/sprint_0/sprint_0_increment_demo.md). No application code or runtime validation was delivered in Sprint 0. The [test profile](docs/test-profile.md) contains accepted future E.1 command contracts; none has been executed as an application test.
+Clone with the delivery-method submodule:
 
-### Sprint E.1 — Validate the local APEX delivery path
+```bash
+git clone --recurse-submodules https://github.com/rstyczynski/APEX_CICD.git
+```
 
-E.1 is active in managed mode. Its [setup](progress/E.1/sprint_E.1_setup.md) and [design](progress/E.1/sprint_E.1_design.md) define the bounded prototype and selected construction scope. The [construction document](progress/E.1/sprint_E.1_implementation.md) tracks the platform, private areas, initial/patch release and remaining concurrency/maintenance/repair work. The approved slice covers the happy path, compatible versioned patch, incompatible Foundation-upgrade rejection and live-drift rejection. E.1 owns the infrastructure lifecycle procedure and may recreate the current scoped Podman environment as experiments require.
+Open a Bash terminal inside the checkout, position at its Git root and run local preflight:
 
-Use the [E.1 operator guide](progress/E.1/user_manual.md) for application/workspace inventory, endpoints, logins and atomic SQL operations. The main [A–H walkthrough](progress/E.1/cicd-walkthrough.md) now begins from scratch: follow the separate [infrastructure lifecycle](docs/deploy.md#fresh-walkthrough-infrastructure-sequence) for **precheck → Podman host preparation → complete lab cleanup → database/APEX installation** (Oracle infrastructure only), followed by [project control, one-area provisioning, developer configuration and readiness](progress/E.1/cicd-walkthrough.md#initialize-project-delivery-control). Then run `bash scripts/cicd-walkthrough-A_foundation.sh` and the commands in B–H. **Cleanup removes all lab applications and greeting history, including user_acceptance_test.** Host credentials/tools/reviewed archives and unrelated resources remain. A–F construct/deploy the reviewed source and qualify/promote identical archives; G/H demonstrate incompatible-upgrade and page-drift rejection with explicit restoration. The earlier settings-only operation is now `bash scripts/cicd-demo-defaults.sh`; it preserves history. The detailed operator runner remains `bash scripts/cicd-operator-walkthrough.sh`. Maintain the scripts and guides together. Broader concurrency, complete maintenance fencing and failed-deployment repair remain open; this walkthrough does not close E.1. Use `cd "$(git rev-parse --show-toplevel)"` from inside the checkout.
+```bash
+cd "$(git rev-parse --show-toplevel)"
+bash scripts/cicd-walkthrough.sh --preflight
+```
 
-## External references
+Then follow the [preparation chapters](progress/E.1/cicd-walkthrough.md#prerequisites-and-infrastructure-precheck) in order:
 
-The supplied [Oracle APEX application lifecycle reference](refs/apex-lifecycle-management-v3.pdf) is retained unchanged in `refs/`. It is external research input; recommendations will be checked against the selected local tool versions and experimental evidence.
+1. Check prerequisites and prepare the Podman host.
+2. Choose whether to destroy an existing disposable lab. **Complete cleanup removes all lab applications and history, including UAT.** It preserves host credentials/tools, retained archives/evidence and unrelated Podman resources.
+3. Install vanilla Database/APEX/ORDS using the [infrastructure procedure](docs/deploy.md#fresh-walkthrough-infrastructure-sequence).
+4. Initialize project control, provision each area and configure its assigned developer.
+5. Check readiness; run A–H using each chapter's script and browser instructions.
+
+Preflight alone does not provision the lab or prove database readiness. Normal upgrades preserve UAT data; destruction is a separate explicit lifecycle operation. Scripts and their walkthrough chapters are maintained together as one operating artifact.
+
+## Remaining validation
+
+Sprint **E.1 remains active**. Important unfinished proofs are synchronized competing reservations, genuine parallel component integration, complete maintenance/request/verifier fencing, scoped schema-definition drift and an injected failed additive deployment with automated forward repair preserving history. A verification retry or restored drift fixture is not that repair proof.
+
+The [assessment](progress/E.1/sprint_E.1_assessment.md) recommends focused further Elaboration before full Lifecycle Architecture acceptance. Remote CI runners, protected-branch automation and release approvals are [future extensions](progress/E.1/repo_layout.md#future-pipeline-automation). Cloud deployment, production readiness and high availability are outside the demonstrated scope.
+
+## Vision and delivery method
+
+The Product Owner accepted the vision on 2026-10-16: help Oracle APEX developers and DevOps engineers choose and reproduce a practical CI/CD approach, explain its tradeoffs and validate it with a small application. The product is an evidenced delivery example and its operating guidance. Foundation/Hello/World provides configurable greeting entries and persistent history so the workflow exercises application definitions, database objects and retained data.
+
+The project uses [RUP Strikes Back](AGENTS.md) with [local policy](RUP_patch.md). Sprint 0 and I.1 are closed; E.1 is the active Elaboration sprint. [PLAN](PLAN.md), [BACKLOG](BACKLOG.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) own selection, scope and execution status. The [E.1 design](progress/E.1/sprint_E.1_design.md) defines the selected slice; the [construction record](progress/E.1/sprint_E.1_implementation.md) tracks implementation. Preparing a handover does not close the sprint.
+
+See the [SRS](docs/srs.md), [candidate architecture](docs/architecture.md), [test profile](docs/test-profile.md) and [roadmap](ROADMAP.md) for the wider contract. The supplied [Oracle APEX lifecycle reference](refs/apex-lifecycle-management-v3.pdf) remains external research input.
