@@ -682,3 +682,13 @@ bash scripts/cicd-walkthrough-E_promotion.sh --resume-examples
 ```
 
 It validates the same ready release and live fingerprint, shows the LAB_USER result, then prepares the announced test examples using explicit active Hello/World selections. Existing configuration and history remain unchanged; new history appends. A saved preservation baseline is compared rather than replaced. This differs from [pre-publication verification continuation](cicd-walkthrough.md#resume-e-at-its-restricted-verification-checkpoint).
+
+## Manual Page Designer drift demonstration
+
+Use [H.1's numbered operator procedure](cicd-walkthrough.md#h1-manual-variant-change-a-page-in-app-builder) for a real App Builder save in UAT instead of the imported fixture.
+
+```bash
+bash scripts/cicd-protection-check.sh drift
+```
+
+First validate the published patch, arrange temporary E1_UAT developer access, record page 1's exact original Title, change/save only that property and run the check above. Require the specific drift rejection and unchanged target/receipt checks. Restore the original property manually, save and run `bash scripts/cicd-patch-result.sh user_acceptance_test`; require the original fingerprint. Remove the temporary developer account afterward. Do not interleave this procedure with an active imported drift fixture. [The test profile](../../docs/test-profile.md#manual-page-designer-drift-demonstration) distinguishes this manual evidence from unattended H.

@@ -30,6 +30,7 @@ Use these links to move between preparation, delivery and protection demonstrati
 - [F. Deliver the compatible Hello patch](#f-deliver-the-compatible-hello-patch)
 - [G. Reject an incompatible database upgrade](#g-reject-an-incompatible-database-upgrade)
 - [H. Reject deployment over unexpected live change](#h-reject-deployment-over-unexpected-live-change)
+  - [H.1 Manual variant: change a page in App Builder](#h1-manual-variant-change-a-page-in-app-builder)
 - [Destroy the lab after the walkthrough](#destroy-the-lab-after-the-walkthrough)
 - [Maintain this artifact](#maintain-this-artifact)
 
@@ -688,6 +689,40 @@ bash scripts/cicd-walkthrough-H_drift.sh
 - The fixture replacement is test setup outside release delivery. Run it with other user_acceptance_test authoring/deployment stopped.
 - Restoration is controlled demonstration cleanup, not automatic deployment repair or silent acceptance of drift.
 - Broader schema-drift coverage, concurrent requests, verifier fencing and failed additive deployment repair remain pending.
+
+### H.1 Manual variant: change a page in App Builder
+
+Demonstrate the same protection using a real Page Designer save instead of importing H's fixture. This is the selected page-drift part of [PBI-011.7](sprint_E.1_design.md#pbi-0117--compatibility-drift-and-maintenance), with evidence under [PBI-012](../../BACKLOG.md#pbi-012-validate-critical-technical-assumptions-and-use-cases), [UC-5](../../docs/srs.md#uc-5--reconcile-drift-or-repair-a-failed-delivery) and **FR-10**. The parent backlog item is [PBI-011](../../BACKLOG.md#pbi-011-build-an-executable-architectural-prototype); no new backlog item is required.
+
+Run the rejection check from the repository root **after saving the manual edit**:
+
+```bash
+bash scripts/cicd-protection-check.sh drift
+```
+
+1. Run this variant after F, either instead of automatic H or after H has restored its original definition. Keep other UAT authoring/deployments stopped. Before editing, verify the accepted baseline:
+
+   ```bash
+   bash scripts/cicd-patch-result.sh user_acceptance_test
+   ```
+
+2. **Arrange temporary App Builder access.** LAB_USER and VERIFIER are runtime accounts, with no developer privileges. If no authorized UAT developer exists:
+   1. Retrieve `python3 scripts/cicd-password.py APEX_ADMIN_PASSWORD`; open [Administration Services](http://127.0.0.1:8080/ords/apex_admin) as **ADMIN / INTERNAL**.
+   2. Open **Manage Workspaces → Manage Developers and Users → Create User**. Create **DRIFT_EDITOR** in workspace/default schema **E1_UAT**, using an operator-chosen temporary password and email. Set developer/App Builder access to **Yes**, administrator/SQL Workshop/Team Development access to **No**. Leave it unlocked; save the account. These are [Oracle's supported account controls](https://docs.oracle.com/en/database/oracle/apex/24.2/aeadm/managing-users-across-an-application-express-instance.html).
+   3. Sign out. Open [workspace sign-in](http://127.0.0.1:8080/ords/), choose **E1_UAT**, and sign in with the temporary developer account. Do not use A/B/C's workspace.
+3. Open **App Builder → application 810005 → page 1, Home**. In Page Designer's **Rendering** tree, select the page node. Record the exact original **Title**; change only that property to **Manual drift demonstration**, then **Save**. Leave application/component versions unchanged.
+4. Open [UAT](http://127.0.0.1:8080/ords/f?p=810005:1) as **LAB_USER** and refresh. Observe the changed page title, including the browser tab title if the theme does not display it in the page body.
+5. Run `bash scripts/cicd-protection-check.sh drift`. Require **REJECTED DRIFT** and **PASS drift protection**: the deployment attempt must preserve the edited definition, data and control receipts. A different error is not a pass. The checker does not restore your edit.
+6. Return to Page Designer, restore the **exact original Title**, and **Save**. Do not use automatic H's fixture restoration for this manual variant. Verify restoration:
+
+   ```bash
+   bash scripts/cicd-patch-result.sh user_acceptance_test
+   ```
+
+7. Require the original receipt/live fingerprint match and confirm greeting history remains. If the fingerprint still differs, inspect any additional edits; do not accept a new baseline or deploy over them.
+8. Sign out of the temporary developer account. As instance **ADMIN**, return to **Manage Developers and Users**, select **DRIFT_EDITOR**, and delete it **only if you created it for this demonstration**. Leave existing accounts unchanged.
+
+This is a reversible single-property demonstration, not arbitrary emergency-change reconciliation. Manual browser execution is an operator step; it is not covered by H's unattended fixture rehearsal. Keep this procedure synchronized with the [operator manual](user_manual.md#manual-page-designer-drift-demonstration) and [test profile](../../docs/test-profile.md#manual-page-designer-drift-demonstration).
 
 ## Destroy the lab after the walkthrough
 

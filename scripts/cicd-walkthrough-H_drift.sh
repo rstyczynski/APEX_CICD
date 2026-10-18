@@ -6,6 +6,7 @@ prepare_stage '## H. Reject deployment over unexpected live change' \
   'scripts/cicd-protection-check.sh' \
   'scripts/cicd-patch-result.sh' \
   'scripts/cicd-patch-step.sh'
+echo 'Optional real Page Designer variant: manual chapter H.1. Run it separately; this script uses the imported fixture.'
 test -f .local-apex/walkthrough/current/F_hello_patch.done
 pause 'Press any key to save TEST and install the controlled page-drift fixture; q to quit.'
 python3 scripts/cicd-drift-demo.py inject
