@@ -2,3 +2,7 @@
 test_lab_cleanup_boundary() {
   python3 tests/unit/test_lab_inventory.py
 }
+
+test_onboarding_boundaries() {
+  python3 tests/unit/test_onboarding.py
+}

@@ -13,6 +13,10 @@
 - [Initialize the Podman host](#initialize-the-podman-host)
 - [Prepare a repeatable walkthrough](#prepare-a-repeatable-walkthrough)
 - [Install the fresh database and APEX](#install-the-fresh-database-and-apex)
+- [Initialize project delivery control](#initialize-project-delivery-control)
+- [Provision each assigned area](#provision-each-assigned-area)
+- [Configure each developer environment](#configure-each-developer-environment)
+- [Check project readiness before A](#check-project-readiness-before-a)
 - [A. Deliver Foundation](#a-deliver-foundation)
 - [B. Deliver Hello](#b-deliver-hello)
 - [C. Deliver World and complete the assembly](#c-deliver-world-and-complete-the-assembly)
@@ -90,10 +94,10 @@ The [current verification evidence](sprint_E.1_tests.md) supports development, r
 
 ## Current readiness
 
-- **Delivered checkpoint:** infrastructure is freshly installed; the five lab applications and their business/history tables are absent. Start chapter A below. The complete A–H rehearsal passed before this final reset.
+- **Delivered checkpoint:** infrastructure and the separate onboarding steps have been verified; the five lab applications and their business/history tables are absent. The lab is ready for A. When restarting from cleanup, follow every infrastructure and onboarding chapter below before A. The earlier A–H rehearsal remains historical evidence.
 - This walkthrough now starts with explicit prerequisite checking, Podman host preparation, complete lab cleanup and fresh database/APEX/ORDS installation.
 - Cleanup destroys **all database state in this lab**, including A/B/C, qualification, TEST, entries, settings, greeting history and database control receipts. Host credentials, tools, reviewed source/release archives and historical evidence remain available; unrelated Podman resources are preserved.
-- Infrastructure installation ends with isolated **empty** application areas. No lab application or business history is installed at that point.
+- Infrastructure installation ends with **only Oracle Database/APEX/ORDS**. It creates no E1_CTRL, developer/target schemas, project workspaces or developer accounts. Project control and named-area provisioning follow separately.
 - A–C install the reviewed Foundation, Hello and complete World snapshots. A/B remain unavailable while incomplete; C starts at **1.0.0**.
 - D/E execute real qualification and promotion of the **same initial artifact** in this cycle. F qualifies Hello **1.0.1** both fresh and over 1.0.0, then upgrades TEST with those identical bytes, preserving only the data created during this cycle.
 - G/H demonstrate the selected rejections and explicit controlled page restoration. Rehearsal uses clearly identified NEW runtime test examples and skips human browser viewing.
@@ -108,7 +112,7 @@ The [current verification evidence](sprint_E.1_tests.md) supports development, r
    ```
 
 2. Follow **Prerequisites and infrastructure precheck**, then **Initialize the Podman host** below.
-3. Follow **Prepare a repeatable walkthrough** to destroy the current lab, then **Install the fresh database and APEX**. Wait for each PASS before continuing.
+3. Follow **Prepare a repeatable walkthrough** to destroy the current lab, then **Install the fresh database and APEX**. Complete the separate project control, named-area provisioning, developer configuration and readiness chapters. Wait for each PASS before continuing.
 4. Start **A — Foundation**:
 
    ```bash
@@ -126,7 +130,7 @@ The [current verification evidence](sprint_E.1_tests.md) supports development, r
 
 ## Run one chapter at a time
 
-1. Complete the infrastructure sequence below once for the new cycle.
+1. Complete infrastructure installation, then explicit project control, named-area provisioning, developer configuration and readiness below once for this cycle.
 2. Execute A–H in order. Each chapter contains its exact command, actual operation output, expected outcome and runtime URL.
 3. Each script stops on errors. Do not advance after a failed or interrupted attempt; retain its transcript and inspect ownership/partial state. Full cleanup is a separate deliberate restart of the demonstration, not deployment repair.
 
@@ -139,7 +143,7 @@ The [current verification evidence](sprint_E.1_tests.md) supports development, r
 - G: `bash scripts/cicd-walkthrough-G_incompatible_upgrade.sh`
 - H: `bash scripts/cicd-walkthrough-H_drift.sh`
 
-The optional launcher calls those same scripts in order **after** fresh infrastructure installation:
+The optional launcher calls those same scripts in order **after** infrastructure and project onboarding:
 
 ```bash
 bash scripts/cicd-walkthrough.sh
@@ -205,12 +209,108 @@ bash scripts/cicd-walkthrough-apex-init.sh
 3. Copy and extract the verified APEX archive. Install in **FREEPDB1**, then configure the APEX administrator and REST gateway users. Full installer output is in `.local-apex/apex-install.log`; follow it from another terminal with `tail -f .local-apex/apex-install.log`.
 4. Install ORDS and matching static assets. Keep `.local-apex/ords-install.log`; wait for the HTTP endpoint.
 5. Verify database/APEX validity, host-port connectivity, APEX login and matching assets using `bash scripts/apex-verify.sh`.
-6. Provision the five declared empty schemas/workspaces, saved connections and users; install the separate control authority. Check effective identities and cross-area isolation.
-7. Verify applications **810001–810005 are absent**. Wait for **PASS APEX init**, then start A.
+6. Wait for **PASS APEX init**: vanilla Oracle infrastructure only, with no project-specific checks or configuration. The separate verification test confirms zero project schemas/workspaces.
+7. Continue to the separate **Initialize project delivery control** chapter. Do not run A yet.
 
-- No Foundation/Hello/World application or greeting history is preloaded. Application construction belongs to A–C, with qualification/promotion in D–F.
+- This script cannot call project provisioning or create user-level project schemas. Only required Oracle/APEX/ORDS system accounts are installed. Application construction belongs to A–C after explicit onboarding, with qualification/promotion in D–F.
 - If installation fails, inspect its log. Do not blindly rerun APEX installation over partial data. Use the separate scoped cleanup when deliberately restarting from scratch.
 - Each native command is expanded in [deploy.md sections 5–9](../../docs/deploy.md#5-create-the-network-volumes-and-database--fresh-setup-only).
+
+## Initialize project delivery control
+
+**Actor: project/platform operator**, with the lab administrator credential. This is project setup, separate from Oracle infrastructure.
+
+```bash
+bash scripts/cicd-control-init.sh
+```
+
+1. Create/check **E1_CTRL only**, with its protected operator SQLcl connection.
+2. Install ownership and release-control packages. No developer or deployment-target schemas/workspaces/accounts are created. Per-area grants are deferred until the selected area is provisioned.
+3. Wait for **PASS project control**, then provision the named areas below.
+
+## Provision each assigned area
+
+**Actor: privileged provisioning operator.** Each invocation creates/checks exactly one declared schema, workspace, workspace accounts, delivery-interface grants and central automation connection. It does not install applications or business data.
+
+1. Provision A's private area:
+
+   ```bash
+   bash scripts/cicd-area-provision.sh lab-dev
+   ```
+
+2. Provision B's private area:
+
+   ```bash
+   bash scripts/cicd-area-provision.sh lab-dev-b
+   ```
+
+3. Provision C's private area:
+
+   ```bash
+   bash scripts/cicd-area-provision.sh lab-dev-c
+   ```
+
+4. Provision disposable qualification:
+
+   ```bash
+   bash scripts/cicd-area-provision.sh lab-qualify
+   ```
+
+5. Provision retained TEST:
+
+   ```bash
+   bash scripts/cicd-area-provision.sh lab-test
+   ```
+
+- Wait for each **PASS assigned area**. A command naming A never creates/changes B or C's accounts, nor qualification/TEST.
+- Give each developer only their assigned schema password and App Builder login. The operator can retrieve a specific schema password with `python3 scripts/cicd-password.py E1_DEV_A` (or E1_DEV_B/E1_DEV_C). Do not give developers the administrator credential store.
+- The shared central automation connections belong to the operator's lab runner. Developers configure their own profiles in the next chapter.
+
+## Configure each developer environment
+
+**Actor: the assigned developer.** These commands perform no schema/workspace creation and never open the administrator credential files.
+
+1. Developer A runs:
+
+   ```bash
+   bash scripts/cicd-developer-init.sh A
+   ```
+
+2. Developer B runs:
+
+   ```bash
+   bash scripts/cicd-developer-init.sh B
+   ```
+
+3. Developer C runs:
+
+   ```bash
+   bash scripts/cicd-developer-init.sh C
+   ```
+
+4. Enter only the assigned **schema password**, hidden at the prompt. For A this is E1_DEV_A's password; DEV_A is the separate App Builder account.
+5. The command verifies the effective schema/workspace and saves only that developer's connection in `.local-apex/developers/A/sqlcl-home` (or B/C). It prints **PASS developer** and the exact environment command.
+6. In A's own Bash terminal, select that private profile and connect:
+
+   ```bash
+   source .local-apex/developers/A/environment.sh
+   sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev
+   ```
+
+- B/C use their corresponding environment file and lab-dev-b/lab-dev-c connection. The setup needs no SYS connection or privileged files. `--password-stdin` is available for controlled automated verification; passwords are never command-line arguments.
+- This lab demonstrates separate roles/profiles under one host account; it does not claim OS-account isolation. Regular delivery walkthrough scripts use the operator's central automation store.
+
+## Check project readiness before A
+
+**Actor: walkthrough operator**, after the explicit provisioning steps.
+
+```bash
+bash scripts/cicd-walkthrough-ready.sh
+```
+
+1. Check each area's actual identity and real cross-area read/write denial. Isolation probes are test objects, not business data.
+2. Verify no lab applications/business tables or earlier control events/attempts exist and all release targets are new at epoch zero.
+3. Initialize the fresh walkthrough cycle marker. Wait for **PASS walkthrough ready**, then run A.
 
 ## A. Deliver Foundation
 

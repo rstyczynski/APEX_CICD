@@ -187,7 +187,6 @@ create or replace package body e1_release as
   end;
 end;
 /
-grant execute on e1_release to E1_QUALIFY, E1_TEST, E1_DEV_A, E1_DEV_B, E1_DEV_C;
 select name,type,line,text from user_errors where name='E1_RELEASE';
 declare n number;
 begin

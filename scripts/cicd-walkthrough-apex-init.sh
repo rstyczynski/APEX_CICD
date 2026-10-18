@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# docs/deploy.md sections 4–9: fresh database, APEX, ORDS, empty application areas.
+# docs/deploy.md sections 4–9: database/APEX/ORDS only; no project/user-area provisioning.
 set -Eeuo pipefail
 ROOT="$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --show-toplevel)"
 cd "$ROOT"
@@ -28,13 +28,5 @@ bash scripts/apex-configure.sh
 bash scripts/apex-ords-install.sh > .local-apex/ords-install.log 2>&1
 bash scripts/apex-start.sh
 bash scripts/apex-verify.sh
-python3 scripts/cicd-platform.py bootstrap
-python3 scripts/apex_sql.py lab-control deploy/control.sql
-python3 scripts/apex_sql.py lab-control deploy/release_control.sql
-python3 scripts/cicd-platform.py check
-# Probe rows are explicit infrastructure isolation tests, not greeting/business data.
-python3 scripts/cicd-platform.py isolation
-python3 scripts/cicd-platform.py check-empty
-mkdir -p .local-apex/walkthrough
-mkdir .local-apex/walkthrough/current
-echo 'PASS APEX init: fresh verified runtime, isolated empty areas and control authority. No lab application or greeting history installed. Ready for A.'
+echo 'PASS APEX init: database/APEX/ORDS only. No project schemas, workspaces, developer accounts or application areas created.'
+echo 'NEXT: initialize project control, provision named areas and configure each developer separately; see the walkthrough.'

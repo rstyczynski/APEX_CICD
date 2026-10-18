@@ -1,0 +1,276 @@
+E.1 infrastructure/onboarding boundary verification — 2026-10-18
+
+Fresh scoped cleanup and infrastructure installation completed successfully.
+Infrastructure terminal output:
+ORDS landing: HTTP 200
+APEX login: HTTP 200
+Oracle APEX Version: 24.2
+Database SQL, ORDS, APEX sign-in and static version checks passed.
+PASS APEX init: database/APEX/ORDS only. No project schemas, workspaces,
+developer accounts or application areas created.
+
+Separate native assertion BEFORE project setup:
+podman --connection apex-cicd exec -i apex-db sqlplus -s / as sysdba < deploy/operator/infrastructure_only.sql
+Exit 0. PASS infrastructure only: zero project schemas and workspaces.
+This project-specific test is not called by the generic installer.
+
+Control command: bash scripts/cicd-control-init.sh
+Exit 0; ownership and release packages compile with no area users present.
+
+One-area assertion and developer setup transcript follows. Passwords were
+provided on private stdin by the operator test harness; child setup receives
+only the assigned schema password, not administrator stores. SQLcl masks its
+connection password. A-only dictionary assertion checks total project-user
+count=2 and workspace count=1; the subsequent real A identity verifies the
+assigned schema/workspace. Policy tests separately verify selected-only SQL.
+
+
+
+PASS after A provisioning: only E1_CTRL/E1_DEV_A and A workspace exist.
+Name: lab-dev
+Connect String: //127.0.0.1:1521/FREEPDB1
+User: E1_DEV_A
+Password: ******
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_A","FREEPDB1"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_A","E1_DEV_A"
+
+Target identity verified.
+
+
+PL/SQL procedure successfully completed.
+
+DEVELOPER_PROFILE_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+PASS developer A: only lab-dev configured in a private profile; no schema/workspace creation.
+Next in your terminal: source .local-apex/developers/A/environment.sh
+
+OPERATOR PROVISIONING: only lab-dev-b schema, workspace, workspace accounts, delivery grants and automation connection.
+Provisioned ONLY lab-dev-b: E1_DEV_B / E1_DEV_B
+Granted only this area its delivery interfaces; other areas unchanged.
+OPERATION identity: lab-dev-b as E1_DEV_B
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_B","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_B","E1_DEV_B"
+PASS identity: lab-dev-b
+PASS assigned area: lab-dev-b. No applications/migrations/business data installed.
+
+Name: lab-dev-b
+Connect String: //127.0.0.1:1521/FREEPDB1
+User: E1_DEV_B
+Password: ******
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_B","FREEPDB1"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_B","E1_DEV_B"
+
+Target identity verified.
+
+
+PL/SQL procedure successfully completed.
+
+DEVELOPER_PROFILE_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+PASS developer B: only lab-dev-b configured in a private profile; no schema/workspace creation.
+Next in your terminal: source .local-apex/developers/B/environment.sh
+
+OPERATOR PROVISIONING: only lab-dev-c schema, workspace, workspace accounts, delivery grants and automation connection.
+Provisioned ONLY lab-dev-c: E1_DEV_C / E1_DEV_C
+Granted only this area its delivery interfaces; other areas unchanged.
+OPERATION identity: lab-dev-c as E1_DEV_C
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_C","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_C","E1_DEV_C"
+PASS identity: lab-dev-c
+PASS assigned area: lab-dev-c. No applications/migrations/business data installed.
+
+Name: lab-dev-c
+Connect String: //127.0.0.1:1521/FREEPDB1
+User: E1_DEV_C
+Password: ******
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_C","FREEPDB1"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_C","E1_DEV_C"
+
+Target identity verified.
+
+
+PL/SQL procedure successfully completed.
+
+DEVELOPER_PROFILE_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+PASS developer C: only lab-dev-c configured in a private profile; no schema/workspace creation.
+Next in your terminal: source .local-apex/developers/C/environment.sh
+
+OPERATOR PROVISIONING: only lab-qualify schema, workspace, workspace accounts, delivery grants and automation connection.
+Provisioned ONLY lab-qualify: E1_QUALIFY / E1_QUALIFY
+Granted only this area its delivery interfaces; other areas unchanged.
+OPERATION identity: lab-qualify as E1_QUALIFY
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_QUALIFY","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_QUALIFY","E1_QUALIFY"
+PASS identity: lab-qualify
+PASS assigned area: lab-qualify. No applications/migrations/business data installed.
+
+OPERATOR PROVISIONING: only lab-test schema, workspace, workspace accounts, delivery grants and automation connection.
+Provisioned ONLY lab-test: E1_TEST / E1_TEST
+Granted only this area its delivery interfaces; other areas unchanged.
+OPERATION identity: lab-test as E1_TEST
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_TEST","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_TEST","E1_TEST"
+PASS identity: lab-test
+PASS assigned area: lab-test. No applications/migrations/business data installed.
+
+PASS all named areas and three private developer profiles configured separately.
+
+Qualification-only reset and readiness transcript (exit 0):
+Provisioned ONLY lab-qualify: E1_QUALIFY / E1_QUALIFY
+Granted only this area its delivery interfaces; other areas unchanged.
+Disposable qualification area recreated; other areas retained.
+OPERATION identity: lab-dev as E1_DEV_A
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_A","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_A","E1_DEV_A"
+PASS identity: lab-dev
+OPERATION identity: lab-dev-b as E1_DEV_B
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_B","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_B","E1_DEV_B"
+PASS identity: lab-dev-b
+OPERATION identity: lab-dev-c as E1_DEV_C
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_C","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_C","E1_DEV_C"
+PASS identity: lab-dev-c
+OPERATION identity: lab-qualify as E1_QUALIFY
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_QUALIFY","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_QUALIFY","E1_QUALIFY"
+PASS identity: lab-qualify
+OPERATION identity: lab-test as E1_TEST
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_TEST","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_TEST","E1_TEST"
+PASS identity: lab-test
+OPERATION create-probe: lab-dev as E1_DEV_A
+SQL file: deploy/checks/create_probe.sql
+Created E1_PRIVATE_PROBE in current schema.
+PASS create-probe: lab-dev
+OPERATION create-probe: lab-dev-b as E1_DEV_B
+SQL file: deploy/checks/create_probe.sql
+Created E1_PRIVATE_PROBE in current schema.
+PASS create-probe: lab-dev-b
+OPERATION create-probe: lab-dev-c as E1_DEV_C
+SQL file: deploy/checks/create_probe.sql
+Created E1_PRIVATE_PROBE in current schema.
+PASS create-probe: lab-dev-c
+OPERATION create-probe: lab-qualify as E1_QUALIFY
+SQL file: deploy/checks/create_probe.sql
+Created E1_PRIVATE_PROBE in current schema.
+PASS create-probe: lab-qualify
+OPERATION create-probe: lab-test as E1_TEST
+SQL file: deploy/checks/create_probe.sql
+Created E1_PRIVATE_PROBE in current schema.
+PASS create-probe: lab-test
+OPERATION deny-read: lab-dev as E1_DEV_A
+SQL SELECT COUNT(*) FROM E1_DEV_B.E1_PRIVATE_PROBE;
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_B"."E1_PRIVATE_PROBE" does not exist
+PASS deny-read: lab-dev
+OPERATION deny-write: lab-dev as E1_DEV_A
+SQL INSERT INTO E1_DEV_B.E1_PRIVATE_PROBE VALUES (1);
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_B"."E1_PRIVATE_PROBE" does not exist
+PASS deny-write: lab-dev
+OPERATION deny-read: lab-dev-b as E1_DEV_B
+SQL SELECT COUNT(*) FROM E1_DEV_C.E1_PRIVATE_PROBE;
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_C"."E1_PRIVATE_PROBE" does not exist
+PASS deny-read: lab-dev-b
+OPERATION deny-write: lab-dev-b as E1_DEV_B
+SQL INSERT INTO E1_DEV_C.E1_PRIVATE_PROBE VALUES (1);
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_C"."E1_PRIVATE_PROBE" does not exist
+PASS deny-write: lab-dev-b
+OPERATION deny-read: lab-dev-c as E1_DEV_C
+SQL SELECT COUNT(*) FROM E1_QUALIFY.E1_PRIVATE_PROBE;
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_QUALIFY"."E1_PRIVATE_PROBE" does not exist
+PASS deny-read: lab-dev-c
+OPERATION deny-write: lab-dev-c as E1_DEV_C
+SQL INSERT INTO E1_QUALIFY.E1_PRIVATE_PROBE VALUES (1);
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_QUALIFY"."E1_PRIVATE_PROBE" does not exist
+PASS deny-write: lab-dev-c
+OPERATION deny-read: lab-qualify as E1_QUALIFY
+SQL SELECT COUNT(*) FROM E1_TEST.E1_PRIVATE_PROBE;
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_TEST"."E1_PRIVATE_PROBE" does not exist
+PASS deny-read: lab-qualify
+OPERATION deny-write: lab-qualify as E1_QUALIFY
+SQL INSERT INTO E1_TEST.E1_PRIVATE_PROBE VALUES (1);
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_TEST"."E1_PRIVATE_PROBE" does not exist
+PASS deny-write: lab-qualify
+OPERATION deny-read: lab-test as E1_TEST
+SQL SELECT COUNT(*) FROM E1_DEV_A.E1_PRIVATE_PROBE;
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_A"."E1_PRIVATE_PROBE" does not exist
+PASS deny-read: lab-test
+OPERATION deny-write: lab-test as E1_TEST
+SQL INSERT INTO E1_DEV_A.E1_PRIVATE_PROBE VALUES (1);
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_A"."E1_PRIVATE_PROBE" does not exist
+PASS deny-write: lab-test
+
+PASS fresh authority: no old task/release events; targets new at epoch zero.
+PASS empty inventory: applications 810001–810005 and all business/history tables absent.
+
+
+PASS walkthrough ready: explicit project/area onboarding checked; no applications or business history. Start A.
+PASS qualification-only reset: all non-qualification schema/workspace IDs unchanged.
+
+
+
+Local regression: bash tests/run.sh --unit --new-only tests/manifests/walkthrough_lifecycle.manifest
+2 registered tests, zero failures (4 cleanup-policy and 5 onboarding-policy cases).
+Bash/Python syntax passes. Pinned initial/patch controllers byte-identical to HEAD.
+Document checker: 33 documents, 292 links/anchors before evidence links were added;
+final check recorded in the documentation audit.
+
+Delivered state: separate onboarding completed; five empty application areas,
+no business/history tables, control events/attempts zero, targets new/epoch zero.
+Explicit isolation probes exist after the readiness test. Ready for A.
+No new application release, browser acceptance, concurrency/fencing/repair proof,
+or OS-account isolation is claimed. Earlier A–H evidence remains historical;
+A–H was not rerun for this setup-responsibility increment.

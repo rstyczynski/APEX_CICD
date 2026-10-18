@@ -53,13 +53,13 @@ This is the entry point before the [A–H application walkthrough](../progress/E
    bash scripts/cicd-walkthrough-cleanup.sh
    ```
 
-5. **Install** the fresh database, APEX/ORDS and isolated empty areas using sections 5–9. Existing containers/volumes cause refusal; do not install over partial data:
+5. **Install** the fresh database and APEX/ORDS only using sections 5–8. Existing containers/volumes cause refusal; do not install over partial data:
 
    ```bash
    bash scripts/cicd-walkthrough-apex-init.sh
    ```
 
-6. Wait for **PASS APEX init**, including database validity, matching web/static assets, all area identities, isolation and absent application IDs. Then follow A–H: the application scripts now construct/deploy the reviewed source in this fresh cycle.
+6. Wait for **PASS APEX init**, including database validity and matching web/static assets. The separate boundary test confirms **zero project schemas/workspaces**; it is not project configuration inside the installer. Then follow [separate project control and onboarding](../progress/E.1/cicd-walkthrough.md#initialize-project-delivery-control): control initialization, one-area provisioning, each developer's private configuration and project readiness. Only then start A–H.
 7. To **destroy** the demonstration afterward, use the same scoped cleanup operation. To repeat, run precheck, host preparation, cleanup and fresh installation again. Never substitute a global prune or system reset.
 
 - Credentials, local tools/installers, reviewed archives and historical host evidence remain. They contain no restored business history. Stale preservation/drift journals are moved out of the active cycle.
@@ -410,20 +410,16 @@ podman --connection apex-cicd volume create apex-images
 
 ## 9. Provisioning boundary for application areas
 
-- The infrastructure above provides the database, APEX instance and web gateway.
-- E.1's application-area mapping is in [areas.json](../config/areas.json): E1_CTRL for coordination, E1_DEV_A/B/C for private developers, E1_QUALIFY for disposable qualification and E1_TEST for retained TEST.
-- All use FREEPDB1.
-- Each application area has its own schema and workspace; qualification and TEST have runtime accounts without App Builder privileges.
+Infrastructure installation stops at a working Oracle Database/APEX/ORDS runtime. `cicd-walkthrough-apex-init.sh` must not create **any project schemas**, workspaces, developer accounts or delivery-control tables. Project-specific verification is an external test, not part of the generic installer. It checks that all six E1 schemas and five project workspaces are absent after installation.
 
-- Those areas already exist in the current runtime.
-- Their initial automated bootstrap has been executed, but its decomposition into individually runnable schema, grant, workspace, account and saved-connection operations remains under construction.
-- Do not confuse that helper's successful bootstrap with a completed operator provisioning procedure.
-- A rebuilt empty database will require those steps again before application construction or release.
-- Preserve .local-apex/e1-secrets.json and the area inventory; they are not stored inside the VM.
+1. **Project operator:** `bash scripts/cicd-control-init.sh` creates only E1_CTRL and installs control packages. There are no grants to not-yet-provisioned areas.
+2. **Privileged provisioning operator:** `bash scripts/cicd-area-provision.sh TARGET` provisions exactly one of lab-dev, lab-dev-b, lab-dev-c, lab-qualify or lab-test, using [areas.json](../config/areas.json). It creates that schema/workspace/accounts, grants its delivery interfaces and saves its central operator automation connection. Other areas remain unchanged.
+3. **Each developer:** `bash scripts/cicd-developer-init.sh A` (or B/C) prompts only for their assigned schema password, checks identity/workspace and writes a private SQLcl connection profile. No SYS credential, project DDL or administrator secret-store access is used.
+4. **Walkthrough operator:** `bash scripts/cicd-walkthrough-ready.sh` checks identities/isolation and the empty fresh state, then enables entry to A. This is separate from infrastructure initialization.
 
-- The control package and application migrations are separate delivery stages.
-- Provisioning the VM does not install Foundation/Hello/World, create a completed application or restore retained history.
-- Current E.1 construction status and remaining operator operations are maintained in the [construction document](../progress/E.1/sprint_E.1_implementation.md).
+The [onboarding walkthrough](../progress/E.1/cicd-walkthrough.md#provision-each-assigned-area) supplies the exact commands, actors, password distinctions and expected outcomes. The operator's protected .local-apex/e1-secrets.json remains separate from developer connection profiles. Normal developer setup never runs the privileged provisioning helper. This single-host lab's role separation does not establish separate OS-user security boundaries.
+
+Qualification reset reprovisions **only lab-qualify** and restores only its grants. It must not silently rerun every developer/target's onboarding. Reapplying control packages preserves existing grants; target-specific grants belong to area provisioning. Infrastructure lifecycle, project control, developer onboarding and application migrations are distinct operations.
 
 ## 10. Stop and restart without deleting data
 
@@ -570,7 +566,7 @@ The requested fresh walkthrough discards all lab data. `bash scripts/cicd-walkth
 
 ## Repeatable application demonstrations
 
-1. For a **fresh-start demonstration**, use the explicit infrastructure sequence near the top of this document, then the [A–H guide](../progress/E.1/cicd-walkthrough.md). Cleanup deletes every lab application and greeting history; installation creates only empty areas before A.
+1. For a **fresh-start demonstration**, use the explicit infrastructure sequence near the top of this document, then the [A–H guide](../progress/E.1/cicd-walkthrough.md). Cleanup deletes every lab application and greeting history; infrastructure installation creates no project areas; explicit onboarding creates the empty areas before A.
 2. For **settings-only preparation of an existing C application**, use `bash scripts/cicd-demo-defaults.sh`. This is the former nondestructive preparation operation: it restores Hello/World defaults, backs up configuration and preserves every existing history row. It does not prepare a fresh run.
 3. For a **normal retained deployment/upgrade**, do not run fresh-start cleanup. Use the operator release stages and preserve data as required.
 
@@ -601,8 +597,8 @@ The requested fresh walkthrough discards all lab data. `bash scripts/cicd-walkth
    ```
 
 3. If an initial experiment failed, inspect its attempt and transcripts first. Only the bound `E1_CTRL.e1_release.retire_disposable_qualification(epoch,hash,reason)` procedure may retire its active qualification attempt. It retains failure/history. There is no automatic TEST retirement or recovery.
-4. Only when a new empty qualification area is required, run `python3 scripts/cicd-platform.py reset-qualify`. This checks the local ownership receipt, removes E1_QUALIFY through public APEX_INSTANCE_ADMIN and bootstraps its schema/workspace. Other areas are checked, not dropped. The reset helper does not itself acquire deployment ownership; the explicit idle check and operator sequencing are required.
-5. Unpack the selected verified release with `python3 scripts/cicd-artifact.py unpack "$archive" .local-apex/releases/control-bootstrap-new` using a fresh destination. Execute its `deploy/release_control.sql` with `python3 scripts/apex_sql.py lab-control .local-apex/releases/control-bootstrap-new/deploy/release_control.sql`. Reapply it after a qualification reset to restore the schema's package grant. Existing control records/epochs remain retained.
+4. Only when a new empty qualification area is required, run `python3 scripts/cicd-platform.py reset-qualify`. This checks the local ownership receipt, removes E1_QUALIFY through public APEX_INSTANCE_ADMIN and reprovisions only that schema/workspace, its accounts and grants. Other areas are not reprovisioned. The reset helper does not itself acquire deployment ownership; the explicit idle check and operator sequencing are required.
+5. Project control is installed separately with `bash scripts/cicd-control-init.sh`. Qualification reset restores only the new qualification schema's grants through its targeted provisioning operation; no global package/grant bootstrap is needed. Existing control records/epochs remain retained.
 6. Continue with the [initial-release operator chapter](../progress/E.1/user_manual.md#initial-release-build-qualify-and-promote). A normal rerun verifies the already qualified result. The current control package also supports an explicitly requested initial reconstruction for patch-baseline qualification: it retains the first qualification receipt and records the reconstruction under a new attempt epoch.
 
 - This procedure preserves retained TEST, credentials, release history and unrelated Podman resources. It does not recreate the VM or containers.

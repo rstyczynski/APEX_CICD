@@ -329,7 +329,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev @deploy/o
 - The pipeline-stage list at the end tracks what works and what remains under construction.
 
 - For another area's inventory, connect with lab-dev-b, lab-dev-c, lab-qualify or lab-test and run the same application_inventory.sql.
-- After fresh infrastructure installation, all five lab applications are absent. After B, B contains Foundation plus Hello; after C, C contains the published complete 1.0.0 development assembly; after F, qualification and TEST contain Hello 1.0.1 over Foundation/World 1.0.0.
+- After infrastructure installation there are no project schemas/workspaces. Explicit project/area onboarding follows; after readiness, all five lab applications remain absent. After B, B contains Foundation plus Hello; after C, C contains the published complete 1.0.0 development assembly; after F, qualification and TEST contain Hello 1.0.1 over Foundation/World 1.0.0.
 - Foundation is installed in A/B/C, qualification and TEST.
 
 ## Developer A — Foundation
@@ -484,7 +484,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
 - The selected pipeline consists of the following distinct stages.
 - Only the operations marked working have been executed successfully so far; later commands are added here when implemented rather than presented as working examples prematurely.
 
-1. **Prepare and identify the area — working.** Provision its schema/grants, workspace association, developer/runtime users and saved connection; inspect actual identity before writes. The command/API breakdown for provisioning is being separated from the original combined helper.
+1. **Prepare and identify the area — working.** Provision its schema/grants, workspace association, developer/runtime users and saved connection; inspect actual identity before writes. The [onboarding chapters](cicd-walkthrough.md#provision-each-assigned-area) separate privileged one-area provisioning from developer-side private connection setup.
 2. **Reserve the component — working for Foundation.** The control package records owner, task, Git base and generation before managed work. It lives in E1_CTRL outside application migrations. A's initial reservation is released; inspection does not acquire ownership. General acquisition/release examples will accompany the completed task handover.
 3. **Author Foundation — working initial assembly.** Liquibase validates db/changelog.xml, applies 001-foundation, then assertions check Foundation 1.0.0, absent Hello/World and root maintenance. deploy/foundation.sql records the bounded initial construction operation with its ownership token. That task is now closed: do not replay it as a general release installer.
 4. **Capture and review — initial capture working.** SQLcl exports the application to staging; source is reviewed in Git. Repeated unchanged capture matches all 38 files. The reusable ownership/scope-aware capture command and private-copy normalization are still being completed.
@@ -548,7 +548,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
    ```
 
 3. Cleanup **destroys all lab applications, entries, configuration, greeting history and control receipts**, including TEST. It keeps the named VM, host credentials/tools/source archives and unrelated Podman resources. This deliberate fresh-demo reset is separate from normal data-preserving deployments.
-4. After **PASS APEX init**, start `bash scripts/cicd-walkthrough-A_foundation.sh`. Follow B–H using their own commands in [the main guide](cicd-walkthrough.md). Those stages install/deploy new applications and qualify/promote artifacts in this cycle.
+4. After **PASS APEX init**, complete [project control, per-area provisioning, developer configuration and readiness](cicd-walkthrough.md#initialize-project-delivery-control), then start `bash scripts/cicd-walkthrough-A_foundation.sh`. Follow B–H using their own commands in [the main guide](cicd-walkthrough.md). Those stages install/deploy new applications and qualify/promote artifacts in this cycle.
 5. If you only want to restore defaults in an existing C application **without deleting history**, use the separately named `bash scripts/cicd-demo-defaults.sh`. Its private evidence retains restore-defaults.sql and before/after history hashes. It is not fresh-start cleanup.
 
 - Do not run A–H after cleanup alone: complete database/APEX installation first.

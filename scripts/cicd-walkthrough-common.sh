@@ -65,7 +65,7 @@ prepare_stage() {
 
 # Construction helpers: small explicit commands; source is immutable, state stays in the cycle.
 new_stage_source() {
-  test -d "$ROOT/.local-apex/walkthrough/current" || { echo 'ERROR: run the documented fresh infrastructure sequence first.' >&2; exit 1; }
+  test -d "$ROOT/.local-apex/walkthrough/current" || { echo 'ERROR: complete infrastructure installation and explicit project/area onboarding/readiness first.' >&2; exit 1; }
   stage_source="$ROOT/.local-apex/walkthrough/current/$1"
   mkdir "$stage_source" || { echo 'ERROR: this stage was already attempted. Inspect it; cleanup is a separate explicit operation.' >&2; exit 1; }
 }

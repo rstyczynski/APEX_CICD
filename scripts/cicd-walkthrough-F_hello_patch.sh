@@ -7,11 +7,9 @@ archive="$(cat .local-apex/releases/patch-selected.txt)"
 python3 scripts/cicd-artifact.py inspect "$archive"
 pause 'Press any key to recreate ONLY disposable qualification for fresh patch qualification; q to quit.'
 python3 scripts/cicd-platform.py reset-qualify
-python3 scripts/apex_sql.py lab-control deploy/release_control.sql
 patch_install lab-qualify E1_QUALIFY 810004 empty
 pause 'Press any key to recreate ONLY qualification and reconstruct the initial upgrade baseline; q to quit.'
 python3 scripts/cicd-platform.py reset-qualify
-python3 scripts/apex_sql.py lab-control deploy/release_control.sql
 archive="$(cat .local-apex/releases/initial-selected.txt)"
 initial_install lab-qualify E1_QUALIFY 810004 sentinels
 python3 scripts/cicd-preservation.py capture lab-qualify .local-apex/releases/qualification-initial-preservation.json

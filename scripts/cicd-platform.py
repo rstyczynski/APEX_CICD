@@ -12,7 +12,7 @@ from apex_sql import LOCAL, ROOT, run
 CONFIG = json.loads((ROOT / 'config/areas.json').read_text())
 
 
-def bootstrap():
+def owned_inventory():
     users = [CONFIG['control_schema']] + [a['schema'] for a in CONFIG['areas'].values()]
     receipt = LOCAL / 'e1-owned.json'
     if receipt.exists():
@@ -31,54 +31,80 @@ def bootstrap():
         end;
         /""", admin=True)
         receipt.write_text(json.dumps(CONFIG, indent=2) + '\n')
+
+
+def credentials(keys):
     path = LOCAL / 'e1-secrets.json'
     private = json.loads(path.read_text()) if path.exists() else {}
-    for key in users + ['DEV_A', 'DEV_B', 'DEV_C', 'LAB_USER', 'VERIFIER']:
+    for key in keys:
         private.setdefault(key, 'Ee1_' + random_secrets.token_hex(18))
     fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
     with os.fdopen(fd, 'w') as f:
         json.dump(private, f)
-    for user in users:
-        run(f"""declare n number; begin
-          select count(*) into n from dba_users where username='{user}';
-          if n=0 then
-            execute immediate 'create user {user} identified by "{private[user]}" default tablespace USERS quota 128M on USERS';
-            execute immediate 'grant create session, create table, create view, create procedure, create sequence, create trigger to {user}';
-          end if;
-        end;
-        /""", admin=True)
-    for index, (name, area) in enumerate(CONFIG['areas'].items()):
-        user = area['schema']
-        developer = ['DEV_A', 'DEV_B', 'DEV_C', None, None][index]
-        create_developer = ''
-        if developer:
-            create_developer = f"""if not apex_util.is_username_unique('{developer}') then null; else
-              apex_util.create_user(p_user_name=>'{developer}',p_web_password=>'{private[developer]}',
-                p_email_address=>'developer@localhost',p_default_schema=>'{user}',
-                p_developer_privs=>'ADMIN:CREATE:DATA_LOADER:EDIT:HELP:MONITOR:SQL',
-                p_change_password_on_first_use=>'N'); end if;"""
-        run(f"""declare n number; begin
-          select count(*) into n from apex_workspaces where workspace='{area['workspace']}';
-          if n=0 then apex_instance_admin.add_workspace(p_workspace=>'{area['workspace']}',p_primary_schema=>'{user}'); end if;
-          apex_util.set_workspace(p_workspace=>'{area['workspace']}');
-          {create_developer}
-          if apex_util.is_username_unique('LAB_USER') then
-            apex_util.create_user(p_user_name=>'LAB_USER',p_web_password=>'{private['LAB_USER']}',
-              p_email_address=>'lab@localhost',p_default_schema=>'{user}',p_developer_privs=>null,
-              p_change_password_on_first_use=>'N',p_allow_app_building_yn=>'N',p_allow_sql_workshop_yn=>'N');
-          end if;
-          if apex_util.is_username_unique('VERIFIER') then
-            apex_util.create_user(p_user_name=>'VERIFIER',p_web_password=>'{private['VERIFIER']}',
-              p_email_address=>'verify@localhost',p_default_schema=>'{user}',p_developer_privs=>null,
-              p_change_password_on_first_use=>'N',p_allow_app_building_yn=>'N',p_allow_sql_workshop_yn=>'N');
-          end if;
-          commit;
-        end;
-        /""", admin=True)
-        run('select user from dual;', save=(name, user, user))
-        print(f'Provisioned {name}: {user} / {area["workspace"]}')
-    run('select user from dual;', save=('lab-control', CONFIG['control_schema'], CONFIG['control_schema']))
+    return private
 
+
+def create_schema(user, private):
+    run(f"""declare n number; begin
+      select count(*) into n from dba_users where username='{user}';
+      if n=0 then
+        execute immediate 'create user {user} identified by "{private[user]}" default tablespace USERS quota 128M on USERS';
+        execute immediate 'grant create session, create table, create view, create procedure, create sequence, create trigger to {user}';
+      end if;
+    end;
+    /""", admin=True)
+
+
+def control_identity():
+    owned_inventory()
+    user=CONFIG['control_schema']
+    private=credentials([user])
+    create_schema(user,private)
+    run('select user from dual;',save=('lab-control',user,user))
+    print('Provisioned control identity only: '+user)
+
+
+def provision(name):
+    if name not in CONFIG['areas']: raise ValueError('Select one declared area')
+    owned_inventory()
+    run("declare n number; begin select count(*) into n from dba_objects where owner='E1_CTRL' and object_name in ('E1_OWNERSHIP','E1_RELEASE') and object_type='PACKAGE BODY' and status='VALID'; if n<>2 then raise_application_error(-20810,'Initialize project control first'); end if; end;\n/",admin=True)
+    area=CONFIG['areas'][name]
+    developer={'lab-dev':'DEV_A','lab-dev-b':'DEV_B','lab-dev-c':'DEV_C'}.get(name)
+    keys=[area['schema'],'LAB_USER','VERIFIER']+([developer] if developer else [])
+    private=credentials(keys)
+    create_schema(area['schema'],private)
+    user = area['schema']
+    create_developer = ''
+    if developer:
+        create_developer = f"""if not apex_util.is_username_unique('{developer}') then null; else
+          apex_util.create_user(p_user_name=>'{developer}',p_web_password=>'{private[developer]}',
+            p_email_address=>'developer@localhost',p_default_schema=>'{user}',
+            p_developer_privs=>'ADMIN:CREATE:DATA_LOADER:EDIT:HELP:MONITOR:SQL',
+            p_change_password_on_first_use=>'N'); end if;"""
+    run(f"""declare n number; begin
+      select count(*) into n from apex_workspaces where workspace='{area['workspace']}';
+      if n=0 then apex_instance_admin.add_workspace(p_workspace=>'{area['workspace']}',p_primary_schema=>'{user}'); end if;
+      apex_util.set_workspace(p_workspace=>'{area['workspace']}');
+      {create_developer}
+      if apex_util.is_username_unique('LAB_USER') then
+        apex_util.create_user(p_user_name=>'LAB_USER',p_web_password=>'{private['LAB_USER']}',
+          p_email_address=>'lab@localhost',p_default_schema=>'{user}',p_developer_privs=>null,
+          p_change_password_on_first_use=>'N',p_allow_app_building_yn=>'N',p_allow_sql_workshop_yn=>'N');
+      end if;
+      if apex_util.is_username_unique('VERIFIER') then
+        apex_util.create_user(p_user_name=>'VERIFIER',p_web_password=>'{private['VERIFIER']}',
+          p_email_address=>'verify@localhost',p_default_schema=>'{user}',p_developer_privs=>null,
+          p_change_password_on_first_use=>'N',p_allow_app_building_yn=>'N',p_allow_sql_workshop_yn=>'N');
+      end if;
+      commit;
+    end;
+    /""", admin=True)
+    run('select user from dual;', save=(name, user, user))
+    print(f'Provisioned ONLY {name}: {user} / {area["workspace"]}')
+    grants=f"grant execute on E1_CTRL.e1_release to {user};\n"
+    if developer: grants+=f"grant execute on E1_CTRL.e1_ownership to {user};\n"
+    run(grants,admin=True)
+    print('Granted only this area its delivery interfaces; other areas unchanged.')
 
 def check():
     for name in CONFIG['areas']:
@@ -99,7 +125,7 @@ def reset_qualification():
       apex_instance_admin.remove_workspace(p_workspace=>'{area['workspace']}',p_drop_users=>'Y',p_drop_tablespaces=>'N');
     end;
     /""", admin=True)
-    bootstrap()
+    provision('lab-qualify')
     print('Disposable qualification area recreated; other areas retained.')
 
 
@@ -128,8 +154,10 @@ def preservation_check():
 
 if __name__ == '__main__':
     try:
-        if sys.argv[1:] == ['bootstrap']:
-            bootstrap()
+        if sys.argv[1:] == ['control-identity']:
+            control_identity()
+        elif len(sys.argv)==3 and sys.argv[1]=='provision':
+            provision(sys.argv[2])
         elif sys.argv[1:] == ['check-empty']:
             print(run((ROOT/'deploy/operator/walkthrough_empty.sql').read_text(),admin=True))
         elif sys.argv[1:] == ['check']:
@@ -141,7 +169,7 @@ if __name__ == '__main__':
         elif sys.argv[1:] == ['preservation-check']:
             preservation_check()
         else:
-            raise ValueError('Usage: cicd-platform.py bootstrap|check|check-empty|isolation|reset-qualify|preservation-check')
+            raise ValueError('Usage: cicd-platform.py control-identity|provision TARGET|check|check-empty|isolation|reset-qualify|preservation-check')
     except (ValueError, RuntimeError, subprocess.CalledProcessError) as exc:
         print(exc, file=sys.stderr)
         sys.exit(1)

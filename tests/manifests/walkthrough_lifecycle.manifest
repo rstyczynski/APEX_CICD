@@ -1,2 +1,3 @@
 unit:test_lifecycle.sh:test_lab_cleanup_boundary
 integration:test_release.sh:test_IT2_patch
+unit:test_lifecycle.sh:test_onboarding_boundaries
