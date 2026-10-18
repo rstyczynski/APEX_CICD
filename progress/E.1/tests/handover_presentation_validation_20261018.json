@@ -1,15 +1,15 @@
 {
   "schemaVersion": "presentation-finalization.v1",
-  "finalSha256": "5e2ae6b85365c618bef5667fb98714132e4b8af21b26899ef1b7460dc008eb51",
-  "byteCount": 92566,
+  "finalSha256": "71b3723da316d29222198242f84bc3de06f317d0d2ab16249096e73a26cab8c2",
+  "byteCount": 96144,
   "packageIntegrity": {
     "chart_count": 0,
     "claim_boundary": "Structural package checks only; no slide text, notes, formulas, chart values, or native PowerPoint execution were inspected.",
     "finding_count": 0,
     "findings": [],
-    "notes_parts_skipped": 23,
-    "relationship_part_count": 56,
-    "slide_count": 23,
+    "notes_parts_skipped": 24,
+    "relationship_part_count": 58,
+    "slide_count": 24,
     "status": "pass",
     "exitCode": 0,
     "findingCount": 0,
@@ -19,18 +19,18 @@
     "finding_count": 0,
     "findings": [],
     "font_policy": {
-      "checked_text_script_count": 208,
+      "checked_text_script_count": 216,
       "native_font_rendering_verified": false,
       "observed_font_families": [
         "Arial"
       ],
       "observed_font_use_counts": {
-        "Arial": 208
+        "Arial": 216
       },
       "passed": true,
       "performed": true
     },
-    "slide_count": 23,
+    "slide_count": 24,
     "slide_size_in": [
       13.3333,
       7.5
@@ -40,13 +40,13 @@
     "exitCode": 0,
     "findingCount": 0,
     "fontPolicy": {
-      "checked_text_script_count": 208,
+      "checked_text_script_count": 216,
       "native_font_rendering_verified": false,
       "observed_font_families": [
         "Arial"
       ],
       "observed_font_use_counts": {
-        "Arial": 208
+        "Arial": 216
       },
       "passed": true,
       "performed": true
@@ -60,13 +60,13 @@
     "scriptFonts": {},
     "referenceSha256": null,
     "referenceFontsVerifiedInEncodedText": false,
-    "checked_text_script_count": 208,
+    "checked_text_script_count": 216,
     "native_font_rendering_verified": false,
     "observed_font_families": [
       "Arial"
     ],
     "observed_font_use_counts": {
-      "Arial": 208
+      "Arial": 216
     },
     "passed": true,
     "performed": true
@@ -74,8 +74,8 @@
   "firstPartyImport": {
     "performed": true,
     "passed": true,
-    "slideCount": 23,
-    "sha256": "5e2ae6b85365c618bef5667fb98714132e4b8af21b26899ef1b7460dc008eb51",
+    "slideCount": 24,
+    "sha256": "71b3723da316d29222198242f84bc3de06f317d0d2ab16249096e73a26cab8c2",
     "runtimeNodeModules": "<BUNDLED_RUNTIME_NODE_MODULES>",
     "nodeExecutable": "<BUNDLED_RUNTIME_NODE>"
   },
@@ -93,11 +93,11 @@
     "skipped_tables": [
       {
         "reason": "no_numeric_amounts",
-        "slide": 13,
+        "slide": 14,
         "table": 1
       }
     ],
-    "slide_count": 23,
+    "slide_count": 24,
     "warning_count": 0,
     "warnings": []
   },
@@ -109,9 +109,9 @@
     "native_chart_count": 0,
     "native_powerpoint_verified": false,
     "passed": true,
-    "presentation_sha256": "5e2ae6b85365c618bef5667fb98714132e4b8af21b26899ef1b7460dc008eb51",
+    "presentation_sha256": "71b3723da316d29222198242f84bc3de06f317d0d2ab16249096e73a26cab8c2",
     "schema_version": "presentation-native-chart-titles.v1",
-    "slide_count": 23,
+    "slide_count": 24,
     "source_text_emitted": false,
     "unresolved_linked_title_count": 0
   },
@@ -121,7 +121,7 @@
     "--validate-bullet-geometry",
     "--validate-heading-fit",
     "--require-native-table-slide",
-    "13",
+    "14",
     "--cover-role",
     "none",
     "--approved-font-family",
@@ -137,32 +137,11 @@
   },
   "visualReview": {
     "performed": true,
-    "slidesInspected": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
+    "slidesInspectedThisRevision": [
       7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20,
-      21,
-      22,
-      23
+      14
     ],
-    "method": "Rendered final PNGs inspected individually",
+    "retainedContent": "Earlier 23 slides inspected in handover revision; added interface slide and shifted native table inspected for this revision.",
     "nativePowerPointOpened": false
   }
 }

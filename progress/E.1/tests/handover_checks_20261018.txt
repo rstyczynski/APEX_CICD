@@ -9,8 +9,8 @@ Native/read-only checks executed for this handover:
 5. python3 scripts/cicd-preservation.py compare user_acceptance_test .local-apex/releases/test-initial-preservation.json — PASS (exit 0): all fields of 21 prior history rows, old entries and complete configuration unchanged; new rows may append.
 
 Presentation:
-23 rendered final slides visually inspected. Package integrity and layout/font checks pass with zero findings/warnings; first-party PPTX reimport passes with 23 slides. One native editable version table; native editable diagrams adapted from model.drawio. Not opened in Microsoft PowerPoint.
-PPTX SHA-256: 5e2ae6b85365c618bef5667fb98714132e4b8af21b26899ef1b7460dc008eb51
+24-slide revision: the earlier 23-slide content was visually inspected; the new APEX-interface slide and shifted native table were inspected for this revision. Package integrity and layout/font checks pass with zero findings/warnings; first-party PPTX reimport passes with 24 slides. One native editable version table; native editable diagrams adapted from model.drawio. Not opened in Microsoft PowerPoint.
+PPTX SHA-256: 71b3723da316d29222198242f84bc3de06f317d0d2ab16249096e73a26cab8c2
 Frozen draw.io source SHA-256: 317050eb8f9705de970d64cf1f3f81a1b58a8cdf976ef7239e7c66b2087c0ffe
 The portable JSON receipt and captured logs accompany this record.
 

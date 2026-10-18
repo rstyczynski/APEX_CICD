@@ -80,6 +80,17 @@ body(s,[
  'Bash / Python: explicit operator steps and focused lab checks'
 ],65,165,1140,27,78);
 
+s=slide('APEX interfaces: export, import and fingerprint',['deploy/operator/capture.sql','deploy/operator/import.sql','docs/architecture.md','scripts/cicd-drift-diff.py']);
+body(s,[
+ 'Author: App Builder saves application definitions in a developer area',
+ 'Capture: SQLcl apex export writes split SQL files for Git review',
+ 'Deploy: APEX_APPLICATION_INSTALL maps the target; install.sql imports',
+ 'Guard: APEX_EXPORT.GET_APPLICATION computes the live fingerprint',
+ 'Database: separate Liquibase migrations change schema objects'
+],65,165,1140,27,78);
+label(s,'Git and immutable archives carry releases. APEX Working Copies and Team Development are not used for release integration or promotion.',65,575,1140,C.teal,25);
+note(s,'Capture uses apex export -applicationid with -split -skipExportDate -expOriginalIds -expSupportingObjects N and a staging -dir. Import sets workspace, application ID, schema, alias and supported offset context before executing native exported install.sql. APEX_EXPORT.GET_APPLICATION with CHECKSUM-SH256 fingerprints live APEX metadata. ORDS serves runtime HTTP; it is not the release deployment API. APEX export is application metadata, not business data or a database schema migration. Working Copies remain a candidate break-glass option in the architecture; this prototype does not validate their compare/merge workflow. Team Development is not the CI/CD engine.');
+
 s=slide('Walkthrough',['progress/E.1/cicd-walkthrough.md'],true);
 text(s,'The Product Owner sees\nresults after each operation',65,240,1110,160,48,C.white,true);
 text(s,'The following slides follow the implemented A–H journey',65,490,1130,75,29,'#DCE7EB');
@@ -214,7 +225,7 @@ const finalPath=process.env.PRESENTATION_FINAL_PATH || path.join(root,'progress/
 const result=await finalizePresentation({workspaceDir:root,candidatePath:candidate,finalPath,pythonExecutable:python,
  integrityValidatorPath:path.join(skill,'container_tools/inspect_presentation_package_integrity.py'),
  layoutValidatorPath:path.join(skill,'container_tools/inspect_presentation_layout_geometry.py'),
- layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-bullet-geometry','--validate-heading-fit','--require-native-table-slide','13'],
- requiredNativeTableOwnerSlides:[13],requiredNativeChartOwnerSlides:[],fontPolicy:{basis:'design',families:['Arial']},
+ layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-bullet-geometry','--validate-heading-fit','--require-native-table-slide','14'],
+ requiredNativeTableOwnerSlides:[14],requiredNativeChartOwnerSlides:[],fontPolicy:{basis:'design',families:['Arial']},
  verifyArtifactToolImport:true,receiptPath:process.env.PRESENTATION_RECEIPT_PATH || path.join(build,'presentation.validation.json')});
 console.log(JSON.stringify({slides:slideMap.length,finalPath,result}));

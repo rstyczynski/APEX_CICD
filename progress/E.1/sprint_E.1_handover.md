@@ -12,6 +12,10 @@ Prepared on 2026-10-18 for review of the APEX CI/CD delivery pipeline prototype.
 
 These outcomes directly support the [accepted vision](../../README.md), selected [E.1 design](sprint_E.1_design.md) and [SRS](../../docs/srs.md) delivery/protection goals. The [assessment](sprint_E.1_assessment.md) states the incomplete acceptance scope and proposed follow-up.
 
+## APEX automation interfaces
+
+Application definitions use native SQLcl `apex export` to produce split SQL source, and native exported `install.sql` for deployment after `APEX_APPLICATION_INSTALL` maps the target. `APEX_EXPORT.GET_APPLICATION` supplies the live APEX metadata fingerprint used by the drift guard. Schema changes use separate Liquibase migrations. App Builder is the authoring UI; ORDS serves HTTP. APEX Working Copies and Team Development are not used for release integration or promotion. See slide 7 and the [architecture interfaces](../../docs/architecture.md) for the boundary.
+
 ## Live journey already inspected
 
 The assisted Product Owner walkthrough produced PASS results for D, E, F and G; retained stage markers also show A/B/C completion. The Product Owner exercised VERIFIER/LAB_USER runtime interactions and reported successful manual drift rejection. Subsequent native read-only checks reproduce that rejection and show the current Home Title and region Name changes without restoring them.
@@ -64,7 +68,7 @@ Recommend a focused Elaboration follow-up, using the existing child definitions,
 ## Materials and evidence
 
 - [Presentation walkthrough](sprint_E.1_increment_demo.md): complete guided review and optional fresh replay, with slide references.
-- [Presentation](sprint_E.1_increment_demo.pptx): 23 slides, editable draw.io-derived diagrams and editable version comparison.
+- [Presentation](sprint_E.1_increment_demo.pptx): 24 slides, editable draw.io-derived diagrams and editable version comparison.
 - [Completion assessment](sprint_E.1_assessment.md): parent/child outcomes, open risks, milestone recommendation and proposed next work.
 - [Documentation summary](sprint_E.1_documentation.md): reconciliation and presentation/source checks.
 - [Handover checks](tests/handover_checks_20261018.txt): exact recent checks, observed results and limits.
