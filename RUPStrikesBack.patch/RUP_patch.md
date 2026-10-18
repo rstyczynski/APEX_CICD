@@ -498,3 +498,25 @@ procedures. Do not infer acceptance from silence or from passing automated
 tests. Continue the canonical Phase 5 documentation approval and sprint
 status procedure only after the demonstration decision is recorded; this
 patch does not itself mark a sprint complete or authorize a remote push.
+
+
+## P10. Use proportionate external review rounds
+
+External review supplements the iteration's own validation with another expert perspective, human or AI. Use it when the Product Owner requests it or agrees it will help resolve an important uncertainty. It is not a mandatory extra gate for every change, and a favorable review is not execution evidence or automatic sprint acceptance.
+
+Keep each round under the current sprint's evidence directory, using its stable phase ID and a round number:
+
+- `sprint_<ID>_review-<N>.md`: the external expert's original review.
+- `sprint_<ID>_review-<N>-response.md`: the engineering response to its findings.
+- `sprint_<ID>_review-<N>-feedback.md`: the expert's reaction to that response, if supplied.
+- `sprint_<ID>_review-<N>-decisions.md`: the selected actions, rationale and deferred issues, when decisions are actually made.
+
+For example, use `sprint_E.1_review-1-response.md`. Keep review, response and feedback about the same exchange under one number; increment it for a subsequent review pass. Create only the artifacts needed for the exchange, not empty placeholders. Do not rename completed historical rounds merely to apply this convention.
+
+Preserve external review and feedback as supplied. The response identifies the reviewed revision and review limits, checks claims against actual code/requirements/evidence, and says where it agrees, partly agrees or disagrees. Link supporting sources, distinguish reproduced defects from plausible untested risks, and give proportionate correction/verification proposals. Add navigation from the response and current maintained sprint summary; preserve the source text rather than inserting our conclusions into the expert's report.
+
+Prioritize findings against the accepted vision, selected use cases, lifecycle phase and architectural risks. During Elaboration, address defects that invalidate the chosen demonstration, its evidence, reproducibility or safe experiment boundaries. Production hardening and unrelated enhancements may be deferred explicitly; a long review must not silently expand the prototype into a general platform or make perfection the acceptance threshold.
+
+When the Product Owner selects the response, record the useful decisions: what will be corrected now, why, what evidence will establish it, and what is deferred. Use the existing backlog/sprint procedures for changes to scope, assignments or statuses. A response is a proposal until selected; a decision is not a completed fix. Link selected work to existing items where it belongs, creating new backlog items only through their normal procedure when needed.
+
+Apply P8 to each resulting implementation or documentation increment and P9 to the sprint handover. Do not close a sprint, grant acceptance or claim a fix solely because an expert approves the response. Review artifacts do not authorize sending material to another person/service or pushing a repository; those actions retain their existing authorization rules.

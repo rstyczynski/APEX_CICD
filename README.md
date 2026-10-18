@@ -81,7 +81,7 @@ Preflight alone does not provision the lab or prove database readiness. Normal u
 
 ## Remaining validation
 
-The [external review](progress/E.1/sprint_E.1_review-1.md) and [engineering response](progress/E.1/sprint_E.1_review-1-answers.md) identify an independent-reproduction blocker: the current walkthrough requires retained release archives under `.local-apex/releases/`. A fresh public clone does not yet acquire/build that complete release chain automatically. The run sequence above needs those additional inputs; preflight alone does not supply them.
+The [external review](progress/E.1/sprint_E.1_review-1.md) and [engineering response](progress/E.1/sprint_E.1_review-1-response.md) identify an independent-reproduction blocker: the current walkthrough requires retained release archives under `.local-apex/releases/`. A fresh public clone does not yet acquire/build that complete release chain automatically. The run sequence above needs those additional inputs; preflight alone does not supply them.
 
 Sprint **E.1 remains active**. Important unfinished proofs are synchronized competing reservations, genuine parallel component integration, complete maintenance/request/verifier fencing, scoped schema-definition drift and an injected failed additive deployment with automated forward repair preserving history. A verification retry or restored drift fixture is not that repair proof.
 

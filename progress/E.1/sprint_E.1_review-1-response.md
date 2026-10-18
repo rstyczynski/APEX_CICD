@@ -2,6 +2,8 @@
 
 Response to [sprint_E.1_review-1.md](sprint_E.1_review-1.md), reviewed on 2026-10-18. The expert reviewed public commit `0f5ce70`; the local committed baseline is the same. This response checks the findings against source, existing evidence and a small read-only experiment. It proposes corrections; it does not claim they are implemented or change sprint/backlog status.
 
+Review-round navigation: [expert feedback](sprint_E.1_review-1-feedback.md). The [local external-review convention](../../RUPStrikesBack.patch/RUP_patch.md#p10-use-proportionate-external-review-rounds) defines filenames and how findings become selected actions.
+
 ## Overall answer
 
 The review identifies material defects. The most important is **independent reproducibility**: our demonstrated rebuild preserves host archives, while the public clone does not supply or automatically reconstruct them. The README's fresh-start journey is therefore incomplete for a new operator. Successful delivery on the existing host does not resolve this gap.

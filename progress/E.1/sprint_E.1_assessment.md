@@ -5,7 +5,7 @@ Prepared for Product Owner review on 2026-10-18. E.1 remains **Progress** in [PL
 Read this alongside the [handover](sprint_E.1_handover.md), [presentation walkthrough](sprint_E.1_increment_demo.md), [accepted prototype design](sprint_E.1_design.md), [SRS](../../docs/srs.md), [architecture](../../docs/architecture.md) and [test profile](../../docs/test-profile.md). The requirements and board own scope/status; this document assesses evidence and proposes the next decision.
 
 
-The [first external review](sprint_E.1_review-1.md) and [engineering response](sprint_E.1_review-1-answers.md) add concrete reproducibility, privileged-input, migration-recovery, exit-status and provenance findings. In particular, the demonstrated host rebuild retains archives; independent reproduction from a public clone remains blocked until release acquisition/build is supplied. Review responses propose corrections; they do not claim implemented fixes.
+The [first external review](sprint_E.1_review-1.md) and [engineering response](sprint_E.1_review-1-response.md) add concrete reproducibility, privileged-input, migration-recovery, exit-status and provenance findings. In particular, the demonstrated host rebuild retains archives; independent reproduction from a public clone remains blocked until release acquisition/build is supplied. Review responses propose corrections; they do not claim implemented fixes.
 
 ## What the selected walkthrough established
 
