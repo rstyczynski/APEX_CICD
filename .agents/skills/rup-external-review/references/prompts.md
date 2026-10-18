@@ -10,7 +10,8 @@ Lifecycle phase and objective: [phase, accepted use cases and the decision this 
 Review revision: [full SHA]. [Matches maintained baseline / differs as explained].
 Source access: [provided checkout/files or repository/ref actually containing this SHA].
 Working changes included: [none, or exact supplied patch/files and their relation to the SHA].
-Read: [bounded source/design/evidence list].
+Review subject: the active sprint [ID]. Use the whole project context as needed, including vision, requirements, architecture, backlog and earlier evidence. Explain each finding's impact on this sprint; identify wider concerns as proposed follow-up without changing other sprints.
+Start with: [relevant source/design/evidence list; additional project context may be inspected within the allowed actions].
 Prior rounds and finding IDs: [linked/supplied artifacts, or none].
 Allowed actions: [source/evidence inspection only; no execution, target mutation or push unless explicitly listed].
 

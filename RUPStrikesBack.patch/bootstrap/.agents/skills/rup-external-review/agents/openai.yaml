@@ -1,0 +1,4 @@
+interface:
+  display_name: "RUP External Review"
+  short_description: "Drive expert review through prompts and round files"
+  default_prompt: "Use $rup-external-review to coordinate the next external expert review exchange through files."
