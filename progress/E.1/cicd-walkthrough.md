@@ -487,26 +487,31 @@ This checks the retained task owner/base/generation, complete 1.0.0 assembly and
    ```
 
 4. **Act as user VERIFIER:** open [C / application 810003](http://127.0.0.1:8080/ords/f?p=810003:1) and sign in as **VERIFIER** with that password. Sign out of another application account first if necessary.
-   a) Open **Hello entries**, press **Create**, enter **Entry Text = Hello** and **Active = Y**, then press **Create** to save.
-   b) Open **World entries**, press **Create**, enter **Entry Text = World** and **Active = Y**, then press **Create** to save.
-   c) Open **Hello configuration**, edit its existing row, select **Hello** as the default and leave the prefix empty. Press **Apply Changes**. Repeat in **World configuration**, selecting **World** and leaving the prefix empty.
-   d) Open **Home** and press **Create greeting** using the configured defaults. Open **Greeting history** and refresh; confirm a saved **Hello World** row. This exact VERIFIER greeting is required before the script will publish C.
+
+   1. Open **Hello entries**, press **Create**, enter **Entry Text = Hello** and **Active = Y**, then press **Create** to save.
+   2. Open **World entries**, press **Create**, enter **Entry Text = World** and **Active = Y**, then press **Create** to save.
+   3. Open **Hello configuration**, edit its existing row, select **Hello** as the default and leave the prefix empty. Press **Apply Changes**. Repeat in **World configuration**, selecting **World** and leaving the prefix empty.
+   4. Open **Home** and press **Create greeting** using the configured defaults. Open **Greeting history** and refresh; confirm a saved **Hello World** row. This exact VERIFIER greeting is required before the script will publish C.
+
 5. **Act as the walkthrough operator again:**
-   a) return to the waiting script terminal and press a key - the script checks the greeting, publishes C for ordinary users and releases ownership.
-   b) Wait for **DEPLOYED C_world** and the final browser pause.
+
+   1. Return to the waiting script terminal and press a key. The script checks the greeting, publishes C for ordinary users and releases ownership.
+   2. Wait for **DEPLOYED C_world** and the final browser pause.
+
 6. **Get the LAB_USER password in the second terminal:**
 
-    ```bash
-    python3 scripts/cicd-password.py LAB_USER
-    ```
+   ```bash
+   python3 scripts/cicd-password.py LAB_USER
+   ```
 
 7. **Act as user LAB_USER:**
-   a) sign out of VERIFIER,
-   b) reopen [C](http://127.0.0.1:8080/ords/f?p=810003:1)
-   c) sign in as **LAB_USER**.
-   d) Create another greeting,
-   e) open **Greeting history**,
-   f) open then **Installed components**
+
+   1. Sign out of VERIFIER.
+   2. Reopen [C](http://127.0.0.1:8080/ords/f?p=810003:1).
+   3. Sign in as **LAB_USER**.
+   4. Create another greeting.
+   5. Open **Greeting history**.
+   6. Open **Installed components**.
 
    All three components must show **1.0.0**; history contains only data created during this fresh cycle.
 
