@@ -222,3 +222,7 @@ Checked actual source directories, current manifest/capture profile and the exis
 ## BUG-6 native identity test — 2026-10-18
 
 [Native evidence](tests/apex_identity_20261018.txt) from explicit C upgrade: wrong target ORA-20645, immutable 005 applied once then no-op on repeat, two imports with identical region IDs/private saved report fields and unchanged history/configuration. Used public APEX_SESSION/IR/EXPORT/INSTALL APIs only. Tests/manifests/apex_identity.manifest exposes the same test as an explicit integration operation. No UAT change or general saved-report/subscription coverage is claimed. Corrected artifact preparation remains outstanding.
+
+## Corrected patch and repair-protocol preparation — 2026-10-18
+
+Corrected patch archive SHA-256 80b51f1ed3e371d6c198dc785a7df741fd671d2ab77d8db630f7dd63bd92d583 from 0cc6c68 passes candidate development checks and both fresh/initial-upgrade integration starts with preserved 21-row baseline/settings. Full private transcript: .local-apex/qualify-corrected-patch.log; this unattended check uses explicit runtime API fixtures, not a new browser demonstration. Retained UAT is unchanged. All Python source tests pass 25/0 including Git-bound recovery artifact/tamper/unsupported-target tests. New recovery authority/observer compile with zero errors. BUG-7 native failure/repair proof remains pending, explicitly not passed by artifact/unit checks.

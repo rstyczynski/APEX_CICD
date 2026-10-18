@@ -30,7 +30,7 @@ Official status: **under_construction**. Its selected delivery/patch/protection 
 5. [PBI-011.5](sprint_E.1_design.md#pbi-0115--parallel-helloworld-integration), **under_construction**: accepted sequential contributions produce a complete application. Independent simultaneous branches/clients and full conflict/provenance proof remain open.
 6. [PBI-011.6](sprint_E.1_design.md#pbi-0116--qualify-and-promote-identical-artifacts), **under_construction**: D/E initial release and F fresh/upgrade patch receipts establish the selected identical-artifact path. The full child criterion, including its dependencies and complete repeat/tamper/stale-candidate negative coverage, has not received a complete gate/acceptance review.
 7. [PBI-011.7](sprint_E.1_design.md#pbi-0117--compatibility-drift-and-maintenance), **under_construction**: selected incompatibility, live-page drift, restricted verification and guarded publication work. Schema-definition drift, competing deployments, in-flight requests, stale workers and full verifier fencing remain open.
-8. [PBI-011.8](sprint_E.1_design.md#pbi-0118--failed-additive-deployment-and-forward-repair), **under_design**: no failed additive deployment with a reviewed automated forward-repair archive has been demonstrated. A rejected preflight, fixture cleanup or verification continuation does not meet this criterion.
+8. [PBI-011.8](sprint_E.1_design.md#pbi-0118--failed-additive-deployment-and-forward-repair), **under_construction**: no failed additive deployment with a reviewed automated forward-repair archive has been demonstrated. A rejected preflight, fixture cleanup or verification continuation does not meet this criterion.
 
 ### PBI-012 — Validate critical assumptions and use cases
 

@@ -35,6 +35,7 @@ Use these links to move between preparation, delivery and protection demonstrati
 - [H. Reject deployment over unexpected live change](#h-reject-deployment-over-unexpected-live-change)
   - [H.1 Change a page in App Builder](#h1-change-a-page-in-app-builder)
   - [H.2 Optional automated replay](#h2-optional-automated-replay)
+- [I. Inspect and repair one failed additive deployment](#i-inspect-and-repair-one-failed-additive-deployment)
 - [Destroy the lab after the walkthrough](#destroy-the-lab-after-the-walkthrough)
 - [Maintain this artifact](#maintain-this-artifact)
 
@@ -196,7 +197,7 @@ python3 scripts/cicd-release-inputs.py
 3. Existing identical inputs are reused. A conflicting archive/checksum stops without overwriting it. Only verified recipes select the initial/patch pointer files.
 4. Wait for **PASS release inputs**, then continue with host/tool prerequisites. Installer downloads and generated credentials remain separate steps in [deploy.md](../../docs/deploy.md).
 
-The versioned [input recipes](../../release/inputs/) replay historical candidate evidence; integration_test still installs and verifies the archive independently in this cycle. See [BUG-2 and related fixes](sprint_E.1_bugs.md) and [review decisions](sprint_E.1_review-1-decisions.md). Historical patch inputs retain their historical importer; the stable-offset correction requires a new reviewed patch archive.
+The versioned [input recipes](../../release/inputs/) replay historical candidate evidence; integration_test still installs and verifies the archive independently in this cycle. See [BUG-2 and related fixes](sprint_E.1_bugs.md) and [review decisions](sprint_E.1_review-1-decisions.md). The initial recipe retains its reviewed 1.0.0 bytes. The patch recipe selects the newly qualified stable-offset correction from source 0cc6c68. Existing UAT receipts still refer to their older delivered artifact; do not confuse them with a fresh-cycle selection.
 
 ## Prerequisites and infrastructure precheck
 
@@ -804,6 +805,28 @@ bash scripts/cicd-walkthrough-H_drift.sh
 - The fixture replacement is test setup outside release delivery. Run it with other user_acceptance_test authoring/deployment stopped.
 - Restoration is controlled demonstration cleanup, not automatic deployment repair or silent acceptance of drift.
 - Broader schema-drift coverage, concurrent requests, verifier fencing and failed additive deployment repair remain pending.
+
+## I. Inspect and repair one failed additive deployment
+
+This selected experiment adds internal history indexes in **integration_test only**. The first DDL commits; the next changeset deliberately fails. A separate reviewed repair archive completes the known partial state while retaining failed/successful attempts and every prior business field. UAT and its manual edit are untouched.
+
+Run after F, with a ready integration 1.0.1 application and at least twenty history rows:
+
+```bash
+bash scripts/cicd-walkthrough-I_repair.sh
+```
+
+1. Build/verify two Git-bound immutable archives: failed additive delivery and forward repair. The script refuses changed controllers or payloads. Bootstrap the integration-only recovery authority and observer; no SYS connection is used.
+2. Continue to admit the owned attempt. The first index changeset commits; the deliberate ORA-20831 in the next changeset is the expected failure. It must not receive a successful release/changeset receipt. The failed target retains ownership.
+3. **Act as LAB_USER:** open [integration application 810004](http://127.0.0.1:8080/ords/f?p=810004:1). Ordinary access is blocked while failed; UAT remains available as before.
+4. Return to inspect the observation: native index identities and Liquibase history, application fingerprint and full business snapshot. Review the failed receipt/transcripts under `.local-apex/recovery/`. No repair has happened yet.
+5. If you accept the scripted partial state, paste its **REVIEWED SHA256** at the prompt. A different live observation, wrong target, stale ownership or unrelated repair archive must stop before repair DDL. Use **q** to leave the failed state for inspection.
+6. The new repair archive reuses the successful first changeset and applies a separate completion changeset. It never rewrites applied 005, clears checksums or marks the deliberate failed changeset as successful. Checks compare every prior history/entry/configuration field before the final ready gate and successful repair receipt are committed.
+7. Repeating the exact repair with unchanged state reports **ALREADY REPAIRED** without writes. Reopen integration as LAB_USER and inspect the retained history/settings. The control history still includes the failed attempt and a separate successful repair.
+
+Each atomic operation is also visible as `python3 scripts/cicd-recovery-step.py ARCHIVE bootstrap|fail|observe|repair`; `repair` requires `--approve-observation` followed by the reviewed hash. Use actual archive paths printed by the builder. The unattended `--rehearse` variant runs the same proof plus a synthetic unexpected-index rejection and explicit fixture restoration; it does not claim a browser check or new human approval. See [BUG-7](sprint_E.1_bugs.md) and the [selected design](sprint_E.1_design.md#bug-7-bounded-repair-experiment).
+
+This is one observed, known partial schema state. It does not prove arbitrary recovery, concurrent stale-worker exclusion or complete in-flight-session fencing. I changes the disposable integration area's release identity and adds experiment changesets; earlier F receipts remain historical. A new full cycle must explicitly recreate that area; never reset UAT as a repair operation.
 
 ## Destroy the lab after the walkthrough
 

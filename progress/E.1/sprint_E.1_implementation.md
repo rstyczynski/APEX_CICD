@@ -356,3 +356,9 @@ Added four presentation slides covering the actual shared repository layout, pro
 ## BUG-6 importer identity correction — 2026-10-18
 
 Replacement imports verify application/workspace ownership and read the existing offset via public APEX export before SET_OFFSET. Fresh imports retain GENERATE_OFFSET. Native C experiment migrated Hello to 1.0.1, preserved business fields and a private saved report across two imports, compared region/report IDs and rejected a wrong-workspace app before import. C's ordinary availability/reservation was restored; UAT untouched. [Evidence](tests/apex_identity_20261018.txt). A new corrected patch archive remains required before closing BUG-6; historical archives retain their old code.
+
+## BUG-6 corrected delivery input and BUG-7 construction — 2026-10-18
+
+Candidate checks at 0cc6c68 pass against C and the corrected stable-offset patch archive 80b51f1e…d92d583 is built. Native disposable integration testing passes fresh and from the retained initial artifact, preserving all fields of 21 baseline rows/settings. The new versioned patch recipe makes that archive reproducible from a full checkout. The existing UAT artifact/pointer and manual drift are retained; no claim of new-byte UAT promotion.
+
+Added bounded integration-only recovery authority, two immutable Git-source artifact kinds, atomic operator steps and negative/tamper test specifications under existing PBI-011.8. The authority/observer compile natively and archive integrity tests pass; actual committed-DDL failure/repair qualification still follows. PBI-011.8 moves to under_construction following the Product Owner's selection, not tested or completed. This is prototype construction evidence, not closure of BUG-7.

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog logicalFilePath="e1-review-recovery" xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+ <changeSet id="BUG7-001" author="apex-lab">
+  <sqlFile path="001-history-index.sql" relativeToChangelogFile="true" splitStatements="true" endDelimiter="/"/>
+ </changeSet>
+ <changeSet id="BUG7-003" author="apex-lab">
+  <sqlFile path="003-forward-completion.sql" relativeToChangelogFile="true" splitStatements="true" endDelimiter="/"/>
+ </changeSet>
+</databaseChangeLog>
