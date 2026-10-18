@@ -463,3 +463,7 @@ Checked the new workflow against the existing review/feedback/decisions and sour
 ## Review context clarification and publication — 2026-10-18
 
 Recorded the Product Owner's clarification in the review skill and expert prompt: the active sprint is the subject, and the whole project may supply assessment context. Wider findings require an explicit relationship to the sprint or proposed follow-up; other sprint records remain unchanged. Inspected the supplied bootstrap skill copy and kept it identical to the installed version. Both skill validators, copy comparison, local links/fences, credential/scope and whitespace checks apply; no product code, runtime behavior or managed status changes require database tests. Prior local increment: 5cf6d87. The Product Owner explicitly requested commit and push to personal origin.
+
+## Requested housekeeping and diagram-backup commit — 2026-10-18
+
+Inspected the Product Owner's two remaining changes: ignore macOS metadata and PowerPoint lock files, and retain the explicitly requested draw.io backup. The backup parses as draw.io XML and remains a backup rather than the maintained model or presentation source. Checked diff whitespace and staged credential/scope; product requirements, architecture, executable behavior and sprint status are unchanged, so runtime tests are not repeated. Prior completed increment: 1520679. Commit only; no push requested for this change.
