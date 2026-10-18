@@ -115,7 +115,7 @@ This chapter connects each demonstration to the accepted use cases and makes the
 
 This checkpoint describes the delivered lab state and the boundaries of what has been demonstrated.
 
-- **Delivered checkpoint:** A/B/C development work is retained. D has passed for **integration_test / E1_INTEGRATION / application 810004**, running the complete **1.0.0** release. Its archive hash and live APEX fingerprint pass the read-only result check. **user_acceptance_test / E1_UAT / application 810005** has the same initial release installed at its restricted verification checkpoint. **E has published successfully; upgrade-example preparation and baseline capture remain pending**. Use **--resume-examples** below; the LAB_USER greeting is retained. The interrupted old D attempt remains preserved as historical evidence. When restarting from cleanup, follow every infrastructure and onboarding chapter below before A.
+- **Delivered checkpoint:** A/B/C development work is retained. F has completed the Hello patch delivery to UAT: **Foundation 1.0.0 / Hello 1.0.1 / World 1.0.0**, with its preservation baseline checked. The current read-only drift check reports **NO DRIFT**, matching the published patch fingerprint. Follow H below to demonstrate manual and scripted changes, restoring the original definition between cases.
 - This walkthrough now starts with explicit prerequisite checking, Podman host preparation, complete lab cleanup and fresh database/APEX/ORDS installation.
 - Cleanup destroys **all database state in this lab**, including A/B/C, integration_test, user_acceptance_test, entries, settings, greeting history and database control receipts. Host credentials, tools, reviewed source/release archives and historical evidence remain available; unrelated Podman resources are preserved.
 - Infrastructure installation ends with **only Oracle Database/APEX/ORDS**. It creates no E1_CTRL, developer/target schemas, project workspaces or developer accounts. Project control and named-area provisioning follow separately.
@@ -673,7 +673,17 @@ bash scripts/cicd-walkthrough-G_incompatible_upgrade.sh
 
 Change a live page without changing its version. See deployment reject the unexpected change while preserving the working application and its history.
 
-Follow **H.1** for the guided App Builder demonstration. **H.2** provides an optional automated replay of the same check.
+Use the same check in three situations:
+
+```bash
+bash scripts/cicd-protection-check.sh drift
+```
+
+1. **Before any edit:** see **NO DRIFT**. The application matches its published fingerprint.
+2. **After a manual App Builder edit:** see **DETECTED DRIFT** and **REJECTED DRIFT**. Follow H.1, then restore your edit.
+3. **After the scripted page change:** see the same drift rejection. H.2 provides a repeatable test of the detection routine and restores its fixture afterward.
+
+The command checks preflight and compares before/after snapshots; it does not deploy or restore anything. Unexpected execution errors stop with **FAIL**, rather than being reported as drift.
 
 ### H.1 Change a page in App Builder
 
@@ -682,10 +692,10 @@ Change UAT's Home page title, then try deployment. See the pipeline stop and lea
 1. **Start from the accepted patch.** After F, run:
 
    ```bash
-   bash scripts/cicd-patch-result.sh user_acceptance_test
+   bash scripts/cicd-protection-check.sh drift
    ```
 
-   Wait for the matching release/fingerprint result. If you already ran the automated H demonstration, finish its restoration first.
+   Look for **NO DRIFT** and **PASS drift protection** before making any change. If you already ran the automated H demonstration, finish its restoration first.
 
 2. **Prepare App Builder access.** LAB_USER and VERIFIER can run the application; they cannot edit pages. If you already have a developer account in **E1_UAT**, use it and continue to step 3. Otherwise:
    1. Retrieve the instance administrator password:
@@ -716,15 +726,15 @@ Change UAT's Home page title, then try deployment. See the pipeline stop and lea
    bash scripts/cicd-protection-check.sh drift
    ```
 
-   Look for **REJECTED DRIFT**, followed by **PASS drift protection**. Refresh UAT: your changed title and greeting history should still be there. The rejected deployment has not overwritten them.
+   Look for **REJECTED DRIFT**, **DETECTED DRIFT** and **PASS drift protection**. Refresh UAT: your changed title and greeting history should still be there. The rejected deployment has not overwritten them.
 
 6. **Restore your edit.** Return to Page Designer, paste the exact original **Title**, then press **Save**. Run:
 
    ```bash
-   bash scripts/cicd-patch-result.sh user_acceptance_test
+   bash scripts/cicd-protection-check.sh drift
    ```
 
-   The live fingerprint must match the original release receipt again. Refresh UAT and confirm the original title and greeting history. If the fingerprint still differs, check for other saved edits before continuing.
+   Look for **NO DRIFT** again: the live fingerprint matches the original release receipt. Refresh UAT and confirm the original title and greeting history. If the fingerprint still differs, check for other saved edits before continuing.
 
 7. **Remove temporary access.** If you created **DRIFT_EDITOR** in step 2, sign out, reopen Administration Services as **ADMIN**, find that user under **Manage Developers and Users**, and delete it. Keep existing accounts unchanged.
 
@@ -740,13 +750,13 @@ Run this chapter from the repository root:
 bash scripts/cicd-walkthrough-H_drift.sh
 ```
 
-1. Press a key for the explicit **user_acceptance_test-only page-drift fixture**. It verifies the current release, saves the actual native target export/data, then installs the separately authored Home title/banner change with the existing ID offset.
+1. The script first requires **NO DRIFT**. Then press a key for the explicit **user_acceptance_test-only page-drift fixture**. It verifies the current release, saves the actual native target export/data, then installs the separately authored Home title/banner change with the existing ID offset.
 2. Open [user_acceptance_test](http://127.0.0.1:8080/ords/f?p=810005:1), re-login if needed and see **DIRECT CHANGE - deployment must stop**. Installed component versions still describe 1.0.1; the live content fingerprint has changed.
 3. Continue to the attempted redeployment preflight.
-4. Read **REJECTED DRIFT**, with the actual fingerprint mismatch, followed by unchanged-target/control-receipt checks. No maintenance, migration or release import occurred.
+4. Read **REJECTED DRIFT** and **DETECTED DRIFT**, with the actual fingerprint mismatch, followed by unchanged-target/control-receipt checks. No maintenance, migration or release import occurred.
 5. Reopen user_acceptance_test: the direct change remains visible and the application/history still work. Rejection has not overwritten it.
 6. Press a key for the **separate explicit restoration**. It refuses another unexplained definition/release change, restores the saved native user_acceptance_test definition and requires the original successful fingerprint. All data/settings present before restoration must survive.
-7. Reopen user_acceptance_test and re-login if required. The banner is gone; earlier and newly appended greetings remain.
+7. Read **NO DRIFT** after restoration. Reopen user_acceptance_test and re-login if required. The banner is gone; earlier and newly appended greetings remain.
 
 - The fixture replacement is test setup outside release delivery. Run it with other user_acceptance_test authoring/deployment stopped.
 - Restoration is controlled demonstration cleanup, not automatic deployment repair or silent acceptance of drift.

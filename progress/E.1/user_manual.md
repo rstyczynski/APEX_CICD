@@ -692,3 +692,9 @@ bash scripts/cicd-protection-check.sh drift
 ```
 
 First validate the published patch, arrange temporary E1_UAT developer access, record page 1's exact original Title, change/save only that property and run the check above. Require the specific drift rejection and unchanged target/receipt checks. Restore the original property manually, save and run `bash scripts/cicd-patch-result.sh user_acceptance_test`; require the original fingerprint. Remove the temporary developer account afterward. Do not interleave this procedure with an active imported drift fixture. [The test profile](../../docs/test-profile.md#manual-page-designer-drift-demonstration) distinguishes this manual evidence from unattended H.
+
+## One drift check, three demonstrations
+
+Use `bash scripts/cicd-protection-check.sh drift` before editing: require **NO DRIFT**. Repeat it after [the manual Page Designer edit](cicd-walkthrough.md#h1-change-a-page-in-app-builder): require **DETECTED DRIFT** and the specific **REJECTED DRIFT**. Undo the edit and require **NO DRIFT** again. [H.2](cicd-walkthrough.md#h2-optional-automated-replay) repeats the changed case using the scripted fixture, with checks before injection and after restoration.
+
+Both recognized drift-check outcomes finish with **PASS drift protection** only after target/control snapshots match before/after the attempted preflight. This is successful inspection, not permission to deploy over drift. Unexpected SQL/tool failures exit nonzero. H's automated replay uses --expect-clean/--expect-drift internally to enforce the expected phase; the ordinary operator command remains the same in all three cases. Keep this aligned with the [outcome tests](../../docs/test-profile.md#drift-check-outcomes).
