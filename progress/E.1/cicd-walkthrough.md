@@ -216,6 +216,55 @@ bash scripts/cicd-walkthrough-apex-init.sh
 - If installation fails, inspect its log. Do not blindly rerun APEX installation over partial data. Use the separate scoped cleanup when deliberately restarting from scratch.
 - Each native command is expanded in [deploy.md sections 5–9](../../docs/deploy.md#5-create-the-network-volumes-and-database--fresh-setup-only).
 
+### Verify the installation before project setup
+
+1. Rerun the automated infrastructure check at any time; it does not install project schemas or applications:
+
+   ```bash
+   bash scripts/apex-verify.sh
+   ```
+
+   Expected: **APEX 24.2 VALID**, **zero invalid APEX objects**, SYSTEM connected to **FREEPDB1** through the published database port, **ORDS landing: HTTP 200**, **APEX login: HTTP 200**, static assets **24.2**, and a final passed message. The HTTP check verifies the login page; signing in is the next manual step.
+
+2. Retrieve only the APEX administrator password in your local terminal:
+
+   ```bash
+   python3 scripts/cicd-password.py APEX_ADMIN_PASSWORD
+   ```
+
+   There is **no fixed default password**. Installation generates random passwords on first use and retains the protected `.local-apex/credentials.env` on later destruction/reinstallation. This command deliberately displays one password; keep it out of screenshots, evidence and Git.
+
+3. Open [APEX Administration Services](http://127.0.0.1:8080/ords/apex_admin). Sign in as **ADMIN** using that password. This is the **INTERNAL** administration workspace; if a workspace field is shown, enter **INTERNAL**. Confirm that the administration home opens, then sign out. This verifies an actual administrator login.
+4. Check that the sign-in screen and administration home have normal styling/icons. [Static asset version](http://127.0.0.1:8080/i/apex_version.txt) must show **24.2**. Missing styling indicates an ORDS/static-file problem even if a page returns HTTP 200.
+5. For an optional direct database login, retrieve the database password, then connect with SQLcl. SQLcl prompts for the password; do not put it in the connection command:
+
+   ```bash
+   python3 scripts/cicd-password.py ORACLE_PASSWORD
+   source scripts/cicd-env.sh
+   sql -nohistory -noupdates SYSTEM@//127.0.0.1:1521/FREEPDB1
+   ```
+
+   At the SQL prompt, verify the target and disconnect:
+
+   ```sql
+   select user, sys_context('USERENV','CON_NAME') as pdb from dual;
+   exit
+   ```
+
+   Expected: **SYSTEM / FREEPDB1**. SYSTEM and SYS use the lab's **ORACLE_PASSWORD**; SYS connections require **AS SYSDBA**. Use these administrator accounts for infrastructure/provisioning, with assigned schema accounts for development.
+6. Understand the remaining accounts before continuing:
+   - **APEX_PUBLIC_USER, APEX_REST_PUBLIC_USER, APEX_LISTENER and ORDS_PUBLIC_USER** are service accounts configured by the Oracle installation. They are not browser/developer logins; leave their credentials to the installation/configuration procedure.
+   - **ORDS has no separate human login account** for this verification. It serves APEX over HTTP; APEX authenticates ADMIN.
+   - **DEV_A/B/C, LAB_USER, VERIFIER and E1_* schemas/workspaces** belong to later project onboarding. A vanilla installation does not create them. The delivered lab may already have them if the separate onboarding chapters were executed.
+7. If a check fails, inspect `.local-apex/apex-install.log` and `.local-apex/ords-install.log`, plus the running container logs:
+
+   ```bash
+   podman --connection apex-cicd logs --tail 100 apex-db
+   podman --connection apex-cicd logs --tail 100 apex-ords
+   ```
+
+   Resolve the failing layer before project setup. A failed verification is not a reason to rerun the APEX installer over an existing database.
+
 ## Initialize project delivery control
 
 **Actor: project/platform operator**, with the lab administrator credential. This is project setup, separate from Oracle infrastructure.

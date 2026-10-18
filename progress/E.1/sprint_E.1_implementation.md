@@ -258,3 +258,7 @@ README, deploy.md, the main walkthrough, user manual and test profile describe t
 ## Explicit APEX destruction command name — 2026-10-18
 
 Renamed the destructive lifecycle script to `scripts/apex-destroy.sh` at the Product Owner's request. Updated current deployment/manual/walkthrough invocations and the launcher's preflight together. Usage and terminal messages now say destruction. Behavior is unchanged; no destruction was executed for this rename. Historical evidence retains the command name used at execution.
+
+## Post-install operator verification guide — 2026-10-18
+
+Expanded the installation chapter with numbered automated and manual verification, ADMIN/INTERNAL sign-in, local password retrieval, optional SYSTEM/SQLcl authentication, service-account responsibilities and failure logs. Deployment section 8 links the main guide and retains individual layer commands. No fixed default password is documented: existing protected generated credentials are reused. Scripts are unchanged; the existing verifier was rerun successfully. Manual sign-in is an operator step, not a new browser acceptance claim.

@@ -373,40 +373,33 @@ podman --connection apex-cicd volume create apex-images
 
 ## 8. Verify access as an operator
 
-- Check each layer independently:
+Follow the numbered [post-install verification steps and account guide](../progress/E.1/cicd-walkthrough.md#verify-the-installation-before-project-setup). They cover repeatable automated checks, ADMIN browser sign-in, static assets, optional SYSTEM/SQLcl login and log inspection.
 
-  ```bash
-  podman --connection apex-cicd exec apex-db healthcheck.sh
-  podman --connection apex-cicd exec -i apex-db sqlplus -s / as sysdba \
-    < scripts/apex-db-verify.sql
-  curl --fail --silent --show-error --location --output /dev/null \
-    --write-out 'ORDS landing: HTTP %{http_code}\n' http://127.0.0.1:8080/ords/
-  curl --fail --silent --show-error http://127.0.0.1:8080/i/apex_version.txt
-  ```
+1. Run the infrastructure verifier:
 
-- Expected: database healthcheck success, VALID APEX with zero invalid objects, HTTP 200 and static asset version 24.2.
-- Do not treat HTTP 200 alone as proof that APEX login or database authentication works.
+   ```bash
+   bash scripts/apex-verify.sh
+   ```
 
-- Open [APEX Administration Services](http://127.0.0.1:8080/ords/apex_admin), workspace INTERNAL, username ADMIN. Read just its password locally:
+   To inspect the individual layers directly instead of the combined check:
 
-  ```bash
-  awk -F= '$1=="APEX_ADMIN_PASSWORD" {print substr($0,index($0,"=")+1)}' .local-apex/credentials.env
-  ```
+   ```bash
+   podman --connection apex-cicd exec apex-db healthcheck.sh
+   podman --connection apex-cicd exec -i apex-db sqlplus -s / as sysdba < scripts/apex-db-verify.sql
+   curl --fail --silent --show-error --location --output /dev/null --write-out 'ORDS landing: HTTP %{http_code}\n' http://127.0.0.1:8080/ords/
+   curl --fail --silent --show-error http://127.0.0.1:8080/i/apex_version.txt
+   ```
 
-- This deliberately prints the requested secret to the operator's terminal; do not copy it into evidence or Git.
-- Sign in and confirm the administration home.
-- Application developers instead use [App Builder](http://127.0.0.1:8080/ords/f?p=4550:1) with their private workspace accounts.
+2. Expect APEX **24.2 VALID**, zero invalid APEX objects, SYSTEM authenticated through the published host port to **FREEPDB1**, ORDS/login-page **HTTP 200**, matching static assets and the final passed message.
+3. Retrieve the locally generated administrator password and open [Administration Services](http://127.0.0.1:8080/ords/apex_admin):
 
-- The SQL endpoint is 127.0.0.1:1521/FREEPDB1.
-- SYSTEM uses ORACLE_PASSWORD from the same protected file; SYS requires SYSDBA.
-- The combined supporting verifier additionally authenticates SYSTEM through the published host port, follows APEX login redirects with cookies and checks the returned page:
+   ```bash
+   python3 scripts/cicd-password.py APEX_ADMIN_PASSWORD
+   ```
 
-  ```bash
-  set -o pipefail
-  bash scripts/apex-verify.sh | tee .local-apex/access-verification.log
-  ```
-
-- This is a repeatable infrastructure check. It does not deploy the application or substitute for the separate browser login.
+4. Sign in as **ADMIN**, administration workspace **INTERNAL**. Confirm the administration home and styling, then sign out. HTTP 200 alone does not verify credentials.
+5. There are no fixed default passwords. The installer generates passwords once in protected `.local-apex/credentials.env` and retains them across lab destruction. SYSTEM/SYS use **ORACLE_PASSWORD**; SYS requires SYSDBA. **ORDS_PASSWORD** is installation/service configuration, not a browser login. Do not publish password values.
+6. Project schemas, private workspaces and developer/runtime accounts are created only by the separate onboarding commands below.
 
 ## 9. Provisioning boundary for application areas
 
