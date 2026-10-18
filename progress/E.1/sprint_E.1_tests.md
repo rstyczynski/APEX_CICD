@@ -234,3 +234,7 @@ Corrected patch archive SHA-256 80b51f1ed3e371d6c198dc785a7df741fd671d2ab77d8db6
 ## Independent clean-checkout native A–I proof — 2026-10-18
 
 [Portable evidence](tests/clean_checkout_20261018.txt) records committed source 54c0fd3facc22fa8f82574009ecffef40acd72bb, full history/pinned method, new empty owned VM, newly generated credentials and no copied release/database/connection state. Only public checksum-verified installer caches were reused. Vanilla infrastructure passed with zero project schemas/workspaces before separate project onboarding. All A–I operations passed: exact archive promotion, fresh/upgrade patch starts, 21-row integration/20-row UAT prior-field preservation, known incompatibility rejection, synthetic drift rejection/source review/exact restoration and bounded failure/repair with changed-observation rejection and unchanged repeat. Python discovery 26/0, smoke manifest 1/0 and database unit manifest 2/0 pass. Runtime API fixtures explicitly replace browser checkpoints; full default integration-suite acceptance is not claimed.
+
+## Closure disposition — 2026-10-18
+
+E.1 is closed by explicit Product Owner request. The native clean-checkout A–I and focused test results above remain the actual evidence. Full original concurrency/fencing/schema-drift and broader acceptance gates are not asserted passed; their remaining outcomes are mapped to proposed follow-up items in the assessment. No tests were rerun solely to change sprint status. See the [closure handover](sprint_E.1_handover.md#sprint-closure).

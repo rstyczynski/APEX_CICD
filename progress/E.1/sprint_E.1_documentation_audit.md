@@ -467,3 +467,9 @@ Recorded the Product Owner's clarification in the review skill and expert prompt
 ## Requested housekeeping and diagram-backup commit — 2026-10-18
 
 Inspected the Product Owner's two remaining changes: ignore macOS metadata and PowerPoint lock files, and retain the explicitly requested draw.io backup. The backup parses as draw.io XML and remains a backup rather than the maintained model or presentation source. Checked diff whitespace and staged credential/scope; product requirements, architecture, executable behavior and sprint status are unchanged, so runtime tests are not repeated. Prior completed increment: 1520679. Commit only; no push requested for this change.
+
+## E.1 closure — 2026-10-18
+
+Applied rup-sprint/rup-progress to the Product Owner's explicit request to mark E.1 Done. Updated only E.1's plan status and board sprint-status cells; retained factual item evidence states and all other sprint records. Handover, assessment, README, roadmap, architecture orientation and test disposition now distinguish iteration closure from outstanding gates and full Lifecycle Architecture acceptance. The original full test contract is not asserted passed; PBI-018–035 retain the known follow-up coverage. No new sprint, second review or runtime operation starts. Presentation remains a pre-closure snapshot, identified as such in the handover.
+
+Checked current requirements, architecture, test profile, setup/design/test specifications, implementation/test evidence, clean-checkout results and backlog coverage against the closure. Validate links/fences, no-active-sprint state, exact E.1-only plan/board changes, credential scope and whitespace before the local closure commit. No product behavior changed and no database tests are repeated. Previous completion: 403e092. No push requested.

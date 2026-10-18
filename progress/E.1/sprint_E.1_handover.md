@@ -70,7 +70,7 @@ Native initial receipts remain historical evidence after upgrade. Old pre-rename
 
 ## Completion boundary and recommendation
 
-The [official board](../../PROGRESS_BOARD.md) still records E.1 as under_construction and PBI-011 through PBI-016 as unfinished parent outcomes. The full [plan](../../PLAN.md) remains Progress. In particular, real concurrent reservations/integration, full request/verifier fencing, broader schema drift and unsupported repair states remain open. The bounded integration-only failed additive deployment/forward repair now passes; see [native evidence](tests/recovery_proof_20261018.txt).
+The [official board](../../PROGRESS_BOARD.md) and [plan](../../PLAN.md) record E.1 as Done following the Product Owner’s explicit closure on 2026-10-18. Item evidence statuses retain their actual coverage. In particular, real concurrent reservations/integration, full request/verifier fencing, broader schema drift and unsupported repair states remain open. The bounded integration-only failed additive deployment/forward repair now passes; see [native evidence](tests/recovery_proof_20261018.txt).
 
 Recommend a focused Elaboration follow-up, using the existing child definitions, before full Lifecycle Architecture acceptance. The [assessment](sprint_E.1_assessment.md) supplies each assigned item's exact status, demonstrated subset, remaining criterion and a conditional Construction sequence. No new sprint is scheduled, no backlog item is marked complete, and no push is authorized by preparing this package.
 
@@ -88,3 +88,11 @@ Recommend a focused Elaboration follow-up, using the existing child definitions,
 ## Product Owner review status
 
 The package is prepared for your review. The earlier stage PASS observations remain recorded as demonstrated outcomes. Handover acceptance, the manual restoration choice and the boundary for sprint conclusion are not decided by creating these documents.
+
+## Sprint closure
+
+The Product Owner explicitly requested E.1 be marked Done on 2026-10-18. The delivered increment comprises the guided A–I delivery/protection/repair path, the presentation and operator documentation, six registered review fixes, and the independent clean-checkout proof. Native A–I, 26 Python cases, one smoke check and two database unit checks passed; detailed evidence remains in the [test record](sprint_E.1_tests.md) and [clean-checkout results](tests/clean_checkout_20261018.txt).
+
+The original full validation contract is not reported as passed. Remaining concurrency, capture, release-negative, maintenance/fencing, schema-drift, recovery and browser proofs are represented by PBI-018–024/034; deferred concerns and conditional extensions are PBI-025–033/035. The [coverage map](sprint_E.1_assessment.md#open-work-backlog-coverage) connects them to the original scope. Board item statuses preserve their evidence level instead of labelling unfinished criteria tested. Closure concludes the accepted prototype iteration; it does not establish production readiness or full Lifecycle Architecture acceptance. The Construction direction remains conditional on the outstanding Elaboration evidence.
+
+The presentation is the pre-closure review snapshot; this closure section and current plan/board supersede its open-sprint wording. No second external review was started before this closure request. No next sprint is activated, and other sprint records remain unchanged.

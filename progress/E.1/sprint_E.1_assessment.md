@@ -1,6 +1,6 @@
 # E.1 — Prototype assessment and proposed next work
 
-Prepared for Product Owner review on 2026-10-18. E.1 remains **Progress** in [PLAN](../../PLAN.md) and **under_construction** on the [progress board](../../PROGRESS_BOARD.md). This assessment does not change either status.
+E.1 was explicitly closed by the Product Owner on 2026-10-18 and is **Done** in [PLAN](../../PLAN.md) and the [progress board](../../PROGRESS_BOARD.md). The evidence-level item statuses and remaining criteria below preserve the pre-closure assessment; they are not claims that unexecuted gates passed. See the [closure handover](sprint_E.1_handover.md#sprint-closure).
 
 Read this alongside the [handover](sprint_E.1_handover.md), [presentation walkthrough](sprint_E.1_increment_demo.md), [accepted prototype design](sprint_E.1_design.md), [SRS](../../docs/srs.md), [architecture](../../docs/architecture.md) and [test profile](../../docs/test-profile.md). The requirements and board own scope/status; this document assesses evidence and proposes the next decision.
 
@@ -21,7 +21,7 @@ These controls demonstrate the value of accepted source, component versions, exp
 
 ### PBI-011 — Executable architectural prototype
 
-Official status: **under_construction**. Its selected delivery/patch/protection slice has substantial working evidence. The full parent acceptance scope remains incomplete.
+Item evidence status at closure: **under_construction**. Its selected delivery/patch/protection slice has substantial working evidence. The full parent acceptance scope remains incomplete.
 
 1. [PBI-011.1](sprint_E.1_design.md#pbi-0111--toolchain-lifecycle-and-isolated-areas), **tested**: pinned tools, separate infrastructure/project provisioning, identity and cross-area isolation evidence. Current platform: SQLcl 25.3.0.274.1210, Java 21.0.12.1+1, Database 23.26.3.0.0 and APEX 24.2.0. Preserve the lifecycle boundary in [deploy.md](../../docs/deploy.md).
 2. [PBI-011.2](sprint_E.1_design.md#pbi-0112--durable-atomic-reservations), **under_construction**: durable package-controlled reservations support the sequential journey. Synchronized competing Hello clients, scope expansion and safe reassignment evidence remain incomplete.
@@ -34,11 +34,11 @@ Official status: **under_construction**. Its selected delivery/patch/protection 
 
 ### PBI-012 — Validate critical assumptions and use cases
 
-Official status: **under_design**. Selected native/browser/receipt evidence is collected in the [test record](sprint_E.1_tests.md) and [handover checks](tests/handover_checks_20261018.txt). The remaining child proofs, complete gate reconciliation, resource/timing measurements and independent reproduction limits still need assessment. Focused test successes do not mean that the full smoke/unit/integration contract has passed.
+Item evidence status at closure: **under_design**. Selected native/browser/receipt evidence is collected in the [test record](sprint_E.1_tests.md) and [handover checks](tests/handover_checks_20261018.txt). The remaining child proofs, complete gate reconciliation, resource/timing measurements and independent reproduction limits still need assessment. Focused test successes do not mean that the full smoke/unit/integration contract has passed.
 
 ### PBI-013 — Refine use cases and supplementary requirements
 
-Official status: **under_design**. Preserve these findings in the existing requirements refinement:
+Item evidence status at closure: **under_design**. Preserve these findings in the existing requirements refinement:
 
 1. UC-4/FR-6/FR-8: an accepted Git revision supplies the release, while C is a private development assembly.
 2. UC-5/FR-10: expose drift details before the operator chooses restoration or reviewed Git reconciliation. Preserve unexpected source and refuse silent baseline adoption.
@@ -49,15 +49,15 @@ The current [SRS](../../docs/srs.md) remains authoritative. This is evidence for
 
 ### PBI-014 — Stabilize the architecture baseline
 
-Official status: **under_design**. Retain explicit SQLcl/APEX interfaces, immutable migration files, source-built archives, separate E1_CTRL authority and private logical areas. The selected one-host topology is feasible for this lab. Keep the wider ownership/fencing/schema-drift/repair architecture provisional until its evidence exists. No general delivery platform is warranted by this prototype.
+Item evidence status at closure: **under_design**. Retain explicit SQLcl/APEX interfaces, immutable migration files, source-built archives, separate E1_CTRL authority and private logical areas. The selected one-host topology is feasible for this lab. Keep the wider ownership/fencing/schema-drift/repair architecture provisional until its evidence exists. No general delivery platform is warranted by this prototype.
 
 ### PBI-015 — Lifecycle Architecture assessment
 
-Official status: **under_design**. Recommendation: **further focused Elaboration**. The happy path and selected protections are useful and reviewable, but the core collaboration/exclusion/repair risks remain material to the accepted release. The current evidence does not justify full Lifecycle Architecture acceptance or production readiness.
+Item evidence status at closure: **under_design**. Recommendation: **further focused Elaboration**. The happy path and selected protections are useful and reviewable, but the core collaboration/exclusion/repair risks remain material to the accepted release. The current evidence does not justify full Lifecycle Architecture acceptance or production readiness.
 
 ### PBI-016 — Construction plan
 
-Official status: **under_design**. Proposed order, subject to Product Owner selection:
+Item evidence status at closure: **under_design**. Proposed order, subject to Product Owner selection:
 
 1. Finish the missing architectural proofs below and reconcile their full test outcomes.
 2. Review requirements and architecture against that evidence, then decide Lifecycle Architecture.
@@ -77,7 +77,7 @@ Reuse the same host, application and public Oracle interfaces. The original desi
 
 ## Review decision requested
 
-Review the demonstrated slice and the recommendation above. Decide whether to complete the missing proofs within E.1 or revise its accepted boundary and schedule further Elaboration through the existing backlog/sprint procedures. Until that decision and the remaining acceptance work, leave E.1 open.
+Review the demonstrated slice and the recommendation above. Decide whether to complete the missing proofs within E.1 or revise its accepted boundary and schedule further Elaboration through the existing backlog/sprint procedures. The Product Owner has now closed this iteration; remaining acceptance work is represented by the follow-up backlog without activating another sprint.
 
 ## Open-work backlog coverage
 

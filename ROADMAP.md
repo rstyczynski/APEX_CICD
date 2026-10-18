@@ -3,7 +3,7 @@
 ## Basis and decision status
 
 The Product Owner accepted this roadmap and the next-sprint proposal on
-2026-10-16, following acceptance of the README vision. The platform installation is preliminary historical work; I.1 owns the maintained infrastructure lifecycle procedure and its assessment. Sprint 0 is complete. I.1 is closed with all material explicitly accepted by the Product Owner on 2026-10-16; E.1 is now active under that authorization.
+2026-10-16, following acceptance of the README vision. The platform installation is preliminary historical work; I.1 owns the maintained infrastructure lifecycle procedure and its assessment. Sprint 0 is complete. I.1 is closed with all material explicitly accepted by the Product Owner on 2026-10-16; E.1 was subsequently closed by the Product Owner on 2026-10-18; follow-up work remains in the backlog.
 
 ## Completed preliminary work
 
@@ -48,8 +48,10 @@ approving an executable iteration.
 
 ## Elaboration — Validate the risky delivery path
 
-E.1, formerly labeled Sprint 2, is active in managed mode with
-PBI-011 through PBI-016. Use a thin Hello/World slice to validate source export,
+E.1, formerly labeled Sprint 2, concluded in managed mode on 2026-10-18 with
+the demonstrated A–I prototype and recorded remaining work. PBI-018–035 make
+the follow-up visible; no new iteration is scheduled. The original objective
+for PBI-011 through PBI-016 follows below as planning context. Use a thin Hello/World slice to validate source export,
 database evolution, packaging, target deployment, and an observable behavior
 change. Reuse existing assets where the accepted design supports them.
 Refine PBI-011 into bounded sprint children before construction, with Product

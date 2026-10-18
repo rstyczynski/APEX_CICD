@@ -71,13 +71,18 @@ Backlog Items:
 
 ## Sprint E.1 - Validate the local APEX delivery path
 
-Status: Progress
+Status: Done
 Mode: managed
 Test: smoke, unit, integration
 Regression: smoke, unit, integration
 
 Activated on 2026-10-16 under the Product Owner's explicit authorization
-after I.1 closure. Prototype construction awaits E.1 design approval.
+after I.1 closure. The Product Owner explicitly closed E.1 on 2026-10-18.
+The delivered A–I prototype, correction evidence and handover conclude this
+iteration; remaining proofs and deferred concerns are tracked in PBI-018–035.
+Closure does not assert that the original full validation contract passed or
+that Lifecycle Architecture/production readiness is accepted. No next sprint
+is activated. See the [closure handover](progress/E.1/sprint_E.1_handover.md#sprint-closure).
 
 This provisional Elaboration iteration uses a minimal Hello/World architectural
 prototype to validate the highest-risk technical assumptions and use cases,
