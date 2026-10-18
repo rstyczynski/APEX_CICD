@@ -711,13 +711,16 @@ Change UAT's Home page title, then try deployment. See the pipeline stop and lea
    6. Sign out of Administration Services.
 
 3. **Open UAT in Page Designer.**
-   1. Open [workspace sign-in](http://127.0.0.1:8080/ords/) and sign in to workspace **E1_UAT** with your developer account.
-   2. Open **App Builder → application 810005 → 1 — Home**.
-   3. In the **Rendering** tree, select the page node.
+   1. Open the [ORDS landing page](http://127.0.0.1:8080/ords/).
+   2. In the middle **Oracle APEX** card, click **Go** to open workspace sign-in.
+   3. Enter **Workspace = E1_UAT**, **Username = DRIFT_EDITOR** and the password you chose. If you used an existing UAT developer in step 2, use that account instead.
+   4. Open **App Builder → application 810005 → 1 — Home**.
+   5. Look at the icons above the left-hand tree. The **first icon**, shaped like a small page/layout, is the **Rendering** tab. Select it if it is not already active.
+   6. Click the green **Page 1: Home** node at the top of that tree, above **Pre-Rendering**, **Components** and **Post-Rendering**.
 
 4. **Make one visible edit.**
-   1. Find the page's **Title** property and copy its exact current value somewhere you can retrieve it.
-   2. Change it to **Manual drift demonstration** and press **Save**. Keep application and component versions unchanged.
+   1. In the **right-hand Property Editor**, open **Identification** and find **Title**. Copy its exact current value somewhere you can retrieve it.
+   2. Change **Title** to **Manual drift demonstration** and press **Save**. Keep application and component versions unchanged.
    3. Open [UAT](http://127.0.0.1:8080/ords/f?p=810005:1) as **LAB_USER** and refresh. Look for the new title in the page or browser tab.
 
 5. **Try deployment.** Return to the terminal and run:

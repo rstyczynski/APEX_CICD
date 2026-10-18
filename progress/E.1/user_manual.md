@@ -685,6 +685,8 @@ It validates the same ready release and live fingerprint, shows the LAB_USER res
 
 ## Manual Page Designer drift demonstration
 
+On the ORDS landing page, click **Go** under **Oracle APEX** before signing in to **E1_UAT**. In Page Designer, **Rendering** is the first icon above the left-hand tree. Select the green **Page 1: Home** node above the Pre-Rendering/Components/Post-Rendering folders, then find **Identification → Title** in the right-hand Property Editor. The [numbered H.1 steps](cicd-walkthrough.md#h1-change-a-page-in-app-builder) show the full sequence.
+
 Use [H.1's numbered operator procedure](cicd-walkthrough.md#h1-change-a-page-in-app-builder) for a real App Builder save in UAT instead of the imported fixture.
 
 ```bash
