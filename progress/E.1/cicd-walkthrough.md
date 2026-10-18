@@ -1,5 +1,25 @@
 # E.1 — Use-case walkthrough: deployment results and protection
 
+## Contents
+
+- [What this walkthrough shows](#what-this-walkthrough-shows)
+- [Deep dive](#deep-dive)
+- [Applied tools and techniques](#applied-tools-and-techniques)
+- [Alignment with selected Elaboration use cases](#alignment-with-selected-elaboration-use-cases)
+- [Current readiness](#current-readiness)
+- [Run the results walkthrough](#run-the-results-walkthrough)
+- [Run one chapter at a time](#run-one-chapter-at-a-time)
+- [Prepare a repeatable walkthrough](#prepare-a-repeatable-walkthrough)
+- [A. Deliver Foundation](#a-deliver-foundation)
+- [B. Deliver Hello](#b-deliver-hello)
+- [C. Deliver World and complete the assembly](#c-deliver-world-and-complete-the-assembly)
+- [D. Qualify the initial release](#d-qualify-the-initial-release)
+- [E. Promote the same initial artifact to TEST](#e-promote-the-same-initial-artifact-to-test)
+- [F. Deliver the compatible Hello patch](#f-deliver-the-compatible-hello-patch)
+- [G. Reject an incompatible database upgrade](#g-reject-an-incompatible-database-upgrade)
+- [H. Reject deployment over unexpected live change](#h-reject-deployment-over-unexpected-live-change)
+- [Maintain this artifact](#maintain-this-artifact)
+
 ## What this walkthrough shows
 
 - This lab simulates work of 3 developers (identified as A, B, and C) dedicated to development of APEX style Hello World application architected as composition of three components: database and two user facing ones.

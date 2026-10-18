@@ -191,3 +191,7 @@ The current results guide is now cicd-walkthrough.md. Its launcher calls eight e
 Inspected [verification evidence](tests/walkthrough_split_20261018.txt): local preflight and standalone E pass; complete A–H CLI rehearsal returns 0 with both specific rejections and exact native restoration/data preservation. Checked interactive quit, argument errors, portable Git-root discovery, Bash syntax and preservation of the detailed operator implementation. Qualified archives and pinned controllers are unchanged; no new application deployment is implied. Human viewing was skipped; broader concurrency, maintenance fencing and failed-additive repair remain open.
 
 Local checks passed for 33 documents and 261 links/anchors, fences and traceability links. Bash syntax, staged whitespace validation and staged credential scan passed. No remote push is authorized.
+
+## Main walkthrough navigation — 2026-10-18
+
+Added a linked Contents section immediately below the title in [cicd-walkthrough.md](cicd-walkthrough.md), covering all 17 existing main chapters. Reviewed the paired launcher/chapter scripts: chapter headings and operations are unchanged, so no script change is needed. All A–H local preflight checks pass. The documentation checker passes for 33 documents and 278 local links/anchors, fences, traceability and whitespace. Scope, use-case coverage, readiness and other sprint artifacts remain unchanged. Previous walkthrough split is local commit c3b165c.
