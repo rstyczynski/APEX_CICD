@@ -700,3 +700,15 @@ First validate the published patch, arrange temporary E1_UAT developer access, r
 Use `bash scripts/cicd-protection-check.sh drift` before editing: require **NO DRIFT**. Repeat it after [the manual Page Designer edit](cicd-walkthrough.md#h1-change-a-page-in-app-builder): require **DETECTED DRIFT** and the specific **REJECTED DRIFT**. Undo the edit and require **NO DRIFT** again. [H.2](cicd-walkthrough.md#h2-optional-automated-replay) repeats the changed case using the scripted fixture, with checks before injection and after restoration.
 
 Both recognized drift-check outcomes finish with **PASS drift protection** only after target/control snapshots match before/after the attempted preflight. This is successful inspection, not permission to deploy over drift. Unexpected SQL/tool failures exit nonzero. H's automated replay uses --expect-clean/--expect-drift internally to enforce the expected phase; the ordinary operator command remains the same in all three cases. Keep this aligned with the [outcome tests](../../docs/test-profile.md#drift-check-outcomes).
+
+## Inspect manual drift before deciding restoration
+
+Follow [H.1 steps 6–9](cicd-walkthrough.md#h1-change-a-page-in-app-builder) after a manual drift rejection.
+
+```bash
+python3 scripts/cicd-drift-diff.py
+```
+
+The read-only command verifies the selected patch archive against UAT's successful receipt, captures the native live definition and prints changed page values plus a SQL diff. Published lines have a minus sign; live lines have a plus sign. The saved review omits target-offset lines and generated Manifest comments only; a full raw diff and both source trees remain available. Other deployment metadata differences are retained rather than silently treated as page edits. Neither the live definition nor Git is overwritten.
+
+Choose whether to restore the published page/region values in Page Designer or retain the captured edit for Git review and a new release. Restoration is manual and explicit; the tool has no restore action. After restoring all edited attributes, run `bash scripts/cicd-protection-check.sh drift` and require NO DRIFT against the original receipt. If differences remain, inspect again rather than changing the accepted baseline. See the [test profile](../../docs/test-profile.md#read-only-drift-source-review).

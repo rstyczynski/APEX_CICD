@@ -115,7 +115,7 @@ This chapter connects each demonstration to the accepted use cases and makes the
 
 This checkpoint describes the delivered lab state and the boundaries of what has been demonstrated.
 
-- **Delivered checkpoint:** A/B/C development work is retained. F has completed the Hello patch delivery to UAT: **Foundation 1.0.0 / Hello 1.0.1 / World 1.0.0**, with its preservation baseline checked. The current read-only drift check reports **NO DRIFT**, matching the published patch fingerprint. Follow H below to demonstrate manual and scripted changes, restoring the original definition between cases.
+- **Delivered checkpoint:** A/B/C development work is retained. F completed the Hello patch delivery to UAT: **Foundation 1.0.0 / Hello 1.0.1 / World 1.0.0**, with its preservation baseline checked. H has detected the manual Home-page edit and preserved it. The read-only source review shows the changed Title and region Name; the decision to keep or restore those values is pending. Follow H.1 below before starting the scripted fixture.
 - This walkthrough now starts with explicit prerequisite checking, Podman host preparation, complete lab cleanup and fresh database/APEX/ORDS installation.
 - Cleanup destroys **all database state in this lab**, including A/B/C, integration_test, user_acceptance_test, entries, settings, greeting history and database control receipts. Host credentials, tools, reviewed source/release archives and historical evidence remain available; unrelated Podman resources are preserved.
 - Infrastructure installation ends with **only Oracle Database/APEX/ORDS**. It creates no E1_CTRL, developer/target schemas, project workspaces or developer accounts. Project control and named-area provisioning follow separately.
@@ -731,15 +731,35 @@ Change UAT's Home page title, then try deployment. See the pipeline stop and lea
 
    Look for **REJECTED DRIFT**, **DETECTED DRIFT** and **PASS drift protection**. Refresh UAT: your changed title and greeting history should still be there. The rejected deployment has not overwritten them.
 
-6. **Restore your edit.** Return to Page Designer, paste the exact original **Title**, then press **Save**. Run:
+6. **See what changed.** Run the read-only source comparison:
 
    ```bash
-   bash scripts/cicd-protection-check.sh drift
+   python3 scripts/cicd-drift-diff.py
    ```
 
-   Look for **NO DRIFT** again: the live fingerprint matches the original release receipt. Refresh UAT and confirm the original title and greeting history. If the fingerprint still differs, check for other saved edits before continuing.
+   1. Read the changed page attributes: **published value → live value**. For example, a page Title or region Name may have changed.
+   2. Read the SQL diff: lines beginning **-** are the published code; lines beginning **+** are the live code.
+   3. Open the file printed after **REVIEW** for all differences. **COMPLETE RAW DIFF** also retains import-offset and generated-comment differences, which are omitted from the shorter comparison. Application alias, availability and generated metadata can differ between packaged source and a running target; review them separately from page edits.
+   4. The script verifies that the selected archive matches UAT's successful receipt, exports the live definition and saves both sides locally. It changes neither UAT nor Git, and checks that the target did not change during capture.
 
-7. **Remove temporary access.** If you created **DRIFT_EDITOR** in step 2, sign out, reopen Administration Services as **ADMIN**, find that user under **Manage Developers and Users**, and delete it. Keep existing accounts unchanged.
+7. **Decide whether to keep or undo the change.**
+   - **Undo it:** use the published values shown in the report and follow step 8.
+   - **Keep it:** stop here. Keep the saved live export for capture/review into Git and a new release. Deployment remains blocked while drift is unresolved; do not accept the live edit as a new baseline just to clear the check.
+
+8. **Roll back the manual edit to the published values.**
+   1. Return to **App Builder → application 810005 → 1 — Home**.
+   2. Select the green **Page 1: Home** node. Restore **Identification → Title** to the published value shown in the report.
+   3. If the report also shows a changed region Name, expand **Components**, select that region and restore **Identification → Name**. Restore **Identification → Title** too if you changed it. Use the published values; do not guess from the current display text.
+   4. Restore any other attributes you intentionally changed, then press **Save**. This is your explicit restoration action; the comparison script does not do it automatically.
+   5. Run the same protection check:
+
+      ```bash
+      bash scripts/cicd-protection-check.sh drift
+      ```
+
+   6. Require **NO DRIFT**: the live fingerprint must match the original release receipt. Refresh UAT and confirm the original display and greeting history. If drift remains, repeat step 6 to inspect the remaining differences; do not declare restoration complete or reset the baseline.
+
+9. **Remove temporary access.** If you created **DRIFT_EDITOR** in step 2, sign out, reopen Administration Services as **ADMIN**, find that user under **Manage Developers and Users**, and delete it. Keep existing accounts unchanged.
 
 Keep other UAT edits/deployments stopped during these steps. Restore this manual edit in Page Designer; the automated fixture's restore command belongs to its own demonstration.
 
