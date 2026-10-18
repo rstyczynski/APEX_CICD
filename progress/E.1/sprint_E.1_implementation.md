@@ -310,3 +310,9 @@ The existing selected initial archive passes the read-only integration_test resu
 E now accepts --resume-verification only for an incomplete retained stage with matching initial archive, owned epoch, restricted 1.0.0 application and exact initial root verification state. It reruns archived integrity/rollback unit checks and returns to the browser prompt. No new admission, migration, import or reset is performed. Final publication remains the original archived controller/SQL; archive bytes are unchanged.
 
 D/E/F now check the exact VERIFIER Hello World assertion before publication and repeat only for missing browser data. Unexpected SQL errors stop. The existing C behavior is retained. Operator guide, manual, repository draft and test profile describe the same boundary. UAT remains restricted awaiting the user's browser example, not successfully promoted.
+
+## Preserve settings during post-publication upgrade examples — 2026-10-18
+
+Corrected the UAT history fixture to select existing active Hello/World entries explicitly instead of relying on saved defaults. A valid manually selected greeting does not require both defaults. The fixture preserves configuration and prior history; missing active entries or incompatible prefixes give a fixture-specific error. No application source, migration or immutable release archive changes.
+
+Added E --resume-examples for an incomplete stage after successful initial publication. It validates the ready archive/live fingerprint, returns to the LAB_USER result pause, and completes examples/baseline capture without republishing or reinstalling. An existing baseline is compared rather than overwritten. The script now explains this continuation if example preparation fails. Main guide/readiness, operator manual, repository draft and test profile are synchronized. UAT is published; example preparation remains for the operator to finish.

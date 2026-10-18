@@ -672,3 +672,13 @@ bash scripts/cicd-walkthrough-E_promotion.sh --resume-verification
 ```
 
 The command validates the same archive/epoch and restricted 1.0.0 checkpoint, then waits for VERIFIER to save exactly Hello World. Missing browser data repeats the prompt; unexpected SQL errors stop. Normal D/E/F verification prompts use this assertion loop too. Final publication retains its archived guards; no automatic reinstall or reset occurs.
+
+## Resume UAT upgrade-example preparation
+
+A failure after successful publication does not require reinstallation. Follow the [post-publication E continuation](cicd-walkthrough.md#resume-e-after-publication-prepare-upgrade-examples):
+
+```bash
+bash scripts/cicd-walkthrough-E_promotion.sh --resume-examples
+```
+
+It validates the same ready release and live fingerprint, shows the LAB_USER result, then prepares the announced test examples using explicit active Hello/World selections. Existing configuration and history remain unchanged; new history appends. A saved preservation baseline is compared rather than replaced. This differs from [pre-publication verification continuation](cicd-walkthrough.md#resume-e-at-its-restricted-verification-checkpoint).

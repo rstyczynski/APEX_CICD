@@ -172,3 +172,9 @@ Read-only command: bash scripts/cicd-release-result.sh "$(cat .local-apex/releas
 ## Release verification retry and E resume — 2026-10-18
 
 Verification manifest passes 8/0: existing C three cases; release missing-then-present, q, unexpected SQL failure; initial resume refuses published state and wrong archive. Local fresh/resume preflights and Bash syntax pass. Native E resume validates actual E1_UAT epoch 1, selected initial hash, restricted 1.0.0/root state and archived integrity plus UT-1/UT-2 (rollback fixtures). Pressing a key with no greeting reports the missing VERIFIER Hello World assertion and repeats the browser prompt. q exits 130 without publication. No new deployment attempt, migration/import/reset or greeting fixture is performed. Full successful E browser/publication remains pending.
+
+## UAT examples with unset default — 2026-10-18
+
+Native diagnosis: E1_UAT epoch 1/ready, complete initial archive, matching live fingerprint; one VERIFIER and one LAB_USER Hello World greeting. Hello default exists; World default is unset. This is a fixture assumption failure after successful delivery.
+
+Corrected fixture executed natively with its insert commit replaced by rollback for this test. Explicit active selections produced the expected examples; history count and Hello/World defaults matched before/after, including the unset World default. No test examples retained. E --resume-examples natively validated ready state/archive/fingerprint and both successful receipts, reached the LAB_USER pause, then q exited 130 without preparing/capturing data. Fresh/resume local preflight and Bash syntax pass. Verification manifest passes 11/0, adding existing-baseline reuse, capture-after-success and no capture on fixture failure. Full completion of E's baseline preparation remains pending operator continuation.

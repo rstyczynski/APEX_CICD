@@ -148,3 +148,7 @@ Run `bash tests/run.sh --unit --new-only tests/manifests/development_verificatio
 ## Release browser-verification retry and bounded UAT resume
 
 The same verification manifest now also checks D/E/F's missing-fixture retry, q and unexpected SQL failure paths. E alone adds a restricted initial 1.0.0 continuation after ORA-20619: validate the same archive/epoch/owner and root/native checkpoint, rerun archived integrity and rollback unit checks, repeat the browser assertion and then use archived publication. No migration/import/reset or new attempt is allowed. See [E continuation](../progress/E.1/cicd-walkthrough.md#resume-e-at-its-restricted-verification-checkpoint) and [operator guidance](../progress/E.1/user_manual.md#resume-initial-uat-verification).
+
+## Post-publication upgrade-example preparation
+
+E's announced UAT history fixture must work when active Hello/World entries were explicitly selected in the UI and a default remains unset. It selects active entries explicitly, preserves configuration and old history, and appends only the missing snapshots to reach twenty. A bounded post-publication continuation requires the same ready initial archive/live fingerprint and compares an existing preservation baseline rather than replacing it. See [E continuation](../progress/E.1/cicd-walkthrough.md#resume-e-after-publication-prepare-upgrade-examples) and [operator guidance](../progress/E.1/user_manual.md#resume-uat-upgrade-example-preparation). This is test-data preparation, not failed-deployment repair.

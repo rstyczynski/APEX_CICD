@@ -201,3 +201,19 @@ patch_install() {
   bash scripts/cicd-patch-step.sh "$archive" "$target" publish "$epoch" "$start"
   bash scripts/cicd-patch-step.sh "$archive" "$target" result "$epoch" 1.0.0
 }
+
+# Post-publication examples are separate from release delivery and retain existing rows/settings.
+prepare_uat_upgrade_baseline() {
+  local baseline="${1:-.local-apex/releases/test-initial-preservation.json}"
+  if [ -e "$baseline" ]; then
+    python3 scripts/cicd-preservation.py compare user_acceptance_test "$baseline"
+    echo 'EXISTING upgrade baseline verified; it was not overwritten.'
+    return
+  fi
+  if ! python3 scripts/apex_sql.py user_acceptance_test tests/sql/prepare_history_sentinels.sql; then
+    echo 'ERROR: upgrade examples not prepared. UAT remains published; existing history/settings are retained.' >&2
+    echo 'After correcting the reported fixture precondition, run: bash scripts/cicd-walkthrough-E_promotion.sh --resume-examples' >&2
+    exit 1
+  fi
+  python3 scripts/cicd-preservation.py capture user_acceptance_test "$baseline"
+}

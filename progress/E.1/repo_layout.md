@@ -107,3 +107,7 @@ Keep this draft synchronized with its authoritative sources and incoming referen
 ## Retained initial UAT verification checkpoint
 
 The [E continuation](cicd-walkthrough.md#resume-e-at-its-restricted-verification-checkpoint) reuses the same immutable Git-built initial archive and owned UAT attempt. It does not capture C, rebuild a package or reinstall the target. The browser assertion loop runs outside immutable archive contents; final publication still executes the archived SQL and guards. Keep this description synchronized with the [operator manual](user_manual.md#resume-initial-uat-verification) and [test profile](../../docs/test-profile.md#release-browser-verification-retry-and-bounded-uat-resume).
+
+## Post-publication UAT examples
+
+The [E examples continuation](cicd-walkthrough.md#resume-e-after-publication-prepare-upgrade-examples) validates the published initial archive and target fingerprint, then completes explicitly announced local test-data/baseline preparation. It does not create a new package or deployment receipt. The fixture selects active entries explicitly rather than depending on saved defaults, preserving operator settings. Existing baseline files are compared, never silently replaced. See the [operator manual](user_manual.md#resume-uat-upgrade-example-preparation).

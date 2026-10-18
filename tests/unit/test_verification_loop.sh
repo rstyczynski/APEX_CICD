@@ -96,3 +96,35 @@ test_initial_resume_rejects_wrong_archive() (
   rg -q 'retained attempt archive differs' "$work/transcript"
   rm "$work/transcript"
 )
+
+
+test_examples_keep_existing_baseline() (
+  _c_loop_setup
+  touch "$work/baseline.json"
+  python3() { printf '%s\n' "$*" >> "$work/calls"; }
+  prepare_uat_upgrade_baseline "$work/baseline.json" > "$work/transcript"
+  rg -q 'compare user_acceptance_test' "$work/calls"
+  ! rg -q 'capture|apex_sql' "$work/calls"
+  rm "$work/baseline.json" "$work/calls" "$work/transcript"
+)
+
+test_examples_capture_only_after_success() (
+  _c_loop_setup
+  python3() { printf '%s\n' "$*" >> "$work/calls"; }
+  prepare_uat_upgrade_baseline "$work/baseline.json"
+  [ "$(wc -l < "$work/calls" | tr -d ' ')" = 2 ]
+  head -1 "$work/calls" | rg -q 'apex_sql.py user_acceptance_test'
+  tail -1 "$work/calls" | rg -q 'capture user_acceptance_test'
+  rm "$work/calls"
+)
+
+test_examples_failure_does_not_capture() (
+  _c_loop_setup
+  python3() { printf '%s\n' "$*" >> "$work/calls"; return 1; }
+  status=0
+  ( prepare_uat_upgrade_baseline "$work/baseline.json" ) > "$work/transcript" 2>&1 || status=$?
+  [ "$status" -eq 1 ]
+  ! rg -q 'capture' "$work/calls"
+  rg -q -- '--resume-examples' "$work/transcript"
+  rm "$work/calls" "$work/transcript"
+)

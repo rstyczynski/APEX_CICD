@@ -113,7 +113,7 @@ This chapter connects each demonstration to the accepted use cases and makes the
 
 This checkpoint describes the delivered lab state and the boundaries of what has been demonstrated.
 
-- **Delivered checkpoint:** A/B/C development work is retained. D has passed for **integration_test / E1_INTEGRATION / application 810004**, running the complete **1.0.0** release. Its archive hash and live APEX fingerprint pass the read-only result check. **user_acceptance_test / E1_UAT / application 810005** has the same initial release installed at its restricted verification checkpoint. **E awaits the VERIFIER Hello World assertion and publication**; use its bounded resume command below. The interrupted old D attempt remains preserved as historical evidence. When restarting from cleanup, follow every infrastructure and onboarding chapter below before A.
+- **Delivered checkpoint:** A/B/C development work is retained. D has passed for **integration_test / E1_INTEGRATION / application 810004**, running the complete **1.0.0** release. Its archive hash and live APEX fingerprint pass the read-only result check. **user_acceptance_test / E1_UAT / application 810005** has the same initial release installed at its restricted verification checkpoint. **E has published successfully; upgrade-example preparation and baseline capture remain pending**. Use **--resume-examples** below; the LAB_USER greeting is retained. The interrupted old D attempt remains preserved as historical evidence. When restarting from cleanup, follow every infrastructure and onboarding chapter below before A.
 - This walkthrough now starts with explicit prerequisite checking, Podman host preparation, complete lab cleanup and fresh database/APEX/ORDS installation.
 - Cleanup destroys **all database state in this lab**, including A/B/C, integration_test, user_acceptance_test, entries, settings, greeting history and database control receipts. Host credentials, tools, reviewed source/release archives and historical evidence remain available; unrelated Podman resources are preserved.
 - Infrastructure installation ends with **only Oracle Database/APEX/ORDS**. It creates no E1_CTRL, developer/target schemas, project workspaces or developer accounts. Project control and named-area provisioning follow separately.
@@ -586,7 +586,7 @@ bash scripts/cicd-walkthrough-E_promotion.sh
 3. Execute **migrate → import → units → verify**, then use [user_acceptance_test](http://127.0.0.1:8080/ords/f?p=810005:1) as **VERIFIER** to create/configure Hello/World and verify the new greeting/history.
 4. The script checks for a saved greeting whose text is exactly **Hello World** and actor is **VERIFIER**. If absent, it reports **VERIFICATION NOT PASSED** and repeats the browser prompt. Other SQL errors stop. Continue to publish and compare the integration_test/user_acceptance_test archive hashes and new successful receipts.
 5. Open user_acceptance_test as **LAB_USER**. It now runs **1.0.0** with only this cycle's data.
-6. Continue to the explicitly announced twenty verification-history examples and field-level baseline capture for F. These are new test examples for preservation checks, not restored history or release seed.
+6. Continue to the explicitly announced twenty verification-history examples and field-level baseline capture for F. These are new test examples for preservation checks, not restored history or release seed. They use explicit active Hello/World selections, preserving configured defaults. If this post-publication step fails, use **--resume-examples** below.
 
 - Retrieve the password with `python3 scripts/cicd-password.py LAB_USER`. Imports may require re-login.
 
@@ -607,6 +607,21 @@ bash scripts/cicd-walkthrough-E_promotion.sh --resume-verification
 4. Return to the waiting terminal and press a key. Missing data repeats verification; **q** leaves the checkpoint restricted. Once the assertion passes, the original archived publication guards run and E continues to its LAB_USER and preservation steps.
 
 This option performs no new admission, migration, import or reset. It does not recover arbitrary partial deployments or an already published E stage.
+
+### Resume E after publication: prepare upgrade examples
+
+Finish the optional walkthrough test data and preservation baseline after the release is already published. A failure here does not undo delivery or the LAB_USER greeting.
+
+```bash
+bash scripts/cicd-walkthrough-E_promotion.sh --resume-examples
+```
+
+1. The script verifies the published **1.0.0** receipt, same archive hash and live APEX fingerprint. It does not republish or reinstall.
+2. Open [user_acceptance_test](http://127.0.0.1:8080/ords/f?p=810005:1) as **LAB_USER**; an already saved greeting satisfies this browser step. Return to the terminal and press a key.
+3. The explicitly announced fixture selects existing active **Hello** and **World** entries directly and appends enough VERIFIER **Hello World** snapshots to reach twenty. It preserves entries, defaults, prefixes and all previous history. Missing active entries or nonempty prefixes stop with a clear fixture error; no settings are silently changed.
+4. Capture the field-level preservation baseline for F. If a baseline file already exists, compare it and retain it unchanged. Wait for **PASS result stage E_promotion**, then run F.
+
+Use this continuation only for an incomplete E stage whose initial UAT release is published. **--resume-verification** applies before publication; these are separate checkpoints.
 
 ## F. Deliver the compatible Hello patch
 
