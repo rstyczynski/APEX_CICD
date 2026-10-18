@@ -610,3 +610,18 @@ The requested fresh walkthrough discards all lab data. The destructive command i
 
 - This procedure preserves retained user_acceptance_test, credentials, release history and unrelated Podman resources. It does not recreate the VM or containers.
 - Do not use this disposable-area procedure as a retained-target upgrade or repair mechanism.
+
+## Independent checkout rehearsal while retaining the current lab
+
+Use a second, explicitly owned **apex-cicd-rehearsal** VM when validating a fresh checkout without deleting retained data. Both engines use the same loopback application ports, so run them sequentially. The ordinary lab's volumes are never exported, deleted or restored by this procedure; its VM is stopped and restarted intact. Unrelated VMs, networks, containers and volumes remain untouched.
+
+1. Capture private business snapshots/fingerprints of the retained targets and save `podman system connection list --format json`. Ensure no deployment is active. Keep these private; application exports alone are not business-data backups.
+2. Create a full clean clone of the revision under test. Reconstruct release inputs there with `python3 scripts/cicd-release-inputs.py`. Acquire the public pinned tool/installer archives through sections 1–4; checksum-verified download caches may be reused, but never copy credentials, SQLcl saved connections, database state or release archives from the original checkout.
+3. Refuse an existing machine/connection named apex-cicd-rehearsal or apex-cicd-retained. Initialize only the new rehearsal VM with the same reviewed resource profile: `podman machine init --cpus 4 --memory 6144 --disk-size 30 apex-cicd-rehearsal`.
+4. Stop only the retained **apex-cicd** VM. Start the new VM with `bash scripts/apex-vm-start.sh apex-cicd-rehearsal`; the helper accepts only these two owned machine names. Its launchd label is machine-specific.
+5. Temporarily rename the original **connection alias** from apex-cicd to apex-cicd-retained. Add an apex-cicd alias using the new rehearsal connection's inspected URI/identity. This changes connection routing, not the original VM or its volumes. Verify `podman --connection apex-cicd info` identifies the rehearsal engine before any lifecycle command.
+6. From the clean clone, generate new credentials, run prerequisites, infrastructure-only installation, control/area/developer onboarding, readiness and A–I in order. Empty-engine cleanup is a no-op; it must never be routed to the retained engine. `--rehearse` uses explicit runtime API fixtures and skips human/browser interaction, which must be stated in the evidence.
+7. Preserve native logs, source/archive hashes, receipts, fresh-credential/empty-engine checks and failure/repair observations. Stop the rehearsal VM. Remove only the temporary apex-cicd alias and rename apex-cicd-retained back to apex-cicd. Restore the original default connection and start the retained VM with `bash scripts/apex-vm-start.sh`.
+8. Compare retained target business snapshots and APEX fingerprints against step 1. If restoration/routing fails, stop and diagnose; do not delete either VM. Once verified, the disposable rehearsal VM may be removed explicitly, retaining its host-side evidence and synthetic test credentials privately.
+
+This is a validation procedure, not an alternative production topology or a general Podman resource manager. It does not establish a database backup/restore capability. If either reserved rehearsal name already exists, inspect it rather than overwrite it. The [review bug register](../progress/E.1/sprint_E.1_bugs.md) records which reproduction gates actually passed.

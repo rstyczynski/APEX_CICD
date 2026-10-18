@@ -12,9 +12,9 @@ Original headings H1–H3, M1–M6 and L1–L4 map to stable IDs by prefixing `R
 |---|---|---|
 | R1-H1 | selected — BUG-2 | Clean-checkout input reconstruction plus independent A–H replay; the input defect is fixed at 7976a9e, full replay pending. |
 | R1-H2 | selected — BUG-4 | Invalid config fails before SQL and native scoped provisioning works; validated at 7976a9e. Production privilege redesign deferred until shared deployment. |
-| R1-H3 | selected — BUG-7 | Committed-DDL failure, retained receipt/blocked runtime, observation-bound repair and unchanged history. |
+| R1-H3 | verified@e7ee3de | Native committed-DDL failure, blocked runtime, changed-observation rejection, forward repair, unchanged 21-row field snapshot and repeat passed. |
 | R1-M1 | verified@7976a9e | Native ORA-20224 returns nonzero with EXIT FAILURE; all affected wrappers corrected. |
-| R1-M2 | selected — BUG-6 | Stable IDs/private saved report and corrected archive qualified fresh/from initial; source proof at 0cc6c68, new input recipe being finalized. |
+| R1-M2 | verified@0cc6c68 | Stable IDs/private saved report and corrected archive qualified fresh/from initial; new patch recipe is versioned at e7ee3de. |
 | R1-M3 | deferred | Broader mapping consolidation waits for Construction; validation/endpoint use is corrected in BUG-4. |
 | R1-M4 | deferred | General release/version profiles wait for another selected supported release/toolchain. |
 | R1-M5 | verified@7976a9e | Dirty runner/manifests/Python/shell tests reject; full tests tree is checked/packaged. Shared-runner attestation deferred until hosted automation. |

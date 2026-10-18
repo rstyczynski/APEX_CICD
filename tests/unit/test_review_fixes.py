@@ -53,6 +53,11 @@ class ReviewFixTests(unittest.TestCase):
                 with self.assertRaises(ValueError): module('unsafe_platform', ROOT/'scripts/cicd-platform.py')
                 oracle.assert_not_called()
 
+    def test_vm_helper_rejects_unrelated_machine_before_launch(self):
+        result = subprocess.run(['bash', str(ROOT/'scripts/apex-vm-start.sh'), 'unrelated-production'], capture_output=True, text=True)
+        self.assertEqual(result.returncode, 2)
+        self.assertIn('only the owned lab', result.stderr)
+
     def test_native_failure_policies_have_no_sqlcode_exit(self):
         for name in ['apex-configure.sh', 'apex-verify.sh', 'apex-db-install.sql', 'apex-db-verify.sql']:
             body = (ROOT/'scripts'/name).read_text().lower()

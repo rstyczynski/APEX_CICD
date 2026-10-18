@@ -8,7 +8,7 @@ The prototype runs on one Podman host using supported Oracle automation interfac
 
 ## What works today
 
-The assisted A–H walkthrough demonstrates:
+The assisted A–H walkthrough and native review-correction experiments demonstrate:
 
 1. **Separate infrastructure and project setup.** Provision Oracle Database/APEX/ORDS first, then delivery control and individually assigned project schemas/workspaces. Check target identity and logical isolation.
 2. **Foundation-first assembly.** A, B and C have private areas. Reviewed source snapshots build Foundation, Foundation/Hello and the complete application respectively. Incomplete checkpoints remain unavailable.
@@ -17,13 +17,15 @@ The assisted A–H walkthrough demonstrates:
 5. **Rejection of a known incompatible upgrade.** A Foundation **2.0.0** proposal conflicts with Hello/World dependencies and stops before maintenance, migration or application import.
 6. **Detection and inspection of live drift.** A real Page Designer edit changes the live fingerprint without changing the component version. Deployment stops; the operator can compare published/live source before choosing restoration or Git reconciliation.
 
+7. **One bounded forward repair.** In integration_test, fail after an additive index commits, retain the failed attempt and block ordinary access. Reject a changed partial observation, then apply a separate repair archive, preserve the 21-row baseline/settings and repeat unchanged without writes. See [chapter I](progress/E.1/cicd-walkthrough.md#i-inspect-and-repair-one-failed-additive-deployment).
+
 These are demonstrated prototype outcomes, not a declaration that the complete sprint acceptance scope or full test suite has passed. See the [handover](progress/E.1/sprint_E.1_handover.md), [test evidence](progress/E.1/sprint_E.1_tests.md) and [completion assessment](progress/E.1/sprint_E.1_assessment.md).
 
 ## Explore the delivery story
 
 - **[From Git to APEX — presentation](progress/E.1/sprint_E.1_increment_demo.pptx):** 28 slides covering architecture, Oracle interfaces, Git layout/cooperation, the A–H results and future CI pipelines. Includes editable diagrams adapted from the [draw.io model](progress/E.1/model.drawio).
 - **[Presentation walkthrough](progress/E.1/sprint_E.1_increment_demo.md):** slide-linked review, commands, visible results and decisions.
-- **[A–H use-case walkthrough](progress/E.1/cicd-walkthrough.md):** the main guided operating journey, with a separate script for each stage.
+- **[A–I use-case walkthrough](progress/E.1/cicd-walkthrough.md):** the main guided operating journey, with a separate script for each stage.
 - **[Operator manual](progress/E.1/user_manual.md):** application inventory, endpoints, accounts and detailed operations.
 - **[Repository and pipeline guide](progress/E.1/repo_layout.md):** shared source, private areas, merge guidance and proposed CI automation. This remains an Elaboration draft for [PBI-017](BACKLOG.md#pbi-017-deliver-a-repository-and-pipeline-reference-guide).
 
@@ -76,7 +78,7 @@ Then follow the [preparation chapters](progress/E.1/cicd-walkthrough.md#prerequi
 2. Choose whether to destroy an existing disposable lab. **Complete cleanup removes all lab applications and history, including UAT.** It preserves host credentials/tools, retained archives/evidence and unrelated Podman resources.
 3. Install vanilla Database/APEX/ORDS using the [infrastructure procedure](docs/deploy.md#fresh-walkthrough-infrastructure-sequence).
 4. Initialize project control, provision each area and configure its assigned developer.
-5. Check readiness; run A–H using each chapter's script and browser instructions.
+5. Check readiness; run A–I using each chapter's script and browser instructions.
 
 Preflight alone does not provision the lab or prove database readiness. Normal upgrades preserve UAT data; destruction is a separate explicit lifecycle operation. Scripts and their walkthrough chapters are maintained together as one operating artifact.
 
@@ -84,7 +86,7 @@ Preflight alone does not provision the lab or prove database readiness. Normal u
 
 The [external review](progress/E.1/sprint_E.1_review-1.md) and [engineering response](progress/E.1/sprint_E.1_review-1-response.md) identified missing release inputs as an independent-reproduction blocker. The [BUG-2 correction](progress/E.1/cicd-walkthrough.md#prepare-reviewed-release-inputs) now reconstructs the exact historical archives from versioned recipes and pinned Git source. This fixes acquisition; a complete independently provisioned A–H replay remains a separate validation gate.
 
-Sprint **E.1 remains active**. Important unfinished proofs are synchronized competing reservations, genuine parallel component integration, complete maintenance/request/verifier fencing, scoped schema-definition drift and an injected failed additive deployment with automated forward repair preserving history. A verification retry or restored drift fixture is not that repair proof.
+Sprint **E.1 remains active**. Important unfinished proofs are synchronized competing reservations, genuine parallel component integration, complete maintenance/request/verifier fencing, scoped schema-definition drift and broader recovery/concurrency coverage beyond the single integration-only failed-DDL/forward-repair proof. A verification retry or restored drift fixture is not that repair proof.
 
 The [assessment](progress/E.1/sprint_E.1_assessment.md) recommends focused further Elaboration before full Lifecycle Architecture acceptance. Remote CI runners, protected-branch automation and release approvals are [future extensions](progress/E.1/repo_layout.md#future-pipeline-automation). Cloud deployment, production readiness and high availability are outside the demonstrated scope.
 

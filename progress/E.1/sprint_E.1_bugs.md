@@ -65,7 +65,7 @@ A preservation fixture prepared with piped interactive MERGE was absent in a lat
 
 **Item:** PBI-011.8
 **Severity:** high
-**Status:** open
+**Status:** fixed
 
 - **Symptom:** later migration failure can leave committed DDL and prevent a blind retry.
 - **Root cause:** Oracle DDL and migration bookkeeping are separate commit boundaries; selected repair proof was not built.
@@ -77,3 +77,5 @@ Verification for BUG-2–5: [review correction increment 1](tests/review_fixes_2
 BUG-6 importer correction: native [C experiment](tests/apex_identity_20261018.txt) passes two imports, one private saved report, all region IDs, field snapshots and wrong-target rejection. C is now 1.0.1. The historical patch recipe remains unchanged until a new reviewed archive is built and selected for fresh cycles; that delivery input was still pending at the importer-only increment.
 
 BUG-6 delivery input: corrected archive 80b51f1ed3e371d6c198dc785a7df741fd671d2ab77d8db630f7dd63bd92d583 from 0cc6c68 passed fresh and initial-upgrade native integration, including field preservation of 21 rows. release/inputs/patch.json now reconstructs these reviewed bytes for new cycles. Retained UAT is deliberately unchanged.
+
+BUG-7 native proof passed at e7ee3de: committed first index/changeset, deliberate ORA-20831 without successful failed-changeset receipt, closed runtime, changed-index client/server rejection, separate new repair artifact and unchanged repeat. Twenty-one prior rows/settings remain. [Detailed native evidence](tests/recovery_proof_20261018.txt). Broader concurrency/fencing and general schema recovery remain outside this bounded fix.

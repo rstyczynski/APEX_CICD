@@ -733,3 +733,14 @@ bash tests/run.sh --integration --new-only tests/manifests/apex_identity.manifes
 ```
 
 A failure retains the reservation/checkpoint and native backup for inspection; do not blindly restart it. See [BUG-6](sprint_E.1_bugs.md), [evidence](tests/apex_identity_20261018.txt) and [review decisions](sprint_E.1_review-1-decisions.md). Importer corrections must be packaged in a new reviewed archive; historical artifacts are not edited.
+
+
+## Review experiment: failed additive deployment and forward repair
+
+The [guided I chapter](cicd-walkthrough.md#i-inspect-and-repair-one-failed-additive-deployment) runs one integration-only scenario from verified Git-bound artifacts. A committed history index survives a later deliberate error; original attempts/Liquibase history remain. Normal access is blocked until a separately reviewed repair completes. `observe` displays the precise metadata/fingerprint/business snapshot and its hash; `repair --approve-observation` accepts only that inspected unchanged start. The [native proof](tests/recovery_proof_20261018.txt) includes client/server changed-observation rejection and an unchanged no-op repeat.
+
+```bash
+bash scripts/cicd-walkthrough-I_repair.sh
+```
+
+This changes the disposable integration release identity and adds two experiment changesets; it does not migrate UAT or rewrite an applied migration. A fresh cycle recreates integration explicitly. Other partial states, stale-worker races and complete session fencing remain outside this bounded proof. See [BUG-7](sprint_E.1_bugs.md), [design](sprint_E.1_design.md#bug-7-bounded-repair-experiment) and [test profile](../../docs/test-profile.md).
