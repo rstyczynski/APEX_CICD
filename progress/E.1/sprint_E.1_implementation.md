@@ -254,3 +254,7 @@ The Product Owner requires vanilla Oracle infrastructure initialization and expl
 Added explicit control-only initialization, privileged provisioning of exactly one named area, developer-side configuration using only its assigned schema password, and a separate empty-state/readiness command. Control package installation no longer depends on absent area grantees. Per-area grants belong to that area's provisioning. Qualification reset provisions/grants only qualification; F no longer reinstalls global control packages. Private developer SQLcl profiles do not open administrator credential files. Roles share one OS account in this lab; this is not OS-account isolation.
 
 README, deploy.md, the main walkthrough, user manual and test profile describe these operations together, with exact commands and actors. Application sources, accepted archives and pinned release controllers remain unchanged. This refines PBI-011.1/UC-8 setup responsibility; it does not complete concurrency, maintenance or repair work. Native checks and final delivered state are recorded in [onboarding evidence](tests/onboarding_boundaries_20261018.txt).
+
+## Explicit APEX destruction command name — 2026-10-18
+
+Renamed the destructive lifecycle script to `scripts/apex-destroy.sh` at the Product Owner's request. Updated current deployment/manual/walkthrough invocations and the launcher's preflight together. Usage and terminal messages now say destruction. Behavior is unchanged; no destruction was executed for this rename. Historical evidence retains the command name used at execution.

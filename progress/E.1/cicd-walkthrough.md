@@ -185,7 +185,7 @@ bash scripts/cicd-walkthrough-host.sh
 Run the scoped **destructive cleanup** after successful precheck/host preparation:
 
 ```bash
-bash scripts/cicd-walkthrough-cleanup.sh
+bash scripts/apex-destroy.sh
 ```
 
 1. Read the printed ownership inventory and scope. The script refuses unrelated containers sharing the lab's named volumes/network.
@@ -445,7 +445,7 @@ bash scripts/cicd-walkthrough-H_drift.sh
 When you deliberately want to discard this demonstration:
 
 ```bash
-bash scripts/cicd-walkthrough-cleanup.sh
+bash scripts/apex-destroy.sh
 ```
 
 1. Read the named ownership inventory and deletion scope.

@@ -21,7 +21,7 @@ stages=(
   scripts/cicd-walkthrough-H_drift.sh
 )
 # Check all chapter/file references first. Cleanup remains a separate operator action.
-bash scripts/cicd-walkthrough-cleanup.sh --preflight
+bash scripts/apex-destroy.sh --preflight
 for stage in "${stages[@]}"; do bash "$stage" --preflight; done
 if [ "$MODE" = --preflight ]; then exit 0; fi
 echo 'PREREQUISITE: complete precheck, host preparation, destructive cleanup, infrastructure-only APEX installation and explicit project/area onboarding/readiness from the manual.'

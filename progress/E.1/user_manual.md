@@ -540,7 +540,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
    ```
 
    ```bash
-   bash scripts/cicd-walkthrough-cleanup.sh
+   bash scripts/apex-destroy.sh
    ```
 
    ```bash

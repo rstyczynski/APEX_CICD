@@ -4,17 +4,17 @@ set -Eeuo pipefail
 ROOT="$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --show-toplevel)"
 cd "$ROOT"
 MODE="${1:---run}"
-case "$MODE" in --run|--preflight) ;; *) echo 'Usage: bash scripts/cicd-walkthrough-cleanup.sh [--run|--preflight]' >&2; exit 2 ;; esac
+case "$MODE" in --run|--preflight) ;; *) echo 'Usage: bash scripts/apex-destroy.sh [--run|--preflight]' >&2; exit 2 ;; esac
 [ "$#" -le 1 ]
 command -v podman >/dev/null
 command -v python3 >/dev/null
 test -r scripts/cicd-lab-inventory.py
-if [ "$MODE" = --preflight ]; then echo 'OK: destructive cleanup files/tools found; no database or Podman mutation.'; exit 0; fi
+if [ "$MODE" = --preflight ]; then echo 'OK: APEX destruction files/tools found; no database or Podman mutation.'; exit 0; fi
 # Never treat an unreachable engine as an absent installation.
 podman --connection apex-cicd info >/dev/null
 python3 scripts/cicd-lab-inventory.py
 p() { printf 'OPERATION: podman --connection apex-cicd'; printf ' %q' "$@"; printf '\n'; podman --connection apex-cicd "$@"; }
-echo 'CLEANUP: deleting ALL A/B/C, qualification and TEST applications, entries, settings, greeting history and database control receipts.'
+echo 'DESTROY: deleting ALL A/B/C, qualification and TEST applications, entries, settings, greeting history and database control receipts.'
 for container in apex-ords apex-db; do
   if podman --connection apex-cicd container exists "$container"; then
     p stop --time 120 "$container"
@@ -40,5 +40,5 @@ done
 for volume in apex-data apex-ords-config apex-images; do
   if podman --connection apex-cicd volume exists "$volume"; then echo "ERROR: $volume remains" >&2; exit 1; fi
 done
-echo 'PASS cleanup: owned database/APEX/ORDS data removed; no greeting history or applications survive in the lab.'
+echo 'PASS destroy: owned database/APEX/ORDS data removed; no greeting history or applications survive in the lab.'
 echo 'Retained on host: credentials, tools, installers, source archives and historical evidence. VM/images and unrelated resources retained.'

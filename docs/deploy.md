@@ -50,7 +50,7 @@ This is the entry point before the [A–H application walkthrough](../progress/E
 4. **Cleanup if the lab is present**, following the scoped operations in section 12. This removes all lab database/APEX/ORDS state; absent resources are skipped. An unreachable engine is an error, not evidence of absence:
 
    ```bash
-   bash scripts/cicd-walkthrough-cleanup.sh
+   bash scripts/apex-destroy.sh
    ```
 
 5. **Install** the fresh database and APEX/ORDS only using sections 5–8. Existing containers/volumes cause refusal; do not install over partial data:
@@ -504,7 +504,7 @@ Qualification reset reprovisions **only lab-qualify** and restores only its gran
 
 ### Fresh-demo cleanup while retaining the Podman VM
 
-The requested fresh walkthrough discards all lab data. `bash scripts/cicd-walkthrough-cleanup.sh` first checks the effective inventory with `python3 scripts/cicd-lab-inventory.py`, refuses unrelated containers sharing lab resources, then performs these named operations only when the resource exists:
+The requested fresh walkthrough discards all lab data. The destructive command is named `apex-destroy.sh` (formerly `cicd-walkthrough-cleanup.sh`) to make its scope explicit. `bash scripts/apex-destroy.sh` first checks the effective inventory with `python3 scripts/cicd-lab-inventory.py`, refuses unrelated containers sharing lab resources, then performs these named operations only when the resource exists:
 
 1. Stop `apex-ords`, then `apex-db` with `podman --connection apex-cicd stop --time 120 NAME`.
 2. Remove each stopped container with `podman --connection apex-cicd rm NAME`.
