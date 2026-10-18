@@ -1,5 +1,7 @@
 # E.1 — Validate the local APEX delivery path
 
+The [Product Owner handover](sprint_E.1_handover.md) and [completion assessment](sprint_E.1_assessment.md) compare this design with demonstrated A–H results and identify the remaining architectural proofs. Use the [presentation walkthrough](sprint_E.1_increment_demo.md) for the review sequence.
+
 The [repository and pipeline draft](repo_layout.md) consolidates this design's shared-source, developer-area and release-path decisions for PBI-017. It records the current slice and gaps without completing the broader design or assigning the new item to a sprint.
 
 Status: Accepted

@@ -1,0 +1,3 @@
+Captured 2026-10-18. Repository absolute paths normalized to <REPO_ROOT>; output otherwise retained.
+
+PASS preservation: all fields of 21 prior history rows, old entries and complete configuration unchanged; new rows may append.

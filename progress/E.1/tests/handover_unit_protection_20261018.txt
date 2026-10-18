@@ -1,0 +1,28 @@
+Captured 2026-10-18. Repository absolute paths normalized to <REPO_ROOT>; output otherwise retained.
+
+RUN unit:test_protection_outcome.sh:test_clean_drift_check_passes
+PASS test_clean_drift_check_passes
+RUN unit:test_protection_outcome.sh:test_changed_drift_check_passes
+PASS test_changed_drift_check_passes
+RUN unit:test_protection_outcome.sh:test_unexpected_error_is_not_drift
+FAIL: unexpected execution error; no protection result claimed.
+PASS test_unexpected_error_is_not_drift
+RUN unit:test_protection_outcome.sh:test_silent_failure_is_not_drift
+FAIL: specific preflight outcome missing; arbitrary errors do not pass.
+PASS test_silent_failure_is_not_drift
+RUN unit:test_protection_outcome.sh:test_fixture_requires_actual_drift
+FAIL: expected --expect-drift, observed clean.
+PASS test_fixture_requires_actual_drift
+RUN unit:test_protection_outcome.sh:test_baseline_requires_clean_target
+FAIL: expected --expect-clean, observed drift.
+PASS test_baseline_requires_clean_target
+RUN unit:test_protection_outcome.sh:test_compatibility_still_requires_specific_rejection
+PASS test_compatibility_still_requires_specific_rejection
+RUN unit:test_protection_outcome.sh:test_show_option_combines_with_expected_drift
+PASS test_show_option_combines_with_expected_drift
+RUN unit:test_protection_outcome.sh:test_show_is_not_a_compatibility_option
+ERROR: options apply only to drift.
+PASS test_show_is_not_a_compatibility_option
+RUN unit:test_protection_outcome.sh:test_conflicting_drift_options_are_rejected
+PASS test_conflicting_drift_options_are_rejected
+Tests: 10; failed: 0

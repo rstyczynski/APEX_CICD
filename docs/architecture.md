@@ -4,6 +4,8 @@
 
 ## Decision status
 
+Current E.1 evidence is summarized in the [handover](../progress/E.1/sprint_E.1_handover.md) and [completion assessment](../progress/E.1/sprint_E.1_assessment.md). The selected A–H delivery/protection slice is demonstrated; concurrency, full maintenance fencing, scoped schema drift and failed additive deployment repair still prevent full Lifecycle Architecture acceptance. Historical I.1 future-tense statements below describe the analysis baseline; use the linked assessment for implementation status.
+
 Accepted as the revised I.1 analysis direction by the Product Owner on 2026-10-16, with the presentation wording correction. This is a direction for Elaboration validation, not a validated architecture baseline or E.1 construction approval. The [SRS](srs.md) owns behavior and scope; the [research](cicd-research.md) owns alternatives and source provenance. PBI-009 owns this document.
 
 ## Components and boundaries

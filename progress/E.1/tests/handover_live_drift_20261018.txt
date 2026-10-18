@@ -1,0 +1,112 @@
+Captured 2026-10-18. Repository absolute paths normalized to <REPO_ROOT>; output otherwise retained.
+
+VERIFIED SHA256 4ba3abb8709f256c7a47e3e9294d3e7303f742145a95cb58d808ca6c6bcf7200
+SOURCE ee8f1af8e35f81bb3b75051243df2ab9c6e4c0e5
+CONFIGURATION 37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+PASS explicit component dependencies and supported version triple
+TARGET: user_acceptance_test / application 810005; OPERATION: preflight; START: 1.0.0; EPOCH: 2
+PATCH SHA256: 4ba3abb8709f256c7a47e3e9294d3e7303f742145a95cb58d808ca6c6bcf7200; BASE SHA256: d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+TRANSCRIPT: .local-apex/releases/runs/user_acceptance_test-patch-preflight.paawcl/operation.log
+whenever oserror exit failure rollback
+whenever sqlerror exit failure rollback
+set serveroutput on define on verify off
+@"<REPO_ROOT>/.local-apex/releases/runs/user_acceptance_test-patch-preflight.paawcl/payload/deploy/operator/identity.sql" E1_UAT E1_UAT
+@"<REPO_ROOT>/.local-apex/releases/runs/user_acceptance_test-patch-preflight.paawcl/payload/deploy/checks/release_environment.sql"
+begin E1_CTRL.e1_release.show_status; end;
+/
+@"<REPO_ROOT>/.local-apex/releases/runs/user_acceptance_test-patch-preflight.paawcl/payload/deploy/operator/fingerprint.sql" 810005
+begin dbms_output.put_line('PATCH_OPERATION_COMPLETE'); end;
+/
+exit success
+
+
+SQLcl: Release 25.3 Production on Sun Oct 18 17:09:06 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"CONNECTED_SCHEMA","PDB"
+"E1_UAT","FREEPDB1"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_UAT","E1_UAT"
+
+Target identity verified.
+
+
+PL/SQL procedure successfully completed.
+
+PASS pinned Database 23.26.3.0.0 / APEX 24.2.0 environment.
+
+
+PL/SQL procedure successfully completed.
+
+TARGET=E1_UAT APP=810005 EPOCH=2 PHASE=ready
+ARTIFACT=4ba3abb8709f256c7a47e3e9294d3e7303f742145a95cb58d808ca6c6bcf7200
+SOURCE=ee8f1af8e35f81bb3b75051243df2ab9c6e4c0e5
+CONFIG=37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+FINGERPRINT=SH256:C/ggkjSSVNtaX+N56ivxsRlkku4QJJSXh5Hn5OhoFvI=
+
+
+PL/SQL procedure successfully completed.
+
+SH256:j2/jFEng0JqXeGTxUtmriOG6evHy4/0TT76jfs2yAZQ=
+
+
+PL/SQL procedure successfully completed.
+
+PATCH_OPERATION_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+REJECTED DRIFT: live APEX fingerprint differs from the successful receipt. No maintenance, migration or import.
+DETECTED DRIFT: deployment rejected before maintenance, migration or import.
+SHOW: compare the preserved live edit with the published source.
+PUBLISHED SOURCE: ee8f1af8e35f81bb3b75051243df2ab9c6e4c0e5
+ARCHIVE SHA256: 4ba3abb8709f256c7a47e3e9294d3e7303f742145a95cb58d808ca6c6bcf7200
+PAGE CHANGES (- published value, + live value):
+
+application/pages/page_00001.sql
+  Page title: ['APEX Delivery Laboratory'] -> ['Manual drift demonstration']
+  Region name(s): ['APEX Delivery Laboratory'] -> ['APEX Delivery XX Laboratory']
+--- published/application/pages/page_00001.sql
++++ live/application/pages/page_00001.sql
+@@ -11,7 +11,7 @@
+  p_id=>1
+ ,p_name=>'Home'
+ ,p_alias=>'HOME'
+-,p_step_title=>'APEX Delivery Laboratory'
++,p_step_title=>'Manual drift demonstration'
+ ,p_allow_duplicate_submissions=>'N'
+ ,p_autocomplete_on_off=>'OFF'
+ ,p_page_template_options=>'#DEFAULT#'
+@@ -20,12 +20,12 @@
+ );
+ wwv_flow_imp_page.create_page_plug(
+  p_id=>wwv_flow_imp.id(3783024278801331)
+-,p_plug_name=>'APEX Delivery Laboratory'
++,p_plug_name=>'APEX Delivery XX Laboratory'
+ ,p_region_template_options=>'#DEFAULT#'
+-,p_escape_on_http_output=>'Y'
+ ,p_plug_template=>2674017834225413037
+ ,p_plug_display_sequence=>10
+ ,p_plug_display_point=>'REGION_POSITION_01'
++,p_location=>null
+ ,p_plug_query_num_rows=>15
+ ,p_region_image=>'#APP_FILES#icons/app-icon-512.png'
+ ,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+
+OTHER EXPORT DIFFERENCES (review these too): application/create_application.sql, application/user_interfaces.sql
+Target alias, runtime availability and generated metadata can differ from packaged source; they are retained in the report.
+REVIEW: .local-apex/releases/drift-review.mnpncjzf/review.diff
+COMPLETE RAW DIFF: .local-apex/releases/drift-review.mnpncjzf/raw.diff
+READ-ONLY REVIEW COMPLETE: live edit and Git source are unchanged. No restoration performed.
+Decision: restore the published page/region values in Page Designer, or retain the edit for reviewed Git reconciliation. Deployment stays blocked while drift remains.
+PASS drift protection: target definitions, versions, entries, configuration, history and release records unchanged. Evidence: .local-apex/releases/protection-drift.i6nA0P
+Open http://127.0.0.1:8080/ords/f?p=810005:1 as LAB_USER to see the retained application.

@@ -1,5 +1,7 @@
 # E.1 — Use-case walkthrough: deployment results and protection
 
+For a guided review of the demonstrated results, use the [Product Owner presentation walkthrough](sprint_E.1_increment_demo.md) and [PowerPoint companion](sprint_E.1_increment_demo.pptx). The [handover](sprint_E.1_handover.md) and [completion assessment](sprint_E.1_assessment.md) summarize evidence and remaining work.
+
 ## Contents
 
 Use these links to move between preparation, delivery and protection demonstrations.

@@ -1,0 +1,11 @@
+Captured 2026-10-18. Repository absolute paths normalized to <REPO_ROOT>; output otherwise retained.
+
+OK: APEX destruction files/tools found; no database or Podman mutation.
+OK: ## A. Deliver Foundation — local tools/files/chapter found.
+OK: ## B. Deliver Hello — local tools/files/chapter found.
+OK: ## C. Deliver World and complete the assembly — local tools/files/chapter found.
+OK: ## D. Qualify the initial release — local tools/files/chapter found.
+OK: ## E. Promote the same initial artifact to user_acceptance_test — local tools/files/chapter found.
+OK: ## F. Deliver the compatible Hello patch — local tools/files/chapter found.
+OK: ## G. Reject an incompatible database upgrade — local tools/files/chapter found.
+OK: ## H. Reject deployment over unexpected live change — local tools/files/chapter found.

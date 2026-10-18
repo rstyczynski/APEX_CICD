@@ -1,0 +1,10 @@
+Captured 2026-10-18. Repository absolute paths normalized to <REPO_ROOT>; output otherwise retained.
+
+RUN unit:test_drift_review.sh:test_read_only_drift_report
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.000s
+
+OK
+PASS test_read_only_drift_report
+Tests: 1; failed: 0

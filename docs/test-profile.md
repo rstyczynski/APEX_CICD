@@ -2,6 +2,8 @@
 
 ## Status and purpose
 
+The [E.1 handover checks](../progress/E.1/tests/handover_checks_20261018.txt), [presentation walkthrough](../progress/E.1/sprint_E.1_increment_demo.md) and [completion assessment](../progress/E.1/sprint_E.1_assessment.md) identify current executable evidence and remaining cases. The I.1 future-command statements below preserve the original analysis contract; they are not a current inventory of implemented scripts or a claim that every specified test has passed.
+
 The [repository and pipeline draft](../progress/E.1/repo_layout.md#pipeline-paths-and-release-identities) maps source/artifact/environment roles to these checks. Keep it aligned with this contract and the linked E.1 execution evidence.
 
 Concrete command contract for PBI-009, accepted with the revised I.1 analysis baseline on 2026-10-16. Commands below describe future E.1 interfaces; **none is claimed working or executed in I.1**. SQLcl, application sources, controllers and test runner do not yet exist as project deliverables. E.1 must implement and verify them after its own setup/design approval. This replaces unspecified toolchain fields with exact intended commands without implementing the application early.

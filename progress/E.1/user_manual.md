@@ -1,5 +1,7 @@
 # E.1 — Operator guide
 
+Start with the [Product Owner presentation walkthrough](sprint_E.1_increment_demo.md) for the selected A–H results. Its [PowerPoint companion](sprint_E.1_increment_demo.pptx), [handover](sprint_E.1_handover.md) and [assessment](sprint_E.1_assessment.md) explain the demonstrated scope and remaining acceptance work.
+
 The [repository and pipeline draft](repo_layout.md) explains the source directories, private development areas, integration and artifact flow behind these operations. Maintain these descriptions together.
 
 ## What you can use now

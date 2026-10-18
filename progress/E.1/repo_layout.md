@@ -8,6 +8,8 @@ This guide connects the shared Git repository, private developer areas and relea
 
 ## Related documents and sources
 
+- [Product Owner handover](sprint_E.1_handover.md), [presentation walkthrough](sprint_E.1_increment_demo.md) and [completion assessment](sprint_E.1_assessment.md): demonstrated results and remaining architectural proofs.
+
 Use this guide as a map; the linked documents retain their own responsibilities. Review both ends of these links when related behavior changes.
 
 - [README](../../README.md): product purpose and main entry points.
