@@ -109,6 +109,12 @@ they are not blank bootstrap templates. Later iterations refine them when
 validation evidence or product decisions change their content. The Inception
 review evaluates them together with the Product Backlog and test profile.
 
+### Keep materialized documents connected
+
+By Product Owner direction on 2026-10-18, every new or materially revised project document must identify its related authoritative documents with descriptive, actionable links. Add a reciprocal reference in the related maintained document so humans and agents can navigate from either side. State the relationship and which document owns requirements, design, operating steps or evidence; avoid duplicating specifications that can drift. Use section links where useful.
+
+When a source decision, interface, path or status changes, review the connected documents and update affected descriptions, links and backlinks in the same increment. Preserve historical sprint evidence rather than rewriting it; link to its successor/current interpretation from maintained guidance. Validate link targets and relevant anchors during P8, and explicitly label drafts, planned behavior and remaining gaps. For backlog definitions, retain the canonical concise item format: link from the elaboration/delivery guide to the item and place reciprocal navigation in the maintained project orientation, rather than embedding implementation paths in the backlog. This is the local materialization rule; it does not authorize changing the canonical method submodule or unrelated sprints.
+
 ## P1.3. Adopt RUP analysis and use-case modeling explicitly
 
 By explicit Product Owner instruction on 2026-10-16, RUP Strikes Back is the project's agentic adaptation of the Rational Unified Process (RUP). Apply RUP's use-case-driven, architecture-centric, iterative and risk-driven approach throughout delivery. The implementor is responsible for performing the analysis and explaining technical recommendations; the Product Owner supplies product intent, priorities and acceptance decisions.

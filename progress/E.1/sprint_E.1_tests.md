@@ -1,5 +1,7 @@
 # E.1 — Construction test results
 
+The [repository and pipeline draft](repo_layout.md) uses these results to separate demonstrated pipeline paths from intended capabilities. Update both descriptions when the evidence changes.
+
 ## Current scope
 
 Platform/bootstrap checks are running while application construction continues. The full selected prototype suite remains incomplete. Initial unit skeletons reported two expected pending failures; this was test-harness preparation, not a passing unit gate.

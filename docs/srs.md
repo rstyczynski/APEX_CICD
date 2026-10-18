@@ -24,6 +24,8 @@ The Product Owner defines product intent/priorities and accepts sprint outcomes.
 
 ## Complete developer journey
 
+The [E.1 repository and pipeline draft](../progress/E.1/repo_layout.md) maps this journey to the current source layout, private areas and implemented versus planned pipeline paths. The requirements below remain the acceptance authority.
+
 Multi-developer delivery is a core system property. The following journey is its required proof-of-concept acceptance scenario, covering successful parallel work and early rejection of competing changes. Developers A, B and C are three people performing actor A-01. A authors Database Foundation, B authors Hello, and C authors World. A-02 reviews their changes and A-03 operates controlled delivery; a person may perform more than one role, but the responsibilities remain explicit.
 
 The initial supported proof runs on one host with separate A/B/C developer identities, private APEX application/schema areas, independent checkouts/browser sessions and concurrent clients using one ownership authority. Services remain on loopback. It proves logical concurrency and ordinary privilege separation; remote workstation connectivity and isolation from the host/platform administrator are outside this proof. Areas may be allocated sequentially where the experiment permits, while B/C concurrency is exercised genuinely.

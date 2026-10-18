@@ -95,3 +95,11 @@ Test: Review confirms that the milestone decision has explicit supporting eviden
 Create the Construction plan from the validation evidence, including the updated backlog, delivery order, resource assumptions, and remaining risks.
 
 Test: Review confirms that the Construction plan follows accepted decisions, unresolved risks, resource assumptions, and the milestone assessment.
+
+### PBI-017. Deliver a repository and pipeline reference guide
+
+Provide a consolidated guide explaining how shared application sources, developer work, release artifacts and deployment environments fit together. Keep it consistent with requirements, architecture, operator guidance and validation evidence, with navigable links between related documents. Distinguish implemented behavior from planned capabilities so people and agents can follow the delivery model reliably.
+
+Test: Review confirms that the guide matches the selected pipeline, covers its supported paths and limitations, and has working reciprocal references to related guidance.
+
+Status: Proposed

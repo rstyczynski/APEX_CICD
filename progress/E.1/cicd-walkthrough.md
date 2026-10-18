@@ -46,6 +46,8 @@ Follow one application from an empty lab to a working release, then see which in
 
 ## Deep dive
 
+For the shared repository, private branches/areas and pipeline paths behind these steps, read the [repository and pipeline draft](repo_layout.md). Keep it synchronized with this walkthrough and its linked architecture/operator sources.
+
 This business-level walkthrough, its [launcher](../../scripts/cicd-walkthrough.sh), the A–H chapter scripts below and the [detailed operator guide](user_manual.md) describe one system. Maintain and review them together as **one artifact**.
 
 ## Applied tools and techniques

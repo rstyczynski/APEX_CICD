@@ -1,5 +1,7 @@
 # E.1 — Operator guide
 
+The [repository and pipeline draft](repo_layout.md) explains the source directories, private development areas, integration and artifact flow behind these operations. Maintain these descriptions together.
+
 ## What you can use now
 
 - Run commands from the project checkout:

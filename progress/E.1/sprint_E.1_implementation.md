@@ -262,3 +262,9 @@ Renamed the destructive lifecycle script to `scripts/apex-destroy.sh` at the Pro
 ## Post-install operator verification guide — 2026-10-18
 
 Expanded the installation chapter with numbered automated and manual verification, ADMIN/INTERNAL sign-in, local password retrieval, optional SYSTEM/SQLcl authentication, service-account responsibilities and failure logs. Deployment section 8 links the main guide and retains individual layer commands. No fixed default password is documented: existing protected generated credentials are reused. Scripts are unchanged; the existing verifier was rerun successfully. Manual sign-in is an operator step, not a new browser acceptance claim.
+
+## Repository/pipeline reference draft and traceability — 2026-10-18
+
+Added the Product Owner-requested repo_layout.md draft in E.1, recording the shared repository, component/change boundaries, private areas, integration/capture model, source locations, immutable artifacts, qualification/promotion, patch/rejection paths and remaining proofs. PBI-017 tracks final consolidated-document delivery as an unscheduled Proposed item; the draft does not complete that item. Added reciprocal navigation with README, SRS, architecture, test profile, deployment procedure, current design, operator manual, walkthrough and results.
+
+Added the general document-connection requirement to the local materialization policy: descriptive links, reciprocal references, stated authority, synchronized changes and validation, while preserving historical evidence and canonical backlog format. The canonical method submodule and other sprint artifacts are unchanged. Documentation-only work; no runtime operation is implied. The [draft](repo_layout.md) identifies current implementation sources and evidence limitations.

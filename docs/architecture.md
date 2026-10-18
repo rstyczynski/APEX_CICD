@@ -95,6 +95,8 @@ Initial seed migrations insert missing seed entries once. Later deployments do n
 
 ## Sources, packaging and promotion
 
+The [E.1 repository and pipeline draft](../progress/E.1/repo_layout.md) consolidates this source model, the developer/task integration model and onboarding into a current repository map. It distinguishes implemented prototype paths from this architecture's intended capabilities. Review both documents when these boundaries change.
+
 Proposed source layout is `apex/f<ID>/` for complete split metadata, `db/changelog.xml` with immutable ordered `db/changes/` SQL, `deploy/` for target guards/import controllers, and `tests/` for executable checks. These are future interfaces, not files created by I.1. Exclude supporting objects from APEX export so schema changes have one migration authority.
 
 Use SQLcl 25.3.0.274.1210 with an isolated Java 21 runtime. Named connections `lab-dev` and `lab-test` must resolve to the intended dedicated schemas, with protected local credential storage and no passwords on process arguments. The test profile specifies the exact proposed command interfaces; E.1 must test the credential mechanism and effective connection identity.

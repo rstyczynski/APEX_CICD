@@ -28,6 +28,8 @@ Keep the application small and use synthetic greeting data. Keep secrets outside
 
 ## Delivery method and current state
 
+The [E.1 repository and pipeline draft](progress/E.1/repo_layout.md) maps shared sources, private areas, integration and release paths. It is an Elaboration draft for [PBI-017](BACKLOG.md#pbi-017-deliver-a-repository-and-pipeline-reference-guide), not final acceptance.
+
 The project uses [RUP Strikes Back](AGENTS.md) with the [local policy](RUP_patch.md). Sprint 0 is complete: PBI-001 delivered the accepted vision and PBI-002 delivered the accepted [roadmap](ROADMAP.md) and next-sprint plan. The [plan](PLAN.md) records I.1 (formerly Sprint 1) as closed in managed mode. The Product Owner accepted its revised analysis baseline with the presentation wording correction on 2026-10-16. The Product Owner subsequently accepted all I.1 material and explicitly closed the sprint. E.1 is now active under that authorization. The [Product Owner handover](progress/I.1/sprint_I.1_handover.md) summarizes the concept, six demonstration scenarios and proposed Elaboration scope. Its [presentation walkthrough](progress/I.1/sprint_I.1_increment_demo.md) links the PowerPoint companion. The [final engineering review decisions](progress/I.1/analysis_review-answers_2.md) link the reconciled contracts and remaining Elaboration proof. The [backlog](BACKLOG.md) defines its assigned outcomes.
 
 ### Sprint 0 — Vision and initial plan

@@ -1,5 +1,7 @@
 # E.1 — Validate the local APEX delivery path
 
+The [repository and pipeline draft](repo_layout.md) consolidates this design's shared-source, developer-area and release-path decisions for PBI-017. It records the current slice and gaps without completing the broader design or assigning the new item to a sprint.
+
 Status: Accepted
 
 Approval scope: the first happy-path implementation, compatible patch upgrade, focused drift-stop demonstration and incompatible Foundation-upgrade rejection below. The remaining design is retained for later selection.

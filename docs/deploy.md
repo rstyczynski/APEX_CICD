@@ -403,6 +403,8 @@ Follow the numbered [post-install verification steps and account guide](../progr
 
 ## 9. Provisioning boundary for application areas
 
+The [repository and pipeline draft](../progress/E.1/repo_layout.md#private-areas-and-assembled-applications) explains how these areas relate to shared source and release delivery. Keep its mappings consistent with this procedure and areas.json.
+
 Infrastructure installation stops at a working Oracle Database/APEX/ORDS runtime. `cicd-walkthrough-apex-init.sh` must not create **any project schemas**, workspaces, developer accounts or delivery-control tables. Project-specific verification is an external test, not part of the generic installer. It checks that all six E1 schemas and five project workspaces are absent after installation.
 
 1. **Project operator:** `bash scripts/cicd-control-init.sh` creates only E1_CTRL and installs control packages. There are no grants to not-yet-provisioned areas.
