@@ -654,3 +654,7 @@ These are historical observations from the earlier database. Fresh D/E obtain ne
 - This is the selected patch/protection slice. Full IT-1 candidate reconstruction, broader schema drift, concurrency, complete request/verifier fencing and failed additive deployment repair remain open.
 
 - If a walkthrough is stopped while its drift fixture is active, run `python3 scripts/cicd-drift-demo.py restore` explicitly before restarting. Settings-only C preparation never overwrites TEST drift or repairs an interrupted deployment. Fresh-demo cleanup instead deliberately discards the entire lab. If restoration reports an unexplained additional change, inspect the retained journal/logs instead of resetting TEST.
+
+## Qualification actor handoff and exact sequence
+
+The development team/Packager (SRS A-02) smoke-checks the development assembly and supplies the reviewed package. Deployer (A-03) runs qualification before promoting that same package to TEST. VERIFIER and LAB_USER are runtime accounts used during checks, not separate human actors. Follow the [numbered D operations](cicd-walkthrough.md#d-qualify-the-initial-release) and editable [delivery model](model.drawio); they trace to UC-4/11 and the selected PBI-011.6 qualification/promotion work. Keep these references synchronized.

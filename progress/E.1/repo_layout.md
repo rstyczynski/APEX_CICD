@@ -75,6 +75,10 @@ The intended developer workflow uses independent checkouts/task branches against
 
 ## Pipeline paths and release identities
 
+The development team, acting as **Packager (A-02)**, smoke-checks the development assembly and releases the reviewed package. **Deployer (A-03)** takes that package through qualification and promotes the identical bytes to TEST. VERIFIER is the runtime account used by these people for checks, not a separate human role.
+
+The editable [delivery model](model.drawio) shows the lifecycle and the numbered D qualification sequence. Its **Deployer** maps to SRS actor A-03; keep the model and [walkthrough D](cicd-walkthrough.md#d-qualify-the-initial-release) synchronized with this guide.
+
 The same source organization supports several bounded paths. An initial assembly checkpoint is different from a qualified complete release.
 
 1. **Development assembly — A/B/C:** install reviewed Foundation-only, Foundation/Hello and complete source checkpoints into their private areas. Incomplete A/B remain unavailable. These steps do not pass through qualification or promote anything to TEST. C has an explicit bounded resume at its restricted-verification pause; it is not a general deployment-recovery mechanism. See [C’s continuation command](cicd-walkthrough.md#c-deliver-world-and-complete-the-assembly).

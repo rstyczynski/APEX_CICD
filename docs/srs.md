@@ -13,8 +13,8 @@ The product is a reproducible local APEX/database delivery laboratory, including
 An actor is an external role interacting with the laboratory's application or delivery system. One person may perform several roles. The CI/CD pipeline, capture tool, state registry and managed APEX/database infrastructure are inside the system boundary; they are not external actors in this model.
 
 1. **A-01 — Developer.** Obtains access and a usable workstation/development area; establishes an initial source baseline when needed; starts tasks from accepted Git revisions; edits application/database behavior; captures, commits and submits changes; resolves feedback and verifies delivery. Primary participant in UC-7 through UC-12.
-2. **A-02 — Reviewer / integration maintainer.** Reviews initial baselines and task changes, examines validation evidence, requests corrections and authorizes integration. Supports UC-4, UC-5, UC-7, UC-10 and UC-12.
-3. **A-03 — Delivery operator.** Provides environment/access, executes the infrastructure lifecycle procedure, establishes or upgrades Foundation, promotes accepted releases, handles drift/state/recovery, and supports developer setup. Primary participant in UC-1, UC-4, UC-5 and UC-6; supports UC-8, UC-9, UC-11 and UC-12.
+2. **A-02 — Reviewer / integration maintainer (Packager).** Reviews initial baselines and task changes, examines validation evidence, requests corrections and authorizes integration. The development team performs the Packager responsibility: smoke-check the assembled development application and release a reviewed package built from accepted Git source. Supports UC-4, UC-5, UC-7, UC-10 and UC-12.
+3. **A-03 — Delivery operator (Deployer).** Provides environment/access, executes the infrastructure lifecycle procedure, establishes or upgrades Foundation, promotes accepted releases, handles drift/state/recovery, and supports developer setup. Primary participant in UC-1, UC-4, UC-5 and UC-6; supports UC-8, UC-9, UC-11 and UC-12.
 4. **A-04 — Laboratory application user.** Maintains Hello/World data and configuration, creates greetings and inspects preserved history. Primary participant in UC-2 and UC-3; supports release verification in UC-11.
 5. **A-05 — Git hosting service (supporting system actor).** Hosts the shared repository, exposes revisions and PRs, supplies change events and records review/check outcomes. Supports UC-4, UC-7, UC-8, UC-10 and UC-12. Local Git and the project-owned pipeline remain implementation components.
 
@@ -122,7 +122,7 @@ Identifiers UC-1–7 retain their earlier meanings. UC-8–12 complete the devel
 
 **Trigger and preconditions:** An accepted merged revision, validation evidence and an identified target are available.
 
-**Main flow:** The operator selects the accepted release. The system builds one traceable archive from the accepted revision, qualifies those exact bytes in a disposable validation role, and promotes the same archive. Candidate PR checks do not replace release qualification. It obtains target deployment ownership, checks live content/versions/state and the supported starting baseline, applies ordered changes and verifies the result before publishing success.
+**Main flow:** The development team, performing A-02 Packager, supplies one traceable archive built from the accepted revision with development smoke-check and candidate evidence. A-03 Deployer selects that package; the system qualifies those exact bytes in a disposable validation role and promotes the same archive. Candidate PR checks do not replace release qualification. It obtains target deployment ownership, checks live content/versions/state and the supported starting baseline, applies ordered changes and verifies the result before publishing success.
 
 **Alternative/failure flows:** Failed checks block promotion; unexpected target changes stop before overwrite. A partial mutation invokes UC-5 rather than reporting success.
 

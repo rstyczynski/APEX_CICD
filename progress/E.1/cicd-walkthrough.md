@@ -523,18 +523,49 @@ This checks the retained task owner/base/generation, complete 1.0.0 assembly and
 
 Install the packaged release in disposable qualification and test it before allowing delivery to TEST.
 
+**Actor: Deployer — A-03 Delivery operator**, as defined in the [SRS actors](../../docs/srs.md#actors). The development team/Packager (A-02) has already smoke-checked the development assembly and released the reviewed package. The deployer takes that package through qualification in D and TEST promotion in E, executes the CLI steps and switches to the VERIFIER/LAB_USER runtime accounts for browser checks. These accounts are not additional system actors. This is the qualification part of [UC-4](../../docs/srs.md#uc-4--deliver-a-reviewed-change), with verification support under [UC-11](../../docs/srs.md#uc-11--verify-delivery-and-prepare-the-next-task) and runtime behavior from UC-2/3. It implements the selected [PBI-011.6 qualification/promotion slice](sprint_E.1_design.md#pbi-0116--qualify-and-promote-identical-artifacts) under [PBI-011](../../BACKLOG.md#pbi-011-build-an-executable-architectural-prototype); broader acceptance remains as recorded in the design/results.
+
 Run this chapter from the repository root:
 
 ```bash
 bash scripts/cicd-walkthrough-D_qualification.sh
 ```
 
-1. After C passes, verify the retained reviewed initial archive and its SHA-256. This archive contains source and deployment SQL, not prior business data.
-2. Admit the empty qualification application target using its observed epoch. Run **migrate → import → units → verify** as visible separate controller operations from that archive.
-3. Open [qualification](http://127.0.0.1:8080/ords/f?p=810004:1) as **VERIFIER**, create/configure Hello and World, create Hello World and refresh history.
-4. Continue to **publish**, verify the new qualification receipt/fingerprint, then open the application as **LAB_USER**.
+The script executes these operations in order. Each controller operation rechecks the archive, controller revision, target mapping and tool environment; a failed command stops before the next operation. See the editable [delivery model](model.drawio), pages **lifecycle** and **D qualification**.
+
+1. **Check prerequisites:** require C's completion marker and create a new D attempt directory. An already attempted D stage stops for inspection; C's resume option does not apply to D.
+2. **Select and inspect the archive:** read `.local-apex/releases/initial-selected.txt`; verify the archive SHA-256, member checksums, manifest and candidate/source identity. D uses the retained reviewed **1.0.0** archive. It does not export C, rebuild the archive or copy business data.
+3. **Read target status:** run controller **status** for `lab-qualify`, schema/workspace **E1_QUALIFY**, application **810004**. Read its current epoch, which identifies the controlled deployment generation.
+4. **Admit the empty target:** at the terminal prompt, press a key for **admit**. The control authority checks the expected epoch and empty initial target, records the owned attempt and advances its epoch. Ordinary runtime access remains blocked.
+5. **Apply database migrations:** press a key for **migrate**. SQLcl runs Liquibase **validate → update → status** using the archive's changelog. The initial archive contains migrations 001–004; this is not the current checkout's later patch changelog.
+6. **Import the APEX definition:** press a key for **import**. Import the archive's unchanged split export into application **810004**, mapped to E1_QUALIFY. Check that ordinary access is still blocked.
+7. **Run automated checks:** press a key for **units**. Check release versions, required pages and compilation, then execute greeting-composition and immutable-history tests. Their transactional fixtures are rolled back.
+8. **Enable restricted verification:** press a key for **verify**. Recheck release integrity and absence of packaged business data, then allow **VERIFIER** and record the attempt as verifying. This controller operation prepares the browser test; it does not perform it.
+9. **Retrieve the VERIFIER password in a second terminal:**
+
+   ```bash
+   python3 scripts/cicd-password.py VERIFIER
+   ```
+
+10. **Act as VERIFIER in qualification:** leave the script waiting at its browser pause and open [qualification / application 810004](http://127.0.0.1:8080/ords/f?p=810004:1). Sign out of any other account and sign in as **VERIFIER**.
+
+    1. Create active **Hello** and **World** entries, using those exact example texts.
+    2. Edit the existing Hello/World configuration rows to select those defaults with empty prefixes; save each change.
+    3. On **Home**, press **Create greeting**. Open **Greeting history** and refresh to confirm **Hello World** saved by VERIFIER. These are new qualification test data, not developer data copied by the release.
+
+11. **Publish qualification:** return to the waiting terminal and press a key. Controller **publish** requires the saved VERIFIER **Hello World** snapshot, prepares native availability, captures the final live APEX fingerprint, and commits the successful receipt with the external ready gate. A missing snapshot stops D; C's verification retry loop is specific to C.
+12. **Verify the published result:** the script's result command checks ready state, component versions, matching archive hash and equality of the live fingerprint to its receipt. Only then mark D complete and report **DEPLOYED AND QUALIFIED**. This is qualification, not TEST promotion.
+13. **Retrieve LAB_USER's password in the second terminal:**
+
+    ```bash
+    python3 scripts/cicd-password.py LAB_USER
+    ```
+
+14. **Act as LAB_USER:** sign out of VERIFIER, reopen qualification and sign in as **LAB_USER**. Create a greeting and refresh history to confirm ordinary access after publication.
+15. Return to the script terminal and press a key. Wait for **PASS result stage D_qualification**. Continue to **E** to promote the same archive to TEST.
 
 - Initial SHA-256: `6a1da4a940586541cbb034277605d7ed36e5d1ad305554f9a2fe4c64cd59411c`. This cycle obtains a new database receipt; historical host evidence does not substitute for qualification.
+- **--rehearse** executes real operations, substitutes explicit runtime API examples for step 10, and skips human browser/password checkpoints. It does not establish browser acceptance.
 
 ## E. Promote the same initial artifact to TEST
 
@@ -632,6 +663,8 @@ bash scripts/apex-destroy.sh
 3. To build again, follow the precheck/host/cleanup/install sequence before A. To inspect the completed applications, leave this optional destruction step until afterward.
 
 ## Maintain this artifact
+
+Keep the editable [delivery model](model.drawio), especially its lifecycle and D qualification pages, synchronized with the actor handoff and numbered operations below.
 
 Keep the Product Owner explanations, operator commands and actual script behavior aligned whenever this walkthrough changes.
 

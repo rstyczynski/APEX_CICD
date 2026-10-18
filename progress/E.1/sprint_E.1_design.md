@@ -96,6 +96,8 @@ Dependencies: children 2–4. Acceptance evidence: IT-5/6 and UT-1/2 preserve bo
 
 ### PBI-011.6 — Qualify and promote identical artifacts
 
+Actor handoff: the development team/Packager (SRS A-02) smoke-checks the development assembly and releases the reviewed package; Deployer (SRS A-03) executes qualification and identical-artifact TEST promotion. See [delivery model](model.drawio) and the [numbered D operations](cicd-walkthrough.md#d-qualify-the-initial-release); the detailed actor/acceptance definitions remain in the [SRS](../../docs/srs.md#actors).
+
 Parent: PBI-011. Outcome: build once from a clean accepted source commit; package split APEX source, immutable migrations, controllers and nonsecret manifest; hash the finished archive; qualify those exact bytes and promote them unchanged to retained TEST. Candidate validation and post-merge qualification remain separate receipts. Never execute mutable checkout files during qualification/promotion.
 
 Dependencies: children 4–5; child 7's controls must pass before retained TEST mutation. Acceptance evidence: IT-1/2 bind hash, commit, starting state, configuration revision and tool versions; qualify fresh complete install plus one additive upgrade from the named baseline. A repeated artifact preserves settings and all twenty history sentinels without duplicated seeds/migrations. Reject altered bytes, missing qualification, stale candidates and unsupported starts before writes. Assembly archives qualify only for their declared stage. Estimate: 4–6 hours.
