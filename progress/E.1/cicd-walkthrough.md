@@ -17,6 +17,9 @@ Use these links to move between preparation, delivery and protection demonstrati
 - [Install the fresh database and APEX](#install-the-fresh-database-and-apex)
 - [Initialize project delivery control](#initialize-project-delivery-control)
 - [Provision each assigned area](#provision-each-assigned-area)
+  - [A/B/C — private development areas](#abc--private-development-areas)
+  - [Qualification — disposable release validation](#qualification--disposable-release-validation)
+  - [TEST — retained release demonstration](#test--retained-release-demonstration)
 - [Configure each developer environment](#configure-each-developer-environment)
 - [Check project readiness before A](#check-project-readiness-before-a)
 - [A. Deliver Foundation](#a-deliver-foundation)
@@ -311,7 +314,24 @@ bash scripts/cicd-control-init.sh
 
 Create separate empty work areas for developers A/B/C, disposable qualification and retained TEST. Each area has its own database schema and APEX workspace, allowing work and validation without sharing business data. This is environment preparation under UC-8; no application is installed yet.
 
+The intended delivery flow is:
+
+1. Engineers author changes in their private areas.
+2. Capture APEX definitions and maintain database migrations as files.
+3. Review and accept those files in Git.
+4. Build one release archive from the accepted Git revision.
+5. Deploy and verify that archive in qualification.
+6. Promote the same archive to TEST.
+
+We do not copy the live developer database or its business data into TEST.
+
+This prototype has no separate shared DEV deployment target. A/B/C are its development areas; C demonstrates the complete development assembly. Qualification is the next deployment target before TEST. The walkthrough replays already reviewed source snapshots rather than performing new engineer authoring.
+
 **Actor: privileged provisioning operator.** Each invocation creates/checks exactly one declared schema, workspace, workspace accounts, delivery-interface grants and central automation connection. It does not install applications or business data.
+
+### A/B/C — private development areas
+
+Each engineer gets a separate schema, APEX workspace and assigned application ID within the shared Oracle/APEX installation. These areas support independent development; reviewed files captured into Git become the release source. C demonstrates the complete development assembly in this walkthrough.
 
 1. Provision A's private area:
 
@@ -331,21 +351,35 @@ Create separate empty work areas for developers A/B/C, disposable qualification 
    bash scripts/cicd-area-provision.sh lab-dev-c
    ```
 
-4. Provision disposable qualification:
+4. Wait for each **PASS assigned area**. A command naming A never creates/changes B or C's accounts, nor qualification/TEST.
+5. Give each developer only their assigned schema password and App Builder login. The operator can retrieve a specific schema password with `python3 scripts/cicd-password.py E1_DEV_A` (or E1_DEV_B/E1_DEV_C). Do not give developers the administrator credential store. Developers configure their private profiles in the next main chapter; the central automation connections belong to the operator's lab runner.
+
+### Qualification — disposable release validation
+
+**lab-qualify** is the release-validation area before TEST. The pipeline installs the packaged archive here, checks migrations, APEX import, component compatibility and application behavior, then records qualification against the exact archive hash. A patch must pass both fresh installation and upgrade from its supported previous release. Only the same successfully qualified archive may proceed to TEST.
+
+1. Provision the empty qualification area:
 
    ```bash
    bash scripts/cicd-area-provision.sh lab-qualify
    ```
 
-5. Provision retained TEST:
+2. Wait for **PASS assigned area**. Provisioning creates the area only; release qualification happens in D and F.
+3. Treat qualification as disposable: its application and test data can be removed and reconstructed for a declared qualification scenario. This is where installation/upgrade failures should be discovered before changing TEST.
+
+### TEST — retained release demonstration
+
+**lab-test** receives the identical qualified archive and provides the application used to demonstrate the delivered release. Its settings and greeting history are retained across normal upgrades, allowing the Product Owner to see both the new behavior and preservation of earlier data.
+
+1. Provision the empty TEST area:
 
    ```bash
    bash scripts/cicd-area-provision.sh lab-test
    ```
 
-- Wait for each **PASS assigned area**. A command naming A never creates/changes B or C's accounts, nor qualification/TEST.
-- Give each developer only their assigned schema password and App Builder login. The operator can retrieve a specific schema password with `python3 scripts/cicd-password.py E1_DEV_A` (or E1_DEV_B/E1_DEV_C). Do not give developers the administrator credential store.
-- The shared central automation connections belong to the operator's lab runner. Developers configure their own profiles in the next chapter.
+2. Wait for **PASS assigned area**. Initial promotion happens in E; the compatible patch upgrade happens in F.
+3. Keep TEST data during normal deployments. Do not reset it as a qualification fixture. The separately invoked **apex-destroy.sh** is an explicit whole-lab restart and deletes TEST along with every other lab area.
+
 
 ## Configure each developer environment
 
