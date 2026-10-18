@@ -2,6 +2,9 @@
 
 Prepared on 2026-10-18 for review of the APEX CI/CD delivery pipeline prototype. Start with the [presentation walkthrough](sprint_E.1_increment_demo.md) and its [PowerPoint companion](sprint_E.1_increment_demo.pptx). The [A–H guide](cicd-walkthrough.md) remains the main operating journey, and the [operator manual](user_manual.md) contains the detailed procedures.
 
+
+The [first external review](sprint_E.1_review-1.md) and [engineering response](sprint_E.1_review-1-answers.md) add concrete reproducibility, privileged-input, migration-recovery, exit-status and provenance findings. In particular, the demonstrated host rebuild retains archives; independent reproduction from a public clone remains blocked until release acquisition/build is supplied. Review responses propose corrections; they do not claim implemented fixes.
+
 ## The important outcomes
 
 1. **A complete local application:** Foundation-first assembly grows into Hello/World with configurable entries and immutable greeting history. A/B/C are private logical areas in one host and one shared source repository.

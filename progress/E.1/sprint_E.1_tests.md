@@ -210,3 +210,7 @@ Checked slide content against deploy/operator/capture.sql, import.sql, fingerpri
 ## Git presentation section — 2026-10-18
 
 Checked actual source directories, current manifest/capture profile and the existing developer-integration contract. Oracle APEX 24.2 split-export documentation supports granular source-control review and identifies shared install/application files affected by page additions. Git text-merge capability is distinguished from application semantic validation; no actual parallel APEX merge is claimed. New slides and the shifted native version table are rendered/visually reviewed; package/layout/font/reimport checks and synchronized local links/slide references pass. Current receipt identifies the delivered revision. No runtime tests/deployments are performed for this explanatory increment.
+
+## External review response verification — 2026-10-18
+
+[Review answers](sprint_E.1_review-1-answers.md) map each finding to actual source and bounded acceptance evidence. Focused drift-review manifest passes 1/0 with five underlying Python tests; protection outcomes pass 10/0. Native SQLPlus probe raises ORA-20224 in an anonymous block: EXIT SQL.SQLCODE returns 0, EXIT FAILURE returns 1. Both probes contain no DDL/DML and request rollback. Confirmed both historical assembly commits exist, no archive tar files are tracked and no GitHub workflows are tracked. No new migration failure/repair, replacement import, independent clone replay or saved-report preservation test is claimed. No runtime fix is made.
