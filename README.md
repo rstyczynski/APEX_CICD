@@ -90,6 +90,8 @@ Sprint **E.1 remains active**. Important unfinished proofs are synchronized comp
 
 The [assessment](progress/E.1/sprint_E.1_assessment.md) recommends focused further Elaboration before full Lifecycle Architecture acceptance. Remote CI runners, protected-branch automation and release approvals are [future extensions](progress/E.1/repo_layout.md#future-pipeline-automation). Cloud deployment, production readiness and high availability are outside the demonstrated scope.
 
+Known open work is registered as **Proposed, unscheduled PBI-018–035** in the [Product Backlog](BACKLOG.md#pbi-018-prove-atomic-task-reservations-under-contention). The [coverage map](progress/E.1/sprint_E.1_assessment.md#open-work-backlog-coverage) connects each proposal to current E.1 criteria or deferred review concerns. PBI-012–017 retain their existing assessment, planning and reference-guide outcomes.
+
 ## Vision
 
 The Product Owner accepted the vision on 2026-10-16: help Oracle APEX developers and DevOps engineers choose and reproduce a practical CI/CD approach, explain its tradeoffs and validate it with a small application. The product is an evidenced delivery example and its operating guidance. Foundation/Hello/World provides configurable greeting entries and persistent history so the workflow exercises application definitions, database objects and retained data.

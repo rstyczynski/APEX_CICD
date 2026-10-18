@@ -67,14 +67,46 @@ No C.n or follow-up Elaboration sprint is created or activated by this document.
 
 ## Proposed focused Elaboration follow-up
 
-Use the existing child definitions rather than inventing more platform features:
+Use the existing child definitions and the proposed follow-up backlog references below to select the remaining proof:
 
 1. **Reservation and collaboration proof:** synchronize competing Hello requests, prove exactly one winner and an early unchanged loser, then integrate genuine parallel Hello/World contributions. PBI-011.2/.5, IT-6/12 and the integration cases own this evidence.
 2. **Deployment and maintenance proof:** exercise competing attempts, stale epochs/workers, interrupted processes, existing sessions and verifier revocation. Extend the drift comparison to the scoped database definitions. PBI-011.7 and IT-7/8/9 own this evidence.
-3. **Failure and forward repair:** deliberately fail after committed additive DDL, preserve attempts and history, qualify a new repair archive against the identified partial start, then repair automatically after the review decision. PBI-011.8 and IT-3/9 own this evidence.
+3. **Broader recovery proof:** retain the now-passing bounded additive-failure experiment and validate additional supported partial states, interruptions and unknown-state rejection. PBI-011.8 and IT-3/9 retain the current evidence contract.
 
 Reuse the same host, application and public Oracle interfaces. The original design estimates for these full children were 4–6, 6–10, 6–10 and 4–6 engineering hours respectively; they are planning assumptions, not measured remaining effort. Re-estimate the selected remainder before scheduling. No fresh throughput/resource benchmark or actual total engineering-cost claim is available from this handover.
 
 ## Review decision requested
 
 Review the demonstrated slice and the recommendation above. Decide whether to complete the missing proofs within E.1 or revise its accepted boundary and schedule further Elaboration through the existing backlog/sprint procedures. Until that decision and the remaining acceptance work, leave E.1 open.
+
+## Open-work backlog coverage
+
+The Product Owner requested backlog coverage for all known open problems on 2026-10-18. The items below are **Proposed and unscheduled**. They expose remaining outcomes for future selection; they do not transfer, remove or complete the existing E.1 child criteria. Selecting a follow-up sprint must reconcile that overlap explicitly through the sprint procedure.
+
+### Remaining architectural and acceptance proofs
+
+1. [PBI-018 — atomic reservations](../../BACKLOG.md#pbi-018-prove-atomic-task-reservations-under-contention) covers PBI-011.2, IT-6/12: synchronized contention, expanded scope and reassignment.
+2. [PBI-019 — parallel collaboration](../../BACKLOG.md#pbi-019-prove-parallel-component-collaboration-and-integration) covers PBI-011.5, UC-7/9/10 and IT-5/6/11: independent branches/areas, provenance and safe integration.
+3. [PBI-020 — APEX capture/reconstruction](../../BACKLOG.md#pbi-020-complete-apex-capture-and-reconstruction-validation) covers PBI-011.4, IT-1/6/7 and review R1-M2's broader boundary: private target identities, deletion, shared metadata and explicitly supported user state beyond the one saved-report proof.
+4. [PBI-021 — release admission negatives](../../BACKLOG.md#pbi-021-complete-release-admission-and-promotion-negative-coverage) covers PBI-011.6 and IT-1/2: remaining repeat/tamper/stale-evidence and unsupported-start cases.
+5. [PBI-022 — deployment/maintenance fencing](../../BACKLOG.md#pbi-022-prove-deployment-ownership-and-maintenance-fencing) covers PBI-011.7 and IT-8/9: competing attempts, stale workers/epochs, interruption, active sessions/direct submits and verifier revocation.
+6. [PBI-023 — schema drift/reconciliation](../../BACKLOG.md#pbi-023-detect-schema-drift-and-reconcile-unauthorized-changes) covers PBI-011.7, UC-5 and IT-7: scoped database definitions and explicit keep/restore/reconcile outcomes. The retained manual APEX edit still needs the operator decision described in the handover; creating this item does not authorize overwriting it.
+7. [PBI-024 — broader partial-state recovery](../../BACKLOG.md#pbi-024-validate-recovery-beyond-the-selected-additive-failure) covers the remainder of PBI-011.8 and IT-3/9. The passing bounded BUG-7 experiment remains evidence, not an open defect.
+8. [PBI-034 — browser acceptance](../../BACKLOG.md#pbi-034-automate-application-browser-acceptance-checks) covers the browser contract in the [test profile](../../docs/test-profile.md#required-evidence-not-tests-implemented-in-i1) and user-facing UC-2/3/11 behavior; API fixtures and SQL checks do not establish that complete contract.
+
+Full gate reconciliation, risk/resource/timing assessment, requirement refinement, architecture stabilization, Lifecycle Architecture decision and Construction planning remain assigned to **PBI-012–016**. The consolidated repository/operator reference remains **PBI-017**. These existing outcomes need no duplicate backlog entries. Requirements, current test specifications and the board continue to own their respective scope, evidence contract and status.
+
+### Deferred review concerns and conditional extensions
+
+1. [PBI-025 — privileges and credentials](../../BACKLOG.md#pbi-025-restrict-privileges-and-protect-deployment-credentials): R1-H2's remaining shared-service boundary; validated lab input handling is already fixed.
+2. [PBI-026 — gateway exposure](../../BACKLOG.md#pbi-026-minimize-gateway-exposure-for-shared-hosting): R1-L2, before shared or remote hosting.
+3. [PBI-027 — environment configuration](../../BACKLOG.md#pbi-027-unify-delivery-environment-configuration): R1-M3, broader consolidation after current strict validation.
+4. [PBI-028 — release/toolchain profiles](../../BACKLOG.md#pbi-028-extend-supported-release-and-toolchain-profiles): R1-M4, when another supported release/toolchain is selected; no general version solver is requested.
+5. [PBI-029 — diagnostics](../../BACKLOG.md#pbi-029-strengthen-automation-failure-diagnostics): R1-M6, broader client diagnostic coverage; existing exit/marker fixes remain complete.
+6. [PBI-030 — hosted source CI](../../BACKLOG.md#pbi-030-automate-source-validation-in-hosted-ci): R1-L3 and the [future pipeline](repo_layout.md#future-pipeline-automation); database-independent checks first.
+7. [PBI-031 — independent validation provenance](../../BACKLOG.md#pbi-031-establish-independent-release-validation-provenance): R1-M5's deferred shared-runner attestation boundary; complete local test provenance is already fixed.
+8. [PBI-032 — licensing/reference distribution](../../BACKLOG.md#pbi-032-resolve-repository-licensing-and-reference-distribution): R1-L4; the owner decision remains open and public visibility is not license clearance.
+9. [PBI-033 — additional host platform](../../BACKLOG.md#pbi-033-validate-an-additional-infrastructure-host-platform): the explicitly deferred Linux/other-host infrastructure proof, conditional on selecting that platform.
+10. [PBI-035 — existing-application adoption](../../BACKLOG.md#pbi-035-validate-adoption-of-an-existing-apex-application): UC-12/IT-10, retained as a future adoption path. The current prototype remains greenfield and does not construct this path or package business seed data.
+
+These proposals record the concerns without treating shared hosting, additional platforms or existing-application adoption as current E.1 implementation requirements. Related review dispositions remain in [review decisions](sprint_E.1_review-1-decisions.md), and demonstrated corrections remain in the [bug register](sprint_E.1_bugs.md).
