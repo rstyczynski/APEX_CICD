@@ -648,7 +648,11 @@ Use this continuation only for an incomplete E stage whose initial UAT release i
 
 ## F. Deliver the compatible Hello patch
 
-Demonstrate a compatible 1.0.1 upgrade: qualify the patch, promote the same bytes and preserve existing user_acceptance_test settings and greeting history.
+Demonstrate a compatible 1.0.1 upgrade:
+
+1. qualify the patch with the Hello component changed to **1.0.1**,
+2. promote the same bytes,
+3. preserve existing user_acceptance_test settings and greeting history.
 
 Run this chapter from the repository root:
 

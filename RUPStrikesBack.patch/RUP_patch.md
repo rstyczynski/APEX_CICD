@@ -499,24 +499,136 @@ tests. Continue the canonical Phase 5 documentation approval and sprint
 status procedure only after the demonstration decision is recorded; this
 patch does not itself mark a sprint complete or authorize a remote push.
 
-
 ## P10. Use proportionate external review rounds
 
-External review supplements the iteration's own validation with another expert perspective, human or AI. Use it when the Product Owner requests it or agrees it will help resolve an important uncertainty. It is not a mandatory extra gate for every change, and a favorable review is not execution evidence or automatic sprint acceptance.
+External review supplements the iteration's own validation with another expert perspective, human or AI. Use it when the Product Owner requests it or agrees it will help resolve an important uncertainty. It is not a mandatory gate for every change. A favorable review is not execution evidence and does not mean the sprint is automatically accepted.
 
-Keep each round under the current sprint's evidence directory, using its stable phase ID and a round number:
+### P10.1 Round artifacts
+
+Keep each round under the current sprint's evidence directory, using the sprint's stable phase ID and a round number:
 
 - `sprint_<ID>_review-<N>.md`: the external expert's original review.
 - `sprint_<ID>_review-<N>-response.md`: the engineering response to its findings.
 - `sprint_<ID>_review-<N>-feedback.md`: the expert's reaction to that response, if supplied.
-- `sprint_<ID>_review-<N>-decisions.md`: the selected actions, rationale and deferred issues, when decisions are actually made.
+- `sprint_<ID>_review-<N>-decisions.md`: the selected actions, rationale and deferred issues, once decisions are actually made.
 
-For example, use `sprint_E.1_review-1-response.md`. Keep review, response and feedback about the same exchange under one number; increment it for a subsequent review pass. Create only the artifacts needed for the exchange, not empty placeholders. Do not rename completed historical rounds merely to apply this convention.
+For example, use `sprint_E.1_review-1-response.md`. Keep the review, response and feedback for one exchange under the same number, and increment it for the next review pass. Create only the artifacts the exchange needs, never empty placeholders. Do not rename completed historical rounds just to apply this convention.
 
-Preserve external review and feedback as supplied. The response identifies the reviewed revision and review limits, checks claims against actual code/requirements/evidence, and says where it agrees, partly agrees or disagrees. Link supporting sources, distinguish reproduced defects from plausible untested risks, and give proportionate correction/verification proposals. Add navigation from the response and current maintained sprint summary; preserve the source text rather than inserting our conclusions into the expert's report.
+### P10.2 Round header
 
-Prioritize findings against the accepted vision, selected use cases, lifecycle phase and architectural risks. During Elaboration, address defects that invalidate the chosen demonstration, its evidence, reproducibility or safe experiment boundaries. Production hardening and unrelated enhancements may be deferred explicitly; a long review must not silently expand the prototype into a general platform or make perfection the acceptance threshold.
+Every round artifact starts with a short header:
 
-When the Product Owner selects the response, record the useful decisions: what will be corrected now, why, what evidence will establish it, and what is deferred. Use the existing backlog/sprint procedures for changes to scope, assignments or statuses. A response is a proposal until selected; a decision is not a completed fix. Link selected work to existing items where it belongs, creating new backlog items only through their normal procedure when needed.
+- **Round:** `<ID>` review `<N>`, and the artifact type (review, response, feedback or decisions).
+- **Revision:** the full commit SHA reviewed or answered, and whether it matches the maintained local baseline.
+- **Reviewer:** human or agent, with its role, and the model or tool where relevant.
+- **Scope:** what was read, what was executed, and what was explicitly not read or run.
+- **Inputs:** links to the prior round artifacts this one depends on.
+- **Status table:** one line per finding ID with its current status (see P10.4), placed before any detail.
 
-Apply P8 to each resulting implementation or documentation increment and P9 to the sprint handover. Do not close a sprint, grant acceptance or claim a fix solely because an expert approves the response. Review artifacts do not authorize sending material to another person/service or pushing a repository; those actions retain their existing authorization rules.
+A reader should be able to tell what a round covers, and where every finding stands, from the header alone.
+
+### P10.3 Finding identity
+
+Every finding gets a stable ID: `R<N>-<severity><k>`, where severity is `H` (high), `M` (medium) or `L` (low). For example, `R1-H1`, `R1-M5` or `R2-L1`.
+
+- If the expert's text uses another numbering scheme, the response maps it once to stable IDs and never renumbers afterwards.
+- Later rounds, decisions, backlog items and commit messages refer to the same ID, for example `fix(R1-M1): use EXIT FAILURE in infrastructure wrappers`.
+- A finding the response splits keeps its ID with a suffix (`R1-M5a`, `R1-M5b`). A finding raised again in a later round keeps its original ID rather than getting a new one.
+
+### P10.4 Finding status
+
+Use one status per finding, recorded in the status table of each artifact that changes it:
+
+| Status | Meaning | Set by |
+|---|---|---|
+| `open` | Raised, not yet answered | review |
+| `agreed` / `partly-agreed` / `disputed` | Engineering position, with evidence | response |
+| `selected` / `deferred` / `rejected` | Product Owner decision | decisions |
+| `fixed@<sha>` | Correction committed, acceptance not yet shown | implementation increment (P8) |
+| `verified@<sha>` | Acceptance evidence recorded | validation, or a later review round |
+| `regressed@<sha>` | Previously verified, now failing | a later review round |
+
+`fixed` is never inferred from a commit message alone, and `verified` requires the acceptance evidence named in the decision. An expert's approval of a response does not change a status by itself.
+
+### P10.5 Review content
+
+Ask the reviewer, in each finding, to give the severity, the location (file and line where possible), the impact, a proposed fix, and an acceptance test that would show the fix works. The review states what it did not read or execute. It should not claim behavior it has not seen in source or evidence.
+
+A follow-up round (`N > 1`) first re-checks every finding from earlier rounds that is not yet `verified` or `rejected`, against the new revision, with evidence. Only then does it add new findings. It does not reopen a `rejected` finding unless it brings new evidence.
+
+### P10.6 Response content
+
+Preserve external review and feedback exactly as supplied. The response:
+
+- identifies the reviewed revision and the limits of the review;
+- checks each claim against the actual code, requirements and evidence, and says whether it agrees, partly agrees or disagrees;
+- corrects factual errors in the review explicitly, rather than silently;
+- distinguishes reproduced defects from plausible but untested risks, and records any read-only experiments under "Checks performed";
+- gives proportionate correction and verification proposals, each with acceptance criteria;
+- links supporting sources, both project files and authoritative external documentation.
+
+Add navigation from the response and from the current maintained sprint summary. Keep the source text intact rather than inserting our conclusions into the expert's report.
+
+Prioritize findings against the accepted vision, the selected use cases, the lifecycle phase and the architectural risks. During Elaboration, address defects that invalidate the chosen demonstration, its evidence, its reproducibility or the safe experiment boundaries. Production hardening and unrelated enhancements may be deferred explicitly. A long review must not silently expand the prototype into a general platform or make perfection the acceptance threshold.
+
+### P10.7 Decisions
+
+When the Product Owner selects the response, record the useful decisions: what will be corrected now, why, what evidence will establish it, and what is deferred and until when. Each decision line names its finding ID, its decision status, its closing condition and its owner.
+
+Use the existing backlog and sprint procedures for any change to scope, assignments or statuses. A response is a proposal until selected, and a decision is not a completed fix. Link selected work to existing backlog items where it belongs, and create new backlog items only through their normal procedure when needed.
+
+### P10.8 Closing a round
+
+A round is closed when every one of its findings is `verified`, `deferred` with a recorded reason, or `rejected`. Record the closure in the maintained sprint summary. Open a new round when:
+
+- the Product Owner requests it;
+- selected corrections are ready for independent re-checking; or
+- a material change has altered the reviewed boundary.
+
+Rounds do not continue merely because the expert keeps finding lower-severity items. Stop when the remaining findings are outside the phase's purpose and have been deferred explicitly.
+
+### P10.9 Agent prompts
+
+When an agent takes a role in a round, its prompt states the role, the round, the full revision SHA, the inputs, the allowed actions, and the output path. Start from these templates and adapt them to the round.
+
+**Reviewer**
+
+    Role: external reviewer for <repo>, sprint <ID>, review round <N>.
+    Revision: <full SHA>. Read-only: no clone, execution or push unless stated here.
+    Read: <files/dirs>. Prior rounds: <links, or none>.
+    Task:
+    1. (N>1) Re-check every finding not yet verified or rejected; set its status
+       (verified / still open / regressed) with file:line evidence.
+    2. Add new findings as R<N>-H/M/L<k>: severity, file:line, impact,
+       proposed fix, acceptance test.
+    3. List what you did not read or run.
+    Rules: cite only what you read; mark untested risks as untested; do not
+    reopen rejected findings without new evidence; judge against <phase> goals,
+    not production completeness.
+    Output: progress/<ID>/sprint_<ID>_review-<N>.md, header and status table first.
+
+**Responder (engineering)**
+
+    Role: engineering responder for <repo>, sprint <ID>, round <N>.
+    Input: sprint_<ID>_review-<N>.md at revision <full SHA>; sprint design and assessment.
+    Task: per finding ID, answer agree / partly agree / disagree, with source
+    evidence or a read-only experiment; correct factual errors explicitly;
+    propose a proportionate correction and an acceptance test.
+    Rules: do not implement fixes, change backlog or sprint status, rewrite
+    deployed migrations or archives, send material or push; mark anything
+    untested as untested.
+    Output: progress/<ID>/sprint_<ID>_review-<N>-response.md, header and status
+    table first, ending with "Checks performed".
+
+**Feedback (reviewer reacting to the response)**
+
+    Role: the round-<N> reviewer, reacting to the engineering response.
+    Input: review-<N>.md and review-<N>-response.md.
+    Task: per finding ID, accept the response, accept it with a change, or
+    dispute it with evidence; state the closing condition for each.
+    Rules: no new findings here; record them for round N+1.
+    Output: progress/<ID>/sprint_<ID>_review-<N>-feedback.md.
+
+### P10.10 Boundaries
+
+Apply P8 to each resulting implementation or documentation increment, and P9 to the sprint handover. Do not close a sprint, grant acceptance or claim a fix solely because an expert approves the response. Review artifacts do not authorize sending material to another person or service, or pushing a repository; those actions keep their existing authorization rules.
