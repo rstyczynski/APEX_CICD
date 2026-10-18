@@ -239,3 +239,9 @@ Read-only apex-verify.sh rerun passes: APEX 24.2 VALID, zero invalid APEX object
 ## Delivery-control chapter introduction — 2026-10-18
 
 Added a short E1_CTRL purpose paragraph at the start of the initialization chapter, linking the existing delivery-control architecture. Checked it against the control packages, architecture, current design and chapter command. Behavior, scripts, scope and sprint statuses remain unchanged. This is an explanation of existing implementation; no runtime test is needed. Documentation links/anchors/fences and whitespace pass. Previous verification-guide increment is deeb2f1.
+
+## Short chapter purpose statements — 2026-10-18
+
+Added concise Product Owner introductions throughout the main walkthrough, including provisioning: isolated empty A/B/C, qualification and TEST schema/workspace areas under UC-8. Existing explanatory introductions were retained. Added the chapter-purpose rule to the artifact maintenance guidance and kept exact commands after each explanation. Corrected two stale expected destruction messages to the actual PASS destroy output. Previous chapter-introduction commit is 4e5ad58.
+
+Reviewed chapter summaries against the paired lifecycle/onboarding/A–H scripts, SRS/use-case selection and current E.1 design/readiness. No implementation, scope or status changes; other sprint artifacts remain untouched. Document checker passes 33 documents and 297 local links/anchors, fences, traceability and whitespace. No runtime test is needed for prose additions; no operation or new acceptance is claimed.

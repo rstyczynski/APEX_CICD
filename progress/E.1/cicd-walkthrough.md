@@ -2,6 +2,8 @@
 
 ## Contents
 
+Use these links to move between preparation, delivery and protection demonstrations.
+
 - [What this walkthrough shows](#what-this-walkthrough-shows)
 - [Deep dive](#deep-dive)
 - [Applied tools and techniques](#applied-tools-and-techniques)
@@ -30,6 +32,8 @@
 
 ## What this walkthrough shows
 
+Follow one application from an empty lab to a working release, then see which incorrect deployments the pipeline blocks.
+
 - This lab simulates work of 3 developers (identified as A, B, and C) dedicated to development of APEX style Hello World application architected as composition of three components: database and two user facing ones.
 - The Product Owner sees application outcomes after successful deployments and evidence that wrong deployments are blocked.
 - Developer A/B/C operations run inside the guided stages. The Product Owner does not inspect App Builder, page definitions, SQL source or Git diffs in this workflow.
@@ -47,6 +51,8 @@ The deployment has two kinds of source: **APEX application definitions** and **d
 
 ### Toolchain and responsibilities
 
+These tools cover authoring, database changes, release delivery and the supporting local lab.
+
 1. **Oracle APEX 24.2 App Builder** authors pages and shared components. **ORDS** serves their browser URLs. A save in App Builder changes the live development application; capture and Git review are separate operations.
 2. **SQLcl 25.3 with Java 21** connects through private saved connections, runs explicit SQL/PLSQL and performs native APEX export/import. Capture uses split files, original component IDs, no export date and no supporting-object installation. Oracle-generated export files are executed unchanged. Public APIs such as **APEX_APPLICATION_INSTALL** map the source to a target workspace/schema/application; **APEX_APPLICATION_ADMIN** controls native availability.
 3. **Oracle Database and PL/SQL** hold component data, configuration, installed versions and immutable greeting snapshots. Database constraints, packages and triggers enforce the business rules even when a caller bypasses the browser. A separate **E1_CTRL** schema keeps managed task ownership outside ordinary application migrations/imports.
@@ -57,6 +63,8 @@ The deployment has two kinds of source: **APEX application definitions** and **d
 
 ### How delivery is organized
 
+The pipeline turns reviewed source into a verified release through these explicit stages.
+
 1. **Prepare and identify the target.** Check the effective database user, PDB, workspace and application mapping before writes. Reserve the declared component work before managed authoring. Keep Foundation-only and incomplete assemblies unavailable.
 2. **Capture and review source.** Export native APEX definitions, review the declared component changes and inherited/shared definitions, run candidate checks, then commit the accepted source. Repeated unchanged exports must match; a live development application is not itself a release artifact.
 3. **Build once.** Package the accepted Git revision, migrations, deployment SQL and nonsecret manifest. Record the source commit, supported starting state, component dependencies, tool/configuration versions and the archive's **SHA-256**. Qualification and promotion must execute files from that verified archive rather than a changing checkout.
@@ -64,6 +72,8 @@ The deployment has two kinds of source: **APEX application definitions** and **d
 5. **Verify before publishing.** Development verification already uses native restricted access for **VERIFIER**, followed by integrity/browser checks and a separate publication operation. The release design additionally requires persistent attempt ownership, maintenance fencing, final live fingerprints and a receipt before readiness. The initial release now uses persistent attempt ownership, an external runtime gate and a final fingerprint. Native availability is prepared while the external gate still restricts business requests; successful receipt and external readiness commit together. Guarded mutation admission and ordinary-request blocking passed for the patch; complete read/asynchronous request draining and stale-verifier fencing remain unproved.
 
 ### How correctness is checked
+
+These checks establish whether the intended release is compatible, correctly installed and safe for the retained data.
 
 1. **Isolation and identity:** actual cross-area read/write denial tests supplement configuration inspection. A correct application sent to the wrong schema still fails the target check.
 2. **Dependency and version rules:** Foundation must precede its dependents, and installed components must form a supported complete combination. Semantic versions describe contracts: the compatible Hello correction advances **1.0.0 → 1.0.1**; a breaking Foundation change requires compatible dependents. Version labels alone do not establish compatibility. The Foundation 2.0.0 proposal is rejected because its dependents still require Foundation 1.0.0.
@@ -74,6 +84,8 @@ The deployment has two kinds of source: **APEX application definitions** and **d
 The [current verification evidence](sprint_E.1_tests.md) supports development, repeatable preparation, both release paths, preserved settings/history and the two selected rejection scenarios. Complete request draining/fencing, concurrency and automated failed-deployment repair remain unproved. Correctness is established by the checks actually passed for the stated scope; this chapter does not turn the [accepted design](sprint_E.1_design.md) into a completed guarantee.
 
 ## Alignment with selected Elaboration use cases
+
+This chapter connects each demonstration to the accepted use cases and makes the remaining coverage gaps visible.
 
 - This is an **end-to-end use-case walkthrough** of the selected E.1 slice. A/B/C stages organize the journey; the Product Owner sees application results and deployment protection.
 - The [SRS use cases](../../docs/srs.md#use-cases-and-success-criteria) define actor goals and success criteria.
@@ -94,6 +106,8 @@ The [current verification evidence](sprint_E.1_tests.md) supports development, r
 
 ## Current readiness
 
+This checkpoint describes the delivered lab state and the boundaries of what has been demonstrated.
+
 - **Delivered checkpoint:** infrastructure and the separate onboarding steps have been verified; the five lab applications and their business/history tables are absent. The lab is ready for A. When restarting from cleanup, follow every infrastructure and onboarding chapter below before A. The earlier A–H rehearsal remains historical evidence.
 - This walkthrough now starts with explicit prerequisite checking, Podman host preparation, complete lab cleanup and fresh database/APEX/ORDS installation.
 - Cleanup destroys **all database state in this lab**, including A/B/C, qualification, TEST, entries, settings, greeting history and database control receipts. Host credentials, tools, reviewed source/release archives and historical evidence remain available; unrelated Podman resources are preserved.
@@ -104,6 +118,8 @@ The [current verification evidence](sprint_E.1_tests.md) supports development, r
 - Broader E.1 concurrency, complete maintenance fencing, schema-drift coverage and failed-additive-deployment repair remain open. This walkthrough does not close the sprint.
 
 ## Run the results walkthrough
+
+Start here for the complete Product Owner journey: prepare a fresh lab, run each stage and view its application result.
 
 1. Open a Bash terminal inside the checkout and position at its root:
 
@@ -130,6 +146,8 @@ The [current verification evidence](sprint_E.1_tests.md) supports development, r
 
 ## Run one chapter at a time
 
+Run each stage separately so you can pause, review the outcome and continue only after success.
+
 1. Complete infrastructure installation, then explicit project control, named-area provisioning, developer configuration and readiness below once for this cycle.
 2. Execute A–H in order. Each chapter contains its exact command, actual operation output, expected outcome and runtime URL.
 3. Each script stops on errors. Do not advance after a failed or interrupted attempt; retain its transcript and inspect ownership/partial state. Full cleanup is a separate deliberate restart of the demonstration, not deployment repair.
@@ -155,6 +173,8 @@ bash scripts/cicd-walkthrough.sh
 
 ## Prerequisites and infrastructure precheck
 
+Check that tools, installation inputs and host resources are ready before changing or destroying the lab.
+
 Run this **before cleanup**:
 
 ```bash
@@ -171,6 +191,8 @@ bash scripts/cicd-walkthrough-prerequisites.sh
 
 ## Initialize the Podman host
 
+Prepare the local container engine and Oracle images that will run the database and web gateway.
+
 ```bash
 bash scripts/cicd-walkthrough-host.sh
 ```
@@ -182,6 +204,8 @@ bash scripts/cicd-walkthrough-host.sh
 
 ## Prepare a repeatable walkthrough
 
+Discard the previous lab installation and all its data so the next demonstration starts from an empty system.
+
 Run the scoped **destructive cleanup** after successful precheck/host preparation:
 
 ```bash
@@ -191,7 +215,7 @@ bash scripts/apex-destroy.sh
 1. Read the printed ownership inventory and scope. The script refuses unrelated containers sharing the lab's named volumes/network.
 2. Stop/remove **apex-ords** and **apex-db** on connection **apex-cicd**.
 3. Remove **apex-data**, **apex-ords-config**, **apex-images**, **apex-net** and **apex-db-password**, when present.
-4. Wait for **PASS cleanup**. All lab database/APEX state, including greeting history, is gone. Repeating cleanup on an already empty lab is allowed.
+4. Wait for **PASS destroy**. All lab database/APEX state, including greeting history, is gone. Repeating cleanup on an already empty lab is allowed.
 5. Continue to **Install the fresh database and APEX**. Do not run A yet.
 
 - The VM, images, host credentials/tools/installers and reviewed release archives remain; unrelated containers, volumes, networks, secrets and VMs are untouched. Historical host evidence is retained separately and cannot pass fresh database receipt checks.
@@ -199,6 +223,8 @@ bash scripts/apex-destroy.sh
 - [The scoped destruction procedure](../../docs/deploy.md#12-scoped-destruction-and-fresh-reconstruction) explains the individual commands. Removing the whole VM is not needed to obtain an empty database.
 
 ## Install the fresh database and APEX
+
+Build the Oracle Database/APEX/ORDS runtime and verify access. Project accounts, delivery control and applications are initialized in later steps.
 
 ```bash
 bash scripts/cicd-walkthrough-apex-init.sh
@@ -217,6 +243,8 @@ bash scripts/cicd-walkthrough-apex-init.sh
 - Each native command is expanded in [deploy.md sections 5–9](../../docs/deploy.md#5-create-the-network-volumes-and-database--fresh-setup-only).
 
 ### Verify the installation before project setup
+
+Confirm that the infrastructure works through both automated checks and an actual administrator sign-in before preparing project areas.
 
 1. Rerun the automated infrastructure check at any time; it does not install project schemas or applications:
 
@@ -281,6 +309,8 @@ bash scripts/cicd-control-init.sh
 
 ## Provision each assigned area
 
+Create separate empty work areas for developers A/B/C, disposable qualification and retained TEST. Each area has its own database schema and APEX workspace, allowing work and validation without sharing business data. This is environment preparation under UC-8; no application is installed yet.
+
 **Actor: privileged provisioning operator.** Each invocation creates/checks exactly one declared schema, workspace, workspace accounts, delivery-interface grants and central automation connection. It does not install applications or business data.
 
 1. Provision A's private area:
@@ -319,6 +349,8 @@ bash scripts/cicd-control-init.sh
 
 ## Configure each developer environment
 
+Give each developer a working connection to their assigned area using their own credentials, ready for development without administrator access.
+
 **Actor: the assigned developer.** These commands perform no schema/workspace creation and never open the administrator credential files.
 
 1. Developer A runs:
@@ -353,6 +385,8 @@ bash scripts/cicd-control-init.sh
 
 ## Check project readiness before A
 
+Confirm that the separate areas are correctly connected, isolated and empty before application construction begins.
+
 **Actor: walkthrough operator**, after the explicit provisioning steps.
 
 ```bash
@@ -364,6 +398,8 @@ bash scripts/cicd-walkthrough-ready.sh
 3. Initialize the fresh walkthrough cycle marker. Wait for **PASS walkthrough ready**, then run A.
 
 ## A. Deliver Foundation
+
+Establish the shared database foundation and application shell. The application remains unavailable until Hello and World are present.
 
 Run this chapter from the repository root:
 
@@ -377,6 +413,8 @@ bash scripts/cicd-walkthrough-A_foundation.sh
 
 ## B. Deliver Hello
 
+Add Hello on top of the accepted Foundation baseline. The application stays unavailable while World is still missing.
+
 Run this chapter from the repository root:
 
 ```bash
@@ -388,6 +426,8 @@ bash scripts/cicd-walkthrough-B_hello.sh
 3. Open [B](http://127.0.0.1:8080/ords/f?p=810002:1). See World-not-installed protection. This replays accepted sequential integration; it does not prove parallel authoring.
 
 ## C. Deliver World and complete the assembly
+
+Add World to complete the first working application, verify greeting/history behavior and make it available to ordinary users.
 
 Run this chapter from the repository root:
 
@@ -405,6 +445,8 @@ bash scripts/cicd-walkthrough-C_world.sh
 
 ## D. Qualify the initial release
 
+Install the packaged release in disposable qualification and test it before allowing delivery to TEST.
+
 Run this chapter from the repository root:
 
 ```bash
@@ -419,6 +461,8 @@ bash scripts/cicd-walkthrough-D_qualification.sh
 - Initial SHA-256: `6a1da4a940586541cbb034277605d7ed36e5d1ad305554f9a2fe4c64cd59411c`. This cycle obtains a new database receipt; historical host evidence does not substitute for qualification.
 
 ## E. Promote the same initial artifact to TEST
+
+Deliver the exact qualified archive to TEST, establishing the first usable release without rebuilding its contents.
 
 Run this chapter from the repository root:
 
@@ -436,6 +480,8 @@ bash scripts/cicd-walkthrough-E_promotion.sh
 - Retrieve the password with `python3 scripts/cicd-password.py LAB_USER`. Imports may require re-login.
 
 ## F. Deliver the compatible Hello patch
+
+Demonstrate a compatible 1.0.1 upgrade: qualify the patch, promote the same bytes and preserve existing TEST settings and greeting history.
 
 Run this chapter from the repository root:
 
@@ -456,6 +502,8 @@ bash scripts/cicd-walkthrough-F_hello_patch.sh
 
 ## G. Reject an incompatible database upgrade
 
+Show that the pipeline rejects a breaking Foundation proposal before changing the working database or application.
+
 Run this chapter from the repository root:
 
 ```bash
@@ -472,6 +520,8 @@ bash scripts/cicd-walkthrough-G_incompatible_upgrade.sh
 - The accepted patch above proves the pipeline also admits a supported change.
 
 ## H. Reject deployment over unexpected live change
+
+Introduce a controlled page change, show deployment stopping on drift, then explicitly restore the original definition while preserving data.
 
 Run this chapter from the repository root:
 
@@ -493,6 +543,8 @@ bash scripts/cicd-walkthrough-H_drift.sh
 
 ## Destroy the lab after the walkthrough
 
+Optionally remove the entire lab installation and its data when the demonstration is finished.
+
 When you deliberately want to discard this demonstration:
 
 ```bash
@@ -500,12 +552,15 @@ bash scripts/apex-destroy.sh
 ```
 
 1. Read the named ownership inventory and deletion scope.
-2. Wait for **PASS cleanup**. All current lab applications and greeting history are removed; the VM, host inputs and unrelated resources remain.
+2. Wait for **PASS destroy**. All current lab applications and greeting history are removed; the VM, host inputs and unrelated resources remain.
 3. To build again, follow the precheck/host/cleanup/install sequence before A. To inspect the completed applications, leave this optional destruction step until afterward.
 
 ## Maintain this artifact
 
-- Put the exact runnable script command directly below each action chapter heading; keep it synchronized with that chapter script.
+Keep the Product Owner explanations, operator commands and actual script behavior aligned whenever this walkthrough changes.
+
+- Start each chapter with a short explanation of its purpose and expected Product Owner outcome.
+- Put the exact runnable script command after that explanation in each action chapter; keep it synchronized with that chapter script.
 - Always update and review this document, its launcher, A–H chapter scripts, shared helper, cleanup instructions and detailed operator guide together as **one artifact**. Keep chapter names, script names, commands and outcomes synchronized.
 - Use numbered actions, short outcome bullets and runtime URLs.
 - Keep developer mechanics inside the stage; retain their real output for diagnosis.
