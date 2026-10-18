@@ -11,7 +11,7 @@
 
 ## Deep dive
 
-This business-level walkthrough, its [runner](../../scripts/cicd-developer-walkthrough.sh) and the [detailed operator guide](user_manual.md) describe one system. Maintain and review them together as **one artifact**.
+This business-level walkthrough, its [launcher](../../scripts/cicd-walkthrough.sh), the A–H chapter scripts below and the [detailed operator guide](user_manual.md) describe one system. Maintain and review them together as **one artifact**.
 
 ## Applied tools and techniques
 
@@ -90,7 +90,7 @@ The [current verification evidence](sprint_E.1_tests.md) supports development, r
 4. **Start the results walkthrough:**
 
    ```bash
-   bash scripts/cicd-developer-walkthrough.sh
+   bash scripts/cicd-walkthrough.sh
    ```
 
 5. Read the next developer operation's purpose.
@@ -107,13 +107,41 @@ The [current verification evidence](sprint_E.1_tests.md) supports development, r
 - Run with **--rehearse** for the implemented CLI checks without pauses; human viewing is explicitly skipped.
 - **--rehearse** executes the CLI stages, including the controlled TEST page fixture/rejection/restoration, without human viewing. It is not read-only. Successful selected coverage ends with status 0; broader E.1 work remains open.
 
+## Run one chapter at a time
+
+1. Run the separate cleanup/preparation step above before a demonstration session.
+2. Choose the chapter script below. Each script runs independently and displays its matching chapter, actual checks and runtime URL. The launcher runs these same scripts in A–H order and stops on any unexpected failure.
+3. Use the same optional modes on a single script or the launcher: **--preflight** checks local prerequisites without Oracle access; **--rehearse** performs real CLI operations without keypress pauses.
+
+- **A — Foundation:** [cicd-walkthrough-A_foundation.sh](../../scripts/cicd-walkthrough-A_foundation.sh). Check the existing unavailable Foundation-only application.
+- **B — Hello:** [cicd-walkthrough-B_hello.sh](../../scripts/cicd-walkthrough-B_hello.sh). Check the existing incomplete Hello assembly.
+- **C — World:** [cicd-walkthrough-C_world.sh](../../scripts/cicd-walkthrough-C_world.sh). Check the existing published development application.
+- **D — Qualification:** [cicd-walkthrough-D_qualification.sh](../../scripts/cicd-walkthrough-D_qualification.sh). Verify the retained initial archive and qualification receipts.
+- **E — Promotion:** [cicd-walkthrough-E_promotion.sh](../../scripts/cicd-walkthrough-E_promotion.sh). Independently verify the same initial archive and TEST receipt; D does not need to run first.
+- **F — Hello patch:** [cicd-walkthrough-F_hello_patch.sh](../../scripts/cicd-walkthrough-F_hello_patch.sh). Verify the installed qualified/promoted patch and retained data.
+- **G — Incompatible upgrade:** [cicd-walkthrough-G_incompatible_upgrade.sh](../../scripts/cicd-walkthrough-G_incompatible_upgrade.sh). Submit the proposal and verify rejection before writes.
+- **H — Drift:** [cicd-walkthrough-H_drift.sh](../../scripts/cicd-walkthrough-H_drift.sh). Explicitly inject the controlled TEST page change, demonstrate rejection and restore the saved definition.
+
+For example, run A and B separately:
+
+```bash
+bash scripts/cicd-walkthrough-A_foundation.sh
+bash scripts/cicd-walkthrough-B_hello.sh
+```
+
+- These scripts operate on the existing provisioned demonstration. D/E require the retained initial archive/receipts. F/G/H require the installed qualified Hello 1.0.1 patch and its private local evidence.
+- H requires TEST to have no active fixture or other authoring/deployment. Quitting after injection leaves the fixture active. Restore it explicitly with `python3 scripts/cicd-drift-demo.py restore` before restarting H. Do not rerun preparation as a substitute for restoration.
+- A–F verify existing results; they do not replay development or deploy releases again. G performs preflight rejection checks; H changes only its controlled page fixture and restores it.
+- The [common helper](../../scripts/cicd-walkthrough-common.sh) handles chapter display, pauses and SQL error checks. The actual chapter operations remain in their separate scripts.
+- The earlier detailed operator walkthrough is preserved as [cicd-operator-walkthrough.sh](../../scripts/cicd-operator-walkthrough.sh), paired with [user_manual.md](user_manual.md). Historical test transcripts retain the filenames used when they ran.
+
 ## Prepare a repeatable walkthrough
 
 1. Run `bash scripts/cicd-walkthrough-cleanup.sh` as the separate preparation step above.
 2. Cleanup checks that no managed authoring/deployment is active and that A/B/C still match the supported development checkpoints.
 3. It backs up C's configuration, restores active **Hello** / **World** defaults and empty prefixes, then checks that all existing history snapshots are unchanged. Existing matching demo entries are reused.
 4. Keep the printed private evidence/restore path if you want to restore your previous settings after the demonstration.
-5. Start `bash scripts/cicd-developer-walkthrough.sh` to continue to A's runtime result. The results script does not run cleanup automatically.
+5. Start `bash scripts/cicd-walkthrough.sh` to continue to A's runtime result. The results script does not run cleanup automatically.
 
 - This prepares an existing development demonstration. It does not erase history or rebuild the application from scratch.
 - A/B, qualification, TEST, credentials, deployment records and Podman resources are retained.
@@ -241,7 +269,7 @@ The [current verification evidence](sprint_E.1_tests.md) supports development, r
 
 ## Maintain this artifact
 
-- Always change this document and its own runner together.
+- Always update and review this document, its launcher, A–H chapter scripts, shared helper, cleanup instructions and detailed operator guide together as **one artifact**. Keep chapter names, script names, commands and outcomes synchronized.
 - Use numbered actions, short outcome bullets and runtime URLs.
 - Keep developer mechanics inside the stage; retain their real output for diagnosis.
 - Add **DEPLOYED** or **REJECTED** only after the corresponding operation and verification exist.

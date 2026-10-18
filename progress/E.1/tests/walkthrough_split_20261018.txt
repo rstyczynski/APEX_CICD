@@ -1,0 +1,31 @@
+Walkthrough split verification — 2026-10-18
+
+bash scripts/cicd-walkthrough.sh --preflight: exit 0; A–H local chapter/file checks.
+bash scripts/cicd-operator-walkthrough.sh --preflight: exit 0.
+bash scripts/cicd-walkthrough-E_promotion.sh --rehearse: exit 0 independently.
+bash scripts/cicd-walkthrough.sh --rehearse: exit 0; real Oracle checks and controlled TEST fixture restoration.
+Human viewing was skipped in rehearsal. Application releases were not rebuilt/redeployed.
+Bash syntax: 12 walkthrough/operator scripts passed.
+Invalid mode and excess arguments: exit 2 for launcher, A and H.
+Git-root discovery: launcher, A and H preflight passed from deploy/ and outside checkout.
+Interactive launcher: q at A's first checkpoint returned 130; no Oracle operation or later stage executed.
+Detailed operator script matches its previous contents except renamed usage command.
+Pinned initial-release and patch controllers are byte-identical to HEAD.
+
+Selected actual rehearsal output:
+PASS result stage A_foundation.
+PASS result stage B_hello.
+PASS result stage C_world.
+PASS result stage D_qualification.
+PASS result stage E_promotion.
+PASS preservation: all fields of 21 prior history rows, old entries and complete configuration unchanged; new rows may append.
+PASS result stage F_hello_patch.
+REJECTED INCOMPATIBLE: Hello requires Foundation 1.0.0; proposed Foundation 2.0.0
+PASS compatibility protection: specific rejection before maintenance/migration/import; target definitions, versions, entries, configuration, history and release records unchanged. Evidence: .local-apex/releases/protection-compatibility.z3XRpL
+PASS result stage G_incompatible_upgrade.
+REJECTED DRIFT: live APEX fingerprint differs from the successful receipt. No maintenance, migration or import.
+PASS drift protection: specific rejection before maintenance/migration/import; target definitions, versions, entries, configuration, history and release records unchanged. Evidence: .local-apex/releases/protection-drift.rXhTIG
+RESTORED exact pre-demonstration APEX definition; original receipt/fingerprint, settings and history preserved.
+PASS result stage H_drift.
+PASS selected walkthrough: initial receipts, Hello patch, retained fields, incompatible proposal rejection, live drift rejection and explicit restoration.
+OPEN E.1 WORK: broader concurrency, complete maintenance fencing, schema-drift coverage and failed-additive-deployment repair. No sprint closure claimed.

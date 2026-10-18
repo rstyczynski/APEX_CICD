@@ -24,7 +24,7 @@
 2. Start the guided walkthrough:
 
    ```bash
-   bash scripts/cicd-walkthrough.sh
+   bash scripts/cicd-operator-walkthrough.sh
    ```
 
 3. Read the displayed manual chapter and the next command or browser action.
@@ -48,7 +48,7 @@
 1. Check that tools, required local files and manual chapter mappings exist:
 
    ```bash
-   bash scripts/cicd-walkthrough.sh --preflight
+   bash scripts/cicd-operator-walkthrough.sh --preflight
    ```
 
 - This is a local file/tool check. Database access is checked in walkthrough chapter 2.
@@ -58,7 +58,7 @@
 1. Execute the current CLI operations without keypress pauses:
 
    ```bash
-   bash scripts/cicd-walkthrough.sh --rehearse
+   bash scripts/cicd-operator-walkthrough.sh --rehearse
    ```
 
 - Rehearsal still connects to Oracle and exports the live application into staging.
@@ -67,7 +67,7 @@
 
 ### Maintain the pair as one artifact
 
-- **This manual and [cicd-walkthrough.sh](../../scripts/cicd-walkthrough.sh) are one operating artifact. Always update and review both together.**
+- **This manual and [cicd-operator-walkthrough.sh](../../scripts/cicd-operator-walkthrough.sh) are one operating artifact. Always update and review them together with the [results guide](cicd-walkthrough.md), its launcher, A–H chapter scripts and cleanup instructions.**
 - Keep the numbered/bulleted format for actions, fields, expected results and stop conditions.
 - When a chapter, command, URL, prerequisite or expected outcome changes, reconcile the matching script stage and manual chapter in the same increment.
 - Browser instructions are read from this file; executable commands are explicit in the script and must remain equivalent to the documented operator operations.
@@ -547,7 +547,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
 7. After cleanup reports **PASS preparation**, start the results walkthrough as a separate command. It does not repeat cleanup automatically:
 
    ```bash
-   bash scripts/cicd-developer-walkthrough.sh
+   bash scripts/cicd-walkthrough.sh
    ```
 
 - Neither operation drops/recreates applications, schemas, credentials or Podman resources. Qualification, retained TEST and release/audit history remain untouched. Destructive disposable-area lifecycle operations remain separate in [deploy.md](../../docs/deploy.md).
@@ -641,7 +641,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
 2. Fresh patch qualification used epoch **3**. Initial reconstruction used epoch **4**, followed by patch-upgrade qualification **5**. TEST upgrade used epoch **2**. These historical epochs must not be reused as admission commands.
 3. Current results: `bash scripts/cicd-patch-result.sh lab-qualify`, then `bash scripts/cicd-patch-result.sh lab-test`. Normal repeat commands verify without reinstalling.
 4. The pre-upgrade TEST field baseline is `.local-apex/releases/test-initial-preservation.json`; the qualification upgrade baseline is `.local-apex/releases/qualification-initial-preservation.json`. Both retain all 21 prior snapshot rows plus entries and settings. Qualification's explicit **[Q] / [W]** prefixes demonstrate preservation of nonempty settings.
-5. Run the separate C preparation first, then the [results walkthrough](developer_walkthrough.md). It verifies initial receipts/current patch, rejects the incompatible proposal, installs the controlled page fixture, rejects drift and performs explicit restoration. Native imports may log users out; sign in again with the same account.
+5. Run the separate C preparation first, then the [results walkthrough](cicd-walkthrough.md). Its `cicd-walkthrough.sh` launcher runs the independently executable A–H chapter scripts; see [single-chapter commands](cicd-walkthrough.md#run-one-chapter-at-a-time). It verifies initial receipts/current patch, rejects the incompatible proposal, installs the controlled page fixture, rejects drift and performs explicit restoration. Native imports may log users out; sign in again with the same account.
 6. To run the selected registered assertions without human checkpoints, use `bash tests/run.sh --integration --new-only tests/manifests/patch_protections.manifest`. This includes controlled TEST page-fixture replacement/restoration; stop other TEST authoring/deployment first. Expected result: **3 tests, 0 failures**.
 7. Historical initial-only evidence remains valid for that release. Current targets are newer; do not reinstall/downgrade them to make an old result check pass.
 

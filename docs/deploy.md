@@ -21,7 +21,7 @@
 
 - An operating chapter and its guided execution script form one artifact: **always update both together**.
 - Preserve the numbered steps/bullets and expose each operation, its target, expected result and stop condition.
-- The current application walkthrough pair is [the E.1 manual](../progress/E.1/user_manual.md) and [cicd-walkthrough.sh](../scripts/cicd-walkthrough.sh).
+- The detailed application operator walkthrough pair is [the E.1 manual](../progress/E.1/user_manual.md) and [cicd-operator-walkthrough.sh](../scripts/cicd-operator-walkthrough.sh). The [results guide](../progress/E.1/cicd-walkthrough.md) pairs [cicd-walkthrough.sh](../scripts/cicd-walkthrough.sh) with independently runnable A–H chapter scripts. Maintain these guides, scripts and cleanup instructions together.
 - That script uses the existing runtime; it does not automate this guide's provisioning, shutdown or destructive reconstruction sections.
 - If an infrastructure walkthrough is added, it must reference these chapters and preserve the same visible operations and data-preservation boundaries.
 
