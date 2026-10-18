@@ -107,17 +107,17 @@ The [current verification evidence](sprint_E.1_tests.md) supports development, r
    ```
 
 3. Wait for **PASS preparation**. Keep the printed configuration backup/restore path. Cleanup preserves greeting history.
-4. **Start the results walkthrough:**
+4. **Start chapter A — Foundation:**
 
    ```bash
-   bash scripts/cicd-walkthrough.sh
+   bash scripts/cicd-walkthrough-A_foundation.sh
    ```
 
 5. Read the next developer operation's purpose.
 6. Press any key to run it, or **q** to stop.
 7. Read the displayed pipeline outcome and any error or rejection reason.
 8. When prompted, open the printed **runtime URL** and use the application as described.
-9. Press a key to proceed to the next implemented stage.
+9. Finish this chapter in the terminal. After it reports **PASS**, open chapter B and run the command printed there. Continue through C–H the same way. Stop if a chapter fails; do not start the next one.
 
 - No App Builder login or technical inspection is requested.
 - An unexpected error stops the workflow.
@@ -142,11 +142,17 @@ The [current verification evidence](sprint_E.1_tests.md) supports development, r
 - **G — Incompatible upgrade:** [cicd-walkthrough-G_incompatible_upgrade.sh](../../scripts/cicd-walkthrough-G_incompatible_upgrade.sh). Submit the proposal and verify rejection before writes.
 - **H — Drift:** [cicd-walkthrough-H_drift.sh](../../scripts/cicd-walkthrough-H_drift.sh). Explicitly inject the controlled TEST page change, demonstrate rejection and restore the saved definition.
 
-For example, run A and B separately:
+For example, run A and B separately, checking A succeeds before starting B:
 
 ```bash
 bash scripts/cicd-walkthrough-A_foundation.sh
 bash scripts/cicd-walkthrough-B_hello.sh
+```
+
+If you prefer to run all chapters in order, the optional launcher calls these same A–H scripts:
+
+```bash
+bash scripts/cicd-walkthrough.sh
 ```
 
 - These scripts operate on the existing provisioned demonstration. D/E require the retained initial archive/receipts. F/G/H require the installed qualified Hello 1.0.1 patch and its private local evidence.
@@ -167,7 +173,7 @@ bash scripts/cicd-walkthrough-cleanup.sh
 2. Cleanup checks that no managed authoring/deployment is active and that A/B/C still match the supported development checkpoints.
 3. It backs up C's configuration, restores active **Hello** / **World** defaults and empty prefixes, then checks that all existing history snapshots are unchanged. Existing matching demo entries are reused.
 4. Keep the printed private evidence/restore path if you want to restore your previous settings after the demonstration.
-5. Start `bash scripts/cicd-walkthrough.sh` to continue to A's runtime result. The results script does not run cleanup automatically.
+5. Start `bash scripts/cicd-walkthrough-A_foundation.sh` to continue to A's runtime result. Run each later chapter using its own printed command. Chapter scripts do not run cleanup automatically.
 
 - This prepares an existing development demonstration. It does not erase history or rebuild the application from scratch.
 - A/B, qualification, TEST, credentials, deployment records and Podman resources are retained.

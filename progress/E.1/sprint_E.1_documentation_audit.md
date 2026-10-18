@@ -199,3 +199,7 @@ Added a linked Contents section immediately below the title in [cicd-walkthrough
 ## Commands in each walkthrough chapter — 2026-10-18
 
 Added the exact standalone Bash invocation directly below every A–H action heading in [cicd-walkthrough.md](cicd-walkthrough.md), including E promotion, plus a visible cleanup command in the preparation chapter. The maintenance rule now requires chapter-local invocation blocks. Checked all eight commands against their actual script files and prepare_stage headings; all A–H preflight checks pass. Documentation links/anchors/fences, traceability and whitespace checks pass. Paired script behavior, existing use-case scope/readiness and other sprint artifacts are unchanged; no Oracle mutation or repeated application tests were needed for this presentation correction.
+
+## Chapter-by-chapter entry point — 2026-10-18
+
+Corrected the main results instructions and preparation continuation to start A_foundation explicitly and run B–H separately after each passing chapter. The combined launcher is retained only as an optional shortcut. README and user_manual entry commands now match. Chapter commands and script behavior are unchanged. Reviewed paired scripts; all A–H local preflight checks and documentation link/anchor/fence/whitespace checks pass. Scope and sprint states are unchanged.
