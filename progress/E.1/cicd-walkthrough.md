@@ -406,6 +406,21 @@ Give each developer a working connection to their assigned area using their own 
    ```
 
 4. Enter only the assigned **schema password**, hidden at the prompt. For A this is E1_DEV_A's password; DEV_A is the separate App Builder account.
+
+   The provisioning operator retrieves A's schema password with:
+
+   ```bash
+   python3 scripts/cicd-password.py E1_DEV_A
+   ```
+
+   For this single-host lab, if you are acting as both operator and developer, you can instead retrieve and pipe the password directly into setup, replacing the interactive command above:
+
+   ```bash
+   (set -o pipefail; python3 scripts/cicd-password.py E1_DEV_A | bash scripts/cicd-developer-init.sh A --password-stdin)
+   ```
+
+   For B/C, replace both `E1_DEV_A` and `A` with the matching schema/developer. The pipe passes only the selected password without displaying it or storing it in an environment variable. The password helper reads the operator's protected credential store; a developer acting separately receives their assigned password from the operator and uses the interactive prompt. Developer setup itself does not read administrator credentials.
+
 5. The command verifies the effective schema/workspace and saves only that developer's connection in `.local-apex/developers/A/sqlcl-home` (or B/C). It prints **PASS developer** and the exact environment command.
 6. In A's own Bash terminal, select that private profile and connect:
 
