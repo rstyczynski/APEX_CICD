@@ -267,6 +267,8 @@ bash scripts/cicd-walkthrough-apex-init.sh
 
 ## Initialize project delivery control
 
+**E1_CTRL** is the project’s delivery-control schema. It holds component reservations, deployment state and release receipts, and controls runtime access during deployment. Keeping it separate from application schemas preserves coordination and deployment history across application imports. It contains no greeting business data and is created separately from vanilla Oracle infrastructure. See [delivery-control architecture](../../docs/architecture.md#delivery-control-bootstrap) for the design.
+
 **Actor: project/platform operator**, with the lab administrator credential. This is project setup, separate from Oracle infrastructure.
 
 ```bash

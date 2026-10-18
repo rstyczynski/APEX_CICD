@@ -235,3 +235,7 @@ Bash syntax and apex-destroy.sh --preflight pass without Podman/database mutatio
 Reconciled the main walkthrough installation chapter and deploy.md section 8 with apex-verify.sh, apex-db-verify.sql, installer/configuration scripts and the single-key password helper. Checked current SRS/architecture, E.1 setup/design/test profile and results, README and board: the clarification changes no scope, behavior, status or other sprint. Paired scripts already provide the described operations and need no code change. Previous command rename is commit 1cb92f5.
 
 Read-only apex-verify.sh rerun passes: APEX 24.2 VALID, zero invalid APEX objects, SYSTEM/FREEPDB1 through host port, ORDS/login-page HTTP 200 and matching static version. Credential values were not recorded. The guide explicitly requires separate ADMIN browser sign-in; no new manual sign-in or optional interactive SQLcl test is claimed. Local links/anchors/fences/traceability and whitespace pass. Staged credential scan is performed before the local documentation commit. No push.
+
+## Delivery-control chapter introduction — 2026-10-18
+
+Added a short E1_CTRL purpose paragraph at the start of the initialization chapter, linking the existing delivery-control architecture. Checked it against the control packages, architecture, current design and chapter command. Behavior, scripts, scope and sprint statuses remain unchanged. This is an explanation of existing implementation; no runtime test is needed. Documentation links/anchors/fences and whitespace pass. Previous verification-guide increment is deeb2f1.
