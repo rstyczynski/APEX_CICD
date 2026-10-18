@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
-# Result stage paired with progress/E.1/cicd-walkthrough.md.
 source "$(dirname "${BASH_SOURCE[0]}")/cicd-walkthrough-common.sh"
-prepare_stage '## E. Promote the same initial artifact to TEST' \
-  'scripts/cicd-artifact.py' \
-  'deploy/operator/show_initial_proof.sql'
+prepare_stage '## E. Promote the same initial artifact to TEST' scripts/cicd-release-step.sh scripts/cicd-release-result.sh tests/sql/prepare_history_sentinels.sql
+test -f .local-apex/walkthrough/current/D_qualification.done
+new_stage_source E_promotion
 archive="$(cat .local-apex/releases/initial-selected.txt)"
 initial_hash="$(shasum -a 256 "$archive" | awk '{print $1}')"
-pause 'Press any key to verify the retained initial TEST promotion receipt; q to quit.'
 python3 scripts/cicd-artifact.py inspect "$archive"
+initial_install lab-test E1_TEST 810005
 check_result lab-control "@\"$ROOT/deploy/operator/show_initial_proof.sql\" $initial_hash"
-echo 'VERIFIED HISTORICAL RESULT: the verified TEST epoch-1 receipt has the same initial archive hash.'
-echo 'PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810005:1 as LAB_USER; it now runs 1.0.1.'
-pause 'View TEST, then press any key for current patch verification; q to quit.'
-echo 'PASS result stage E_promotion.'
+echo 'PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810005:1 as LAB_USER. This NEW TEST application runs 1.0.0.'
+pause 'Create a greeting and view its NEW history; press any key to prepare explicit upgrade test examples.'
+python3 scripts/apex_sql.py lab-test tests/sql/prepare_history_sentinels.sql
+python3 scripts/cicd-preservation.py capture lab-test .local-apex/releases/test-initial-preservation.json
+touch .local-apex/walkthrough/current/E_promotion.done
+echo 'PASS result stage E_promotion: identical qualified/promoted archive; NEW field baseline captured for F.'

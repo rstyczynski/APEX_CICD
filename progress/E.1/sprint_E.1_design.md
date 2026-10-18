@@ -167,3 +167,9 @@ Review feasibility after children 1–2, source stability after child 4, and the
 ## Approval requested
 
 Approve this bounded decomposition, technical approach, evidence scope and effort/resource range before prototype code or executable test skeletons are constructed. The proposal is ready for review; no PBI is marked complete by writing it.
+
+## Fresh-start walkthrough refinement — 2026-10-18
+
+The Product Owner requests prerequisite checks and explicit scoped cleanup/install/destroy operations before the walkthrough, with no earlier greeting history carried into it. The existing database/APEX lab is disposable for this demonstration. Retain host credentials, verified tool/installer inputs, reviewed release archives and historical evidence; preserve unrelated Podman resources. Reuse the named VM and remove only the owned lab containers/storage/network/secret. Installation creates a new database/APEX/ORDS runtime, isolated empty areas and the control authority; application construction follows afterward.
+
+Replay accepted Foundation/Hello source snapshots and the complete initial archive through native SQLcl/Liquibase and APEX import in A–C. D/E execute new initial qualification/promotion receipts for the retained reviewed archive. F qualifies the existing patch archive for both declared starts, then upgrades TEST without resetting it. Preservation applies to data created during this cycle; full cleanup is not failed-deployment repair. Live verification pauses for the browser; unattended rehearsal announces explicit runtime-API test data and does not claim browser verification. This refinement stays within PBI-011.1/3/4/6/7 and PBI-012; broader concurrent development, maintenance fencing, drift and repair selection remains unchanged.

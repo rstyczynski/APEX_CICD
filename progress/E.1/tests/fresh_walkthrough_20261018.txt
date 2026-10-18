@@ -1,0 +1,73 @@
+Fresh walkthrough validation — 2026-10-18 (Europe/Warsaw)
+
+All lab database/APEX history was explicitly disposable for this demonstration.
+Fresh infrastructure proved absent applications and business/history tables before A.
+Host credentials, tools, reviewed archives and previous evidence retained; no business rows restored.
+CLI rehearsal created NEW explicit verification examples; human browser viewing skipped.
+Cleanup ownership: 1 registered unit test, 0 failures; four local policy cases.
+Installation refuses existing lab storage; admin empty-state assertion rejects populated areas.
+Bash/Python syntax, chapter command mapping, portable Git root and argument checks passed.
+Pinned native release controllers unchanged; reviewed release archives not rebuilt.
+
+Precheck: exit 0
+PASS prerequisites: host tools, pinned SQLcl/Java, helper, APEX installer and reviewed release inputs.
+
+Host preparation: exit 0
+PASS host: named apex-cicd engine ready; pinned images available. Other VMs untouched.
+
+Destructive cleanup: exit 0
+PASS cleanup: owned database/APEX/ORDS data removed; no greeting history or applications survive in the lab.
+
+Fresh infrastructure installation: exit 0
+Approximate transcript elapsed: 4.8 minutes
+PASS empty inventory: applications 810001–810005 and all business/history tables absent.
+PASS APEX init: fresh verified runtime, isolated empty areas and control authority. No application or greeting history installed. Ready for A.
+
+Fresh A–H rehearsal: exit 0
+Approximate transcript elapsed: 7.3 minutes
+PASS result stage A_foundation.
+PASS result stage B_hello.
+PASS result stage C_world.
+PASS result stage D_qualification.
+PASS result stage E_promotion: identical qualified/promoted archive; NEW field baseline captured for F.
+PASS preservation: all fields of 21 prior history rows, old entries and complete configuration unchanged; new rows may append.
+PASS preservation: all fields of 20 prior history rows, old entries and complete configuration unchanged; new rows may append.
+PASS result stage F_hello_patch.
+REJECTED INCOMPATIBLE: Hello requires Foundation 1.0.0; proposed Foundation 2.0.0
+PASS compatibility protection: specific rejection before maintenance/migration/import; target definitions, versions, entries, configuration, history and release records unchanged. Evidence: .local-apex/releases/protection-compatibility.S59hbv
+PASS result stage G_incompatible_upgrade.
+REJECTED DRIFT: live APEX fingerprint differs from the successful receipt. No maintenance, migration or import.
+PASS drift protection: specific rejection before maintenance/migration/import; target definitions, versions, entries, configuration, history and release records unchanged. Evidence: .local-apex/releases/protection-drift.2PRjb7
+RESTORED exact pre-demonstration APEX definition; original receipt/fingerprint, settings and history preserved.
+PASS result stage H_drift.
+PASS selected fresh walkthrough: construction, initial qualification/promotion, Hello patch, this-cycle preservation, incompatible proposal rejection, drift rejection and restoration.
+
+Application unit regression: exit 0
+Tests: 2; failed: 0
+
+Platform smoke: exit 0
+Tests: 1; failed: 0
+
+Registered patch integration: exit 0
+PASS preservation: all fields of 21 prior history rows, old entries and complete configuration unchanged; new rows may append.
+PASS preservation: all fields of 20 prior history rows, old entries and complete configuration unchanged; new rows may append.
+Tests: 1; failed: 0
+
+Actual end-of-rehearsal application counts (new cycle):
+E1_DEV_C history=1 first_date=2026-10-18
+E1_QUALIFY history=22 first_date=2026-10-18
+E1_TEST history=21 first_date=2026-10-18
+
+Actual end-of-rehearsal receipts:
+E1_QUALIFY epoch=4 phase=ready artifact=200ebefff13e87600699adfebbbe71158962dc80a02d1b8e6dbd9a829dd9e1ce
+E1_TEST epoch=2 phase=ready artifact=200ebefff13e87600699adfebbbe71158962dc80a02d1b8e6dbd9a829dd9e1ce
+
+Final delivered checkpoint (after completed rehearsal):
+Second explicit scoped cleanup: exit 0; owned containers/volumes removed again.
+Second fresh database/APEX/ORDS installation: exit 0; all identities/isolation checks passed.
+Final prerequisite probe: exit 0; existing APEX version 24.2.0, status VALID.
+Administrator empty-state check: PASS; application IDs 810001–810005 and all area tables except isolation probes absent.
+Fresh authority: no task/release events; release targets new at epoch zero.
+Interactive A: q at first checkpoint returned 130 before acquisition/import; cycle remains empty.
+Unrelated podman-machine-default remains present and stopped; named apex-cicd VM reused unchanged.
+Delivered state is ready for the user's own chapter A; no rehearsal business/history rows survive.

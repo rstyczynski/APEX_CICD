@@ -24,7 +24,7 @@ stages=(
 bash scripts/cicd-walkthrough-cleanup.sh --preflight
 for stage in "${stages[@]}"; do bash "$stage" --preflight; done
 if [ "$MODE" = --preflight ]; then exit 0; fi
-echo 'PREREQUISITE: run bash scripts/cicd-walkthrough-cleanup.sh separately (manual run step 2).'
+echo 'PREREQUISITE: complete precheck, host preparation, destructive cleanup and fresh APEX installation from the manual.'
 for stage in "${stages[@]}"; do bash "$stage" "$MODE"; done
-echo 'PASS selected walkthrough: initial receipts, Hello patch, retained fields, incompatible proposal rejection, live drift rejection and explicit restoration.'
+echo 'PASS selected fresh walkthrough: construction, initial qualification/promotion, Hello patch, this-cycle preservation, incompatible proposal rejection, drift rejection and restoration.'
 echo 'OPEN E.1 WORK: broader concurrency, complete maintenance fencing, schema-drift coverage and failed-additive-deployment repair. No sprint closure claimed.'

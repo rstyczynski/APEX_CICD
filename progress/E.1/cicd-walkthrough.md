@@ -9,7 +9,10 @@
 - [Current readiness](#current-readiness)
 - [Run the results walkthrough](#run-the-results-walkthrough)
 - [Run one chapter at a time](#run-one-chapter-at-a-time)
+- [Prerequisites and infrastructure precheck](#prerequisites-and-infrastructure-precheck)
+- [Initialize the Podman host](#initialize-the-podman-host)
 - [Prepare a repeatable walkthrough](#prepare-a-repeatable-walkthrough)
+- [Install the fresh database and APEX](#install-the-fresh-database-and-apex)
 - [A. Deliver Foundation](#a-deliver-foundation)
 - [B. Deliver Hello](#b-deliver-hello)
 - [C. Deliver World and complete the assembly](#c-deliver-world-and-complete-the-assembly)
@@ -18,6 +21,7 @@
 - [F. Deliver the compatible Hello patch](#f-deliver-the-compatible-hello-patch)
 - [G. Reject an incompatible database upgrade](#g-reject-an-incompatible-database-upgrade)
 - [H. Reject deployment over unexpected live change](#h-reject-deployment-over-unexpected-live-change)
+- [Destroy the lab after the walkthrough](#destroy-the-lab-after-the-walkthrough)
 - [Maintain this artifact](#maintain-this-artifact)
 
 ## What this walkthrough shows
@@ -43,7 +47,7 @@ The deployment has two kinds of source: **APEX application definitions** and **d
 2. **SQLcl 25.3 with Java 21** connects through private saved connections, runs explicit SQL/PLSQL and performs native APEX export/import. Capture uses split files, original component IDs, no export date and no supporting-object installation. Oracle-generated export files are executed unchanged. Public APIs such as **APEX_APPLICATION_INSTALL** map the source to a target workspace/schema/application; **APEX_APPLICATION_ADMIN** controls native availability.
 3. **Oracle Database and PL/SQL** hold component data, configuration, installed versions and immutable greeting snapshots. Database constraints, packages and triggers enforce the business rules even when a caller bypasses the browser. A separate **E1_CTRL** schema keeps managed task ownership outside ordinary application migrations/imports.
 4. **Liquibase through SQLcl** applies ordered database changesets and records their identities/checksums in **DATABASECHANGELOG**. An applied migration is retained unchanged; a later correction needs a new changeset. The application export and database migrations remain distinct parts of the same reviewed source revision.
-5. **Git** identifies the reviewed source commit and shows the component diff. Foundation is established first; Hello and World are integrated from bounded private work. The current demonstration used sequential B/C development. Durable task reservations record owner, task, base commit and generation; they are separate from the durable initial-release ownership controls.
+5. **Git** identifies the reviewed source commit and shows the component diff. Foundation is established first; Hello and World are integrated from bounded private work. The replay uses reviewed sequential B/C source snapshots; it does not simulate new authoring. Durable task reservations record owner, task, base commit and generation; they are separate from the durable initial-release ownership controls.
 6. **Bash, small Python standard-library helpers and SQL assertions** expose operator stages, handle files/connections and check outcomes. The results script pauses at runtime URLs; the detailed operator guide explains individual commands. Credentials stay in protected local storage, outside Git and release contents. Repository positioning comes from Git discovery.
 7. **Podman** runs the local Oracle Database and ORDS containers. Separate database schemas, APEX workspaces and application IDs provide A/B/C development areas, disposable qualification and retained TEST on the same host. This is logical isolation; it does not model independent production hosts. Infrastructure lifecycle operations follow [deploy.md](../../docs/deploy.md).
 
@@ -60,7 +64,7 @@ The deployment has two kinds of source: **APEX application definitions** and **d
 1. **Isolation and identity:** actual cross-area read/write denial tests supplement configuration inspection. A correct application sent to the wrong schema still fails the target check.
 2. **Dependency and version rules:** Foundation must precede its dependents, and installed components must form a supported complete combination. Semantic versions describe contracts: the compatible Hello correction advances **1.0.0 → 1.0.1**; a breaking Foundation change requires compatible dependents. Version labels alone do not establish compatibility. The Foundation 2.0.0 proposal is rejected because its dependents still require Foundation 1.0.0.
 3. **Behavior and retained data:** Oracle unit assertions check exact greeting composition, defaults, explicit selections, prefixes, Unicode, limits and rejected input. Snapshot tests check that changed configuration affects new greetings while old snapshots remain unchanged, and that history update/delete is rejected. Browser checks exercise the actual runtime as verifier and ordinary user.
-4. **Repeatability and failure reporting:** cleanup is an explicit separate step, backs up configuration and compares every existing history row before/after preparation. Scripts check Oracle errors and successful completion markers, stop on unexpected failure and show the reason. A failed connection or arbitrary error is not evidence that a bad deployment was correctly rejected.
+4. **Repeatability and failure reporting:** cleanup is an explicit separate destructive step for this disposable demonstration. During the actual patch, field-level baseline comparisons preserve this cycle's earlier rows/settings. Scripts check Oracle errors and successful completion markers, stop on unexpected failure and show the reason. A failed connection or arbitrary error is not evidence that a bad deployment was correctly rejected.
 5. **Traceability and drift:** a Git commit identifies source; a semantic version describes its contract; an archive hash identifies exact packaged bytes; a recomputed live APEX fingerprint detects changed application definitions; schema checks cover the declared migrations and component versions. These serve different purposes. The selected drift scenario rejects a changed Home title/banner before maintenance, migration or import and leaves the changed page/history intact until explicit restoration. A matching hash alone does not prove functional correctness.
 
 The [current verification evidence](sprint_E.1_tests.md) supports development, repeatable preparation, both release paths, preserved settings/history and the two selected rejection scenarios. Complete request draining/fencing, concurrency and automated failed-deployment repair remain unproved. Correctness is established by the checks actually passed for the stated scope; this chapter does not turn the [accepted design](sprint_E.1_design.md) into a completed guarantee.
@@ -82,102 +86,131 @@ The [current verification evidence](sprint_E.1_tests.md) supports development, r
 - **Reproduction:** this guide contributes to UC-6; its full success criterion is not met by an unattended runner execution.
 - **Later evidence outside this selected walkthrough:** parallel Hello/World work, the competing Hello race and other reservation alternatives in UC-9; deployment races/interruption; failed additive deployment and automated repair in UC-5. These remain in the broader design.
 - **Unselected:** UC-12 adoption of an existing application. This prototype creates the application from scratch without constructing a supplied seed application.
-- **Execution status:** this mapping describes intended coverage, not passed acceptance. A/B/C development checks and runtime checkpoints execute. Initial receipts remain verifiable after upgrade; the patch and two selected rejection stages execute. Broader use-case alternatives remain pending.
+- **Execution status:** this mapping describes intended coverage, not passed acceptance. A/B/C development checks and runtime checkpoints execute. New initial receipts remain verifiable after upgrade; the patch and two selected rejection stages execute. Broader use-case alternatives remain pending.
 
 ## Current readiness
 
-- A and B retain their unavailable incomplete checkpoints.
-- C, qualification 810004 and retained TEST 810005 run **Foundation 1.0.0 / Hello 1.0.1 / World 1.0.0**. The application release version is **1.0.1**.
-- Initial 1.0.0 receipts remain visible as historical delivery evidence. The walkthrough does not downgrade/reinstall retained TEST to replay that earlier release.
-- The runner verifies current results, demonstrates both selected rejections and restores its controlled page-drift fixture explicitly. It finishes with exit **0** when these selected stages pass.
-- Full E.1 concurrency, complete maintenance fencing and failed-additive-deployment repair remain open. This walkthrough does not close the sprint.
+- **Delivered checkpoint:** infrastructure is freshly installed; the five lab applications and their business/history tables are absent. Start chapter A below. The complete A–H rehearsal passed before this final reset.
+- This walkthrough now starts with explicit prerequisite checking, Podman host preparation, complete lab cleanup and fresh database/APEX/ORDS installation.
+- Cleanup destroys **all database state in this lab**, including A/B/C, qualification, TEST, entries, settings, greeting history and database control receipts. Host credentials, tools, reviewed source/release archives and historical evidence remain available; unrelated Podman resources are preserved.
+- Infrastructure installation ends with isolated **empty** application areas. No lab application or business history is installed at that point.
+- A–C install the reviewed Foundation, Hello and complete World snapshots. A/B remain unavailable while incomplete; C starts at **1.0.0**.
+- D/E execute real qualification and promotion of the **same initial artifact** in this cycle. F qualifies Hello **1.0.1** both fresh and over 1.0.0, then upgrades TEST with those identical bytes, preserving only the data created during this cycle.
+- G/H demonstrate the selected rejections and explicit controlled page restoration. Rehearsal uses clearly identified NEW runtime test examples and skips human browser viewing.
+- Broader E.1 concurrency, complete maintenance fencing, schema-drift coverage and failed-additive-deployment repair remain open. This walkthrough does not close the sprint.
 
 ## Run the results walkthrough
 
-1. Open a Bash terminal in the project:
+1. Open a Bash terminal inside the checkout and position at its root:
 
    ```bash
    cd "$(git rev-parse --show-toplevel)"
    ```
 
-2. **Run cleanup/preparation separately before every walkthrough:**
-
-   ```bash
-   bash scripts/cicd-walkthrough-cleanup.sh
-   ```
-
-3. Wait for **PASS preparation**. Keep the printed configuration backup/restore path. Cleanup preserves greeting history.
-4. **Start chapter A — Foundation:**
+2. Follow **Prerequisites and infrastructure precheck**, then **Initialize the Podman host** below.
+3. Follow **Prepare a repeatable walkthrough** to destroy the current lab, then **Install the fresh database and APEX**. Wait for each PASS before continuing.
+4. Start **A — Foundation**:
 
    ```bash
    bash scripts/cicd-walkthrough-A_foundation.sh
    ```
 
-5. Read the next developer operation's purpose.
-6. Press any key to run it, or **q** to stop.
-7. Read the displayed pipeline outcome and any error or rejection reason.
-8. When prompted, open the printed **runtime URL** and use the application as described.
-9. Finish this chapter in the terminal. After it reports **PASS**, open chapter B and run the command printed there. Continue through C–H the same way. Stop if a chapter fails; do not start the next one.
+5. Read the actual operations and output. Press a key to proceed, or **q** to stop. On a failure, stop and inspect it before another operation.
+6. At a verification checkpoint, use the printed URL as **VERIFIER**. After publication, use **LAB_USER** to see the result. Retrieve the account password with `python3 scripts/cicd-password.py VERIFIER` or `python3 scripts/cicd-password.py LAB_USER`.
+7. After A reports PASS, run B using its chapter command. Continue through C–H the same way.
 
-- No App Builder login or technical inspection is requested.
-- An unexpected error stops the workflow.
-- An expected negative scenario counts as protected only when the specific rejection and unchanged-target checks pass. A connection error or arbitrary failure is not a successful protection demonstration.
-- Browser continuation is not reported as an automated browser test.
-- Run with **--preflight** for local tool/file/chapter checks without Oracle access.
-- Run with **--rehearse** for the implemented CLI checks without pauses; human viewing is explicitly skipped.
-- **--rehearse** executes the CLI stages, including the controlled TEST page fixture/rejection/restoration, without human viewing. It is not read-only. Successful selected coverage ends with status 0; broader E.1 work remains open.
+- A–F now install/deploy, rather than only display an earlier result. Repeating an already attempted construction chapter stops for inspection; start a new demonstration with the explicit infrastructure cleanup/install sequence.
+- **--preflight** on A–H checks local tools/files/chapter mapping without connecting to Oracle. It does not substitute for the infrastructure precheck below.
+- **--rehearse** executes real installations, qualification/promotion and the TEST page fixture without pauses. Its explicit runtime API test examples are not browser verification. It requires the fresh infrastructure preparation first.
+- Normal release result inspection remains read-only through the separate operator result commands. No App Builder inspection is required in this Product Owner journey.
 
 ## Run one chapter at a time
 
-1. Run the separate cleanup/preparation step above before a demonstration session.
-2. Choose the chapter script below. Each script runs independently and displays its matching chapter, actual checks and runtime URL. The launcher runs these same scripts in A–H order and stops on any unexpected failure.
-3. Use the same optional modes on a single script or the launcher: **--preflight** checks local prerequisites without Oracle access; **--rehearse** performs real CLI operations without keypress pauses.
+1. Complete the infrastructure sequence below once for the new cycle.
+2. Execute A–H in order. Each chapter contains its exact command, actual operation output, expected outcome and runtime URL.
+3. Each script stops on errors. Do not advance after a failed or interrupted attempt; retain its transcript and inspect ownership/partial state. Full cleanup is a separate deliberate restart of the demonstration, not deployment repair.
 
-- **A — Foundation:** [cicd-walkthrough-A_foundation.sh](../../scripts/cicd-walkthrough-A_foundation.sh). Check the existing unavailable Foundation-only application.
-- **B — Hello:** [cicd-walkthrough-B_hello.sh](../../scripts/cicd-walkthrough-B_hello.sh). Check the existing incomplete Hello assembly.
-- **C — World:** [cicd-walkthrough-C_world.sh](../../scripts/cicd-walkthrough-C_world.sh). Check the existing published development application.
-- **D — Qualification:** [cicd-walkthrough-D_qualification.sh](../../scripts/cicd-walkthrough-D_qualification.sh). Verify the retained initial archive and qualification receipts.
-- **E — Promotion:** [cicd-walkthrough-E_promotion.sh](../../scripts/cicd-walkthrough-E_promotion.sh). Independently verify the same initial archive and TEST receipt; D does not need to run first.
-- **F — Hello patch:** [cicd-walkthrough-F_hello_patch.sh](../../scripts/cicd-walkthrough-F_hello_patch.sh). Verify the installed qualified/promoted patch and retained data.
-- **G — Incompatible upgrade:** [cicd-walkthrough-G_incompatible_upgrade.sh](../../scripts/cicd-walkthrough-G_incompatible_upgrade.sh). Submit the proposal and verify rejection before writes.
-- **H — Drift:** [cicd-walkthrough-H_drift.sh](../../scripts/cicd-walkthrough-H_drift.sh). Explicitly inject the controlled TEST page change, demonstrate rejection and restore the saved definition.
+- A: `bash scripts/cicd-walkthrough-A_foundation.sh`
+- B: `bash scripts/cicd-walkthrough-B_hello.sh`
+- C: `bash scripts/cicd-walkthrough-C_world.sh`
+- D: `bash scripts/cicd-walkthrough-D_qualification.sh`
+- E: `bash scripts/cicd-walkthrough-E_promotion.sh`
+- F: `bash scripts/cicd-walkthrough-F_hello_patch.sh`
+- G: `bash scripts/cicd-walkthrough-G_incompatible_upgrade.sh`
+- H: `bash scripts/cicd-walkthrough-H_drift.sh`
 
-For example, run A and B separately, checking A succeeds before starting B:
-
-```bash
-bash scripts/cicd-walkthrough-A_foundation.sh
-bash scripts/cicd-walkthrough-B_hello.sh
-```
-
-If you prefer to run all chapters in order, the optional launcher calls these same A–H scripts:
+The optional launcher calls those same scripts in order **after** fresh infrastructure installation:
 
 ```bash
 bash scripts/cicd-walkthrough.sh
 ```
 
-- These scripts operate on the existing provisioned demonstration. D/E require the retained initial archive/receipts. F/G/H require the installed qualified Hello 1.0.1 patch and its private local evidence.
-- H requires TEST to have no active fixture or other authoring/deployment. Quitting after injection leaves the fixture active. Restore it explicitly with `python3 scripts/cicd-drift-demo.py restore` before restarting H. Do not rerun preparation as a substitute for restoration.
-- A–F verify existing results; they do not replay development or deploy releases again. G performs preflight rejection checks; H changes only its controlled page fixture and restores it.
-- The [common helper](../../scripts/cicd-walkthrough-common.sh) handles chapter display, pauses and SQL error checks. The actual chapter operations remain in their separate scripts.
-- The earlier detailed operator walkthrough is preserved as [cicd-operator-walkthrough.sh](../../scripts/cicd-operator-walkthrough.sh), paired with [user_manual.md](user_manual.md). Historical test transcripts retain the filenames used when they ran.
+- [The common helper](../../scripts/cicd-walkthrough-common.sh) prints chapters, pauses and SQL checks, and sequences the repeated native release operations. Actual controllers remain `cicd-release-step.sh` and `cicd-patch-step.sh`; they execute SQL from verified archives.
+- H's interrupted fixture is restored explicitly with `python3 scripts/cicd-drift-demo.py restore`. Ordinary result checks never silently restore it.
+- [The detailed operator guide](user_manual.md) and [operator runner](../../scripts/cicd-operator-walkthrough.sh) retain the atomic commands. Historical transcripts retain the filenames/state from their original execution.
+
+## Prerequisites and infrastructure precheck
+
+Run this **before cleanup**:
+
+```bash
+bash scripts/cicd-walkthrough-prerequisites.sh
+```
+
+1. Check macOS Apple Silicon and the presence of Git, Podman, Python 3, curl, OpenSSL, unzip, shasum, tar, rg, launchctl and signing/helper tools.
+2. Check the pinned local **SQLcl 25.3 / Java 21**, helper and APEX 24.2 archive; verify installer/tool archive checksums and show actual versions.
+3. Verify both retained reviewed release archives and the accepted Foundation/Hello Git snapshots. These are deployment inputs, not saved business data.
+4. Inspect named Podman machines, owned resource inventory and host disk space. If a named healthy database already exists, show its actual APEX registry version/status; absent/stopped/partial infrastructure is reported explicitly. Wait for **PASS prerequisites**.
+
+- A missing prerequisite or checksum failure stops before destructive cleanup. Install missing inputs using [deploy.md sections 1–4](../../docs/deploy.md#1-open-the-operator-terminal-and-inspect-resources) and `bash scripts/cicd-tools.sh`, then rerun the check.
+- This precheck does not require a running database and does not install applications or erase anything.
+
+## Initialize the Podman host
+
+```bash
+bash scripts/cicd-walkthrough-host.sh
+```
+
+1. Create **apex-cicd** only if absent; otherwise reuse it.
+2. Start the named engine using the established local helper/launch procedure if stopped.
+3. Inspect the engine/resources and pull the pinned native ARM database and ORDS images.
+4. Wait for **PASS host**. If another VM prevents startup, stop here and follow [deploy.md](../../docs/deploy.md#3-create-and-start-the-vm--fresh-setup-only); this script does not stop/remove unrelated VMs.
 
 ## Prepare a repeatable walkthrough
 
-Run this separate preparation operation from the repository root:
+Run the scoped **destructive cleanup** after successful precheck/host preparation:
 
 ```bash
 bash scripts/cicd-walkthrough-cleanup.sh
 ```
 
-1. Run `bash scripts/cicd-walkthrough-cleanup.sh` as the separate preparation step above.
-2. Cleanup checks that no managed authoring/deployment is active and that A/B/C still match the supported development checkpoints.
-3. It backs up C's configuration, restores active **Hello** / **World** defaults and empty prefixes, then checks that all existing history snapshots are unchanged. Existing matching demo entries are reused.
-4. Keep the printed private evidence/restore path if you want to restore your previous settings after the demonstration.
-5. Start `bash scripts/cicd-walkthrough-A_foundation.sh` to continue to A's runtime result. Run each later chapter using its own printed command. Chapter scripts do not run cleanup automatically.
+1. Read the printed ownership inventory and scope. The script refuses unrelated containers sharing the lab's named volumes/network.
+2. Stop/remove **apex-ords** and **apex-db** on connection **apex-cicd**.
+3. Remove **apex-data**, **apex-ords-config**, **apex-images**, **apex-net** and **apex-db-password**, when present.
+4. Wait for **PASS cleanup**. All lab database/APEX state, including greeting history, is gone. Repeating cleanup on an already empty lab is allowed.
+5. Continue to **Install the fresh database and APEX**. Do not run A yet.
 
-- This prepares an existing development demonstration. It does not erase history or rebuild the application from scratch.
-- A/B, qualification, TEST, credentials, deployment records and Podman resources are retained.
-- For exact SQL and restoration details, see [the operator chapter](user_manual.md#prepare-a-repeatable-walkthrough).
+- The VM, images, host credentials/tools/installers and reviewed release archives remain; unrelated containers, volumes, networks, secrets and VMs are untouched. Historical host evidence is retained separately and cannot pass fresh database receipt checks.
+- This replaces the previous settings-only preparation. That optional operation is now named `bash scripts/cicd-demo-defaults.sh`; it preserves history and is not fresh-start cleanup.
+- [The scoped destruction procedure](../../docs/deploy.md#12-scoped-destruction-and-fresh-reconstruction) explains the individual commands. Removing the whole VM is not needed to obtain an empty database.
+
+## Install the fresh database and APEX
+
+```bash
+bash scripts/cicd-walkthrough-apex-init.sh
+```
+
+1. Refuse existing database/APEX containers or volumes. This is a fresh installation, not a restart or recovery command.
+2. Retain existing host credentials, or generate them only if absent. Create the named network/storage and start Oracle Database; wait for its real health check.
+3. Copy and extract the verified APEX archive. Install in **FREEPDB1**, then configure the APEX administrator and REST gateway users. Full installer output is in `.local-apex/apex-install.log`; follow it from another terminal with `tail -f .local-apex/apex-install.log`.
+4. Install ORDS and matching static assets. Keep `.local-apex/ords-install.log`; wait for the HTTP endpoint.
+5. Verify database/APEX validity, host-port connectivity, APEX login and matching assets using `bash scripts/apex-verify.sh`.
+6. Provision the five declared empty schemas/workspaces, saved connections and users; install the separate control authority. Check effective identities and cross-area isolation.
+7. Verify applications **810001–810005 are absent**. Wait for **PASS APEX init**, then start A.
+
+- No Foundation/Hello/World application or greeting history is preloaded. Application construction belongs to A–C, with qualification/promotion in D–F.
+- If installation fails, inspect its log. Do not blindly rerun APEX installation over partial data. Use the separate scoped cleanup when deliberately restarting from scratch.
+- Each native command is expanded in [deploy.md sections 5–9](../../docs/deploy.md#5-create-the-network-volumes-and-database--fresh-setup-only).
 
 ## A. Deliver Foundation
 
@@ -187,23 +220,9 @@ Run this chapter from the repository root:
 bash scripts/cicd-walkthrough-A_foundation.sh
 ```
 
-### Developer operations inside the stage
-
-1. Establish Foundation from its accepted source and database changes.
-2. Verify installed Foundation version, absent Hello/World and blocked incomplete assembly.
-3. Show the real operation result.
-
-- The current implementation performs only checks of the already existing Foundation, not steps to redeploy it.
-- Internal checks use lab-dev and lab-control; their output is visible but does not require Product Owner technical inspection.
-
-### Product Owner result
-
-1. Open [A's runtime](http://127.0.0.1:8080/ords/f?p=810001:1).
-2. See **Application Not Available** and **Foundation assembly: Hello and World are not installed.**
-3. Continue in the terminal.
-
-- The useful result at this stage is protection from using an incomplete application.
-- This maintenance screen does not prove protection against an incompatible or drifted deployment. Those scenarios require the later real rejection checks.
+1. Acquire Foundation ownership and install the reviewed Foundation-only Git snapshot into empty A using native SQLcl/Liquibase and APEX import.
+2. Verify Foundation 1.0.0, absent Hello/World, no seed entries and blocked incomplete assembly. Release the owned task.
+3. Open [A](http://127.0.0.1:8080/ords/f?p=810001:1). See the unavailable incomplete application; no old greeting history exists.
 
 ## B. Deliver Hello
 
@@ -213,22 +232,9 @@ Run this chapter from the repository root:
 bash scripts/cicd-walkthrough-B_hello.sh
 ```
 
-### Developer operations inside the stage
-
-1. Reserve Hello and prepare B's private area from accepted Foundation source.
-2. Apply the reviewed Hello change and its database migration.
-3. Capture/validate/integrate the scoped source and verify the resulting assembly.
-4. Show the operation result and resulting runtime URL.
-
-### Product Owner result
-
-1. Open [B's runtime](http://127.0.0.1:8080/ords/f?p=810002:1).
-2. See that complete-application access remains blocked while World is missing.
-3. Continue to World delivery.
-
-- No page-definition review is required.
-- Hello's usable behavior is demonstrated in the completed application after World is integrated.
-- B is verified as an existing blocked assembly. Replaying its source preparation, authoring and integration remains a separate operator operation.
+1. After A passes, acquire Hello ownership and install the reviewed Foundation/Hello snapshot into empty B.
+2. Execute its first three migrations and unchanged native APEX import. Verify Hello 1.0.0, absent World, empty business entries and blocked runtime; release the task.
+3. Open [B](http://127.0.0.1:8080/ords/f?p=810002:1). See World-not-installed protection. This replays accepted sequential integration; it does not prove parallel authoring.
 
 ## C. Deliver World and complete the assembly
 
@@ -238,26 +244,13 @@ Run this chapter from the repository root:
 bash scripts/cicd-walkthrough-C_world.sh
 ```
 
-### Developer operations inside the stage
+1. After B passes, acquire the complete integration scope and install the reviewed complete 1.0.0 source into empty C.
+2. Check migrations, compilation, component versions and required pages. Enable restricted verification.
+3. Open [C](http://127.0.0.1:8080/ords/f?p=810003:1) as **VERIFIER**. Create **Hello** and **World**, configure defaults, create **Hello World** and refresh its new history.
+4. Continue in the terminal to publish and release ownership.
+5. Open C as **LAB_USER**. Use the application and see only data created in this fresh cycle. All three components are **1.0.0**.
 
-1. Prepare C from the accepted Foundation-plus-Hello baseline.
-2. Apply and integrate the reviewed World change and migration.
-3. Verify the complete Foundation/Hello/World assembly before publishing readiness.
-4. Show the resulting application URL and installed versions.
-
-### Product Owner result
-
-1. Open [C's working application](http://127.0.0.1:8080/ords/f?p=810003:1) and sign in as **LAB_USER**.
-2. Retrieve its local password with `python3 scripts/cicd-password.py LAB_USER` if needed.
-3. Select **Hello** and **World**, then press **Create greeting**. See **Hello World — saved to history.**
-4. Open **Greeting history** in the navigation menu. Refresh and confirm the new row and earlier snapshots remain.
-5. Open **Installed components** and see Foundation **1.0.0**, Hello **1.0.1** and World **1.0.0**.
-6. To try your own data, follow the [runtime instructions](user_manual.md#use-the-complete-development-application) for entry/configuration pages.
-7. Continue in the terminal to qualification and TEST results.
-
-- The terminal shows the current versions **1.0.0 / 1.0.1 / 1.0.0** and actual successful verification output.
-- The first slice runs B/C sequentially; it does not claim concurrent-development proof.
-- C is a development result, not a qualified release or retained TEST promotion. Browser-created verification examples remain in its history; application exports contain no business seed.
+- In --rehearse, the explicitly announced runtime API fixture performs step 3; browser viewing is skipped. Import itself supplies no business seed.
 
 ## D. Qualify the initial release
 
@@ -267,12 +260,12 @@ Run this chapter from the repository root:
 bash scripts/cicd-walkthrough-D_qualification.sh
 ```
 
-1. Read the initial archive verification and historical qualification receipt in the terminal.
-2. Open [qualification](http://127.0.0.1:8080/ords/f?p=810004:1) as **LAB_USER**. The live area now contains the later patch; initial delivery is shown through its retained receipts.
-3. Continue to the initial TEST receipt.
+1. After C passes, verify the retained reviewed initial archive and its SHA-256. This archive contains source and deployment SQL, not prior business data.
+2. Admit the empty qualification application target using its observed epoch. Run **migrate → import → units → verify** as visible separate controller operations from that archive.
+3. Open [qualification](http://127.0.0.1:8080/ords/f?p=810004:1) as **VERIFIER**, create/configure Hello and World, create Hello World and refresh history.
+4. Continue to **publish**, verify the new qualification receipt/fingerprint, then open the application as **LAB_USER**.
 
-- Initial source: `0f7c500e064e4f262a42fb74f4984eb0e4349c88`; initial archive SHA-256: `6a1da4a940586541cbb034277605d7ed36e5d1ad305554f9a2fe4c64cd59411c`.
-- The first initial qualification used epoch 2. A later disposable reconstruction at epoch 4 supplied the baseline for patch-upgrade qualification. Both successful attempts remain retained.
+- Initial SHA-256: `6a1da4a940586541cbb034277605d7ed36e5d1ad305554f9a2fe4c64cd59411c`. This cycle obtains a new database receipt; historical host evidence does not substitute for qualification.
 
 ## E. Promote the same initial artifact to TEST
 
@@ -282,12 +275,14 @@ Run this chapter from the repository root:
 bash scripts/cicd-walkthrough-E_promotion.sh
 ```
 
-1. Read the successful historical TEST epoch-1 receipt for the **same initial archive hash**.
-2. Open [TEST](http://127.0.0.1:8080/ords/f?p=810005:1) as **LAB_USER**. It now runs 1.0.1; this stage does not reinstall or downgrade it.
-3. Continue to the current patch result and preservation checks.
+1. After D passes, select and verify the **same initial archive**; do not rebuild it.
+2. Admit empty TEST. The control authority requires this cycle's matching qualification receipt before promotion.
+3. Execute **migrate → import → units → verify**, then use [TEST](http://127.0.0.1:8080/ords/f?p=810005:1) as **VERIFIER** to create/configure Hello/World and verify the new greeting/history.
+4. Continue to publish and compare the qualification/TEST archive hashes and new successful receipts.
+5. Open TEST as **LAB_USER**. It now runs **1.0.0** with only this cycle's data.
+6. Continue to the explicitly announced twenty verification-history examples and field-level baseline capture for F. These are new test examples for preservation checks, not restored history or release seed.
 
-- The initial archive and receipts are retained unchanged. Qualification/TEST runtime data is not packaged business seed.
-- Retrieve the local password with `python3 scripts/cicd-password.py LAB_USER` if needed. Native imports may require re-login.
+- Retrieve the password with `python3 scripts/cicd-password.py LAB_USER`. Imports may require re-login.
 
 ## F. Deliver the compatible Hello patch
 
@@ -297,18 +292,16 @@ Run this chapter from the repository root:
 bash scripts/cicd-walkthrough-F_hello_patch.sh
 ```
 
-1. The terminal verifies the current qualification and TEST artifact, installed versions and live APEX fingerprints.
-2. Read the passing field-level comparison: every earlier greeting snapshot, entry and setting remains unchanged. New greetings may append.
-3. Read the correction check: tab/newline-padded text normalizes; whitespace-only Hello text rejects. Its test changes roll back.
-4. Open [TEST](http://127.0.0.1:8080/ords/f?p=810005:1), sign in as **LAB_USER**, select **Hello/World** and **Create greeting**.
-5. Reopen **Greeting history**, refresh and see the new greeting alongside earlier snapshots.
-6. Open **Installed components**: **Foundation 1.0.0 / Hello 1.0.1 / World 1.0.0**. The footer shows application release **1.0.1**.
-7. Continue to the incompatible deployment proposal.
+1. After E passes, verify the reviewed Hello **1.0.1** archive. The initial TEST field baseline is already captured.
+2. Explicitly recreate **only disposable qualification**; install/test/publish the patch from empty using **preflight → admit → migrate → import → units → verify → publish → result**.
+3. Explicitly recreate only qualification again. Reconstruct initial 1.0.0 from its archive, create new verification examples and capture the upgrade baseline.
+4. Upgrade qualification with the same patch archive. Verify both required qualification starts and compare every pre-upgrade data/configuration field.
+5. Upgrade retained TEST from 1.0.0 with those **identical patch bytes**. TEST is not reset during this upgrade.
+6. At each restricted verification checkpoint, open the printed URL as **VERIFIER**, create a greeting and refresh history, then continue to publish. Read the real outputs and stop on any failure.
+7. Compare TEST's earlier rows/settings, then open [TEST](http://127.0.0.1:8080/ords/f?p=810005:1) as **LAB_USER**. See **Foundation 1.0.0 / Hello 1.0.1 / World 1.0.0**, and greetings created before/after the upgrade in this cycle.
 
-- Patch source: `752eb47ec59daeb625c3849bfed87fc230295e20`.
-- Patch SHA-256: `200ebefff13e87600699adfebbbe71158962dc80a02d1b8e6dbd9a829dd9e1ce`.
-- Identical bytes passed fresh qualification (epoch 3), baseline-upgrade qualification (epoch 5), then TEST upgrade (epoch 2). Qualification also preserves explicit **[Q] / [W]** prefixes; TEST retains its own settings.
-- Repeating this result stage verifies the installed release without migration/import. Detailed fresh/upgrade operations are in the [operator guide](user_manual.md#hello-101-operator-stages).
+- Patch SHA-256: `200ebefff13e87600699adfebbbe71158962dc80a02d1b8e6dbd9a829dd9e1ce`. C remains the development **1.0.0** checkpoint; F upgrades qualification and TEST.
+- Restricted verification creates current-cycle evidence. --rehearse uses explicit runtime API examples and skips browser checks. Broader request draining/fencing remains open.
 
 ## G. Reject an incompatible database upgrade
 
@@ -346,6 +339,18 @@ bash scripts/cicd-walkthrough-H_drift.sh
 - The fixture replacement is test setup outside release delivery. Run it with other TEST authoring/deployment stopped.
 - Restoration is controlled demonstration cleanup, not automatic deployment repair or silent acceptance of drift.
 - Broader schema-drift coverage, concurrent requests, verifier fencing and failed additive deployment repair remain pending.
+
+## Destroy the lab after the walkthrough
+
+When you deliberately want to discard this demonstration:
+
+```bash
+bash scripts/cicd-walkthrough-cleanup.sh
+```
+
+1. Read the named ownership inventory and deletion scope.
+2. Wait for **PASS cleanup**. All current lab applications and greeting history are removed; the VM, host inputs and unrelated resources remain.
+3. To build again, follow the precheck/host/cleanup/install sequence before A. To inspect the completed applications, leave this optional destruction step until afterward.
 
 ## Maintain this artifact
 

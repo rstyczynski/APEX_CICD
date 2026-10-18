@@ -76,7 +76,7 @@
 
 ## Operator walkthrough — current working operations
 
-- This is the primary operating path.
+- This is the atomic operator reference; the [main A–H guide](cicd-walkthrough.md) is the fresh Product Owner walkthrough.
 - Use App Builder for authoring, Git for source/review and SQLcl for Oracle operations.
 - The Python isolation suite is a supporting test.
 - Construction and rehearsal use these same operator steps; automated tests subsequently check their outcomes.
@@ -329,7 +329,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev @deploy/o
 - The pipeline-stage list at the end tracks what works and what remains under construction.
 
 - For another area's inventory, connect with lab-dev-b, lab-dev-c, lab-qualify or lab-test and run the same application_inventory.sql.
-- B contains Foundation plus Hello; C contains the published complete development assembly; qualification and TEST contain the published Hello 1.0.1 patch over Foundation/World 1.0.0.
+- After fresh infrastructure installation, all five lab applications are absent. After B, B contains Foundation plus Hello; after C, C contains the published complete 1.0.0 development assembly; after F, qualification and TEST contain Hello 1.0.1 over Foundation/World 1.0.0.
 - Foundation is installed in A/B/C, qualification and TEST.
 
 ## Developer A — Foundation
@@ -512,7 +512,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
 
 3. On **Home**, choose **Hello** and **World**, or leave the configured-default options selected. Press **Create greeting** and see the saved-greeting success message.
 4. Open **Greeting history** using the navigation menu. Refresh to verify the new snapshot remains. Earlier snapshots retain the text/prefixes used when saved.
-5. Open **Installed components** to see Foundation **1.0.0**, Hello **1.0.1** and World **1.0.0**.
+5. Open **Installed components**. Fresh chapter C shows all three at **1.0.0**. After F, qualification and TEST show Foundation **1.0.0**, Hello **1.0.1**, World **1.0.0**.
 6. To add a value, open **Hello entries** or **World entries**, press **Create**, enter **Entry Text** and **Active = Y**, then save with **Create**.
 7. To change a default or prefix, open the corresponding **Hello configuration** or **World configuration** report. Open its row using the edit icon, select an active default, enter an optional prefix and press **Apply Changes**.
 8. Return **Home**, generate another greeting and reopen history. The new settings affect new snapshots; earlier rows remain unchanged.
@@ -528,32 +528,32 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
 
 ## Prepare a repeatable walkthrough
 
-1. Open a terminal anywhere inside the checkout and select its root using Git:
+1. For the requested **fresh-start walkthrough**, follow [the explicit infrastructure lifecycle](../../docs/deploy.md#fresh-walkthrough-infrastructure-sequence): prerequisites precheck, named Podman host preparation, complete lab cleanup and database/APEX/ORDS installation.
+2. Run these as separate operations, waiting for each PASS:
 
    ```bash
-   cd "$(git rev-parse --show-toplevel)"
+   bash scripts/cicd-walkthrough-prerequisites.sh
    ```
 
-2. Run the bounded cleanup/preparation operation before another results demonstration:
+   ```bash
+   bash scripts/cicd-walkthrough-host.sh
+   ```
 
    ```bash
    bash scripts/cicd-walkthrough-cleanup.sh
    ```
 
-3. Read each printed SQL operation and its actual result. Preparation refuses active authoring/deployment ownership, incorrect target identities, unsupported component versions or a non-ready C application. It does not repair a failed deployment.
-4. Note the private `.local-apex/operator/walkthrough-prepare.*` evidence directory. It holds **restore-defaults.sql**, containing the original Hello/World configuration, plus before/after hashes of every existing history row.
-5. C's defaults become active **Hello** / **World**, with empty prefixes. Existing matching entries are reused; only a missing demo entry is created. Other entries and every greeting snapshot remain. Repeating preparation does not add duplicate demo entries.
-6. If you want the previous settings back, connect to **lab-dev-c**, verify its identity and run the recorded private restore SQL. It only restores configuration; current default-entry guards still apply.
-7. After cleanup reports **PASS preparation**, start results chapter A as a separate command, then follow B–H using the command in each chapter. It does not repeat cleanup automatically:
-
    ```bash
-   bash scripts/cicd-walkthrough-A_foundation.sh
+   bash scripts/cicd-walkthrough-apex-init.sh
    ```
 
-- Neither operation drops/recreates applications, schemas, credentials or Podman resources. Qualification, retained TEST and release/audit history remain untouched. Destructive disposable-area lifecycle operations remain separate in [deploy.md](../../docs/deploy.md).
-- `--preflight` on cleanup checks local tools/files only. The walkthrough's `--rehearse` performs CLI checks without browser pauses; run cleanup separately first.
-- The implemented A/B/C walkthrough ends with **exit 3** because later release stages are unimplemented. This is an explicit incomplete-pipeline outcome, not failure caused by rerunning a configured system.
-- Maintain this chapter, the results chapters and their scripts together.
+3. Cleanup **destroys all lab applications, entries, configuration, greeting history and control receipts**, including TEST. It keeps the named VM, host credentials/tools/source archives and unrelated Podman resources. This deliberate fresh-demo reset is separate from normal data-preserving deployments.
+4. After **PASS APEX init**, start `bash scripts/cicd-walkthrough-A_foundation.sh`. Follow B–H using their own commands in [the main guide](cicd-walkthrough.md). Those stages install/deploy new applications and qualify/promote artifacts in this cycle.
+5. If you only want to restore defaults in an existing C application **without deleting history**, use the separately named `bash scripts/cicd-demo-defaults.sh`. Its private evidence retains restore-defaults.sql and before/after history hashes. It is not fresh-start cleanup.
+
+- Do not run A–H after cleanup alone: complete database/APEX installation first.
+- A failed installation or application stage stops. Inspect logs/ownership before retry; full cleanup is an explicit restart of the demonstration, not deployment repair.
+- Ordinary release result inspection below remains read-only. Broader maintenance/concurrency/repair proofs remain open.
 
 ## Initial release: build, qualify and promote
 
@@ -576,7 +576,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
 
 3. These initial-only commands apply while the live targets still contain 1.0.0. After the patch, use `bash scripts/cicd-patch-result.sh lab-test` instead; initial-only verification correctly refuses a newer live release. For a matching initial installation, expect **ALREADY DELIVERED** after actual version, readiness and live APEX fingerprint checks. A mismatch fails without overwriting. These commands preserve configuration/history and do not repeat migration/import.
 4. Open [TEST](http://127.0.0.1:8080/ords/f?p=810005:1) as **LAB_USER**. Follow the entry/configuration/greeting/history operations in [the runtime chapter](#use-the-complete-development-application), using TEST instead of C.
-5. Keep cleanup separate. Walkthrough cleanup prepares C only; it never resets qualification or TEST.
+5. Keep fresh-demo cleanup separate: it destroys the entire lab, including TEST. Do not use it for ordinary result inspection or data-preserving release work. Optional `cicd-demo-defaults.sh` changes only C defaults and preserves history.
 
 ### First installation on an empty target
 
@@ -596,7 +596,9 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
 - This initial-install proof does not establish full upgrade request draining, schema-drift detection, repair or concurrent deployment safety.
 - Twenty VERIFIER greeting snapshots were explicitly created **after** TEST publication with `tests/sql/prepare_history_sentinels.sql` for later upgrade comparisons. The repeatable fixture appends only missing verification snapshots; it never distributes seed data or deletes existing history.
 
-### Recorded initial result
+### Recorded initial result before the fresh reset
+
+These are historical observations from the earlier database. Fresh D/E obtain new receipts; discover epochs from current status rather than copying these values.
 
 - Source commit: `0f7c500e064e4f262a42fb74f4984eb0e4349c88`.
 - Qualified/promoted archive SHA-256: `6a1da4a940586541cbb034277605d7ed36e5d1ad305554f9a2fe4c64cd59411c`.
@@ -638,13 +640,13 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-qualify
 ### Current patch result and repeatable demonstration
 
 1. Patch source is `752eb47ec59daeb625c3849bfed87fc230295e20`; qualified/promoted SHA-256 is `200ebefff13e87600699adfebbbe71158962dc80a02d1b8e6dbd9a829dd9e1ce`.
-2. Fresh patch qualification used epoch **3**. Initial reconstruction used epoch **4**, followed by patch-upgrade qualification **5**. TEST upgrade used epoch **2**. These historical epochs must not be reused as admission commands.
+2. Before the fresh reset, patch qualification used epochs **3/5** and TEST **2**. These are historical values. Fresh D–F discover and use the new database epochs through the native status/admission operations; do not copy an old epoch into a new command.
 3. Current results: `bash scripts/cicd-patch-result.sh lab-qualify`, then `bash scripts/cicd-patch-result.sh lab-test`. Normal repeat commands verify without reinstalling.
-4. The pre-upgrade TEST field baseline is `.local-apex/releases/test-initial-preservation.json`; the qualification upgrade baseline is `.local-apex/releases/qualification-initial-preservation.json`. Both retain all 21 prior snapshot rows plus entries and settings. Qualification's explicit **[Q] / [W]** prefixes demonstrate preservation of nonempty settings.
-5. Run the separate C preparation first, then the [results walkthrough](cicd-walkthrough.md). Its `cicd-walkthrough.sh` launcher runs the independently executable A–H chapter scripts; see [single-chapter commands](cicd-walkthrough.md#run-one-chapter-at-a-time). It verifies initial receipts/current patch, rejects the incompatible proposal, installs the controlled page fixture, rejects drift and performs explicit restoration. Native imports may log users out; sign in again with the same account.
+4. Current-cycle pre-upgrade baselines are `.local-apex/releases/test-initial-preservation.json` and `.local-apex/releases/qualification-initial-preservation.json`. E/F capture newly created rows/settings there and print their actual counts. Cleanup moves earlier baselines out of the active cycle. The earlier 21-row and **[Q] / [W]** evidence remains historical; it is not restored into this fresh demonstration.
+5. For a new demonstration, follow the [fresh infrastructure sequence](../../docs/deploy.md#fresh-walkthrough-infrastructure-sequence), then the [A–H walkthrough](cicd-walkthrough.md#run-one-chapter-at-a-time). It constructs the reviewed source, qualifies/promotes initial and patch archives in the new database and demonstrates both protections. For read-only inspection of an already delivered patch, use the result commands in step 3 instead. Imports may require re-login.
 6. To run the selected registered assertions without human checkpoints, use `bash tests/run.sh --integration --new-only tests/manifests/patch_protections.manifest`. This includes controlled TEST page-fixture replacement/restoration; stop other TEST authoring/deployment first. Expected result: **3 tests, 0 failures**.
 7. Historical initial-only evidence remains valid for that release. Current targets are newer; do not reinstall/downgrade them to make an old result check pass.
 
 - This is the selected patch/protection slice. Full IT-1 candidate reconstruction, broader schema drift, concurrency, complete request/verifier fencing and failed additive deployment repair remain open.
 
-- If a walkthrough is stopped while its drift fixture is active, run `python3 scripts/cicd-drift-demo.py restore` explicitly before restarting. Ordinary C preparation never overwrites TEST drift or repairs an interrupted deployment. If restoration reports an unexplained additional change, inspect the retained journal/logs instead of resetting TEST.
+- If a walkthrough is stopped while its drift fixture is active, run `python3 scripts/cicd-drift-demo.py restore` explicitly before restarting. Settings-only C preparation never overwrites TEST drift or repairs an interrupted deployment. Fresh-demo cleanup instead deliberately discards the entire lab. If restoration reports an unexplained additional change, inspect the retained journal/logs instead of resetting TEST.

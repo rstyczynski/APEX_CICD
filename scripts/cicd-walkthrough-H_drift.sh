@@ -6,6 +6,7 @@ prepare_stage '## H. Reject deployment over unexpected live change' \
   'scripts/cicd-protection-check.sh' \
   'scripts/cicd-patch-result.sh' \
   'scripts/cicd-patch-step.sh'
+test -f .local-apex/walkthrough/current/F_hello_patch.done
 pause 'Press any key to save TEST and install the controlled page-drift fixture; q to quit.'
 python3 scripts/cicd-drift-demo.py inject
 echo 'PRODUCT OWNER: open http://127.0.0.1:8080/ords/f?p=810005:1 and re-login if needed; see DIRECT CHANGE - deployment must stop.'

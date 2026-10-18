@@ -130,6 +130,8 @@ if __name__ == '__main__':
     try:
         if sys.argv[1:] == ['bootstrap']:
             bootstrap()
+        elif sys.argv[1:] == ['check-empty']:
+            print(run((ROOT/'deploy/operator/walkthrough_empty.sql').read_text(),admin=True))
         elif sys.argv[1:] == ['check']:
             check()
         elif sys.argv[1:] == ['isolation']:
@@ -139,7 +141,7 @@ if __name__ == '__main__':
         elif sys.argv[1:] == ['preservation-check']:
             preservation_check()
         else:
-            raise ValueError('Usage: cicd-platform.py bootstrap|check|isolation|reset-qualify|preservation-check')
+            raise ValueError('Usage: cicd-platform.py bootstrap|check|check-empty|isolation|reset-qualify|preservation-check')
     except (ValueError, RuntimeError, subprocess.CalledProcessError) as exc:
         print(exc, file=sys.stderr)
         sys.exit(1)

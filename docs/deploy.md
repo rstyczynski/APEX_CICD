@@ -22,8 +22,49 @@
 - An operating chapter and its guided execution script form one artifact: **always update both together**.
 - Preserve the numbered steps/bullets and expose each operation, its target, expected result and stop condition.
 - The detailed application operator walkthrough pair is [the E.1 manual](../progress/E.1/user_manual.md) and [cicd-operator-walkthrough.sh](../scripts/cicd-operator-walkthrough.sh). The [results guide](../progress/E.1/cicd-walkthrough.md) pairs [cicd-walkthrough.sh](../scripts/cicd-walkthrough.sh) with independently runnable A–H chapter scripts. Maintain these guides, scripts and cleanup instructions together.
-- That script uses the existing runtime; it does not automate this guide's provisioning, shutdown or destructive reconstruction sections.
+- The detailed operator runner uses an existing runtime. The new separate infrastructure walkthrough commands below execute bounded parts of this lifecycle procedure; A–H application chapters remain separate.
 - If an infrastructure walkthrough is added, it must reference these chapters and preserve the same visible operations and data-preservation boundaries.
+
+## Fresh walkthrough infrastructure sequence
+
+This is the entry point before the [A–H application walkthrough](../progress/E.1/cicd-walkthrough.md). Use one operation at a time and wait for PASS. The Product Owner explicitly requested a completely disposable lab on 2026-10-18: **all current lab database data, including TEST and greeting history, may be discarded for this fresh-start demonstration**. This exception does not apply to an ordinary release, upgrade, restart or unrelated resources.
+
+1. Position at the repository root:
+
+   ```bash
+   cd "$(git rev-parse --show-toplevel)"
+   ```
+
+2. **Precheck** host tools, pinned SQLcl/Java, helper, APEX archive, reviewed source/release inputs and disk space. This does not require a database. An existing healthy named database is inspected for actual APEX registry version/status; absent/stopped/partial runtime is reported explicitly. Missing inputs/checksum errors stop before deletion. Acquire missing prerequisites with sections 1–4 and `bash scripts/cicd-tools.sh`, then rerun:
+
+   ```bash
+   bash scripts/cicd-walkthrough-prerequisites.sh
+   ```
+
+3. **Initialize/reuse the named Podman host** using sections 2–4. It creates apex-cicd only if absent, starts it if required and pulls pinned images. It leaves other VMs untouched:
+
+   ```bash
+   bash scripts/cicd-walkthrough-host.sh
+   ```
+
+4. **Cleanup if the lab is present**, following the scoped operations in section 12. This removes all lab database/APEX/ORDS state; absent resources are skipped. An unreachable engine is an error, not evidence of absence:
+
+   ```bash
+   bash scripts/cicd-walkthrough-cleanup.sh
+   ```
+
+5. **Install** the fresh database, APEX/ORDS and isolated empty areas using sections 5–9. Existing containers/volumes cause refusal; do not install over partial data:
+
+   ```bash
+   bash scripts/cicd-walkthrough-apex-init.sh
+   ```
+
+6. Wait for **PASS APEX init**, including database validity, matching web/static assets, all area identities, isolation and absent application IDs. Then follow A–H: the application scripts now construct/deploy the reviewed source in this fresh cycle.
+7. To **destroy** the demonstration afterward, use the same scoped cleanup operation. To repeat, run precheck, host preparation, cleanup and fresh installation again. Never substitute a global prune or system reset.
+
+- Credentials, local tools/installers, reviewed archives and historical host evidence remain. They contain no restored business history. Stale preservation/drift journals are moved out of the active cycle.
+- `.local-apex/apex-install.log` contains full APEX installation output; use `tail -f .local-apex/apex-install.log` in another terminal. ORDS installation output is `.local-apex/ords-install.log`. A failed install does not qualify a release.
+- The precheck, host, cleanup and install scripts and this chapter are **one artifact** with the main walkthrough. All commands discover the repository through Git.
 
 ## 1. Open the operator terminal and inspect resources
 
@@ -465,6 +506,22 @@ podman --connection apex-cicd volume create apex-images
 
 ## 12. Scoped destruction and fresh reconstruction
 
+### Fresh-demo cleanup while retaining the Podman VM
+
+The requested fresh walkthrough discards all lab data. `bash scripts/cicd-walkthrough-cleanup.sh` first checks the effective inventory with `python3 scripts/cicd-lab-inventory.py`, refuses unrelated containers sharing lab resources, then performs these named operations only when the resource exists:
+
+1. Stop `apex-ords`, then `apex-db` with `podman --connection apex-cicd stop --time 120 NAME`.
+2. Remove each stopped container with `podman --connection apex-cicd rm NAME`.
+3. Remove each of `apex-data`, `apex-ords-config`, `apex-images` with `podman --connection apex-cicd volume rm NAME`.
+4. Remove `apex-net` with `podman --connection apex-cicd network rm apex-net`.
+5. Remove the Podman secret `apex-db-password`; its original credential remains in the protected host file for reconstruction.
+6. Verify both containers and all three volumes are absent. Move active drift/preservation pointers and the previous cycle directory into a separate private historical directory; retain the source archives and credentials.
+
+**PASS cleanup** means no database or APEX application/history survives in this lab. The VM and cached images remain available to reduce installation time, and unrelated resources remain untouched. `bash scripts/cicd-walkthrough-apex-init.sh` then performs the fresh installation sequence above. This is a deliberate demo restart; it is not a data-preserving migration or failed-deployment repair.
+
+### Optional removal of the entire named VM
+
+
 - The Product Owner authorized recreation of the current apex-cicd prototype runtime.
 - Removing the VM destroys its database, every private area, retained TEST data, control reservations/events, ORDS wallet/configuration and VM-local images.
 - Host credentials alone cannot recover that data.
@@ -509,17 +566,13 @@ podman --connection apex-cicd volume create apex-images
 - Existing saved SQLcl connections will only work after their schemas and matching credentials are restored.
 - An empty replacement database proves fresh installation, not a data-preserving upgrade.
 
-- Fresh full teardown/reconstruction has not been executed for the current E.1 increment.
-- The active runtime remains in place.
-- The procedure is documented for authorized use; destructive steps were source-reviewed rather than rerun to edit this document.
+- Whole-VM removal remains optional and was not needed for the fresh walkthrough. The current fresh-start test uses named container/volume removal and database/APEX reconstruction; its observed results are recorded in E.1 test evidence.
 
 ## Repeatable application demonstrations
 
-1. From inside the checkout, use `cd "$(git rev-parse --show-toplevel)"`.
-2. Run `bash scripts/cicd-walkthrough-cleanup.sh` to restore development demo defaults while preserving history, credentials and all infrastructure.
-3. Follow [the preparation chapter](../progress/E.1/user_manual.md#prepare-a-repeatable-walkthrough) and the paired results walkthrough.
-
-- This is configuration preparation, not VM/schema reset. It never changes qualification or retained TEST. Provisioning, disposable-area recreation and teardown stay separate lifecycle operations.
+1. For a **fresh-start demonstration**, use the explicit infrastructure sequence near the top of this document, then the [A–H guide](../progress/E.1/cicd-walkthrough.md). Cleanup deletes every lab application and greeting history; installation creates only empty areas before A.
+2. For **settings-only preparation of an existing C application**, use `bash scripts/cicd-demo-defaults.sh`. This is the former nondestructive preparation operation: it restores Hello/World defaults, backs up configuration and preserves every existing history row. It does not prepare a fresh run.
+3. For a **normal retained deployment/upgrade**, do not run fresh-start cleanup. Use the operator release stages and preserve data as required.
 
 ## Verification scope and references
 
