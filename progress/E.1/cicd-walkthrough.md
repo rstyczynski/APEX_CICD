@@ -648,6 +648,10 @@ bash scripts/cicd-walkthrough-F_hello_patch.sh
 
 Show that the pipeline rejects a breaking Foundation proposal before changing the working database or application.
 
+**How the guard works:** component descriptors are kept together in [release/manifest.json](../../release/manifest.json), rather than in a separate Hello file. `components.Hello` identifies **1.0.1**, while `dependencies.Hello.Foundation` declares its required Foundation version as **1.0.0**; World declares the same requirement. This prototype checks exact versions and explicitly supported combinations.
+
+The [Foundation-major proposal](../../release/proposals/foundation-major.json) changes Foundation to **2.0.0** while retaining those requirements. The deployment controller runs the archive's [compatibility checker](../../scripts/cicd-compatibility.py) before opening its deployment connection; the mismatch stops it before maintenance, migration or import. The [protection check](../../scripts/cicd-protection-check.sh) requires that specific rejection and compares before/after target and release-record snapshots. Compatibility is declared in metadata; it is not inferred from SQL.
+
 Run this chapter from the repository root:
 
 ```bash
