@@ -304,3 +304,9 @@ Kept the old immutable 1.0.0/1.0.1 archives. Built new mapping archives from loc
 Renamed the D runner to scripts/cicd-walkthrough-D_integration_test.sh and its stage token to D_integration_test; renamed the integration-test wrapper and fixture too. Updated current scripts, operator chapters, model and related product documents together. Carried the completed local D marker forward to the new token so E can proceed without reinstallation. Immutable archives/controllers and historical evidence retain their original identifiers.
 
 The existing selected initial archive passes the read-only integration_test result check: complete 1.0.0, ready state and live APEX fingerprint match. Current readiness now reflects completed D and pending E. No deployment or data fixture was rerun.
+
+## Initial UAT verification continuation and release prompt retry — 2026-10-18
+
+E now accepts --resume-verification only for an incomplete retained stage with matching initial archive, owned epoch, restricted 1.0.0 application and exact initial root verification state. It reruns archived integrity/rollback unit checks and returns to the browser prompt. No new admission, migration, import or reset is performed. Final publication remains the original archived controller/SQL; archive bytes are unchanged.
+
+D/E/F now check the exact VERIFIER Hello World assertion before publication and repeat only for missing browser data. Unexpected SQL errors stop. The existing C behavior is retained. Operator guide, manual, repository draft and test profile describe the same boundary. UAT remains restricted awaiting the user's browser example, not successfully promoted.

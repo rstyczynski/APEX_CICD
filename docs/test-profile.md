@@ -144,3 +144,7 @@ The destructive fresh-start experiment is a separate explicit operator sequence 
 ## C browser-verification retry control
 
 Run `bash tests/run.sh --unit --new-only tests/manifests/development_verification.manifest` for the selected C checkpoint loop: retry a missing required snapshot, exit on q, and stop on unexpected SQL failure. These control-flow tests stub Oracle/browser boundaries. The exact saved Hello World by VERIFIER remains required; other text may be valid business data but does not satisfy that walkthrough fixture. See [C verification steps](../progress/E.1/cicd-walkthrough.md#c-deliver-world-and-complete-the-assembly) and [observed results](../progress/E.1/sprint_E.1_tests.md).
+
+## Release browser-verification retry and bounded UAT resume
+
+The same verification manifest now also checks D/E/F's missing-fixture retry, q and unexpected SQL failure paths. E alone adds a restricted initial 1.0.0 continuation after ORA-20619: validate the same archive/epoch/owner and root/native checkpoint, rerun archived integrity and rollback unit checks, repeat the browser assertion and then use archived publication. No migration/import/reset or new attempt is allowed. See [E continuation](../progress/E.1/cicd-walkthrough.md#resume-e-at-its-restricted-verification-checkpoint) and [operator guidance](../progress/E.1/user_manual.md#resume-initial-uat-verification).

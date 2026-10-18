@@ -113,7 +113,7 @@ This chapter connects each demonstration to the accepted use cases and makes the
 
 This checkpoint describes the delivered lab state and the boundaries of what has been demonstrated.
 
-- **Delivered checkpoint:** A/B/C development work is retained. D has passed for **integration_test / E1_INTEGRATION / application 810004**, running the complete **1.0.0** release. Its archive hash and live APEX fingerprint pass the read-only result check. **user_acceptance_test / E1_UAT / application 810005** is provisioned; **E is next** to promote the same archive. The interrupted old D attempt remains preserved as historical evidence. When restarting from cleanup, follow every infrastructure and onboarding chapter below before A.
+- **Delivered checkpoint:** A/B/C development work is retained. D has passed for **integration_test / E1_INTEGRATION / application 810004**, running the complete **1.0.0** release. Its archive hash and live APEX fingerprint pass the read-only result check. **user_acceptance_test / E1_UAT / application 810005** has the same initial release installed at its restricted verification checkpoint. **E awaits the VERIFIER Hello World assertion and publication**; use its bounded resume command below. The interrupted old D attempt remains preserved as historical evidence. When restarting from cleanup, follow every infrastructure and onboarding chapter below before A.
 - This walkthrough now starts with explicit prerequisite checking, Podman host preparation, complete lab cleanup and fresh database/APEX/ORDS installation.
 - Cleanup destroys **all database state in this lab**, including A/B/C, integration_test, user_acceptance_test, entries, settings, greeting history and database control receipts. Host credentials, tools, reviewed source/release archives and historical evidence remain available; unrelated Podman resources are preserved.
 - Infrastructure installation ends with **only Oracle Database/APEX/ORDS**. It creates no E1_CTRL, developer/target schemas, project workspaces or developer accounts. Project control and named-area provisioning follow separately.
@@ -557,7 +557,7 @@ The script executes these operations in order. Each controller operation recheck
     2. Edit the existing Hello/World configuration rows to select those defaults with empty prefixes; save each change.
     3. On **Home**, press **Create greeting**. Open **Greeting history** and refresh to confirm **Hello World** saved by VERIFIER. These are new integration_test test data, not developer data copied by the release.
 
-11. **Publish integration_test:** return to the waiting terminal and press a key. Controller **publish** requires the saved VERIFIER **Hello World** snapshot, prepares native availability, captures the final live APEX fingerprint, and commits the successful receipt with the external ready gate. A missing snapshot stops D; C's verification retry loop is specific to C.
+11. **Publish integration_test:** return to the waiting terminal and press a key. Controller **publish** requires the saved VERIFIER **Hello World** snapshot, prepares native availability, captures the final live APEX fingerprint, and commits the successful receipt with the external ready gate. Before invoking publish, the walkthrough checks that exact snapshot and repeats the browser prompt if it is missing. Unexpected SQL failures still stop; archived publication guards remain unchanged.
 12. **Verify the published result:** the script's result command checks ready state, component versions, matching archive hash and equality of the live fingerprint to its receipt. Only then mark D complete and report **DEPLOYED AND INTEGRATION_TEST PASSED**. This is integration_test, not user_acceptance_test promotion.
 13. **Retrieve LAB_USER's password in the second terminal:**
 
@@ -584,11 +584,29 @@ bash scripts/cicd-walkthrough-E_promotion.sh
 1. After D passes, select and verify the **same initial archive**; do not rebuild it.
 2. Admit empty user_acceptance_test. The control authority requires this cycle's matching integration_test receipt before promotion.
 3. Execute **migrate → import → units → verify**, then use [user_acceptance_test](http://127.0.0.1:8080/ords/f?p=810005:1) as **VERIFIER** to create/configure Hello/World and verify the new greeting/history.
-4. Continue to publish and compare the integration_test/user_acceptance_test archive hashes and new successful receipts.
+4. The script checks for a saved greeting whose text is exactly **Hello World** and actor is **VERIFIER**. If absent, it reports **VERIFICATION NOT PASSED** and repeats the browser prompt. Other SQL errors stop. Continue to publish and compare the integration_test/user_acceptance_test archive hashes and new successful receipts.
 5. Open user_acceptance_test as **LAB_USER**. It now runs **1.0.0** with only this cycle's data.
 6. Continue to the explicitly announced twenty verification-history examples and field-level baseline capture for F. These are new test examples for preservation checks, not restored history or release seed.
 
 - Retrieve the password with `python3 scripts/cicd-password.py LAB_USER`. Imports may require re-login.
+
+### Resume E at its restricted verification checkpoint
+
+Continue an interrupted initial verification without reinstalling or deleting data.
+
+```bash
+bash scripts/cicd-walkthrough-E_promotion.sh --resume-verification
+```
+
+1. The script requires the existing incomplete E stage, the same archive and owned epoch, restricted **1.0.0** application and initial verification state. It reruns archived integrity/unit checks, whose fixtures roll back. A different or already published state is rejected.
+2. In a second terminal, run `python3 scripts/cicd-password.py VERIFIER`.
+3. Open [user_acceptance_test / application 810005](http://127.0.0.1:8080/ords/f?p=810005:1), sign out of another account if necessary and sign in as **VERIFIER**.
+   1. Create active **Hello** and **World** entries if missing.
+   2. Set the existing configuration rows to those defaults with empty prefixes; save changes.
+   3. Open **Home**, press **Create greeting**, then refresh **Greeting history**. Confirm **Hello World**.
+4. Return to the waiting terminal and press a key. Missing data repeats verification; **q** leaves the checkpoint restricted. Once the assertion passes, the original archived publication guards run and E continues to its LAB_USER and preservation steps.
+
+This option performs no new admission, migration, import or reset. It does not recover arbitrary partial deployments or an already published E stage.
 
 ## F. Deliver the compatible Hello patch
 

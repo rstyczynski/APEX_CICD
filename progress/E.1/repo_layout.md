@@ -103,3 +103,7 @@ Keep this draft synchronized with its authoritative sources and incoming referen
 2. Keep planned mechanisms separate from implemented and tested paths. Architecture/test-profile passages retained from Inception describe candidate contracts; the implementation and results provide current evidence.
 3. Before PBI-017 acceptance, review this guide against the final selected pipeline, resolve stale descriptions, validate its links/examples and materialize the durable guide with updated backlinks.
 4. Continue to report concurrency, complete maintenance/request fencing, broader schema drift and failed-additive repair as open until supported evidence exists. This document does not resolve Lifecycle Architecture or schedule another sprint.
+
+## Retained initial UAT verification checkpoint
+
+The [E continuation](cicd-walkthrough.md#resume-e-at-its-restricted-verification-checkpoint) reuses the same immutable Git-built initial archive and owned UAT attempt. It does not capture C, rebuild a package or reinstall the target. The browser assertion loop runs outside immutable archive contents; final publication still executes the archived SQL and guards. Keep this description synchronized with the [operator manual](user_manual.md#resume-initial-uat-verification) and [test profile](../../docs/test-profile.md#release-browser-verification-retry-and-bounded-uat-resume).

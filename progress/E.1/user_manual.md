@@ -662,3 +662,13 @@ These are historical observations from the earlier database. Fresh D/E obtain ne
 ## integration_test actor handoff and exact sequence
 
 The development team/Packager (SRS A-02) smoke-checks the development assembly and supplies the reviewed package. Deployer (A-03) runs integration_test before promoting that same package to user_acceptance_test. VERIFIER and LAB_USER are runtime accounts used during checks, not separate human actors. Follow the [numbered D operations](cicd-walkthrough.md#d-qualify-the-initial-release) and editable [delivery model](model.drawio); they trace to UC-4/11 and the selected PBI-011.6 integration_test/promotion work. Keep these references synchronized.
+
+## Resume initial UAT verification
+
+If E stopped with ORA-20619 before publication, keep its installed application and ownership. Follow the [bounded E verification continuation](cicd-walkthrough.md#resume-e-at-its-restricted-verification-checkpoint):
+
+```bash
+bash scripts/cicd-walkthrough-E_promotion.sh --resume-verification
+```
+
+The command validates the same archive/epoch and restricted 1.0.0 checkpoint, then waits for VERIFIER to save exactly Hello World. Missing browser data repeats the prompt; unexpected SQL errors stop. Normal D/E/F verification prompts use this assertion loop too. Final publication retains its archived guards; no automatic reinstall or reset occurs.

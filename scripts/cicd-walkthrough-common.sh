@@ -112,6 +112,53 @@ verify_c_runtime() {
   done
 }
 
+# Retry only the missing browser fixture; final publication still uses archived SQL.
+verify_release_runtime() {
+  local target="$1" schema="$2" app="$3" kind="${4:-fresh}"
+  while true; do
+    verify_runtime "$target" "$schema" "$app" "$kind"
+    check_result "$target" "declare n number;
+    begin
+      select count(*) into n from greeting_history where actor='VERIFIER' and greeting_text='Hello World';
+      if n=0 then dbms_output.put_line('RELEASE_VERIFICATION=WAITING');
+      else dbms_output.put_line('RELEASE_VERIFICATION=PASSED'); end if;
+    end;
+    /"
+    if rg -q '^RELEASE_VERIFICATION=PASSED\r?$' "$work/output"; then
+      echo 'PASS runtime assertion: VERIFIER saved Hello World. Continue to guarded publication.'
+      return
+    fi
+    rg -q '^RELEASE_VERIFICATION=WAITING\r?$' "$work/output" || { echo 'ERROR: unexpected verification result; stopping.' >&2; exit 1; }
+    echo "VERIFICATION NOT PASSED: $target Hello World assertion failed. Expected a saved Hello World greeting by VERIFIER; none found."
+    echo 'The attempt remains restricted. Correct the browser example and retry; q to quit.'
+    [ "$MODE" != --rehearse ] || { echo 'ERROR: rehearsal fixture did not satisfy verification.' >&2; exit 1; }
+  done
+}
+
+# Bounded initial-release continuation: no admission, migration, import or reset.
+resume_initial_verification() {
+  local target="$1" schema="$2" app="$3" status expected
+  status="$(bash scripts/cicd-release-step.sh "$archive" "$target" status 0)"
+  printf '%s\n' "$status"
+  expected="$(shasum -a 256 "$archive" | awk '{print $1}')"
+  printf '%s\n' "$status" | rg -q "^TARGET=$schema APP=$app EPOCH=[0-9]+ PHASE=verifying\r?$" || { echo 'ERROR: target is not the retained verification checkpoint.' >&2; exit 1; }
+  printf '%s\n' "$status" | rg -q "^ARTIFACT=$expected\r?$" || { echo 'ERROR: retained attempt archive differs.' >&2; exit 1; }
+  release_epoch="$(printf '%s\n' "$status" | sed -n 's/^TARGET=.* EPOCH=\([0-9]*\) PHASE=.*$/\1/p' | tr -d '\r')"
+  [[ "$release_epoch" =~ ^[0-9]+$ ]] || exit 1
+  check_result "$target" "@\"$ROOT/deploy/operator/identity.sql\" $schema $schema
+  declare n number;
+  begin
+    E1_CTRL.e1_release.assert_attempt($release_epoch,'$expected');
+    select count(*) into n from apex_applications where application_id=$app and version='1.0.0' and availability_status='Restricted Access';
+    if n<>1 then raise_application_error(-20808,'Resume requires restricted initial 1.0.0 application'); end if;
+    select count(*) into n from lab_state where state_key='Application' and state='ready' and reason='Initial release restricted verification';
+    if n<>1 then raise_application_error(-20809,'Initial verification state mismatch; inspect before recovery'); end if;
+  end;
+  /"
+  bash scripts/cicd-release-step.sh "$archive" "$target" units "$release_epoch"
+  echo 'RESUME: retained initial verification checkpoint validated; no reinstall or new attempt.'
+}
+
 initial_install() {
   local target="$(python3 "$ROOT/scripts/cicd_environments.py" "$1")" schema="$2" app="$3" fixture="${4:-none}"
   local status epoch
@@ -133,7 +180,7 @@ initial_install() {
   fi
   local kind=fresh
   if [ "$fixture" = sentinels ]; then kind=existing; fi
-  verify_runtime "$target" "$schema" "$app" "$kind"
+  verify_release_runtime "$target" "$schema" "$app" "$kind"
   bash scripts/cicd-release-step.sh "$archive" "$target" publish "$epoch"
   bash scripts/cicd-release-result.sh "$archive" "$target"
 }
@@ -150,7 +197,7 @@ patch_install() {
   done
   local kind=existing
   if [ "$start" = empty ]; then kind=fresh; fi
-  verify_runtime "$target" "$schema" "$app" "$kind"
+  verify_release_runtime "$target" "$schema" "$app" "$kind"
   bash scripts/cicd-patch-step.sh "$archive" "$target" publish "$epoch" "$start"
   bash scripts/cicd-patch-step.sh "$archive" "$target" result "$epoch" 1.0.0
 }
