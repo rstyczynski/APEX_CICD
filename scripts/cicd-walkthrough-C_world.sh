@@ -70,14 +70,14 @@ begin
   if n<>3 then raise_application_error(-20807,'C requires the initial complete 1.0.0 triple'); end if;
 end;
 /"
-verify_runtime lab-dev-c E1_DEV_C 810003
+verify_c_runtime
 check_result lab-dev-c "declare n number;
 begin
  E1_CTRL.e1_ownership.assert_owned('Foundation','walkthrough-C_world',$generation);
  E1_CTRL.e1_ownership.assert_owned('Hello','walkthrough-C_world',$generation);
  E1_CTRL.e1_ownership.assert_owned('World','walkthrough-C_world',$generation);
  select count(*) into n from greeting_history where actor='VERIFIER' and greeting_text='Hello World';
- if n=0 then raise_application_error(-20803,'Runtime verification snapshot required'); end if;
+ if n=0 then raise_application_error(-20803,'Verification not passed: Hello World assertion failed. Expected a saved greeting_text = Hello World by VERIFIER; none found. C remains unpublished.'); end if;
  apex_util.set_workspace(user);
  apex_application_admin.set_application_status(810003,apex_application_admin.c_app_available);
  update lab_state set state='ready',reason='Fresh development: published after verification' where state_key='Application';

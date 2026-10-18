@@ -75,7 +75,7 @@ verify_runtime() {
   echo '   python3 scripts/cicd-password.py VERIFIER'
   echo "2. Act as VERIFIER: open http://127.0.0.1:8080/ords/f?p=$app:1 and sign in as VERIFIER; sign out of any other account first."
   if [ "$kind" = fresh ]; then
-    echo '3. Hello entries: Create, Entry Text = Hello, Active = Y, Create. Repeat in World entries with Entry Text = World.'
+    echo '3. Use active Hello and World entries; create them only if missing (Entry Text = Hello / World, Active = Y).'
     echo '4. Edit each existing configuration row: select Hello/World as its default, leave prefixes empty, Apply Changes.'
     echo '5. Home: Create greeting. Greeting history: refresh and confirm Hello World.'
   else
@@ -88,6 +88,28 @@ verify_runtime() {
   else
     pause 'Complete the verification in the browser, then press any key to publish; q leaves the attempt restricted.'
   fi
+}
+
+# Only C's completed-import browser checkpoint: a missing fixture is retryable.
+verify_c_runtime() {
+  while true; do
+    verify_runtime lab-dev-c E1_DEV_C 810003
+    check_result lab-dev-c "declare n number;
+    begin
+      select count(*) into n from greeting_history where actor='VERIFIER' and greeting_text='Hello World';
+      if n=0 then dbms_output.put_line('C_VERIFICATION=WAITING');
+      else dbms_output.put_line('C_VERIFICATION=PASSED'); end if;
+    end;
+    /"
+    if rg -q '^C_VERIFICATION=PASSED\r?$' "$work/output"; then
+      echo 'PASS runtime assertion: VERIFIER saved Hello World. Continue to publication.'
+      return
+    fi
+    rg -q '^C_VERIFICATION=WAITING\r?$' "$work/output" || { echo 'ERROR: unexpected C verification result; stopping.' >&2; exit 1; }
+    echo 'VERIFICATION NOT PASSED: Hello World assertion failed. Expected a saved Hello World greeting by VERIFIER; none found.'
+    echo 'C remains unpublished. Complete/correct the browser example, then retry at the next prompt; q to quit.'
+    [ "$MODE" != --rehearse ] || { echo 'ERROR: rehearsal fixture did not satisfy verification.' >&2; exit 1; }
+  done
 }
 
 initial_install() {

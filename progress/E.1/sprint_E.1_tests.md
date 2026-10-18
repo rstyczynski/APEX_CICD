@@ -154,3 +154,7 @@ The separate fresh-infrastructure boundary assertion passed: zero E.1 schemas/wo
 ## C restricted-verification continuation — 2026-10-18
 
 The [real PTY continuation check](tests/c_resume_verification_20261018.txt) passes ownership/state/assembly inspection and reaches VERIFIER's browser pause. Explicit q returns 130; C remains restricted with no new greeting/publication. Fresh/default and resume local preflight plus Bash syntax pass. This does not rerun C installation, accept browser verification or prove general failed-deployment recovery.
+
+## C missing-snapshot retry — 2026-10-18
+
+[Retry evidence](tests/c_verification_retry_20261018.txt): focused control-flow unit suite passes 3/0. Native read-only loop retries an explicitly forced missing-row fixture, then accepts the actual current Hello World snapshot. Browser pause is stubbed; no publication or data write occurs. A separate read-only missing-row assertion confirms the clearer ORA-20803 text. C development verification/publication is distinct from D archive qualification and E same-archive TEST promotion.

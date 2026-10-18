@@ -1,0 +1,85 @@
+C runtime-verification retry — 2026-10-18
+
+Unit control-flow suite: 3/0.
+- Missing snapshot reports explicit assertion failure and retries; present passes.
+- q exits 130 before checking/publishing.
+- Unexpected SQL failure stops with its error, no retry.
+These unit cases stub Oracle and browser interaction.
+
+Native test invokes the production read-only loop with browser pauses stubbed.
+First query adds AND 1=0 explicitly to exercise the missing-row branch;
+second executes the unmodified predicate against actual C history.
+Both branches observed; no publication/import/migration/business data writes.
+No browser acceptance or current-release acceptance is claimed.
+Transcript follows, trailing whitespace normalized:
+
+TEST: browser pause skipped; no browser acceptance claimed.
+
+Operation target: lab-dev-c
+declare n number;
+    begin
+      select count(*) into n from greeting_history where actor='VERIFIER' and greeting_text='Hello World' and 1=0;
+      if n=0 then dbms_output.put_line('C_VERIFICATION=WAITING');
+      else dbms_output.put_line('C_VERIFICATION=PASSED'); end if;
+    end;
+    /
+
+
+SQLcl: Release 25.3 Production on Sun Oct 18 11:18:49 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+C_VERIFICATION=WAITING
+
+
+PL/SQL procedure successfully completed.
+
+WALKTHROUGH_CHECK_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-dev-c internal verification completed.
+VERIFICATION NOT PASSED: Hello World assertion failed. Expected a saved Hello World greeting by VERIFIER; none found.
+C remains unpublished. Complete/correct the browser example, then retry at the next prompt; q to quit.
+TEST: browser pause skipped; no browser acceptance claimed.
+
+Operation target: lab-dev-c
+declare n number;
+    begin
+      select count(*) into n from greeting_history where actor='VERIFIER' and greeting_text='Hello World';
+      if n=0 then dbms_output.put_line('C_VERIFICATION=WAITING');
+      else dbms_output.put_line('C_VERIFICATION=PASSED'); end if;
+    end;
+    /
+
+
+SQLcl: Release 25.3 Production on Sun Oct 18 11:18:51 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+C_VERIFICATION=PASSED
+
+
+PL/SQL procedure successfully completed.
+
+WALKTHROUGH_CHECK_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: lab-dev-c internal verification completed.
+PASS runtime assertion: VERIFIER saved Hello World. Continue to publication.
+PASS native read-only loop: forced missing-row fixture retries; actual current snapshot passes. No publication or data writes.

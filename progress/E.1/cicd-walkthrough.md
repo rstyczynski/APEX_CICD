@@ -462,7 +462,7 @@ bash scripts/cicd-walkthrough-B_hello.sh
 
 ## C. Deliver World and complete the assembly
 
-Add World to complete the first working application, verify greeting/history behavior and make it available to ordinary users.
+Add World to complete the first working application in **C’s private development area (810003)**. VERIFIER checks it there; publication opens that same development application to LAB_USER. This is not release qualification or promotion to TEST. The archive is independently installed/verified in **qualification (810004) in D**, then the identical qualified archive is promoted to **TEST (810005) in E**.
 
 Run this chapter from the repository root:
 
@@ -491,7 +491,7 @@ This checks the retained task owner/base/generation, complete 1.0.0 assembly and
    1. Open **Hello entries**, press **Create**, enter **Entry Text = Hello** and **Active = Y**, then press **Create** to save.
    2. Open **World entries**, press **Create**, enter **Entry Text = World** and **Active = Y**, then press **Create** to save.
    3. Open **Hello configuration**, edit its existing row, select **Hello** as the default and leave the prefix empty. Press **Apply Changes**. Repeat in **World configuration**, selecting **World** and leaving the prefix empty.
-   4. Open **Home** and press **Create greeting** using the configured defaults. Open **Greeting history** and refresh; confirm a saved **Hello World** row. This exact VERIFIER greeting is required before the script will publish C.
+   4. Open **Home** and press **Create greeting** using the configured defaults. Open **Greeting history** and refresh; confirm a saved **Hello World** row. This exact VERIFIER greeting is required before the script will publish C. If it is missing, the script reports **VERIFICATION NOT PASSED: Hello World assertion failed** and returns to the browser-verification prompt. Other greeting text is valid application data but does not satisfy this specific walkthrough assertion; create the required example and press a key to retry, or **q** to leave C restricted. No reinstall or script restart is needed for this retry.
 
 5. **Act as the walkthrough operator again:**
 

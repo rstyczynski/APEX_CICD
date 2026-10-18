@@ -378,7 +378,7 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev @deploy/o
 
 ## Developer C — World
 
-For an interrupted results walkthrough already at C's restricted-verification checkpoint, use `bash scripts/cicd-walkthrough-C_world.sh --resume-verification` and follow [C's runtime verification steps](cicd-walkthrough.md#c-deliver-world-and-complete-the-assembly). This checks retained ownership/state and repeats no migration/import; other partial states are not repaired by this command.
+For an interrupted results walkthrough already at C's restricted-verification checkpoint, use `bash scripts/cicd-walkthrough-C_world.sh --resume-verification` and follow [C's runtime verification steps](cicd-walkthrough.md#c-deliver-world-and-complete-the-assembly). This checks retained ownership/state and repeats no migration/import. A missing exact VERIFIER Hello World example now reports the failed assertion and repeats the browser-verification pause; correct the example and retry, or q to leave C restricted. Unexpected SQL errors still stop. Other partial states are not repaired by this command.
 
 - Use [App Builder](http://127.0.0.1:8080/ords/f?p=4550:1), workspace E1_DEV_C and username DEV_C:
 

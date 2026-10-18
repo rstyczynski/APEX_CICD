@@ -283,3 +283,13 @@ Synchronized script, C chapter, operator manual and repository draft, with recip
 ## Nested actor substeps in C — 2026-10-18
 
 Formatted the Product Owner's grouped C steps 4 and 7 as proper nested ordered Markdown lists; converted step 5's existing actor substeps consistently and aligned the password code block. Preserved sequence, actions and script behavior. Reviewed the paired C prompts: no code change or runtime test is needed. Document links/anchors/fences and whitespace pass. Previous continuation fix is 5c4bb41. No other sprint/status change or push.
+
+## Explicit Hello World assertion failure — 2026-10-18
+
+Kept the exact saved Hello World by VERIFIER acceptance assertion at the Product Owner's direction. Changed ORA-20803 text to identify the failed assertion, expected actor/text, absent match and unpublished result. The walkthrough explains that other greeting text is valid business data but does not meet this specific fixture assertion. No gate, data, ownership or publication behavior is relaxed; broader design and other sprint statuses remain unchanged. Bash syntax and document checks pass; the current live assertion now passes (the required example was added during this check). A separate read-only missing-row fixture exercises the same assertion failure text without publication or data writes. Previous formatting increment is b6f573e. No push.
+
+## C verification retry loop — 2026-10-18
+
+The Product Owner requested a retry loop following the clearer assertion error. C now treats only the expected absent fixture as retryable; generic SQL errors remain fatal and final ownership/publication checks are retained. Reviewed against current SRS verification goals, architecture, setup/design, implementation/results, test profile, README and board; no scope/status or other sprint change. Synchronized the main chapter, operator manual and shared/C prompts; the existing repository draft's bounded-verification description still applies.
+
+Focused mocked control-flow tests pass 3/0 (missing then present; q; unexpected SQL failure). Syntax and fresh/resume local preflight plus documentation links/anchors/fences/whitespace are checked. Native read-only test evidence is recorded with the construction results; no new browser acceptance or publication is claimed. Previous nested-step commit is b6f573e. No push.
