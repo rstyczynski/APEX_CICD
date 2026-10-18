@@ -206,3 +206,7 @@ All 23 final slide PNGs were individually inspected. Package integrity, geometry
 ## Presentation APEX interface clarification — 2026-10-18
 
 Checked slide content against deploy/operator/capture.sql, import.sql, fingerprint.sql and current architecture. The revised 24-slide deck is rendered and finalized; package/layout/font and first-party reimport checks identify the current SHA in the portable receipt. The added slide and shifted table are visually inspected; other slide content is retained. Document links/anchors/fences and staged scope/credential/whitespace checks pass. No runtime tests or deployments are needed for this presentation-only explanation.
+
+## Git presentation section — 2026-10-18
+
+Checked actual source directories, current manifest/capture profile and the existing developer-integration contract. Oracle APEX 24.2 split-export documentation supports granular source-control review and identifies shared install/application files affected by page additions. Git text-merge capability is distinguished from application semantic validation; no actual parallel APEX merge is claimed. New slides and the shifted native version table are rendered/visually reviewed; package/layout/font/reimport checks and synchronized local links/slide references pass. Current receipt identifies the delivered revision. No runtime tests/deployments are performed for this explanatory increment.

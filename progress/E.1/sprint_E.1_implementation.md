@@ -342,3 +342,7 @@ The package follows infrastructure/onboarding, A–C assembly, Git-built archive
 ## APEX interface explanation in the presentation — 2026-10-18
 
 Added slide 7 explaining the actual application-definition interfaces: SQLcl apex export, supported APEX_APPLICATION_INSTALL target mapping, native exported install.sql and APEX_EXPORT.GET_APPLICATION fingerprinting. Separate Liquibase migrations own schema changes; App Builder authors definitions and ORDS serves HTTP. Working Copies/Team Development are not the release integration/promotion mechanism. The presentation now has 24 slides; guided slide references and handover are synchronized. No runtime or architecture decision changes.
+
+## Git layout, cooperation and future pipeline section — 2026-10-18
+
+Added four presentation slides covering the actual shared repository layout, proposed task-branch cooperation, text-based APEX export merging and a future CI/PR pipeline around existing gates. The 28-slide deck distinguishes current sequential snapshot replay from unproved parallel capture/integration and hosted automation. Expanded the linked repository draft with merge review/validation and future pipeline guidance; synchronized guided slide references and handover. No Git merge behavior, source attributes, live pipeline or runtime is changed.

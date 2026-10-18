@@ -1,15 +1,15 @@
 {
   "schemaVersion": "presentation-finalization.v1",
-  "finalSha256": "71b3723da316d29222198242f84bc3de06f317d0d2ab16249096e73a26cab8c2",
-  "byteCount": 96144,
+  "finalSha256": "19089fc391e353d6c90e525a98f873ada376c01c058afac63f505c981662b4a7",
+  "byteCount": 110563,
   "packageIntegrity": {
     "chart_count": 0,
     "claim_boundary": "Structural package checks only; no slide text, notes, formulas, chart values, or native PowerPoint execution were inspected.",
     "finding_count": 0,
     "findings": [],
-    "notes_parts_skipped": 24,
-    "relationship_part_count": 58,
-    "slide_count": 24,
+    "notes_parts_skipped": 28,
+    "relationship_part_count": 66,
+    "slide_count": 28,
     "status": "pass",
     "exitCode": 0,
     "findingCount": 0,
@@ -19,18 +19,18 @@
     "finding_count": 0,
     "findings": [],
     "font_policy": {
-      "checked_text_script_count": 216,
+      "checked_text_script_count": 267,
       "native_font_rendering_verified": false,
       "observed_font_families": [
         "Arial"
       ],
       "observed_font_use_counts": {
-        "Arial": 216
+        "Arial": 267
       },
       "passed": true,
       "performed": true
     },
-    "slide_count": 24,
+    "slide_count": 28,
     "slide_size_in": [
       13.3333,
       7.5
@@ -40,13 +40,13 @@
     "exitCode": 0,
     "findingCount": 0,
     "fontPolicy": {
-      "checked_text_script_count": 216,
+      "checked_text_script_count": 267,
       "native_font_rendering_verified": false,
       "observed_font_families": [
         "Arial"
       ],
       "observed_font_use_counts": {
-        "Arial": 216
+        "Arial": 267
       },
       "passed": true,
       "performed": true
@@ -60,13 +60,13 @@
     "scriptFonts": {},
     "referenceSha256": null,
     "referenceFontsVerifiedInEncodedText": false,
-    "checked_text_script_count": 216,
+    "checked_text_script_count": 267,
     "native_font_rendering_verified": false,
     "observed_font_families": [
       "Arial"
     ],
     "observed_font_use_counts": {
-      "Arial": 216
+      "Arial": 267
     },
     "passed": true,
     "performed": true
@@ -74,8 +74,8 @@
   "firstPartyImport": {
     "performed": true,
     "passed": true,
-    "slideCount": 24,
-    "sha256": "71b3723da316d29222198242f84bc3de06f317d0d2ab16249096e73a26cab8c2",
+    "slideCount": 28,
+    "sha256": "19089fc391e353d6c90e525a98f873ada376c01c058afac63f505c981662b4a7",
     "runtimeNodeModules": "<BUNDLED_RUNTIME_NODE_MODULES>",
     "nodeExecutable": "<BUNDLED_RUNTIME_NODE>"
   },
@@ -93,11 +93,11 @@
     "skipped_tables": [
       {
         "reason": "no_numeric_amounts",
-        "slide": 14,
+        "slide": 18,
         "table": 1
       }
     ],
-    "slide_count": 24,
+    "slide_count": 28,
     "warning_count": 0,
     "warnings": []
   },
@@ -109,9 +109,9 @@
     "native_chart_count": 0,
     "native_powerpoint_verified": false,
     "passed": true,
-    "presentation_sha256": "71b3723da316d29222198242f84bc3de06f317d0d2ab16249096e73a26cab8c2",
+    "presentation_sha256": "19089fc391e353d6c90e525a98f873ada376c01c058afac63f505c981662b4a7",
     "schema_version": "presentation-native-chart-titles.v1",
-    "slide_count": 24,
+    "slide_count": 28,
     "source_text_emitted": false,
     "unresolved_linked_title_count": 0
   },
@@ -121,7 +121,7 @@
     "--validate-bullet-geometry",
     "--validate-heading-fit",
     "--require-native-table-slide",
-    "14",
+    "18",
     "--cover-role",
     "none",
     "--approved-font-family",
@@ -138,10 +138,13 @@
   "visualReview": {
     "performed": true,
     "slidesInspectedThisRevision": [
-      7,
-      14
+      8,
+      9,
+      10,
+      11,
+      18
     ],
-    "retainedContent": "Earlier 23 slides inspected in handover revision; added interface slide and shifted native table inspected for this revision.",
+    "retainedContent": "Earlier handover and interface slides inspected in prior revisions; added Git section and shifted native version table inspected for this revision.",
     "nativePowerPointOpened": false
   }
 }

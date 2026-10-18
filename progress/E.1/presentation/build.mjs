@@ -91,6 +91,53 @@ body(s,[
 label(s,'Git and immutable archives carry releases. APEX Working Copies and Team Development are not used for release integration or promotion.',65,575,1140,C.teal,25);
 note(s,'Capture uses apex export -applicationid with -split -skipExportDate -expOriginalIds -expSupportingObjects N and a staging -dir. Import sets workspace, application ID, schema, alias and supported offset context before executing native exported install.sql. APEX_EXPORT.GET_APPLICATION with CHECKSUM-SH256 fingerprints live APEX metadata. ORDS serves runtime HTTP; it is not the release deployment API. APEX export is application metadata, not business data or a database schema migration. Working Copies remain a candidate break-glass option in the architecture; this prototype does not validate their compare/merge workflow. Team Development is not the CI/CD engine.');
 
+s=slide('Git repository layout',['progress/E.1/repo_layout.md','release/manifest.json']);
+text(s,'APEX_CICD/',65,160,1140,50,32,C.teal,true);
+const directories=[
+ ['apex/f810001/','Complete split APEX application export'],
+ ['db/changes/','Ordered database migrations'],
+ ['release/','Versions, dependencies and release proposals'],
+ ['deploy/','Target guards, import and publication SQL'],
+ ['config/areas.json','Workspace, schema and application mappings'],
+ ['scripts/ + tests/','Operator steps and executable checks']
+];
+directories.forEach(([dir,description],i)=>{text(s,dir,65,225+i*57,310,45,27,C.ink,true);text(s,description,400,225+i*57,800,45,27);});
+label(s,'Real Git history; one shared application source tree. Private A/B/C schema/workspace areas are separate from Git. Credentials and runtime history stay outside source control.',65,600,1140,C.teal,24);
+note(s,'The repository is the current APEX_CICD checkout. The sprint guide progress/E.1/repo_layout.md is the detailed draft reference. A–C replay existing reviewed Git revisions; there are no separate component repositories or per-environment canonical export trees.');
+
+s=slide('Developer cooperation: proposed branch workflow',['progress/E.1/repo_layout.md','docs/architecture.md']);
+body(s,[
+ '1. Reserve scope; start a task branch from the accepted Git base',
+ '2. Author in a private APEX area; export owned changes to that branch',
+ '3. Review pages, shared files, migrations and dependency metadata',
+ '4. Validate the combined candidate in a disposable area',
+ '5. Accept the source; package one immutable release archive'
+],65,170,1140,28,77);
+label(s,'Future validation: concurrent Hello/World branches and competing Hello tasks. Today A–C replay reviewed sequential snapshots; live PR/parallel integration is not demonstrated.',65,590,1140,C.red,24);
+
+s=slide('APEX SQL exports can be merged as text',['progress/E.1/repo_layout.md','https://docs.oracle.com/en/database/oracle/apex/24.2/aeadm/exporting-one-or-more-applications.html']);
+body(s,[
+ 'Split SQL exports belong in Git as text, not as binary application blobs',
+ 'Different page files usually reduce conflicts; shared definitions still overlap',
+ 'Review install.sql, IDs, shared components and cross-page dependencies',
+ 'Resolve conflicts with an APEX-aware reviewer; do not blindly pick a side',
+ 'Import the complete merged tree and test it before accepting the release'
+],65,170,1140,27,77);
+label(s,'A clean Git merge proves only that text combined. It does not prove a valid APEX application. Database migrations need their own order and compatibility review.',65,590,1140,C.teal,25);
+note(s,'Oracle APEX 24.2 Administration Guide, section 3.12.11.1.6.4, recommends split exports for granular source-control review and notes install.sql/create_application.sql change when a page is added. Git merging is a text operation, not an APEX semantic merge. Stable capture options (-skipExportDate/-expOriginalIds) reduce noise but do not guarantee portable identity or semantic safety. Actual parallel capture/merge proof remains unfinished. Binary assets may be managed separately; this slide refers to the generated SQL source.');
+
+s=slide('Future CI pipelines',['progress/E.1/repo_layout.md','progress/E.1/sprint_E.1_assessment.md']);
+const steps=[
+ ['Task / pull request','Capture + review\nScope and dependencies\nCandidate validation'],
+ ['Accepted Git revision','Build once\nHash the archive\nRetain provenance'],
+ ['Integration test','Fresh + upgrade checks\nRuntime verification\nSuccessful receipt'],
+ ['UAT promotion','Same archive bytes\nPreflight guards\nPreserve user history']
+];
+const pipeline=steps.map(([t,b],i)=>{text(s,t,65+i*300,180,265,65,28,C.teal,true);return box(s,b,65+i*300,275,250,230,25);});
+for(let i=0;i<3;i++)link(s,pipeline[i],pipeline[i+1]);
+label(s,'Extension proposal: a CI runner, protected branches and release approvals call these gates. Remote CI/PR automation and concurrent integration remain future work.',65,575,1140,C.red,25);
+note(s,'No CI provider, repository server or production target is selected. Existing local scripts establish the delivery path; this slide proposes automation around it rather than claiming hosted CI exists. Candidate checks run against the candidate/base; accepted-source packaging and integration testing precede same-artifact UAT promotion.');
+
 s=slide('Walkthrough',['progress/E.1/cicd-walkthrough.md'],true);
 text(s,'The Product Owner sees\nresults after each operation',65,240,1110,160,48,C.white,true);
 text(s,'The following slides follow the implemented A–H journey',65,490,1130,75,29,'#DCE7EB');
@@ -225,7 +272,7 @@ const finalPath=process.env.PRESENTATION_FINAL_PATH || path.join(root,'progress/
 const result=await finalizePresentation({workspaceDir:root,candidatePath:candidate,finalPath,pythonExecutable:python,
  integrityValidatorPath:path.join(skill,'container_tools/inspect_presentation_package_integrity.py'),
  layoutValidatorPath:path.join(skill,'container_tools/inspect_presentation_layout_geometry.py'),
- layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-bullet-geometry','--validate-heading-fit','--require-native-table-slide','14'],
- requiredNativeTableOwnerSlides:[14],requiredNativeChartOwnerSlides:[],fontPolicy:{basis:'design',families:['Arial']},
+ layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-bullet-geometry','--validate-heading-fit','--require-native-table-slide','18'],
+ requiredNativeTableOwnerSlides:[18],requiredNativeChartOwnerSlides:[],fontPolicy:{basis:'design',families:['Arial']},
  verifyArtifactToolImport:true,receiptPath:process.env.PRESENTATION_RECEIPT_PATH || path.join(build,'presentation.validation.json')});
 console.log(JSON.stringify({slides:slideMap.length,finalPath,result}));

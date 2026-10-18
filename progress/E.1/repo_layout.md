@@ -79,6 +79,29 @@ The intended developer workflow uses independent checkouts/task branches against
 
 **Current walkthrough:** A–C replay reviewed sequential source snapshots from this repository; they do not create new developer branches or perform live PR authoring. Parallel Hello/World work, complete capture-scope/provenance enforcement and the competing-Hello race remain broader proofs. The [architecture integration model](../../docs/architecture.md#developertask-integration-model) defines the intended workflow; [current results](sprint_E.1_tests.md) delimit demonstrated behavior. No particular branch naming scheme or hosted CI service is established by this draft.
 
+## Merging APEX export files
+
+Native split application exports are SQL text: Git can diff and perform text merges on them. Keep the complete tree, including install/environment/shared-component files. The preferred source form is the unpacked split tree, rather than a ZIP marked as binary. Oracle explains the component-level review benefits in its [APEX 24.2 split-export guidance](https://docs.oracle.com/en/database/oracle/apex/24.2/aeadm/exporting-one-or-more-applications.html).
+
+1. Start from a common accepted source/capture profile. Original-ID capture and omitted dates reduce noise; they do not by themselves prove cross-area identity stability.
+2. Review different page files independently where possible. Shared navigation, application definitions, install lists, IDs and cross-page references can still collide even if page edits do not.
+3. Have an APEX-aware reviewer resolve conflicts and inspect the combined tree. Do not automatically use one side for all generated files, or treat a clean line merge as application validation.
+4. Import the complete candidate into a disposable area, check identity/dependencies/compilation and exercise affected runtime behavior. Check stable recapture as applicable. Parallel capture/merge and comprehensive provenance enforcement still need their planned E.1 proof.
+5. Review database migration order and compatibility separately. Preserve already-applied changesets; corrections add later changesets. APEX export merging is not database-data merging.
+
+Binary assets, when present, require suitable asset-specific handling. Their existence does not make the generated application SQL binary. No custom Git merge driver or blanket binary attribute is introduced by this guidance.
+
+## Future pipeline automation
+
+This is an extension proposal, not a hosted CI system delivered by E.1. No CI vendor or new sprint is selected.
+
+1. A pull-request runner checks the declared task scope, accepted base, source diff, dependency manifest and combined candidate in a disposable area. A changed base invalidates earlier evidence.
+2. After source acceptance, a release job builds one immutable archive from that accepted Git revision and retains provenance/hash.
+3. An integration-test job runs required fresh/upgrade starts, runtime verification and publication checks on that archive.
+4. A controlled promotion job checks the successful receipt and target preflight, then installs those same bytes in UAT while preserving data/configuration.
+
+Protected branches, runner secrets/permissions, release approvals and concurrent task integration need design and verification before automation is claimed. The [presentation section](sprint_E.1_increment_demo.md#git-layout-cooperation-and-future-pipelines) introduces this proposal; the [assessment](sprint_E.1_assessment.md) retains the unfinished architectural proofs. The existing local operator scripts remain the implemented delivery path.
+
 ## Pipeline paths and release identities
 
 The development team, acting as **Packager (A-02)**, smoke-checks the development assembly and releases the reviewed package. **Deployer (A-03)** takes that package through integration_test and promotes the identical bytes to user_acceptance_test. VERIFIER is the runtime account used by these people for checks, not a separate human role.

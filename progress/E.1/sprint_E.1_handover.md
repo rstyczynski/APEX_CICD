@@ -16,6 +16,10 @@ These outcomes directly support the [accepted vision](../../README.md), selected
 
 Application definitions use native SQLcl `apex export` to produce split SQL source, and native exported `install.sql` for deployment after `APEX_APPLICATION_INSTALL` maps the target. `APEX_EXPORT.GET_APPLICATION` supplies the live APEX metadata fingerprint used by the drift guard. Schema changes use separate Liquibase migrations. App Builder is the authoring UI; ORDS serves HTTP. APEX Working Copies and Team Development are not used for release integration or promotion. See slide 7 and the [architecture interfaces](../../docs/architecture.md) for the boundary.
 
+## Git cooperation and automation boundary
+
+Slides 8–11 show the actual shared repository layout, proposed task-branch cooperation, safe review of text-based split SQL exports and future CI automation of existing delivery gates. The [repository draft](repo_layout.md#merging-apex-export-files) owns detailed merge/pipeline guidance. Current A–C stages replay accepted snapshots; parallel authoring/merging and hosted PR/CI execution remain future work.
+
 ## Live journey already inspected
 
 The assisted Product Owner walkthrough produced PASS results for D, E, F and G; retained stage markers also show A/B/C completion. The Product Owner exercised VERIFIER/LAB_USER runtime interactions and reported successful manual drift rejection. Subsequent native read-only checks reproduce that rejection and show the current Home Title and region Name changes without restoring them.
@@ -68,7 +72,7 @@ Recommend a focused Elaboration follow-up, using the existing child definitions,
 ## Materials and evidence
 
 - [Presentation walkthrough](sprint_E.1_increment_demo.md): complete guided review and optional fresh replay, with slide references.
-- [Presentation](sprint_E.1_increment_demo.pptx): 24 slides, editable draw.io-derived diagrams and editable version comparison.
+- [Presentation](sprint_E.1_increment_demo.pptx): 28 slides, editable draw.io-derived diagrams and editable version comparison.
 - [Completion assessment](sprint_E.1_assessment.md): parent/child outcomes, open risks, milestone recommendation and proposed next work.
 - [Documentation summary](sprint_E.1_documentation.md): reconciliation and presentation/source checks.
 - [Handover checks](tests/handover_checks_20261018.txt): exact recent checks, observed results and limits.

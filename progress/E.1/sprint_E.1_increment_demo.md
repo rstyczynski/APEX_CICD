@@ -4,7 +4,7 @@ Use this guide beside the [PowerPoint presentation](sprint_E.1_increment_demo.pp
 
 ## What you will see
 
-**Slides 1–7.** Follow one Foundation/Hello/World application through private development areas, a Git-built release archive, integration_test and user_acceptance_test. Then inspect a compatible Hello patch, a rejected Foundation upgrade and a real unexpected page change.
+**Slides 1–11.** Follow one Foundation/Hello/World application through private development areas, a Git-built release archive, integration_test and user_acceptance_test. Then inspect a compatible Hello patch, a rejected Foundation upgrade and a real unexpected page change.
 
 The [draw.io model](model.drawio) supplies the lifecycle and integration-test diagrams. The slides adapt those diagrams into editable PowerPoint objects. Foundation owns composition/history/state; Hello and World each own entries/configuration and both depend on Foundation. The development team/Packager releases the reviewed source package. The Deployer installs and validates it in integration_test, then promotes those same bytes to UAT.
 
@@ -17,9 +17,17 @@ Choose how to review:
 1. **Use the retained lab:** perform stage 1, inspect existing results using stages 3–7, then start stage 8 at the current drift comparison. Do not rerun A–F over completed stage directories.
 2. **Reproduce from scratch:** explicitly choose stage 2, which destroys all lab database state. Then execute A–H in order. This is the previously rehearsed fresh-start path, not a second rebuild performed to prepare these slides.
 
+## Git layout, cooperation and future pipelines
+
+**Slides 8–11.** The Git repository is this actual APEX_CICD checkout. Foundation, Hello and World share its complete `apex/f810001/` source tree, with database migrations in `db/changes/`, release contracts in `release/`, deployment SQL in `deploy/` and target mappings in `config/areas.json`. The [repository and pipeline draft](repo_layout.md#repository-contents) gives the complete layout. Private A/B/C workspaces are runtime areas, not separate source repositories.
+
+The intended cooperation path is scope reservation → independent task branch/private area → native export and migration changes → review and combined-candidate validation → accepted source → immutable release. The current walkthrough replays reviewed sequential revisions. Real parallel Hello/World capture/merge and a hosted pull-request runner remain future validation/automation work.
+
+APEX split SQL exports are text and can be diffed/merged by Git. Different pages reduce overlap, while shared definitions, import lists, internal identities and dependencies need joint review. A clean Git merge does not establish semantic correctness: import the complete merged tree in a disposable area and verify it. Keep applied database migrations immutable; review added migrations for ordering/compatibility separately. See the [merge guidance](repo_layout.md#merging-apex-export-files) and [future pipeline proposal](repo_layout.md#future-pipeline-automation).
+
 ## 1. Prepare the review session
 
-**Slides 1–7.** Open a Bash terminal inside the checkout. Keep the following CLI commands in this **Terminal A**:
+**Slides 1–11.** Open a Bash terminal inside the checkout. Keep the following CLI commands in this **Terminal A**:
 
 ```bash
 cd "$(git rev-parse --show-toplevel)"
@@ -40,7 +48,7 @@ Expected result: you can inspect the retained release and follow the presentatio
 
 ## 2. Optional fresh infrastructure and onboarding
 
-**Slides 8–9. Fresh replay only.** Skip this stage during retained-lab review. The destruction command removes every lab application, project schema and greeting-history row, including UAT. It preserves host credentials, tools, retained archives/evidence and unrelated Podman resources.
+**Slides 12–13. Fresh replay only.** Skip this stage during retained-lab review. The destruction command removes every lab application, project schema and greeting-history row, including UAT. It preserves host credentials, tools, retained archives/evidence and unrelated Podman resources.
 
 Run each operation separately in Terminal A and wait for success:
 
@@ -92,7 +100,7 @@ Expected result: **PASS walkthrough ready**, with empty A/B/C, integration_test 
 
 ## 3. A–C: assemble the development application
 
-**Slide 10.** For fresh replay, run these stages in order in Terminal A, following the keypress pauses:
+**Slide 14.** For fresh replay, run these stages in order in Terminal A, following the keypress pauses:
 
 ```bash
 bash scripts/cicd-walkthrough-A_foundation.sh
@@ -121,7 +129,7 @@ For the retained lab, inspect those existing URLs and their expected availabilit
 
 ## 4. D: integration_test of the initial archive
 
-**Slides 11–12. Fresh replay only:**
+**Slides 15–16. Fresh replay only:**
 
 ```bash
 bash scripts/cicd-walkthrough-D_integration_test.sh
@@ -140,7 +148,7 @@ Expected result: a complete 1.0.0 release in integration_test, with the archive/
 
 ## 5. E: promote the same archive to UAT
 
-**Slide 13. Fresh replay only:**
+**Slide 17. Fresh replay only:**
 
 ```bash
 bash scripts/cicd-walkthrough-E_promotion.sh
@@ -165,7 +173,7 @@ Look for successful initial integration/UAT records with the same artifact hash.
 
 ## 6. F: deliver the compatible Hello patch
 
-**Slide 14. Fresh replay, after E:**
+**Slide 18. Fresh replay, after E:**
 
 ```bash
 bash scripts/cicd-walkthrough-F_hello_patch.sh
@@ -190,7 +198,7 @@ The handover check reports **21 prior history rows** with all fields unchanged, 
 
 ## 7. G: reject an incompatible Foundation upgrade
 
-**Slide 15.** Run:
+**Slide 19.** Run:
 
 ```bash
 bash scripts/cicd-walkthrough-G_incompatible_upgrade.sh
@@ -205,7 +213,7 @@ The [shared release manifest](../../release/manifest.json) contains component ve
 
 ## 8. H: detect, inspect and decide on manual drift
 
-**Slides 16–18.** The regular command supports both states:
+**Slides 20–22.** The regular command supports both states:
 
 ```bash
 bash scripts/cicd-protection-check.sh drift
@@ -232,7 +240,7 @@ The supported source-review profile and controls are in the [operator manual](us
 
 ## 9. Optional scripted drift replay
 
-**Slides 16–18.** Run only after the manual edit is restored and no other UAT authoring/deployment is active:
+**Slides 20–22.** Run only after the manual edit is restored and no other UAT authoring/deployment is active:
 
 ```bash
 bash scripts/cicd-walkthrough-H_drift.sh
@@ -250,7 +258,7 @@ This synthetic setup is useful for repeatable testing of the detection routine. 
 
 ## 10. Verification continuations and remaining limits
 
-**Slide 19.** A missing required browser greeting is an assertion failure, not a successful release. A post-publication fixture error is different: the release can already be ready while example preparation remains incomplete. The observed fixture bug used an unset World default; it now selects active entries explicitly and preserves configuration.
+**Slide 23.** A missing required browser greeting is an assertion failure, not a successful release. A post-publication fixture error is different: the release can already be ready while example preparation remains incomplete. The observed fixture bug used an unset World default; it now selects active entries explicitly and preserves configuration.
 
 Use only the command matching the retained checkpoint:
 
@@ -266,7 +274,7 @@ Fresh-only unattended rehearsal uses `bash scripts/cicd-walkthrough.sh --rehears
 
 ## 11. Evidence, conclusions and next decisions
 
-**Slides 20–24.** The [completion assessment](sprint_E.1_assessment.md) lists each assigned PBI/child, official status, demonstrated subset and remaining acceptance work. The [test record](sprint_E.1_tests.md) and [handover checks](tests/handover_checks_20261018.txt) distinguish current native checks from reused earlier evidence.
+**Slides 24–28.** The [completion assessment](sprint_E.1_assessment.md) lists each assigned PBI/child, official status, demonstrated subset and remaining acceptance work. The [test record](sprint_E.1_tests.md) and [handover checks](tests/handover_checks_20261018.txt) distinguish current native checks from reused earlier evidence.
 
 1. The selected assembly/release/patch/protection slice works and has been exercised with the Product Owner.
 2. The full E.1 acceptance scope is not complete. Genuine concurrent ownership/integration, full maintenance/verifier fencing, schema drift and failed additive deployment with automated repair remain open.
