@@ -37,7 +37,7 @@ This package consolidates those observed results. Its preparation did not destro
 
 - **A / E1_DEV_A / 810001:** incomplete Foundation checkpoint, intentionally unavailable.
 - **B / E1_DEV_B / 810002:** Foundation/Hello checkpoint, intentionally unavailable.
-- **C / E1_DEV_C / 810003:** complete development assembly at 1.0.0.
+- **C / E1_DEV_C / 810003:** now Hello 1.0.1 / Foundation and World 1.0.0 after the BUG-6 identity experiment; the earlier A–C walkthrough evidence describes its initial 1.0.0 checkpoint.
 - **integration_test / E1_INTEGRATION / 810004:** the patch integration area used by F; disposable for declared validation starts.
 - **user_acceptance_test / E1_UAT / 810005:** retained Hello 1.0.1 release with the manually changed Home Title/region Name still present at handover preparation. Ordinary application/history use remains available; another deployment must stop on drift.
 

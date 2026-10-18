@@ -218,3 +218,7 @@ Checked actual source directories, current manifest/capture profile and the exis
 ## Review fixes increment 1 — 2026-10-18
 
 [Captured results](tests/review_fixes_20261018.txt): review_fixes manifest passes 1 wrapper/8 Python cases; Python discovery passes 24/0. Cases cover isolated-history archive reconstruction without retained releases, tamper/missing-source/conflicting-byte rejection, malformed config before Oracle/secret access and dirty runner/manifest/Python/shell source rejection. Native SQLPlus ORA-20224 returns 1 under EXIT FAILURE. All five native area identities and their cross-area read/write denial checks pass. Local A–H preflight, Bash/Python syntax and document checks pass. This is not an independently provisioned fresh A–H/browser replay or full unfinished integration-suite acceptance.
+
+## BUG-6 native identity test — 2026-10-18
+
+[Native evidence](tests/apex_identity_20261018.txt) from explicit C upgrade: wrong target ORA-20645, immutable 005 applied once then no-op on repeat, two imports with identical region IDs/private saved report fields and unchanged history/configuration. Used public APEX_SESSION/IR/EXPORT/INSTALL APIs only. Tests/manifests/apex_identity.manifest exposes the same test as an explicit integration operation. No UAT change or general saved-report/subscription coverage is claimed. Corrected artifact preparation remains outstanding.

@@ -1,0 +1,222 @@
+BUG-6 native identity experiment — 2026-10-18
+
+PASS BUG-6: two replacement imports retain component IDs, one private saved report and all prior history/configuration.
+C now runs Hello 1.0.1; UAT was not changed. Evidence: .local-apex/identity-review.bux6va3j
+
+wrong-target.log
+PASS wrong-workspace application rejected before import (ORA-20645).
+
+migration.log
+
+--Starting Liquibase at 2026-10-18T19:38:48.608777 using Java 21.0.12.1 (version 4.30.0 #0 built at 2025-04-01 10:24+0000)
+No validation errors found.
+
+
+Operation completed successfully.
+
+--Starting Liquibase at 2026-10-18T19:38:49.984351 using Java 21.0.12.1 (version 4.30.0 #0 built at 2025-04-01 10:24+0000)
+Database is up to date, no changesets to execute
+
+UPDATE SUMMARY
+Run:                          0
+Previously run:               5
+Filtered out:                 0
+-------------------------------
+Total change sets:            5
+
+
+
+Operation completed successfully.
+
+
+import-1.log
+
+REUSED_APEX_OFFSET=3604094946129008
+
+--install
+--application/set_environment
+API Last Extended:20241130
+Your Current Version:20241130
+This import is compatible with version: 20241130
+COMPATIBLE (You should be able to run this import without issues.)
+ID offset during import: 3604094946129008
+New ID offset for application: 0
+
+--application/delete_application
+--application/create_application
+--application/user_interfaces
+--application/shared_components/navigation/lists/navigation_menu
+--application/shared_components/navigation/lists/navigation_bar
+--application/shared_components/navigation/listentry
+--application/shared_components/files/icons_app_icon_144_rounded_png
+--application/shared_components/files/icons_app_icon_32_png
+--application/shared_components/files/icons_app_icon_192_png
+--application/shared_components/files/icons_app_icon_256_rounded_png
+--application/shared_components/files/icons_app_icon_512_png
+--application/plugin_settings
+--application/shared_components/security/authorizations/administration_rights
+--application/shared_components/navigation/navigation_bar
+--application/shared_components/logic/application_settings
+--application/shared_components/navigation/tabs/standard
+--application/shared_components/navigation/tabs/parent
+--application/shared_components/user_interface/lovs/hello_entries_entry_text
+--application/shared_components/user_interface/lovs/world_entries_entry_text
+--application/pages/page_groups
+--application/shared_components/navigation/breadcrumbs/breadcrumb
+--application/shared_components/navigation/breadcrumbentry
+--application/shared_components/user_interface/templates/popuplov
+--application/shared_components/user_interface/themes
+--application/shared_components/user_interface/theme_style
+--application/shared_components/user_interface/theme_files
+--application/shared_components/user_interface/template_opt_groups
+--application/shared_components/user_interface/template_options
+--application/shared_components/globalization/language
+--application/shared_components/logic/build_options
+--application/shared_components/globalization/messages
+--application/shared_components/globalization/dyntranslations
+--application/shared_components/security/authentications/oracle_apex_accounts
+--application/user_interfaces/combined_files
+--application/pages/page_00000
+--application/pages/page_00001
+--application/pages/page_00010
+--application/pages/page_00020
+--application/pages/page_00100
+--application/pages/page_00101
+--application/pages/page_00110
+--application/pages/page_00111
+--application/pages/page_00200
+--application/pages/page_00201
+--application/pages/page_00210
+--application/pages/page_00211
+--application/pages/page_09999
+--application/end_environment
+... elapsed: 1.15 sec
+
+...done
+
+PL/SQL procedure successfully completed.
+
+
+import-2.log
+
+REUSED_APEX_OFFSET=3604094946129008
+
+--install
+--application/set_environment
+API Last Extended:20241130
+Your Current Version:20241130
+This import is compatible with version: 20241130
+COMPATIBLE (You should be able to run this import without issues.)
+ID offset during import: 3604094946129008
+New ID offset for application: 0
+
+--application/delete_application
+--application/create_application
+--application/user_interfaces
+--application/shared_components/navigation/lists/navigation_menu
+--application/shared_components/navigation/lists/navigation_bar
+--application/shared_components/navigation/listentry
+--application/shared_components/files/icons_app_icon_144_rounded_png
+--application/shared_components/files/icons_app_icon_32_png
+--application/shared_components/files/icons_app_icon_192_png
+--application/shared_components/files/icons_app_icon_256_rounded_png
+--application/shared_components/files/icons_app_icon_512_png
+--application/plugin_settings
+--application/shared_components/security/authorizations/administration_rights
+--application/shared_components/navigation/navigation_bar
+--application/shared_components/logic/application_settings
+--application/shared_components/navigation/tabs/standard
+--application/shared_components/navigation/tabs/parent
+--application/shared_components/user_interface/lovs/hello_entries_entry_text
+--application/shared_components/user_interface/lovs/world_entries_entry_text
+--application/pages/page_groups
+--application/shared_components/navigation/breadcrumbs/breadcrumb
+--application/shared_components/navigation/breadcrumbentry
+--application/shared_components/user_interface/templates/popuplov
+--application/shared_components/user_interface/themes
+--application/shared_components/user_interface/theme_style
+--application/shared_components/user_interface/theme_files
+--application/shared_components/user_interface/template_opt_groups
+--application/shared_components/user_interface/template_options
+--application/shared_components/globalization/language
+--application/shared_components/logic/build_options
+--application/shared_components/globalization/messages
+--application/shared_components/globalization/dyntranslations
+--application/shared_components/security/authentications/oracle_apex_accounts
+--application/user_interfaces/combined_files
+--application/pages/page_00000
+--application/pages/page_00001
+--application/pages/page_00010
+--application/pages/page_00020
+--application/pages/page_00100
+--application/pages/page_00101
+--application/pages/page_00110
+--application/pages/page_00111
+--application/pages/page_00200
+--application/pages/page_00201
+--application/pages/page_00210
+--application/pages/page_00211
+--application/pages/page_09999
+--application/end_environment
+... elapsed: 1.16 sec
+
+...done
+
+PL/SQL procedure successfully completed.
+
+
+identities-before.txt
+
+"PAGE_ID","REGION_ID","REGION_NAME"
+1,7387119224930339,"APEX Delivery Laboratory"
+10,8175058170464285,"Breadcrumb"
+10,8175715935464287,"Greeting history"
+20,3799314054378675,"Breadcrumb"
+20,3800020768378678,"Installed components"
+100,3615049685141132,"Hello entries"
+100,3618700491141139,"Breadcrumb"
+101,3607695259141116,"Hello entry"
+101,3610263077141125,"Buttons"
+110,3628104035145401,"Hello configuration"
+110,3631714417145408,"Breadcrumb"
+111,3620517647145389,"Edit Hello configuration"
+111,3623351696145398,"Buttons"
+200,3615286794137212,"World entries"
+200,3619016247137216,"Breadcrumb"
+201,3608102361137196,"World entry"
+201,3610562663137202,"Buttons"
+210,3628645860145992,"World configuration"
+210,3632419761145997,"Breadcrumb"
+211,3621084905145981,"Edit World configuration"
+211,3623904667145988,"Buttons"
+9999,7380108527930326,"APEX Delivery Laboratory"
+"REPORT_ID","REPORT_NAME","REPORT_TYPE","APPLICATION_USER","REPORT_COLUMNS"
+6199546634109895,"BUG-6 retained report","PRIVATE","LAB_USER","GREETING_ID:GREETING_TEXT:HELLO_TEXT:WORLD_TEXT:HELLO_PREFIX:WORLD_PREFIX:CREATED_AT:ACTOR"
+
+identities-current.log
+
+"PAGE_ID","REGION_ID","REGION_NAME"
+1,7387119224930339,"APEX Delivery Laboratory"
+10,8175058170464285,"Breadcrumb"
+10,8175715935464287,"Greeting history"
+20,3799314054378675,"Breadcrumb"
+20,3800020768378678,"Installed components"
+100,3615049685141132,"Hello entries"
+100,3618700491141139,"Breadcrumb"
+101,3607695259141116,"Hello entry"
+101,3610263077141125,"Buttons"
+110,3628104035145401,"Hello configuration"
+110,3631714417145408,"Breadcrumb"
+111,3620517647145389,"Edit Hello configuration"
+111,3623351696145398,"Buttons"
+200,3615286794137212,"World entries"
+200,3619016247137216,"Breadcrumb"
+201,3608102361137196,"World entry"
+201,3610562663137202,"Buttons"
+210,3628645860145992,"World configuration"
+210,3632419761145997,"Breadcrumb"
+211,3621084905145981,"Edit World configuration"
+211,3623904667145988,"Buttons"
+9999,7380108527930326,"APEX Delivery Laboratory"
+"REPORT_ID","REPORT_NAME","REPORT_TYPE","APPLICATION_USER","REPORT_COLUMNS"
+6199546634109895,"BUG-6 retained report","PRIVATE","LAB_USER","GREETING_ID:GREETING_TEXT:HELLO_TEXT:WORLD_TEXT:HELLO_PREFIX:WORLD_PREFIX:CREATED_AT:ACTOR"

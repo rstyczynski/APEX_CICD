@@ -73,3 +73,5 @@ A preservation fixture prepared with piped interactive MERGE was absent in a lat
 - **Verification:** fail after committed DDL, block ordinary access, reject changed observations, repair automatically from the exact supported state, preserve twenty sentinel rows/all settings and retain failure/success receipts.
 
 Verification for BUG-2–5: [review correction increment 1](tests/review_fixes_20261018.txt). BUG-2 fixes exact input reconstruction; complete independently provisioned A–H acceptance is still tracked separately. BUG-6/7 remain open until their native experiments/repair pass.
+
+BUG-6 importer correction: native [C experiment](tests/apex_identity_20261018.txt) passes two imports, one private saved report, all region IDs, field snapshots and wrong-target rejection. C is now 1.0.1. The historical patch recipe remains unchanged until a new reviewed archive is built and selected for fresh cycles; bug closure awaits that delivery input.
