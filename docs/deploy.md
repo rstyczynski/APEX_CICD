@@ -35,6 +35,14 @@ This is the entry point before the [A–H application walkthrough](../progress/E
    cd "$(git rev-parse --show-toplevel)"
    ```
 
+Before step 2, prepare the reviewed release inputs from a full checkout:
+
+```bash
+python3 scripts/cicd-release-inputs.py
+```
+
+This needs Git/Python only. It reconstructs exact reviewed bytes from [versioned recipes](../release/inputs/) and their pinned Git revisions, verifies hashes and writes local archive pointers. It neither provisions infrastructure nor asserts a new candidate test. See the [walkthrough chapter](../progress/E.1/cicd-walkthrough.md#prepare-reviewed-release-inputs).
+
 2. **Precheck** host tools, pinned SQLcl/Java, helper, APEX archive, reviewed source/release inputs and disk space. This does not require a database. An existing healthy named database is inspected for actual APEX registry version/status; absent/stopped/partial runtime is reported explicitly. Missing inputs/checksum errors stop before deletion. Acquire missing prerequisites with sections 1–4 and `bash scripts/cicd-tools.sh`, then rerun:
 
    ```bash

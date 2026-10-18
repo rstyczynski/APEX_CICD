@@ -3,7 +3,7 @@
 set -Eeuo pipefail
 ROOT="$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --show-toplevel)"
 cd "$ROOT"
-if [ -n "$(git status --porcelain --untracked-files=all -- apex db deploy config release scripts tests/sql)" ]; then
+if [ -n "$(git status --porcelain --untracked-files=all -- apex db deploy config release scripts tests)" ]; then
   echo 'ERROR: commit the reviewed candidate source before validation.' >&2; exit 1
 fi
 revision="$(git rev-parse HEAD)"

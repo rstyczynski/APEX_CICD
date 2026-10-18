@@ -1,0 +1,154 @@
+E.1 review fixes increment 1 — 2026-10-18
+
+Native SQLPlus: EXIT FAILURE with ORA-20224 returned 1; no DDL/DML.
+Historical inputs reconstruct exact initial d99fe83e… and patch 4ba3abb8… hashes.
+The unit reconstruction test uses an isolated Git history clone with current recipe fixtures, not a new infrastructure/browser replay.
+
+e1-review-fixes-unit.log
+RUN unit:test_review_fixes.sh:test_external_review_fixes
+........
+----------------------------------------------------------------------
+Ran 8 tests in 8.163s
+
+OK
+RECONSTRUCTED initial: .local-apex/releases/lab-1.0.0-08a5cf27e8a3.tar SHA256 d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+RECONSTRUCTED patch: .local-apex/releases/lab-1.0.1-ee8f1af8e35f.tar SHA256 4ba3abb8709f256c7a47e3e9294d3e7303f742145a95cb58d808ca6c6bcf7200
+PASS release inputs: exact reviewed bytes reconstructed; no Oracle connection or new candidate-test claim.
+RECONSTRUCTED initial: .local-apex/releases/lab-1.0.0-08a5cf27e8a3.tar SHA256 d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+RECONSTRUCTED patch: .local-apex/releases/lab-1.0.1-ee8f1af8e35f.tar SHA256 4ba3abb8709f256c7a47e3e9294d3e7303f742145a95cb58d808ca6c6bcf7200
+PASS release inputs: exact reviewed bytes reconstructed; no Oracle connection or new candidate-test claim.
+PASS test_external_review_fixes
+Tests: 1; failed: 0
+
+e1-review-python-regression.log
+........................
+----------------------------------------------------------------------
+Ran 24 tests in 8.971s
+
+OK
+RECONSTRUCTED initial: .local-apex/releases/lab-1.0.0-08a5cf27e8a3.tar SHA256 d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+RECONSTRUCTED patch: .local-apex/releases/lab-1.0.1-ee8f1af8e35f.tar SHA256 4ba3abb8709f256c7a47e3e9294d3e7303f742145a95cb58d808ca6c6bcf7200
+PASS release inputs: exact reviewed bytes reconstructed; no Oracle connection or new candidate-test claim.
+RECONSTRUCTED initial: .local-apex/releases/lab-1.0.0-08a5cf27e8a3.tar SHA256 d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+RECONSTRUCTED patch: .local-apex/releases/lab-1.0.1-ee8f1af8e35f.tar SHA256 4ba3abb8709f256c7a47e3e9294d3e7303f742145a95cb58d808ca6c6bcf7200
+PASS release inputs: exact reviewed bytes reconstructed; no Oracle connection or new candidate-test claim.
+
+e1-review-identity.log
+OPERATION identity: lab-dev as E1_DEV_A
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_A","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_A","E1_DEV_A"
+PASS identity: lab-dev
+OPERATION identity: lab-dev-b as E1_DEV_B
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_B","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_B","E1_DEV_B"
+PASS identity: lab-dev-b
+OPERATION identity: lab-dev-c as E1_DEV_C
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_C","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_C","E1_DEV_C"
+PASS identity: lab-dev-c
+OPERATION identity: integration_test as E1_INTEGRATION
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_INTEGRATION","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_INTEGRATION","E1_INTEGRATION"
+PASS identity: integration_test
+OPERATION identity: user_acceptance_test as E1_UAT
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_UAT","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_UAT","E1_UAT"
+PASS identity: user_acceptance_test
+
+e1-review-isolation.log
+OPERATION create-probe: lab-dev as E1_DEV_A
+SQL file: deploy/checks/create_probe.sql
+Kept existing E1_PRIVATE_PROBE in current schema.
+PASS create-probe: lab-dev
+OPERATION create-probe: lab-dev-b as E1_DEV_B
+SQL file: deploy/checks/create_probe.sql
+Kept existing E1_PRIVATE_PROBE in current schema.
+PASS create-probe: lab-dev-b
+OPERATION create-probe: lab-dev-c as E1_DEV_C
+SQL file: deploy/checks/create_probe.sql
+Kept existing E1_PRIVATE_PROBE in current schema.
+PASS create-probe: lab-dev-c
+OPERATION create-probe: integration_test as E1_INTEGRATION
+SQL file: deploy/checks/create_probe.sql
+Created E1_PRIVATE_PROBE in current schema.
+PASS create-probe: integration_test
+OPERATION create-probe: user_acceptance_test as E1_UAT
+SQL file: deploy/checks/create_probe.sql
+Created E1_PRIVATE_PROBE in current schema.
+PASS create-probe: user_acceptance_test
+OPERATION deny-read: lab-dev as E1_DEV_A
+SQL SELECT COUNT(*) FROM E1_DEV_B.E1_PRIVATE_PROBE;
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_B"."E1_PRIVATE_PROBE" does not exist
+PASS deny-read: lab-dev
+OPERATION deny-write: lab-dev as E1_DEV_A
+SQL INSERT INTO E1_DEV_B.E1_PRIVATE_PROBE VALUES (1);
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_B"."E1_PRIVATE_PROBE" does not exist
+PASS deny-write: lab-dev
+OPERATION deny-read: lab-dev-b as E1_DEV_B
+SQL SELECT COUNT(*) FROM E1_DEV_C.E1_PRIVATE_PROBE;
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_C"."E1_PRIVATE_PROBE" does not exist
+PASS deny-read: lab-dev-b
+OPERATION deny-write: lab-dev-b as E1_DEV_B
+SQL INSERT INTO E1_DEV_C.E1_PRIVATE_PROBE VALUES (1);
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_C"."E1_PRIVATE_PROBE" does not exist
+PASS deny-write: lab-dev-b
+OPERATION deny-read: lab-dev-c as E1_DEV_C
+SQL SELECT COUNT(*) FROM E1_INTEGRATION.E1_PRIVATE_PROBE;
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_INTEGRATION"."E1_PRIVATE_PROBE" does not exist
+PASS deny-read: lab-dev-c
+OPERATION deny-write: lab-dev-c as E1_DEV_C
+SQL INSERT INTO E1_INTEGRATION.E1_PRIVATE_PROBE VALUES (1);
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_INTEGRATION"."E1_PRIVATE_PROBE" does not exist
+PASS deny-write: lab-dev-c
+OPERATION deny-read: integration_test as E1_INTEGRATION
+SQL SELECT COUNT(*) FROM E1_UAT.E1_PRIVATE_PROBE;
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_UAT"."E1_PRIVATE_PROBE" does not exist
+PASS deny-read: integration_test
+OPERATION deny-write: integration_test as E1_INTEGRATION
+SQL INSERT INTO E1_UAT.E1_PRIVATE_PROBE VALUES (1);
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_UAT"."E1_PRIVATE_PROBE" does not exist
+PASS deny-write: integration_test
+OPERATION deny-read: user_acceptance_test as E1_UAT
+SQL SELECT COUNT(*) FROM E1_DEV_A.E1_PRIVATE_PROBE;
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_A"."E1_PRIVATE_PROBE" does not exist
+PASS deny-read: user_acceptance_test
+OPERATION deny-write: user_acceptance_test as E1_UAT
+SQL INSERT INTO E1_DEV_A.E1_PRIVATE_PROBE VALUES (1);
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_A"."E1_PRIVATE_PROBE" does not exist
+PASS deny-write: user_acceptance_test
+
+e1-review-preflight.log
+OK: APEX destruction files/tools found; no database or Podman mutation.
+OK: ## A. Deliver Foundation — local tools/files/chapter found.
+OK: ## B. Deliver Hello — local tools/files/chapter found.
+OK: ## C. Deliver World and complete the assembly — local tools/files/chapter found.
+OK: ## D. Qualify the initial release — local tools/files/chapter found.
+OK: ## E. Promote the same initial artifact to user_acceptance_test — local tools/files/chapter found.
+OK: ## F. Deliver the compatible Hello patch — local tools/files/chapter found.
+OK: ## G. Reject an incompatible database upgrade — local tools/files/chapter found.
+OK: ## H. Reject deployment over unexpected live change — local tools/files/chapter found.

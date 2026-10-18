@@ -214,3 +214,7 @@ Checked actual source directories, current manifest/capture profile and the exis
 ## External review response verification — 2026-10-18
 
 [Review answers](sprint_E.1_review-1-response.md) map each finding to actual source and bounded acceptance evidence. Focused drift-review manifest passes 1/0 with five underlying Python tests; protection outcomes pass 10/0. Native SQLPlus probe raises ORA-20224 in an anonymous block: EXIT SQL.SQLCODE returns 0, EXIT FAILURE returns 1. Both probes contain no DDL/DML and request rollback. Confirmed both historical assembly commits exist, no archive tar files are tracked and no GitHub workflows are tracked. No new migration failure/repair, replacement import, independent clone replay or saved-report preservation test is claimed. No runtime fix is made.
+
+## Review fixes increment 1 — 2026-10-18
+
+[Captured results](tests/review_fixes_20261018.txt): review_fixes manifest passes 1 wrapper/8 Python cases; Python discovery passes 24/0. Cases cover isolated-history archive reconstruction without retained releases, tamper/missing-source/conflicting-byte rejection, malformed config before Oracle/secret access and dirty runner/manifest/Python/shell source rejection. Native SQLPlus ORA-20224 returns 1 under EXIT FAILURE. All five native area identities and their cross-area read/write denial checks pass. Local A–H preflight, Bash/Python syntax and document checks pass. This is not an independently provisioned fresh A–H/browser replay or full unfinished integration-suite acceptance.

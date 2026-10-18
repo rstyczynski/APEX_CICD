@@ -9,6 +9,7 @@ import re
 import subprocess
 import sys
 import tempfile
+from cicd_config import load
 
 ROOT = Path(subprocess.check_output(['git', '-C', str(Path(__file__).resolve().parent), 'rev-parse', '--show-toplevel'], text=True).strip())
 MAPPING = {'A': 'lab-dev', 'B': 'lab-dev-b', 'C': 'lab-dev-c'}
@@ -19,7 +20,7 @@ def main():
     parser.add_argument('developer', choices=MAPPING)
     parser.add_argument('--password-stdin', action='store_true', help='Read only the assigned schema password from stdin; never pass it on the command line')
     args = parser.parse_args()
-    config = json.loads((ROOT / 'config/areas.json').read_text())
+    config = load(ROOT / 'config/areas.json')
     connection = MAPPING[args.developer]
     area = config['areas'][connection]
     schema = area['schema']

@@ -534,6 +534,14 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name integration_test
 
 ## Prepare a repeatable walkthrough
 
+First prepare the exact reviewed inputs from the repository root:
+
+```bash
+python3 scripts/cicd-release-inputs.py
+```
+
+See [release-input preparation](cicd-walkthrough.md#prepare-reviewed-release-inputs) for hash checks, full-history requirements and evidence-replay limits. No archive copying from another host is needed.
+
 1. For the requested **fresh-start walkthrough**, follow [the explicit infrastructure lifecycle](../../docs/deploy.md#fresh-walkthrough-infrastructure-sequence): prerequisites precheck, named Podman host preparation, complete lab cleanup and database/APEX/ORDS installation.
 2. Run these as separate operations, waiting for each PASS:
 

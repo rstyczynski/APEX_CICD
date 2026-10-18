@@ -1,0 +1,7 @@
+# Reviewed walkthrough release inputs
+
+The [operator preparation step](../../progress/E.1/cicd-walkthrough.md#prepare-reviewed-release-inputs) runs `python3 scripts/cicd-release-inputs.py` from a full Git checkout. The two recipes reconstruct the exact historical initial/patch tar files from pinned Git blobs and the original candidate transcript/receipt. No installer, password or runtime business data is included.
+
+The archive descriptor pins every member. The reconstruction script checks members and final SHA before selecting pointers under ignored `.local-apex/releases/`; conflicting retained bytes are never overwritten. The original evidence is replayed, not regenerated or presented as a new validation. Integration testing must still run on the reconstructed artifact. The source payload is Git-controlled; original candidate evidence is deliberately fixed for reproducing this historical release identity, not a claim that arbitrary future candidate runs produce identical logs/hashes.
+
+These historical recipes retain their original controller/import behavior. Corrections that change archived implementation require a new reviewed source/archive and recipe; do not rewrite old member hashes or silently adopt a different baseline. [Review decisions](../../progress/E.1/sprint_E.1_review-1-decisions.md) and [BUG-2/6](../../progress/E.1/sprint_E.1_bugs.md) distinguish input acquisition from importer repair.

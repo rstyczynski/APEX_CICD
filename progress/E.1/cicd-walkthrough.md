@@ -13,6 +13,7 @@ Use these links to move between preparation, delivery and protection demonstrati
 - [Current readiness](#current-readiness)
 - [Run the results walkthrough](#run-the-results-walkthrough)
 - [Run one chapter at a time](#run-one-chapter-at-a-time)
+- [Prepare reviewed release inputs](#prepare-reviewed-release-inputs)
 - [Prerequisites and infrastructure precheck](#prerequisites-and-infrastructure-precheck)
 - [Initialize the Podman host](#initialize-the-podman-host)
 - [Prepare a repeatable walkthrough](#prepare-a-repeatable-walkthrough)
@@ -179,6 +180,23 @@ bash scripts/cicd-walkthrough.sh
 - [The common helper](../../scripts/cicd-walkthrough-common.sh) prints chapters, pauses and SQL checks, and sequences the repeated native release operations. Actual controllers remain `cicd-release-step.sh` and `cicd-patch-step.sh`; they execute SQL from verified archives.
 - H's interrupted fixture is restored explicitly with `python3 scripts/cicd-drift-demo.py restore`. Ordinary result checks never silently restore it.
 - [The detailed operator guide](user_manual.md) and [operator runner](../../scripts/cicd-operator-walkthrough.sh) retain the atomic commands. Historical transcripts retain the filenames/state from their original execution.
+
+## Prepare reviewed release inputs
+
+A fresh checkout reconstructs the exact reviewed initial/patch archives from pinned Git source and original validation evidence. This prepares deployment inputs without copying another operator's `.local-apex/` directory, connecting to Oracle or claiming a new candidate test.
+
+Run from the repository root before infrastructure precheck:
+
+```bash
+python3 scripts/cicd-release-inputs.py
+```
+
+1. Use a full Git clone; the pinned historical source revisions must be present.
+2. The script verifies each Git/evidence member, rebuilds the deterministic tar layout and checks the exact reviewed archive SHA-256.
+3. Existing identical inputs are reused. A conflicting archive/checksum stops without overwriting it. Only verified recipes select the initial/patch pointer files.
+4. Wait for **PASS release inputs**, then continue with host/tool prerequisites. Installer downloads and generated credentials remain separate steps in [deploy.md](../../docs/deploy.md).
+
+The versioned [input recipes](../../release/inputs/) replay historical candidate evidence; integration_test still installs and verifies the archive independently in this cycle. See [BUG-2 and related fixes](sprint_E.1_bugs.md) and [review decisions](sprint_E.1_review-1-decisions.md). Historical patch inputs retain their historical importer; the stable-offset correction requires a new reviewed patch archive.
 
 ## Prerequisites and infrastructure precheck
 

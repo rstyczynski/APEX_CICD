@@ -346,3 +346,9 @@ Added slide 7 explaining the actual application-definition interfaces: SQLcl ape
 ## Git layout, cooperation and future pipeline section — 2026-10-18
 
 Added four presentation slides covering the actual shared repository layout, proposed task-branch cooperation, text-based APEX export merging and a future CI/PR pipeline around existing gates. The 28-slide deck distinguishes current sequential snapshot replay from unproved parallel capture/integration and hosted automation. Expanded the linked repository draft with merge review/validation and future pipeline guidance; synchronized guided slide references and handover. No Git merge behavior, source attributes, live pipeline or runtime is changed.
+
+## Review fixes increment 1 — 2026-10-18
+
+[BUG-2–5](sprint_E.1_bugs.md) fix release-input acquisition, infrastructure error status, pre-SQL configuration validation and complete test-source cleanliness. Added exact historical recipe reconstruction from Git/original evidence with member/final hashes, conflict protection and explicit operator documentation. Input replay never claims a new test. Configuration is validated before secret access/connection and bounded to the implemented controller mappings. SQLPlus infrastructure failures now use EXIT FAILURE. Candidate/package scope includes the complete tests tree. Existing archives, retained UAT and other Podman resources remain unchanged.
+
+[Evidence](tests/review_fixes_20261018.txt): eight focused Python cases, 24 Python regressions, local preflight, native SQLPlus failure probe and all five native identity/cross-area isolation checks. Stable replacement identity and bounded additive repair remain BUG-6/7, not completed by these changes. [Selected review decisions](sprint_E.1_review-1-decisions.md) keep work within existing E.1 scope.

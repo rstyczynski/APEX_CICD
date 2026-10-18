@@ -3,7 +3,7 @@
 Prepared on 2026-10-18 for review of the APEX CI/CD delivery pipeline prototype. Start with the [presentation walkthrough](sprint_E.1_increment_demo.md) and its [PowerPoint companion](sprint_E.1_increment_demo.pptx). The [A–H guide](cicd-walkthrough.md) remains the main operating journey, and the [operator manual](user_manual.md) contains the detailed procedures.
 
 
-The [first external review](sprint_E.1_review-1.md) and [engineering response](sprint_E.1_review-1-response.md) add concrete reproducibility, privileged-input, migration-recovery, exit-status and provenance findings. In particular, the demonstrated host rebuild retains archives; independent reproduction from a public clone remains blocked until release acquisition/build is supplied. Review responses propose corrections; they do not claim implemented fixes.
+The [first external review](sprint_E.1_review-1.md) and [engineering response](sprint_E.1_review-1-response.md) add concrete reproducibility, privileged-input, migration-recovery, exit-status and provenance findings. In particular, the demonstrated host rebuild retains archives; the initial release-input acquisition defect is addressed by [exact archive reconstruction](cicd-walkthrough.md#prepare-reviewed-release-inputs), while a full independent A–H replay remains to be validated. Review responses propose corrections; they do not claim implemented fixes.
 
 [Expert feedback on the response](sprint_E.1_review-1-feedback.md) is retained with the same review round. Selection of corrections remains a separate Product Owner decision under the [external-review convention](../../RUPStrikesBack.patch/RUP_patch.md#p10-use-proportionate-external-review-rounds).
 

@@ -8,6 +8,7 @@ import subprocess
 import sys
 import tempfile
 from cicd_environments import canonical
+from cicd_config import load
 
 ROOT = Path(subprocess.check_output(['git', '-C', str(Path(__file__).resolve().parent), 'rev-parse', '--show-toplevel'], text=True).strip())
 LOCAL = ROOT / '.local-apex'
@@ -33,6 +34,7 @@ def command():
 def run(body, connection=None, admin=False, save=None):
     if connection is not None:
         connection = canonical(connection)
+    config = load(ROOT / 'config/areas.json')
     private = secrets()
     env = os.environ.copy()
     env['JAVA_HOME'] = str(LOCAL / 'tools/jdk-21.0.12.1+1/Contents/Home')
@@ -40,10 +42,10 @@ def run(body, connection=None, admin=False, save=None):
     prefix = 'set echo off verify off feedback off define off\n'
     prefix += 'whenever oserror exit failure rollback\nwhenever sqlerror exit failure rollback\n'
     if admin:
-        prefix += 'connect SYS/"' + private['ORACLE_PASSWORD'] + '"@//127.0.0.1:1521/FREEPDB1 as sysdba\n'
+        prefix += 'connect SYS/"' + private['ORACLE_PASSWORD'] + '"@//' + config['service'] + ' as sysdba\n'
     elif save:
         name, user, key = save
-        prefix += f'connect -save {name} -savepwd -replace {user}/"{private[key]}"@//127.0.0.1:1521/FREEPDB1\n'
+        prefix += f'connect -save {name} -savepwd -replace {user}/"{private[key]}"@//{config["service"]}\n'
     elif connection:
         if not re.fullmatch(r'[a-z][a-z0-9_-]*', connection):
             raise ValueError('Invalid named connection')

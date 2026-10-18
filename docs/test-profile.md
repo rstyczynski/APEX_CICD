@@ -10,6 +10,10 @@ Concrete command contract for PBI-009, accepted with the revised I.1 analysis ba
 
 I.1 has `Test: none` and `Regression: none`: document consistency, source review, read-only environment assessment and shell syntax are its checks. No PL/SQL tests or application test skeletons are created or run this sprint.
 
+## Review correction gates
+
+[Review decisions](../progress/E.1/sprint_E.1_review-1-decisions.md) and the [bug register](../progress/E.1/sprint_E.1_bugs.md) define focused BUG-2–7 corrections. Run `bash tests/run.sh --unit --new-only tests/manifests/review_fixes.manifest` for release reconstruction/tamper/conflict, pre-SQL config validation, infrastructure exit policy and dirty-test-provenance checks. Native SQLPlus probes and current area/isolation checks supplement those cases. Exact historical input reconstruction is not a new candidate attestation or a claim that the full independent A–H acceptance replay passed. [Preparation steps](../progress/E.1/cicd-walkthrough.md#prepare-reviewed-release-inputs) keep acquisition separate from provisioning.
+
 ## Execution prerequisites for E.1
 
 E.1 must take ownership of executing/adapting the I.1-owned [infrastructure lifecycle procedure](deploy.md), using it to provision, verify and destroy scoped experiment infrastructure as needed. I.1's analysis reference was Podman 6.0.0, database 23.26.3.0.0, APEX 24.2.0 and ORDS 25.3.0.r2671248 on 2026-10-16. Record the procedure/script revision and actual tool/image versions used. Validate lifecycle teardown with disposable fixtures only, preserving retained data, credentials and evidence. Do not assume a VM is already present or recreate infrastructure during ordinary application upgrades.

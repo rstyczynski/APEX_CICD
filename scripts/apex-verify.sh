@@ -6,7 +6,7 @@ p() { podman --connection apex-cicd "$@"; }
 p exec -i apex-db sqlplus -s / as sysdba < scripts/apex-db-verify.sql
 # Connect back through the published host port, rather than OS authentication.
 {
-  printf '%s\n' 'whenever oserror exit failure' 'whenever sqlerror exit sql.sqlcode'
+  printf '%s\n' 'whenever oserror exit failure' 'whenever sqlerror exit failure'
   printf 'connect SYSTEM/%s@//host.containers.internal:1521/FREEPDB1\n' "$ORACLE_PASSWORD"
   printf '%s\n' "select user, sys_context('USERENV','CON_NAME') as pdb from dual;" 'exit'
 } | p exec -i apex-db sqlplus -s /nolog

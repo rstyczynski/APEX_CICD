@@ -10,7 +10,7 @@ import subprocess
 import tarfile
 
 ROOT = Path(subprocess.check_output(['git', '-C', str(Path(__file__).resolve().parent), 'rev-parse', '--show-toplevel'], text=True).strip())
-SCOPE = ['apex', 'db', 'deploy', 'config', 'release', 'tests/sql', 'scripts']
+SCOPE = ['apex', 'db', 'deploy', 'config', 'release', 'tests', 'scripts']
 
 def sha(data):
     return hashlib.sha256(data).hexdigest()

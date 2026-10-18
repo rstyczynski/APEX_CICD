@@ -62,10 +62,11 @@ Clone with the delivery-method submodule:
 git clone --recurse-submodules https://github.com/rstyczynski/APEX_CICD.git
 ```
 
-Open a Bash terminal inside the checkout, position at its Git root and run local preflight:
+The infrastructure provisioning path currently supports **macOS Apple Silicon**. Pure source/Python checks are separate from that host requirement. Open a Bash terminal inside the full checkout, position at its Git root, reconstruct reviewed release inputs and run local preflight:
 
 ```bash
 cd "$(git rev-parse --show-toplevel)"
+python3 scripts/cicd-release-inputs.py
 bash scripts/cicd-walkthrough.sh --preflight
 ```
 
@@ -81,7 +82,7 @@ Preflight alone does not provision the lab or prove database readiness. Normal u
 
 ## Remaining validation
 
-The [external review](progress/E.1/sprint_E.1_review-1.md) and [engineering response](progress/E.1/sprint_E.1_review-1-response.md) identify an independent-reproduction blocker: the current walkthrough requires retained release archives under `.local-apex/releases/`. A fresh public clone does not yet acquire/build that complete release chain automatically. The run sequence above needs those additional inputs; preflight alone does not supply them.
+The [external review](progress/E.1/sprint_E.1_review-1.md) and [engineering response](progress/E.1/sprint_E.1_review-1-response.md) identified missing release inputs as an independent-reproduction blocker. The [BUG-2 correction](progress/E.1/cicd-walkthrough.md#prepare-reviewed-release-inputs) now reconstructs the exact historical archives from versioned recipes and pinned Git source. This fixes acquisition; a complete independently provisioned A–H replay remains a separate validation gate.
 
 Sprint **E.1 remains active**. Important unfinished proofs are synchronized competing reservations, genuine parallel component integration, complete maintenance/request/verifier fencing, scoped schema-definition drift and an injected failed additive deployment with automated forward repair preserving history. A verification retry or restored drift fixture is not that repair proof.
 
