@@ -383,53 +383,37 @@ Each engineer gets a separate schema, APEX workspace and assigned application ID
 
 ## Configure each developer environment
 
-Give each developer a working connection to their assigned area using their own credentials, ready for development without administrator access.
+Configure A/B/C connections to their assigned areas. In this single-host walkthrough, the local operator supplies each schema password directly through a pipe, without displaying or typing it.
 
-**Actor: the assigned developer.** These commands perform no schema/workspace creation and never open the administrator credential files.
+**Actor: local walkthrough operator configuring the developer profiles.** The password helper reads the protected operator credential store; developer setup receives only the selected schema password and creates no schemas or workspaces.
 
-1. Developer A runs:
-
-   ```bash
-   bash scripts/cicd-developer-init.sh A
-   ```
-
-2. Developer B runs:
-
-   ```bash
-   bash scripts/cicd-developer-init.sh B
-   ```
-
-3. Developer C runs:
-
-   ```bash
-   bash scripts/cicd-developer-init.sh C
-   ```
-
-4. Enter only the assigned **schema password**, hidden at the prompt. For A this is E1_DEV_A's password; DEV_A is the separate App Builder account.
-
-   The provisioning operator retrieves A's schema password with:
-
-   ```bash
-   python3 scripts/cicd-password.py E1_DEV_A
-   ```
-
-   For this single-host lab, if you are acting as both operator and developer, you can instead retrieve and pipe the password directly into setup, replacing the interactive command above:
+1. Configure A:
 
    ```bash
    (set -o pipefail; python3 scripts/cicd-password.py E1_DEV_A | bash scripts/cicd-developer-init.sh A --password-stdin)
    ```
 
-   For B/C, replace both `E1_DEV_A` and `A` with the matching schema/developer. The pipe passes only the selected password without displaying it or storing it in an environment variable. The password helper reads the operator's protected credential store; a developer acting separately receives their assigned password from the operator and uses the interactive prompt. Developer setup itself does not read administrator credentials.
+2. Configure B:
 
-5. The command verifies the effective schema/workspace and saves only that developer's connection in `.local-apex/developers/A/sqlcl-home` (or B/C). It prints **PASS developer** and the exact environment command.
-6. In A's own Bash terminal, select that private profile and connect:
+   ```bash
+   (set -o pipefail; python3 scripts/cicd-password.py E1_DEV_B | bash scripts/cicd-developer-init.sh B --password-stdin)
+   ```
+
+3. Configure C:
+
+   ```bash
+   (set -o pipefail; python3 scripts/cicd-password.py E1_DEV_C | bash scripts/cicd-developer-init.sh C --password-stdin)
+   ```
+
+4. Wait for each **PASS developer**. Setup verifies the effective schema/workspace and saves that developer's connection in `.local-apex/developers/A/sqlcl-home` (or B/C). The schema passwords differ from the DEV_A/B/C App Builder passwords. Passwords are not command-line arguments or environment variables.
+5. In A's own Bash terminal, select that private profile and connect:
 
    ```bash
    source .local-apex/developers/A/environment.sh
    sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name lab-dev
    ```
 
-- B/C use their corresponding environment file and lab-dev-b/lab-dev-c connection. The setup needs no SYS connection or privileged files. `--password-stdin` is available for controlled automated verification; passwords are never command-line arguments.
+- B/C use their corresponding environment file and lab-dev-b/lab-dev-c connection.
 - This lab demonstrates separate roles/profiles under one host account; it does not claim OS-account isolation. Regular delivery walkthrough scripts use the operator's central automation store.
 
 ## Check project readiness before A
