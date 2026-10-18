@@ -1,9 +1,9 @@
 # E.1 — Product Owner handover
 
-Prepared on 2026-10-18 for review of the APEX CI/CD delivery pipeline prototype. Start with the [presentation walkthrough](sprint_E.1_increment_demo.md) and its [PowerPoint companion](sprint_E.1_increment_demo.pptx). The [A–H guide](cicd-walkthrough.md) remains the main operating journey, and the [operator manual](user_manual.md) contains the detailed procedures.
+Prepared on 2026-10-18 for review of the APEX CI/CD delivery pipeline prototype. Start with the [presentation walkthrough](sprint_E.1_increment_demo.md) and its [PowerPoint companion](sprint_E.1_increment_demo.pptx). The [A–I guide](cicd-walkthrough.md) remains the main operating journey, and the [operator manual](user_manual.md) contains the detailed procedures.
 
 
-The [first external review](sprint_E.1_review-1.md) and [engineering response](sprint_E.1_review-1-response.md) add concrete reproducibility, privileged-input, migration-recovery, exit-status and provenance findings. In particular, the demonstrated host rebuild retains archives; the initial release-input acquisition defect is addressed by [exact archive reconstruction](cicd-walkthrough.md#prepare-reviewed-release-inputs), while a full independent A–H replay remains to be validated. Review responses propose corrections; they do not claim implemented fixes.
+The [first external review](sprint_E.1_review-1.md) and [engineering response](sprint_E.1_review-1-response.md) add concrete reproducibility, privileged-input, migration-recovery, exit-status and provenance findings. In particular, the demonstrated host rebuild retains archives; the initial release-input acquisition defect is addressed by [exact archive reconstruction](cicd-walkthrough.md#prepare-reviewed-release-inputs), and the [independent clean-checkout A–I rehearsal](tests/clean_checkout_20261018.txt) now passes from newly provisioned infrastructure. Six selected corrections are registered individually in the [bug register](sprint_E.1_bugs.md). This API-driven rehearsal supplements the earlier assisted walkthrough; wider sprint gates remain open.
 
 [Expert feedback on the response](sprint_E.1_review-1-feedback.md) is retained with the same review round. Selection of corrections remains a separate Product Owner decision under the [external-review convention](../../RUPStrikesBack.patch/RUP_patch.md#p10-use-proportionate-external-review-rounds).
 
@@ -70,14 +70,14 @@ Native initial receipts remain historical evidence after upgrade. Old pre-rename
 
 ## Completion boundary and recommendation
 
-The [official board](../../PROGRESS_BOARD.md) still records E.1 as under_construction and PBI-011 through PBI-016 as unfinished parent outcomes. The full [plan](../../PLAN.md) remains Progress. In particular, real concurrent reservations/integration, full request/verifier fencing, scoped schema drift and failed additive deployment with automated forward repair remain open.
+The [official board](../../PROGRESS_BOARD.md) still records E.1 as under_construction and PBI-011 through PBI-016 as unfinished parent outcomes. The full [plan](../../PLAN.md) remains Progress. In particular, real concurrent reservations/integration, full request/verifier fencing, broader schema drift and unsupported repair states remain open. The bounded integration-only failed additive deployment/forward repair now passes; see [native evidence](tests/recovery_proof_20261018.txt).
 
 Recommend a focused Elaboration follow-up, using the existing child definitions, before full Lifecycle Architecture acceptance. The [assessment](sprint_E.1_assessment.md) supplies each assigned item's exact status, demonstrated subset, remaining criterion and a conditional Construction sequence. No new sprint is scheduled, no backlog item is marked complete, and no push is authorized by preparing this package.
 
 ## Materials and evidence
 
 - [Presentation walkthrough](sprint_E.1_increment_demo.md): complete guided review and optional fresh replay, with slide references.
-- [Presentation](sprint_E.1_increment_demo.pptx): 28 slides, editable draw.io-derived diagrams and editable version comparison.
+- [Presentation](sprint_E.1_increment_demo.pptx): 29 slides, editable draw.io-derived diagrams and editable version comparison.
 - [Completion assessment](sprint_E.1_assessment.md): parent/child outcomes, open risks, milestone recommendation and proposed next work.
 - [Documentation summary](sprint_E.1_documentation.md): reconciliation and presentation/source checks.
 - [Handover checks](tests/handover_checks_20261018.txt): exact recent checks, observed results and limits.

@@ -3,14 +3,14 @@
 - **Round:** E.1 review 1, decisions.
 - **Revision:** reviewed `0f5ce709685508e56e255bc7b0331c89daec0917`; implementation follows later commits, so this is not the current implementation baseline.
 - **Reviewer/owner:** external expert report supplied by the Product Owner; Codex engineering implements selected corrections.
-- **Scope:** original source review plus focused native/source checks listed in the response; full independent fresh-stack replay remains pending.
+- **Scope:** original source review plus focused native/source checks listed in the response; independent fresh-stack A–I replay now passes at 54c0fd3 (runtime API fixtures, no new browser acceptance).
 - **Inputs:** [review](sprint_E.1_review-1.md), [response](sprint_E.1_review-1-response.md), [feedback](sprint_E.1_review-1-feedback.md).
 
 Original headings H1–H3, M1–M6 and L1–L4 map to stable IDs by prefixing `R1-`. Each selected correction is owned by Codex engineering in E.1; Product Owner review controls scope/acceptance. Current statuses retain each decision's closing condition rather than equating a code commit with full acceptance.
 
 | Finding | Decision/status | Closing condition or deferral boundary |
 |---|---|---|
-| R1-H1 | selected — BUG-2 | Clean-checkout input reconstruction plus independent A–H replay; the input defect is fixed at 7976a9e, full replay pending. |
+| R1-H1 | verified@54c0fd3 | Exact input reconstruction and independently provisioned A–I replay pass with new credentials and no copied release archives; see clean-checkout evidence. |
 | R1-H2 | selected — BUG-4 | Invalid config fails before SQL and native scoped provisioning works; validated at 7976a9e. Production privilege redesign deferred until shared deployment. |
 | R1-H3 | verified@e7ee3de | Native committed-DDL failure, blocked runtime, changed-observation rejection, forward repair, unchanged 21-row field snapshot and repeat passed. |
 | R1-M1 | verified@7976a9e | Native ORA-20224 returns nonzero with EXIT FAILURE; all affected wrappers corrected. |

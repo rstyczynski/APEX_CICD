@@ -72,10 +72,12 @@ A preservation fixture prepared with piped interactive MERGE was absent in a lat
 - **Fix:** one integration-only failed additive migration, retained attempt/evidence, observation-bound reviewed repair artifact and history comparison; no rewrite of applied 005 or universal repair framework.
 - **Verification:** fail after committed DDL, block ordinary access, reject changed observations, repair automatically from the exact supported state, preserve twenty sentinel rows/all settings and retain failure/success receipts.
 
-Verification for BUG-2–5: [review correction increment 1](tests/review_fixes_20261018.txt). BUG-2 fixes exact input reconstruction; complete independently provisioned A–H acceptance is still tracked separately. At that first increment BUG-6/7 remained open; later evidence/status follows below.
+Verification for BUG-2–5: [review correction increment 1](tests/review_fixes_20261018.txt). BUG-2 fixes exact input reconstruction; complete independent A–I execution is recorded in the later clean-checkout evidence. At that first increment BUG-6/7 remained open; later evidence/status follows below.
 
 BUG-6 importer correction: native [C experiment](tests/apex_identity_20261018.txt) passes two imports, one private saved report, all region IDs, field snapshots and wrong-target rejection. C is now 1.0.1. The historical patch recipe remains unchanged until a new reviewed archive is built and selected for fresh cycles; that delivery input was still pending at the importer-only increment.
 
 BUG-6 delivery input: corrected archive 80b51f1ed3e371d6c198dc785a7df741fd671d2ab77d8db630f7dd63bd92d583 from 0cc6c68 passed fresh and initial-upgrade native integration, including field preservation of 21 rows. release/inputs/patch.json now reconstructs these reviewed bytes for new cycles. Retained UAT is deliberately unchanged.
 
 BUG-7 native proof passed at e7ee3de: committed first index/changeset, deliberate ORA-20831 without successful failed-changeset receipt, closed runtime, changed-index client/server rejection, separate new repair artifact and unchanged repeat. Twenty-one prior rows/settings remain. [Detailed native evidence](tests/recovery_proof_20261018.txt). Broader concurrency/fencing and general schema recovery remain outside this bounded fix.
+
+BUG-2 independent acceptance: [clean-checkout evidence](tests/clean_checkout_20261018.txt) records full A–I execution at 54c0fd3 on a new empty engine, fresh credentials and reconstructed exact archives. No copied database/release state or browser acceptance claim. BUG-3–7 participate in that replay; wider sprint acceptance remains open.

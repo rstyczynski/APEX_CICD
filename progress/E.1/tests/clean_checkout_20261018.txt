@@ -1,0 +1,39 @@
+E.1 independent clean-checkout native rehearsal — 2026-10-18
+
+Source: 54c0fd3facc22fa8f82574009ecffef40acd72bb; full Git history and pinned method submodule.
+Second empty owned Podman VM, new credentials and SQLcl connection store. No copied releases, database state or credentials. Only checksum-verified public installer archives reused.
+Vanilla database/APEX/ORDS install passed first; project/control/developer onboarding executed separately. Zero project schemas/workspaces verified before onboarding.
+Runtime API fixtures replace browser interaction; no new human acceptance or complete default integration-suite claim.
+
+Selected native results:
+PASS result stage A_foundation.
+PASS result stage B_hello.
+PASS result stage C_world.
+PASS result stage D_integration_test.
+PASS result stage E_promotion: identical qualified/promoted archive; NEW field baseline captured for F.
+PASS preservation: all fields of 21 prior history rows, old entries and complete configuration unchanged; new rows may append.
+PASS preservation: all fields of 20 prior history rows, old entries and complete configuration unchanged; new rows may append.
+PASS result stage F_hello_patch.
+PASS result stage G_incompatible_upgrade.
+PASS result stage H_drift.
+PASS server-side recheck rejects changed partial state (ORA-20846).
+ALREADY REPAIRED: identical artifact, metadata and retained data; no writes.
+PASS BUG-7: committed DDL failure, closed runtime gate, changed-observation rejection, forward repair, preserved history and unchanged repeat. UAT untouched.
+PASS selected fresh walkthrough: construction, initial integration_test/promotion, Hello patch, this-cycle preservation, incompatible proposal rejection, drift rejection/restoration and bounded additive-failure repair.
+Tests: 1; failed: 0
+Tests: 2; failed: 0
+PASS independent clean-checkout native A–I rehearsal and selected smoke/unit checks. Runtime API fixtures; browser review not claimed.
+
+Python discovery: 26 tests, zero failures (see native log).
+Private full log SHA-256: 7f9389b2dda5d8d2a4b6aab23739ba3031e7e7e713ce19f48caeeed6465b20c8
+Log retained under .local-apex/full-clean-clone/.local-apex/native-clean-sequence.log; includes SQL/operator diagnostics, not published as portable source.
+Initial archive: d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+Hello patch archive: 80b51f1ed3e371d6c198dc785a7df741fd671d2ab77d8db630f7dd63bd92d583
+
+Retained-lab restoration:
+Original connection URIs/default restored; original VM and DB/ORDS restarted intact. Infrastructure verification passes HTTP 200/APEX 24.2 and SQL validity. Rehearsal VM stopped; unrelated default VM untouched.
+PASS retained lab-dev-c: every business/config/history field and APEX fingerprint unchanged
+PASS retained integration_test: every business/config/history field and APEX fingerprint unchanged
+PASS retained user_acceptance_test: every business/config/history field and APEX fingerprint unchanged
+Failed-additive archive: ea7903bc3734f491c12fdedb91d701076462957cca5dc0c015e3d05f627ff7d7
+Forward-repair archive: 408cd92ccb8369ff8295dd794cbbb019241f9eb61af95a871ea475f9d82b7ce4

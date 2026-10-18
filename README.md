@@ -23,7 +23,7 @@ These are demonstrated prototype outcomes, not a declaration that the complete s
 
 ## Explore the delivery story
 
-- **[From Git to APEX — presentation](progress/E.1/sprint_E.1_increment_demo.pptx):** 28 slides covering architecture, Oracle interfaces, Git layout/cooperation, the A–H results and future CI pipelines. Includes editable diagrams adapted from the [draw.io model](progress/E.1/model.drawio).
+- **[From Git to APEX — presentation](progress/E.1/sprint_E.1_increment_demo.pptx):** 29 slides covering architecture, Oracle interfaces, Git layout/cooperation, the A–I results and future CI pipelines. Includes editable diagrams adapted from the [draw.io model](progress/E.1/model.drawio).
 - **[Presentation walkthrough](progress/E.1/sprint_E.1_increment_demo.md):** slide-linked review, commands, visible results and decisions.
 - **[A–I use-case walkthrough](progress/E.1/cicd-walkthrough.md):** the main guided operating journey, with a separate script for each stage.
 - **[Operator manual](progress/E.1/user_manual.md):** application inventory, endpoints, accounts and detailed operations.
@@ -84,7 +84,7 @@ Preflight alone does not provision the lab or prove database readiness. Normal u
 
 ## Remaining validation
 
-The [external review](progress/E.1/sprint_E.1_review-1.md) and [engineering response](progress/E.1/sprint_E.1_review-1-response.md) identified missing release inputs as an independent-reproduction blocker. The [BUG-2 correction](progress/E.1/cicd-walkthrough.md#prepare-reviewed-release-inputs) now reconstructs the exact historical archives from versioned recipes and pinned Git source. This fixes acquisition; a complete independently provisioned A–H replay remains a separate validation gate.
+The [external review](progress/E.1/sprint_E.1_review-1.md) and [engineering response](progress/E.1/sprint_E.1_review-1-response.md) identified missing release inputs as an independent-reproduction blocker. The [BUG-2 correction](progress/E.1/cicd-walkthrough.md#prepare-reviewed-release-inputs) now reconstructs the exact historical archives from versioned recipes and pinned Git source. The [independent clean-checkout A–I rehearsal](progress/E.1/tests/clean_checkout_20261018.txt) now passes on newly provisioned infrastructure with new credentials and no copied release archives. It uses explicit runtime API fixtures; browser acceptance remains the separate assisted walkthrough.
 
 Sprint **E.1 remains active**. Important unfinished proofs are synchronized competing reservations, genuine parallel component integration, complete maintenance/request/verifier fencing, scoped schema-definition drift and broader recovery/concurrency coverage beyond the single integration-only failed-DDL/forward-repair proof. A verification retry or restored drift fixture is not that repair proof.
 
