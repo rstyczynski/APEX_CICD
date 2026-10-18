@@ -1,0 +1,3 @@
+unit:test_verification_loop.sh:test_C_loop_retries_missing_snapshot
+unit:test_verification_loop.sh:test_C_loop_quit_preserves_checkpoint
+unit:test_verification_loop.sh:test_C_loop_unexpected_sql_failure_stops

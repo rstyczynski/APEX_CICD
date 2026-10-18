@@ -3,7 +3,7 @@ whenever sqlerror exit failure rollback
 set define on verify off serveroutput on
 declare n number;
 begin
-  if user not in ('E1_QUALIFY','E1_TEST') then raise_application_error(-20603,'Release verification target not registered'); end if;
+  if user not in ('E1_INTEGRATION','E1_UAT') then raise_application_error(-20603,'Release verification target not registered'); end if;
   select count(*) into n from user_errors;
   if n<>0 then raise_application_error(-20604,'Compile errors block release'); end if;
   select count(*) into n from lab_components where installed=1 and ((component in ('Foundation','World') and version='1.0.0') or (component='Hello' and version='1.0.1'));

@@ -16,7 +16,9 @@ if [ -e "$receipt" ]; then echo 'ERROR: candidate receipt already exists; retain
   echo "CANDIDATE SOURCE: $revision"
   python3 scripts/apex_sql.py lab-dev-c deploy/checks/published_development.sql
   bash tests/run.sh --unit
-  if rg -q '"stage": "complete-patch"' release/manifest.json; then
+  manifest=release/manifest.json
+  [ -f "$manifest" ] || manifest=release/initial.json
+  if rg -q '"stage": "complete-patch"' "$manifest"; then
     python3 scripts/apex_sql.py lab-dev-c deploy/checks/patch_development.sql
     python3 scripts/apex_sql.py lab-dev-c tests/sql/hello_patch.sql
   fi

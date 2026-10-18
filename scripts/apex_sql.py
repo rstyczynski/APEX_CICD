@@ -7,6 +7,7 @@ import re
 import subprocess
 import sys
 import tempfile
+from cicd_environments import canonical
 
 ROOT = Path(subprocess.check_output(['git', '-C', str(Path(__file__).resolve().parent), 'rev-parse', '--show-toplevel'], text=True).strip())
 LOCAL = ROOT / '.local-apex'
@@ -30,6 +31,8 @@ def command():
 
 
 def run(body, connection=None, admin=False, save=None):
+    if connection is not None:
+        connection = canonical(connection)
     private = secrets()
     env = os.environ.copy()
     env['JAVA_HOME'] = str(LOCAL / 'tools/jdk-21.0.12.1+1/Contents/Home')
@@ -42,7 +45,7 @@ def run(body, connection=None, admin=False, save=None):
         name, user, key = save
         prefix += f'connect -save {name} -savepwd -replace {user}/"{private[key]}"@//127.0.0.1:1521/FREEPDB1\n'
     elif connection:
-        if not re.fullmatch(r'[a-z][a-z0-9-]*', connection):
+        if not re.fullmatch(r'[a-z][a-z0-9_-]*', connection):
             raise ValueError('Invalid named connection')
         prefix += f'connect -name {connection}\n'
     # A file gives SQLcl its script parser; EOF on piped interactive SQL can
@@ -62,7 +65,7 @@ def run(body, connection=None, admin=False, save=None):
     for value in sorted(private.values(), key=len, reverse=True):
         if isinstance(value, str) and value:
             output = output.replace(value, '[REDACTED]')
-    if result.returncode or re.search(r'(?m)(ORA-|PLS-|SP2-|Unknown Command|Error starting at line|ERROR:)', output):
+    if result.returncode or re.search(r'(?m)^\s*(?:ORA-[0-9]{5}:|PLS-[0-9]{5}:|SP2-[0-9]+:|Unknown Command|Error starting at line|ERROR(?: at line|:))', output):
         raise RuntimeError(output.strip())
     if not re.search(r'(?m)^E1_SQL_COMPLETE\s*$', output):
         raise RuntimeError('SQLcl did not reach its server-side completion marker.\n' + output.strip())

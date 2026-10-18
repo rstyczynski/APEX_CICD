@@ -6,7 +6,7 @@ from apex_sql import ROOT,run
 
 STORE=ROOT/'.local-apex/releases'
 POINTER=STORE/'drift-active.json'
-TARGET='lab-test'
+TARGET='user_acceptance_test'
 APP=810005
 
 def fingerprint():
@@ -16,18 +16,18 @@ def fingerprint():
     return found[0]
 
 def identity():
-    output=run('begin E1_CTRL.e1_release.show_status; end;\n/',connection=TARGET)
-    if not re.search(r'TARGET=E1_TEST APP=810005 EPOCH=\d+ PHASE=ready',output): raise ValueError('Ready retained TEST required')
+    output=run('set serveroutput on\nbegin E1_CTRL.e1_release.show_status; end;\n/',connection=TARGET)
+    if not re.search(r'TARGET=E1_UAT APP=810005 EPOCH=\d+ PHASE=ready',output): raise ValueError('Ready retained TEST required')
     return output
 
 def import_fixture(directory,offset):
     # Reuse the existing target offset. Generated Oracle source stays unchanged.
-    sql=f'''@"{ROOT}/deploy/operator/identity.sql" E1_TEST E1_TEST
+    sql=f'''@"{ROOT}/deploy/operator/identity.sql" E1_UAT E1_UAT
 begin
- apex_util.set_workspace('E1_TEST');
- apex_application_install.set_workspace('E1_TEST');
+ apex_util.set_workspace('E1_UAT');
+ apex_application_install.set_workspace('E1_UAT');
  apex_application_install.set_application_id(810005);
- apex_application_install.set_schema('E1_TEST');
+ apex_application_install.set_schema('E1_UAT');
  apex_application_install.set_application_alias('APEX-DELIVERY-LABORATORY-T');
  apex_application_install.set_offset({offset});
 end;
@@ -68,7 +68,7 @@ def main(action):
         journal.update(phase='changed',changed=changed)
         POINTER.write_text(json.dumps(journal,indent=2)+'\n')
         print('DIRECT PAGE CHANGE INSTALLED: version and release receipt unchanged; live fingerprint differs.')
-        print('Open http://127.0.0.1:8080/ords/f?p=810005:1 to see DIRECT CHANGE — deployment must stop.')
+        print('Open http://127.0.0.1:8080/ords/f?p=810005:1 to see DIRECT CHANGE - deployment must stop.')
         print('Next: bash scripts/cicd-protection-check.sh drift; restoration is a separate explicit operation.')
     elif action=='restore':
         journal=json.loads(POINTER.read_text());work=ROOT/journal['work']

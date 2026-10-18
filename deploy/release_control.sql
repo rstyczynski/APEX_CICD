@@ -11,8 +11,8 @@ begin
       epoch number default 0 not null, phase varchar2(20) default 'new' not null,
       artifact_hash varchar2(64), source_commit varchar2(40), config_hash varchar2(64),
       fingerprint varchar2(4000), owner_name varchar2(30))]';
-    execute immediate q'[insert into e1_release_targets(schema_name,app_id) values ('E1_QUALIFY',810004)]';
-    execute immediate q'[insert into e1_release_targets(schema_name,app_id) values ('E1_TEST',810005)]';
+    execute immediate q'[insert into e1_release_targets(schema_name,app_id) values ('E1_INTEGRATION',810004)]';
+    execute immediate q'[insert into e1_release_targets(schema_name,app_id) values ('E1_UAT',810005)]';
     execute immediate q'[create table e1_release_attempts (
       schema_name varchar2(30) not null, epoch number not null,
       artifact_hash varchar2(64) not null, source_commit varchar2(40) not null,
@@ -56,7 +56,7 @@ end;
 create or replace package body e1_release as
   function actor return varchar2 is v varchar2(30):=sys_context('USERENV','SESSION_USER');
   begin
-    if v not in ('E1_QUALIFY','E1_TEST') then raise_application_error(-20611,'Not a controlled release identity'); end if;
+    if v not in ('E1_INTEGRATION','E1_UAT') then raise_application_error(-20611,'Not a controlled release identity'); end if;
     return v;
   end;
   procedure begin_initial(p_expected_epoch number,p_hash varchar2,p_commit varchar2,p_config varchar2) is
@@ -71,7 +71,7 @@ create or replace package body e1_release as
     if r.epoch<>p_expected_epoch or r.owner_name is not null or r.phase not in ('new','ready') then
       raise_application_error(-20613,'Stale epoch, active or interrupted attempt; inspect before recovery');
     end if;
-    if who='E1_TEST' then
+    if who='E1_UAT' then
       select count(*) into n from e1_qualified_artifacts where artifact_hash=p_hash and source_commit=p_commit and config_hash=p_config and starting_state='empty';
       if n<>1 then raise_application_error(-20614,'No matching empty-target qualification for these exact bytes/configuration'); end if;
     end if;
@@ -104,7 +104,7 @@ create or replace package body e1_release as
     end if;
     select count(*) into n from e1_qualified_artifacts where artifact_hash=p_base and starting_state='empty' and config_hash=p_config;
     if n<>1 then raise_application_error(-20642,'Accepted initial baseline required'); end if;
-    if who='E1_TEST' then
+    if who='E1_UAT' then
       if p_start<>'1.0.0' then raise_application_error(-20643,'TEST patch requires retained initial baseline'); end if;
       select count(*) into n from e1_patch_qualifications where artifact_hash=p_hash and source_commit=p_commit and config_hash=p_config and base_artifact=p_base and starting_state in ('empty','1.0.0');
       if n<>2 then raise_application_error(-20644,'Patch requires fresh AND baseline-upgrade qualification of identical bytes'); end if;
@@ -137,10 +137,10 @@ create or replace package body e1_release as
     select * into r from e1_release_targets where schema_name=who for update nowait;
     if r.phase<>'verifying' or p_fingerprint is null or not regexp_like(p_fingerprint,'^SH256:[A-Za-z0-9+/]{43}=$') then raise_application_error(-20616,'Verification and final fingerprint required'); end if;
     select * into a from e1_release_attempts where schema_name=who and epoch=p_epoch;
-    if who='E1_QUALIFY' and a.base_artifact is not null then
+    if who='E1_INTEGRATION' and a.base_artifact is not null then
       insert into e1_patch_qualifications(artifact_hash,starting_state,source_commit,config_hash,base_artifact,qualification_epoch)
         values(r.artifact_hash,a.starting_state,r.source_commit,r.config_hash,a.base_artifact,r.epoch);
-    elsif who='E1_QUALIFY' then
+    elsif who='E1_INTEGRATION' then
       select count(*) into n from e1_qualified_artifacts where artifact_hash=r.artifact_hash;
       if n=0 then
       insert into e1_qualified_artifacts(artifact_hash,source_commit,config_hash,qualification_epoch,starting_state)
@@ -168,7 +168,7 @@ create or replace package body e1_release as
   procedure retire_disposable_qualification(p_epoch number,p_hash varchar2,p_reason varchar2) is
     who varchar2(30):=actor;
   begin
-    if who<>'E1_QUALIFY' or p_reason is null or length(p_reason)<20 then
+    if who<>'E1_INTEGRATION' or p_reason is null or length(p_reason)<20 then
       raise_application_error(-20633,'Only an inspected disposable qualification attempt may be retired');
     end if;
     assert_attempt(p_epoch,p_hash);
@@ -187,7 +187,6 @@ create or replace package body e1_release as
   end;
 end;
 /
-grant execute on e1_release to E1_QUALIFY, E1_TEST, E1_DEV_A, E1_DEV_B, E1_DEV_C;
 select name,type,line,text from user_errors where name='E1_RELEASE';
 declare n number;
 begin
