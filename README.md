@@ -85,10 +85,18 @@ Sprint **E.1 remains active**. Important unfinished proofs are synchronized comp
 
 The [assessment](progress/E.1/sprint_E.1_assessment.md) recommends focused further Elaboration before full Lifecycle Architecture acceptance. Remote CI runners, protected-branch automation and release approvals are [future extensions](progress/E.1/repo_layout.md#future-pipeline-automation). Cloud deployment, production readiness and high availability are outside the demonstrated scope.
 
-## Vision and delivery method
+## Vision
 
 The Product Owner accepted the vision on 2026-10-16: help Oracle APEX developers and DevOps engineers choose and reproduce a practical CI/CD approach, explain its tradeoffs and validate it with a small application. The product is an evidenced delivery example and its operating guidance. Foundation/Hello/World provides configurable greeting entries and persistent history so the workflow exercises application definitions, database objects and retained data.
 
-The project uses [RUP Strikes Back](AGENTS.md) with [local policy](RUP_patch.md). Sprint 0 and I.1 are closed; E.1 is the active Elaboration sprint. [PLAN](PLAN.md), [BACKLOG](BACKLOG.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) own selection, scope and execution status. The [E.1 design](progress/E.1/sprint_E.1_design.md) defines the selected slice; the [construction record](progress/E.1/sprint_E.1_implementation.md) tracks implementation. Preparing a handover does not close the sprint.
+See the [SRS](docs/srs.md), [candidate architecture](docs/architecture.md), [test profile](docs/test-profile.md) and [roadmap](ROADMAP.md) for the wider contract.
 
-See the [SRS](docs/srs.md), [candidate architecture](docs/architecture.md), [test profile](docs/test-profile.md) and [roadmap](ROADMAP.md) for the wider contract. The supplied [Oracle APEX lifecycle reference](refs/apex-lifecycle-management-v3.pdf) remains external research input.
+## External references
+
+The supplied [Oracle APEX lifecycle reference](refs/apex-lifecycle-management-v3.pdf) remains external research input.
+
+## Method
+
+[RUPStrikesBack](https://github.com/rstyczynski/RUPStrikesBack) is an iterative delivery method for collaboration between a Product Owner and AI agents. It combines RUP lifecycle phases with a prioritized backlog, bounded iterations, explicit requirements/design, executable validation and Product Owner review. Each increment connects its implementation, tests and documentation so decisions can be checked against evidence.
+
+This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0 and I.1 are closed; E.1 is the active Elaboration sprint, focused on proving the delivery architecture before broader construction.
