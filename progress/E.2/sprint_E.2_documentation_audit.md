@@ -466,3 +466,10 @@ the actual exercises. Reconciled test profile, PLAN narrative, assessment and
 README. This later proposal is not attributed to the earlier expert review.
 No test framework or executable was created. Checked links/whitespace and
 preserved pending design approval before scoped review publication.
+
+Corrected E.2 PLAN parameters to Test: none and Regression: none under the
+Product Owner's explicit direction. Reconciled setup, design, test profile and
+assessment so they no longer describe this parameter change as pending. Other
+sprints, assignment and execution statuses remain unchanged. Exercise evidence
+and live handover requirements remain in force; design acceptance is separate.
+Checked exact E.2 parameter values and whitespace before scoped publication.

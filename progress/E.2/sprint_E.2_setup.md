@@ -3,8 +3,9 @@
 ## Contract
 
 Sprint E.2 was activated on 2026-10-19 at the Product Owner's explicit request.
-Mode: managed. Test: smoke, unit, integration. Regression: smoke, unit,
-integration; full registered suite. PBI-051 is the only assigned item.
+Mode: managed. Current Test: none. Current Regression: none, by Product Owner
+direction for the disposable E.2 prototype. Focused exercise verification and
+live handover remain required. PBI-051 is the only root assigned item.
 [PLAN](../../PLAN.md#sprint-e2---assess-e1-against-oracle-lifecycle-guidance)
 owns assignment and lifecycle; the [board](../../PROGRESS_BOARD.md) owns
 execution status. The [scope record](sprint_E.2_proposedchanges.md) is the
@@ -132,8 +133,8 @@ outcome remains unfinished.
 The earlier premature design request remains withdrawn. Following external
 review and explicit Product Owner analysis approval on 2026-10-19, the
 [revised exercise design](sprint_E.2_design.md) is Proposed for its own managed
-approval. It includes an E.2-specific regression-scope proposal; the full-suite
-contract above remains in force until that change is accepted. The
+approval. The Product Owner subsequently directed Test: none and Regression: none;
+those values replace the original full-suite parameters in PLAN. The
 [documentation audit](sprint_E.2_documentation_audit.md) records the transition.
 No exercise, test skeleton, runtime test, live demonstration or completion
 commit is claimed.

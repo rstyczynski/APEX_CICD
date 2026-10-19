@@ -105,8 +105,8 @@ Backlog Items:
 
 Status: Progress
 Mode: managed
-Test: smoke, unit, integration
-Regression: smoke, unit, integration
+Test: none
+Regression: none
 
 On 2026-10-19 the Product Owner refined E.2 to gap analysis of the existing
 E.1 technology against the supplied Oracle APEX lifecycle paper, with focused
@@ -124,9 +124,9 @@ and evidence questions before exercise selection. The Product Owner approved
 analysis on 2026-10-19 after external review. The revised
 [exercise design](progress/E.2/sprint_E.2_design.md) and verification plan are
 Proposed for managed approval; no exercise implementation is
-authorized yet. The revised design proposes experiment-based verification without separate
-automated/regression suites for disposable helpers. This Test/Regression
-parameter amendment is not applied until explicitly approved.
+authorized yet. By Product Owner direction, E.2 uses experiment-based verification without
+separate automated/regression suites for disposable helpers. Expected/actual
+exercise outcomes and the reproducible live handover remain required.
 
 Backlog Items:
 

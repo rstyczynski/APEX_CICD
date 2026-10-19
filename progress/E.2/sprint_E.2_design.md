@@ -381,13 +381,13 @@ missing historical measurements remain unknown.
 
 ### Testing Strategy
 
-For this disposable Elaboration prototype, propose `Test: none` and
-`Regression: none` for separate automated suites. No smoke/unit/integration
+By Product Owner direction, this disposable Elaboration prototype has
+`Test: none` and `Regression: none` for separate automated suites. No smoke/unit/integration
 harness, test skeletons, new-tests manifest or component test manifest is needed.
 Use the focused experiments and their observable checks below instead, as
 permitted by local P1 for proportionate Elaboration evidence. This replaces the
-previous proposed domain regression suite; PLAN parameters change only upon
-explicit acceptance of this revised design/verification approach.
+previous proposed domain regression suite; PLAN now records both values as none.
+Overall design acceptance remains a separate managed gate.
 
 This is not a proposal to remove the experiments that answer the analysis.
 Section scripts still check actual prerequisites, fail on unexpected errors,

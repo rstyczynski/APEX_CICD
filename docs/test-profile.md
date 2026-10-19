@@ -5,10 +5,10 @@
 The [E.2 analysis scope](../progress/E.2/sprint_E.2_proposedchanges.md) requires
 source-traceable gap findings and focused exercises presented through a
 reproducible walkthrough. The [revised E.2 verification design](../progress/E.2/sprint_E.2_design.md#testing-strategy)
-proposes no separate automated/regression suites for disposable helpers. Actual
+uses no separate automated/regression suites for disposable helpers, as directed
+by the Product Owner and recorded in E.2 PLAN parameters. Actual
 exercise assertions, observed outcomes, preservation checks and live handover
-remain required. Design acceptance must include this parameter amendment before
-PLAN changes; current PLAN parameters remain authoritative. No new test skeletons
+remain required. Overall design acceptance remains pending. No new test skeletons
 or test manifests are proposed. A shared/production-code change triggers a fresh
 verification assessment rather than inheriting this prototype-only tailoring.
 
