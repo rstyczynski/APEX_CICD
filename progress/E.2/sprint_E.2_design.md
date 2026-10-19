@@ -11,9 +11,11 @@ preserved at commit `cb766e5f6a3bd3a06454afb62fae275cb27c1e8d`; the captured
 review ZIPs retain their original contents. No exercise, provisioning, test
 skeleton or runtime verification has been performed under this design.
 
-The [external design review prompt](sprint_E.2_design_review-1-prompt.md)
-prepares design round 1 for Product Owner relay. No expert design verdict has
-been received; analysis review closure is a separate event.
+The [external design review](sprint_E.2_design_review-1.md) raises no findings
+and supports Product Owner acceptance, including the regression proposal.
+The [engineering response](sprint_E.2_design_review-1-response.md) and
+[assessment](sprint_E.2_assessment.md) record closure. The reviewed technical
+design remains unchanged; this status note does not accept it or implement it.
 
 The [analysis](sprint_E.2_analysis.md) owns findings, H-1/H-2 and EQ-1–5;
 [PROJECT fit assessment](project-fit-assessment.md) owns PF-01–12. The

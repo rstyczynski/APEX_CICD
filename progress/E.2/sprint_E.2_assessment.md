@@ -1,6 +1,6 @@
 # E.2 — interim assessment
 
-This is the active sprint's analysis-review assessment, not a final PBI-051 or
+This is the active sprint's analysis/design-review assessment, not a final PBI-051 or
 sprint acceptance record. [PLAN](../../PLAN.md) owns sprint assignment;
 [PROGRESS_BOARD](../../PROGRESS_BOARD.md) now records design in progress after
 explicit Product Owner analysis approval on 2026-10-19.
@@ -21,14 +21,20 @@ Round 1 is closed with no findings requiring correction or disposition. No
 additional expert exchange is needed for this objective. Closure is recorded
 here; it is neither Product Owner design acceptance nor sprint closure.
 
-## Remaining work and gates
+## External design review round 1
 
-External design review round 1 is prepared in the
-[design-subject prompt](sprint_E.2_design_review-1-prompt.md). Review source
-`74bff78f48cbac91beb867d38d1ce555c354a9a2` is committed, pushed and confirmed
-on the remote; the original overlay remains historical. The
-Product Owner relays it; the expert report is pending. This is separate from
-the closed analysis round and does not approve the design/regression amendment.
+The [original design report](sprint_E.2_design_review-1.md), identifying the
+reviewer as Grok 4.7, reviews
+`74bff78f48cbac91beb867d38d1ce555c354a9a2` and raises no findings. Its verdict
+is **ready for Product Owner design acceptance**, explicitly supporting the
+proposed E.2-only regression scope. The design is unchanged at the current
+published source-access checkpoint. The
+[engineering response](sprint_E.2_design_review-1-response.md) agrees with the
+limited verdict. Design round 1 is closed without corrections or a further
+feedback exchange. This is separate from analysis round 1, and neither round
+closure accepts the design/regression amendment for the Product Owner.
+
+## Remaining work and gates
 
 The [analysis](sprint_E.2_analysis.md), [review summary](sprint_E.2_inception.md)
 and [PROJECT fit assessment](project-fit-assessment.md) supply the evidence
