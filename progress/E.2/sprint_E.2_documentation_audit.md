@@ -426,3 +426,11 @@ implementation acceptance is claimed. Remote success is verified after push.
 Removed irrelevant historical draft/ZIP packaging wording from the design
 introduction. Current review access is the published Git revision. Technical
 design and pending approval are unchanged; whitespace check passed.
+
+Clarified the Product Owner's requested execution sequence: one PROJECT-initialized
+local Git repository first, Working Copy outcomes captured into it through Main,
+then staging/release and appropriate E.1-tool reuse. Removed separate-primary-repo
+ambiguity and the .2/.3 handoff dependency ambiguity. Lower-level exports remain
+comparison outputs. Assessment and design identify this post-review clarification
+without inventing independent re-review or implementation approval. Checked
+wording consistency, local links and whitespace before scoped publication.

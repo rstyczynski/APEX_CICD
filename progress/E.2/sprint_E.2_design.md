@@ -12,8 +12,9 @@ skeleton or runtime verification has been performed under this design.
 The [external design review](sprint_E.2_design_review-1.md) raises no findings
 and supports Product Owner acceptance, including the regression proposal.
 The [engineering response](sprint_E.2_design_review-1-response.md) and
-[assessment](sprint_E.2_assessment.md) record closure. The reviewed technical
-design remains unchanged; this status note does not accept it or implement it.
+[assessment](sprint_E.2_assessment.md) record closure. The verdict applies to its pinned source. The Product Owner
+subsequently clarified the common-repository sequence below; no independent
+recheck of that clarification or implementation approval is claimed.
 
 The [analysis](sprint_E.2_analysis.md) owns findings, H-1/H-2 and EQ-1–5;
 [PROJECT fit assessment](project-fit-assessment.md) owns PF-01–12. The
@@ -69,22 +70,24 @@ the design approves this decomposition; none is complete now.
 
 1. **PBI-051.1 — Establish safe inputs and evidence boundaries.** Outcome:
    pinned source/tool inventory, historical comparison, owned disposable
-   resources and evidence ledger. Acceptance: retained E.1 state is identified,
+   resources, one PROJECT-initialized local Git repository and evidence ledger.
+   Acceptance: the initial Main source is captured, retained E.1 state is identified,
    a foreign target is refused, and source/evidence levels are distinguishable.
    Dependencies: approved design and existing E.1 evidence.
 2. **PBI-051.2 — Qualify Working Copy capture into Git.** Outcome: an observed
    authoring/checkpoint/reconstruction path with usability and failure limits.
    Acceptance: both intended changes survive reconstruction; stale/deletion
    handling and abandonment are observed or explicitly fail with evidence.
-   Dependency: PBI-051.1; uses native artifact handoff from .3 for the combined
-   path, without requiring .3 to finish before authoring can be exercised.
+   Dependency: PBI-051.1. Capture the agreed Main outcome in that same
+   PROJECT-initialized repository; .3 subsequently qualifies its native artifacts.
 3. **PBI-051.3 — Assess PROJECT compatibility and retained admission controls.**
    Outcome: a native initial/change release slice, repository handoff assessment
    and declared-dependency admission evidence. Acceptance: PF findings identify
    actual captured scope, migration ownership, artifact identity, mapped-target
    outcomes, preservation and allowed/rejected declarations. An evidenced tool
    failure is a valid assessment outcome, not an equivalent-delivery claim.
-   Dependency: .1; combines .2's accepted Main checkpoint for final H-1/H-2 proof.
+   Dependency: .1 and .2; use their existing repository and accepted Main
+   checkpoint to complete native staging/release and H-1/H-2 assessment.
 4. **PBI-051.4 — Deliver the gap decision and reproducible handover.** Outcome:
    classified findings, reconciled follow-up and ordered roadmap plus presentation
    pair/manual/live demonstration. Acceptance: the Product Owner can inspect
@@ -145,14 +148,35 @@ fencing, account security or availability equivalence. If an important conclusio
 requires omitted behavior, leave that conclusion unproved and identify its
 existing follow-up; do not silently enlarge the fixture.
 
-Work under `.local-apex/e2/<run>/` in separate scratch Git repositories with
-`codex/` branches. Pin the source revision and record all imported file hashes.
+Work under `.local-apex/e2/<run>/` in one primary scratch Git repository with
+`codex/` branches. Initialize Git, initialize PROJECT in it and capture the
+initial Main application/schema baseline before Working Copy exercises. Capture
+agreed Main outcomes after Working Copy integration into this same repository
+using PROJECT. Reuse E.1 tools when their contracts fit, including the existing
+compatibility validator. Lower-level exports are comparison/reconstruction
+outputs, not a second maintained source or migration authority. Any repository
+layout trial uses a disposable branch/copy of the common baseline and never
+becomes a competing primary repository. Pin source and imported file hashes.
 Do not initialize PROJECT in this working checkout or restructure its product
 sources. Create one repository compatibility trial containing a pinned E.1 source
 layout plus an additive native project root; record which files are authoritative
 and which are frozen comparison inputs. Try native configuration before writing
 an adapter. Keep PROJECT-generated changelogs separate from E.1's migration
 history; no changelog synchronization against an unverified baseline is permitted.
+
+### Execution sequence in the common repository
+
+1. Complete safe preparation, create the local Git repository, initialize
+   PROJECT and record its filtered initial Main/schema capture.
+2. Exercise Working Copies in APEX, integrate into Main, then export/review/
+   commit those outcomes in that same PROJECT repository. A Working Copy itself
+   remains an APEX authoring resource; its agreed result enters Git through Main.
+3. Continue PROJECT staging, native artifacts and reconstruction from those
+   commits, applying E.1 tools where appropriate and recording adaptations.
+4. Qualify declarations/admission, compare outcomes and deliver the gap decision.
+
+X1 and X2 below describe evidence responsibilities, not separate repository
+implementations or a requirement to finish all of X1 before initializing PROJECT.
 
 ### Exercise X1 — Working Copies, team checkpoint and reconstruction
 
@@ -163,7 +187,8 @@ Start from the captured fixture baseline and a recorded synthetic history/config
 sentinel. Create one Working Copy; change a visible page heading there and a
 disjoint heading in Main. Compare, refresh and merge with actual App Builder
 controls, recording selected changes and operator reasoning. Take one agreed
-Main team checkpoint into local Git. Lower-level export uses the documented
+Main team checkpoint into the common repository through PROJECT export and
+reviewed commit. The supplementary lower-level export uses the documented
 split/original-ID/no-date profile; inspect the diff and full schema dependency
 inventory. Reconstruct in the fresh owned target and verify both headings,
 shared LOV behavior and the expected greeting. Compare with a Main-authored
@@ -189,8 +214,9 @@ as a documented public API, and no undocumented APEX package is invoked.
 Decision: is native workflow fit plausible with a bounded integration cost
 (H-1 and combined H-1/H-2, EQ-2; PF-01–07/10–12; paper 18–20, 26–30)?
 
-In scratch Git, establish the comparison base explicitly; initialize a filtered
-native project for the owned authoring schema and Main app only. Inspect export
+During preparation in the common Git repository, establish the comparison base
+explicitly and initialize a filtered native project for the owned authoring schema
+and Main app only. Continue that same project after X1 captures its outcomes. Inspect export
 inventory and exclude Working Copies, control fixtures, credentials and business
 data. Review the exported source, commit it, stage against the recorded base,
 review/install order and any custom SQL, then commit the distribution. Run native

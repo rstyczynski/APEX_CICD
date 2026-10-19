@@ -34,6 +34,12 @@ limited verdict. Design round 1 is closed without corrections or a further
 feedback exchange. This is separate from analysis round 1, and neither round
 closure accepts the design/regression amendment for the Product Owner.
 
+After that review, the Product Owner clarified the common-repository sequence:
+initialize one local Git repository for PROJECT, capture Working Copy outcomes
+there through agreed Main checkpoints, and reuse E.1 tools where appropriate.
+The maintained design makes that sequence explicit. The historical external
+verdict remains bound to its reviewed revision; no new recheck is implied.
+
 ## Remaining work and gates
 
 The [analysis](sprint_E.2_analysis.md), [review summary](sprint_E.2_inception.md)
