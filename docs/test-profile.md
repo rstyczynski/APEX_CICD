@@ -2,6 +2,23 @@
 
 ## Status and purpose
 
+The [E.2 analysis scope](../progress/E.2/sprint_E.2_proposedchanges.md) requires
+source-traceable gap findings and focused exercises on the current E.1 baseline,
+presented through a reproducible walkthrough. Define applicable smoke, unit,
+integration and regression checks for code-bearing exercises during design;
+document review alone does not establish runtime behavior.
+
+The [E.5 upgrade scope](../progress/E.5/sprint_E.5_proposedchanges.md) requires
+compatible and breaking Foundation upgrade evidence, migration catch-up,
+continuous unaffected-consumer traffic, dual-write failure/recovery checks and
+separate component maintenance windows. Exact commands and measurable limits
+must be approved during E.5 design on the stabilized toolchain; existing E.1 checks do not establish these
+new acceptance outcomes.
+
+The [E.3 scope](../progress/E.3/sprint_E.3_proposedchanges.md) plans native-APEX collaboration plus the common native release, utPLSQL coverage, Cypress and audit gates. The [E.4 scope](../progress/E.4/sprint_E.4_proposedchanges.md) separately requires parallel Git integration, private-target reconstruction, central DEV synchronization and fresh regression for changed artifacts. Each approved design must materialize exact commands and behavioral mappings before code-bearing execution; neither the E.1 commands nor E.3’s earlier results automatically qualify E.4 source.
+
+Both planned iterations must satisfy the [strict Oracle traceability and E.1 comparison contract](../progress/E.3/sprint_E.3_proposedchanges.md#strict-oracle-traceability-and-comparison-contract): scenario-level paper pages and applicable official version-specific Oracle guidance, executed evidence, explicit deviation dispositions and decision-ready comparisons at each handover.
+
 The [E.1 handover checks](../progress/E.1/tests/handover_checks_20261018.txt), [presentation walkthrough](../progress/E.1/sprint_E.1_increment_demo.md) and [completion assessment](../progress/E.1/sprint_E.1_assessment.md) identify current executable evidence and remaining cases. The I.1 future-command statements below preserve the original analysis contract; they are not a current inventory of implemented scripts or a claim that every specified test has passed.
 
 The [repository and pipeline draft](../progress/E.1/repo_layout.md#pipeline-paths-and-release-identities) maps source/artifact/environment roles to these checks. Keep it aligned with this contract and the linked E.1 execution evidence.

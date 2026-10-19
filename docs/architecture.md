@@ -4,6 +4,25 @@
 
 ## Decision status
 
+The [E.2 analysis scope](../progress/E.2/sprint_E.2_proposedchanges.md) uses
+E.1's existing technology to assess the approach against the Oracle lifecycle
+paper and applicable official guidance. Focused exercises establish evidence
+for gaps, solutions and blockers before recommending retained or replacement
+mechanisms and the evolution roadmap. Tool limitations and policy conflicts
+must be distinguished; the target toolchain is not presumed validated.
+
+The [E.5 upgrade scope](../progress/E.5/sprint_E.5_proposedchanges.md) records
+the planned Foundation API/schema coexistence scenario. Initial data migration
+and legacy writes to both schema representations are agreed scenario inputs;
+transaction mechanics, shared-data visibility, version binding and recovery
+remain design decisions. The application-wide maintenance approach below must
+be refined before claiming independent consumer maintenance and availability.
+E.5 follows acceptance of the stabilized technology/toolchain.
+
+The [E.3 scope](../progress/E.3/sprint_E.3_proposedchanges.md) plans the APEX-native team-centric path and shared native release/test foundation; the [E.4 scope](../progress/E.4/sprint_E.4_proposedchanges.md) plans the separate Git-based feature-centric path, including validation of branch-instance identities. Both are Planned. Their designs must replace or justify custom release responsibilities while keeping APEX Main integration distinct from Git main integration. The E.1 mechanisms below describe the earlier candidate and demonstrated implementation, not a mandate to reproduce its custom packager.
+
+Both planned iterations must satisfy the [strict Oracle traceability and E.1 comparison contract](../progress/E.3/sprint_E.3_proposedchanges.md#strict-oracle-traceability-and-comparison-contract): scenario-level paper pages and applicable official version-specific Oracle guidance, executed evidence, explicit deviation dispositions and decision-ready comparisons at each handover.
+
 Current E.1 evidence is summarized in the [handover](../progress/E.1/sprint_E.1_handover.md) and [completion assessment](../progress/E.1/sprint_E.1_assessment.md). E.1 was closed on 2026-10-18 after the selected A–I slice, including bounded repair, passed. Remaining concurrency, complete maintenance fencing, scoped schema drift and broader acceptance proofs are recorded in the follow-up backlog before full Lifecycle Architecture acceptance. Historical I.1 future-tense statements below describe the analysis baseline; use the linked assessment for implementation status.
 
 Accepted as the revised I.1 analysis direction by the Product Owner on 2026-10-16, with the presentation wording correction. This is a direction for Elaboration validation, not a validated architecture baseline or E.1 construction approval. The [SRS](srs.md) owns behavior and scope; the [research](cicd-research.md) owns alternatives and source provenance. PBI-009 owns this document.

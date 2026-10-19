@@ -7,6 +7,8 @@ Fill every bracketed field from actual repository evidence before handing a prom
 ```text
 You are the independent external reviewer for [repository/product], sprint [ID], review round [N].
 Lifecycle phase and objective: [phase, accepted use cases and the decision this review supports].
+Git repository URL: [actual configured project remote URL, or explicitly no remote].
+Branch/ref: [named review branch/ref and whether its remote availability was verified].
 Review revision: [full SHA]. [Matches maintained baseline / differs as explained].
 Source access: [provided checkout/files or repository/ref actually containing this SHA].
 Working changes included: [none, or exact supplied patch/files and their relation to the SHA].
@@ -29,6 +31,7 @@ Attach/supply the actual round-contract header/status guidance if the expert can
 ```text
 Act as the external reviewer for sprint [ID], round [N], reacting to the engineering response.
 Original reviewed revision: [full SHA]. Engineering answer/current revision: [full SHA and explained differences].
+Git repository URL and branch/ref: [actual project URL and relevant refs; identify separately supplied changes].
 Inputs: [original review, engineering response, relevant evidence and earlier decisions].
 Allowed actions: [read-only inspection or explicitly authorized checks].
 
@@ -42,6 +45,7 @@ Save the complete Markdown to [exact sprint_<ID>_review-<N>-feedback.md path], w
 ```text
 External review clarification for sprint [ID], round [N], message [K].
 Finding IDs: [existing IDs]. Revision: [full SHA and any relevant change].
+Git repository URL and branch/ref: [actual project URL and relevant ref].
 Inputs: [prior expert message, engineering answer and bounded evidence].
 Unresolved question: [one concrete uncertainty preventing a decision].
 Engineering position: [evidence-backed answer and acknowledged limits].

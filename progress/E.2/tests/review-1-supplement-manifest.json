@@ -1,0 +1,24 @@
+{
+  "round": "E.2/1",
+  "correction": "Git URL and branch in prompt/skill; no analysis input changes",
+  "baseline_sha": "05fed3006564d83eb1af16328891f84f611fe905",
+  "original_archive_sha256": "9826f97e3bd50a53e71f06e18f2a6bb119722d8b6edc2a4b838c25bfc64a5b5b",
+  "overlay_files": [
+    {
+      "path": ".agents/skills/rup-external-review/SKILL.md",
+      "sha256": "09ac4d573748635f55f99a6a7860d0f1a4ed0385b1d2e9cf5053ef05671fb7d7"
+    },
+    {
+      "path": ".agents/skills/rup-external-review/references/prompts.md",
+      "sha256": "7d1e3d89430ab74952f4cf98c07614ce0e1362cdc87a03e5e88d2ba4831f7fda"
+    },
+    {
+      "path": "progress/E.2/sprint_E.2_review-1-prompt.md",
+      "sha256": "8c51dcd5946ad329d0c4b731f0783e27090a8357af8596272fee706a37d530e6"
+    },
+    {
+      "path": "progress/E.2/sprint_E.2_review-1-clarification-1-prompt.md",
+      "sha256": "ce0e9505980123b47f01689fc579392f24a03deee3ed1ae7c383c2040075c33c"
+    }
+  ]
+}

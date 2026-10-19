@@ -1,0 +1,11 @@
+Round: E.2/1
+Baseline: 05fed3006564d83eb1af16328891f84f611fe905
+Source files: 319
+Manifest SHA-256: 753a52ccabf61d8126dd5dcd244361ca9123a0cbda662f9478e02fabbac6656b
+Archive SHA-256: 9826f97e3bd50a53e71f06e18f2a6bb119722d8b6edc2a4b838c25bfc64a5b5b
+Archive bytes: 12993326
+ZIP CRC and per-file SHA-256 checks: PASS
+Known credential signature screening of supplied files: PASS
+Excluded runtime env files: scripts/apex-images.env
+Runtime execution: none
+Expert report: pending; not created

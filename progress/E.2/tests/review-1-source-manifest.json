@@ -1,0 +1,1932 @@
+{
+  "round": "E.2/1",
+  "date": "2026-10-19",
+  "baseline_sha": "05fed3006564d83eb1af16328891f84f611fe905",
+  "method_submodule_sha": "a875404e4452f77d3c16e08e3e1ab8c0afe5be38",
+  "scope": "Analysis readiness; current supplied working files override baseline; no E.2 runtime proof",
+  "exclusions": [
+    "Runtime env files and credentials",
+    "Database/business data",
+    "Ignored release archives and runtimes",
+    "E.1 diagram working changes",
+    "E.3/E.4/E.5 artifact directories",
+    "Historical receipts not explicitly supplied; their linked absence is a review limitation",
+    "Method submodule source; local policy and review contract supplied"
+  ],
+  "files": [
+    {
+      "path": ".agents/skills/rup-external-review/SKILL.md",
+      "sha256": "daf4e9886e23dc443e3856353896ee0c9c9a89f1e241410c9685632170eea44d",
+      "bytes": 6747,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": ".agents/skills/rup-external-review/references/prompts.md",
+      "sha256": "4a87ad5f1fcaf4be3bbdb48c8875b88b3d3d0564b3b443263456bf5f05bf01c0",
+      "bytes": 5089,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": ".agents/skills/rup-external-review/references/round-contract.md",
+      "sha256": "9f01c09ccd30a4c14790b23b934a1ee13c9478db9f2adab1a007fa5037a87dcd",
+      "bytes": 5741,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "9ad61063e5e42ed8bdab9fd5868fc187ed0bc89e0af162bd346a37d01c69e2bd",
+      "bytes": 3170,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "BACKLOG.md",
+      "sha256": "dc93f4610523c54f132a8e9d25241bb46f18d9910096d6600ba1980d824b5b95",
+      "bytes": 25518,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": "PLAN.md",
+      "sha256": "801eeb55ad7a335e27733ac3f33d2233bbc76d618ec882467b18c87de52d1398",
+      "bytes": 10320,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": "PROGRESS_BOARD.md",
+      "sha256": "3ab6ac45b8e4e68738cec196f321716c78b140ba0519b187b12864a965c19c35",
+      "bytes": 2316,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": "README.md",
+      "sha256": "4959b5d32d3cca4d9c5d1288817cb8d78eeb9a5afc2c3904c5ba29bba7664255",
+      "bytes": 15412,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": "ROADMAP.md",
+      "sha256": "d9b6c43a7227307a2cd19760ef3a0ed42a5e84b03feb81d7070f11f47b8efc4b",
+      "bytes": 9097,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": "RUPStrikesBack.patch/RUP_patch.md",
+      "sha256": "ebcda1287ac2486218fa14aa3439259e91aefd4e8671be9a0e19cc121faf3ed8",
+      "bytes": 39610,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "RUPStrikesBack.patch/USER_PREFERENCES.md",
+      "sha256": "d74eb874e264be68b7216ed96e8cea325cecaa4ade11512dd5ad02086f156d72",
+      "bytes": 2098,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "RUP_patch.md",
+      "sha256": "bcafec06c78e1e760e57b76219153de08d6fed7d067770c8c68c111930079351",
+      "bytes": 905,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/create_application.sql",
+      "sha256": "3629235d5961464293e4839c87220a7fe49b49e3110980b44bcbae6adfdaca02",
+      "bytes": 2198,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/delete_application.sql",
+      "sha256": "8aad0be3649531314802d7e578a5542e8394687267548e07b7e2a64330f7fc86",
+      "bytes": 362,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/end_environment.sql",
+      "sha256": "11da7a7db8ec9ed63adcfffd444f2e5ac0f1742afb6a93d8e163391727349167",
+      "bytes": 229,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/pages/page_00000.sql",
+      "sha256": "0d12cfdef5cfa37b66d6de8726d409201b5da66348840be0a3fe1705f7c35a35",
+      "bytes": 581,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/pages/page_00001.sql",
+      "sha256": "ccaabf2f68f1d59cdcd9ceb26d6c3e84c73e5557a971c0a5f7070815125e2dbb",
+      "bytes": 3445,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/pages/page_00010.sql",
+      "sha256": "20886bf5b44112bb53de3fb316b3f0cc0b6c59db89b3446e89a52e0ac92f0de7",
+      "bytes": 4964,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/pages/page_00020.sql",
+      "sha256": "d9b6b3278e940badab8c4271cb65d87d65ca5c452a5d1e0be997e6cf8cb0111b",
+      "bytes": 3332,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/pages/page_00100.sql",
+      "sha256": "1116f62a666c5fb769cec79a91cc95da12141cc8ed00dd4e1ec7391aac4f4bf1",
+      "bytes": 4614,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/pages/page_00101.sql",
+      "sha256": "23376f44348171fe5762f7f7cb7a99374df753d23af29f5c2a19304586faeb64",
+      "bytes": 7426,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/pages/page_00110.sql",
+      "sha256": "baf93736b613dcfbe75972167eae21898835750106bfab260427c2c9254e0076",
+      "bytes": 4790,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/pages/page_00111.sql",
+      "sha256": "e90ce0b2b111b57f300294a0b0a18c5c326c9235a6689982b50502e5c7ac6cbf",
+      "bytes": 7437,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/pages/page_00200.sql",
+      "sha256": "79a60539fd379cf5cdab3ff6f3c210cc0f9ba3567905dc8c033613016e1b2430",
+      "bytes": 4614,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/pages/page_00201.sql",
+      "sha256": "43501b7fc829411d059e4af57d6404e3cedc3fa5b85ce52fc6f296b5f08e058e",
+      "bytes": 7427,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/pages/page_00210.sql",
+      "sha256": "6f149ee27db09dc9b87be3f47879c3b7c200eca456810f7d30bcd228ce5eb314",
+      "bytes": 4790,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/pages/page_00211.sql",
+      "sha256": "7000190ab04d6ceda925330c8f56d70492de1fbfdc05c2b8c4d9e8a5e8923cdd",
+      "bytes": 7437,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/pages/page_09999.sql",
+      "sha256": "4a180cc8877ac24910d6694f605f47a9b02d23e67c767c3703fea4ea3bec45a9",
+      "bytes": 6873,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/pages/page_groups.sql",
+      "sha256": "ca67df917162eb932c0408399583b6222871434274fa812b35953279eea407d0",
+      "bytes": 487,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/plugin_settings.sql",
+      "sha256": "4aeb22c2e410a03b6a9e7cd3d67e5099a16f068ae2858467ee28b53f06a17e19",
+      "bytes": 4148,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/set_environment.sql",
+      "sha256": "38c57ca603ca2397193bdf9d1157b32b19e1ffa0766335907a7da76843e8eefd",
+      "bytes": 1025,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/files/icons_app_icon_144_rounded_png.sql",
+      "sha256": "572ef0ff97e8b353983c7a1cd8998a886c5119be9f7c696d6b669dd048cbcbbd",
+      "bytes": 7867,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/files/icons_app_icon_192_png.sql",
+      "sha256": "c0fb025172272dbfb7545c547688909b73bcef36847a963198a38e36ba3f07b4",
+      "bytes": 10072,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/files/icons_app_icon_256_rounded_png.sql",
+      "sha256": "1361326e2f06a43eca494532cdc9e0af73e5a28eb66ec7b2c692fcd316ebf4d3",
+      "bytes": 15979,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/files/icons_app_icon_32_png.sql",
+      "sha256": "043229ca4941847abee8d11a9cdfc117048ccc95498587963b590756ccd83f95",
+      "bytes": 2004,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/files/icons_app_icon_512_png.sql",
+      "sha256": "7f329a4f54b5639d484178fcc059c7795629d77b50380223544d10885b0a2273",
+      "bytes": 35536,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/globalization/dyntranslations.sql",
+      "sha256": "058becb050ea239996850ce2698c69bc86dccb7c403dd3dcf6b63f838053364e",
+      "bytes": 419,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/globalization/language.sql",
+      "sha256": "0631fbcb42781eca61c3cc33e56b15fe440c9bb9d0611153e7ca16daa365385c",
+      "bytes": 404,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/globalization/messages.sql",
+      "sha256": "8fa6e304585de5de1297183bfe0af4ab5e79a1969a3ae188958e01ef8c2702f6",
+      "bytes": 400,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/logic/application_settings.sql",
+      "sha256": "96b25156672b763ffe7d80dfcd85b9f9e6ff054f4e19573fda3fde6c6215b25a",
+      "bytes": 416,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/logic/build_options.sql",
+      "sha256": "816fed286cde88aeac183a7ab82aeeb789c6a67a1cce54fb14308bdd6a8be3b3",
+      "bytes": 577,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/navigation/breadcrumbentry.sql",
+      "sha256": "d71452f15da25ea8e5f6d3e82f567ea8def8edeeb80ad4167f76ebd51e8c4997",
+      "bytes": 406,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/navigation/breadcrumbs/breadcrumb.sql",
+      "sha256": "34eda17a6ea438b5a9887e56ca238588c64a3f16f41255f5a38e563c3b388e9e",
+      "bytes": 1795,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/navigation/listentry.sql",
+      "sha256": "309e58e4d6484ed74a9f505f47af5644061fa6dc07e5e9efc4c4e6505d83ab47",
+      "bytes": 394,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/navigation/lists/navigation_bar.sql",
+      "sha256": "ba14bd04bb6c24213f2229dbeabad95cc1b5112d90a6040d63e9757229aae32b",
+      "bytes": 1561,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/navigation/lists/navigation_menu.sql",
+      "sha256": "e627b5f0f9fb9688f9cf34ac9ffc92ea56d718d86f06a7bcc1ebb18c527c3b37",
+      "bytes": 2973,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/navigation/navigation_bar.sql",
+      "sha256": "8d0adc490030a027acc68186f8759aa990f6bcc9e1cb9b10b75ee66a6e62811e",
+      "bytes": 409,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/navigation/tabs/parent.sql",
+      "sha256": "f2a3c2b2bc3dfde8cae2368b2fbbd408a6c1e4926ac1cd05ab0f133031278e6f",
+      "bytes": 406,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/navigation/tabs/standard.sql",
+      "sha256": "c09d19ac1f6d485573ff39bf82b03f988bda88955de0fba627f2ccdb5ba2f4aa",
+      "bytes": 398,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/security/authentications/oracle_apex_accounts.sql",
+      "sha256": "e2f544ba805c5bf642b83b88b3ad10e7fa36a3e47b99b1ebf125e41dd5cf1429",
+      "bytes": 696,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/security/authorizations/administration_rights.sql",
+      "sha256": "1c3dab26ef9c8f0038ded65df0b31685daf1004c134501d688ac7097bb1a380d",
+      "bytes": 764,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/user_interface/lovs/hello_entries_entry_text.sql",
+      "sha256": "cacf23e2155f3ef69502ae89056bdb2d52c49745c55ffc6399155f44b4d97cbe",
+      "bytes": 796,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/user_interface/lovs/world_entries_entry_text.sql",
+      "sha256": "64f367d5fad0554843507a7202dc06e9d34cae3fd70e1a8f1c54d7e01e482e29",
+      "bytes": 796,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/user_interface/template_opt_groups.sql",
+      "sha256": "47ce304cd976d2e5789633b07083c1f8cd28b1023fb8bc36358196b5ec38b096",
+      "bytes": 423,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/user_interface/template_options.sql",
+      "sha256": "0afcc53a133adc77cc5899d23c154402495b63c8b076a0bf226ee086160ccbf9",
+      "bytes": 414,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/user_interface/templates/popuplov.sql",
+      "sha256": "838ca7da63d2c9be71bc1d23e9547923c983a26987f06e7040d30482b6540264",
+      "bytes": 416,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/user_interface/theme_files.sql",
+      "sha256": "d8a713920e81ec5c123d7a6a8f4dd877eba0d977bf0b6e2f45d95888ad9fdb82",
+      "bytes": 407,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/user_interface/theme_style.sql",
+      "sha256": "02c1c1bd6a7947a83f1542b2bb5eb51d6d8e4d8d1e5b61c6ef0507a36008953d",
+      "bytes": 407,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/shared_components/user_interface/themes.sql",
+      "sha256": "4f5bf7e40f0266abb3195123c9d1be51dbddf29f9e4fdd06663669cb1345d898",
+      "bytes": 2556,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/user_interfaces.sql",
+      "sha256": "4350d2fc623c87c9ba836878f01cd2701ec8ea439e10d94771e46bb1773e3e37",
+      "bytes": 1075,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/application/user_interfaces/combined_files.sql",
+      "sha256": "cbaed767f1c9a0d50f117c530fc1281dc2150eac4a60d3e53479b632b19bad63",
+      "bytes": 396,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "apex/f810001/install.sql",
+      "sha256": "85b776a1485d01b2f2d8a25110706f860655b4bacb2904ff115c01f1cbe47ec4",
+      "bytes": 2638,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "config/areas.json",
+      "sha256": "37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0",
+      "bytes": 575,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "db/changelog.xml",
+      "sha256": "f1b36d3a4e4da8ef358b497f738fc8a8d8e89b42d68a7e8972de0eae8a318cb4",
+      "bytes": 1212,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "db/changes/001-foundation.sql",
+      "sha256": "62a8e43a790e12ccfd6e15c5be95dda2018feaa062b9274c7b7e7adfc459a022",
+      "bytes": 1447,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "db/changes/002-foundation-runtime.sql",
+      "sha256": "c377b1c9f4e4ba4f36d40d013b7af99fac2511ea738c8f8d36a992f5dd7246b7",
+      "bytes": 3121,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "db/changes/003-hello.sql",
+      "sha256": "0d16c245c13de9d6626fcc9cfb8dad8ae0ed8c7adedeafaa05c630a5c6c258c3",
+      "bytes": 1837,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "db/changes/004-world.sql",
+      "sha256": "c66879f2efab92b80719e47abb9e8aca5f96bdfaeb2a28cf21a0cbcc562d278b",
+      "bytes": 1837,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "db/changes/005-hello-1.0.1.sql",
+      "sha256": "9de195b845fa9bb1be368e0f06ac71d3b740e827cd742b2298b40891a1e2152b",
+      "bytes": 930,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/checks/application_inventory.sql",
+      "sha256": "9a29627f7cdda10b45a03200c0ee06145d68852ed1189cb3b41be30299bb1e46",
+      "bytes": 154,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/checks/complete_assembly.sql",
+      "sha256": "e3f3348371c65fe34d55316e4c0196f94157cdf5a2270dd8a62b280fe37cd49a",
+      "bytes": 1064,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/checks/create_probe.sql",
+      "sha256": "201bcf151aff3932d79368e224400c5a18a4c90e94147eef8783197b31b30043",
+      "bytes": 392,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/checks/deny_read.sql",
+      "sha256": "e9964b35c98e8f1aeb3e5eaf708d96f873d460b609db43ac0ac78776dce3c22d",
+      "bytes": 386,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/checks/deny_write.sql",
+      "sha256": "f718c273206b579e29d5803104d0446fc0021472ad9ed45e746b5a2dbc1974ce",
+      "bytes": 378,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/checks/foundation_contract.sql",
+      "sha256": "a595d122d2bf7acd5fb19ba0be6ac84a78e22b3debccd8555f08acf2edb6d589",
+      "bytes": 732,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/checks/hello_assembly.sql",
+      "sha256": "22f0e91437958ef4e380ec62967704d699f506e64a41c6f8268f7daef3f7bf8e",
+      "bytes": 1029,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/checks/identity.sql",
+      "sha256": "06193ffa623e16189fdb424c26972aedc364447eb2fafa8879161e78c536bf48",
+      "bytes": 636,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/checks/initial_import_blocked.sql",
+      "sha256": "6c64de7eaf07fdd3039f60ca545e42ca700d191b425b7eaaaaa1abf40489f253",
+      "bytes": 680,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/checks/initial_target.sql",
+      "sha256": "d33a1083334df2837c71404c05a29aaf69e1a939b53e3a848ce32d938e197954",
+      "bytes": 1175,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/checks/patch_development.sql",
+      "sha256": "1a7fe45a8cad5c97627147df193bb8d550c0e309b8a7b5122359947bc36f967c",
+      "bytes": 1955,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/checks/patch_integrity.sql",
+      "sha256": "debb20fe71fe76d419f6cb3ed265d3d3039ad8d73aa4ad00f52cc45a8f97f469",
+      "bytes": 1996,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/checks/published_development.sql",
+      "sha256": "865ec7fea8e1511284036d8a3d1f3bfa567160a096941baafda8ea7dd1e94bf3",
+      "bytes": 657,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/checks/release_environment.sql",
+      "sha256": "83762051e8fc6677a272543818c5d3ae061f94863b7c01e6dd2e9ac60343b3f9",
+      "bytes": 642,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/checks/release_integrity.sql",
+      "sha256": "457eb3f03b40d89f345b72b77122b3b72029309e53090c46e91a835dbdb68883",
+      "bytes": 1920,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/control.sql",
+      "sha256": "c1e38f253a93c3e74d4be1c47ec4c9fadf0406cc6d92ea84f0a43026cf8cccc8",
+      "bytes": 4561,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/foundation.sql",
+      "sha256": "35a6e9ce29af65ba71941551406f67a01ddd3245877189ede4fb02e4b0571776",
+      "bytes": 945,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/application_inventory.sql",
+      "sha256": "68965434768380b164fff6c67a3ec703f78f3b02694221fb6d7df0d36f5c8434",
+      "bytes": 228,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/assert_ownership.sql",
+      "sha256": "b6dbe882f53f551f0cab6808fee27da6bb82c5ecf7f2f82beb51cab5e633bd7a",
+      "bytes": 270,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/assert_release.sql",
+      "sha256": "9ce192a2d20f46aefadd71e77d12a055e766ebf1eb0429c01e793b8bd0e7cfe8",
+      "bytes": 190,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/begin_initial.sql",
+      "sha256": "6b593fe7d34c9803d7369b163721e33853458491cdde7a053c469cc4e3570afa",
+      "bytes": 230,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/capture.sql",
+      "sha256": "d8990dd6b926272ec2c97ce2421190066b52f11dd31d4ef71b52958cbe83a32d",
+      "bytes": 641,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/capture_current_foundation.sql",
+      "sha256": "9ae8ae1053d0a2a98e7134e832bf94cb0f00ac38457dd925eb132222959cdf02",
+      "bytes": 829,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/component_inventory.sql",
+      "sha256": "f4ab5e092de29543fa97134b9b095a3abd41df0c5658e59ffa5fb3ce9a63a5ca",
+      "bytes": 306,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/fingerprint.sql",
+      "sha256": "36e2abff2cc2c3985de215eeca03c8ca02e6cc92085ef4c32051858fa045a8ce",
+      "bytes": 457,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/foundation_verify.sql",
+      "sha256": "3617d52fbd5b8bde1de142a79d9ca1b86f775fcf851862a563b8ec638a67aee8",
+      "bytes": 838,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/identity.sql",
+      "sha256": "8be5809eb262ae4c1ecb497b570673c87c9a7b52658f549b53dcdb4ad27d281b",
+      "bytes": 730,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/import.sql",
+      "sha256": "64a982789a43bdf901a45ec700ff6b32a86fb79c90d05716683d6c044d1af165",
+      "bytes": 972,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/import_patch.sql",
+      "sha256": "e8d0eb702492471f1c7c90dd601f44dd6732c9d21d2ee32c5a9c432765dc376d",
+      "bytes": 2060,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/infrastructure_only.sql",
+      "sha256": "e363da3ec65dad199243fa650f3d368f33d38424bd1028e101b7f2580c0a0cb0",
+      "bytes": 750,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/publish_development.sql",
+      "sha256": "340f48e74fe0ec8ab91da55717ff9e38b225239dc3bd60abbd5ae3168866a863",
+      "bytes": 1023,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/publish_initial.sql",
+      "sha256": "4744036b149ec62228411182e8fce1b9034bb508bfa8e17ad9f878f1ab3bb63c",
+      "bytes": 2516,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/publish_patch.sql",
+      "sha256": "d6bc46f546b44cedf795abed0464afb70995a309c6bfc926f5b9145573023d86",
+      "bytes": 2506,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/release.sql",
+      "sha256": "1aa0787ae30ee6be9125cef80c70612716ce11686cc598032f5332d0dcebc9a8",
+      "bytes": 240,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/reserve.sql",
+      "sha256": "78f8b940fdaffcf9fcda74aefdc9241469ed699c12577376c80b439aa9781182",
+      "bytes": 229,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/session_root.sql",
+      "sha256": "a141484df229f90f22d66ed06b2ceb7cff3a20f7076f7504e20ff6a6069e0af5",
+      "bytes": 145,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/show_initial_proof.sql",
+      "sha256": "8cb639ef1413c9f2caad7394dcf738dad2dd9eab92c7e27d55a1520eeb5f9555",
+      "bytes": 870,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/show_release_receipts.sql",
+      "sha256": "303814107c9283ef478f9dd72a5b0b6e27408fb18f738e1a001cc752b7caf62d",
+      "bytes": 525,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/show_reservations.sql",
+      "sha256": "b8b264435d2cf3991ce7de6b23e2618708f90e72e81b77079adf4ac6f4ab0a55",
+      "bytes": 199,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/verify_development.sql",
+      "sha256": "203e6bb502e2458dfd95f79972175e90b04b25b4d1eaeaa0364cd3390038016c",
+      "bytes": 887,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/verify_initial.sql",
+      "sha256": "17eae1f3c583d91e1c59c9d4c9379deeb3196ac0e688d08af8287caf8292ac79",
+      "bytes": 1258,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/verify_patch.sql",
+      "sha256": "e2bbc51cdddcd1bb29b87621bb36417633a638a10a478be61c30c2fc688af02a",
+      "bytes": 923,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/walkthrough_defaults.sql",
+      "sha256": "86385efb444c31c816b652138cb5394374f7575429cb9ad138f8fc93f193d0a9",
+      "bytes": 1262,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/walkthrough_empty.sql",
+      "sha256": "8619508ae3b3e9d4197d8cbcf0ac7ef765b0800a65e07c1add8149763e4f542a",
+      "bytes": 1147,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/walkthrough_idle.sql",
+      "sha256": "9452cde1f8b6c9ccbef398c3f6dde5d15fc3bc43fe50541ed7efbafdb7a47114",
+      "bytes": 883,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/walkthrough_infrastructure.sql",
+      "sha256": "66209cf1ca9a80e5f92437f9026a1f0a0fb1b8ff6a30dc38f8a7cc5b5cd2768d",
+      "bytes": 621,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/operator/walkthrough_runtime.sql",
+      "sha256": "4c8bfb99768f299b79a0bdcd4eb258d50e492754c96a22642b9db7d503b2a71f",
+      "bytes": 1398,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/recovery/001-history-index.sql",
+      "sha256": "6f654263d7a5482b74ab56cdd3dd3c334435c19e6ea61c0a3c4c498acfe986db",
+      "bytes": 62,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/recovery/002-intentional-failure.sql",
+      "sha256": "13ed25481a4904c141344c7c383558c739c6bf52e0345400102e8473efbec9cd",
+      "bytes": 104,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/recovery/003-forward-completion.sql",
+      "sha256": "bf01fe2ca67ba3a829bb63c0bc3940e2360b165f0802b9e5732bce6255e5cdb1",
+      "bytes": 66,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/recovery/control.sql",
+      "sha256": "091aa3fb11bbb54e4a0674f59a533a91c9c2d5c1add329227f722d1c96e8513c",
+      "bytes": 6210,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/recovery/failed.xml",
+      "sha256": "2f9ca89a125096d34f9986a40d0001eb709138625c166a214b37d4e97fabada1",
+      "bytes": 706,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/recovery/observe.sql",
+      "sha256": "32160c9f22a2d78505fc10c7cea83993836c23dc847b9d2643e021da37c0e6c3",
+      "bytes": 837,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/recovery/repair.xml",
+      "sha256": "8ad4912e7d04da5608543cf43a9ef9d49aeac4f53c0f44fba1d6b8a4b599569d",
+      "bytes": 705,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "deploy/release_control.sql",
+      "sha256": "dbd4a82e29507898165be7df8f9467dabc17fcdfd5ea7dbf9a2c3af5d58db681",
+      "bytes": 12710,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "docs/architecture.md",
+      "sha256": "3a92db4f6d5815c13ec8dbd22e4404e734dda69316ccb2dd4b651020eee4f526",
+      "bytes": 57625,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": "docs/cicd-research.md",
+      "sha256": "1615cb5954a0cc01cd31a98b23df142392fe4f5264084889b6656456c932022b",
+      "bytes": 24574,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": "docs/deploy.md",
+      "sha256": "20b195312bd11b373436b477aa7ec6436a21d1507787537e4e8afab1532e80b9",
+      "bytes": 40280,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "docs/srs.md",
+      "sha256": "ededa8ea1fe8ef0c966ce0b2ba9c8d4e381b06d8bac7cbdcc5fa917181ca2d60",
+      "bytes": 46202,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": "docs/test-profile.md",
+      "sha256": "42a7f6631c141e631be99b34e6e897a19bb85fce5f4cb83d611e77f734ed42c1",
+      "bytes": 37392,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": "progress/E.1/cicd-walkthrough.md",
+      "sha256": "d1b6aca8bc4aa49d85790c37f4d8becc6291bdacb0cd54a7d0a50ff91de8620f",
+      "bytes": 74459,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "progress/E.1/repo_layout.md",
+      "sha256": "25d42a97b7c4abd067e018a20679c7d6c4f11c55b9a773e85357072a5d2aa8c5",
+      "bytes": 18416,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "progress/E.1/sprint_E.1_assessment.md",
+      "sha256": "9e140d8b47294fd242d13c65b50ad8b6121d0378c007aa4de5acc5f267084f80",
+      "bytes": 16308,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "progress/E.1/sprint_E.1_bugs.md",
+      "sha256": "3d3714e60c41fe6190fa6d8de19b30a8f3c5f23f1dbbffd15ee0c3db4d7eec6e",
+      "bytes": 6395,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "progress/E.1/sprint_E.1_design.md",
+      "sha256": "1ac7c8cbaad67840976e59b38fec14ea5f734cf9b8da26e390b4a4ad9100673f",
+      "bytes": 39456,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "progress/E.1/sprint_E.1_documentation.md",
+      "sha256": "fee7b6b200d10db9ceb98ec9d3f230f9a1dbe1d3e9b02b27f0f614158bbc3b61",
+      "bytes": 3579,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "progress/E.1/sprint_E.1_documentation_audit.md",
+      "sha256": "d7603730faaf85515a9ca39408a4e7ef027fe07d4090d10179b5f3c9a6364701",
+      "bytes": 90949,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "progress/E.1/sprint_E.1_handover.md",
+      "sha256": "064333a0b0ac754c9a57a7702d5820685015f3f201e97146a7381f02343a6371",
+      "bytes": 11563,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "progress/E.1/sprint_E.1_implementation.md",
+      "sha256": "f131fb8efcc45d99e4cdc29d7a7e8336d416cdc70d8395fc44cc7c34ce574d50",
+      "bytes": 65156,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "progress/E.1/sprint_E.1_increment_demo.md",
+      "sha256": "7f9541ce664e118020f53bad1ffca29d2f4c73dcad52d20d0309a84a2ee10b17",
+      "bytes": 25757,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "progress/E.1/sprint_E.1_review-1-decisions.md",
+      "sha256": "d4cf8f5519bd12d8619f00a03040bdb1833224f2414c34d86e58d56e80c265a9",
+      "bytes": 5239,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "progress/E.1/sprint_E.1_review-1-feedback.md",
+      "sha256": "5957ad943672613955dfec5780549e15084dad1147515544f2117cf95a53dfdf",
+      "bytes": 2810,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "progress/E.1/sprint_E.1_review-1-response.md",
+      "sha256": "5cd704c8754c7729d4dbb8f6ca24d118d1494eefbe060e09a1d4912b8d0bb615",
+      "bytes": 21911,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "progress/E.1/sprint_E.1_review-1.md",
+      "sha256": "d4e51bb12a0ebee72412a82e238c1065ca8d9cfe56cd410bca9bccbe44d983df",
+      "bytes": 5153,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "progress/E.1/sprint_E.1_setup.md",
+      "sha256": "6ad3d1e956b7795fefc3e69c11be5cee71196d0fb0766f95dc2b291750a3e96d",
+      "bytes": 4420,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "progress/E.1/sprint_E.1_tests.md",
+      "sha256": "7777513933ed1d059620348c3688e7549175714b98cf2bce50f477b07cdec30c",
+      "bytes": 36688,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "progress/E.1/tests/apex_identity_20261018.txt",
+      "sha256": "29fda295c7528baf6c9ea26f4cb1162d37d83506b4093de03e3255b8147e642d",
+      "bytes": 8799,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "progress/E.1/tests/recovery_proof_20261018.txt",
+      "sha256": "839af1c3611dba731bf29db209d44c8a045c4743f3955e174585877420b9a573",
+      "bytes": 13383,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "progress/E.1/user_manual.md",
+      "sha256": "a1a121cfc0d834034b7324e642af1b71d6d3f93bf10f8541d2486dd41137e719",
+      "bytes": 58805,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "progress/E.2/project-fit-assessment.md",
+      "sha256": "5dc4ac28d5d7d5d69787dfae19afec7f5934e53a43824b45cfb284b72ef26bf7",
+      "bytes": 20980,
+      "state_vs_baseline": "untracked-supplied"
+    },
+    {
+      "path": "progress/E.2/sprint_E.2_analysis.md",
+      "sha256": "d2f21f5cfac2416b750497fbbac80fbfb75512b2d608861da4c8a2ae046d743a",
+      "bytes": 52199,
+      "state_vs_baseline": "untracked-supplied"
+    },
+    {
+      "path": "progress/E.2/sprint_E.2_design.md",
+      "sha256": "7e29bff273224c415bc3405553650d0e925b1103a8be9600de642494a220115e",
+      "bytes": 21685,
+      "state_vs_baseline": "untracked-supplied"
+    },
+    {
+      "path": "progress/E.2/sprint_E.2_documentation_audit.md",
+      "sha256": "efcf8d8e7a43e521e3b53ebb3f8e9ae66f2a2c7f02c3e9a79fb9c13d76e1e618",
+      "bytes": 16739,
+      "state_vs_baseline": "untracked-supplied"
+    },
+    {
+      "path": "progress/E.2/sprint_E.2_inception.md",
+      "sha256": "6a420877418ac09be75a1f30a09405aa06cd8f65e5d725d272fe5625d08f8a27",
+      "bytes": 15873,
+      "state_vs_baseline": "untracked-supplied"
+    },
+    {
+      "path": "progress/E.2/sprint_E.2_proposedchanges.md",
+      "sha256": "015cab621a3f489332dc8d2612d94369260fddfb7e875fc25dc9dc3178af436e",
+      "bytes": 9961,
+      "state_vs_baseline": "untracked-supplied"
+    },
+    {
+      "path": "progress/E.2/sprint_E.2_review-1-prompt.md",
+      "sha256": "60224f2f5a4c67434548119def6327b62624265b94a01e3c1f039cfa9b292a04",
+      "bytes": 8539,
+      "state_vs_baseline": "untracked-supplied"
+    },
+    {
+      "path": "progress/E.2/sprint_E.2_setup.md",
+      "sha256": "3023f863a7ac56b8a1236c16fdff953df9975cd07e3a3d57ce0ffd331ee77464",
+      "bytes": 8282,
+      "state_vs_baseline": "untracked-supplied"
+    },
+    {
+      "path": "progress/E.2/tests/analysis_review_checks_20261019.txt",
+      "sha256": "d37467fb373989c4b97ef998330b67a6a0310c62ba1e1e7d2f4f6adb19d9957d",
+      "bytes": 465,
+      "state_vs_baseline": "untracked-supplied"
+    },
+    {
+      "path": "progress/E.2/tests/analysis_sources_20261019.json",
+      "sha256": "016c7e516ac84a2f5e17bdbf7383ba0b30e8d44a0b8e68720ddb5ec58cf58b0e",
+      "bytes": 7969,
+      "state_vs_baseline": "untracked-supplied"
+    },
+    {
+      "path": "progress/E.2/tests/analysis_state_checks_20261019.txt",
+      "sha256": "81c2a336fee9c8672a245624183cae02a9391f60acc9957811ba575045ab3da0",
+      "bytes": 224,
+      "state_vs_baseline": "untracked-supplied"
+    },
+    {
+      "path": "progress/E.2/tests/coexistence_goals_checks_20261019.txt",
+      "sha256": "493cd43694676384bbb80bb0c6269a633b8b48e06474c812a1a2051eeef1cf22",
+      "bytes": 180,
+      "state_vs_baseline": "untracked-supplied"
+    },
+    {
+      "path": "progress/E.2/tests/design_gate_checks_20261019.txt",
+      "sha256": "ee615a70d140b5bb104971d38e58eb6d332b29b461dbaeb3e905100afe9155a8",
+      "bytes": 367,
+      "state_vs_baseline": "untracked-supplied"
+    },
+    {
+      "path": "progress/E.2/tests/optional_compatibility_checks_20261019.txt",
+      "sha256": "a1ff2d91d3687f479a1d4f02d77cbee5a9594503e0aa979614590b6fc2ffdcf5",
+      "bytes": 203,
+      "state_vs_baseline": "untracked-supplied"
+    },
+    {
+      "path": "progress/E.2/tests/project_fit_checks_20261019.txt",
+      "sha256": "81a5977eae57e1e3f7e4a3acf56f5cf7e20feb01f5ad4e89e5d5f4515b381fce",
+      "bytes": 223,
+      "state_vs_baseline": "untracked-supplied"
+    },
+    {
+      "path": "progress/E.2/tests/review-1-working.patch",
+      "sha256": "e386717bf86759eb75be6a32fc8c6276ebc3e57ce99575798145c255df32aa32",
+      "bytes": 41623,
+      "state_vs_baseline": "untracked-supplied"
+    },
+    {
+      "path": "refs/apex-lifecycle-management-v3.pdf",
+      "sha256": "6f41b2f4511bfc3e3e4bbe28f3240c897a56006a42e46177d62a06d493cc4425",
+      "bytes": 13109319,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "release/inputs/README.md",
+      "sha256": "4d4023447e7abccb3a01c3af2f933a44f2b4aad072f7de3b61b168423b4b736d",
+      "bytes": 1863,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "release/inputs/initial.json",
+      "sha256": "58e779376cd7fbe106729e10d8a0432a496a31b3ef45e663224e7695f86960ad",
+      "bytes": 22373,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "release/inputs/patch.json",
+      "sha256": "26b91753d771214fa22b2d4fc2ac63740e63b4201ee8f7a334d21093812b1618",
+      "bytes": 34786,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "release/manifest.json",
+      "sha256": "5c0efa19d4af22d3021231709ec3237bb1565e1680982cd8c3375a2f2109e6e9",
+      "bytes": 887,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "release/proposals/foundation-major.json",
+      "sha256": "73ac8dfbdd3327c120622a5527a5aa7c80090404ded5b078824acc1cef970135",
+      "bytes": 885,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/apex-configure.sh",
+      "sha256": "102f60a1913d72ccbe77b946e6bde1a03785510b08105e2023063e1812b8774c",
+      "bytes": 958,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/apex-db-install.sql",
+      "sha256": "4066a6ee0a3cbf0543db27cd7f6f4e972187e0fa74ba5b0eac01f47421ea99a2",
+      "bytes": 158,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/apex-db-start.sh",
+      "sha256": "fcdfedc5323460759030bef4838ee9ef5d8c15cede32d8d7536ecb8de7520a85",
+      "bytes": 1041,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/apex-db-verify.sql",
+      "sha256": "21b720ae996f09bc4c62a73d07614abdaec87cd9f3f86986b81e5092c0ff535a",
+      "bytes": 1034,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/apex-destroy.sh",
+      "sha256": "506c15cf0c740fb2671e1de7394a1a8a7f70718ffbb4d90f8ae2f3edeb443b1c",
+      "bytes": 2661,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/apex-helper-setup.sh",
+      "sha256": "2532496c01a7ce93e26fb7f6eb0ff3c4d9167b7eacff916139208d992a6a55b2",
+      "bytes": 1358,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/apex-ords-install.sh",
+      "sha256": "3132cce028c4c4e7c20bfeb1b08244af7c99efd52595dcfb188462c8dd5c8e9b",
+      "bytes": 1633,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/apex-start.sh",
+      "sha256": "8ac98f79f1d2b224d43ba9c44f7a14648f3c8209cc24af382ccf90008d980196",
+      "bytes": 762,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/apex-stop.sh",
+      "sha256": "34ab0c9ea65d6658174aa638a63cafd2e4446bb8efe769efab65f9167ce0672f",
+      "bytes": 273,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/apex-verify.sh",
+      "sha256": "03cfe33fa10ec81624f56c12fc92b1607146e596a72fc934dc6544d07a802d3f",
+      "bytes": 1420,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/apex-vm-start.sh",
+      "sha256": "f721eca1a258b2c1300d64f4922d23273df62ea943b919bfbee564a517b72264",
+      "bytes": 1828,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/apex_sql.py",
+      "sha256": "4bebb4fa8d409782f3a9818500a7dd7c313be72da859e23db5b608a42ebdd45c",
+      "bytes": 4061,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-area-provision.sh",
+      "sha256": "5818a4d077a70318732bfd72fa47146cb1949a805f601263e9493b3e904db43b",
+      "bytes": 810,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-artifact.py",
+      "sha256": "aac9868908807642a01c19a760d7d8b918910f098e298032fff4bdd6170a2d5b",
+      "bytes": 7803,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-build.sh",
+      "sha256": "47c413f4f7e7f01935742ee7f6abc88745a90912d7e0992ce8d18d50a363041c",
+      "bytes": 232,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-candidate-check.sh",
+      "sha256": "3bdefec6fb84f248180e00f2a7de1b345d5a34f422938e23ee34a02b1e391ecd",
+      "bytes": 1680,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-compatibility.py",
+      "sha256": "f9bdefea9a61d31ea7afe8258ae2e92b442ca0c45917de6803ba969a0d05b479",
+      "bytes": 1045,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-control-init.sh",
+      "sha256": "7da5321a68dbd26a8b6d53ca2fdb2e607a656a81e60766380602fa546c16a6f0",
+      "bytes": 704,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-deliver-initial.sh",
+      "sha256": "13ffccba3d2763be560c4279704bcd2b633c10491e7bf712539246f5b07d9414",
+      "bytes": 2830,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-demo-defaults.sh",
+      "sha256": "05dc955ffdb6e2107dce3e9eb01ff20522d8f27e8af0d56f23c9a59e49663b49",
+      "bytes": 3994,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-developer-configure.py",
+      "sha256": "c6973e795e598a2cabae4925b559331c02c7f0aca3309d3fe87cc5f5a36504bb",
+      "bytes": 3443,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-developer-init.sh",
+      "sha256": "f110a88ccd19b8ff437eab10e94f7d5553651350ffccfd8f71e96219f32e29f4",
+      "bytes": 250,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-drift-demo.py",
+      "sha256": "ce7add769934ff3efebf5d7c57d75db8010a62059cefbc78ab8db4d6e9872b23",
+      "bytes": 5395,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-drift-diff.py",
+      "sha256": "e701d4a3251f376ae1e56f105d26b68af987f9fe28c4423b740fc7e52827605d",
+      "bytes": 6875,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-env.sh",
+      "sha256": "5e1ef2ea26e3973e4d2d071f4b8367fc24db629cb59afc68f9444c31f72eb697",
+      "bytes": 428,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-integration-test.sh",
+      "sha256": "3637206507453f4339d2ce2d96ffa17e80e07d60b97d17dec39002fcc8dc95c2",
+      "bytes": 282,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-isolation.py",
+      "sha256": "70db57de4bcd868d47c8b8bab42010d9a0fca36be2ad7b89dbf9725367b7c459",
+      "bytes": 3357,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-lab-inventory.py",
+      "sha256": "08fc43056a02389c97d05a5e8e8f65ffc92bf75351e6da13a5bf146d7049fcf7",
+      "bytes": 1935,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-operator-walkthrough.sh",
+      "sha256": "f1bcd34db8c35cf0728a245cf2843ea9f47dd5334b9422c6c3fd2012e6cd51dd",
+      "bytes": 8692,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-password.py",
+      "sha256": "32c8ba811bc11b50d6ca012c24f339786c1df26e222133ed64aca38ae30a2e66",
+      "bytes": 427,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-patch-result.sh",
+      "sha256": "3eb4522a6acd6f29c6ff2893b46bd2d70ef19e1580bf93b93ad9444849a56a09",
+      "bytes": 893,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-patch-step.sh",
+      "sha256": "aec0fcd7d55c0e79029f8ae9f58bf6cc842eb497b9843381ae78c68b178d1ac5",
+      "bytes": 7475,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-platform.py",
+      "sha256": "313b502bc57a6b433f9f8a1f30dbcae0326d2f08523785dcf073c5554512b65c",
+      "bytes": 8409,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-preservation.py",
+      "sha256": "5ba906bc3445a4eb8119dff5dacf94a6d58d28b75c826e996050e42c96647c0a",
+      "bytes": 2735,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-promote.sh",
+      "sha256": "530ef2c09ca6c9d3d7e61bf9e16a7d1e100afe30ec76854f0fd4dda07dec463c",
+      "bytes": 367,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-protection-check.sh",
+      "sha256": "df0fea47c86ca3294bf8acb892ba8bab59cde6102cc4344fb638246f35c28ea1",
+      "bytes": 4635,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-recovery-artifact.py",
+      "sha256": "313dff3b4576b647548f8fcb6e6c9b43657439e90cd6a34887df50fda8b7490f",
+      "bytes": 3871,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-recovery-step.py",
+      "sha256": "6396fe48a8be26dec62291d9c69b78ac4d342408b0b0683145f3a5316a302956",
+      "bytes": 9973,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-release-inputs.py",
+      "sha256": "5a43c5aa43eac538f1489df4da933fc1fc365f688c573dc15c125980024934b8",
+      "bytes": 4181,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-release-result.sh",
+      "sha256": "b775deab8cab6f075077a9426b606ba175602be8f2a17a837a574fec17a42996",
+      "bytes": 2213,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-release-step.sh",
+      "sha256": "7afa76f7d5146bc108eb3a58284690cbd274f0bf61dc716772cb4110c64723c4",
+      "bytes": 4630,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-task.py",
+      "sha256": "fc7d3a57e5a7ce574b0f39db9a743e4b35df9649add4c928e4a27077c83f06b8",
+      "bytes": 1287,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-tools.sh",
+      "sha256": "278a6255c1142bc5c71635225134f04a93edd6a0b6e94d6af12224cad7667867",
+      "bytes": 1260,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-walkthrough-A_foundation.sh",
+      "sha256": "9647c344e1950c28a9d7ad4c768e04f2a8617e238a4a3849919076aa167990ac",
+      "bytes": 1677,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-walkthrough-B_hello.sh",
+      "sha256": "a783e814e915dc70b5aae20cd7106a5182da5b7d459dd771b1ba5e0bb3a8e977",
+      "bytes": 1696,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-walkthrough-C_world.sh",
+      "sha256": "ea26c9651ebc3843ea96717d0bd4c94971126ae466ba7a06b698f71b495ac348",
+      "bytes": 5925,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-walkthrough-D_integration_test.sh",
+      "sha256": "ae10244303d64ea3308d542cd80ae8ac3a28e1eb25e2a27f676492ed94aaffce",
+      "bytes": 1414,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-walkthrough-E_promotion.sh",
+      "sha256": "b5f06490eb895dcf31b115623be4c4962f4363c1cf1dbda15fced13ea46c0afc",
+      "bytes": 2578,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-walkthrough-F_hello_patch.sh",
+      "sha256": "e4222b24f01ec7d9a835daf1bbcef702e7eae9b82c0850e8ed10d031ae2aeba1",
+      "bytes": 2022,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-walkthrough-G_incompatible_upgrade.sh",
+      "sha256": "3b399c711ac309536f931e99c4488b142d10f214be7f9a5017b602b4614d4947",
+      "bytes": 704,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-walkthrough-H_drift.sh",
+      "sha256": "69b7258dab8d078f8e3bd93f2f246a0bbe2bbe702eebe60ff4cc17dea35e4bff",
+      "bytes": 1597,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-walkthrough-I_repair.sh",
+      "sha256": "91b82c76909a2ac9b621b6bc46d0b22212f98b338d0f08dd604b44abfd4535aa",
+      "bytes": 2867,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-walkthrough-apex-init.sh",
+      "sha256": "8b425a10b08be559edf59cd36e3ee03f05207e496d3a09c33917c297649758bc",
+      "bytes": 2316,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-walkthrough-common.sh",
+      "sha256": "c3c3534589ec6eff3c5334456b7423d07a2fb1e8741d974bd985ad3ca56284e1",
+      "bytes": 12003,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-walkthrough-host.sh",
+      "sha256": "88f425898f2de554572938855ee485b08b93d026c5c52f0e75ed80e723e04852",
+      "bytes": 873,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-walkthrough-prerequisites.sh",
+      "sha256": "12c20d25cff8bd66125a8e38b2a0d4ea8d40e6e4b5efa9c9befea706844045c6",
+      "bytes": 3859,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-walkthrough-ready.sh",
+      "sha256": "a216982bcd087b66b545318a0e2ca517e92955c18cdf3584a91ba7df456709bd",
+      "bytes": 572,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd-walkthrough.sh",
+      "sha256": "4efd3c83635f7d5b1287ef13737d64380343a8f1e5c25febfe94bfd4e45b3fe1",
+      "bytes": 1850,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd_config.py",
+      "sha256": "d34583f38104d6c47bd2f8428aa6161c391d804cf044e14432049c31fe1d10fa",
+      "bytes": 2519,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "scripts/cicd_environments.py",
+      "sha256": "a24bf79cd1dde3efe7034b7d921535e5908a26cd6b087c159ba69b4ad844983a",
+      "bytes": 881,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/create_application.sql",
+      "sha256": "afc6920bcc97e29aff88bcc15ac08743dfecb7163ffe8d52e28c9f717011265c",
+      "bytes": 2196,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/delete_application.sql",
+      "sha256": "8aad0be3649531314802d7e578a5542e8394687267548e07b7e2a64330f7fc86",
+      "bytes": 362,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/end_environment.sql",
+      "sha256": "11da7a7db8ec9ed63adcfffd444f2e5ac0f1742afb6a93d8e163391727349167",
+      "bytes": 229,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/pages/page_00000.sql",
+      "sha256": "0d12cfdef5cfa37b66d6de8726d409201b5da66348840be0a3fe1705f7c35a35",
+      "bytes": 581,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/pages/page_00001.sql",
+      "sha256": "5d28fb64e2046940ea7295b75cda0270c71708c7620747ecb08843b5072e3db1",
+      "bytes": 3524,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/pages/page_00010.sql",
+      "sha256": "20886bf5b44112bb53de3fb316b3f0cc0b6c59db89b3446e89a52e0ac92f0de7",
+      "bytes": 4964,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/pages/page_00020.sql",
+      "sha256": "d9b6b3278e940badab8c4271cb65d87d65ca5c452a5d1e0be997e6cf8cb0111b",
+      "bytes": 3332,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/pages/page_00100.sql",
+      "sha256": "1116f62a666c5fb769cec79a91cc95da12141cc8ed00dd4e1ec7391aac4f4bf1",
+      "bytes": 4614,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/pages/page_00101.sql",
+      "sha256": "23376f44348171fe5762f7f7cb7a99374df753d23af29f5c2a19304586faeb64",
+      "bytes": 7426,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/pages/page_00110.sql",
+      "sha256": "baf93736b613dcfbe75972167eae21898835750106bfab260427c2c9254e0076",
+      "bytes": 4790,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/pages/page_00111.sql",
+      "sha256": "e90ce0b2b111b57f300294a0b0a18c5c326c9235a6689982b50502e5c7ac6cbf",
+      "bytes": 7437,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/pages/page_00200.sql",
+      "sha256": "79a60539fd379cf5cdab3ff6f3c210cc0f9ba3567905dc8c033613016e1b2430",
+      "bytes": 4614,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/pages/page_00201.sql",
+      "sha256": "43501b7fc829411d059e4af57d6404e3cedc3fa5b85ce52fc6f296b5f08e058e",
+      "bytes": 7427,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/pages/page_00210.sql",
+      "sha256": "6f149ee27db09dc9b87be3f47879c3b7c200eca456810f7d30bcd228ce5eb314",
+      "bytes": 4790,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/pages/page_00211.sql",
+      "sha256": "7000190ab04d6ceda925330c8f56d70492de1fbfdc05c2b8c4d9e8a5e8923cdd",
+      "bytes": 7437,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/pages/page_09999.sql",
+      "sha256": "4a180cc8877ac24910d6694f605f47a9b02d23e67c767c3703fea4ea3bec45a9",
+      "bytes": 6873,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/pages/page_groups.sql",
+      "sha256": "ca67df917162eb932c0408399583b6222871434274fa812b35953279eea407d0",
+      "bytes": 487,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/plugin_settings.sql",
+      "sha256": "4aeb22c2e410a03b6a9e7cd3d67e5099a16f068ae2858467ee28b53f06a17e19",
+      "bytes": 4148,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/set_environment.sql",
+      "sha256": "38c57ca603ca2397193bdf9d1157b32b19e1ffa0766335907a7da76843e8eefd",
+      "bytes": 1025,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/files/icons_app_icon_144_rounded_png.sql",
+      "sha256": "572ef0ff97e8b353983c7a1cd8998a886c5119be9f7c696d6b669dd048cbcbbd",
+      "bytes": 7867,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/files/icons_app_icon_192_png.sql",
+      "sha256": "c0fb025172272dbfb7545c547688909b73bcef36847a963198a38e36ba3f07b4",
+      "bytes": 10072,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/files/icons_app_icon_256_rounded_png.sql",
+      "sha256": "1361326e2f06a43eca494532cdc9e0af73e5a28eb66ec7b2c692fcd316ebf4d3",
+      "bytes": 15979,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/files/icons_app_icon_32_png.sql",
+      "sha256": "043229ca4941847abee8d11a9cdfc117048ccc95498587963b590756ccd83f95",
+      "bytes": 2004,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/files/icons_app_icon_512_png.sql",
+      "sha256": "7f329a4f54b5639d484178fcc059c7795629d77b50380223544d10885b0a2273",
+      "bytes": 35536,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/globalization/dyntranslations.sql",
+      "sha256": "058becb050ea239996850ce2698c69bc86dccb7c403dd3dcf6b63f838053364e",
+      "bytes": 419,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/globalization/language.sql",
+      "sha256": "0631fbcb42781eca61c3cc33e56b15fe440c9bb9d0611153e7ca16daa365385c",
+      "bytes": 404,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/globalization/messages.sql",
+      "sha256": "8fa6e304585de5de1297183bfe0af4ab5e79a1969a3ae188958e01ef8c2702f6",
+      "bytes": 400,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/logic/application_settings.sql",
+      "sha256": "96b25156672b763ffe7d80dfcd85b9f9e6ff054f4e19573fda3fde6c6215b25a",
+      "bytes": 416,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/logic/build_options.sql",
+      "sha256": "816fed286cde88aeac183a7ab82aeeb789c6a67a1cce54fb14308bdd6a8be3b3",
+      "bytes": 577,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/navigation/breadcrumbentry.sql",
+      "sha256": "d71452f15da25ea8e5f6d3e82f567ea8def8edeeb80ad4167f76ebd51e8c4997",
+      "bytes": 406,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/navigation/breadcrumbs/breadcrumb.sql",
+      "sha256": "34eda17a6ea438b5a9887e56ca238588c64a3f16f41255f5a38e563c3b388e9e",
+      "bytes": 1795,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/navigation/listentry.sql",
+      "sha256": "309e58e4d6484ed74a9f505f47af5644061fa6dc07e5e9efc4c4e6505d83ab47",
+      "bytes": 394,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/navigation/lists/navigation_bar.sql",
+      "sha256": "ba14bd04bb6c24213f2229dbeabad95cc1b5112d90a6040d63e9757229aae32b",
+      "bytes": 1561,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/navigation/lists/navigation_menu.sql",
+      "sha256": "e627b5f0f9fb9688f9cf34ac9ffc92ea56d718d86f06a7bcc1ebb18c527c3b37",
+      "bytes": 2973,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/navigation/navigation_bar.sql",
+      "sha256": "8d0adc490030a027acc68186f8759aa990f6bcc9e1cb9b10b75ee66a6e62811e",
+      "bytes": 409,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/navigation/tabs/parent.sql",
+      "sha256": "f2a3c2b2bc3dfde8cae2368b2fbbd408a6c1e4926ac1cd05ab0f133031278e6f",
+      "bytes": 406,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/navigation/tabs/standard.sql",
+      "sha256": "c09d19ac1f6d485573ff39bf82b03f988bda88955de0fba627f2ccdb5ba2f4aa",
+      "bytes": 398,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/security/authentications/oracle_apex_accounts.sql",
+      "sha256": "e2f544ba805c5bf642b83b88b3ad10e7fa36a3e47b99b1ebf125e41dd5cf1429",
+      "bytes": 696,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/security/authorizations/administration_rights.sql",
+      "sha256": "1c3dab26ef9c8f0038ded65df0b31685daf1004c134501d688ac7097bb1a380d",
+      "bytes": 764,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/user_interface/lovs/hello_entries_entry_text.sql",
+      "sha256": "cacf23e2155f3ef69502ae89056bdb2d52c49745c55ffc6399155f44b4d97cbe",
+      "bytes": 796,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/user_interface/lovs/world_entries_entry_text.sql",
+      "sha256": "64f367d5fad0554843507a7202dc06e9d34cae3fd70e1a8f1c54d7e01e482e29",
+      "bytes": 796,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/user_interface/template_opt_groups.sql",
+      "sha256": "47ce304cd976d2e5789633b07083c1f8cd28b1023fb8bc36358196b5ec38b096",
+      "bytes": 423,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/user_interface/template_options.sql",
+      "sha256": "0afcc53a133adc77cc5899d23c154402495b63c8b076a0bf226ee086160ccbf9",
+      "bytes": 414,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/user_interface/templates/popuplov.sql",
+      "sha256": "838ca7da63d2c9be71bc1d23e9547923c983a26987f06e7040d30482b6540264",
+      "bytes": 416,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/user_interface/theme_files.sql",
+      "sha256": "d8a713920e81ec5c123d7a6a8f4dd877eba0d977bf0b6e2f45d95888ad9fdb82",
+      "bytes": 407,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/user_interface/theme_style.sql",
+      "sha256": "02c1c1bd6a7947a83f1542b2bb5eb51d6d8e4d8d1e5b61c6ef0507a36008953d",
+      "bytes": 407,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/shared_components/user_interface/themes.sql",
+      "sha256": "4f5bf7e40f0266abb3195123c9d1be51dbddf29f9e4fdd06663669cb1345d898",
+      "bytes": 2556,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/user_interfaces.sql",
+      "sha256": "4350d2fc623c87c9ba836878f01cd2701ec8ea439e10d94771e46bb1773e3e37",
+      "bytes": 1075,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/application/user_interfaces/combined_files.sql",
+      "sha256": "cbaed767f1c9a0d50f117c530fc1281dc2150eac4a60d3e53479b632b19bad63",
+      "bytes": 396,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/fixtures/drift-changed/f810001/install.sql",
+      "sha256": "85b776a1485d01b2f2d8a25110706f860655b4bacb2904ff115c01f1cbe47ec4",
+      "bytes": 2638,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/integration/test_apex_identity.py",
+      "sha256": "0d89ab2e389ee92be6473a763124ab0d8e463fa8cd7c6fa5477afbcd785870f9",
+      "bytes": 5062,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/integration/test_apex_identity.sh",
+      "sha256": "67e5f89017bd21e116b9c0f88cc6537b5648fb0e2bf49c43f10c2e544d7dd4b8",
+      "bytes": 79,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/integration/test_controls.sh",
+      "sha256": "66064d867c062eaa1af8959490daa40365b1a20d841ed3164673931a5860b462",
+      "bytes": 989,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/integration/test_development.sh",
+      "sha256": "0783aa0ca6261470d53849ca454c4d52f10d45581e0066a221fe8f1b039fda86",
+      "bytes": 605,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/integration/test_recovery.py",
+      "sha256": "a2c1acb79f57bf19558432403821bf33728d78c1e165b4f5f77fe61669bb9708",
+      "bytes": 3260,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/integration/test_release.sh",
+      "sha256": "b2815c3b7f5b28436831a14a4d8e9db130b6e3f687b64f5004fa00a8f7b7f136",
+      "bytes": 2966,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/manifests/apex_identity.manifest",
+      "sha256": "198a85257c3ebf3784bada5bb7e3c4785b2fa8232bf1e6f9ffb040ee9659d229",
+      "bytes": 51,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/manifests/component_delivery.manifest",
+      "sha256": "4676827edd8b33a067cd6b8d6412d9b3bcda306db44bf8b2186958ba783b3626",
+      "bytes": 409,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/manifests/development_verification.manifest",
+      "sha256": "929b5d42b22e9eecddd1606730753d07115e9c0bffc514f44653497f7b11a7f6",
+      "bytes": 799,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/manifests/drift_review.manifest",
+      "sha256": "ca1155882522e6c15d578f1f0f4a72b70688abc6e2d1ae2094e98b601efc3ad4",
+      "bytes": 54,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/manifests/initial_release.manifest",
+      "sha256": "9eb001c981a28631fcb0570ccf4612f29ce0f5de06e16cedd072bef1453d35d5",
+      "bytes": 52,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/manifests/patch_protections.manifest",
+      "sha256": "9471ed677c05022f66b959d714a8e44cd2ee85e4791a010280aab20a6750b1fe",
+      "bytes": 139,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/manifests/protection_outcomes.manifest",
+      "sha256": "f736fe5c4531cb3af6828e710ea739852ad6b90461269bff0b692bc491d7faf4",
+      "bytes": 704,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/manifests/recovery_artifact.manifest",
+      "sha256": "12c2c4cb621659c52d0899ac19557ee2f06434f869fc8ed39768df254d47c353",
+      "bytes": 64,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/manifests/review_fixes.manifest",
+      "sha256": "43d77b1bf6d7f2f975c58a0bf88cd4cd46683da35f0626a1615ae42dc9c9f5a9",
+      "bytes": 53,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/manifests/walkthrough_lifecycle.manifest",
+      "sha256": "419c90303d0e39898b3da0c8745db41f0bfd96a2017ac9f23f3b2c48d62dbe38",
+      "bytes": 196,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/run.sh",
+      "sha256": "5ac381c7d327efe008513bd36726422fbe8c2b6d8b8e3ee7fb82e79b2e8e80e8",
+      "bytes": 1058,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/smoke/test_platform.sh",
+      "sha256": "f4deb81a16f8757b9375590ce3879da15a722023c1b258476070df6bf44501e1",
+      "bytes": 161,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/sql/composition.sql",
+      "sha256": "dd5fa7221b9da2dd32b0480fabe2aa90018d34a9b7b9b90b285fbe7c615bc6fb",
+      "bytes": 2807,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/sql/hello_patch.sql",
+      "sha256": "e0d975f8849d3694a492c2f3e6ce8064cf508bc8728e49c13c25c6a17fdc8d54",
+      "bytes": 1068,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/sql/history.sql",
+      "sha256": "6e5a236bc8a0e62d8b92b8b038c179790089ea9d1a302db98ef314f58fd119ad",
+      "bytes": 1924,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/sql/initial_preservation_snapshot.sql",
+      "sha256": "3e19e795752d600670563c6b88a83b3d917f7f5b484ef39a057c5031fde00604",
+      "bytes": 338,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/sql/patch_receipts.sql",
+      "sha256": "c4a9aa0e2bab4b4e3708fee7719449312277e2680c324c54eda9b8b8001ef2b5",
+      "bytes": 1184,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/sql/prepare_history_sentinels.sql",
+      "sha256": "0e3ab34401c89dc044579eb8ae5d16dd2f9e6af470d62651e2d9607b1480d669",
+      "bytes": 2175,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/sql/prepare_integration_test_fixture.sql",
+      "sha256": "8ac9e51e2e6d14faacaf9ee25f435e156bf5681368ed579232cd0f1baae3e399",
+      "bytes": 1371,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/sql/protection_snapshot.sql",
+      "sha256": "ae6e3aac3739f944115e239634d44c38efbdd2cbfc298ec0ce28f16b87f5dbaf",
+      "bytes": 1162,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/unit/test_drift_review.py",
+      "sha256": "a0bb5f9f28289a5de284f47a5347a1b9f242bc54fc27bc3d34001e9e24a695f8",
+      "bytes": 2314,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/unit/test_drift_review.sh",
+      "sha256": "4d13d16c14892954af1f9f79a3452a143d67ad3b7a071b5391f1029300c3aabd",
+      "bytes": 95,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/unit/test_environment_names.py",
+      "sha256": "a9a8a19841b68945aceaf6fbd03f81cbad9b2a2699a2b7f63ff9dcae781e8225",
+      "bytes": 1352,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/unit/test_greeting.sh",
+      "sha256": "58667e0b59b00f11c957438311071d02a220af8e2e612ab71c124efb19d035f0",
+      "bytes": 178,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/unit/test_lab_inventory.py",
+      "sha256": "22a70cc100d32be3c7576896a99ce32524146a4ae2100edaabdca2977f1f357e",
+      "bytes": 2320,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/unit/test_lifecycle.sh",
+      "sha256": "06f734371740e092c7aea02c0b7ed46f24f3b079ecf8a35003ff37a379b521c6",
+      "bytes": 314,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/unit/test_onboarding.py",
+      "sha256": "6515bdca36d11bd53fe2c9bbbd3e9da5ee316c5324fe3872cc375a14561e2ead",
+      "bytes": 4605,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/unit/test_protection_outcome.sh",
+      "sha256": "dc3b5d170c45233e2628d87fc48492cbc11cc98609d52ff8af120ba1e95f4344",
+      "bytes": 2095,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/unit/test_recovery_artifact.py",
+      "sha256": "bc7ef4af3f83cfbc58563b1eab57de80a20b9d5798e608c38f8c8f4b6ab80e95",
+      "bytes": 3261,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/unit/test_recovery_artifact.sh",
+      "sha256": "db75ff4df24e5d7e55aebd3c076a4bd7168a741ab1e2fbe6cb78a7cfc6263fb4",
+      "bytes": 105,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/unit/test_review_fixes.py",
+      "sha256": "adcc88517c92931efef8b79c4832a8975e419ab830a3473c44a847f2679e22ec",
+      "bytes": 7221,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/unit/test_review_fixes.sh",
+      "sha256": "8e3e6e560ac1f353fb974736d90ff7a2715a68a3ba2bbb32d9daa059467a4e0b",
+      "bytes": 94,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "tests/unit/test_verification_loop.sh",
+      "sha256": "1fb041c16a31d2b1bfc817de074d4a59601a6eb0b2f2a1d742ca81d65348841d",
+      "bytes": 4122,
+      "state_vs_baseline": "unchanged"
+    }
+  ]
+}

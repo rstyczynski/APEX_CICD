@@ -4,6 +4,23 @@
 
 ## Decision status and system boundary
 
+The [E.2 analysis scope](../progress/E.2/sprint_E.2_proposedchanges.md) assesses
+the current E.1 approach against Oracle lifecycle guidance, including policy
+conflicts such as Working Copies and Git authority. It requires source-backed
+findings, focused exercises, a walkthrough and proposed backlog/roadmap changes;
+requirements are not silently relaxed by the analysis.
+
+The [E.5 upgrade scope](../progress/E.5/sprint_E.5_proposedchanges.md) records
+the planned compatible and breaking Foundation transitions, initial data
+migration, legacy-write propagation and separate consumer maintenance windows.
+Its managed refinement must reconcile the availability requirement with the
+existing maintenance baseline before implementation on the stabilized toolchain;
+no upgrade is proved here.
+
+The [E.3 scope](../progress/E.3/sprint_E.3_proposedchanges.md) plans APEX-native team-centric work with page locks and Working Copies; the [E.4 scope](../progress/E.4/sprint_E.4_proposedchanges.md) separately plans Git-based feature integration and private APEX branch environments. E.3’s coverage refinement maps UC-1–12 and the paper’s additional actor journeys across both iterations, explicitly resolving the ordinary Working Copy versus break-glass restriction and native page-lock versus atomic component-reservation differences. The current requirements below remain in force until that managed refinement; the split does not silently relax them.
+
+Both planned iterations must satisfy the [strict Oracle traceability and E.1 comparison contract](../progress/E.3/sprint_E.3_proposedchanges.md#strict-oracle-traceability-and-comparison-contract): scenario-level paper pages and applicable official version-specific Oracle guidance, executed evidence, explicit deviation dispositions and decision-ready comparisons at each handover.
+
 I.1 analysis baseline accepted by the Product Owner on 2026-10-16, with the presentation wording correction. Derived from the accepted [vision](../README.md). PBI-003 through PBI-008 own this specification; [research](cicd-research.md) and the [candidate architecture](architecture.md) explain its technical direction. This acceptance establishes requirements; executable proof remains due in Elaboration.
 
 The product is a reproducible local APEX/database delivery laboratory, including a minimal example application, reviewable sources, release artifacts, automated checks, controlled DEV-to-user_acceptance_test promotion, and operator guidance. Oracle Database, APEX, ORDS, Podman, Git, and the selected runner are dependencies. Cloud deployment, production service levels, high availability, a business application, and changes to unrelated host resources are outside its boundary.
