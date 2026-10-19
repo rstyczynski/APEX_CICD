@@ -1,5 +1,10 @@
 # SQLcl PROJECT — assumptions, weaknesses and requirements fit
 
+The register below preserves the accepted analysis-stage hypotheses. Current
+execution results and fit dispositions are maintained in the
+[gap analysis](oracle-gap-analysis.md); the statements about unexecuted work
+below describe the analysis baseline, not the present laboratory state.
+
 ## Decision and evidence level
 
 Source review date: 2026-10-19.

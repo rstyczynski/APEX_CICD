@@ -117,17 +117,29 @@ as a desk-analysis baseline; its [review summary](progress/E.2/sprint_E.2_incept
 presents fourteen findings and prioritized evidence questions before exercise
 design. The Product Owner approved analysis on 2026-10-19. The
 [revised exercise design and verification plan](progress/E.2/sprint_E.2_design.md)
-are Proposed for managed approval; implementation has not started.
+were accepted by the Product Owner on 2026-10-19; construction is in progress.
 The [external design review](progress/E.2/sprint_E.2_design_review-1.md) found no
 required corrections to its reviewed version. The current design subsequently
-proposes exercise-based verification without separate test suites. Product Owner
-design acceptance remains pending.
+uses exercise-based verification without separate test suites, as approved by
+the Product Owner.
 The [external analysis review](progress/E.2/sprint_E.2_analysis_review-1.md) found no
 corrections required before exercise design. The
 [interim assessment](progress/E.2/sprint_E.2_assessment.md) records round closure
-and remaining design approval, exercise and handover work.
+and remaining exercise and handover work.
 The analysis also records the unscheduled follow-up
 [PBI-052: component contracts and semantic versioning rules](BACKLOG.md#pbi-052-define-semantic-versioning-rules-for-component-contracts).
+Current E.2 evidence: [implementation record](progress/E.2/sprint_E.2_implementation.md),
+[actual exercise observations](progress/E.2/sprint_E.2_tests.md), and
+[source-backed gap analysis and reconciled roadmap](progress/E.2/oracle-gap-analysis.md).
+Native candidate delivery works in the owned fresh lab; full native verification
+still reports missing-source errors, so no formal PROJECT release is claimed.
+Changed mapped imports also regenerated observed region IDs.
+Start the [reproducible walkthrough](progress/E.2/sprint_E.2_increment_demo.md),
+using its [editable presentation](progress/E.2/sprint_E.2_increment_demo.pptx) and
+[operating manual](progress/E.2/user_manual.md). The
+[handover record](progress/E.2/sprint_E.2_handover.md) retains the pending live
+Product Owner review and acceptance decision.
+
 E.3–E.5 remain Planned; their designs and runtime evidence are pending.
 
 ## Vision

@@ -8,7 +8,11 @@ The [E.2 analysis scope](../progress/E.2/sprint_E.2_proposedchanges.md) assesses
 the current E.1 approach against Oracle lifecycle guidance, including policy
 conflicts such as Working Copies and Git authority. It requires source-backed
 findings, focused exercises, a walkthrough and proposed backlog/roadmap changes;
-requirements are not silently relaxed by the analysis.
+requirements are not silently relaxed by the analysis. Its
+[accepted exercise design](../progress/E.2/sprint_E.2_design.md) authorizes
+bounded ordinary Working Copy authoring in owned disposable resources. The
+[gap-analysis draft](../progress/E.2/oracle-gap-analysis.md) proposes future
+policy/technology dispositions; it does not itself change the requirements below.
 
 The [E.5 upgrade scope](../progress/E.5/sprint_E.5_proposedchanges.md) records
 the planned compatible and breaking Foundation transitions, initial data

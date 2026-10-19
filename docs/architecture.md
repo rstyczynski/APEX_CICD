@@ -12,10 +12,17 @@ mechanisms and the evolution roadmap. Tool limitations and policy conflicts
 must be distinguished; the target toolchain is not presumed validated.
 
 The Product Owner approved E.2 analysis on 2026-10-19. Its
-[proposed exercise design](../progress/E.2/sprint_E.2_design.md) uses isolated
+[accepted exercise design](../progress/E.2/sprint_E.2_design.md) uses isolated
 reduced fixtures and distinguishes native capabilities from a bounded bridge
 to existing component-dependency checks. It is not an accepted replacement
-architecture or a change to the E.1-stage policies stated below.
+architecture or a change to the E.1-stage policies stated below. The
+[construction record](../progress/E.2/sprint_E.2_implementation.md),
+[observed results](../progress/E.2/sprint_E.2_tests.md) and
+[gap-analysis draft](../progress/E.2/oracle-gap-analysis.md) distinguish
+successful mapped candidate delivery from the native verification release block
+and changed region identities on mapped replacement. Both require follow-up
+qualification before adoption.
+The final evolution decision and live handover remain pending.
 
 The [E.5 upgrade scope](../progress/E.5/sprint_E.5_proposedchanges.md) records
 the planned Foundation API/schema coexistence scenario. Initial data migration

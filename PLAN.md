@@ -123,8 +123,8 @@ separate [analysis](progress/E.2/sprint_E.2_analysis.md) establishes the finding
 and evidence questions before exercise selection. The Product Owner approved
 analysis on 2026-10-19 after external review. The revised
 [exercise design](progress/E.2/sprint_E.2_design.md) and verification plan are
-Proposed for managed approval; no exercise implementation is
-authorized yet. By Product Owner direction, E.2 uses experiment-based verification without
+Accepted by the Product Owner on 2026-10-19; construction is authorized.
+By Product Owner direction, E.2 uses experiment-based verification without
 separate automated/regression suites for disposable helpers. Expected/actual
 exercise outcomes and the reproducible live handover remain required.
 

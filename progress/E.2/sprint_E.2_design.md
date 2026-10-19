@@ -2,12 +2,14 @@
 
 ## PBI-051 — Evidence-backed evolution decision
 
-Status: Proposed
+Status: Accepted
 
-Design approval: Awaiting Product Owner review. Analysis was explicitly approved
+Design approval: Accepted by the Product Owner on 2026-10-19, including the
+section-script interfaces and experiment-only verification. Analysis was explicitly approved
 on 2026-10-19 after the [external analysis review](sprint_E.2_analysis_review-1.md)
-found no required corrections. No exercise, provisioning, test
-skeleton or runtime verification has been performed under this design.
+found no required corrections. At that approval baseline, no exercise, provisioning,
+test skeleton or runtime verification had been performed under this design.
+The [implementation record](sprint_E.2_implementation.md) owns subsequent execution.
 
 The [external design review](sprint_E.2_design_review-1.md) raises no findings
 and supports Product Owner acceptance, including the regression proposal.
@@ -478,7 +480,7 @@ of retained E.1. Rehearse and retain logs, render/inspect every slide, and recor
 live Product Owner questions/decision. Historical captures never stand in for
 claimed live authoring. No current demo/rehearsal completion is asserted.
 
-### Approval boundary
+### Approved implementation boundary
 
 There are no unresolved product questions preventing review of this proposal.
 Runtime readiness, export fidelity, native packaging metadata support and actual
@@ -486,9 +488,27 @@ operating effort remain experiment inputs. Unexpected resource requirements or
 material interface substitutions return for amendment; no automatic upgrade,
 undocumented API or full-controller rebuild is authorized.
 
-Requested approval covers the four child outcomes, isolated reduced-fixture
+Product Owner approval covers the four child outcomes, isolated reduced-fixture
 X1–X3, conditional source-first EQ-3/EQ-5 handling, explicit custom-bridge trial,
 and experiment-based verification without separate automated/regression suites.
 It does not permanently adopt PROJECT, change
-E.1-stage product policies, implement PBI-052 or move E.5 work. Design acceptance
-must be explicit before code, provisioning or runtime exercises.
+E.1-stage product policies, implement PBI-052 or move E.5 work. That approval authorizes code and bounded exercise provisioning/execution.
+Unexpected infrastructure rebuilding remains subject to the stated amendment boundary.
+
+### Approved fresh-lab scheduler adjustment — 2026-10-19
+
+The Product Owner explicitly approved raising JOB_QUEUE_PROCESSES from 1 to 10
+in the fresh lab CDB and FREEPDB1 after observed Working Copy comparison queueing.
+This narrowly extends the owned-app/schema boundary to the fresh lab's scheduler
+capacity. Record the prior/completed comparison separately from the adjustment
+and subsequent observations. Do not attribute the already-completed comparison
+to a setting change. No historical E.1 evidence or pinned installation scripts
+are rewritten; no other instance setting is authorized by this addendum.
+
+### Approved fresh-lab provisioning — 2026-10-19
+
+After inspection found no Oracle containers or volumes in the running VM, the
+Product Owner selected “Provision a fresh lab using the existing pinned
+installation procedure.” This separately authorizes the recorded fresh runtime
+preparation; it does not enable an automatic rebuild fallback in the runners.
+[Implementation](sprint_E.2_implementation.md) retains the actual pin and outcome.

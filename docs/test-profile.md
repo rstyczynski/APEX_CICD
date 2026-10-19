@@ -8,9 +8,11 @@ reproducible walkthrough. The [revised E.2 verification design](../progress/E.2/
 uses no separate automated/regression suites for disposable helpers, as directed
 by the Product Owner and recorded in E.2 PLAN parameters. Actual
 exercise assertions, observed outcomes, preservation checks and live handover
-remain required. Overall design acceptance remains pending. No new test skeletons
-or test manifests are proposed. A shared/production-code change triggers a fresh
+remain required. The Product Owner accepted the revised design on 2026-10-19. No separate test skeletons or test manifests are introduced. A shared/production-code change triggers a fresh
 verification assessment rather than inheriting this prototype-only tailoring.
+The [actual E.2 evidence](../progress/E.2/sprint_E.2_tests.md) and
+[walkthrough](../progress/E.2/sprint_E.2_increment_demo.md) record observations,
+retained failures and the pending live review.
 
 The [E.5 upgrade scope](../progress/E.5/sprint_E.5_proposedchanges.md) requires
 compatible and breaking Foundation upgrade evidence, migration catch-up,

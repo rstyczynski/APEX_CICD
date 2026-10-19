@@ -1,8 +1,9 @@
-# E.2 — Documentation audit at the design gate
+# E.2 — Documentation audit
 
-Current state: desk-analysis baseline complete for review, with PBI-051
-analysed and the sprint under_analysis. The earlier design-gate assessment
-below is superseded by the analysis records at the end of this document.
+Current state: construction under the Product Owner-accepted design, with
+Test: none and Regression: none. PBI-051 remains under_construction. The sections
+below retain earlier audit snapshots; the construction audit at the end owns
+current corrections and unresolved gates. The bounded child-increment audit below owns the current completion decision; live handover remains open.
 
 ## Scope and decision
 
@@ -473,3 +474,90 @@ assessment so they no longer describe this parameter change as pending. Other
 sprints, assignment and execution statuses remain unchanged. Exercise evidence
 and live handover requirements remain in force; design acceptance is separate.
 Checked exact E.2 parameter values and whitespace before scoped publication.
+
+## Construction consistency checkpoint — 2026-10-19
+
+This checkpoint is in progress, not a PBI completion audit. Checked the current
+Product Owner design approval, PLAN Test/Regression none, scoped child statuses,
+accepted design, implementation record, actual exercise evidence, README and
+test profile. Corrected stale pending-design statements in maintained documents.
+Architecture/SRS navigation now points to accepted exercises and emerging results,
+without changing their accepted behavior/policy baseline. Earlier audit snapshots
+above remain historical and are not current execution instructions.
+
+Code follows separate A–E section scripts with shared options and bounded domain
+helpers. Actual native initial/patch candidates passed fresh/baseline/repeat and
+preservation observations, while full native verification blocks formal release.
+The broader existing-repository probe found a README overwrite and demonstrated
+Git restoration. Working Copy Compare passed; Refresh is waiting under observed
+single-worker CDB/PDB limits. A proposed platform capacity change is pending
+managed approval. Public APEX session/query contexts proved the shared schema.
+
+Bash syntax, Python compilation and git diff --check passed at this checkpoint.
+Walkthrough/manual/handover and the gap-analysis/roadmap drafts are connected but
+unfinished. Working Copy recovery/checkpoint reconstruction, final negative
+admission, retained evidence packaging, final links/commands, presentation render
+review and live Product Owner handover remain outstanding. These dependencies
+block a completion commit. E.1 evidence, other sprint artifacts and the unrelated
+E.1 backup edit remain preserved. No separate test suite was introduced.
+
+## P8 audit — completed assessment children, 2026-10-19
+
+Scope: PBI-051.1–.3, not parent acceptance or PBI-051.4 completion. Their
+assessment outcomes are implemented. Shared A–E scaffolding and the prepared
+handover package are included with this first dependent completion increment;
+PBI-051.4 remains under_construction until actual live feedback is recorded.
+No later-sprint item is delivered.
+
+Checked [SRS](../../docs/srs.md), [architecture](../../docs/architecture.md) and
+[test profile](../../docs/test-profile.md): required safety and identity outcomes
+are preserved; the bounded prototype exception does not adopt native technology
+or relax requirements. Architecture now exposes native verification and mapped
+replacement identity findings. Test/regression remain none by explicit user
+direction; actual observations replace separate suites.
+
+Checked [setup](sprint_E.2_setup.md), accepted
+[design](sprint_E.2_design.md), [implementation](sprint_E.2_implementation.md) and
+[actual exercise record](sprint_E.2_tests.md): approvals for design, pinned fresh
+provisioning and scheduler capacity are explicit. Earlier snapshots remain
+identified. Actual native verification failures and changed IDs are legitimate
+assessment outcomes under the accepted design; no formal release or stable-ID
+pass is claimed. The actual combined checkpoint, native declaration carriage,
+reconstruction, retained rows, stale recovery/deletion/abandonment and rejection
+results are traced to retained receipts/logs/screenshots. Foreign role refusal
+is labeled narrowly; no full controller, concurrency or private-report test is
+claimed. No additional committed-DDL failure or undocumented API was introduced.
+
+Checked [README](../../README.md), the canonical four-column
+[board](../../PROGRESS_BOARD.md), [gap decision](oracle-gap-analysis.md),
+[manual](user_manual.md), [walkthrough](sprint_E.2_increment_demo.md), editable
+[presentation](sprint_E.2_increment_demo.pptx) and [handover](sprint_E.2_handover.md):
+navigation is reciprocal, independent full new-run execution remains unclaimed,
+and live review/acceptance remains pending. PBI-052 already owns contract/SemVer
+mapping; follow-up refines existing items without duplicate root items or
+E.3–E.5 rescheduling. Complex Foundation upgrades stay E.5. E.1 historical
+evidence and original review ZIP contents are untouched; the unrelated E.1
+diagram backup edit is excluded from this increment.
+
+Verified [local check receipt](tests/construction_checks_20261019.txt): section
+Bash syntax, Python compilation, local link targets/headings, actual preflight,
+inspection, C/D resume and expected B/E stops. Repeated B verify reproduced its
+native error without deployment. No new failure-injection suite was added.
+All 20 final presentation renders match the individually inspected revision;
+package/layout/font/import checks passed and primary sources are in notes.
+The public evidence ZIP's CRC, exact entry set and every manifest hash passed;
+known generated secrets were absent, including nested ZIP entries and scratch
+Git history. Private credentials remain local. Final staged whitespace checks
+are required immediately before the completion commit.
+
+No unresolved implementation/design approval blocks PBI-051.1–.3's assessment
+completion. Native verification/identity follow-up blocks adopting the observed
+path, not recording its gap-analysis outcome. This audit does not approve the
+documentation or close the sprint: P9 live demonstration and Product Owner
+feedback/acceptance remain the next managed handover gate.
+
+The first staged whitespace check identified only verbatim SQLcl help/init
+output and the scheduler output's blank EOF. Their bytes were preserved. The
+existing .gitattributes evidence-preservation convention was extended to exactly
+those three raw files for trailing/EOF whitespace; code and authored Markdown
+remain checked normally. The subsequent staged diff check passed.

@@ -1,0 +1,3300 @@
+
+CICD SQLcl project extension
+
+Subcommands:
+
+  INIT
+
+  Initialize a new project
+
+  Usage:
+
+    init|in {OPTIONS}
+
+  Options:
+
+    -name|-n <name> [required]
+    Define the project name
+
+    -schemas|-s <schemas>
+    Specify a comma-separated list of schemas to export, e.g., HR
+
+    -directory|-d <directory> {PATH}
+    Define the directory in which the project will be created
+    If not specified, the project will be created in the current directory
+
+    -connection-name|-con <connection-name>
+    Specify the SQLcl connection name
+    If not provided, and you are connecting via a named connection, it will
+    automatically add that connection name to the connectionName configuration
+    property
+    If no named connection is used, the connectionName property will remain
+    empty
+
+    -makeroot|-mr
+    Create a root folder named after the project and store all files in this
+    directory
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Initialize a project named "apexsb", linked to the "apexsb_data" and
+    "apexsb" schemas, within the directory "/workspace/projects/", and using the
+    connection name "apexsb_conn" 
+      SQL> project init -name apexsb -schemas apexsb_data,apexsb -d
+      /workspace/projects -con apexsb_conn
+
+
+  EXPORT
+
+  Export database objects to your repository
+
+  Usage:
+
+    export|ex {OPTIONS}
+
+  Options:
+
+    -list|-l
+    List all objects in alphabetical order 
+    Outputs the list of objects that will be exported based on the current
+    parameters
+
+    -objects|-o <objects>
+    Define a comma-separated list of objects to export, e.g.
+    HR.COUNTRIES,HR.EMPLOYEES 
+    or export a specific object like and Apex application using APEX.<app_id>
+
+    -schemas|-s <schemas>
+    Specify a comma-separated list of schemas to export, e.g., HR
+
+    -threads|-t <threads>
+    Specify the number of concurrent threads to use with cloned JDBC connections
+    for executing DBMS_METADATA.getDDL. The default value is 5
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Examples of custom export filters are in ".dbtools/filters/project.filters" 
+      SQL> project export -debug -list -objects REGIONS,COUNTRIES -schemas
+      HR,SCOTT -threads 4 
+    
+    Export a specific Apex application:
+      SQL> project export -objects APEX.100 -schemas APEXUSER 
+
+
+  CONFIG
+
+  The config command is used to view and manage your project configuration
+  properties
+
+  Usage:
+
+    config|cfg {SUBCOMMAND} {OPTIONS}
+
+  Subcommands:
+
+    SET
+
+    Add a new config parameter, or update an existing one
+
+    Usage:
+
+      set|s {OPTIONS}
+
+    Options:
+
+      -name|-n <name> [required]
+      Define the config parameter name
+
+      -value|-va <value> [required]
+      The value to set the config parameter to
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Set the parameter "sqlcl.version" to the value 24 with the data type
+      specified as INTEGER
+        SQL> project config set -name sqlcl.version -type INTEGER -value 24
+        -verbose
+      
+      Set the parameter export.demo.demoComments to True
+        SQL> project config set -name export.demo.demoComments -type BOOLEAN 
+        -value TRUE -verbose
+
+
+    DELETE
+
+    Remove a configuration parameter from the project configuration file
+
+    Usage:
+
+      delete|d {OPTIONS}
+
+    Options:
+
+      -name|-n <name>
+      The config parameter name can be used when filtering or editing
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Remove the configuration parameter named "schemas" from the project
+      configuration file
+        SQL> project config delete -name schemas  
+
+  Options:
+
+    -list|-li [required]
+    List your current configuration settings
+
+    -name|-n <name>
+    The config parameter name can be used when filtering or editing
+
+    -verbose|-v
+    Show additional details about the current process
+
+    -debug|-de
+    Enable debug information in the output
+
+  Examples:
+
+    List all configuration parameters within the project and their values in a
+    table format
+      SQL> project config -list 
+    
+    List  the configuration for the "sqlcl.version" parameter. Use -verbose to
+    include default value and description 
+      SQL> project config -list -name sqlcl.version -verbose 
+    
+    List all configuration parameters that include the specified name stage 
+      SQL> project config -list -name stage -verbose
+    
+
+
+  GEN-ARTIFACT
+
+  Generate an artifact that represents the current state of your project
+
+  Usage:
+
+    gen-artifact|ga {OPTIONS}
+
+  Options:
+
+    -name|-n <name>
+    Specify a custom name for the artifact
+
+    -format|-fo <format> (zip)
+    Choose the desired compression format: zip or tgz
+
+    -version|-ve <version>
+    Specify the version for the artifact
+
+    -force|-f
+    Overwrites the artifact if it exists
+
+    -verbose|-v
+    Show additional details about the current process
+
+    -debug|-de
+    Enable debug information in the output
+
+  Examples:
+
+    Generate an artifact named R1-1 in zip format. The artifact is saved in the
+    artifact folder, which will be created if it does not exist
+      SQL> project gen-artifact -name R1 -version 1 -format zip -verbose 
+
+
+  DEPLOY
+
+  Deploy the artifact on a target database
+
+  Usage:
+
+    deploy|dp {OPTIONS}
+
+  Options:
+
+    -file|-fs <file> [required]
+    Specify the path to the artifact file
+
+    -log-path|-ld <log-path> {PATH}
+    Provide path to where log files should be placed
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Extract the artifact file from the specified path, the command will execute
+    @dist/install.sql, and initiate the Liquibase installer on the target
+    database
+      SQL> project deploy -file /Users/user1/Desktop/project1/artifact/R1-1.zip
+      -verbose  
+
+
+  RELEASE
+
+  Move the current set of work into a release state and start a new body of work
+
+  Usage:
+
+    release|re {OPTIONS}
+
+  Options:
+
+    -version|-ve <version> [required]
+    Specify the version to label this release
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    To package a unit of work into a release:
+      SQL> project release -version 1.0 
+
+
+  VERIFY
+
+  Test different aspects of your project, including snapshots, stages, and the
+  overall project
+
+  Usage:
+
+    verify|v {SUBCOMMAND} {OPTIONS}
+
+  Subcommands:
+
+    VERIFY-STAGE
+
+    Execute all the verify tests registered for the stage group
+
+    Usage:
+
+      verify-stage|st {OPTIONS}
+
+    Options:
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Execute all the verify tests registered for the stage group
+        SQL> project verify gen-stage 
+
+
+    SNAPSHOT
+
+    Execute all the verify tests registered for the snapshot group
+
+    Usage:
+
+      snapshot|ss {OPTIONS}
+
+    Options:
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Execute all the verify tests registered for the snapshot group
+        SQL> project verify snapshot
+
+  Options:
+
+    -group|-gr <group>
+    Execute a group of verify tests
+
+    -test|-se <test>
+    Execute a Verification test
+
+    -list-groups|-lig
+    List all the registered verify service groups
+
+    -list-tests|-lit
+    If a group is supplied will list all the verify tests in that group,
+    otherwise will list all verify tests registered
+
+    -compared-branch-name|-cbn <compared-branch-name>
+    The name of the branch which the differences with the current branch will be
+    checked for.
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Run verification tests on your project
+      SQL> project verify
+    
+    Execute a specific verification test
+      SQL> project verify -test <name>
+    
+    Execute verification tests for a specified group
+      SQL> project verify -group <name>
+    
+    List all registered verification tests
+      SQL> project verify -list-tests
+    
+    List all registered verification test groups
+      SQL> project verify -list-groups
+
+
+  STAGE
+
+  Generate Liquibase changelogs and changesets for all src and custom SQL files
+
+  Usage:
+
+    stage|st {SUBCOMMAND} {OPTIONS}
+
+  Subcommands:
+
+    ADD-CUSTOM
+
+    Add a custom file to the stage
+
+    Usage:
+
+      add-custom|ac {OPTIONS}
+
+    Options:
+
+      -file-name|-fn <file-name> [required]
+      Name of the custom file
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+        SQL> project stage add-custom -file-name feature1.sql 
+
+  Options:
+
+    -branch-name|-bn <branch-name>
+    Specify the branch name for comparison. If not provided, the value from the
+    configuration file (git.defaultBranch) will be used, with "develop" as the
+    default
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Create a new directory under dist/releases/next based on the current branch
+    name. it Adds changelogs and changesets to the folder by diffing files in
+    the current branch and the "from" branch. If no branch specified, it uses
+    the default from the config stage.branch parameter
+       SQL> project stage 
+    
+    Create a new directory under dist/releases/next based on the current branch
+    name. it Adds changelogs and changesets to the folder by diffing files in
+    the current branch and the "from" branch. The "from" branch here is
+    specified as "dev"
+       SQL> project stage -branch-name dev 
+    
+    Create a new directory under dist/releases/next specifying the branch name
+      SQL> project stage -branch-name branch1 
+    
+
+Examples:
+
+  The project command supports several sub commands which create a project,
+  export objects from users, generate diffs between versions, generate a release
+  of the changes, generate an artifact with all the changes for the release,
+  deploy an artifact to a database
+  
+    - Project init command: 
+    SQL> project init -name demoproject -schemas hr -verbose
+  
+    - Project export command: 
+    SQL> project export -schemas hr
+  
+    - Project stage command: 
+    SQL> project stage -verbose
+  
+    - Project release command: 
+    SQL> project release -version 1.0
+  
+    - Project gen_artifacts command: 
+    SQL> project gen_artifacts -name demo -version 1.0 -format zip
+  
+    - Project deploy command: 
+    SQL> project deploy -file demo_1.0.zip
+  
+'-help' at column 13: Option not recognized
+The option 'NAME' is required and a value must be specified
+CICD SQLcl project extension
+
+Subcommands:
+
+  INIT
+
+  Initialize a new project
+
+  Usage:
+
+    init|in {OPTIONS}
+
+  Options:
+
+    -name|-n <name> [required]
+    Define the project name
+
+    -schemas|-s <schemas>
+    Specify a comma-separated list of schemas to export, e.g., HR
+
+    -directory|-d <directory> {PATH}
+    Define the directory in which the project will be created
+    If not specified, the project will be created in the current directory
+
+    -connection-name|-con <connection-name>
+    Specify the SQLcl connection name
+    If not provided, and you are connecting via a named connection, it will
+    automatically add that connection name to the connectionName configuration
+    property
+    If no named connection is used, the connectionName property will remain
+    empty
+
+    -makeroot|-mr
+    Create a root folder named after the project and store all files in this
+    directory
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Initialize a project named "apexsb", linked to the "apexsb_data" and
+    "apexsb" schemas, within the directory "/workspace/projects/", and using the
+    connection name "apexsb_conn" 
+      SQL> project init -name apexsb -schemas apexsb_data,apexsb -d
+      /workspace/projects -con apexsb_conn
+
+
+  EXPORT
+
+  Export database objects to your repository
+
+  Usage:
+
+    export|ex {OPTIONS}
+
+  Options:
+
+    -list|-l
+    List all objects in alphabetical order 
+    Outputs the list of objects that will be exported based on the current
+    parameters
+
+    -objects|-o <objects>
+    Define a comma-separated list of objects to export, e.g.
+    HR.COUNTRIES,HR.EMPLOYEES 
+    or export a specific object like and Apex application using APEX.<app_id>
+
+    -schemas|-s <schemas>
+    Specify a comma-separated list of schemas to export, e.g., HR
+
+    -threads|-t <threads>
+    Specify the number of concurrent threads to use with cloned JDBC connections
+    for executing DBMS_METADATA.getDDL. The default value is 5
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Examples of custom export filters are in ".dbtools/filters/project.filters" 
+      SQL> project export -debug -list -objects REGIONS,COUNTRIES -schemas
+      HR,SCOTT -threads 4 
+    
+    Export a specific Apex application:
+      SQL> project export -objects APEX.100 -schemas APEXUSER 
+
+
+  CONFIG
+
+  The config command is used to view and manage your project configuration
+  properties
+
+  Usage:
+
+    config|cfg {SUBCOMMAND} {OPTIONS}
+
+  Subcommands:
+
+    SET
+
+    Add a new config parameter, or update an existing one
+
+    Usage:
+
+      set|s {OPTIONS}
+
+    Options:
+
+      -name|-n <name> [required]
+      Define the config parameter name
+
+      -value|-va <value> [required]
+      The value to set the config parameter to
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Set the parameter "sqlcl.version" to the value 24 with the data type
+      specified as INTEGER
+        SQL> project config set -name sqlcl.version -type INTEGER -value 24
+        -verbose
+      
+      Set the parameter export.demo.demoComments to True
+        SQL> project config set -name export.demo.demoComments -type BOOLEAN 
+        -value TRUE -verbose
+
+
+    DELETE
+
+    Remove a configuration parameter from the project configuration file
+
+    Usage:
+
+      delete|d {OPTIONS}
+
+    Options:
+
+      -name|-n <name>
+      The config parameter name can be used when filtering or editing
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Remove the configuration parameter named "schemas" from the project
+      configuration file
+        SQL> project config delete -name schemas  
+
+  Options:
+
+    -list|-li [required]
+    List your current configuration settings
+
+    -name|-n <name>
+    The config parameter name can be used when filtering or editing
+
+    -verbose|-v
+    Show additional details about the current process
+
+    -debug|-de
+    Enable debug information in the output
+
+  Examples:
+
+    List all configuration parameters within the project and their values in a
+    table format
+      SQL> project config -list 
+    
+    List  the configuration for the "sqlcl.version" parameter. Use -verbose to
+    include default value and description 
+      SQL> project config -list -name sqlcl.version -verbose 
+    
+    List all configuration parameters that include the specified name stage 
+      SQL> project config -list -name stage -verbose
+    
+
+
+  GEN-ARTIFACT
+
+  Generate an artifact that represents the current state of your project
+
+  Usage:
+
+    gen-artifact|ga {OPTIONS}
+
+  Options:
+
+    -name|-n <name>
+    Specify a custom name for the artifact
+
+    -format|-fo <format> (zip)
+    Choose the desired compression format: zip or tgz
+
+    -version|-ve <version>
+    Specify the version for the artifact
+
+    -force|-f
+    Overwrites the artifact if it exists
+
+    -verbose|-v
+    Show additional details about the current process
+
+    -debug|-de
+    Enable debug information in the output
+
+  Examples:
+
+    Generate an artifact named R1-1 in zip format. The artifact is saved in the
+    artifact folder, which will be created if it does not exist
+      SQL> project gen-artifact -name R1 -version 1 -format zip -verbose 
+
+
+  DEPLOY
+
+  Deploy the artifact on a target database
+
+  Usage:
+
+    deploy|dp {OPTIONS}
+
+  Options:
+
+    -file|-fs <file> [required]
+    Specify the path to the artifact file
+
+    -log-path|-ld <log-path> {PATH}
+    Provide path to where log files should be placed
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Extract the artifact file from the specified path, the command will execute
+    @dist/install.sql, and initiate the Liquibase installer on the target
+    database
+      SQL> project deploy -file /Users/user1/Desktop/project1/artifact/R1-1.zip
+      -verbose  
+
+
+  RELEASE
+
+  Move the current set of work into a release state and start a new body of work
+
+  Usage:
+
+    release|re {OPTIONS}
+
+  Options:
+
+    -version|-ve <version> [required]
+    Specify the version to label this release
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    To package a unit of work into a release:
+      SQL> project release -version 1.0 
+
+
+  VERIFY
+
+  Test different aspects of your project, including snapshots, stages, and the
+  overall project
+
+  Usage:
+
+    verify|v {SUBCOMMAND} {OPTIONS}
+
+  Subcommands:
+
+    VERIFY-STAGE
+
+    Execute all the verify tests registered for the stage group
+
+    Usage:
+
+      verify-stage|st {OPTIONS}
+
+    Options:
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Execute all the verify tests registered for the stage group
+        SQL> project verify gen-stage 
+
+
+    SNAPSHOT
+
+    Execute all the verify tests registered for the snapshot group
+
+    Usage:
+
+      snapshot|ss {OPTIONS}
+
+    Options:
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Execute all the verify tests registered for the snapshot group
+        SQL> project verify snapshot
+
+  Options:
+
+    -group|-gr <group>
+    Execute a group of verify tests
+
+    -test|-se <test>
+    Execute a Verification test
+
+    -list-groups|-lig
+    List all the registered verify service groups
+
+    -list-tests|-lit
+    If a group is supplied will list all the verify tests in that group,
+    otherwise will list all verify tests registered
+
+    -compared-branch-name|-cbn <compared-branch-name>
+    The name of the branch which the differences with the current branch will be
+    checked for.
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Run verification tests on your project
+      SQL> project verify
+    
+    Execute a specific verification test
+      SQL> project verify -test <name>
+    
+    Execute verification tests for a specified group
+      SQL> project verify -group <name>
+    
+    List all registered verification tests
+      SQL> project verify -list-tests
+    
+    List all registered verification test groups
+      SQL> project verify -list-groups
+
+
+  STAGE
+
+  Generate Liquibase changelogs and changesets for all src and custom SQL files
+
+  Usage:
+
+    stage|st {SUBCOMMAND} {OPTIONS}
+
+  Subcommands:
+
+    ADD-CUSTOM
+
+    Add a custom file to the stage
+
+    Usage:
+
+      add-custom|ac {OPTIONS}
+
+    Options:
+
+      -file-name|-fn <file-name> [required]
+      Name of the custom file
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+        SQL> project stage add-custom -file-name feature1.sql 
+
+  Options:
+
+    -branch-name|-bn <branch-name>
+    Specify the branch name for comparison. If not provided, the value from the
+    configuration file (git.defaultBranch) will be used, with "develop" as the
+    default
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Create a new directory under dist/releases/next based on the current branch
+    name. it Adds changelogs and changesets to the folder by diffing files in
+    the current branch and the "from" branch. If no branch specified, it uses
+    the default from the config stage.branch parameter
+       SQL> project stage 
+    
+    Create a new directory under dist/releases/next based on the current branch
+    name. it Adds changelogs and changesets to the folder by diffing files in
+    the current branch and the "from" branch. The "from" branch here is
+    specified as "dev"
+       SQL> project stage -branch-name dev 
+    
+    Create a new directory under dist/releases/next specifying the branch name
+      SQL> project stage -branch-name branch1 
+    
+
+Examples:
+
+  The project command supports several sub commands which create a project,
+  export objects from users, generate diffs between versions, generate a release
+  of the changes, generate an artifact with all the changes for the release,
+  deploy an artifact to a database
+  
+    - Project init command: 
+    SQL> project init -name demoproject -schemas hr -verbose
+  
+    - Project export command: 
+    SQL> project export -schemas hr
+  
+    - Project stage command: 
+    SQL> project stage -verbose
+  
+    - Project release command: 
+    SQL> project release -version 1.0
+  
+    - Project gen_artifacts command: 
+    SQL> project gen_artifacts -name demo -version 1.0 -format zip
+  
+    - Project deploy command: 
+    SQL> project deploy -file demo_1.0.zip
+  
+'-help' at column 15: Option not recognized
+The option 'LIST' is required and a value must be specified
+CICD SQLcl project extension
+
+Subcommands:
+
+  INIT
+
+  Initialize a new project
+
+  Usage:
+
+    init|in {OPTIONS}
+
+  Options:
+
+    -name|-n <name> [required]
+    Define the project name
+
+    -schemas|-s <schemas>
+    Specify a comma-separated list of schemas to export, e.g., HR
+
+    -directory|-d <directory> {PATH}
+    Define the directory in which the project will be created
+    If not specified, the project will be created in the current directory
+
+    -connection-name|-con <connection-name>
+    Specify the SQLcl connection name
+    If not provided, and you are connecting via a named connection, it will
+    automatically add that connection name to the connectionName configuration
+    property
+    If no named connection is used, the connectionName property will remain
+    empty
+
+    -makeroot|-mr
+    Create a root folder named after the project and store all files in this
+    directory
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Initialize a project named "apexsb", linked to the "apexsb_data" and
+    "apexsb" schemas, within the directory "/workspace/projects/", and using the
+    connection name "apexsb_conn" 
+      SQL> project init -name apexsb -schemas apexsb_data,apexsb -d
+      /workspace/projects -con apexsb_conn
+
+
+  EXPORT
+
+  Export database objects to your repository
+
+  Usage:
+
+    export|ex {OPTIONS}
+
+  Options:
+
+    -list|-l
+    List all objects in alphabetical order 
+    Outputs the list of objects that will be exported based on the current
+    parameters
+
+    -objects|-o <objects>
+    Define a comma-separated list of objects to export, e.g.
+    HR.COUNTRIES,HR.EMPLOYEES 
+    or export a specific object like and Apex application using APEX.<app_id>
+
+    -schemas|-s <schemas>
+    Specify a comma-separated list of schemas to export, e.g., HR
+
+    -threads|-t <threads>
+    Specify the number of concurrent threads to use with cloned JDBC connections
+    for executing DBMS_METADATA.getDDL. The default value is 5
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Examples of custom export filters are in ".dbtools/filters/project.filters" 
+      SQL> project export -debug -list -objects REGIONS,COUNTRIES -schemas
+      HR,SCOTT -threads 4 
+    
+    Export a specific Apex application:
+      SQL> project export -objects APEX.100 -schemas APEXUSER 
+
+
+  CONFIG
+
+  The config command is used to view and manage your project configuration
+  properties
+
+  Usage:
+
+    config|cfg {SUBCOMMAND} {OPTIONS}
+
+  Subcommands:
+
+    SET
+
+    Add a new config parameter, or update an existing one
+
+    Usage:
+
+      set|s {OPTIONS}
+
+    Options:
+
+      -name|-n <name> [required]
+      Define the config parameter name
+
+      -value|-va <value> [required]
+      The value to set the config parameter to
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Set the parameter "sqlcl.version" to the value 24 with the data type
+      specified as INTEGER
+        SQL> project config set -name sqlcl.version -type INTEGER -value 24
+        -verbose
+      
+      Set the parameter export.demo.demoComments to True
+        SQL> project config set -name export.demo.demoComments -type BOOLEAN 
+        -value TRUE -verbose
+
+
+    DELETE
+
+    Remove a configuration parameter from the project configuration file
+
+    Usage:
+
+      delete|d {OPTIONS}
+
+    Options:
+
+      -name|-n <name>
+      The config parameter name can be used when filtering or editing
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Remove the configuration parameter named "schemas" from the project
+      configuration file
+        SQL> project config delete -name schemas  
+
+  Options:
+
+    -list|-li [required]
+    List your current configuration settings
+
+    -name|-n <name>
+    The config parameter name can be used when filtering or editing
+
+    -verbose|-v
+    Show additional details about the current process
+
+    -debug|-de
+    Enable debug information in the output
+
+  Examples:
+
+    List all configuration parameters within the project and their values in a
+    table format
+      SQL> project config -list 
+    
+    List  the configuration for the "sqlcl.version" parameter. Use -verbose to
+    include default value and description 
+      SQL> project config -list -name sqlcl.version -verbose 
+    
+    List all configuration parameters that include the specified name stage 
+      SQL> project config -list -name stage -verbose
+    
+
+
+  GEN-ARTIFACT
+
+  Generate an artifact that represents the current state of your project
+
+  Usage:
+
+    gen-artifact|ga {OPTIONS}
+
+  Options:
+
+    -name|-n <name>
+    Specify a custom name for the artifact
+
+    -format|-fo <format> (zip)
+    Choose the desired compression format: zip or tgz
+
+    -version|-ve <version>
+    Specify the version for the artifact
+
+    -force|-f
+    Overwrites the artifact if it exists
+
+    -verbose|-v
+    Show additional details about the current process
+
+    -debug|-de
+    Enable debug information in the output
+
+  Examples:
+
+    Generate an artifact named R1-1 in zip format. The artifact is saved in the
+    artifact folder, which will be created if it does not exist
+      SQL> project gen-artifact -name R1 -version 1 -format zip -verbose 
+
+
+  DEPLOY
+
+  Deploy the artifact on a target database
+
+  Usage:
+
+    deploy|dp {OPTIONS}
+
+  Options:
+
+    -file|-fs <file> [required]
+    Specify the path to the artifact file
+
+    -log-path|-ld <log-path> {PATH}
+    Provide path to where log files should be placed
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Extract the artifact file from the specified path, the command will execute
+    @dist/install.sql, and initiate the Liquibase installer on the target
+    database
+      SQL> project deploy -file /Users/user1/Desktop/project1/artifact/R1-1.zip
+      -verbose  
+
+
+  RELEASE
+
+  Move the current set of work into a release state and start a new body of work
+
+  Usage:
+
+    release|re {OPTIONS}
+
+  Options:
+
+    -version|-ve <version> [required]
+    Specify the version to label this release
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    To package a unit of work into a release:
+      SQL> project release -version 1.0 
+
+
+  VERIFY
+
+  Test different aspects of your project, including snapshots, stages, and the
+  overall project
+
+  Usage:
+
+    verify|v {SUBCOMMAND} {OPTIONS}
+
+  Subcommands:
+
+    VERIFY-STAGE
+
+    Execute all the verify tests registered for the stage group
+
+    Usage:
+
+      verify-stage|st {OPTIONS}
+
+    Options:
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Execute all the verify tests registered for the stage group
+        SQL> project verify gen-stage 
+
+
+    SNAPSHOT
+
+    Execute all the verify tests registered for the snapshot group
+
+    Usage:
+
+      snapshot|ss {OPTIONS}
+
+    Options:
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Execute all the verify tests registered for the snapshot group
+        SQL> project verify snapshot
+
+  Options:
+
+    -group|-gr <group>
+    Execute a group of verify tests
+
+    -test|-se <test>
+    Execute a Verification test
+
+    -list-groups|-lig
+    List all the registered verify service groups
+
+    -list-tests|-lit
+    If a group is supplied will list all the verify tests in that group,
+    otherwise will list all verify tests registered
+
+    -compared-branch-name|-cbn <compared-branch-name>
+    The name of the branch which the differences with the current branch will be
+    checked for.
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Run verification tests on your project
+      SQL> project verify
+    
+    Execute a specific verification test
+      SQL> project verify -test <name>
+    
+    Execute verification tests for a specified group
+      SQL> project verify -group <name>
+    
+    List all registered verification tests
+      SQL> project verify -list-tests
+    
+    List all registered verification test groups
+      SQL> project verify -list-groups
+
+
+  STAGE
+
+  Generate Liquibase changelogs and changesets for all src and custom SQL files
+
+  Usage:
+
+    stage|st {SUBCOMMAND} {OPTIONS}
+
+  Subcommands:
+
+    ADD-CUSTOM
+
+    Add a custom file to the stage
+
+    Usage:
+
+      add-custom|ac {OPTIONS}
+
+    Options:
+
+      -file-name|-fn <file-name> [required]
+      Name of the custom file
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+        SQL> project stage add-custom -file-name feature1.sql 
+
+  Options:
+
+    -branch-name|-bn <branch-name>
+    Specify the branch name for comparison. If not provided, the value from the
+    configuration file (git.defaultBranch) will be used, with "develop" as the
+    default
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Create a new directory under dist/releases/next based on the current branch
+    name. it Adds changelogs and changesets to the folder by diffing files in
+    the current branch and the "from" branch. If no branch specified, it uses
+    the default from the config stage.branch parameter
+       SQL> project stage 
+    
+    Create a new directory under dist/releases/next based on the current branch
+    name. it Adds changelogs and changesets to the folder by diffing files in
+    the current branch and the "from" branch. The "from" branch here is
+    specified as "dev"
+       SQL> project stage -branch-name dev 
+    
+    Create a new directory under dist/releases/next specifying the branch name
+      SQL> project stage -branch-name branch1 
+    
+
+Examples:
+
+  The project command supports several sub commands which create a project,
+  export objects from users, generate diffs between versions, generate a release
+  of the changes, generate an artifact with all the changes for the release,
+  deploy an artifact to a database
+  
+    - Project init command: 
+    SQL> project init -name demoproject -schemas hr -verbose
+  
+    - Project export command: 
+    SQL> project export -schemas hr
+  
+    - Project stage command: 
+    SQL> project stage -verbose
+  
+    - Project release command: 
+    SQL> project release -version 1.0
+  
+    - Project gen_artifacts command: 
+    SQL> project gen_artifacts -name demo -version 1.0 -format zip
+  
+    - Project deploy command: 
+    SQL> project deploy -file demo_1.0.zip
+  
+'-help' at column 15: Option not recognized
+CICD SQLcl project extension
+
+Subcommands:
+
+  INIT
+
+  Initialize a new project
+
+  Usage:
+
+    init|in {OPTIONS}
+
+  Options:
+
+    -name|-n <name> [required]
+    Define the project name
+
+    -schemas|-s <schemas>
+    Specify a comma-separated list of schemas to export, e.g., HR
+
+    -directory|-d <directory> {PATH}
+    Define the directory in which the project will be created
+    If not specified, the project will be created in the current directory
+
+    -connection-name|-con <connection-name>
+    Specify the SQLcl connection name
+    If not provided, and you are connecting via a named connection, it will
+    automatically add that connection name to the connectionName configuration
+    property
+    If no named connection is used, the connectionName property will remain
+    empty
+
+    -makeroot|-mr
+    Create a root folder named after the project and store all files in this
+    directory
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Initialize a project named "apexsb", linked to the "apexsb_data" and
+    "apexsb" schemas, within the directory "/workspace/projects/", and using the
+    connection name "apexsb_conn" 
+      SQL> project init -name apexsb -schemas apexsb_data,apexsb -d
+      /workspace/projects -con apexsb_conn
+
+
+  EXPORT
+
+  Export database objects to your repository
+
+  Usage:
+
+    export|ex {OPTIONS}
+
+  Options:
+
+    -list|-l
+    List all objects in alphabetical order 
+    Outputs the list of objects that will be exported based on the current
+    parameters
+
+    -objects|-o <objects>
+    Define a comma-separated list of objects to export, e.g.
+    HR.COUNTRIES,HR.EMPLOYEES 
+    or export a specific object like and Apex application using APEX.<app_id>
+
+    -schemas|-s <schemas>
+    Specify a comma-separated list of schemas to export, e.g., HR
+
+    -threads|-t <threads>
+    Specify the number of concurrent threads to use with cloned JDBC connections
+    for executing DBMS_METADATA.getDDL. The default value is 5
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Examples of custom export filters are in ".dbtools/filters/project.filters" 
+      SQL> project export -debug -list -objects REGIONS,COUNTRIES -schemas
+      HR,SCOTT -threads 4 
+    
+    Export a specific Apex application:
+      SQL> project export -objects APEX.100 -schemas APEXUSER 
+
+
+  CONFIG
+
+  The config command is used to view and manage your project configuration
+  properties
+
+  Usage:
+
+    config|cfg {SUBCOMMAND} {OPTIONS}
+
+  Subcommands:
+
+    SET
+
+    Add a new config parameter, or update an existing one
+
+    Usage:
+
+      set|s {OPTIONS}
+
+    Options:
+
+      -name|-n <name> [required]
+      Define the config parameter name
+
+      -value|-va <value> [required]
+      The value to set the config parameter to
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Set the parameter "sqlcl.version" to the value 24 with the data type
+      specified as INTEGER
+        SQL> project config set -name sqlcl.version -type INTEGER -value 24
+        -verbose
+      
+      Set the parameter export.demo.demoComments to True
+        SQL> project config set -name export.demo.demoComments -type BOOLEAN 
+        -value TRUE -verbose
+
+
+    DELETE
+
+    Remove a configuration parameter from the project configuration file
+
+    Usage:
+
+      delete|d {OPTIONS}
+
+    Options:
+
+      -name|-n <name>
+      The config parameter name can be used when filtering or editing
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Remove the configuration parameter named "schemas" from the project
+      configuration file
+        SQL> project config delete -name schemas  
+
+  Options:
+
+    -list|-li [required]
+    List your current configuration settings
+
+    -name|-n <name>
+    The config parameter name can be used when filtering or editing
+
+    -verbose|-v
+    Show additional details about the current process
+
+    -debug|-de
+    Enable debug information in the output
+
+  Examples:
+
+    List all configuration parameters within the project and their values in a
+    table format
+      SQL> project config -list 
+    
+    List  the configuration for the "sqlcl.version" parameter. Use -verbose to
+    include default value and description 
+      SQL> project config -list -name sqlcl.version -verbose 
+    
+    List all configuration parameters that include the specified name stage 
+      SQL> project config -list -name stage -verbose
+    
+
+
+  GEN-ARTIFACT
+
+  Generate an artifact that represents the current state of your project
+
+  Usage:
+
+    gen-artifact|ga {OPTIONS}
+
+  Options:
+
+    -name|-n <name>
+    Specify a custom name for the artifact
+
+    -format|-fo <format> (zip)
+    Choose the desired compression format: zip or tgz
+
+    -version|-ve <version>
+    Specify the version for the artifact
+
+    -force|-f
+    Overwrites the artifact if it exists
+
+    -verbose|-v
+    Show additional details about the current process
+
+    -debug|-de
+    Enable debug information in the output
+
+  Examples:
+
+    Generate an artifact named R1-1 in zip format. The artifact is saved in the
+    artifact folder, which will be created if it does not exist
+      SQL> project gen-artifact -name R1 -version 1 -format zip -verbose 
+
+
+  DEPLOY
+
+  Deploy the artifact on a target database
+
+  Usage:
+
+    deploy|dp {OPTIONS}
+
+  Options:
+
+    -file|-fs <file> [required]
+    Specify the path to the artifact file
+
+    -log-path|-ld <log-path> {PATH}
+    Provide path to where log files should be placed
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Extract the artifact file from the specified path, the command will execute
+    @dist/install.sql, and initiate the Liquibase installer on the target
+    database
+      SQL> project deploy -file /Users/user1/Desktop/project1/artifact/R1-1.zip
+      -verbose  
+
+
+  RELEASE
+
+  Move the current set of work into a release state and start a new body of work
+
+  Usage:
+
+    release|re {OPTIONS}
+
+  Options:
+
+    -version|-ve <version> [required]
+    Specify the version to label this release
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    To package a unit of work into a release:
+      SQL> project release -version 1.0 
+
+
+  VERIFY
+
+  Test different aspects of your project, including snapshots, stages, and the
+  overall project
+
+  Usage:
+
+    verify|v {SUBCOMMAND} {OPTIONS}
+
+  Subcommands:
+
+    VERIFY-STAGE
+
+    Execute all the verify tests registered for the stage group
+
+    Usage:
+
+      verify-stage|st {OPTIONS}
+
+    Options:
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Execute all the verify tests registered for the stage group
+        SQL> project verify gen-stage 
+
+
+    SNAPSHOT
+
+    Execute all the verify tests registered for the snapshot group
+
+    Usage:
+
+      snapshot|ss {OPTIONS}
+
+    Options:
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Execute all the verify tests registered for the snapshot group
+        SQL> project verify snapshot
+
+  Options:
+
+    -group|-gr <group>
+    Execute a group of verify tests
+
+    -test|-se <test>
+    Execute a Verification test
+
+    -list-groups|-lig
+    List all the registered verify service groups
+
+    -list-tests|-lit
+    If a group is supplied will list all the verify tests in that group,
+    otherwise will list all verify tests registered
+
+    -compared-branch-name|-cbn <compared-branch-name>
+    The name of the branch which the differences with the current branch will be
+    checked for.
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Run verification tests on your project
+      SQL> project verify
+    
+    Execute a specific verification test
+      SQL> project verify -test <name>
+    
+    Execute verification tests for a specified group
+      SQL> project verify -group <name>
+    
+    List all registered verification tests
+      SQL> project verify -list-tests
+    
+    List all registered verification test groups
+      SQL> project verify -list-groups
+
+
+  STAGE
+
+  Generate Liquibase changelogs and changesets for all src and custom SQL files
+
+  Usage:
+
+    stage|st {SUBCOMMAND} {OPTIONS}
+
+  Subcommands:
+
+    ADD-CUSTOM
+
+    Add a custom file to the stage
+
+    Usage:
+
+      add-custom|ac {OPTIONS}
+
+    Options:
+
+      -file-name|-fn <file-name> [required]
+      Name of the custom file
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+        SQL> project stage add-custom -file-name feature1.sql 
+
+  Options:
+
+    -branch-name|-bn <branch-name>
+    Specify the branch name for comparison. If not provided, the value from the
+    configuration file (git.defaultBranch) will be used, with "develop" as the
+    default
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Create a new directory under dist/releases/next based on the current branch
+    name. it Adds changelogs and changesets to the folder by diffing files in
+    the current branch and the "from" branch. If no branch specified, it uses
+    the default from the config stage.branch parameter
+       SQL> project stage 
+    
+    Create a new directory under dist/releases/next based on the current branch
+    name. it Adds changelogs and changesets to the folder by diffing files in
+    the current branch and the "from" branch. The "from" branch here is
+    specified as "dev"
+       SQL> project stage -branch-name dev 
+    
+    Create a new directory under dist/releases/next specifying the branch name
+      SQL> project stage -branch-name branch1 
+    
+
+Examples:
+
+  The project command supports several sub commands which create a project,
+  export objects from users, generate diffs between versions, generate a release
+  of the changes, generate an artifact with all the changes for the release,
+  deploy an artifact to a database
+  
+    - Project init command: 
+    SQL> project init -name demoproject -schemas hr -verbose
+  
+    - Project export command: 
+    SQL> project export -schemas hr
+  
+    - Project stage command: 
+    SQL> project stage -verbose
+  
+    - Project release command: 
+    SQL> project release -version 1.0
+  
+    - Project gen_artifacts command: 
+    SQL> project gen_artifacts -name demo -version 1.0 -format zip
+  
+    - Project deploy command: 
+    SQL> project deploy -file demo_1.0.zip
+  
+'-help' at column 14: Option not recognized
+CICD SQLcl project extension
+
+Subcommands:
+
+  INIT
+
+  Initialize a new project
+
+  Usage:
+
+    init|in {OPTIONS}
+
+  Options:
+
+    -name|-n <name> [required]
+    Define the project name
+
+    -schemas|-s <schemas>
+    Specify a comma-separated list of schemas to export, e.g., HR
+
+    -directory|-d <directory> {PATH}
+    Define the directory in which the project will be created
+    If not specified, the project will be created in the current directory
+
+    -connection-name|-con <connection-name>
+    Specify the SQLcl connection name
+    If not provided, and you are connecting via a named connection, it will
+    automatically add that connection name to the connectionName configuration
+    property
+    If no named connection is used, the connectionName property will remain
+    empty
+
+    -makeroot|-mr
+    Create a root folder named after the project and store all files in this
+    directory
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Initialize a project named "apexsb", linked to the "apexsb_data" and
+    "apexsb" schemas, within the directory "/workspace/projects/", and using the
+    connection name "apexsb_conn" 
+      SQL> project init -name apexsb -schemas apexsb_data,apexsb -d
+      /workspace/projects -con apexsb_conn
+
+
+  EXPORT
+
+  Export database objects to your repository
+
+  Usage:
+
+    export|ex {OPTIONS}
+
+  Options:
+
+    -list|-l
+    List all objects in alphabetical order 
+    Outputs the list of objects that will be exported based on the current
+    parameters
+
+    -objects|-o <objects>
+    Define a comma-separated list of objects to export, e.g.
+    HR.COUNTRIES,HR.EMPLOYEES 
+    or export a specific object like and Apex application using APEX.<app_id>
+
+    -schemas|-s <schemas>
+    Specify a comma-separated list of schemas to export, e.g., HR
+
+    -threads|-t <threads>
+    Specify the number of concurrent threads to use with cloned JDBC connections
+    for executing DBMS_METADATA.getDDL. The default value is 5
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Examples of custom export filters are in ".dbtools/filters/project.filters" 
+      SQL> project export -debug -list -objects REGIONS,COUNTRIES -schemas
+      HR,SCOTT -threads 4 
+    
+    Export a specific Apex application:
+      SQL> project export -objects APEX.100 -schemas APEXUSER 
+
+
+  CONFIG
+
+  The config command is used to view and manage your project configuration
+  properties
+
+  Usage:
+
+    config|cfg {SUBCOMMAND} {OPTIONS}
+
+  Subcommands:
+
+    SET
+
+    Add a new config parameter, or update an existing one
+
+    Usage:
+
+      set|s {OPTIONS}
+
+    Options:
+
+      -name|-n <name> [required]
+      Define the config parameter name
+
+      -value|-va <value> [required]
+      The value to set the config parameter to
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Set the parameter "sqlcl.version" to the value 24 with the data type
+      specified as INTEGER
+        SQL> project config set -name sqlcl.version -type INTEGER -value 24
+        -verbose
+      
+      Set the parameter export.demo.demoComments to True
+        SQL> project config set -name export.demo.demoComments -type BOOLEAN 
+        -value TRUE -verbose
+
+
+    DELETE
+
+    Remove a configuration parameter from the project configuration file
+
+    Usage:
+
+      delete|d {OPTIONS}
+
+    Options:
+
+      -name|-n <name>
+      The config parameter name can be used when filtering or editing
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Remove the configuration parameter named "schemas" from the project
+      configuration file
+        SQL> project config delete -name schemas  
+
+  Options:
+
+    -list|-li [required]
+    List your current configuration settings
+
+    -name|-n <name>
+    The config parameter name can be used when filtering or editing
+
+    -verbose|-v
+    Show additional details about the current process
+
+    -debug|-de
+    Enable debug information in the output
+
+  Examples:
+
+    List all configuration parameters within the project and their values in a
+    table format
+      SQL> project config -list 
+    
+    List  the configuration for the "sqlcl.version" parameter. Use -verbose to
+    include default value and description 
+      SQL> project config -list -name sqlcl.version -verbose 
+    
+    List all configuration parameters that include the specified name stage 
+      SQL> project config -list -name stage -verbose
+    
+
+
+  GEN-ARTIFACT
+
+  Generate an artifact that represents the current state of your project
+
+  Usage:
+
+    gen-artifact|ga {OPTIONS}
+
+  Options:
+
+    -name|-n <name>
+    Specify a custom name for the artifact
+
+    -format|-fo <format> (zip)
+    Choose the desired compression format: zip or tgz
+
+    -version|-ve <version>
+    Specify the version for the artifact
+
+    -force|-f
+    Overwrites the artifact if it exists
+
+    -verbose|-v
+    Show additional details about the current process
+
+    -debug|-de
+    Enable debug information in the output
+
+  Examples:
+
+    Generate an artifact named R1-1 in zip format. The artifact is saved in the
+    artifact folder, which will be created if it does not exist
+      SQL> project gen-artifact -name R1 -version 1 -format zip -verbose 
+
+
+  DEPLOY
+
+  Deploy the artifact on a target database
+
+  Usage:
+
+    deploy|dp {OPTIONS}
+
+  Options:
+
+    -file|-fs <file> [required]
+    Specify the path to the artifact file
+
+    -log-path|-ld <log-path> {PATH}
+    Provide path to where log files should be placed
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Extract the artifact file from the specified path, the command will execute
+    @dist/install.sql, and initiate the Liquibase installer on the target
+    database
+      SQL> project deploy -file /Users/user1/Desktop/project1/artifact/R1-1.zip
+      -verbose  
+
+
+  RELEASE
+
+  Move the current set of work into a release state and start a new body of work
+
+  Usage:
+
+    release|re {OPTIONS}
+
+  Options:
+
+    -version|-ve <version> [required]
+    Specify the version to label this release
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    To package a unit of work into a release:
+      SQL> project release -version 1.0 
+
+
+  VERIFY
+
+  Test different aspects of your project, including snapshots, stages, and the
+  overall project
+
+  Usage:
+
+    verify|v {SUBCOMMAND} {OPTIONS}
+
+  Subcommands:
+
+    VERIFY-STAGE
+
+    Execute all the verify tests registered for the stage group
+
+    Usage:
+
+      verify-stage|st {OPTIONS}
+
+    Options:
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Execute all the verify tests registered for the stage group
+        SQL> project verify gen-stage 
+
+
+    SNAPSHOT
+
+    Execute all the verify tests registered for the snapshot group
+
+    Usage:
+
+      snapshot|ss {OPTIONS}
+
+    Options:
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Execute all the verify tests registered for the snapshot group
+        SQL> project verify snapshot
+
+  Options:
+
+    -group|-gr <group>
+    Execute a group of verify tests
+
+    -test|-se <test>
+    Execute a Verification test
+
+    -list-groups|-lig
+    List all the registered verify service groups
+
+    -list-tests|-lit
+    If a group is supplied will list all the verify tests in that group,
+    otherwise will list all verify tests registered
+
+    -compared-branch-name|-cbn <compared-branch-name>
+    The name of the branch which the differences with the current branch will be
+    checked for.
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Run verification tests on your project
+      SQL> project verify
+    
+    Execute a specific verification test
+      SQL> project verify -test <name>
+    
+    Execute verification tests for a specified group
+      SQL> project verify -group <name>
+    
+    List all registered verification tests
+      SQL> project verify -list-tests
+    
+    List all registered verification test groups
+      SQL> project verify -list-groups
+
+
+  STAGE
+
+  Generate Liquibase changelogs and changesets for all src and custom SQL files
+
+  Usage:
+
+    stage|st {SUBCOMMAND} {OPTIONS}
+
+  Subcommands:
+
+    ADD-CUSTOM
+
+    Add a custom file to the stage
+
+    Usage:
+
+      add-custom|ac {OPTIONS}
+
+    Options:
+
+      -file-name|-fn <file-name> [required]
+      Name of the custom file
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+        SQL> project stage add-custom -file-name feature1.sql 
+
+  Options:
+
+    -branch-name|-bn <branch-name>
+    Specify the branch name for comparison. If not provided, the value from the
+    configuration file (git.defaultBranch) will be used, with "develop" as the
+    default
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Create a new directory under dist/releases/next based on the current branch
+    name. it Adds changelogs and changesets to the folder by diffing files in
+    the current branch and the "from" branch. If no branch specified, it uses
+    the default from the config stage.branch parameter
+       SQL> project stage 
+    
+    Create a new directory under dist/releases/next based on the current branch
+    name. it Adds changelogs and changesets to the folder by diffing files in
+    the current branch and the "from" branch. The "from" branch here is
+    specified as "dev"
+       SQL> project stage -branch-name dev 
+    
+    Create a new directory under dist/releases/next specifying the branch name
+      SQL> project stage -branch-name branch1 
+    
+
+Examples:
+
+  The project command supports several sub commands which create a project,
+  export objects from users, generate diffs between versions, generate a release
+  of the changes, generate an artifact with all the changes for the release,
+  deploy an artifact to a database
+  
+    - Project init command: 
+    SQL> project init -name demoproject -schemas hr -verbose
+  
+    - Project export command: 
+    SQL> project export -schemas hr
+  
+    - Project stage command: 
+    SQL> project stage -verbose
+  
+    - Project release command: 
+    SQL> project release -version 1.0
+  
+    - Project gen_artifacts command: 
+    SQL> project gen_artifacts -name demo -version 1.0 -format zip
+  
+    - Project deploy command: 
+    SQL> project deploy -file demo_1.0.zip
+  
+'-help' at column 21: Option not recognized
+CICD SQLcl project extension
+
+Subcommands:
+
+  INIT
+
+  Initialize a new project
+
+  Usage:
+
+    init|in {OPTIONS}
+
+  Options:
+
+    -name|-n <name> [required]
+    Define the project name
+
+    -schemas|-s <schemas>
+    Specify a comma-separated list of schemas to export, e.g., HR
+
+    -directory|-d <directory> {PATH}
+    Define the directory in which the project will be created
+    If not specified, the project will be created in the current directory
+
+    -connection-name|-con <connection-name>
+    Specify the SQLcl connection name
+    If not provided, and you are connecting via a named connection, it will
+    automatically add that connection name to the connectionName configuration
+    property
+    If no named connection is used, the connectionName property will remain
+    empty
+
+    -makeroot|-mr
+    Create a root folder named after the project and store all files in this
+    directory
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Initialize a project named "apexsb", linked to the "apexsb_data" and
+    "apexsb" schemas, within the directory "/workspace/projects/", and using the
+    connection name "apexsb_conn" 
+      SQL> project init -name apexsb -schemas apexsb_data,apexsb -d
+      /workspace/projects -con apexsb_conn
+
+
+  EXPORT
+
+  Export database objects to your repository
+
+  Usage:
+
+    export|ex {OPTIONS}
+
+  Options:
+
+    -list|-l
+    List all objects in alphabetical order 
+    Outputs the list of objects that will be exported based on the current
+    parameters
+
+    -objects|-o <objects>
+    Define a comma-separated list of objects to export, e.g.
+    HR.COUNTRIES,HR.EMPLOYEES 
+    or export a specific object like and Apex application using APEX.<app_id>
+
+    -schemas|-s <schemas>
+    Specify a comma-separated list of schemas to export, e.g., HR
+
+    -threads|-t <threads>
+    Specify the number of concurrent threads to use with cloned JDBC connections
+    for executing DBMS_METADATA.getDDL. The default value is 5
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Examples of custom export filters are in ".dbtools/filters/project.filters" 
+      SQL> project export -debug -list -objects REGIONS,COUNTRIES -schemas
+      HR,SCOTT -threads 4 
+    
+    Export a specific Apex application:
+      SQL> project export -objects APEX.100 -schemas APEXUSER 
+
+
+  CONFIG
+
+  The config command is used to view and manage your project configuration
+  properties
+
+  Usage:
+
+    config|cfg {SUBCOMMAND} {OPTIONS}
+
+  Subcommands:
+
+    SET
+
+    Add a new config parameter, or update an existing one
+
+    Usage:
+
+      set|s {OPTIONS}
+
+    Options:
+
+      -name|-n <name> [required]
+      Define the config parameter name
+
+      -value|-va <value> [required]
+      The value to set the config parameter to
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Set the parameter "sqlcl.version" to the value 24 with the data type
+      specified as INTEGER
+        SQL> project config set -name sqlcl.version -type INTEGER -value 24
+        -verbose
+      
+      Set the parameter export.demo.demoComments to True
+        SQL> project config set -name export.demo.demoComments -type BOOLEAN 
+        -value TRUE -verbose
+
+
+    DELETE
+
+    Remove a configuration parameter from the project configuration file
+
+    Usage:
+
+      delete|d {OPTIONS}
+
+    Options:
+
+      -name|-n <name>
+      The config parameter name can be used when filtering or editing
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Remove the configuration parameter named "schemas" from the project
+      configuration file
+        SQL> project config delete -name schemas  
+
+  Options:
+
+    -list|-li [required]
+    List your current configuration settings
+
+    -name|-n <name>
+    The config parameter name can be used when filtering or editing
+
+    -verbose|-v
+    Show additional details about the current process
+
+    -debug|-de
+    Enable debug information in the output
+
+  Examples:
+
+    List all configuration parameters within the project and their values in a
+    table format
+      SQL> project config -list 
+    
+    List  the configuration for the "sqlcl.version" parameter. Use -verbose to
+    include default value and description 
+      SQL> project config -list -name sqlcl.version -verbose 
+    
+    List all configuration parameters that include the specified name stage 
+      SQL> project config -list -name stage -verbose
+    
+
+
+  GEN-ARTIFACT
+
+  Generate an artifact that represents the current state of your project
+
+  Usage:
+
+    gen-artifact|ga {OPTIONS}
+
+  Options:
+
+    -name|-n <name>
+    Specify a custom name for the artifact
+
+    -format|-fo <format> (zip)
+    Choose the desired compression format: zip or tgz
+
+    -version|-ve <version>
+    Specify the version for the artifact
+
+    -force|-f
+    Overwrites the artifact if it exists
+
+    -verbose|-v
+    Show additional details about the current process
+
+    -debug|-de
+    Enable debug information in the output
+
+  Examples:
+
+    Generate an artifact named R1-1 in zip format. The artifact is saved in the
+    artifact folder, which will be created if it does not exist
+      SQL> project gen-artifact -name R1 -version 1 -format zip -verbose 
+
+
+  DEPLOY
+
+  Deploy the artifact on a target database
+
+  Usage:
+
+    deploy|dp {OPTIONS}
+
+  Options:
+
+    -file|-fs <file> [required]
+    Specify the path to the artifact file
+
+    -log-path|-ld <log-path> {PATH}
+    Provide path to where log files should be placed
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Extract the artifact file from the specified path, the command will execute
+    @dist/install.sql, and initiate the Liquibase installer on the target
+    database
+      SQL> project deploy -file /Users/user1/Desktop/project1/artifact/R1-1.zip
+      -verbose  
+
+
+  RELEASE
+
+  Move the current set of work into a release state and start a new body of work
+
+  Usage:
+
+    release|re {OPTIONS}
+
+  Options:
+
+    -version|-ve <version> [required]
+    Specify the version to label this release
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    To package a unit of work into a release:
+      SQL> project release -version 1.0 
+
+
+  VERIFY
+
+  Test different aspects of your project, including snapshots, stages, and the
+  overall project
+
+  Usage:
+
+    verify|v {SUBCOMMAND} {OPTIONS}
+
+  Subcommands:
+
+    VERIFY-STAGE
+
+    Execute all the verify tests registered for the stage group
+
+    Usage:
+
+      verify-stage|st {OPTIONS}
+
+    Options:
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Execute all the verify tests registered for the stage group
+        SQL> project verify gen-stage 
+
+
+    SNAPSHOT
+
+    Execute all the verify tests registered for the snapshot group
+
+    Usage:
+
+      snapshot|ss {OPTIONS}
+
+    Options:
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Execute all the verify tests registered for the snapshot group
+        SQL> project verify snapshot
+
+  Options:
+
+    -group|-gr <group>
+    Execute a group of verify tests
+
+    -test|-se <test>
+    Execute a Verification test
+
+    -list-groups|-lig
+    List all the registered verify service groups
+
+    -list-tests|-lit
+    If a group is supplied will list all the verify tests in that group,
+    otherwise will list all verify tests registered
+
+    -compared-branch-name|-cbn <compared-branch-name>
+    The name of the branch which the differences with the current branch will be
+    checked for.
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Run verification tests on your project
+      SQL> project verify
+    
+    Execute a specific verification test
+      SQL> project verify -test <name>
+    
+    Execute verification tests for a specified group
+      SQL> project verify -group <name>
+    
+    List all registered verification tests
+      SQL> project verify -list-tests
+    
+    List all registered verification test groups
+      SQL> project verify -list-groups
+
+
+  STAGE
+
+  Generate Liquibase changelogs and changesets for all src and custom SQL files
+
+  Usage:
+
+    stage|st {SUBCOMMAND} {OPTIONS}
+
+  Subcommands:
+
+    ADD-CUSTOM
+
+    Add a custom file to the stage
+
+    Usage:
+
+      add-custom|ac {OPTIONS}
+
+    Options:
+
+      -file-name|-fn <file-name> [required]
+      Name of the custom file
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+        SQL> project stage add-custom -file-name feature1.sql 
+
+  Options:
+
+    -branch-name|-bn <branch-name>
+    Specify the branch name for comparison. If not provided, the value from the
+    configuration file (git.defaultBranch) will be used, with "develop" as the
+    default
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Create a new directory under dist/releases/next based on the current branch
+    name. it Adds changelogs and changesets to the folder by diffing files in
+    the current branch and the "from" branch. If no branch specified, it uses
+    the default from the config stage.branch parameter
+       SQL> project stage 
+    
+    Create a new directory under dist/releases/next based on the current branch
+    name. it Adds changelogs and changesets to the folder by diffing files in
+    the current branch and the "from" branch. The "from" branch here is
+    specified as "dev"
+       SQL> project stage -branch-name dev 
+    
+    Create a new directory under dist/releases/next specifying the branch name
+      SQL> project stage -branch-name branch1 
+    
+
+Examples:
+
+  The project command supports several sub commands which create a project,
+  export objects from users, generate diffs between versions, generate a release
+  of the changes, generate an artifact with all the changes for the release,
+  deploy an artifact to a database
+  
+    - Project init command: 
+    SQL> project init -name demoproject -schemas hr -verbose
+  
+    - Project export command: 
+    SQL> project export -schemas hr
+  
+    - Project stage command: 
+    SQL> project stage -verbose
+  
+    - Project release command: 
+    SQL> project release -version 1.0
+  
+    - Project gen_artifacts command: 
+    SQL> project gen_artifacts -name demo -version 1.0 -format zip
+  
+    - Project deploy command: 
+    SQL> project deploy -file demo_1.0.zip
+  
+'-help' at column 15: Option not recognized
+The option 'FILE' is required and a value must be specified
+CICD SQLcl project extension
+
+Subcommands:
+
+  INIT
+
+  Initialize a new project
+
+  Usage:
+
+    init|in {OPTIONS}
+
+  Options:
+
+    -name|-n <name> [required]
+    Define the project name
+
+    -schemas|-s <schemas>
+    Specify a comma-separated list of schemas to export, e.g., HR
+
+    -directory|-d <directory> {PATH}
+    Define the directory in which the project will be created
+    If not specified, the project will be created in the current directory
+
+    -connection-name|-con <connection-name>
+    Specify the SQLcl connection name
+    If not provided, and you are connecting via a named connection, it will
+    automatically add that connection name to the connectionName configuration
+    property
+    If no named connection is used, the connectionName property will remain
+    empty
+
+    -makeroot|-mr
+    Create a root folder named after the project and store all files in this
+    directory
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Initialize a project named "apexsb", linked to the "apexsb_data" and
+    "apexsb" schemas, within the directory "/workspace/projects/", and using the
+    connection name "apexsb_conn" 
+      SQL> project init -name apexsb -schemas apexsb_data,apexsb -d
+      /workspace/projects -con apexsb_conn
+
+
+  EXPORT
+
+  Export database objects to your repository
+
+  Usage:
+
+    export|ex {OPTIONS}
+
+  Options:
+
+    -list|-l
+    List all objects in alphabetical order 
+    Outputs the list of objects that will be exported based on the current
+    parameters
+
+    -objects|-o <objects>
+    Define a comma-separated list of objects to export, e.g.
+    HR.COUNTRIES,HR.EMPLOYEES 
+    or export a specific object like and Apex application using APEX.<app_id>
+
+    -schemas|-s <schemas>
+    Specify a comma-separated list of schemas to export, e.g., HR
+
+    -threads|-t <threads>
+    Specify the number of concurrent threads to use with cloned JDBC connections
+    for executing DBMS_METADATA.getDDL. The default value is 5
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Examples of custom export filters are in ".dbtools/filters/project.filters" 
+      SQL> project export -debug -list -objects REGIONS,COUNTRIES -schemas
+      HR,SCOTT -threads 4 
+    
+    Export a specific Apex application:
+      SQL> project export -objects APEX.100 -schemas APEXUSER 
+
+
+  CONFIG
+
+  The config command is used to view and manage your project configuration
+  properties
+
+  Usage:
+
+    config|cfg {SUBCOMMAND} {OPTIONS}
+
+  Subcommands:
+
+    SET
+
+    Add a new config parameter, or update an existing one
+
+    Usage:
+
+      set|s {OPTIONS}
+
+    Options:
+
+      -name|-n <name> [required]
+      Define the config parameter name
+
+      -value|-va <value> [required]
+      The value to set the config parameter to
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Set the parameter "sqlcl.version" to the value 24 with the data type
+      specified as INTEGER
+        SQL> project config set -name sqlcl.version -type INTEGER -value 24
+        -verbose
+      
+      Set the parameter export.demo.demoComments to True
+        SQL> project config set -name export.demo.demoComments -type BOOLEAN 
+        -value TRUE -verbose
+
+
+    DELETE
+
+    Remove a configuration parameter from the project configuration file
+
+    Usage:
+
+      delete|d {OPTIONS}
+
+    Options:
+
+      -name|-n <name>
+      The config parameter name can be used when filtering or editing
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Remove the configuration parameter named "schemas" from the project
+      configuration file
+        SQL> project config delete -name schemas  
+
+  Options:
+
+    -list|-li [required]
+    List your current configuration settings
+
+    -name|-n <name>
+    The config parameter name can be used when filtering or editing
+
+    -verbose|-v
+    Show additional details about the current process
+
+    -debug|-de
+    Enable debug information in the output
+
+  Examples:
+
+    List all configuration parameters within the project and their values in a
+    table format
+      SQL> project config -list 
+    
+    List  the configuration for the "sqlcl.version" parameter. Use -verbose to
+    include default value and description 
+      SQL> project config -list -name sqlcl.version -verbose 
+    
+    List all configuration parameters that include the specified name stage 
+      SQL> project config -list -name stage -verbose
+    
+
+
+  GEN-ARTIFACT
+
+  Generate an artifact that represents the current state of your project
+
+  Usage:
+
+    gen-artifact|ga {OPTIONS}
+
+  Options:
+
+    -name|-n <name>
+    Specify a custom name for the artifact
+
+    -format|-fo <format> (zip)
+    Choose the desired compression format: zip or tgz
+
+    -version|-ve <version>
+    Specify the version for the artifact
+
+    -force|-f
+    Overwrites the artifact if it exists
+
+    -verbose|-v
+    Show additional details about the current process
+
+    -debug|-de
+    Enable debug information in the output
+
+  Examples:
+
+    Generate an artifact named R1-1 in zip format. The artifact is saved in the
+    artifact folder, which will be created if it does not exist
+      SQL> project gen-artifact -name R1 -version 1 -format zip -verbose 
+
+
+  DEPLOY
+
+  Deploy the artifact on a target database
+
+  Usage:
+
+    deploy|dp {OPTIONS}
+
+  Options:
+
+    -file|-fs <file> [required]
+    Specify the path to the artifact file
+
+    -log-path|-ld <log-path> {PATH}
+    Provide path to where log files should be placed
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Extract the artifact file from the specified path, the command will execute
+    @dist/install.sql, and initiate the Liquibase installer on the target
+    database
+      SQL> project deploy -file /Users/user1/Desktop/project1/artifact/R1-1.zip
+      -verbose  
+
+
+  RELEASE
+
+  Move the current set of work into a release state and start a new body of work
+
+  Usage:
+
+    release|re {OPTIONS}
+
+  Options:
+
+    -version|-ve <version> [required]
+    Specify the version to label this release
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    To package a unit of work into a release:
+      SQL> project release -version 1.0 
+
+
+  VERIFY
+
+  Test different aspects of your project, including snapshots, stages, and the
+  overall project
+
+  Usage:
+
+    verify|v {SUBCOMMAND} {OPTIONS}
+
+  Subcommands:
+
+    VERIFY-STAGE
+
+    Execute all the verify tests registered for the stage group
+
+    Usage:
+
+      verify-stage|st {OPTIONS}
+
+    Options:
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Execute all the verify tests registered for the stage group
+        SQL> project verify gen-stage 
+
+
+    SNAPSHOT
+
+    Execute all the verify tests registered for the snapshot group
+
+    Usage:
+
+      snapshot|ss {OPTIONS}
+
+    Options:
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+      Execute all the verify tests registered for the snapshot group
+        SQL> project verify snapshot
+
+  Options:
+
+    -group|-gr <group>
+    Execute a group of verify tests
+
+    -test|-se <test>
+    Execute a Verification test
+
+    -list-groups|-lig
+    List all the registered verify service groups
+
+    -list-tests|-lit
+    If a group is supplied will list all the verify tests in that group,
+    otherwise will list all verify tests registered
+
+    -compared-branch-name|-cbn <compared-branch-name>
+    The name of the branch which the differences with the current branch will be
+    checked for.
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Run verification tests on your project
+      SQL> project verify
+    
+    Execute a specific verification test
+      SQL> project verify -test <name>
+    
+    Execute verification tests for a specified group
+      SQL> project verify -group <name>
+    
+    List all registered verification tests
+      SQL> project verify -list-tests
+    
+    List all registered verification test groups
+      SQL> project verify -list-groups
+
+
+  STAGE
+
+  Generate Liquibase changelogs and changesets for all src and custom SQL files
+
+  Usage:
+
+    stage|st {SUBCOMMAND} {OPTIONS}
+
+  Subcommands:
+
+    ADD-CUSTOM
+
+    Add a custom file to the stage
+
+    Usage:
+
+      add-custom|ac {OPTIONS}
+
+    Options:
+
+      -file-name|-fn <file-name> [required]
+      Name of the custom file
+
+      -debug|-de
+      Enable debug information in the output
+
+      -verbose|-v
+      Show additional details about the current process
+
+    Examples:
+
+        SQL> project stage add-custom -file-name feature1.sql 
+
+  Options:
+
+    -branch-name|-bn <branch-name>
+    Specify the branch name for comparison. If not provided, the value from the
+    configuration file (git.defaultBranch) will be used, with "develop" as the
+    default
+
+    -debug|-de
+    Enable debug information in the output
+
+    -verbose|-v
+    Show additional details about the current process
+
+  Examples:
+
+    Create a new directory under dist/releases/next based on the current branch
+    name. it Adds changelogs and changesets to the folder by diffing files in
+    the current branch and the "from" branch. If no branch specified, it uses
+    the default from the config stage.branch parameter
+       SQL> project stage 
+    
+    Create a new directory under dist/releases/next based on the current branch
+    name. it Adds changelogs and changesets to the folder by diffing files in
+    the current branch and the "from" branch. The "from" branch here is
+    specified as "dev"
+       SQL> project stage -branch-name dev 
+    
+    Create a new directory under dist/releases/next specifying the branch name
+      SQL> project stage -branch-name branch1 
+    
+
+Examples:
+
+  The project command supports several sub commands which create a project,
+  export objects from users, generate diffs between versions, generate a release
+  of the changes, generate an artifact with all the changes for the release,
+  deploy an artifact to a database
+  
+    - Project init command: 
+    SQL> project init -name demoproject -schemas hr -verbose
+  
+    - Project export command: 
+    SQL> project export -schemas hr
+  
+    - Project stage command: 
+    SQL> project stage -verbose
+  
+    - Project release command: 
+    SQL> project release -version 1.0
+  
+    - Project gen_artifacts command: 
+    SQL> project gen_artifacts -name demo -version 1.0 -format zip
+  
+    - Project deploy command: 
+    SQL> project deploy -file demo_1.0.zip
+  

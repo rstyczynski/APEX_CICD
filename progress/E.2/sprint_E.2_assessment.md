@@ -2,8 +2,8 @@
 
 This is the active sprint's analysis/design-review assessment, not a final PBI-051 or
 sprint acceptance record. [PLAN](../../PLAN.md) owns sprint assignment;
-[PROGRESS_BOARD](../../PROGRESS_BOARD.md) now records design in progress after
-explicit Product Owner analysis approval on 2026-10-19.
+[PROGRESS_BOARD](../../PROGRESS_BOARD.md) records construction after explicit
+Product Owner analysis and design approval on 2026-10-19.
 
 ## External analysis review round 1
 
@@ -48,19 +48,30 @@ exercise/walkthrough checks with no separate automated or regression suite.
 This supersedes the earlier domain-regression proposal; the expert verdict
 remains about its original revision, not this subsequent tailoring. The Product
 Owner directed applying Test: none and Regression: none to E.2; PLAN now records
-those values. Overall design approval remains pending.
+those values. The Product Owner subsequently approved the revised design and directed implementation.
 
 The [analysis](sprint_E.2_analysis.md), [review summary](sprint_E.2_inception.md)
 and [PROJECT fit assessment](project-fit-assessment.md) supply the evidence
 questions for the [revised exercise design](sprint_E.2_design.md). The
-Product Owner approved analysis and directed design. That design and
-verification plan are now Proposed for managed approval, including four child
-outcomes and focused exercise checks. No exercise is
-approved by the review or analysis acceptance.
+Product Owner approved analysis and directed design. The revised design is Accepted, including four child outcomes and focused
+exercise checks. Construction evidence belongs to the
+[implementation record](sprint_E.2_implementation.md) and
+[exercise observations](sprint_E.2_tests.md).
 
-PBI-051 remains unfinished. Approved exercises, final source-backed findings,
+PBI-051 remains unfinished. Execution of approved exercises, final source-backed findings,
 backlog/roadmap reconciliation and the reproducible walkthrough/live handover
 remain outstanding. PROJECT/Working Copy coexistence and toolchain enforcement
 remain hypotheses until their relevant evidence is established. E.1 evidence
 is preserved; PBI-052 remains unscheduled, and complex Foundation upgrades stay
 in E.5 after toolchain stabilization.
+
+## Construction assessment — retained run
+
+PBI-051.1–.3 have implemented their bounded assessment outcomes: safe input and
+evidence boundaries, Working Copy/Main capture and reconstruction, and native
+PROJECT/retained admission analysis. Observed verification failure and regenerated
+region IDs are findings, not waived adoption gates. PBI-051.4 remains under
+construction for the prepared [walkthrough](sprint_E.2_increment_demo.md),
+[source-backed gap decision/roadmap](oracle-gap-analysis.md) and actual
+[Product Owner live handover](sprint_E.2_handover.md). No later-sprint item,
+production tool adoption, documentation acceptance or sprint closure is claimed.
