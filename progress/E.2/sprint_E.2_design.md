@@ -78,16 +78,16 @@ the design approves this decomposition; none is complete now.
    authoring/checkpoint/reconstruction path with usability and failure limits.
    Acceptance: both intended changes survive reconstruction; stale/deletion
    handling and abandonment are observed or explicitly fail with evidence.
-   Dependency: PBI-051.1. Capture the agreed Main outcome in that same
-   PROJECT-initialized repository; .3 subsequently qualifies its native artifacts.
+   Dependencies: PBI-051.1 and the PROJECT path established by .3. Capture the
+   agreed Main outcome in that same repository and repeat its qualified path.
 3. **PBI-051.3 — Assess PROJECT compatibility and retained admission controls.**
    Outcome: a native initial/change release slice, repository handoff assessment
    and declared-dependency admission evidence. Acceptance: PF findings identify
    actual captured scope, migration ownership, artifact identity, mapped-target
    outcomes, preservation and allowed/rejected declarations. An evidenced tool
    failure is a valid assessment outcome, not an equivalent-delivery claim.
-   Dependency: .1 and .2; use their existing repository and accepted Main
-   checkpoint to complete native staging/release and H-1/H-2 assessment.
+   Dependency: .1. Establish PROJECT first; .2 then contributes a Working Copy
+   checkpoint through this same path for the combined H-1/H-2 assessment.
 4. **PBI-051.4 — Deliver the gap decision and reproducible handover.** Outcome:
    classified findings, reconciled follow-up and ordered roadmap plus presentation
    pair/manual/live demonstration. Acceptance: the Product Owner can inspect
@@ -165,56 +165,27 @@ history; no changelog synchronization against an unverified baseline is permitte
 
 1. Complete safe preparation, create the local Git repository, initialize
    PROJECT and record its filtered initial Main/schema capture.
-2. Exercise Working Copies in APEX, integrate into Main, then export/review/
-   commit those outcomes in that same PROJECT repository. A Working Copy itself
-   remains an APEX authoring resource; its agreed result enters Git through Main.
-3. Continue PROJECT staging, native artifacts and reconstruction from those
-   commits, applying E.1 tools where appropriate and recording adaptations.
+2. Complete X1: establish PROJECT capture, staging, native artifacts and
+   reconstruction, applying E.1 tools where appropriate and recording adaptations.
+3. Complete X2: exercise Working Copies in APEX, integrate into Main, then
+   export/review/commit those outcomes in the same PROJECT repository and repeat
+   the established delivery path. A Working Copy remains an APEX authoring
+   resource; its agreed result enters Git through Main.
 4. Qualify declarations/admission, compare outcomes and deliver the gap decision.
 
-X1 and X2 below describe evidence responsibilities, not separate repository
-implementations or a requirement to finish all of X1 before initializing PROJECT.
+X1 establishes the PROJECT path first. X2 then uses that same repository and
+delivery path for Working Copy outcomes; neither exercise creates a competing
+primary repository.
 
-### Exercise X1 — Working Copies, team checkpoint and reconstruction
-
-Decision: can ordinary native authoring feed the accepted Git contract with
-usable coordination (H-2, EQ-1; AN-01/03/04/13; paper 12–14, 32)?
-
-Start from the captured fixture baseline and a recorded synthetic history/config
-sentinel. Create one Working Copy; change a visible page heading there and a
-disjoint heading in Main. Compare, refresh and merge with actual App Builder
-controls, recording selected changes and operator reasoning. Take one agreed
-Main team checkpoint into the common repository through PROJECT export and
-reviewed commit. The supplementary lower-level export uses the documented
-split/original-ID/no-date profile; inspect the diff and full schema dependency
-inventory. Reconstruct in the fresh owned target and verify both headings,
-shared LOV behavior and the expected greeting. Compare with a Main-authored
-checkpoint through the same capture path.
-
-Use one expendable branch/copy to demonstrate stale same-page replacement and
-its corrective refresh/reapply sequence; show a page deletion's explicit Main
-handling and abandonment without Main changes. Observe actual page coordination
-and record whether the UI protects the intended edit. Show a uniquely named
-schema marker visible to Main and its Working Copy to expose shared-schema scope;
-remove only that owned fixture after recording it. Capture number of operator
-steps, required decisions, confusing diffs and recovery effort; no invented E.1
-usability baseline. These bounded authoring alternatives test E.1-stage policies
-without permanently changing the SRS or claiming component reservation equivalence.
-
-Success means a correctly observed and explained outcome, with no missing edit
-hidden. A failed native merge is an assessment result. Harness assertions must
-still detect it. No browser automation of Working Copy management is presented
-as a documented public API, and no undocumented APEX package is invoked.
-
-### Exercise X2 — PROJECT workflow and optional repository compatibility
+### Exercise X1 — PROJECT workflow and optional repository compatibility
 
 Decision: is native workflow fit plausible with a bounded integration cost
 (H-1 and combined H-1/H-2, EQ-2; PF-01–07/10–12; paper 18–20, 26–30)?
 
 During preparation in the common Git repository, establish the comparison base
 explicitly and initialize a filtered native project for the owned authoring schema
-and Main app only. Continue that same project after X1 captures its outcomes. Inspect export
-inventory and exclude Working Copies, control fixtures, credentials and business
+and Main app only. Establish and qualify this native path before the Working
+Copy exercise. Inspect export inventory and exclude Working Copies, control fixtures, credentials and business
 data. Review the exported source, commit it, stage against the recorded base,
 review/install order and any custom SQL, then commit the distribution. Run native
 verification and use an identified artifact for fresh/populated target tests
@@ -241,6 +212,38 @@ an unchanged-tool claim true. Stop before generalizing the whole E.1 framework.
 A migration to a generated history is a distinct reviewed handoff, never a second
 writer to an active history. Native release command syntax/help, including version
 handling, is capability discovery and does not require a general SemVer engine.
+
+### Exercise X2 — Working Copies, team checkpoint and reconstruction
+
+Decision: can ordinary native authoring feed the accepted Git contract with
+usable coordination (H-2, EQ-1; AN-01/03/04/13; paper 12–14, 32)?
+
+Start from X1's captured and qualified fixture baseline in the common PROJECT
+repository, with a recorded synthetic history/config
+sentinel. Create one Working Copy; change a visible page heading there and a
+disjoint heading in Main. Compare, refresh and merge with actual App Builder
+controls, recording selected changes and operator reasoning. Take one agreed
+Main team checkpoint into the common repository through PROJECT export and
+reviewed commit. The supplementary lower-level export uses the documented
+split/original-ID/no-date profile; inspect the diff and full schema dependency
+inventory. Reconstruct in the fresh owned target and verify both headings,
+shared LOV behavior and the expected greeting. Compare with a Main-authored
+checkpoint through the same capture path.
+
+Use one expendable branch/copy to demonstrate stale same-page replacement and
+its corrective refresh/reapply sequence; show a page deletion's explicit Main
+handling and abandonment without Main changes. Observe actual page coordination
+and record whether the UI protects the intended edit. Show a uniquely named
+schema marker visible to Main and its Working Copy to expose shared-schema scope;
+remove only that owned fixture after recording it. Capture number of operator
+steps, required decisions, confusing diffs and recovery effort; no invented E.1
+usability baseline. These bounded authoring alternatives test E.1-stage policies
+without permanently changing the SRS or claiming component reservation equivalence.
+
+Success means a correctly observed and explained outcome, with no missing edit
+hidden. A failed native merge is an assessment result. Harness assertions must
+still detect it. No browser automation of Working Copy management is presented
+as a documented public API, and no undocumented APEX package is invoked.
 
 ### Exercise X3 — Component declaration and validation admission
 
@@ -415,8 +418,9 @@ no E.3–E.5 reassignment occurs through this design.
 Deliver `sprint_E.2_increment_demo.md` and matching editable `.pptx`,
 `user_manual.md` and `sprint_E.2_handover.md`. They will link from README and this
 sprint's assessment once real artifacts exist. Journey: inspect baseline and
-read-only preflight → Working Copy authoring and team checkpoint → Git/source
-review and reconstruction → PROJECT staged change/native artifact → declaration
+read-only preflight → PROJECT capture/staged change/native artifact and
+reconstruction → Working Copy authoring and Main checkpoint in that same
+repository → repeated capture/delivery → declaration
 admission failure and valid delivery → inspect evidence/findings/backlog/roadmap.
 A failed capability is demonstrated honestly with its impact and follow-up.
 

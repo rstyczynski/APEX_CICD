@@ -439,3 +439,10 @@ Replaced the design-overview diagram with Product Owner-requested bullet points.
 They follow the agreed PROJECT repository → Working Copy/Main capture → staged
 release/validation sequence and identify E.1 reuse and comparison boundaries.
 No exercise scope, approval, resource or test behavior changed. Whitespace checked.
+
+Reordered and renumbered exercises at the Product Owner's request: X1 is
+PROJECT; X2 is Working Copies using X1's established repository/delivery path;
+X3 remains declaration admission. Updated prerequisites, stable child-item
+dependencies, handover order and cross-references. Existing child/test IDs retain
+their meanings; they are identifiers, not execution order. No runtime or approval
+state changed. Exercise order and whitespace checks passed before publication.
