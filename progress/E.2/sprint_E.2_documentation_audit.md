@@ -396,3 +396,13 @@ review-publication instruction permits a draft checkpoint despite unfinished
 PBI-051 and pending design approval. Scope/links, skill validation and historical
 report/archive integrity are checked before committing. Actual commit IDs and
 remote verification will be recorded in the subsequent access clarification.
+
+The scoped source checkpoint is 74bff78f48cbac91beb867d38d1ce555c354a9a2,
+successfully pushed to origin/codex/e1-prototype and confirmed with git ls-remote.
+The maintained prompt/assessment/README now identify that published source;
+design clarification 1 supersedes the former overlay-only instructions. The
+design content is unchanged from the source checkpoint. The older package is
+preserved. A Git local tracking-ref update encountered sandbox write restrictions
+after the successful push; remote verification supplies publication evidence.
+The access-correction checkpoint will be pushed separately; its success is not
+claimed before execution. No design approval or runtime completion is implied.

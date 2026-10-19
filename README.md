@@ -119,7 +119,7 @@ design. The Product Owner approved analysis on 2026-10-19. The
 [revised exercise design and test specification](progress/E.2/sprint_E.2_design.md)
 are Proposed for managed approval; implementation has not started.
 The [external design review prompt](progress/E.2/sprint_E.2_design_review-1-prompt.md)
-is ready for Product Owner relay with its current-source overlay.
+is ready for Product Owner relay and pins the published design source revision.
 The [external analysis review](progress/E.2/sprint_E.2_analysis_review-1.md) found no
 corrections required before exercise design. The
 [interim assessment](progress/E.2/sprint_E.2_assessment.md) records round closure

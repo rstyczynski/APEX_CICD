@@ -24,8 +24,9 @@ here; it is neither Product Owner design acceptance nor sprint closure.
 ## Remaining work and gates
 
 External design review round 1 is prepared in the
-[design-subject prompt](sprint_E.2_design_review-1-prompt.md). Its baseline plus
-hashed working-document overlay identifies the uncommitted proposal. The
+[design-subject prompt](sprint_E.2_design_review-1-prompt.md). Review source
+`74bff78f48cbac91beb867d38d1ce555c354a9a2` is committed, pushed and confirmed
+on the remote; the original overlay remains historical. The
 Product Owner relays it; the expert report is pending. This is separate from
 the closed analysis round and does not approve the design/regression amendment.
 

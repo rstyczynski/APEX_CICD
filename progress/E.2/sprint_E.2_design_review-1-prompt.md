@@ -6,13 +6,19 @@
 Clone URL: `https://github.com/rstyczynski/APEX_CICD.git`.
 Branch: `codex/e1-prototype`.
 
-**Revision:** committed baseline `cb766e5f6a3bd3a06454afb62fae275cb27c1e8d`,
-plus the separately supplied working files in
-`tests/sprint_E.2_design_review-1-source-overlay.zip`. The matching
-`tests/sprint_E.2_design_review-1-source-manifest.json` records exact SHA-256
-hashes, baseline relationships and removed paths. The revised design is
-uncommitted and is NOT the design at HEAD. Use baseline plus overlay; never
-substitute the Git-only old design or an unpinned branch tip.
+**Review source revision:** `74bff78f48cbac91beb867d38d1ce555c354a9a2`.
+This commit contains the revised design, approved analysis, current context and
+review skill files. It was pushed to `origin/codex/e1-prototype`; `git ls-remote`
+confirmed that exact SHA on 2026-10-19. Review this committed source without a
+working-file overlay. No attachment is needed to obtain these project files.
+Git publication does not independently establish a particular expert's account
+access; report any access limitation rather than substituting another revision.
+
+The prior baseline-plus-overlay package is preserved as historical evidence.
+The [publication clarification](sprint_E.2_design_review-1-clarification-1-prompt.md)
+supersedes its source-access instructions; use this full source SHA rather than
+the old baseline or an unpinned branch tip. The source commit's captured prompt
+predates this access correction; use the current prompt for review instructions.
 
 **Reviewer:** independent external expert selected by the Product Owner;
 identity/model unknown until the report arrives.
@@ -28,8 +34,8 @@ skeletons have been implemented under this proposal.
 [analysis review](sprint_E.2_analysis_review-1.md),
 [engineering response](sprint_E.2_analysis_review-1-response.md), and
 [round contract](../../.agents/skills/rup-external-review/references/round-contract.md).
-The overlay manifest identifies current supplied documents; other source is
-available from the pinned baseline or must be reported unavailable.
+All project inputs are in the pinned review source commit; optional external
+documentation remains public primary-source research.
 
 **Status table:** No design findings yet. No previous design round exists.
 
@@ -114,8 +120,8 @@ Return complete Markdown as:
 `progress/E.2/sprint_E.2_design_review-1.md`.
 If you cannot write the path, return the Markdown for the Product Owner to save.
 
-Begin with subject/round/type, repository URL, full baseline SHA, overlay-manifest
-identity, reviewer/model, actual inspected inputs/checks and exclusions. Include
+Begin with subject/round/type, repository URL, full review source SHA,
+reviewer/model, actual inspected inputs/checks and exclusions. Include
 an initial finding-status table. Use IDs `R1-H1`, `R1-M1`, `R1-L1`, etc., explicitly
 scoped to E.2 DESIGN round 1, with status `open`; no prior design findings exist.
 If none, say so. Each finding needs Elaboration-relative severity, precise source
