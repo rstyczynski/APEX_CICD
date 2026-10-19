@@ -455,3 +455,14 @@ and refusal of unknown partial mutations. Updated the existing unit/integration
 case specifications and manual mapping. These are design amendments only;
 no scripts, skeletons or fixtures were created and approval remains pending.
 Checked mode/section consistency, local links and whitespace before publication.
+
+At the Product Owner's disposable-prototype testing preference, replaced the
+separate smoke/unit/integration specification, skeletons and proposed domain
+regression suite with concrete exercise verification in sections A–E. Proposed
+Test/Regression become none upon design acceptance; PLAN's existing parameter
+values remain unchanged until that explicit decision. Preparation safety,
+preservation, rejection, reconstruction and observed outcomes remain part of
+the actual exercises. Reconciled test profile, PLAN narrative, assessment and
+README. This later proposal is not attributed to the earlier expert review.
+No test framework or executable was created. Checked links/whitespace and
+preserved pending design approval before scoped review publication.

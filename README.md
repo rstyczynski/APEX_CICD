@@ -116,10 +116,11 @@ scoping. The separate [analysis](progress/E.2/sprint_E.2_analysis.md) is complet
 as a desk-analysis baseline; its [review summary](progress/E.2/sprint_E.2_inception.md)
 presents fourteen findings and prioritized evidence questions before exercise
 design. The Product Owner approved analysis on 2026-10-19. The
-[revised exercise design and test specification](progress/E.2/sprint_E.2_design.md)
+[revised exercise design and verification plan](progress/E.2/sprint_E.2_design.md)
 are Proposed for managed approval; implementation has not started.
 The [external design review](progress/E.2/sprint_E.2_design_review-1.md) found no
-required corrections and supports the proposed regression scope. Product Owner
+required corrections to its reviewed version. The current design subsequently
+proposes exercise-based verification without separate test suites. Product Owner
 design acceptance remains pending.
 The [external analysis review](progress/E.2/sprint_E.2_analysis_review-1.md) found no
 corrections required before exercise design. The

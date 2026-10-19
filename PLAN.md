@@ -122,10 +122,11 @@ by explicit Product Owner request in managed mode. The
 separate [analysis](progress/E.2/sprint_E.2_analysis.md) establishes the findings
 and evidence questions before exercise selection. The Product Owner approved
 analysis on 2026-10-19 after external review. The revised
-[exercise design](progress/E.2/sprint_E.2_design.md) and test specification are
-Proposed for managed approval; no exercise or skeleton implementation is
-authorized yet. The design proposes an E.2-only regression scope, which is not
-applied to the Test/Regression parameters until explicitly approved.
+[exercise design](progress/E.2/sprint_E.2_design.md) and verification plan are
+Proposed for managed approval; no exercise implementation is
+authorized yet. The revised design proposes experiment-based verification without separate
+automated/regression suites for disposable helpers. This Test/Regression
+parameter amendment is not applied until explicitly approved.
 
 Backlog Items:
 

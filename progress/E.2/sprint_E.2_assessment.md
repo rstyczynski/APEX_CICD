@@ -42,12 +42,19 @@ verdict remains bound to its reviewed revision; no new recheck is implied.
 
 ## Remaining work and gates
 
+After the review, the Product Owner expressed a preference to avoid separate
+tests for disposable Elaboration helpers. The revised design proposes focused
+exercise/walkthrough checks with no separate automated or regression suite.
+This supersedes the earlier domain-regression proposal; the expert verdict
+remains about its original revision, not this subsequent tailoring. PLAN's
+parameters remain unchanged until explicit acceptance.
+
 The [analysis](sprint_E.2_analysis.md), [review summary](sprint_E.2_inception.md)
 and [PROJECT fit assessment](project-fit-assessment.md) supply the evidence
 questions for the [revised exercise design](sprint_E.2_design.md). The
 Product Owner approved analysis and directed design. That design and test
-specification are now Proposed for managed approval, including four child
-outcomes and a regression-scope amendment. No exercise or test skeleton is
+verification plan are now Proposed for managed approval, including four child
+outcomes and an amendment replacing separate suites with exercise checks. No exercise is
 approved by the review or analysis acceptance.
 
 PBI-051 remains unfinished. Approved exercises, final source-backed findings,

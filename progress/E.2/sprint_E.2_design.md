@@ -13,8 +13,8 @@ The [external design review](sprint_E.2_design_review-1.md) raises no findings
 and supports Product Owner acceptance, including the regression proposal.
 The [engineering response](sprint_E.2_design_review-1-response.md) and
 [assessment](sprint_E.2_assessment.md) record closure. The verdict applies to its pinned source. The Product Owner
-subsequently clarified the common-repository sequence and section-script
-interfaces below; no independent recheck of those amendments or implementation
+subsequently clarified the common-repository sequence, section-script interfaces
+and experiment-based verification below; no independent recheck of those amendments or implementation
 approval is claimed.
 
 The [analysis](sprint_E.2_analysis.md) owns findings, H-1/H-2 and EQ-1–5;
@@ -94,7 +94,7 @@ the design approves this decomposition; none is complete now.
    pair/manual/live demonstration. Acceptance: the Product Owner can inspect
    sources and results, repeat the selected exercises and assess recommendations;
    actual handover feedback is recorded. Dependencies: .1–.3 evidence/dispositions
-   and applicable quality gates. No later-sprint PBI is claimed delivered.
+   and the specified exercise/handover checks. No later-sprint PBI is claimed delivered.
 
 ### Design overview
 
@@ -381,91 +381,66 @@ missing historical measurements remain unknown.
 
 ### Testing Strategy
 
-Test: smoke, unit, integration. Regression: smoke, unit, integration.
-Proposed regression scope: `oracle_lifecycle` for E.2, pending explicit approval
-and a subsequent PLAN/test-profile update before code/test skeletons. The scope
-covers every E.2 helper and fixture plus reused compatibility behavior; production
-E.1 code remains unchanged. The current PLAN still requests full registered
-regression. Approval of this design must explicitly include the scope change or
-retain that full gate with a separately safe disposable E.1 topology.
+For this disposable Elaboration prototype, propose `Test: none` and
+`Regression: none` for separate automated suites. No smoke/unit/integration
+harness, test skeletons, new-tests manifest or component test manifest is needed.
+Use the focused experiments and their observable checks below instead, as
+permitted by local P1 for proportionate Elaboration evidence. This replaces the
+previous proposed domain regression suite; PLAN parameters change only upon
+explicit acceptance of this revised design/verification approach.
 
-Reason: existing registered E.1 integration tests target retained E.1 state and
-include unfinished acceptance, so blindly replaying them conflicts with preservation.
-Record those limitations; do not modify the old tests, manufacture passes or call
-E.2 scoped success full E.1 regression. If E.1 code must change, stop for a new
-impact assessment and affected regression scope before implementing that change.
+This is not a proposal to remove the experiments that answer the analysis.
+Section scripts still check actual prerequisites, fail on unexpected errors,
+validate expected outcomes and retain logs/receipts. Real GUI decisions remain
+visible. Record whether a capability works, fails, is blocked or was not run;
+do not invent a passing result from a script exit alone. Safety checks are part
+of operating the exercise, not a separate test framework built around helpers.
 
-Smoke candidates check source hashes, resource/target identity, versions and
-fixture ownership before writes; expected time is unmeasured. Unit targets isolate
-inventory/admission/subprocess boundaries with temporary files and fake commands;
-no Oracle mocks establish runtime equivalence. Integration scenarios run the real
-owned fixture, capture/reconstruction, release upgrade/repeat and admission cases.
-Required GUI observations remain explicit manual evidence. Record elapsed times
-when executed instead of claiming estimates as measurements.
+Do not replay E.1 integration tests against retained targets. Production E.1
+code remains unchanged; E.1's unfinished acceptance remains documented. If a
+helper becomes shared product code, a production source change is needed, or
+an observation cannot establish a material safety property, reassess the affected
+verification before extending implementation. Disposable status does not justify
+writing to an unverified target or claiming an unsupported capability.
 
-## Test Specification
+## Exercise Verification
 
-All cases below belong to PBI-051 and proposed children .1–.4. They are specified,
-not implemented or registered. Domain test files will be
-`tests/smoke/test_oracle_lifecycle.sh`, `tests/unit/test_oracle_lifecycle.sh` and
-`tests/integration/test_oracle_lifecycle.sh`. Function names below are proposed
-runner identities, not commands claimed to work today.
+These observations are the evidence specification for PBI-051 and its children,
+not new registered automated test cases. Implement checks directly in the
+relevant A–E section scripts and walkthrough; record expected/actual results.
 
-UT-E2-1 additionally covers a direct section call with missing predecessor
-evidence and an inspect/preflight request attempting mutation: no mutation
-command may run. UT-E2-2 additionally covers retries: unchanged verified
-postconditions permit safe continuation; changed hashes invalidate downstream
-receipts; unknown partial mutation state blocks rather than repeats the write.
-Retain failed-attempt evidence. IT-E2-1/2 demonstrate an interrupted section
-followed by an allowed verification/GUI continuation, without reapplying completed
-migrations or overwriting retained rows. These are the same cases expanded for
-the section-script interfaces, not new runtime results.
+- **A — Preparation:** verify source/tool/DB/PDB identity, owned allocation and
+  initial state. Refuse foreign targets and unmet prerequisites before writes.
+  Record retained E.1 state for the final preservation comparison.
+- **B — PROJECT / X1:** inspect exact exported inventory and Git/distribution
+  diffs; demonstrate fresh, populated-baseline and repeat outcomes with identified
+  artifact bytes. Compare relevant schema/app identities, existing row fields,
+  settings and migration history. Account for generated and intentional changes.
+- **C — Working Copies / X2:** observe actual compare/refresh/merge; verify both
+  intended headings and LOV/greeting behavior after capture and reconstruction
+  through B's path. Record stale-edit/deletion handling, abandonment and shared
+  schema exposure. A failed capability remains a documented finding.
+- **D — Admission / X3:** show an allowed declaration and rejection of incompatible,
+  missing or changed inputs before deployment. Verify unchanged target definitions/
+  sentinel data and absence of a deploy invocation for rejected attempts. Reconcile
+  installed metadata after positive delivery with the identified artifact.
+- **Continuation:** demonstrate one needed retry/resume during the walkthrough.
+  Preserve the earlier attempt and recheck state. Changed inputs invalidate
+  downstream evidence; unknown partial mutations block rather than replay.
+- **Conditional native audit:** if its local behavior affects a recommendation,
+  observe one controlled finding and corrected result. Otherwise use documented
+  availability and label runtime behavior unexecuted; no framework installation
+  or permanently skipped passing test is required.
+- **E — Findings and handover:** trace every AN/PF disposition to exact sources,
+  evidence level, limitation, requirement and existing backlog destination.
+  Show all material failures, relevant corrections and unresolved outcomes.
+  Rehearse the actual manual/section sequence and demonstrate it live for the
+  Product Owner; review links, commands, slides and evidence for correctness.
 
-1. **SM-E2-1 / test_SM1_oracle_lifecycle_preflight:** .1; FR-11/13, NFR-2,
-   UC-1/6; EQ-1–5. Valid inventory yields ready; missing input, tool-version
-   mismatch or foreign schema/app/PDB yields blocked before mutation. Preserve
-   before/after retained-E.1 summaries. A live preflight never creates fixtures.
-2. **UT-E2-1 / test_UT1_oracle_lifecycle_ownership:** .1; FR-11/13. With fake
-   subprocesses test owned versus foreign/missing inventory, name collision and
-   mismatched DB/PDB. All rejected cases invoke zero mutation commands.
-3. **UT-E2-2 / test_UT2_oracle_lifecycle_admission:** .3; FR-5/7; EQ-2/4.
-   Temporary valid/changed/missing envelope inputs and failed subprocesses prove
-   exact binding and failure propagation. Exercise the reused validator with
-   supported, incompatible, missing and unknown declarations. Rejection is a
-   nonzero result with a specific diagnosis and no deploy invocation.
-4. **IT-E2-1 / test_IT1_working_copy_capture:** .2; FR-8/11/12, UC-7–10/12;
-   H-2/EQ-1. Real authoring target, GUI log and accepted source revision are
-   prerequisites. Both intended headings and LOV/greeting behavior reconstruct;
-   deletion/abandonment outcomes and shared-schema marker are accounted for.
-   Stale-merge loss must be detected, its correction checked or reported blocked.
-5. **IT-E2-2 / test_IT2_project_delivery:** .3; FR-5/6/11/12, UC-4/5/11;
-   H-1/EQ-2/3. Native configured source scope and reviewed distribution produce
-   identified artifacts. Fresh/baseline/repeat observations compare real schema/
-   app identity, existing row fields, settings and migration history; artifact
-   hashes agree across qualification/promotion. Generated/custom change ownership
-   and alternate capture path differences are retained, not normalized away blindly.
-6. **IT-E2-3 / test_IT3_native_contract_admission:** .3; FR-5/7/9/10,
-   UC-4/5/11; PF-08/EQ-2/4. Against the owned target, allowed declarations pass;
-   incompatible/missing/changed inputs reject before native deploy. Query unchanged
-   target definitions and sentinel fields and retain no-deploy evidence. Installed
-   metadata after a positive delivery matches the identified declaration. Injected
-   unit failures alone cannot satisfy this integration case.
-7. **IT-E2-4 / test_IT4_optional_native_audit:** conditional .3; FR-13,
-   PBI-041 context/EQ-5. Only if local behavior is material: a controlled audit
-   finding is observed and the corrected fixture rerun. Otherwise record why this
-   case is not selected; do not register a permanently skipped passing test.
-8. **Review-E2-1:** .4; PBI-051/UC-6. Every AN/PF disposition names exact
-   sources, evidence level, remaining limitation, affected requirement and existing
-   backlog destination. Recommendations do not infer absent measurements or
-   complete later work. All executed cases, including failures, appear in handover.
-
-After approval create `tests/manifests/component_oracle_lifecycle.manifest` and
-`progress/E.2/new_tests.manifest` using actual `suite:script:function` entries.
-Register only selected cases. The planned gate sequence is new-only smoke → unit
-→ integration, then approved-scope regression smoke → unit → integration through
-`tests/run.sh`; actual invocation requires both suite and manifest parameters.
-Unrun/manual/blocked observations are separate from executable case success.
-Skeletons and fixture resources are not created at this design gate.
+If a required observation cannot run, record the blocker and its impact on the
+recommendation. It may establish a gap; it does not automatically establish that
+Oracle technology cannot meet the requirement. There is no separate regression
+pass/fail claim and no generic test gate masquerading as prototype completion.
 
 ### Findings and roadmap deliverables
 
@@ -513,6 +488,7 @@ undocumented API or full-controller rebuild is authorized.
 
 Requested approval covers the four child outcomes, isolated reduced-fixture
 X1–X3, conditional source-first EQ-3/EQ-5 handling, explicit custom-bridge trial,
-and E.2-only regression scope. It does not permanently adopt PROJECT, change
+and experiment-based verification without separate automated/regression suites.
+It does not permanently adopt PROJECT, change
 E.1-stage product policies, implement PBI-052 or move E.5 work. Design acceptance
-must be explicit before code, test skeletons, provisioning or runtime exercises.
+must be explicit before code, provisioning or runtime exercises.
