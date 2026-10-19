@@ -97,26 +97,23 @@ the design approves this decomposition; none is complete now.
 
 ### Design overview
 
-```mermaid
-flowchart LR
-  E[Preserved E.1 source and historical evidence] --> Q[Version and resource preflight]
-  Q --> A[Owned APEX authoring app and schema]
-  A --> W[Working Copy and Main integration]
-  W --> G[Reviewed team checkpoint in scratch Git]
-  G --> P[PROJECT capture and staged migration review]
-  G --> L[Lower-level export and import comparison]
-  P --> N[Native artifact plus bound component declaration]
-  N --> V[Dependency admission and qualified test targets]
-  L --> V
-  V --> F[Gap findings and roadmap]
-  F --> D[Reproducible walkthrough and live review]
-```
-
-The arrows are handoffs to qualify, not established interoperability. PROJECT
-and lower-level paths run as labeled alternatives from the same agreed authoring
-state. Within either path exactly one source/migration authority applies. This
-experiment does not implement hosted pipelines; its contracts must be suitable
-for eventual pipeline use.
+- Preserve E.1 source, historical evidence and retained environments; verify
+  versions and allocate owned disposable authoring and test resources.
+- Create one local Git repository and initialize PROJECT for the authoring
+  application and schema, with explicit capture scope and migration ownership.
+- Develop in APEX Working Copies, integrate agreed changes into Main, then use
+  PROJECT to export, review and commit the team checkpoint in that repository.
+- Review staged migrations and intentional SQL changes, generate an identified
+  native artifact and bind its component/dependency declarations.
+- Reuse appropriate E.1 tools for validation and justified controls; qualify
+  reconstruction, delivery and preservation in the owned test targets.
+- Use lower-level exports/imports as labeled comparison paths from the same
+  agreed checkpoint, without creating a second maintained source or migration
+  authority. Compatibility remains an outcome to establish.
+- Turn observed results into source-backed gap findings, existing-backlog
+  reconciliation and an ordered roadmap, with a reproducible live walkthrough.
+- Keep interfaces suitable for eventual pipelines; hosted pipeline delivery
+  remains outside these bounded experiments.
 
 ### Preservation, fixtures and ownership
 

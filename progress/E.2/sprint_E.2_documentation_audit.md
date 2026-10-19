@@ -434,3 +434,8 @@ ambiguity and the .2/.3 handoff dependency ambiguity. Lower-level exports remain
 comparison outputs. Assessment and design identify this post-review clarification
 without inventing independent re-review or implementation approval. Checked
 wording consistency, local links and whitespace before scoped publication.
+
+Replaced the design-overview diagram with Product Owner-requested bullet points.
+They follow the agreed PROJECT repository → Working Copy/Main capture → staged
+release/validation sequence and identify E.1 reuse and comparison boundaries.
+No exercise scope, approval, resource or test behavior changed. Whitespace checked.
