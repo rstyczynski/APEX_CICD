@@ -422,3 +422,7 @@ are unchanged. Report hash, local links and whitespace checks precede scoped
 commit/push under the standing review-publication authorization. The concurrent
 E.1 diagram backup remains excluded. No test, runtime, fixture, skeleton or
 implementation acceptance is claimed. Remote success is verified after push.
+
+Removed irrelevant historical draft/ZIP packaging wording from the design
+introduction. Current review access is the published Git revision. Technical
+design and pending approval are unchanged; whitespace check passed.

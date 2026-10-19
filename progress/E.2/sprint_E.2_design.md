@@ -6,9 +6,7 @@ Status: Proposed
 
 Design approval: Awaiting Product Owner review. Analysis was explicitly approved
 on 2026-10-19 after the [external analysis review](sprint_E.2_analysis_review-1.md)
-found no required corrections. This design supersedes the premature draft
-preserved at commit `cb766e5f6a3bd3a06454afb62fae275cb27c1e8d`; the captured
-review ZIPs retain their original contents. No exercise, provisioning, test
+found no required corrections. No exercise, provisioning, test
 skeleton or runtime verification has been performed under this design.
 
 The [external design review](sprint_E.2_design_review-1.md) raises no findings
