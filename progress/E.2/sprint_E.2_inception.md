@@ -1,11 +1,12 @@
 # E.2 — Analysis review
 
-Analysis complete; exercise design has not resumed. PBI-051 remains unfinished.
+Analysis approved by the Product Owner on 2026-10-19; revised exercise design
+and test specification are Proposed. PBI-051 remains unfinished.
 The [full analysis](sprint_E.2_analysis.md) owns the conclusions, exact source
 links, actor/use-case relationships, existing-PBI reconciliation and evidence
 questions. [Setup](sprint_E.2_setup.md) owns contracting. The
-[board](../../PROGRESS_BOARD.md) records PBI-051 as analysed while E.2 remains
-at the analysis review; [PLAN](../../PLAN.md) keeps the sprint active/managed.
+[board](../../PROGRESS_BOARD.md) records E.2/PBI-051 and its proposed children
+under_design; [PLAN](../../PLAN.md) keeps the sprint active/managed.
 
 ## Goal of the gap analysis
 
@@ -234,15 +235,18 @@ toolchain acceptance → Foundation upgrades in E.5. PBI-048–050 stay in E.5.
 
 ## Review boundary and verification
 
-External analysis review round 1 is prepared and awaits the Product Owner's
-relay and the expert's returned report. The
-[review prompt](sprint_E.2_review-1-prompt.md) owns the exact revision/snapshot,
-scope and output requirements. No independent verdict has been received.
-This review precedes revision of the held exercise design; it does not approve
-implementation or close E.2.
+External analysis review round 1 is complete: the
+[original expert report](sprint_E.2_analysis_review-1.md) reviews published commit
+`cb766e5f6a3bd3a06454afb62fae275cb27c1e8d`, raises no findings and concludes
+ready for exercise design. The [engineering response](sprint_E.2_analysis_review-1-response.md)
+assesses that verdict and its limits; the
+[interim assessment](sprint_E.2_assessment.md) records round closure and the
+remaining gates. No additional feedback exchange is needed. This does not
+approve exercise implementation, establish runtime compatibility or close E.2.
 
-This is a substantive analysis checkpoint before revising the
-[held exercise draft](sprint_E.2_design.md). No exercise or test skeleton was
+The Product Owner subsequently approved analysis and directed design. The
+[revised exercise design](sprint_E.2_design.md) is awaiting its own approval.
+No exercise or test skeleton was
 implemented. No database/app mutation, full regression, live demonstration or
 completion commit is claimed. Source inspection and historical evidence are
 distinguished from fresh execution; measured savings and current runtime

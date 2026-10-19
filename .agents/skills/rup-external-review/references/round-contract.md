@@ -2,16 +2,33 @@
 
 ## File convention
 
-Use the current sprint's evidence directory and stable phase ID, for example `progress/E.1/`. For round N:
+Use the current sprint's evidence directory and identify the reviewed document
+or stage in every round filename. Choose `<base>` from the document's filename
+without its extension, or from the established stage name. For example,
+`sprint_E.2_analysis.md` gives `sprint_E.2_analysis`; a review of
+`project-fit-assessment.md` gives `project-fit-assessment`. Append the following
+suffixes to that base for round N:
 
-- `sprint_<ID>_review-<N>-prompt.md`: coordinator's outbound review prompt.
-- `sprint_<ID>_review-<N>.md`: original expert review.
-- `sprint_<ID>_review-<N>-response.md`: engineering response.
-- `sprint_<ID>_review-<N>-feedback-prompt.md`: outbound prompt requesting expert feedback.
-- `sprint_<ID>_review-<N>-feedback.md`: original expert reaction, if requested/supplied.
-- `sprint_<ID>_review-<N>-decisions.md`: actions, rationale, owners and closing conditions when decisions exist.
+- `<base>_review-<N>-prompt.md`: coordinator's outbound review prompt.
+- `<base>_review-<N>.md`: original expert review.
+- `<base>_review-<N>-response.md`: engineering response.
+- `<base>_review-<N>-feedback-prompt.md`: outbound prompt requesting expert feedback.
+- `<base>_review-<N>-feedback.md`: original expert reaction, if requested/supplied.
+- `<base>_review-<N>-decisions.md`: actions, rationale, owners and closing conditions when decisions exist.
 
-Keep one review/response/feedback exchange under one number. Increment for a new review pass against changed source or newly scoped findings. If clarification within the same round is necessary, preserve successive messages as `sprint_<ID>_review-<N>-clarification-<K>-prompt.md`, `-clarification-<K>.md` (expert reply) and `-clarification-<K>-response.md` (engineering answer). Use the next unused K; never overwrite prior expert messages. Only create files actually needed. Do not rename completed historical rounds for conformity.
+Keep one review/response/feedback exchange under one number. Number rounds
+within the subject base and name the subject explicitly in each artifact
+header so finding IDs remain unambiguous. Increment for a new review pass
+against changed source or newly scoped findings. If clarification within the
+same round is necessary, preserve successive messages as
+`<base>_review-<N>-clarification-<K>-prompt.md`, `-clarification-<K>.md` (expert
+reply) and `-clarification-<K>-response.md` (engineering answer). Use the next
+unused K; never overwrite prior expert messages. Only create files actually
+needed. Do not rename completed historical rounds solely for conformity unless
+the user requests it. When renaming, keep original expert text byte-identical,
+update maintained navigation/output paths, and record old-to-new names. Leave
+captured ZIPs, manifests and raw receipts intact as historical evidence; explain
+their historical names rather than silently rewriting their bytes or hashes.
 
 Inspect existing rounds before choosing N. Continue a pending exchange; never silently replace a prompt the user may already have relayed. A material correction to an issued prompt uses a numbered clarification explaining what changed. A new pass is warranted when requested, when selected fixes are ready for independent recheck, or when a material change alters the reviewed boundary. Do not fabricate evidence of independent expert verification.
 

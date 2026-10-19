@@ -8,6 +8,12 @@ presented through a reproducible walkthrough. Define applicable smoke, unit,
 integration and regression checks for code-bearing exercises during design;
 document review alone does not establish runtime behavior.
 
+The [E.2 exercise design](../progress/E.2/sprint_E.2_design.md#testing-strategy)
+specifies proposed smoke/unit/integration cases and a regression scope confined
+to the assessment domain. Analysis is approved; design and this scope amendment
+are not yet accepted. Current PLAN parameters remain authoritative. Test files,
+manifests and executable examples will be materialized only after design approval.
+
 The [E.5 upgrade scope](../progress/E.5/sprint_E.5_proposedchanges.md) requires
 compatible and breaking Foundation upgrade evidence, migration catch-up,
 continuous unaffected-consumer traffic, dual-write failure/recovery checks and

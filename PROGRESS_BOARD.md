@@ -26,7 +26,11 @@
 | Sprint E.1 | Done | PBI-011.6 | under_construction |
 | Sprint E.1 | Done | PBI-011.7 | under_construction |
 | Sprint E.1 | Done | PBI-011.8 | under_construction |
-| Sprint E.2 | under_analysis | PBI-051 | analysed |
+| Sprint E.2 | under_design | PBI-051 | under_design |
+| Sprint E.2 | under_design | PBI-051.1 | under_design |
+| Sprint E.2 | under_design | PBI-051.2 | under_design |
+| Sprint E.2 | under_design | PBI-051.3 | under_design |
+| Sprint E.2 | under_design | PBI-051.4 | under_design |
 | Sprint E.3 | Planned | PBI-036 | Planned |
 | Sprint E.3 | Planned | PBI-037 | Planned |
 | Sprint E.3 | Planned | PBI-035 | Planned |

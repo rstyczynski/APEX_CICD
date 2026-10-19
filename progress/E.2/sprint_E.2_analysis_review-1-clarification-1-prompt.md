@@ -11,7 +11,7 @@ does not change the analysis under review. The original snapshot is preserved.
 **Scope:** source-access metadata and skill correction only; no new findings,
 analysis changes or execution authority.
 
-**Inputs:** [updated review prompt](sprint_E.2_review-1-prompt.md), original
+**Inputs:** [updated review prompt](sprint_E.2_analysis_review-1-prompt.md), original
 snapshot/manifest and `tests/review-1-source-supplement.zip`.
 
 **Status table:** No findings yet.
@@ -29,5 +29,5 @@ and full revision mandatory in every outbound review prompt. A subsequent
 checkpoint push publishes the files without changing this captured review scope.
 
 Proceed with the same round and return the actual analysis review as
-`progress/E.2/sprint_E.2_review-1.md`. No separate expert clarification response
+`progress/E.2/sprint_E.2_analysis_review-1.md`. No separate expert clarification response
 is required for this access correction. No expert report has arrived yet.

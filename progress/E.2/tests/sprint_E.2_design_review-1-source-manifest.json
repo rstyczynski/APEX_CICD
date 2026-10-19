@@ -1,0 +1,208 @@
+{
+  "subject": "sprint_E.2_design",
+  "round": 1,
+  "date": "2026-10-19",
+  "repository_url": "https://github.com/rstyczynski/APEX_CICD.git",
+  "branch": "codex/e1-prototype",
+  "baseline_sha": "cb766e5f6a3bd3a06454afb62fae275cb27c1e8d",
+  "source_access": "Checkout exact baseline and overlay supplied files; remove only removed_paths when reconstructing current document tree",
+  "implementation_state": "No E.2 runtime exercises or skeletons; design/regression amendment Proposed",
+  "removed_paths": [
+    "progress/E.2/sprint_E.2_review-1-prompt.md",
+    "progress/E.2/sprint_E.2_review-1-clarification-1-prompt.md"
+  ],
+  "exclusions": [
+    "Unrelated E.1 diagram backup working edit",
+    "Runtime env files and credentials",
+    "Ignored runtimes and databases/business data",
+    "Old analysis-review ZIPs (historical baseline context only)"
+  ],
+  "files": [
+    {
+      "path": ".agents/skills/rup-external-review/SKILL.md",
+      "sha256": "95a42e7f293de7a4c5760b53253e3630b37c6ad16ced8da85cb04a83eb0e2c51",
+      "bytes": 7528,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": ".agents/skills/rup-external-review/references/prompts.md",
+      "sha256": "bbe84f4b5f47714360b340aaa1418b9a7bbd1318df58dc43b3687d4b935ed963",
+      "bytes": 5661,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": ".agents/skills/rup-external-review/references/round-contract.md",
+      "sha256": "c8777389390fd9d1b1c334c71bd0916fc4e02f6a5cb0fb1631ae3062f6857b79",
+      "bytes": 6468,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "9ad61063e5e42ed8bdab9fd5868fc187ed0bc89e0af162bd346a37d01c69e2bd",
+      "bytes": 3170,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "BACKLOG.md",
+      "sha256": "dc93f4610523c54f132a8e9d25241bb46f18d9910096d6600ba1980d824b5b95",
+      "bytes": 25518,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "PLAN.md",
+      "sha256": "6e503d2f2d79b945f161d088591aca8b0d0e8ccb196f3291b8e27fb273bc1c72",
+      "bytes": 10604,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": "PROGRESS_BOARD.md",
+      "sha256": "70790724aa520a17a557fa403f44026b3bdc8f049ee0d6b3fdca77f1f2f7acd6",
+      "bytes": 2546,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": "README.md",
+      "sha256": "dfa44e19fd227880d3a7927bb164aaa412ad39d9c01d58eed3582d73749c6422",
+      "bytes": 15785,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": "ROADMAP.md",
+      "sha256": "912ee9ce2f2f76dd7b657ada1ff9c02762779f2d201d3cc00674614a5c36fe90",
+      "bytes": 9277,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": "RUPStrikesBack.patch/RUP_patch.md",
+      "sha256": "ebcda1287ac2486218fa14aa3439259e91aefd4e8671be9a0e19cc121faf3ed8",
+      "bytes": 39610,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "RUPStrikesBack.patch/USER_PREFERENCES.md",
+      "sha256": "d74eb874e264be68b7216ed96e8cea325cecaa4ade11512dd5ad02086f156d72",
+      "bytes": 2098,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "RUP_patch.md",
+      "sha256": "bcafec06c78e1e760e57b76219153de08d6fed7d067770c8c68c111930079351",
+      "bytes": 905,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "docs/architecture.md",
+      "sha256": "67b52048194f5ddee00e174b4a3d099b9d5ab326be83a2684bcaae847428c585",
+      "bytes": 57981,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": "docs/srs.md",
+      "sha256": "ededa8ea1fe8ef0c966ce0b2ba9c8d4e381b06d8bac7cbdcc5fa917181ca2d60",
+      "bytes": 46202,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "docs/test-profile.md",
+      "sha256": "c596b01efbf6eee05f424cc53c41624868713c18e36d58f310e8eeed17fa7dd0",
+      "bytes": 37797,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": "progress/E.2/project-fit-assessment.md",
+      "sha256": "5dc4ac28d5d7d5d69787dfae19afec7f5934e53a43824b45cfb284b72ef26bf7",
+      "bytes": 20980,
+      "state_vs_baseline": "unchanged"
+    },
+    {
+      "path": "progress/E.2/sprint_E.2_analysis.md",
+      "sha256": "0f8cbb6f08e3eca591db84277a24ad7ab420767989958e5348e01d43dbd68f3c",
+      "bytes": 52566,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": "progress/E.2/sprint_E.2_analysis_review-1-clarification-1-prompt.md",
+      "sha256": "7116727230f3080681ac35afff92e66f537ff45c42815f3d8dd0893b14adf2c2",
+      "bytes": 1702,
+      "state_vs_baseline": "new-supplied"
+    },
+    {
+      "path": "progress/E.2/sprint_E.2_analysis_review-1-prompt.md",
+      "sha256": "115a118e186569a0851baac94c5129e3143a0a1bf4dfe5f33630615f0a64aaa4",
+      "bytes": 9567,
+      "state_vs_baseline": "new-supplied"
+    },
+    {
+      "path": "progress/E.2/sprint_E.2_analysis_review-1-response.md",
+      "sha256": "ee8a71dcca1cf0e4a002353cf9677c519e656c276a9a2b8f6d151f03ae6c3831",
+      "bytes": 4292,
+      "state_vs_baseline": "new-supplied"
+    },
+    {
+      "path": "progress/E.2/sprint_E.2_analysis_review-1.md",
+      "sha256": "6fc2ed6a71871e61d706047871aa59cac9e960eb40e60120271c5f132b561ee1",
+      "bytes": 7822,
+      "state_vs_baseline": "new-supplied"
+    },
+    {
+      "path": "progress/E.2/sprint_E.2_assessment.md",
+      "sha256": "395228813126932af01a8a974a50c814fae2a9cc986f34838060aa4c29a49139",
+      "bytes": 2536,
+      "state_vs_baseline": "new-supplied"
+    },
+    {
+      "path": "progress/E.2/sprint_E.2_design.md",
+      "sha256": "cbe503f2dfa4b843ccc5f0e9c70171b795196b9a6dd6f476933aa8b39c9ef662",
+      "bytes": 26746,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": "progress/E.2/sprint_E.2_design_review-1-prompt.md",
+      "sha256": "c446364111176437b6a8742f7b7bde645ad0d0396d2105f4a78aba2210046f91",
+      "bytes": 8202,
+      "state_vs_baseline": "new-supplied"
+    },
+    {
+      "path": "progress/E.2/sprint_E.2_documentation_audit.md",
+      "sha256": "8751626664098c24183c10a9d5043d9ed31388be2b49bfb44a0b0edd34d1fcad",
+      "bytes": 23699,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": "progress/E.2/sprint_E.2_inception.md",
+      "sha256": "14c2a4f634d7a5f2b12ae877c2e84e508e3f72d0c6cfbf8188e059ee5ecb75b9",
+      "bytes": 16167,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": "progress/E.2/sprint_E.2_proposedchanges.md",
+      "sha256": "ec11185b7226ef8bbdcdf470c9a2a88a8911dd6cc8aa36e1c2f8a3edbdcdcc2f",
+      "bytes": 10785,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": "progress/E.2/sprint_E.2_setup.md",
+      "sha256": "efd3f61c0b3d3cd512893b0a01ee329c14d162ad6407b2730396400a0318010e",
+      "bytes": 8455,
+      "state_vs_baseline": "modified-supplied"
+    },
+    {
+      "path": "progress/E.2/tests/design_review_checks_20261019.txt",
+      "sha256": "8226fed554a646b2ba0065adfcc3b1865914cbed498507fd1dd41747a4787cf9",
+      "bytes": 509,
+      "state_vs_baseline": "new-supplied"
+    },
+    {
+      "path": "progress/E.2/tests/review-1-response-checks.txt",
+      "sha256": "6b396fb0a80854ebc85c2f33db34b281aa6edd2a0b66f7a401a3746b85725208",
+      "bytes": 417,
+      "state_vs_baseline": "new-supplied"
+    },
+    {
+      "path": "progress/E.2/tests/sprint_E.2_design_review-1-working.patch",
+      "sha256": "cc94ca0669d6f913cb202670f291ee79c6b830d56918ff406ef6123669a53157",
+      "bytes": 91618,
+      "state_vs_baseline": "new-supplied"
+    }
+  ]
+}

@@ -1,349 +1,419 @@
-# E.2 — Oracle lifecycle assessment and exercise design
+# E.2 — Gap-analysis exercises and decision-package design
 
-## Design
-
-### Sprint E.2 — Assess E.1 against Oracle lifecycle guidance
-
-#### PBI-051 — Evidence-backed evolution decision
+## PBI-051 — Evidence-backed evolution decision
 
 Status: Proposed
 
-Review state: held pending the separate
-[analysis](sprint_E.2_analysis.md). The previous design approval request is
-withdrawn. This premature draft is retained for reassessment after analysis;
-its proposed exercises and test specification are not an agreed scope.
-It authorizes no runtime writes or test skeletons. The
-[setup](sprint_E.2_setup.md) supplies contract/analysis; the
-[scope record](sprint_E.2_proposedchanges.md), [SRS](../../docs/srs.md),
-[architecture](../../docs/architecture.md), [test profile](../../docs/test-profile.md),
+Design approval: Awaiting Product Owner review. Analysis was explicitly approved
+on 2026-10-19 after the [external analysis review](sprint_E.2_analysis_review-1.md)
+found no required corrections. This design supersedes the premature draft
+preserved at commit `cb766e5f6a3bd3a06454afb62fae275cb27c1e8d`; the captured
+review ZIPs retain their original contents. No exercise, provisioning, test
+skeleton or runtime verification has been performed under this design.
+
+The [external design review prompt](sprint_E.2_design_review-1-prompt.md)
+prepares design round 1 for Product Owner relay. No expert design verdict has
+been received; analysis review closure is a separate event.
+
+The [analysis](sprint_E.2_analysis.md) owns findings, H-1/H-2 and EQ-1–5;
+[PROJECT fit assessment](project-fit-assessment.md) owns PF-01–12. The
+[SRS](../../docs/srs.md) owns requirements, [architecture](../../docs/architecture.md)
+the existing candidate, [test profile](../../docs/test-profile.md) verification,
 [PLAN](../../PLAN.md#sprint-e2---assess-e1-against-oracle-lifecycle-guidance)
-and [board](../../PROGRESS_BOARD.md) own their respective decisions and status.
+sprint assignment, and [board](../../PROGRESS_BOARD.md) execution status.
+The [assessment](sprint_E.2_assessment.md) owns review closure; the
+[setup](sprint_E.2_setup.md) owns contracting. This is an experimental design,
+not a permanent replacement of those product contracts.
 
-### Requirement summary and feasibility
+### Requirement summary
 
-Assess technology and delivery against the supplied
-[Oracle paper](../../refs/apex-lifecycle-management-v3.pdf), using its printed
-page numbers (matching PDF page numbers), and applicable version-specific
-Oracle guidance. Establish equivalence, missing implementation, avoidable
-custom mechanisms, policy conflicts and genuine blockers separately. For each
-finding retain observation date, versions, source/provenance, evidence path,
-confidence, affected actor/use case/requirement, attempted alternatives and
-retain/replace/investigate recommendation.
+Give developers flexibility through stable, industry-standard tools and
+techniques. Establish which combinations of Working Copies, PROJECT and useful
+E.1 capabilities preserve accepted source, declared dependencies and delivery
+outcomes at reasonable operating cost. Coexistence is a direction to test,
+not a required successful result. Deliver source-backed classifications,
+existing-backlog reconciliation, a dependency roadmap and a reproducible live
+walkthrough. The experiment need not implement all later production outcomes.
 
-Oracle documents the required baseline primitives: APEX 24.2 split source
-export, Working Copy compare/refresh/merge in App Builder, and SQLcl 25.3
-PROJECT export/stage/release/gen-artifact/deploy. Availability is established
-in documentation; local runtime behavior is not yet tested. Use Oracle public
-APIs and generated installers, not hand-authored internal APEX calls. Do not
-assume a documented GUI authoring action has an automation API. Investigate
-the FR-13 boundary explicitly before claiming fully automated native working
-copy operations. GitHub API feasibility is not a dependency: hosted changes
-and publication are outside these bounded experiments.
+### Feasibility and exact sources
 
-Read-only research may continue before approval. Experiment implementation,
-test skeletons and fixture provisioning follow acceptance. If exact-version
-help or a supported interface contradicts this design, record the result and
-return for approval of any material alternative rather than upgrade tools or
-silently change a requirement.
+The recorded baseline is APEX 24.2.0, SQLcl 25.3.0.274.1210 and Database
+23.26.3.0.0. Current installed versions/readiness are unknown until preflight;
+no upgrade or host rebuild is authorized by this design. The supplied
+[Oracle paper](../../refs/apex-lifecycle-management-v3.pdf), version 3.2,
+validates examples against 24.2/25.1.1, so exact-client behavior needs checking.
 
-### Sources and coverage
+[SQLcl 25.3 PROJECT, section 6.2](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.3/sqcug/project-command.html)
+documents existing-repository initialization, capture, generated/custom staging,
+release and deployment. [Its examples, section 6.5](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.3/sqcug/project-command-usage-examples.html)
+provide the branch/base workflow. [APEX 24.2 Working Copies, section 5.9.1](https://docs.oracle.com/en/database/oracle/apex/24.2/htmdb/about-working-copies.html)
+documents the GUI operations and merge limits. These interfaces make a bounded
+experiment feasible; they do not establish the desired outcomes in advance.
+Documentation/help inspection precedes command adaptation. Supporting source
+links and paper page mappings remain in AN-01–14, avoiding a second source
+register with conflicting claims.
 
-Use the entire paper as the coverage checklist. Record a justified applicable,
-optional, deferred or out-of-scope disposition for each recommendation family:
-architecture and mini apps (6–8, 15–16), issue planning (9–11), collaboration
-(12–14, 32–39), source history/capture/staging (16–21, 47), logic/coverage/UI
-testing (22–25), release/deployment/environment mapping (26–30), quality
-inspection (30–31), both automation journeys (40–45), and connection constraints
-(46). The supplied copy is version 3.2, validated on 24.2/25.1.1 (page 2).
-Do not transfer example Java or latest-download settings to the pinned lab
-without checking SQLcl 25.3 requirements.
+The implementation inspection reveals an important integration boundary:
+[scripts/cicd-artifact.py](../../scripts/cicd-artifact.py) expects E.1's specific
+tar layout, page inventory and E1_CTRL initialization hook. It cannot be called
+an unchanged validator for a PROJECT ZIP. Conversely,
+[scripts/cicd-compatibility.py](../../scripts/cicd-compatibility.py) exposes a
+small validator for the declared component combinations. Reuse that rule in a
+bounded bridge, explicitly labeling it custom; do not clone the E.1 controller.
 
-The initial version-specific source register is:
+### Scope decomposition
 
-1. [APEX 24.2 export options and split source](https://docs.oracle.com/en/database/oracle/apex/24.2/aeadm/exporting-one-or-more-applications.html),
-   sections 3.12.11.1.6.3–6: source granularity, original IDs, export dates and
-   importable versus readable output. Verify the complete dependency scope.
-2. [APEX 24.2 Working Copies](https://docs.oracle.com/en/database/oracle/apex/24.2/htmdb/about-working-copies.html),
-   section 5.9.1 and its creation/edit/merge/refresh procedures: compare and
-   merge boundaries. Check public API documentation separately for automation.
-3. [SQLcl 25.3 PROJECT](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.3/sqcug/project.html),
-   section 11.16, and [CI/CD introduction](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.3/sqcug/introduction.html),
-   section 6.1: generated migration/release responsibilities and supported
-   object types; custom changes can supplement generated staging.
-4. [SQLcl 25.3 project examples](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.3/sqcug/project-command-usage-examples.html),
-   section 6.5: baseline/change branches and installable artifacts.
+These are proposed sprint-scoped children of PBI-051 under local P6. They
+remain in this design and the board, not new root backlog items. Acceptance of
+the design approves this decomposition; none is complete now.
 
-Extend the register with version-specific installation mapping, Liquibase,
-APEX Advisor and database semantics for every final technical claim. Record
-retrieval date and page/section, distinguish Oracle recommendation from an
-inference, and retain only short necessary excerpts. No claim is supported
-solely by a search-result snippet or newer product documentation.
+1. **PBI-051.1 — Establish safe inputs and evidence boundaries.** Outcome:
+   pinned source/tool inventory, historical comparison, owned disposable
+   resources and evidence ledger. Acceptance: retained E.1 state is identified,
+   a foreign target is refused, and source/evidence levels are distinguishable.
+   Dependencies: approved design and existing E.1 evidence.
+2. **PBI-051.2 — Qualify Working Copy capture into Git.** Outcome: an observed
+   authoring/checkpoint/reconstruction path with usability and failure limits.
+   Acceptance: both intended changes survive reconstruction; stale/deletion
+   handling and abandonment are observed or explicitly fail with evidence.
+   Dependency: PBI-051.1; uses native artifact handoff from .3 for the combined
+   path, without requiring .3 to finish before authoring can be exercised.
+3. **PBI-051.3 — Assess PROJECT compatibility and retained admission controls.**
+   Outcome: a native initial/change release slice, repository handoff assessment
+   and declared-dependency admission evidence. Acceptance: PF findings identify
+   actual captured scope, migration ownership, artifact identity, mapped-target
+   outcomes, preservation and allowed/rejected declarations. An evidenced tool
+   failure is a valid assessment outcome, not an equivalent-delivery claim.
+   Dependency: .1; combines .2's accepted Main checkpoint for final H-1/H-2 proof.
+4. **PBI-051.4 — Deliver the gap decision and reproducible handover.** Outcome:
+   classified findings, reconciled follow-up and ordered roadmap plus presentation
+   pair/manual/live demonstration. Acceptance: the Product Owner can inspect
+   sources and results, repeat the selected exercises and assess recommendations;
+   actual handover feedback is recorded. Dependencies: .1–.3 evidence/dispositions
+   and applicable quality gates. No later-sprint PBI is claimed delivered.
 
-### Design overview and preservation boundary
+### Design overview
 
-Data flow: E.1 source/evidence plus Oracle sources → traceable questions →
-bounded isolated exercises → classified findings → existing-PBI reconciliation
-→ dependency roadmap → reproducible walkthrough and live review.
+```mermaid
+flowchart LR
+  E[Preserved E.1 source and historical evidence] --> Q[Version and resource preflight]
+  Q --> A[Owned APEX authoring app and schema]
+  A --> W[Working Copy and Main integration]
+  W --> G[Reviewed team checkpoint in scratch Git]
+  G --> P[PROJECT capture and staged migration review]
+  G --> L[Lower-level export and import comparison]
+  P --> N[Native artifact plus bound component declaration]
+  N --> V[Dependency admission and qualified test targets]
+  L --> V
+  V --> F[Gap findings and roadmap]
+  F --> D[Reproducible walkthrough and live review]
+```
 
-Retain the existing Podman/database/APEX/ORDS environment as the starting
-point. Before mutation, inventory runtime versions, workspaces, applications,
-schema mappings, current source revision, credentials availability and
-unexpected edits. Record retained E.1 history/configuration and content
-fingerprints read-only. A missing runtime or pending manual UAT drift is a
-preflight condition, not permission to reset/rebuild/restore that target.
+The arrows are handoffs to qualify, not established interoperability. PROJECT
+and lower-level paths run as labeled alternatives from the same agreed authoring
+state. Within either path exactly one source/migration authority applies. This
+experiment does not implement hosted pipelines; its contracts must be suitable
+for eventual pipeline use.
 
-Create only an explicitly recorded disposable E.2 inventory, separate from
-E1_CTRL, E1_DEV_A/B/C, E1_INTEGRATION and E1_UAT. Proposed logical roles are
-E2_ANALYSIS (authoring), E2_REBUILD (fresh reconstruction) and E2_UPGRADE
-(baseline upgrade). Collision-check schema/workspace names and instance-wide
-application IDs, recording the actual allocations; never overwrite collisions.
-Use the existing PDB and supported provisioning/import interfaces. Keep
-generated credentials local and out of artifacts/logs. Provisioning uses
-administrator authority; experiments use their assigned schema credentials.
+### Preservation, fixtures and ownership
 
-Use a separate local scratch Git repository for native generated source and
-distribution scripts, preserving this checkout's dirty work. Any experimental
-branches use the `codex/` prefix. No remote creation, push or PR is part of
-these exercises. Record baseline source revisions and hashes without claiming
-the current dirty checkout is an accepted release. Capture environment state
-before and after each exercise. Cleanup can remove only this run's recorded
-disposable resources and refuses foreign objects or missing ownership evidence.
-No automatic cleanup of retained E.1 state is permitted.
+Before writes, record read-only DB/PDB/APEX identity, tools, schemas/workspaces,
+application IDs, retained E.1 component metadata, source fingerprints and
+history/configuration summaries. Preserve the current checkout and E.1 areas,
+including E1_CTRL, E1_DEV_A/B/C, E1_INTEGRATION and E1_UAT. A missing runtime,
+unexpected drift or wrong version stops preparation with a clear prerequisite
+report; it never triggers a reset, destroy, restore or tool upgrade.
 
-### Exercise X1 — Establish the relevant E.1 behavior
+After approval allocate one authoring schema/workspace and two disposable target
+schema/workspace pairs (fresh reconstruction and populated-baseline qualification).
+Use an E2-owned run prefix, but check actual names and instance-wide app IDs;
+record allocations rather than assume proposed names are unused. A run inventory
+binds each resource to owner/run/DB/PDB and expected role. Administrator authority
+is confined to provisioning; ordinary exercises use assigned schema credentials.
+No secrets or business data enter source/evidence. Cleanup requires that inventory
+and removes only positively identified owned resources; it is never automatic
+on a failure and never touches retained E.1 state.
 
-Question: which Oracle lifecycle outcomes already exist, and which depend on
-custom code? Inspect the initial and Hello patch artifacts reconstructed from
-the established pinned release recipes, source commit, migration files,
-candidate and qualification receipts. Run read-only current-state checks
-against retained areas; inspect any recorded drift without restoring it.
-Reproduce necessary native SQLcl/APEX import and transactional greeting/history
-checks in E.2 disposable targets from the pinned source. Do not replay E.1's
-whole A–I runner against retained targets as a hidden precondition.
+Use a reduced, real APEX greeting fixture with two visible pages and a shared
+LOV over synthetic greeting data. Create it through documented App Builder
+controls and export its generated source unchanged. Reuse E.1 business SQL and
+component declarations where independently applicable; explicitly list any
+adaptation or omitted E.1 behavior. The full E.1 exported application depends on
+E1_CTRL and must not be imported as though it were self-contained. The reduced
+fixture demonstrates transport/migration/metadata behavior, not full E.1 runtime
+fencing, account security or availability equivalence. If an important conclusion
+requires omitted behavior, leave that conclusion unproved and identify its
+existing follow-up; do not silently enlarge the fixture.
 
-Observe a fresh initial installation, compatible Hello correction and safe
-repeat where required for comparison; preserve field-level synthetic history
-and settings. Record what runs through an unchanged E.1 controller versus what
-is only a native-interface comparison. If the controller is hard-coded to
-E.1 target identities, document that constraint and use public imports in E.2
-areas rather than changing the existing controller without a design amendment.
-Do not call a native-interface run a full E.1 controller reproduction.
+Work under `.local-apex/e2/<run>/` in separate scratch Git repositories with
+`codex/` branches. Pin the source revision and record all imported file hashes.
+Do not initialize PROJECT in this working checkout or restructure its product
+sources. Create one repository compatibility trial containing a pinned E.1 source
+layout plus an additive native project root; record which files are authoritative
+and which are frozen comparison inputs. Try native configuration before writing
+an adapter. Keep PROJECT-generated changelogs separate from E.1's migration
+history; no changelog synchronization against an unverified baseline is permitted.
 
-Inspect custom source packaging, candidate/provenance receipts, artifact hashes,
-ordered migrations, live fingerprints, version triples, reservations,
-maintenance/verifier and repair controls. Separate code inspection, historical
-observations and fresh results. Use the selected E.1 failure records to identify
-which protections X3 must challenge; avoid duplicating broad E.1 concurrency
-proofs or complex upgrades. Outcome: a defensible comparison baseline with
-unmeasured historical costs explicitly unknown.
+### Exercise X1 — Working Copies, team checkpoint and reconstruction
 
-### Exercise X2 — Working Copies through accepted Git source
+Decision: can ordinary native authoring feed the accepted Git contract with
+usable coordination (H-2, EQ-1; AN-01/03/04/13; paper 12–14, 32)?
 
-Question: can native application authoring feed the Git-authoritative release
-boundary, and which limitations require coordination or policy changes?
-Import the pinned baseline into E2_ANALYSIS. Through documented App Builder
-controls create a Working Copy, make one visible page correction, compare,
-refresh a disjoint Main change and merge selected changes. Retain the comparison
-and both intended changes. Demonstrate a second developer's locked-page view
-and distinguish page locking from E.1's component-wide reservation rule.
+Start from the captured fixture baseline and a recorded synthetic history/config
+sentinel. Create one Working Copy; change a visible page heading there and a
+disjoint heading in Main. Compare, refresh and merge with actual App Builder
+controls, recording selected changes and operator reasoning. Take one agreed
+Main team checkpoint into local Git. Lower-level export uses the documented
+split/original-ID/no-date profile; inspect the diff and full schema dependency
+inventory. Reconstruct in the fresh owned target and verify both headings,
+shared LOV behavior and the expected greeting. Compare with a Main-authored
+checkpoint through the same capture path.
 
-In disposable copies, demonstrate a same-page stale-merge/overwrite case and
-one page deletion requiring explicit handling. Keep before/after source and
-show the corrective refresh/coordination or explicit deletion sequence. Delete
-an abandoned experimental Working Copy and verify Main is unchanged. Show that
-a disposable schema-object change is shared by Main and its Working Copy;
-rollback DML where appropriate, remove only the owned DDL fixture afterwards.
-Do not infer database isolation from an isolated application page edit.
+Use one expendable branch/copy to demonstrate stale same-page replacement and
+its corrective refresh/reapply sequence; show a page deletion's explicit Main
+handling and abandonment without Main changes. Observe actual page coordination
+and record whether the UI protects the intended edit. Show a uniquely named
+schema marker visible to Main and its Working Copy to expose shared-schema scope;
+remove only that owned fixture after recording it. Capture number of operator
+steps, required decisions, confusing diffs and recovery effort; no invented E.1
+usability baseline. These bounded authoring alternatives test E.1-stage policies
+without permanently changing the SRS or claiming component reservation equivalence.
 
-Capture the resulting Main into a scratch Git change using the documented
-stable export profile. Review the complete source diff, dependency scope and
-identity metadata; accept a local exact revision; reconstruct that revision
-in E2_REBUILD and verify both page changes and greeting/history behavior.
-Cross-check PROJECT capture in X3 without adopting two source authorities.
-Distinguish APEX Main merge, local Git integration and later artifact
-promotion. A team checkpoint may include multiple authors and does not prove
-per-feature provenance or private schema isolation.
+Success means a correctly observed and explained outcome, with no missing edit
+hidden. A failed native merge is an assessment result. Harness assertions must
+still detect it. No browser automation of Working Copy management is presented
+as a documented public API, and no undocumented APEX package is invoked.
 
-Routine Working Copy authoring/merge in this disposable experiment is an
-explicit experimental exception to the SRS break-glass restriction. Design
-acceptance approves testing that alternative, not changing production policy.
-Human authoring/review stays visible. Assess whether automated operational
-steps can use supported interfaces; if unavailable, record an FR-13 policy
-decision or alternative automated Git reconstruction boundary. Do not
-manufacture an undocumented automation interface.
+### Exercise X2 — PROJECT workflow and optional repository compatibility
 
-### Exercise X3 — Native lifecycle as a replacement candidate
+Decision: is native workflow fit plausible with a bounded integration cost
+(H-1 and combined H-1/H-2, EQ-2; PF-01–07/10–12; paper 18–20, 26–30)?
 
-Question: which custom release responsibilities does SQLcl PROJECT cover on
-the pinned client, and what remains project-specific? In the scratch repository,
-initialize a filtered project with E2_ANALYSIS's baseline app/schema. Exclude
-control/test infrastructure, credentials and runtime business data. Inspect
-generated filters/configuration and actual client help before using them;
-do not paste 25.1.1 properties into 25.3 without checking. Capture initial
-definitions and stage against an identified baseline branch. Review generated
-APEX/schema distribution scripts, dependencies and any custom intentional data
-change. Use one source/migration authority for this experimental track.
+In scratch Git, establish the comparison base explicitly; initialize a filtered
+native project for the owned authoring schema and Main app only. Inspect export
+inventory and exclude Working Copies, control fixtures, credentials and business
+data. Review the exported source, commit it, stage against the recorded base,
+review/install order and any custom SQL, then commit the distribution. Run native
+verification and use an identified artifact for fresh/populated target tests
+before freezing a release. Record the exact verified distribution revision;
+if release creation changes distribution inputs, regenerate and requalify rather
+than transferring stale evidence to different bytes.
 
-Create an initial release/artifact, deploy its exact bytes to E2_REBUILD and
-E2_UPGRADE, and record source identity, client/server versions and checksums.
-Author the bounded compatible Hello correction, export/stage/review it, release
-and qualify the same native artifact on fresh and baseline starts. Repeat it
-and compare all retained synthetic history/settings fields. Test documented
-same-instance workspace/schema/application-ID mapping; verify that source IDs
-remain traceable across remapping. Recheck actual generated installers and
-deployment errors rather than assume success from a returned process status.
+Demonstrate one subsequent visible page correction, an additive schema change
+and one intentional seed/configuration change represented as reviewed custom SQL.
+Retain synthetic history and user settings through upgrade and repeat. The same
+candidate artifact bytes must pass qualification before use in the second target.
+Observe default, replacement and mapped identities; compare full relevant fields,
+not row counts alone. A fresh target also receives the current release so that
+baseline and upgrade paths are both assessed. An unexpected reinstall, checksum
+failure or data difference becomes a finding; no automatic forced retry is allowed.
 
-Introduce one controlled failing validation between qualification and the next
-disposable-target deployment; require that failure to stop progression. Then
-change candidate source and require renewed validation. This is a local pipeline
-boundary exercise, not delivery of hosted pipelines/run dashboards under
-PBI-043. Inspect whether native staging/deploy supplies incompatible-start,
-drift and partial-DDL protections; exercise one minimal drift or committed-DDL
-failure where documentation/inspection cannot answer. Retain partial-state
-evidence and demonstrate a bounded forward correction or explain why the target
-must remain blocked. Never imply PROJECT is inherently an all-or-nothing
-database deployment or a replacement for every E.1 safety requirement.
+For optional use, compare lower-level reconstruction of the same checkpoint
+with the PROJECT path. Try supported initialization/configuration with the E.1
+layout retained as frozen inputs. Record direct compatibility, bounded adaptation,
+one-time conversion or inability to establish a supported path. Do not hand-copy
+parallel live source trees as the routine bridge. Inspect E.1 tool assumptions and
+record which tools can consume the result unchanged; a new wrapper cannot make
+an unchanged-tool claim true. Stop before generalizing the whole E.1 framework.
+A migration to a generated history is a distinct reviewed handoff, never a second
+writer to an active history. Native release command syntax/help, including version
+handling, is capability discovery and does not require a general SemVer engine.
 
-Stop after the observation needed for a finding. Broad repair/state machines,
-full automation, utPLSQL installation/coverage, browser suites, optional external
-audits and mini-app delivery remain later PBIs unless a material finding needs
-a separately approved focused addition. No Foundation 1.1/2.0 coexistence,
-dual-write migration or component maintenance-window exercise is included.
+### Exercise X3 — Component declaration and validation admission
+
+Decision: can native artifacts retain the explicit contract enforced in E.1
+(PF-08/09, EQ-2/4; FR-5/7/9/10; existing PBI-021/038/045)?
+
+First inspect whether native artifact/configuration facilities carry arbitrary
+component declarations. Prefer a documented facility if adequate. Otherwise use
+an explicit small assessment envelope binding the immutable native archive hash,
+reviewed source/distribution revision, declaration hash, exact target identity,
+observed installed component state and the check-result receipt. This is a custom
+bridge under evaluation, not a native PROJECT feature. Record its limitations.
+
+Invoke E.1's existing compatibility validator against copied declarations; do
+not reimplement its rules. Accept the supported initial and Hello patch triples.
+Reject proposed Foundation 2.0.0 with consumers still requiring 1.0.0, and reject
+missing/unknown/inconsistent declarations. The proposed incompatible version is
+metadata only: execute no breaking Foundation DDL. Bind any additional envelope
+checks to this run and artifact. A changed archive/source/declaration/target state,
+missing receipt or failed validation blocks the deploy call before target writes;
+verify unchanged definitions/rows and show the deployment subprocess was not called.
+The fixture's installed metadata must reconcile with the envelope after delivery.
+
+Unit-injected rejection proves bridge control flow; successful real-target runs
+and real negative admission observations are separately required. Neither proves
+full E.1 drift fencing or partial-DDL recovery. Inspect native failure/transaction
+behavior against existing E.1 receipts first. Do not inject an additional committed
+DDL failure merely because it is possible. If an unproved safety behavior would
+change the recommendation, propose a focused design amendment with exact failure,
+target, observation and recovery boundary before executing it.
+
+### Conditional evidence — EQ-3 and EQ-5
+
+For branch identity, compare two no-edit captures and the owned mapped-target
+reconstruction already produced by X1/X2. Explain original-ID, mapping and any
+nonsemantic noise against paper page 34. This qualifies a shared-instance
+alternative; it does not demonstrate a matched private branch instance. A full
+clone/new instance needs a design amendment if the recommendation relies on it.
+
+For audit/test integration, inspect available interfaces and map utPLSQL,
+coverage, browser tests, native audits and dependency admission to candidate
+identity, inputs, stage, evidence and failure effect. If a finding depends on
+uncertain local Advisor behavior, use one controlled detectable finding and
+correction in the owned fixture. Otherwise source evidence is enough for E.2's
+gap classification. Do not install full utPLSQL/browser/optional commercial suites
+merely to establish their absence. Their delivery remains E.3/E.4. Subscriptions
+remain part of component interface/dependency analysis, not an extra exercise;
+PBI-052 contract definition and E.5 upgrades stay outside implementation here.
+
+### Proposed implementation interfaces
+
+After design approval, implement only the needed domain helpers:
+`scripts/cicd-oracle-lifecycle.sh` for run/preflight/GUI checkpoints and
+`scripts/cicd-oracle-lifecycle.py` for inventory, hashing, receipt admission and
+safe subprocess boundaries; SQL fixtures under `tests/sql/oracle_lifecycle/`.
+Use the existing SQLcl/runtime and supported import/provisioning primitives,
+without calling E.1 wrappers that silently select retained targets. Keep any
+necessary interface adaptation explicit and bounded. Exact credential resolution
+is local and role-scoped; logs redact connection secrets.
+
+Proposed runner modes are `preflight`, `live`, `rehearsal`, and `inspect`, all
+with an explicit run identifier. Preflight is read-only and returns ready or
+blocked with diagnostics. Live pauses for actual GUI decisions. Rehearsal may
+reuse previously captured GUI evidence only when it reports that limitation;
+skipped observations cannot pass as fresh GUI checks. Inspect opens retained
+results without mutations. A first-time run requires genuine authoring input.
+No automatic deletion/rebuild is part of these modes.
+
+Per-run evidence records contain case ID, source/target identities, exact versions,
+input hashes, commands with secrets removed, exit status, expected/actual output,
+selected GUI decisions, field-level preservation checks and timestamp. Distinguish
+`demonstrated`, `observed limitation`, `blocked` and `not run`. Passing the harness
+never changes a failed capability into a successful capability. Unknown cost or
+missing historical measurements remain unknown.
 
 ### Testing Strategy
 
-Keep PLAN's Test and Regression values: smoke, unit, integration. No regression
-scope reduction is proposed. Use manual evidence for source/GUI findings;
-document review is not a passing runtime test. Create executable skeletons and
-register the actual selected cases only after approval. Do not manufacture unit
-tests for prose or mirror native Oracle implementation details.
+Test: smoke, unit, integration. Regression: smoke, unit, integration.
+Proposed regression scope: `oracle_lifecycle` for E.2, pending explicit approval
+and a subsequent PLAN/test-profile update before code/test skeletons. The scope
+covers every E.2 helper and fixture plus reused compatibility behavior; production
+E.1 code remains unchanged. The current PLAN still requests full registered
+regression. Approval of this design must explicitly include the scope change or
+retain that full gate with a separately safe disposable E.1 topology.
 
-Smoke checks verify pinned tools, actual DB/APEX identity, allowed fixture
-inventory, source/artifact inputs and retained-state baselines before mutation.
-They must reject a wrong target or collision. For any new runner, unit checks
-cover fail-closed target ownership, missing/changed validation, and external
-command failure propagation with mocked process boundaries; they prove local
-control flow, not Oracle runtime behavior. Existing business-logic unit checks
-remain in regression.
+Reason: existing registered E.1 integration tests target retained E.1 state and
+include unfinished acceptance, so blindly replaying them conflicts with preservation.
+Record those limitations; do not modify the old tests, manufacture passes or call
+E.2 scoped success full E.1 regression. If E.1 code must change, stop for a new
+impact assessment and affected regression scope before implementing that change.
 
-Integration checks bind X1–X3 to real disposable database/APEX instances and
-exact source/artifact identities. GUI checkpoints cover actual compare/refresh/
-merge, page locks, abandonment and visible behavior. CLI or injected runtime
-fixtures cannot substitute for these checkpoints. Record duration, commands,
-exit status, expected/actual output and preservation results. Runtime/resource
-comparisons use the same input and comparable starting states; missing E.1
-measurements remain unknown, without invented savings.
-
-Run Phase A smoke → unit → integration for the registered new exercise-control
-tests, followed by Phase B full registered smoke → unit → integration. Current
-`tests/integration/test_release.sh:test_IT1_release` explicitly fails because
-full E.1 acceptance is pending. Preserve that failure if observed; selected
-manifest success cannot be reported as full regression success. If the full
-gate remains blocked by historical incomplete acceptance, bring its exact
-result and an evidence-based proposed scope decision to the Product Owner.
-Do not change PLAN or mark a failed gate passed to close this sprint.
+Smoke candidates check source hashes, resource/target identity, versions and
+fixture ownership before writes; expected time is unmeasured. Unit targets isolate
+inventory/admission/subprocess boundaries with temporary files and fake commands;
+no Oracle mocks establish runtime equivalence. Integration scenarios run the real
+owned fixture, capture/reconstruction, release upgrade/repeat and admission cases.
+Required GUI observations remain explicit manual evidence. Record elapsed times
+when executed instead of claiming estimates as measurements.
 
 ## Test Specification
 
-SM-E2-1, proposed target `tests/smoke/test_oracle_lifecycle.sh`, verifies the
-preflight/preservation boundary for all exercises. Missing fixture ownership,
-wrong mappings, unavailable tools or source inputs block before mutation.
+All cases below belong to PBI-051 and proposed children .1–.4. They are specified,
+not implemented or registered. Domain test files will be
+`tests/smoke/test_oracle_lifecycle.sh`, `tests/unit/test_oracle_lifecycle.sh` and
+`tests/integration/test_oracle_lifecycle.sh`. Function names below are proposed
+runner identities, not commands claimed to work today.
 
-UT-E2-1, proposed target `tests/unit/test_oracle_lifecycle.sh`, tests any new
-runner's mutation allowlist: foreign schema/application or E.1 retained-target
-requests reject without invoking the mutation command. UT-E2-2 tests missing
-validation, changed artifact/source and failed subprocess: no downstream
-deployment and nonzero status. Use temporary files and stubbed commands only.
-If no new control code is needed, record these targets as not applicable by
-design refinement rather than create empty passing tests.
+1. **SM-E2-1 / test_SM1_oracle_lifecycle_preflight:** .1; FR-11/13, NFR-2,
+   UC-1/6; EQ-1–5. Valid inventory yields ready; missing input, tool-version
+   mismatch or foreign schema/app/PDB yields blocked before mutation. Preserve
+   before/after retained-E.1 summaries. A live preflight never creates fixtures.
+2. **UT-E2-1 / test_UT1_oracle_lifecycle_ownership:** .1; FR-11/13. With fake
+   subprocesses test owned versus foreign/missing inventory, name collision and
+   mismatched DB/PDB. All rejected cases invoke zero mutation commands.
+3. **UT-E2-2 / test_UT2_oracle_lifecycle_admission:** .3; FR-5/7; EQ-2/4.
+   Temporary valid/changed/missing envelope inputs and failed subprocesses prove
+   exact binding and failure propagation. Exercise the reused validator with
+   supported, incompatible, missing and unknown declarations. Rejection is a
+   nonzero result with a specific diagnosis and no deploy invocation.
+4. **IT-E2-1 / test_IT1_working_copy_capture:** .2; FR-8/11/12, UC-7–10/12;
+   H-2/EQ-1. Real authoring target, GUI log and accepted source revision are
+   prerequisites. Both intended headings and LOV/greeting behavior reconstruct;
+   deletion/abandonment outcomes and shared-schema marker are accounted for.
+   Stale-merge loss must be detected, its correction checked or reported blocked.
+5. **IT-E2-2 / test_IT2_project_delivery:** .3; FR-5/6/11/12, UC-4/5/11;
+   H-1/EQ-2/3. Native configured source scope and reviewed distribution produce
+   identified artifacts. Fresh/baseline/repeat observations compare real schema/
+   app identity, existing row fields, settings and migration history; artifact
+   hashes agree across qualification/promotion. Generated/custom change ownership
+   and alternate capture path differences are retained, not normalized away blindly.
+6. **IT-E2-3 / test_IT3_native_contract_admission:** .3; FR-5/7/9/10,
+   UC-4/5/11; PF-08/EQ-2/4. Against the owned target, allowed declarations pass;
+   incompatible/missing/changed inputs reject before native deploy. Query unchanged
+   target definitions and sentinel fields and retain no-deploy evidence. Installed
+   metadata after a positive delivery matches the identified declaration. Injected
+   unit failures alone cannot satisfy this integration case.
+7. **IT-E2-4 / test_IT4_optional_native_audit:** conditional .3; FR-13,
+   PBI-041 context/EQ-5. Only if local behavior is material: a controlled audit
+   finding is observed and the corrected fixture rerun. Otherwise record why this
+   case is not selected; do not register a permanently skipped passing test.
+8. **Review-E2-1:** .4; PBI-051/UC-6. Every AN/PF disposition names exact
+   sources, evidence level, remaining limitation, affected requirement and existing
+   backlog destination. Recommendations do not infer absent measurements or
+   complete later work. All executed cases, including failures, appear in handover.
 
-IT-E2-1, proposed target `tests/integration/test_oracle_lifecycle.sh`, checks X1
-fresh/compatible-patch/repeat behavior in disposable targets, exact archive and
-source provenance, visible greeting and field-level synthetic data retention.
-Identify any controller-vs-native-interface difference explicitly.
+After approval create `tests/manifests/component_oracle_lifecycle.manifest` and
+`progress/E.2/new_tests.manifest` using actual `suite:script:function` entries.
+Register only selected cases. The planned gate sequence is new-only smoke → unit
+→ integration, then approved-scope regression smoke → unit → integration through
+`tests/run.sh`; actual invocation requires both suite and manifest parameters.
+Unrun/manual/blocked observations are separate from executable case success.
+Skeletons and fixture resources are not created at this design gate.
 
-IT-E2-2 uses the same integration domain file for X2 source/Git reconstruction:
-both intended page edits survive, original identities remain explainable,
-deletion/abandonment are explicit, and a shared-schema marker is visible from
-both apps. Supplement it with required manual page-lock and Working Copy
-checkpoints. An observed unsafe stale merge is the negative demonstration;
-successful assessment requires the documented corrective path or an explicit
-unresolved finding, not hiding the unsafe outcome.
+### Findings and roadmap deliverables
 
-IT-E2-3 covers X3 generated initial/change distribution, fresh and baseline
-deploys using the same qualified artifact, repeat preservation, target mapping
-and failed/stale-validation rejection. IT-E2-4 records the selected native
-drift/partial-failure question with before/after evidence and bounded correction
-or retained blocked state. A capability failure is a finding; harness integrity,
-preservation and correct outcome reporting still must pass.
+Write the final experimental gap report as `oracle-gap-analysis.md`, linking
+AN/PF IDs to fresh evidence and the approved analysis. For each custom mechanism
+state retain, native replacement, bounded bridge, further validation or explicit
+policy decision. Replacement requires the relevant outcome evidence; a valid
+reduced-fixture experiment cannot prove all E.1 protections unnecessary.
 
-All cases trace to PBI-051: X1/X3 cover UC-4/5/11 and FR-5–10/13; X2 covers
-UC-7–10/12 and FR-8/11–13; preservation/visible greeting cover UC-2/3 and FR-1–4.
-Source coverage and backlog reconciliation are reviewed under UC-6/PBI-051.
-After approval register actual function entries in
-`tests/manifests/component_oracle_lifecycle.manifest` and
-`progress/E.2/new_tests.manifest`; these files do not exist yet. Exact copyable
-exercise commands will be published only after execution verifies them.
+Reconcile with PBI-017–047 and PBI-052 before proposing genuinely new outcomes.
+Keep Proposed/unscheduled versus assigned and delivered status explicit. The
+roadmap orders source/policy/identity → capture/staging/reconstruction → compatible
+release and metadata admission → test/audit/pipeline integration → collaboration
+qualification and comparison → stabilized toolchain → E.5 Foundation upgrades.
+Each step needs prerequisites, exit evidence and an existing backlog owner;
+no E.3–E.5 reassignment occurs through this design.
 
-### Findings, backlog reconciliation and roadmap
+### Walkthrough and handover
 
-Write the completed analysis as `progress/E.2/oracle-gap-analysis.md`, linked
-from maintained research/architecture guidance. Each finding has a stable
-identifier, source page/section, observed E.1 mechanism, requirement, evidence,
-classification and disposition. Distinguish supported outcome equivalence
-from an identical mechanism. Call a custom mechanism unnecessary only after
-showing that a native replacement meets its relevant contract. A genuine
-blocker needs a reproducible supported-version failure or documented hard
-constraint, impact, attempted alternatives and decision sought. A policy
-restriction, unrun scenario or unavailable optional commercial tool has its
-own classification.
+Deliver `sprint_E.2_increment_demo.md` and matching editable `.pptx`,
+`user_manual.md` and `sprint_E.2_handover.md`. They will link from README and this
+sprint's assessment once real artifacts exist. Journey: inspect baseline and
+read-only preflight → Working Copy authoring and team checkpoint → Git/source
+review and reconstruction → PROJECT staged change/native artifact → declaration
+admission failure and valid delivery → inspect evidence/findings/backlog/roadmap.
+A failed capability is demonstrated honestly with its impact and follow-up.
 
-Reconcile follow-up with PBI-036/037 (coverage/capture), 038/021 (release and
-admission), 039/018/019 (collaboration and policy), 020/035 (reconstruction and
-adoption), 040/034/041 (tests/coverage/audits), 042 (central DEV), 027/029
-(configuration/diagnostics), 043/030/031 (automation/provenance), 044 (mini apps),
-045/022/023/024 (protections), 046/047 (comparison), and 017 (operating guide).
-Assess conditional 025/026/028/032/033 separately. Do not duplicate these
-outcomes or claim completion of later PBIs. Any genuinely new proposal remains
-in the E.2 proposal record with value and acceptance signal until promotion
-through the backlog skill and Product Owner decision.
+The complete Markdown walkthrough supplies verified portable commands, actual
+inputs, expected intermediate results, GUI decisions, recovery boundaries and
+slide mapping. Provide a repeat path using fresh owned allocations, not a reset
+of retained E.1. Rehearse and retain logs, render/inspect every slide, and record
+live Product Owner questions/decision. Historical captures never stand in for
+claimed live authoring. No current demo/rehearsal completion is asserted.
 
-Proposed dependency order to validate from findings: settle source/policy and
-capture identities → reproducible native initial release → compatible change,
-preservation and safety gates → tests/audits and pipeline integration →
-team-centric and feature-centric comparison with central DEV synchronization
-→ accept stabilized technology/toolchain → E.5 complex Foundation upgrades.
-Map each stage to existing assignments, prerequisites, exit evidence and
-decisions. This is an assessment roadmap, not automatic rescheduling of E.3–E.5.
+### Approval boundary
 
-### Walkthrough, handover and documentation
+There are no unresolved product questions preventing review of this proposal.
+Runtime readiness, export fidelity, native packaging metadata support and actual
+operating effort remain experiment inputs. Unexpected resource requirements or
+material interface substitutions return for amendment; no automatic upgrade,
+undocumented API or full-controller rebuild is authorized.
 
-Prepare `sprint_E.2_increment_demo.md` and its matching editable `.pptx`,
-`user_manual.md` and `sprint_E.2_handover.md`. The walkthrough starts with the
-retained baseline and preflight, inspects X1, performs X2, inspects/repeats X3
-including failures/corrections, then opens finding sources, existing backlog
-coverage and dependency decisions. Explain expected intermediate output,
-restoration boundaries, copied source versus real authoring and pending checks.
-Use portable Git-root discovery in verified commands.
-
-If a guided runner is built, expose one entry with preflight, paused live and
-unattended rehearsal modes and the same stages as the manual. GUI actions
-require real operator input; rehearsal labels skipped human observations.
-Store logs, outputs, screenshots and rehearsal receipts in `progress/E.2/tests/`.
-Render and inspect all final slides, verify commands/links and reconcile README,
-manual, deck, sources and findings. Demonstrate actual artifacts and runtime
-actions to the Product Owner; record questions and an explicit decision before
-handover acceptance or closure. No live-demo completion is claimed at this gate.
-
-### Design decisions and remaining approvals
-
-Use bounded native capabilities to test replacement hypotheses without
-adopting a new production toolchain. Preserve retained E.1 evidence/data and
-its existing uncommitted diagrams. Keep native authoring and Git acceptance
-as separate boundaries; assess the policy choice rather than presuppose a
-blocker. Resource estimates and savings remain unmeasured until evidence exists.
-
-No design decision is currently requested. X1–X3 and their test scope are held
-for reassessment against the separate analysis. Neither exercise selection nor
-an experimental policy exception is approved. Any revised design must follow
-the analysis conclusions and the managed approval gate before implementation.
+Requested approval covers the four child outcomes, isolated reduced-fixture
+X1–X3, conditional source-first EQ-3/EQ-5 handling, explicit custom-bridge trial,
+and E.2-only regression scope. It does not permanently adopt PROJECT, change
+E.1-stage product policies, implement PBI-052 or move E.5 work. Design acceptance
+must be explicit before code, test skeletons, provisioning or runtime exercises.

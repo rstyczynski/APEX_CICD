@@ -120,8 +120,12 @@ and Git-based exercises to E.3/E.4 remains in effect. Activated on 2026-10-19
 by explicit Product Owner request in managed mode. The
 [setup](progress/E.2/sprint_E.2_setup.md) records the execution contract. The
 separate [analysis](progress/E.2/sprint_E.2_analysis.md) establishes the findings
-and evidence questions before exercise selection. The earlier exercise design
-draft is held pending analysis review; its approval request is withdrawn.
+and evidence questions before exercise selection. The Product Owner approved
+analysis on 2026-10-19 after external review. The revised
+[exercise design](progress/E.2/sprint_E.2_design.md) and test specification are
+Proposed for managed approval; no exercise or skeleton implementation is
+authorized yet. The design proposes an E.2-only regression scope, which is not
+applied to the Test/Regression parameters until explicitly approved.
 
 Backlog Items:
 

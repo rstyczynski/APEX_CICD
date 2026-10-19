@@ -1,5 +1,11 @@
 # E.2 analysis — external review round 1
 
+The maintained round filenames now use the reviewed document's base,
+`sprint_E.2_analysis_review-1…`. Historical ZIPs/manifests retain the earlier
+`sprint_E.2_review-1…` names; their recorded bytes and hashes are unchanged.
+The original expert report also retains its exact text, including old path
+mentions. Use the current filenames for navigation and any new output.
+
 **Round:** E.2, round 1, outbound analysis-review prompt.
 
 **Git repository:** [rstyczynski/APEX_CICD](https://github.com/rstyczynski/APEX_CICD).
@@ -8,7 +14,7 @@ Review branch: `codex/e1-prototype` (configured upstream:
 `origin/codex/e1-prototype`). Use the exact baseline SHA and supplied snapshot
 below rather than an unpinned branch tip. A checkpoint commit/push after snapshot
 preparation does not change the captured review inputs.
-The [access clarification](sprint_E.2_review-1-clarification-1-prompt.md) and
+The [access clarification](sprint_E.2_analysis_review-1-clarification-1-prompt.md) and
 `tests/review-1-source-supplement.zip` supersede the original snapshot's prompt
 and skill copies; analysis input hashes are unchanged.
 
@@ -125,7 +131,7 @@ source-inspected risks from observed runtime failures.
 
 Save the complete Markdown as:
 
-`progress/E.2/sprint_E.2_review-1.md`
+`progress/E.2/sprint_E.2_analysis_review-1.md`
 
 If you cannot write that path, return the complete Markdown for the Product
 Owner to save there. Do not create a placeholder or modify this prompt.

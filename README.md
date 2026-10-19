@@ -115,10 +115,15 @@ its [setup](progress/E.2/sprint_E.2_setup.md) records contracting and initial
 scoping. The separate [analysis](progress/E.2/sprint_E.2_analysis.md) is complete
 as a desk-analysis baseline; its [review summary](progress/E.2/sprint_E.2_inception.md)
 presents fourteen findings and prioritized evidence questions before exercise
-design. The earlier exercise draft is held pending analysis review;
-its design approval request has been withdrawn.
-The [external analysis review prompt](progress/E.2/sprint_E.2_review-1-prompt.md)
-is prepared for Product Owner relay; the independent review is pending.
+design. The Product Owner approved analysis on 2026-10-19. The
+[revised exercise design and test specification](progress/E.2/sprint_E.2_design.md)
+are Proposed for managed approval; implementation has not started.
+The [external design review prompt](progress/E.2/sprint_E.2_design_review-1-prompt.md)
+is ready for Product Owner relay with its current-source overlay.
+The [external analysis review](progress/E.2/sprint_E.2_analysis_review-1.md) found no
+corrections required before exercise design. The
+[interim assessment](progress/E.2/sprint_E.2_assessment.md) records round closure
+and remaining design approval, exercise and handover work.
 The analysis also records the unscheduled follow-up
 [PBI-052: component contracts and semantic versioning rules](BACKLOG.md#pbi-052-define-semantic-versioning-rules-for-component-contracts).
 E.3–E.5 remain Planned; their designs and runtime evidence are pending.

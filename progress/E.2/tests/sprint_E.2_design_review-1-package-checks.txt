@@ -1,0 +1,10 @@
+Subject: E.2 design round 1
+Baseline: cb766e5f6a3bd3a06454afb62fae275cb27c1e8d
+Overlay source files: 31
+Manifest SHA-256: d5360ddb1c7b39238413df1cc40a3cc5cf70c38e02c3eb5d249ced753eebd6eb
+ZIP SHA-256: 136f753c1ca58d333ffa0f7083dc94bda6881a34ba7704059c0d2b149a1cc90c
+ZIP bytes: 209510
+Local Markdown targets checked: 345
+CRC/per-file hashes, known credential signatures and original analysis-report byte preservation: PASS
+Expert design report: pending, not created
+Runtime checks: none

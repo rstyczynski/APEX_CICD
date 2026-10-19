@@ -129,9 +129,11 @@ comparison findings and unresolved evidence needed before exercise design.
 That desk-analysis baseline is now complete and presented in the
 [analysis review summary](sprint_E.2_inception.md); PBI-051's experiment-backed
 outcome remains unfinished.
-The earlier readiness declaration is withdrawn. The
-[exercise design draft](sprint_E.2_design.md) was prepared prematurely and is
-held pending analysis review; its approval request is withdrawn. The
-[documentation audit](sprint_E.2_documentation_audit.md) records this correction.
+The earlier premature design request remains withdrawn. Following external
+review and explicit Product Owner analysis approval on 2026-10-19, the
+[revised exercise design](sprint_E.2_design.md) is Proposed for its own managed
+approval. It includes an E.2-specific regression-scope proposal; the full-suite
+contract above remains in force until that change is accepted. The
+[documentation audit](sprint_E.2_documentation_audit.md) records the transition.
 No exercise, test skeleton, runtime test, live demonstration or completion
 commit is claimed.

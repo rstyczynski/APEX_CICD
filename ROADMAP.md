@@ -77,9 +77,11 @@ are a compatibility question to investigate, not an assumed product blocker.
 The analysis informs refinement of E.3/E.4; complex upgrades move to E.5.
 The [execution setup](progress/E.2/sprint_E.2_setup.md) records contracting;
 the separate [analysis](progress/E.2/sprint_E.2_analysis.md) establishes the
-problems, evidence and questions that must drive exercise selection. The earlier
-exercise draft is held pending analysis review. No exercise implementation
-or runtime success is claimed.
+problems, evidence and questions that drive exercise selection. Analysis was
+approved on 2026-10-19 after external review. The
+[revised exercise design](progress/E.2/sprint_E.2_design.md) and test specification
+are Proposed for managed approval. No exercise implementation or runtime success
+is claimed; its E.2-specific regression-scope proposal remains unapproved.
 
 ## Elaboration E.3 — APEX-native team-centric development
 

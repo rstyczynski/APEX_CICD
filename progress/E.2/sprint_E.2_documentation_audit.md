@@ -302,3 +302,97 @@ These captured bytes are preserved to retain the snapshot's hashes and valid
 patch context. The maintained-source staged whitespace check excludes those
 five raw evidence files and passes; the unrestricted staged check reports only
 these known evidence-format findings. No source whitespace defect is hidden.
+
+## External analysis review received and answered — 2026-10-19
+
+Preserved the supplied Grok 4.7 report byte-for-byte at the round-1 review path.
+Its reviewed SHA matches cb766e5f6a3bd3a06454afb62fae275cb27c1e8d. No findings
+were raised; its verdict is ready for exercise design. Rechecked the relevant
+analysis/fit/manifest/inspection/backlog sources and paper page 32. The
+engineering response agrees with the phase-limited verdict and corrects the
+report's milestone-branch wording without editing the expert text. Recorded
+round closure in the interim assessment and updated review-summary/README
+navigation. No empty decisions/feedback exchange is warranted. Existing sprint
+and PBI statuses and exercise-approval gates remain unchanged. Report hash,
+local-link and maintained-source whitespace checks are recorded in
+[the review receipt](tests/review-1-response-checks.txt). No runtime execution,
+implementation, commit or push is claimed for this review response.
+
+## Review filenames identify the analysis subject — 2026-10-19
+
+By explicit Product Owner instruction, renamed this round's four maintained
+files from the base sprint_E.2_review-1 to sprint_E.2_analysis_review-1,
+preserving their report, prompt, response and clarification-prompt suffixes.
+Updated maintained README, review-summary, assessment and round navigation.
+The expert report remains byte-identical; historical ZIPs, manifests, raw patch
+and receipts retain their original filenames/content and hashes. The current
+prompt explains that historical mapping. Updated the external-review skill,
+round contract and templates so future suffixes append to the reviewed
+document/stage base, with round numbering scoped to that subject. No stage or
+finding disposition changes. Skill validation, local-link checks, original
+report hash equality and whitespace checks cover this naming-only change.
+
+## Analysis acceptance and exercise design — 2026-10-19
+
+Recorded explicit Product Owner analysis approval and direction to design.
+Read the manager/designer/test-architecture procedures, applicable local P1/
+P6/P8/P9, and sprint/progress adapters. Replaced the premature draft with a
+Proposed design/test specification, retaining its earlier version in Git and
+captured review evidence. Four proposed children refine PBI-051 without root
+backlog or later-sprint reassignment. The board is under_design, not designed
+or test_specified: neither design approval nor skeleton implementation exists.
+
+Inspected E.1 capture/artifact/compatibility code, business schema source and
+registered tests. Rechecked Oracle 25.3 PROJECT/usage documentation and APEX
+24.2 Working Copy guidance. The reduced fixture's limits and hard-coded E.1
+controller boundary are explicit. The proposed native-artifact metadata bridge
+reuses existing rules rather than claiming native compatibility enforcement.
+Committed-DDL, private-instance and optional-audit expansions have evidence-led
+amendment triggers. Existing SRS/architecture requirements are not relaxed.
+
+Reconciled setup, accepted analysis, review summary, interim assessment, scope,
+README, ROADMAP, PLAN narrative, architecture and test-profile navigation. Full
+registered Test/Regression values in PLAN remain unchanged; the proposed domain
+regression amendment awaits explicit acceptance. No approved implementation,
+test manifest, test specification execution, functional result or handover is
+invented. Required outputs and manual/CLI limitations are specified in the design.
+
+Validation is recorded in [the design receipt](tests/design_review_checks_20261019.txt):
+local link/anchor targets, child assignment/status, scope preservation,
+absence of new executable artifacts, expert-text preservation and whitespace.
+Runtime/readiness and behavioral feasibility remain approved-exercise inputs;
+no database, app, retained E.1 file, executable source, fixture or test was changed.
+No completion commit or push is made at this pending approval gate.
+
+## Design external review round 1 prepared — 2026-10-19
+
+Applied rup-external-review, its subject-based round contract and prompt
+templates. No design round exists; prepared sprint_E.2_design_review-1-prompt.md
+with repository URL, branch, full committed baseline and a separately hashed
+working-document overlay. Critical review questions include reduced-fixture
+validity, one migration authority, native-artifact metadata/admission binding,
+safe targets, meaningful tests and the unapproved regression-scope amendment.
+The original analysis expert report is supplied without modification; its
+readiness verdict is not design acceptance. Design, assessment and README
+link the new exchange. No empty report/response is created, no expert contacted,
+and no managed-artifact status changes. The existing E.1 diagram backup edit
+is unrelated concurrent work and excluded from the overlay. The baseline
+supplies unchanged implementation and paper; current documents overlay it.
+Integrity and link checks are retained in the design-round package receipt.
+Next action: Product Owner relay and return the expert's design report.
+
+## Publish design-review inputs before handoff — 2026-10-19
+
+The Product Owner explicitly requested commit/push and established the standing
+review-publication direction. Updated the local review skill/templates to
+publish scoped review checkpoints and verify remote access before handoff;
+the rule excludes unrelated changes and grants no implementation or acceptance
+authority. Source and prompt publication may use two commits so the prompt can
+pin the full already-created source SHA without self-reference. Prior working
+overlays remain immutable historical evidence. The current source checkpoint
+includes analysis acceptance, subject-name corrections, design and review
+records; the concurrently changed E.1 diagram backup is excluded. This explicit
+review-publication instruction permits a draft checkpoint despite unfinished
+PBI-051 and pending design approval. Scope/links, skill validation and historical
+report/archive integrity are checked before committing. Actual commit IDs and
+remote verification will be recorded in the subsequent access clarification.

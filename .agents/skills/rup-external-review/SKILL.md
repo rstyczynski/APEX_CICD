@@ -9,6 +9,13 @@ Act as the review coordinator and engineering responder. The user relays prompts
 
 Read [the round contract](references/round-contract.md) before creating or updating round artifacts. Read [the prompt templates](references/prompts.md) when preparing an outbound message. These files own the review procedure formerly in the project's P10 policy; do not maintain a second copy there.
 
+Name each review after its subject: append review suffixes to the reviewed
+document's filename stem or the named stage's base. For example, a review of
+`sprint_E.2_analysis.md` uses `sprint_E.2_analysis_review-1.md` and
+`sprint_E.2_analysis_review-1-prompt.md`. A sprint prefix alone does not identify
+a stage/document review. Use the same subject base throughout the exchange;
+see the round contract for numbering, renames and historical evidence.
+
 ## Establish the review boundary
 
 1. Discover the Git root, current full commit SHA and working changes. Read the project's agent instructions and applicable local policy/preferences. Identify the named sprint, lifecycle phase, accepted vision/use cases and review objective from the request and maintained records. Ask only if a material boundary cannot be inferred. Never select or activate another sprint.
@@ -19,6 +26,32 @@ Read [the round contract](references/round-contract.md) before creating or updat
 ## Drive the next exchange
 
 ### Prepare a review
+
+#### Publish accessible review inputs before handoff
+
+For this project, the Product Owner's standing review-publication instruction
+authorizes review-preparation checkpoint commits and ordinary pushes to the
+existing configured review remote/branch as part of requesting external review.
+Publish the subject, necessary current context and review instructions before
+giving the final relay prompt. This is a draft-review checkpoint, not PBI
+completion, design acceptance or permission to implement. Exclude unrelated
+working changes. It does not authorize force pushes, new remotes/repositories,
+expert contact or disclosure of secrets.
+
+Verify the published ref with `git ls-remote` (or equivalent remote evidence)
+and pin the exact source commit in the final copyable prompt. Ensure required
+files are actually in that commit; a local path, local commit or ZIP left only
+in the workspace is not external access. If the source commit is created first,
+publish a subsequent prompt/clarification commit that pins it; do not try to
+embed a commit's own future SHA into itself. Preserve earlier issued snapshots
+and identify which current revision supersedes them.
+
+If publication fails, report the specific blocker and provide a complete
+attachable source package as an explicitly identified fallback. Do not describe
+an unpublished revision as accessible. For other projects without equivalent
+publication authorization, prepare the reviewable inputs first and obtain only
+the missing publication authorization, or use a user-relayed package. Apply
+this access check to responses and feedback handoffs as well as initial prompts.
 
 When no requested review has arrived, create the round's `-prompt.md` with a fully filled expert prompt: role, full SHA, objective, phase, available inputs, prior finding IDs, allowed actions, expected output path and required evidence. Check referenced inputs exist and can be supplied without secrets or business data. Do not assume the expert can access local files, ignored archives or private credentials.
 

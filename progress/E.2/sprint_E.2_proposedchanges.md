@@ -167,3 +167,16 @@ flexibility through stable, industry-standard tools. Compatibility remains
 unverified; this refinement selects no layout, migration authority or default
 tool and does not approve exercises. Existing backlog reconciliation and E.5
 allocation remain unchanged.
+
+## Analysis accepted and focused design proposed — 2026-10-19
+
+The Product Owner explicitly approved analysis and directed design after the
+external analysis review. The revised [design](sprint_E.2_design.md) supersedes
+the premature draft and proposes four sprint-scoped PBI-051 children, isolated
+Working Copy/capture and PROJECT/native-artifact exercises, a bounded reuse of
+the existing declaration validator, and source-first conditional evidence.
+It also proposes E.2-only regression scope to avoid replaying retained-target
+E.1 integration tests. That scope change is not applied to PLAN until approved.
+No fixture, script, skeleton, runtime exercise or permanent policy change is
+authorized before design acceptance. E.1 evidence and later-sprint assignments
+remain preserved; PBI-052 stays Proposed/unscheduled.

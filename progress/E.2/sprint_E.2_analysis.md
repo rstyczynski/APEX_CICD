@@ -1,6 +1,10 @@
 # E.2 — Analysis
 
-Status: Complete — desk analysis baseline for review
+Status: Complete — desk analysis approved by the Product Owner on 2026-10-19
+
+The external analysis review found no required corrections; the Product Owner
+explicitly approved analysis and directed design. The
+[revised exercise design](sprint_E.2_design.md) is Proposed, not accepted.
 
 This completes the analyst's problem/requirements assessment, not PBI-051 or
 the final experimentally supported gap report. The evidence questions below
@@ -12,14 +16,15 @@ This document owns E.2's analysis of the problem, required outcomes, actor
 journeys, evidence and unresolved questions. [Setup](sprint_E.2_setup.md)
 records contracting and preliminary scoping. Contracting establishes working
 rules and responsibilities; it does not establish the adequacy of a solution
-or replace analysis. The earlier declaration that analysis was complete is
-withdrawn. The [exercise draft](sprint_E.2_design.md) is held pending this
-analysis and has no current approval request.
+or replace analysis. The earlier premature declaration and exercise approval
+request were withdrawn. The [revised exercise design](sprint_E.2_design.md)
+now has its own approval request following explicit analysis acceptance.
 
 [PBI-051](../../BACKLOG.md#pbi-051-assess-the-e1-delivery-approach-against-oracle-lifecycle-guidance)
 owns the intended outcome. [PLAN](../../PLAN.md#sprint-e2---assess-e1-against-oracle-lifecycle-guidance)
 keeps E.2 active in managed mode; the [board](../../PROGRESS_BOARD.md) keeps
-the sprint under_analysis and records PBI-051 as analysed.
+the sprint/PBI under_design after analysis approval. Proposed sprint-scoped
+children are defined in the exercise design, without changing root assignment.
 The [SRS](../../docs/srs.md) owns requirements and actor
 definitions; [architecture](../../docs/architecture.md) and
 [research](../../docs/cicd-research.md) own earlier mechanisms and rationale.
@@ -798,7 +803,7 @@ coverage, classified findings, dependencies and evidence questions. The
 The [PROJECT fit register](project-fit-assessment.md) separately distinguishes
 documentation/source validation from configuration/integration needs and
 pending runtime proofs for each applicable requirement.
-Review these conclusions before revising the held exercise draft. PBI-051
+Analysis has now been explicitly accepted; the revised design is Proposed. PBI-051
 remains unfinished until approved exercises, final findings/roadmap and the
 reproducible live handover satisfy its criterion. No construction, skeleton,
 permanent policy change or implementation approval is claimed here.
