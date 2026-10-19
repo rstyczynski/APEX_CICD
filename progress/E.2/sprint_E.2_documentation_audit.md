@@ -446,3 +446,12 @@ X3 remains declaration admission. Updated prerequisites, stable child-item
 dependencies, handover order and cross-references. Existing child/test IDs retain
 their meanings; they are identifiers, not execution order. No runtime or approval
 state changed. Exercise order and whitespace checks passed before publication.
+
+Revised proposed interfaces to match E.1's thin-launcher/individually runnable
+section pattern: A preparation, B PROJECT, C Working Copies, D admission,
+E findings. Every section shares preflight/live/rehearse/inspect modes. Resume
+and retry are continuation options with state/hash checks, retained attempts
+and refusal of unknown partial mutations. Updated the existing unit/integration
+case specifications and manual mapping. These are design amendments only;
+no scripts, skeletons or fixtures were created and approval remains pending.
+Checked mode/section consistency, local links and whitespace before publication.

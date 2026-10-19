@@ -13,8 +13,9 @@ The [external design review](sprint_E.2_design_review-1.md) raises no findings
 and supports Product Owner acceptance, including the regression proposal.
 The [engineering response](sprint_E.2_design_review-1-response.md) and
 [assessment](sprint_E.2_assessment.md) record closure. The verdict applies to its pinned source. The Product Owner
-subsequently clarified the common-repository sequence below; no independent
-recheck of that clarification or implementation approval is claimed.
+subsequently clarified the common-repository sequence and section-script
+interfaces below; no independent recheck of those amendments or implementation
+approval is claimed.
 
 The [analysis](sprint_E.2_analysis.md) owns findings, H-1/H-2 and EQ-1–5;
 [PROJECT fit assessment](project-fit-assessment.md) owns PF-01–12. The
@@ -295,22 +296,81 @@ PBI-052 contract definition and E.5 upgrades stay outside implementation here.
 
 ### Proposed implementation interfaces
 
-After design approval, implement only the needed domain helpers:
-`scripts/cicd-oracle-lifecycle.sh` for run/preflight/GUI checkpoints and
-`scripts/cicd-oracle-lifecycle.py` for inventory, hashing, receipt admission and
-safe subprocess boundaries; SQL fixtures under `tests/sql/oracle_lifecycle/`.
-Use the existing SQLcl/runtime and supported import/provisioning primitives,
-without calling E.1 wrappers that silently select retained targets. Keep any
-necessary interface adaptation explicit and bounded. Exact credential resolution
-is local and role-scoped; logs redact connection secrets.
+Follow E.1's [thin launcher](../../scripts/cicd-walkthrough.sh) and
+[individually runnable section scripts](../../scripts/cicd-walkthrough-F_hello_patch.sh).
+Implement these proposed interfaces only after design approval:
 
-Proposed runner modes are `preflight`, `live`, `rehearsal`, and `inspect`, all
-with an explicit run identifier. Preflight is read-only and returns ready or
-blocked with diagnostics. Live pauses for actual GUI decisions. Rehearsal may
-reuse previously captured GUI evidence only when it reports that limitation;
-skipped observations cannot pass as fresh GUI checks. Inspect opens retained
-results without mutations. A first-time run requires genuine authoring input.
-No automatic deletion/rebuild is part of these modes.
+- `scripts/cicd-oracle-lifecycle.sh`: thin launcher, ordered calls to sections
+  A–E, selected mode and overall progress. Section operations stay in their scripts.
+- `scripts/cicd-oracle-lifecycle-A_prepare.sh`: owned-resource preparation,
+  version/source inventory and common PROJECT repository setup.
+- `scripts/cicd-oracle-lifecycle-B_project.sh`: X1 PROJECT workflow, artifacts,
+  mapped-target delivery and preservation observations.
+- `scripts/cicd-oracle-lifecycle-C_working_copy.sh`: X2 authoring checkpoints,
+  capture into B's repository and reconstruction through its established path.
+- `scripts/cicd-oracle-lifecycle-D_admission.sh`: X3 declaration validation,
+  allowed/rejected delivery and evidence inspection.
+- `scripts/cicd-oracle-lifecycle-E_findings.sh`: inspect the actual findings,
+  comparisons, backlog reconciliation and roadmap during handover. This script
+  does not invent conclusions or automatically change managed backlog items.
+- `scripts/cicd-oracle-lifecycle-common.sh`: shared option parsing, pauses,
+  logging and checkpoint verification; no hidden section orchestration.
+- `scripts/cicd-oracle-lifecycle.py`: narrow inventory/hash/receipt/admission
+  utilities where appropriate, reusing E.1 rules. SQL fixtures belong under
+  `tests/sql/oracle_lifecycle/`.
+
+Use existing SQLcl/runtime and supported import/provisioning primitives without
+calling E.1 wrappers that silently select retained targets. Record bounded
+adaptations. Credential resolution is local/role-scoped and logs redact secrets.
+
+#### Modes apply to each section
+
+Every section script accepts one of `--preflight`, `--live`, `--rehearse` or
+`--inspect`, plus an explicit `--run RUN_ID`. These options are shared across
+sections; do not build four separate implementations of each section. The
+launcher invokes the same scripts in order and forwards the chosen mode/run.
+A section can also be invoked directly with its verified prerequisites.
+
+- `--preflight`: inspect requirements without target mutation. Whole-walkthrough
+  preflight checks the plan/tool/source requirements, identifying resources that
+  A will create; it does not demand that all later checkpoints already exist.
+  A section's execution-entry check additionally requires its actual predecessor
+  evidence and current target state. A missing dependency blocks execution.
+- `--live`: execute the selected section with inspection pauses and real GUI
+  decisions; require an interactive terminal for human checkpoints.
+- `--rehearse`: execute unattended-capable steps and report human checks as
+  skipped or historical evidence. It cannot create a fresh Working Copy merge
+  observation without an operator. Missing required GUI evidence is incomplete,
+  not a successful end-to-end result.
+- `--inspect`: read saved outputs/checkpoints without deployment or authoring
+  actions. It can inspect an existing run offline without a live database.
+
+#### Resume and retry are continuation options
+
+`--resume` and section-local `--retry STEP` modify `--live`/`--rehearse`; they
+are not modes and are invalid with `--preflight`/`--inspect`. The launcher can
+resume at the first incomplete section after checking predecessor evidence.
+Direct section execution resumes/retries only that section's named steps.
+
+Before continuation, verify run/resource ownership, source/artifact/declaration
+hashes, prerequisite results and observed target state. Completion markers alone
+are insufficient. Skip completed mutations only after their postconditions are
+revalidated; do not present a skipped operation as a new execution observation.
+A retry creates a new attempt record and preserves the earlier failure/output.
+
+Offer retry where semantics are known: repeat read-only verification, return to
+a failed GUI observation, or recapture corrected source as a new candidate with
+fresh downstream validation. Never blindly repeat migration/import, destructive
+setup or an uncertain partial-DDL operation. Unknown partial state blocks and
+reports the required inspection/recovery; no force retry, reset or automatic
+cleanup is provided. Changed inputs invalidate affected downstream checkpoints.
+A complete repeat demonstration uses new owned allocations rather than replaying
+setup against retained resources.
+
+The manual has one matching chapter per section, its direct invocation, modes,
+prerequisites, expected output and supported continuation steps. A failed section
+prints the precise next safe command when one exists, otherwise a blocked-state
+diagnosis. All CLI examples remain proposed until implemented and verified.
 
 Per-run evidence records contain case ID, source/target identities, exact versions,
 input hashes, commands with secrets removed, exit status, expected/actual output,
@@ -350,6 +410,16 @@ not implemented or registered. Domain test files will be
 `tests/smoke/test_oracle_lifecycle.sh`, `tests/unit/test_oracle_lifecycle.sh` and
 `tests/integration/test_oracle_lifecycle.sh`. Function names below are proposed
 runner identities, not commands claimed to work today.
+
+UT-E2-1 additionally covers a direct section call with missing predecessor
+evidence and an inspect/preflight request attempting mutation: no mutation
+command may run. UT-E2-2 additionally covers retries: unchanged verified
+postconditions permit safe continuation; changed hashes invalidate downstream
+receipts; unknown partial mutation state blocks rather than repeats the write.
+Retain failed-attempt evidence. IT-E2-1/2 demonstrate an interrupted section
+followed by an allowed verification/GUI continuation, without reapplying completed
+migrations or overwriting retained rows. These are the same cases expanded for
+the section-script interfaces, not new runtime results.
 
 1. **SM-E2-1 / test_SM1_oracle_lifecycle_preflight:** .1; FR-11/13, NFR-2,
    UC-1/6; EQ-1–5. Valid inventory yields ready; missing input, tool-version
@@ -424,6 +494,8 @@ repository → repeated capture/delivery → declaration
 admission failure and valid delivery → inspect evidence/findings/backlog/roadmap.
 A failed capability is demonstrated honestly with its impact and follow-up.
 
+The launcher and A–E section scripts follow the same manual chapters. Direct
+section, continuation and rehearsal limitations are demonstrated explicitly.
 The complete Markdown walkthrough supplies verified portable commands, actual
 inputs, expected intermediate results, GUI decisions, recovery boundaries and
 slide mapping. Provide a repeat path using fresh owned allocations, not a reset
