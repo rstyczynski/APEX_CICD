@@ -98,6 +98,8 @@ assignments or completed later-sprint work. E.1 historical evidence remains inta
 
 ## Review package
 
+The [editable diagram](model.drawio) retains the current diagram edits in E.2.
+
 Read the [decision presentation](sprint_E.2_product_owner_handover.pptx) and
 [concise gap analysis](oracle-gap-analysis.md). Use the
 [native SQLcl walkthrough](cicd-walkthrough.md) to inspect demonstrated journeys.

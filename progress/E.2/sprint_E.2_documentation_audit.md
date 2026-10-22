@@ -853,3 +853,10 @@ generated filter inputs and patch context contain original trailing whitespace;
 scoped .gitattributes rules preserve those bytes, consistent with existing evidence
 policy. Two authored Markdown EOF blank lines were removed. No raw evidence was
 rewritten to satisfy whitespace formatting.
+
+### E.2 diagram copies
+
+At Product Owner direction, copied the edited model.drawio and its retained
+backup from E.1 into E.2. Both copies are byte-identical to their source files,
+and both XML containers parse. The handover links the E.2 editable model. No
+source diagram was moved or rewritten; the E.1 working edits remain in place.
