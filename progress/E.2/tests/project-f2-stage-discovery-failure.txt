@@ -1,0 +1,10 @@
+Discovery rehearsal excerpt — isolated Git clone, before qualifying the final artifact:
+
+Old Branch refs/heads/e2-world
+New Branch refs/heads/e2-hello-patch
+ERROR: An error has occurred processing your request:
+No branch reference was found. Make sure the branch exists and has at least one commit
+Process completed successfully
+
+Resolution: create local e2-world at 87fa1dc in that clone, then rerun stage.
+The operator repository already had the required local branch; its final stage succeeded.

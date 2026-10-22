@@ -1,0 +1,37 @@
+--- a/dist/install.sql
++++ b/dist/install.sql
+@@ -2,7 +2,7 @@
+ -- By default, a project will not use substitution variables and allows blank
+ -- lines in sql statements.
+ 
+-set define off
++set define on
+ set sqlblanklines on
+ 
+ -- Prechecks modifiable helper
+@@ -17,6 +17,6 @@
+ 
+ -- Kick off Liquibase
+ prompt "Installing/updating schemas"
+-lb update -log -changelog-file releases/main.changelog.xml -search-path "."
++lb update -log -changelog-file releases/main.changelog.xml -search-path "." -defaults-file &DEFAULTS_FILE
+ 
+ --@utils/recompile.sql
+--- a/dist/releases/apex/f810003/f810003.sql
++++ b/dist/releases/apex/f810003/f810003.sql
+@@ -97,13 +97,13 @@
+ ,p_proxy_server=>nvl(wwv_flow_application_install.get_proxy,'')
+ ,p_no_proxy_domains=>nvl(wwv_flow_application_install.get_no_proxy_domains,'')
+ ,p_flow_version=>'1.0.0'
+-,p_flow_status=>'AVAILABLE'
++,p_flow_status=>'RESTRICTED_ACCESS'
+ ,p_flow_unavailable_text=>'Release installation or verification in progress.'
+ ,p_restrict_to_user_list=>'VERIFIER'
+ ,p_exact_substitutions_only=>'Y'
+ ,p_browser_cache=>'N'
+ ,p_browser_frame=>'D'
+-,p_vpd=>'begin E1_CTRL.e1_release.assert_runtime; end;   '
++,p_vpd=>null
+ ,p_rejoin_existing_sessions=>'N'
+ ,p_csv_encoding=>'Y'
+ ,p_auto_time_zone=>'N'

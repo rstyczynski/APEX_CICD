@@ -664,6 +664,33 @@ def artifact_path(run):
     print(files[-1].resolve())
 
 
+def patch_resume(run):
+    """Admit only the pre-patch boundary; never replay partially applied patch DDL."""
+    path, inv = guard(run, 'author')
+    repo = path / 'repo'
+    if (path / 'B.complete.json').exists():
+        raise ValueError('B is complete; use --resume to inspect its completion')
+    if git(repo, 'branch', '--show-current') != 'e2-patch':
+        raise ValueError('Patch recovery requires the existing e2-patch branch')
+    baseline = git(repo, 'rev-parse', 'e2-initial-baseline')
+    if git(repo, 'rev-parse', 'HEAD') != baseline or git(repo, 'status', '--porcelain'):
+        raise ValueError('Patch recovery requires a clean unchanged initial baseline; patch work may already have started')
+    declaration = json.loads(declaration_path(path).read_text())
+    if declaration.get('release') != '1.0.0':
+        raise ValueError('Patch declaration already advanced; refuse replay')
+    columns = sql(run, 'author', "select 'E2_PATCH_COLUMNS|'||count(*) from user_tab_columns where table_name='E2_SETTINGS' and column_name='RELEASE_NOTE';")
+    if 'E2_PATCH_COLUMNS|0' not in columns:
+        raise ValueError('Patch DDL already started; refuse replay')
+    qualified = json.loads((path / 'qualification.json').read_text())
+    deployed = json.loads((path / 'deployed-upgrade.json').read_text())
+    if qualified['source_commit'] != baseline or qualified['artifact_sha256'] != deployed['artifact_sha256']:
+        raise ValueError('Initial qualification/deployment receipts do not match the retained baseline')
+    if hashlib.sha256(target_state(run, 'upgrade').encode()).hexdigest() != deployed['state_sha256']:
+        raise ValueError('Upgrade target changed since initial delivery; inspect before recovery')
+    preservation(run, 'upgrade')
+    print('PATCH RESUME READY: initial delivery retained; continuing at Main title/version checkpoint')
+
+
 def contract_patch(run):
     path, inv = guard(run, 'author')
     file = declaration_path(path)
@@ -896,7 +923,7 @@ def inspect(run, section=None):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('action', choices=['init','preflight','provision','fixture','app','snapshot','project','deploy','checkpoint','inspect','guard','sql','bind','admit','qualify','sentinel','preservation','negative','titles','identities','artifact-path','contract-patch','finish','verify-complete','new-fresh','stable-capture','shared-probe','shared-scope','lower-compare','behavior'])
+    parser.add_argument('action', choices=['init','preflight','provision','fixture','app','snapshot','project','deploy','checkpoint','inspect','guard','sql','bind','admit','qualify','sentinel','preservation','negative','titles','identities','artifact-path','contract-patch','patch-resume','finish','verify-complete','new-fresh','stable-capture','shared-probe','shared-scope','lower-compare','behavior'])
     parser.add_argument('--run')
     parser.add_argument('--role', choices=['author','fresh','upgrade'], default='author')
     parser.add_argument('--value')
@@ -926,6 +953,7 @@ def main():
     elif args.action == 'identities': identities(args.run, args.role, args.value)
     elif args.action == 'artifact-path': artifact_path(args.run)
     elif args.action == 'contract-patch': contract_patch(args.run)
+    elif args.action == 'patch-resume': patch_resume(args.run)
     elif args.action == 'finish': finish(args.run, args.section)
     elif args.action == 'verify-complete': verify_complete(args.run, args.section)
     elif args.action == 'new-fresh': new_fresh(args.run)

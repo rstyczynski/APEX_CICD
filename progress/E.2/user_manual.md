@@ -1,5 +1,19 @@
 # E.2 — Laboratory operating reference
 
+The [native SQLcl use-case walkthrough](cicd-walkthrough.md) is the current
+operating guide, aligned with E.1's A–I application journeys. It uses
+preloaded development assemblies and direct PROJECT commands. A–E include
+observed mapped integration and same-byte UAT promotion, with a transparent
+[promotion wrapper prototype](../../scripts/cicd-project-promote.py). Its readiness
+statement identifies the later release/control steps still awaiting implementation
+and rehearsal. F1 provides exact native Working Copy, SQLcl PROJECT and Git
+steps rehearsed on a separate Main copy; operator Main 810003 is ready for
+verification. The Product Owner reported F completed. G now supplies exact operator steps;
+its corrected G.2 uses a separate SQLcl 25.4.1 client and clean native verification
+(Errors 0 / Warnings 0 / Info 15). F's preserved archives are not rebuilt or
+recertified by this comparison. H–I remain pending. The section helpers below belong to the earlier exercise and
+are not the operator interface for that replacement journey.
+
 Status: prepared for live review. Commands below describe the bounded section helpers;
 individual observations are in [focused evidence](sprint_E.2_tests.md). Selected retained-run preflight, inspection and completion-resume are rehearsed;
 a second full new-run runner execution is not claimed. The [walkthrough](sprint_E.2_increment_demo.md)
@@ -21,12 +35,15 @@ No helper rebuilds infrastructure automatically or
 restores E.1 application state. Preserve E.1 historical files and the unrelated
 E.1 diagram backup edit.
 
-Every new run has its own local PROJECT Git repository, schema/workspace pairs,
+Every new run has its own local SQLcl PROJECT Git repository, schema/workspace pairs,
 application IDs, ownership markers and credentials. Local secrets live only in
 `.local-apex/e2/RUN/private.json` with restricted file permissions. Do not copy
 that file into evidence, screenshots, slides or commits. The lab developer is
 E2DEV. Use the generated developer password when signing into a run workspace;
-the workspace and application IDs are printed by inspect. Do not use production
+the workspace and application IDs are printed by inspect. Retrieve only the
+Builder password with `python3 scripts/cicd-password.py E2DEV --run "$E2_RUN"`
+after initializing `E2_RUN` in that terminal and creating the run through A.
+As in E.1, keep the displayed password out of recorded output. Do not use production
 connections or substitute an unregistered schema into commands.
 
 ## Section commands and modes
@@ -40,7 +57,10 @@ bash scripts/cicd-oracle-lifecycle.sh --inspect --run e2-20261019-01
 ```
 
 `--preflight` reads actual tool/runtime prerequisites. `--inspect` reads retained
-local run evidence. `--live` uses an interactive terminal and pauses at real GUI
+local run evidence and requires an existing `inventory.json`. Preflight does
+not initialize a run. For a new run, execute A with `--live` before inspection;
+substituting a new ID into the retained inspection commands is insufficient.
+`--live` uses an interactive terminal and pauses at real GUI
 and review checkpoints. `--rehearse` executes only unattended-capable operations;
 it stops at a required fresh GUI checkpoint and never claims a human observation.
 Use a new run ID for an independent full exercise; the retained current run must
@@ -63,7 +83,7 @@ its underlying helpers and actual Builder controls as recorded in the evidence.
 
 ## A — Prepare owned inputs
 
-A initializes PROJECT in a private Git repository, provisions collision-checked
+A initializes SQLcl PROJECT in a private Git repository, provisions collision-checked
 owned resources and installs the small schema fixture. Sign into the printed
 author workspace as E2DEV. Create E2 Lifecycle with the allocated Main ID, Home
 page 1 and an interactive report E2 History page 2 over E2_HISTORY. Add a dynamic
@@ -76,11 +96,11 @@ where setting_key in ('HELLO','WORLD')
 ```
 
 Enter the real Main application ID at A's prompt. A verifies workspace/schema
-ownership, scopes PROJECT filters to Main, captures schema/application source
+ownership, scopes SQLcl PROJECT filters to Main, captures schema/application source
 and commits the reviewed source. Inspect that no private Working Copy,
 ownership table, credentials or runtime history/settings rows were captured.
 
-## B — PROJECT capture and candidate qualification
+## B — SQLcl PROJECT capture and candidate qualification
 
 Inspect the generated staging hierarchy and custom seed SQL before accepting the
 prompt. Native stage requires a branch reference; a tag alone was rejected.
@@ -147,7 +167,7 @@ Record actual operator actions/decisions, confusing differences and recovery
 effort in the exercise evidence; there is no measured E.1 usability baseline.
 
 C removes only its owned shared-schema marker, captures the agreed Main team
-checkpoint through PROJECT in the same repository, compares two no-edit exports
+checkpoint through SQLcl PROJECT in the same repository, compares two no-edit exports
 and commits the reviewed result. Inspect that private Working Copies were
 excluded. Reconstruct through the established native candidate path and a
 separately labeled lower-level split/original-ID/no-date comparison. The latter
@@ -182,6 +202,12 @@ refuses blind replay. `--retry verify` repeats a section's read-only verificatio
 `--retry capture` refreshes source but invalidates downstream artifact/qualification
 claims until reviewed and regenerated. C's `--retry gui` returns to a real GUI
 inspection checkpoint and records no fresh automatic usability result.
+
+For B's failed pre-patch title check, save the requested Main title/version and
+run `bash scripts/cicd-oracle-lifecycle-B_project.sh --live --run "$E2_RUN" --retry patch`.
+This validates the retained initial baseline and upgrade state, refuses started
+patch DDL, and returns to the patch-authoring pause without repeating initial
+delivery. It does not recover arbitrary later partial failures.
 
 An unexpected reinstall, checksum error, partial DDL, unknown target, missing
 receipt or changed binding stops the affected operation. Retain the failed

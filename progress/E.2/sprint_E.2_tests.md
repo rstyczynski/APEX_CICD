@@ -243,3 +243,216 @@ full new-run runner execution or Product Owner acceptance is claimed.
 Bash syntax and Python compilation passed. Native verification remains a
 retained expected failure; mapped replacement identities changed. These are
 assessment findings with follow-up, not a false all-green product result.
+
+## Desktop presentation repeat — 2026-10-19
+
+At Product Owner request, repeated the screenshot views with a desktop viewport
+requested at 1440×1000. The browser capture returned 1107×769 full images;
+focused crops retain the relevant application identity, controls and values.
+Created a separate disposable Working Copy named E2 desktop walkthrough
+(APEX reused ID 101 after the original copy had been deleted). Changed its
+page 1 Title, captured the two-column YAML comparison and selected PAGE:1
+merge confirmation, but did not apply Confirm Merge. Deleted page 2 only in
+that repeat copy and captured 2 Changed / 3 Missing (including its unmerged
+page 1 change). Then abandoned/deleted the repeat copy through native controls.
+
+[Main preservation receipt](tests/desktop_repeat_main_preservation.json) shows
+identical observed Main definitions and rows before/after the repeat. The
+original exercise captures, run ZIP, manifest and historical results remain
+unchanged. New screenshots are labeled desktop walkthrough repeats rather
+than contemporaneous evidence of the earlier stale merge/recovery.
+The current deck uses [merge selection](tests/e2_desktop_repeat_merge_full.jpg),
+[two-column comparison](tests/e2_desktop_repeat_diff.jpg) and
+[missing components](tests/e2_desktop_repeat_missing_full.jpg). Corresponding full
+images retain surrounding context. The temporary viewport override was reset.
+
+### B recovery validation — user run e2-20261019-02
+
+The user-driven new run completed initial delivery/repeat and preservation,
+then stopped before patch SQL because the persisted Main page 1 title was
+E2 Lifecycle rather than E2 Hello patch. Main is app 101 in E2_A9CF4097_A.
+The application repository was clean on e2-patch at initial baseline 713b299.
+
+Executed the new read-only `patch-resume` admission against the actual run.
+Result: PRESERVED upgrade (exact recorded history fields and user setting),
+then PATCH RESUME READY. Initial target definitions/rows matched the deployed
+receipt; no initial deployment, patch DDL or app authoring was executed by this
+validation. Three isolated guard exercises substituted wrong-branch,
+dirty-source and started-DDL inputs and observed the intended refusals; these
+were synthetic guard checks, not additional Oracle mutations. Shell/Python
+syntax and git diff whitespace checks passed. The user's resumed interactive
+patch execution is not claimed by these checks.
+
+## Full-application mapped integration observation — 2026-10-20
+
+The [mapped candidate receipt](tests/project-integration-mapped-validation.json)
+records the exact ZIP, source/distribution commit and snapshot digest. Native
+deployment passed with 23 initial changesets; application 810004 is owned by
+E1_INTEGRATION, all three component versions are 1.0.0 and business packages/
+triggers compile. VERIFIER browser login, greeting and history passed; native
+restricted access blocked LAB_USER. Native APEX publication then allowed
+LAB_USER greeting/history, preserving the verifier row. Identical-artifact repeat
+ran zero changesets and retained every history/configuration field. Exact guide
+restriction/publication SQL blocks passed as written.
+
+Native verification is not all-pass: one `stagechangelogcomplete` APEX completeness
+error remains. The generated DATABASECHANGELOG_DETAILS view is also invalid;
+business objects are valid. These observations do not qualify a formal release,
+UAT promotion or later upgrade. Native transcripts and 1280×720 screenshots are
+retained under tests/project-integration-*; no new automated test suite was added.
+
+## Same-byte UAT promotion prototype observation
+
+Observed all five prototype actions against the prepared lab. First UAT install
+ran 23 changesets from D's exact ZIP, mapped to 810005 / E1_UAT. VERIFIER browser
+greeting/history, LAB_USER restriction, native publication and LAB_USER greeting
+passed. The retained `UAT:` prefix affected a new greeting while two earlier
+Hello World snapshots kept their original fields. Captured and compared all
+fields of the three histories, both entries and both configuration rows.
+Repeat deployment ran zero changesets; repeated baseline capture preserved file
+bytes. Hash mismatch, missing explicit assessment mode, changed prior history and
+changed settings were rejected by focused prototype checks; added history was
+allowed. These are Elaboration exercises, not a new test suite or formal release
+pass. [Receipt](tests/project-uat-promotion-validation.json) and
+`tests/project-uat-prototype-*.txt` retain results; desktop browser captures are
+`tests/project-uat-*.jpg`.
+
+## F1 focused native authoring/capture rehearsal — 2026-10-20
+
+Passed on separate Main 810103 / Working Copy 101: native create; two saved
+disjoint page edits; completed comparison (pages 1 and 10); refresh only page 10
+with backup; merge only page 1 with backup and retained copy; both headings
+present in Main/copy metadata; native Main backup visible. PROJECT list/export
+with the original filter selected only operator Main 810003, left Git clean
+and excluded the private copy. A rehearsal-only filter selected 810103 and
+captured both intended headings in SQL/readable YAML, excluding 101; the capture
+was committed in the isolated rehearsal repository.
+
+The browser automation initially populated editor fields without updating the
+Page Designer model. Read-only metadata detected the unsaved edits; entering
+through keyboard events, leaving the field and saving corrected the rehearsal.
+Only the later persisted edits are counted. The operator steps explicitly
+require Tab, Save, completion and metadata/export checks. A queued comparison
+at scheduler capacity 1 completed after the previously approved capacity 10
+was reapplied. No automated test suite was added.
+
+[Receipt and limits](tests/project-f1-working-copy-validation.json),
+[metadata](tests/project-f1-main-copy-metadata.txt),
+[native export](tests/project-f1-export-rehearsal-main.txt),
+[Main after merge](tests/project-f1-merge.jpg) and
+[backup screenshot](tests/project-f1-backup.jpg) retain evidence. The Product
+Owner's runtime checks on Main 810003 after its future merge are not claimed
+executed. F2 component upgrade/delivery remains pending.
+
+## F.2 focused native compatible-upgrade exercises — 2026-10-20
+
+The [F.2 receipt](tests/project-f2-upgrade-validation.json) records the exact
+candidate SHA-256 and source commit, target identity and limits. Native runtime
+results passed on E1_INTEGRATION/application 810004:
+
+- Fresh cumulative candidate: 26 executed, none previously applied; Foundation
+  1.0.0 / Hello 1.0.1 / World 1.0.0; tab/newline normalization and whitespace-only
+  rejection passed with rolled-back verification inserts.
+- Original initial reconstruction: 23 executions. New literal QUAL: prefix and
+  QUAL:Hello World history were created through a native APEX VERIFIER session;
+  these are synthetic qualification fixtures, not restored business snapshots.
+- Populated upgrade of the identical candidate: 4 executions / 22 previously
+  applied. Exact-field JSON comparison passed across native project deploy,
+  retaining the prefix, default, entries and every history field.
+- Actual browser checks on both starts: VERIFIER greeting/history, ordinary-user
+  denial with the explicit message, native publication, and ordinary-user greeting.
+- Completed-deployment repeat: 0 executions / 26 previously applied; Available
+  and complete business-field equality retained.
+- Negative probes: the native comparator rejected an uncommitted changed prefix
+  with ORA-20890, followed by SQLcl failure rollback. The integration reset refused
+  the author identity with ORA-20896 before destructive statements. Final checks
+  confirmed the probe did not persist and UAT stayed unchanged.
+
+Native verify remains Errors 1 / Warnings 0 / Info 7. The failed completeness
+check lists initial files now in frozen release 1.0.0 and separate APEX source;
+this is not recorded as a native release-gate pass. A discovery clone initially
+lacked a local e2-world branch; stage reported an error despite a later generic
+completion message. Creating that local ref fixed staging. The operator repo's
+final stage succeeded against its existing local e2-world branch.
+
+Exact relative @paths and author-input repeat/export were exercised. Native
+business snapshot/assertion scripts were tested in one SQLcl session, including
+across deployment. They require comparison before browser writes and do not
+replace E6's durable baseline. No new automated smoke/unit/integration suite was
+introduced. UAT promotion remains for operator execution; no such pass is claimed.
+
+### Operator candidate: empty custom changeset detected
+
+F.2.3's component check rejected execution-r1: Hello remained 1.0.0.
+Inspection confirmed its packaged hello_1_0_1_version.sql contained only the
+generated Liquibase header. The working file was populated with the reviewed
+release-data SQL; exactly one generated header and version update were verified.
+The regular walkthrough now checks that content before generating execution-r2
+and qualifies r2 from the explicitly reset integration target. The r1 archive
+is retained as failed-candidate evidence. No target version was patched by hand,
+and this correction does not establish that r2 has passed runtime qualification.
+
+### Product Owner execution report — F
+
+On 2026-10-20 the Product Owner reported “F completed.” This records operator
+completion of the Working Copy and compatible Hello patch journey, including
+fresh/populated qualification, same-artifact UAT delivery, preservation and
+repeat checks. It does not replace execution transcripts or close the unresolved
+native PROJECT verification finding. G–I and final acceptance remain separate.
+
+### G — focused rehearsal before operator execution
+
+Evidence: tests/project-g-incompatible-validation.json and the two
+project-g-native-*.txt transcripts. Native supported/incompatible verification
+outputs were identical: Errors 1 / Warnings 0 / Info 7, with the retained stage
+completeness finding. There was no new component-dependency diagnostic.
+
+Three real-target rejection rehearsals used the existing validator and each
+reported zero PROJECT deploy invocations. Exact UAT business rows, component
+state, changeset history, schema DDL, APEX export and availability matched before
+and after. Retained-baseline check and prepare repeat also passed. The supported
+declaration passed; missing dependency, unknown version, inconsistent dependency
+and changed archive binding were refused. All G shell blocks passed bash syntax
+checking; fixture paths and branch references were exercised. Browser inspection
+is provided as an operator step, not claimed as an observed rehearsal. This is
+focused prototype evidence, not a new automated regression suite.
+
+### Native verification correction — supersedes accepting the G baseline error
+
+See tests/project-verify-fix-validation.json and project-g-25.4.1-*.txt. The
+corrected comparison clone passed native verification for both supported and
+incompatible metadata: Errors 0 / Warnings 0 / Info 15. Two isolated negative
+controls failed as required: removing a real Hello trigger changeset include,
+and changing generated APEX status after staging. Both were restored afterward.
+This demonstrates that the new pass did not result from disabling verification.
+
+The older 25.3 outputs remain historical evidence. The 26.3 trial removed the
+original completeness finding but required additional configuration migration;
+it was not adopted. The qualified 25.4.1 path and separate connection store are
+documented. Hash comparison confirmed both completed F archive bytes unchanged.
+UAT definitions/data are checked independently by G's retained snapshot. This
+read-only comparison work is not a new application deployment or Foundation
+upgrade. Operator completion of the corrected G steps remains pending.
+
+### H — focused pre-operator qualification
+
+Receipt: tests/project-h-drift-validation.json. Final native transcript:
+tests/project-h-native-rehearsal.txt. A controlled integration banner edit was
+visible in native exports and the browser. An unchanged F artifact replay
+succeeded with Run 0 / Previously run 26 and left the edit present. The selected
+attribute was restored with the native API; every exported YAML definition
+matched the accepted baseline after the explicit internal-revision exclusion.
+Business rows/fields and changeset history matched exactly. Publication and
+installed components were unchanged. Separate desktop browser captures record
+the banner before/after the native repeat and its absence after restoration.
+
+Exploratory raw checksum equality after restoration failed: source SQL differed
+in p_version_scn/checksum and readable YAML differed only in root subscription
+version-number. This finding motivated the narrowly stated comparison policy;
+raw equality was not falsely recorded as passing. Final documented sequence
+passed with that explicit policy. Missing/different expected outcomes and an
+additional unexpected attribute caused the file comparison to fail. Wrong
+schema/application ownership was refused before any edit. Actual UAT preflight,
+business snapshot equality and 24-file native export passed read-only. Rendered
+Bash blocks passed bash -n without heredoc warnings. No automated test suite
+was added, and operator H completion is not claimed.

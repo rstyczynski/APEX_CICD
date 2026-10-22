@@ -17,10 +17,10 @@ section_options() {
     esac
   done
   [[ "$RUN_ID" =~ ^[a-z][a-z0-9-]{2,40}$ ]] || { echo 'Specify --run with a lowercase run identifier.' >&2; return 2; }
-  [[ -z "$RETRY" || "$RETRY" = verify || "$RETRY" = capture || "$RETRY" = gui ]] || { echo 'Supported retry steps: verify, capture, gui; mutation replay is refused.' >&2; return 2; }
+  [[ -z "$RETRY" || "$RETRY" = verify || "$RETRY" = capture || "$RETRY" = gui || "$RETRY" = patch ]] || { echo 'Supported retry steps: verify, capture, gui, patch (B only).' >&2; return 2; }
   if [[ -n "$RETRY" ]]; then
     case "$SECTION:$RETRY" in
-      B:verify|B:capture|C:verify|C:capture|C:gui) ;;
+      B:verify|B:capture|B:patch|C:verify|C:capture|C:gui) ;;
       *) echo "Section $SECTION does not support retry $RETRY; inspect its checkpoint." >&2; return 2 ;;
     esac
   fi

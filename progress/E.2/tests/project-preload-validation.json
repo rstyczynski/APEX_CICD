@@ -1,0 +1,34 @@
+{
+  "checked_at": "2026-10-19T20:38:41.006611+00:00",
+  "application_ids": {
+    "foundation": 810001,
+    "hello": 810002,
+    "world": 810003
+  },
+  "source_refs": {
+    "foundation": "e9a490f0582e768ad822a498453af69aedc9b1e9",
+    "hello": "f511ab8c8e1f723b70e4293f4488693a42b35532",
+    "world": "08a5cf27e8a31ff7b77b6fd694f673847726eda1",
+    "patch": "1e77c95ebb7a5032a2f141784a2ca5b4e5ec5d0c"
+  },
+  "platform": "fresh apex-cicd; pinned Database/APEX/ORDS verification passed",
+  "browser": {
+    "account": "LAB_USER",
+    "created_greeting": "Hello World",
+    "history_row_visible": true,
+    "components": {
+      "Foundation": "1.0.0",
+      "Hello": "1.0.0",
+      "World": "1.0.0"
+    }
+  },
+  "native_project": {
+    "init_and_config": "verified with SQLcl 25.3; config set omits unsupported -type",
+    "source_export": "24 objects; application 810003; seven business tables",
+    "staging_deployment_upgrade": "not yet rehearsed for this replacement"
+  },
+  "screenshots": {
+    "project-preload-hello-world.jpg": "974ba619719b4b0ee1134784d73e6b5e479c1d884678579c5ee3c4206b5b6427",
+    "project-preload-history.jpg": "788c0a01b36b9dd637b13c34a785d5ee135f431ef38cacd9d9c8d7c68d147c9f"
+  }
+}

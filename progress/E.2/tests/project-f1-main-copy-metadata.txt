@@ -1,0 +1,22 @@
+
+
+APPLICATION_ID PAGE_ID PAGE_NAME        PAGE_TITLE                         
+______________ _______ ________________ __________________________________ 
+           101       1 Home             APEX Delivery Laboratory           
+           101      10 Greeting history Greeting history - Main checkpoint 
+        810003       1 Home             APEX Delivery Laboratory           
+        810003      10 Greeting history Greeting history                   
+        810103       1 Home             APEX Delivery Laboratory           
+        810103      10 Greeting history Greeting history - Main checkpoint 
+
+APPLICATION_ID PAGE_ID REGION_NAME                
+______________ _______ __________________________ 
+           101       1 Hello World - Working Copy 
+        810003       1 APEX Delivery Laboratory   
+        810103       1 Hello World - Working Copy 
+
+COMPONENT  INSTALLED VERSION 
+__________ _________ _______ 
+Foundation         1 1.0.0   
+Hello              1 1.0.0   
+World              1 1.0.0   

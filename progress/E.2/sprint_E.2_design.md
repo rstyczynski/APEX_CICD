@@ -120,6 +120,14 @@ the design approves this decomposition; none is complete now.
 
 ### Preservation, fixtures and ownership
 
+**Later correction requested on 2026-10-19:** the Product Owner rejected the
+manual Builder setup/reduced-fixture walkthrough and requested a preloaded,
+PROJECT-focused journey from zero. The project VM was explicitly destroyed.
+See [walkthrough redesign](walkthrough-redesign.md) for the proposed replacement,
+dependency questions and managed review boundary. The original approved design
+below is retained for traceability; it does not make the replacement approved
+or ready to execute.
+
 Before writes, record read-only DB/PDB/APEX identity, tools, schemas/workspaces,
 application IDs, retained E.1 component metadata, source fingerprints and
 history/configuration summaries. Preserve the current checkout and E.1 areas,
@@ -512,3 +520,79 @@ Product Owner selected “Provision a fresh lab using the existing pinned
 installation procedure.” This separately authorizes the recorded fresh runtime
 preparation; it does not enable an automatic rebuild fallback in the runners.
 [Implementation](sprint_E.2_implementation.md) retains the actual pin and outcome.
+
+## Approved mapped-integration completion — 2026-10-20
+
+The Product Owner approved replacing the E.2 candidate's inherited E1_CTRL
+runtime gate with native APEX restricted-verifier/availability controls, while
+keeping authoring application 810003 and historical evidence unchanged. Apply
+the Oracle lifecycle paper's page-30 defaults-file hook, package explicit
+integration/UAT properties and exclude source-owned E1_CTRL grant replay from
+the application migration stream. The candidate-only APEX adaptation is explicit
+and reviewable; it does not establish full custom-controller fencing equivalence.
+
+Execute the mapped initial candidate in E1_INTEGRATION / application 810004,
+verify VERIFIER access and LAB_USER restriction, publish through the public APEX
+API, observe ordinary-user greeting/history, and inspect identical-artifact
+repeat preservation. A reported native verification failure remains a finding;
+a runtime assessment pass does not become a clean formal release result.
+
+## UAT promotion wrapper prototype — 2026-10-20
+
+The Product Owner requested exact E instructions and a small prototype showing
+how repetitive SQLcl/verification operations can be automated. Implement one
+transparent command-line helper with inspect, deploy, publish, baseline and
+check-baseline actions. Print the SQLcl commands and use existing saved named
+connections, native PROJECT mapping/deployment and native APEX availability.
+Require the D-tested ZIP identity and live integration checks before promotion;
+keep the failed native verification visible through explicit assessment mode.
+Stop between deployment and publication for real VERIFIER/LAB_USER browser work.
+Record target/artifact identity and an immutable full-field business baseline in
+private local files, permitting subsequent history appends while checking every
+prior field. No new database controller, infrastructure lifecycle, distributed
+locking or production approval/provenance system is in scope. This is an
+Elaboration automation prototype, not a second full delivery framework.
+
+## F.2 native compatible-upgrade execution detail
+
+The Product Owner requested executable F.2 instructions after completing F.1.
+Use the established Hello 1.0.1 surrounding-whitespace correction, keeping
+Foundation/World at 1.0.0. Native PROJECT release freezes initial changeset
+identities, stage compares against e2-world, and a reviewed custom changeset
+updates Hello's installed-version declaration after its schema correction.
+Native APEX mapping/restricted verification/publication remain the approved
+candidate approach. SQLcl bind variables and native JSON_EQUAL provide bounded
+exact-field preservation assertions alongside the existing durable E6 baseline.
+
+Qualification repeats fresh and populated initial states only in disposable
+integration. UAT retains its initial state until Product Owner execution, and
+receives the same qualified assessment bytes. Component/data compatibility is
+bounded by the inspected baseline, including no whitespace-only legacy Hello
+entries. The unresolved native verify finding prevents formal-release claims.
+This supplies execution details for the accepted scenario; it adds no Foundation
+upgrade, hosted-pipeline scope or production delivery controller.
+
+### G native-verification correction within the accepted assessment
+
+Use a separate official SQLcl 25.4.1 client and connection-store copy to qualify
+the comparison clone. Export current application identities and regenerate
+native staging from committed source. Keep the comparison distribution identical
+to source; perform no post-stage APEX edits there. This restores a clean native
+baseline for the accepted X3 declaration comparison. It does not deploy the
+comparison clone, change the author, rebuild F's archive, modify UAT, or expand
+the metadata-only Foundation proposal into a real upgrade. The earlier client
+and results are retained. Global toolchain adoption and release fixture cleanup
+remain follow-up stabilization work; complex Foundation work stays in E.5.
+
+### H execution detail for the accepted live-drift assessment
+
+Use a reversible APEX global-notification edit to represent an unexpected live
+definition. Capture accepted/changed/post-repeat/restored native exports, replay
+the unchanged already-installed F archive, observe the actual native outcome,
+and explicitly restore the one attribute. No schema DDL, committed failure,
+Foundation upgrade, new admission controller, application reimport for cleanup
+or business insertion is needed. Rehearse against owned integration; operator
+execution uses UAT. Retain exact business/history snapshots. Define the sole
+comparison exclusion as the app YAML's internal subscription.version-number;
+do not ignore other definition changes. This bounded repeat does not settle
+overwrite behavior of a later pending APEX import or full drift fencing.

@@ -128,17 +128,20 @@ corrections required before exercise design. The
 and remaining exercise and handover work.
 The analysis also records the unscheduled follow-up
 [PBI-052: component contracts and semantic versioning rules](BACKLOG.md#pbi-052-define-semantic-versioning-rules-for-component-contracts).
-Current E.2 evidence: [implementation record](progress/E.2/sprint_E.2_implementation.md),
-[actual exercise observations](progress/E.2/sprint_E.2_tests.md), and
-[source-backed gap analysis and reconciled roadmap](progress/E.2/oracle-gap-analysis.md).
-Native candidate delivery works in the owned fresh lab; full native verification
-still reports missing-source errors, so no formal PROJECT release is claimed.
-Changed mapped imports also regenerated observed region IDs.
-Start the [reproducible walkthrough](progress/E.2/sprint_E.2_increment_demo.md),
-using its [editable presentation](progress/E.2/sprint_E.2_increment_demo.pptx) and
-[operating manual](progress/E.2/user_manual.md). The
-[handover record](progress/E.2/sprint_E.2_handover.md) retains the pending live
-Product Owner review and acceptance decision.
+Current E.2 review starts with the [Product Owner decision brief](progress/E.2/sprint_E.2_handover.md)
+and its [decision presentation](progress/E.2/sprint_E.2_product_owner_handover.pptx).
+The [concise gap analysis](progress/E.2/oracle-gap-analysis.md) separates demonstrated
+native delivery from component-dependency, automatic drift-protection and automatic
+repair gaps. Reviewed forward repair remains supported but unexercised in E.2.
+
+The [native SQLcl walkthrough](progress/E.2/cicd-walkthrough.md) covers the
+Foundation/Hello/World delivery journeys. [Implementation](progress/E.2/sprint_E.2_implementation.md)
+and [exercise evidence](progress/E.2/sprint_E.2_tests.md) identify reference runs and
+limits. The Product Owner reported F completed. Retained F artifacts still have a
+SQLcl 25.3 verification failure; a separate clean 25.4.1 comparison does not
+certify them. Mapped identity preservation and delivery protections require
+qualification. The earlier increment presentation remains an exercise record.
+Handover decisions and sprint acceptance remain pending.
 
 E.3–E.5 remain Planned; their designs and runtime evidence are pending.
 

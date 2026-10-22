@@ -1,0 +1,22 @@
+
+
+DB_NAME PDB      OWNER          
+_______ ________ ______________ 
+FREE    FREEPDB1 E1_INTEGRATION 
+
+TABLE_NAME                
+_________________________ 
+DATABASECHANGELOG         
+DATABASECHANGELOGLOCK     
+DATABASECHANGELOG_ACTIONS 
+GREETING_HISTORY          
+HELLO_CONFIG              
+HELLO_ENTRIES             
+LAB_COMPONENTS            
+LAB_STATE                 
+WORLD_CONFIG              
+WORLD_ENTRIES             
+
+APPLICATION_ID WORKSPACE      OWNER          
+______________ ______________ ______________ 
+        810004 E1_INTEGRATION E1_INTEGRATION 

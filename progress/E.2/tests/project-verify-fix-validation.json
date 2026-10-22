@@ -1,0 +1,31 @@
+{
+  "recorded_at": "2026-10-20T18:28:09.925389+00:00",
+  "scope": "G native comparison clone only; no deploy or F artifact rebuild",
+  "old_client": "25.3.0.274.1210",
+  "new_client": "25.4.1.022.0618",
+  "new_client_zip_sha1": "1ce64ff5778c0fb739f7d9724eebfcc9c1aacfeb",
+  "new_client_zip_sha256": "b717d83aa1a7ada2ca38e7c8be5b369ea6a2f9f50c5fdb55e18d263b471ecab9",
+  "correction": [
+    "new isolated client and copied connection store",
+    "sqlcl.version=25.4.1.0",
+    "sqlcl.autoConnect=false",
+    "export.apex.expOriginalIds=false",
+    "native export and committed source",
+    "native stage; no post-stage APEX edits"
+  ],
+  "allowed": "Errors 0 / Warnings 0 / Info 15",
+  "incompatible": "Errors 0 / Warnings 0 / Info 15",
+  "negative_controls": {
+    "missing_stage_include": "native verification failed",
+    "post_stage_apex_edit": "native APEX source/dist verification failed"
+  },
+  "archives_preserved": {
+    "e2-1.0.0-mapped-r1.zip": "0377604203edf3674ae5a2b3735da11f108de6f576c879266ea1325d4bf6e0d0",
+    "e2-1.0.1-execution-r2.zip": "6ae41f7a4b3e00e5c76d7bf42c162f428178f0d26c6efb83877c97371cd10572"
+  },
+  "limits": [
+    "F original packaging/source alterations remain historical assessment; clean G comparison does not certify old ZIP",
+    "SQLcl 26.3 was investigated, not adopted",
+    "no breaking Foundation DDL; E.5 remains assigned"
+  ]
+}

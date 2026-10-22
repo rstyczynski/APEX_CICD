@@ -1,0 +1,47 @@
+{
+  "recorded_at": "2026-10-20T19:09:59.012245+00:00",
+  "scope": "selected APEX global-notification drift; unchanged artifact repeat; no new pending changesets",
+  "rehearsal_target": "E1_INTEGRATION / 810004",
+  "rehearsal_status_preserved": "Restricted Access",
+  "operator_target": "E1_UAT / 810005",
+  "operator_preflight": "read-only PASS Available / 1.0.1 / no notification; 24 YAML files",
+  "artifact_sha256": "6ae41f7a4b3e00e5c76d7bf42c162f428178f0d26c6efb83877c97371cd10572",
+  "native_deployment": {
+    "result": "Operation completed successfully",
+    "run": 0,
+    "previously_run": 26,
+    "drift_rejected": false,
+    "banner_retained": true
+  },
+  "live_change": "H: live change outside release delivery",
+  "definition_comparison": {
+    "native_format": "READABLE_YAML",
+    "files": 24,
+    "changed_detected": true,
+    "after_deploy_equals_drifted": true,
+    "restored_equals_baseline": true,
+    "project_policy_exclusion": "root subscription.version-number only"
+  },
+  "preservation": {
+    "business_fields": "exact equality passed",
+    "component_versions": "unchanged",
+    "changeset_history": "exact equality passed",
+    "publication": "unchanged"
+  },
+  "negative_controls": [
+    "wrong schema/application pair refused",
+    "same comparison refuses changed export",
+    "changed comparison refuses identical export",
+    "unexpected additional attribute detected"
+  ],
+  "native_checksum_observation": "SH256 export and raw SQL include revision state; restoring the attribute does not restore the old raw checksum; raw YAML differs only in subscription.version-number",
+  "browser": "VERIFIER integration desktop views confirmed banner before/after native deployment and absence after restoration; no greeting created",
+  "limits": [
+    "not proof of drift rejection or overwrite during a later changed APEX import",
+    "not schema-wide drift/concurrency coverage",
+    "UAT live edit and repeat left for operator",
+    "no custom admission controller"
+  ],
+  "operator_completed": false,
+  "uat_preparation_baseline_unchanged": true
+}

@@ -1,0 +1,76 @@
+{
+  "scope": "F1 native Working Copy authoring and PROJECT capture rehearsal; not Hello 1.0.1 delivery",
+  "date": "2026-10-20",
+  "versions": {
+    "APEX": "24.2.0",
+    "SQLcl": "25.3.0.0"
+  },
+  "workspace": "E1_DEV_C",
+  "rehearsal_main": 810103,
+  "rehearsal_working_copy": 101,
+  "operator_main": 810003,
+  "operator_main_unchanged": true,
+  "scheduler": {
+    "prior_pdb_job_queue_processes": 1,
+    "observed_running_job": "APEX_240200.ORACLE_APEX_BG_PROCESSES",
+    "approved_cdb_and_pdb_job_queue_processes": 10
+  },
+  "edits": {
+    "copy_page_1_region_name": "Hello World - Working Copy",
+    "main_page_10_title": "Greeting history - Main checkpoint"
+  },
+  "observed": {
+    "compare_changed_pages": [
+      1,
+      10
+    ],
+    "refresh_selected_pages": [
+      10
+    ],
+    "refresh_message": "Your changes have been successfully refreshed!",
+    "merge_selected_pages": [
+      1
+    ],
+    "merge_message": "Your changes have been successfully merged!",
+    "backup_target_app_first": true,
+    "delete_working_copy_after_merge": false,
+    "backup_report": "E2 F1 rehearsal / revision 1 / Initial application backup / Automated Backup",
+    "merged_main_and_copy_both_edits": true,
+    "component_versions": {
+      "Foundation": "1.0.0",
+      "Hello": "1.0.0",
+      "World": "1.0.0"
+    },
+    "original_filter_exported_application_ids": [
+      810003
+    ],
+    "rehearsal_filter_exported_application_ids": [
+      810103
+    ],
+    "private_copy_101_exported": false,
+    "original_filter_export_git_diff": "clean"
+  },
+  "rehearsal_repo": ".local-apex/e2/project-walkthrough/f1-rehearsal-repo",
+  "rehearsal_commit": "fba932783321a710873d3e426f134332933ed441",
+  "operator_repo_commit_unchanged": "87fa1dccd6464a2123e9c425630aa11e4e7afec6",
+  "limits": [
+    "Native Builder controls, saved metadata, native backup presence and PROJECT export/commit observed on separate rehearsal Main; operator execution on 810003 remains for Product Owner verification.",
+    "Runtime checks on operator Main after its future merge remain for Product Owner verification; rehearsal application inherits the source fixture runtime gate and was not used to claim runtime qualification.",
+    "No component version change, staging, patch archive, integration/UAT deployment or fresh/populated patch qualification occurred in F1.",
+    "Backup restore, stale/deletion cases belong to other retained exercise evidence; not repeated in this focused F1 rehearsal.",
+    "The walkthrough was subsequently revised by Product Owner agreement to use a second Working Copy for the independent page 10 edit. This receipt used the original direct-Main simulation; it does not establish execution of the revised two-copy combined journey."
+  ],
+  "sources": [
+    "https://docs.oracle.com/en/database/oracle/apex/24.2/htmdb/about-working-copies.html"
+  ],
+  "evidence": [
+    "project-f1-main-copy-metadata.txt",
+    "project-f1-export-list.txt",
+    "project-f1-export-original-filter.txt",
+    "project-f1-export-rehearsal-main.txt",
+    "project-f1-merge.jpg",
+    "project-f1-backup.jpg",
+    "project-f1-main-home-editor.jpg"
+  ],
+  "screenshot_scope": "Later desktop inspections of retained Main, saved Home region and native backup; not captures of the original merge click or runtime qualification."
+}

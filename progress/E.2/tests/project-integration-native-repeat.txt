@@ -1,0 +1,19 @@
+
+Starting the migration...
+Installing/updating schemas
+--Starting Liquibase at 2026-10-20T09:22:26.048815 using Java 21.0.12.1 (version 4.30.0 #0 built at 2025-04-01 10:24+0000)
+Database is up to date, no changesets to execute
+
+UPDATE SUMMARY
+Run:                          0
+Previously run:              23
+Filtered out:                 0
+-------------------------------
+Total change sets:           23
+
+
+Produced logfile: sqlcl-lb-1792480945949.log
+
+Operation completed successfully.
+
+

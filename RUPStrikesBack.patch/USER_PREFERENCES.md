@@ -41,3 +41,12 @@ hard-code a developer's home directory or host-specific checkout path in
 maintained instructions or scripts. Preserve historical raw evidence as recorded;
 new executable examples must be portable. Keep cleanup/preparation and walkthrough
 chapters/scripts synchronized, with explicit scope and preservation behavior.
+
+## File and directory viewing — 2026-10-20
+
+Use the VS Code `code` command in maintained operating instructions to view
+files and directories on macOS and Windows. Prefer `code path/to/file` and
+`code path/to/directory` over platform-specific viewer commands such as macOS
+`open` or `open -t`. State that the `code` command must be available on PATH.
+This viewing preference does not imply that all other shell commands or
+runtime prerequisites are portable between operating systems.

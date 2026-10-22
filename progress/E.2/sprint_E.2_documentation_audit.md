@@ -561,3 +561,295 @@ output and the scheduler output's blank EOF. Their bytes were preserved. The
 existing .gitattributes evidence-preservation convention was extended to exactly
 those three raw files for trailing/EOF whitespace; code and authored Markdown
 remain checked normally. The subsequent staged diff check passed.
+
+## Handover presentation revision — 2026-10-19
+
+Applied Product Owner terminology and formatting corrections to the current
+presentation and maintained walkthrough/manual/gap decision: SQLcl PROJECT,
+Scope and evidence, and native bullets for parallel items. Agendas/sequences
+retain numbering. Updated the project handover skill's quality adapter with
+list-marker, wrapping and legible desktop-capture guidance.
+The requested desktop views were repeated in a disposable copy, captured and
+abandoned without applying a Main merge. Before/after observed Main state is
+identical. Original raw evidence and archives are unchanged; new captures are
+explicitly labeled repeats. This revision does not complete live handover or
+change sprint/backlog status. Presentation validation and visual inspection
+are recorded with the final revision receipt; no new test suite is introduced.
+
+Final presentation revision: package/layout/font/import validation passed;
+all parallel-item paragraphs contain native bullet markers. Direct PowerPoint
+inspection confirmed the renamed scope slide, bullets and desktop screenshot
+slides 11–13, including both YAML columns, PAGE:1, backup controls and the
+complete missing-component table. The intermediate preview renderer showed
+partial frames; native PowerPoint's repainted views were used to resolve that
+preview discrepancy. The final validated bytes replace the maintained PPTX.
+The [revision manifest](tests/desktop_repeat_manifest.json) binds the separate
+new captures and unchanged-Main receipt. Original run ZIP/manifest are unchanged.
+
+
+## Repository layout in handover — 2026-10-19
+
+Added the observed application Git layout and read-only checkpoint inspection
+to the walkthrough and slides 7/12. The deck now has 22 slides; the walkthrough
+map and handover package count match. Listings use Courier. Replaced the
+initial wrapping layout with one tree entry per line and visible hierarchy;
+direct desktop PowerPoint inspection confirmed intact filenames and command
+lines. Preserved all earlier screenshot evidence and updated the current
+presentation hash in the separate repeat manifest. No sprint acceptance or
+status change is implied.
+
+
+Repository retention wording corrected: the application Git repository retains
+source and history as exercise evidence. Disposable scope refers to laboratory
+runtime resources, not authorization to delete the retained repository. Updated
+slide 7 and the repository-layout explanation; other slide content is unchanged.
+
+## Separate executable walkthrough correction — 2026-10-19
+
+Product Owner identified that the presentation guide was an inspection journey,
+not the E.1-style operating walkthrough required for independent reproduction.
+Created `cicd-walkthrough.md`, following E.1's separation of presentation and
+operator journeys. The new guide follows actual A–E runner pauses and includes
+new-run preparation, Builder application/LOV creation, native initial/patch
+qualification, selective Working Copy refresh/merge, controlled replacement and
+recovery, deletion/abandonment, checkpoint capture, both reconstruction paths,
+identity inspection and declaration/binding rejection. An additional isolated
+PROJECT-adoption recipe covers the existing-repository presentation finding.
+
+By explicit Product Owner instruction, `sprint_E.2_increment_demo.md` was not
+changed for this correction. The manual and handover record link to the new
+guide. Existing E.1 artifacts and raw E.2 observations are preserved.
+
+Validation: all 22 Bash blocks parse with `bash -n`; referenced local files
+exist; existing A–E shell scripts parse; `git diff --check` passes. These are
+static checks, not new-run qualification. Full independent A–E execution and
+the new adoption recipe remain pending; the guide states this at entry and
+at the relevant experiment. Partial B/C/D recovery is not a general stepwise
+resume and remains an explicit operating limitation. Handover acceptance,
+sprint completion and a completed-increment commit are not claimed.
+
+### Builder-login correction
+
+The operator walkthrough now uses the established E.1 password-helper approach:
+`python3 scripts/cicd-password.py E2DEV --run "$E2_RUN"`. Login instructions
+identify the generated author workspace, E2DEV username and retrieved password.
+Focused checks compared the helper's captured output with the retained local
+run credential without displaying it; checked invalid run/account/missing-store
+refusals; and verified existing E.1 key retrieval remains unchanged. All passed;
+`git diff --check` passed. No credential was copied into public evidence. This
+check does not claim the pending independent A–E walkthrough has completed.
+
+### B recovery command audit
+
+Replaced the unsupported manual-continuation stop in the new operating
+walkthrough with B --retry patch. Implementation and focused observations name
+the actual user-run boundary and validation evidence. Recovery preserves initial
+Git/runtime state and repeats the ordinary authoring/review gates; it does not
+add a release-verification waiver. The read-only guard passed against the
+actual run; shell/Python syntax and whitespace checks passed. Full resumed
+interactive execution remains the next operator step, not a fabricated result.
+
+### Replace setup assignments with prepared application access
+
+The operator guide no longer assigns infrastructure/preload/provisioning tasks
+to its reader. The fresh runtime and actual E.1 application checkpoint preload
+were performed; browser greeting/history/component observations and native
+PROJECT capture are recorded in tests/project-preload-validation.json. The
+local credential card is restricted and untracked. Local links and whitespace
+checks pass. Later native staging/deployment/upgrade chapters remain explicitly
+unrehearsed; the full replacement guide is not claimed executable end to end.
+The earlier presentation Markdown and E.1 historical evidence were unchanged.
+
+### Align the native operating guide with E.1
+
+Checked E.1's A–I chapters against the revised E.2 guide. Names, area/application
+identities, qualification-versus-promotion separation, patch preservation,
+incompatible-upgrade rejection, live-drift rejection and bounded repair now align.
+Working Copy authoring remains part of the patch/team-checkpoint journey.
+Corrected the former cross-schema checkpoint shorthand and removed the mistaken
+Hello-versus-Foundation migration comparison. Added per-checkpoint native capture
+filters and explicit two-terminal setup without inherited shell variables.
+Maintained instructions use Git root discovery rather than a developer home path.
+
+Native A/B/C branch capture and World staging passed in an isolated repository;
+no target release was executed. Exact E.1 heading alignment, local links, filter
+IDs, Markdown fences and Bash syntax checks passed. The manual/handover entry
+points now identify the current draft and its actual readiness rather than
+claiming an executable new-run A–E replay. The E.1 historical files and existing
+presentation were untouched. The remaining D–I implementation/rehearsal gaps
+continue to block end-to-end readiness and handover acceptance.
+
+### Replace abstract release-data instructions
+
+Inspected the operator repository: the custom changeset had only its generated
+header and was included after schema objects/triggers. Replaced D1's abstract
+review/commit directions with a versioned candidate initialization payload,
+exact Terminal 2 append/review commands, explicit initialization/guard ordering
+and a concrete migration-authority explanation. The generated custom header is
+retained; repeated append is refused by its marker. Oracle compile-only parsing,
+Bash syntax and focused append checks passed; `git diff --check` passed. Target
+mapping/grants, actual initialization and qualification remain unresolved and
+are not recorded as successful. No target application was changed.
+
+### Independent Oracle delivery stream
+
+Corrected the operating guide's framing: E.2 shares the application scenario and
+acceptance outcomes with E.1, not mandatory implementation mechanisms. The native
+PROJECT migration lifecycle is described directly. Qualification, promotion and
+negative checks evaluate Oracle capabilities first; custom admission/publication
+controls require an evidenced gap rather than automatic adoption. The current
+fixture's actual E1_CTRL dependency remains visible as an inherited constraint,
+not a requirement for the target approach. No fixture gate or runtime was changed
+by this documentation correction. `git diff --check` passed.
+
+### Complete D's mapped native deployment instructions
+
+The Product Owner approved candidate-only native APEX availability controls.
+Updated D1/D2 with reviewed fixture patches, packaged mapping properties, exact
+SQLcl DEFAULTS_FILE definition, concrete archive filename, target checks, native
+restriction/publication API calls, credentials access, browser actions and saved
+row/changeset queries. The original ZIP and author app remain unchanged.
+
+Mapped deployment, verifier/ordinary-user browser behavior, publication and
+identical-archive repeat passed. Every archive member matches application-repo
+commit 87fa1dccd6464a2123e9c425630aa11e4e7afec6. Native verification retains one
+APEX completeness error; the guide distinguishes runtime assessment from formal
+release. The independent-stream framing remains: E1_CTRL is not a required E.2
+release controller. Updated design, implementation, functional evidence and gap
+analysis, preserving historical records. E–I are not claimed delivered by D.
+
+Final D checks passed: exact documented native API blocks, mapping-patch
+reverse checks, Bash syntax, local links, archive/commit file equality, unchanged
+original archive hash, credential-file permissions and `git diff --check`. The
+application repository is clean at its recorded candidate commit. Integration
+810004 remains Available with the VERIFIER and LAB_USER Hello World rows.
+
+### Exact E operations and small wrapper prototype
+
+Replaced E's draft promotion paragraph with explicit Terminal 2 commands, native
+SQLcl/APEX equivalents, UAT URL/account transitions, configuration-dialog actions,
+immutable baseline viewing/checking and preserved-repeat behavior. Prototype
+source, scope and limitations are linked directly. Design, implementation,
+functional observations, gap analysis, README navigation and handover/reference
+headers reflect the UAT result. Historical presentation and E.1 files were not
+edited. The native verification finding remains visible; F–I and production
+concurrency/provenance are not claimed by this prototype. No plan, backlog or
+progress-board status changed.
+
+E's final checks passed: source compilation/AST, documented Bash syntax, local
+links, actual native inspect/deploy/publish/baseline/check-baseline actions,
+zero-changeset repeat and unchanged baseline file hash. Focused comparison checks
+also allow new columns while rejecting missing/changed prior fields. The exact
+wrapper source hash, archive hash, baseline hash and scope are recorded in the
+UAT receipt. Native verification remains a finding, not a waived release gate.
+
+## F1 operator-readiness correction — 2026-10-20
+
+F1 now specifies actual Main/workspace/account, password retrieval, exact edit
+values, region Name versus Page Title, copy/Main switching, comparison completion,
+page selection/direction, backup options, expected success messages, runtime
+inspection, SQLcl list/export and Git review/commit. Script invocations explain
+their purpose before use. Core F capture uses direct SQLcl commands.
+
+Focused native authoring/export rehearsal and retained evidence are recorded in
+[the receipt](tests/project-f1-working-copy-validation.json). Runtime verification
+on unchanged operator Main is explicitly left to the Product Owner's execution.
+Readiness statements distinguish F1 from unfinished F2–I. No root backlog,
+sprint/board status, historical E.1 evidence or presentation snapshot was changed.
+
+## F.2 operator-readiness audit — 2026-10-20
+
+Replaced the unfinished F.2 outline with numbered native source inspection,
+staging/artifact review, fresh qualification, populated-upgrade qualification,
+same-artifact UAT promotion, restricted verification/publication and repeat steps.
+Every supplied command uses actual names, paths and IDs. Prepared operations and
+already-existing archives are explicitly distinguished from actions to execute;
+no undefined INITIAL_BRANCH or ARTIFACT_PATH remains in F.2. SQL/PLSQL fixtures
+explain their effects before invocation. Each action has a required result.
+
+The operator repository is clean on e2-hello-patch/3916ec6. Relative input paths,
+source repeat/export, archive-to-dist equality, initial SQL preservation and
+qualification outputs were checked. Desktop screenshots show the actual fresh
+and upgraded integration application. The operator's F.1 Name/Title deviation is
+recorded; the guide expects its actual runtime display. UAT is still initial,
+with all prior fields unchanged; its planned promotion is not claimed executed.
+Native verification failure and the tested data precondition remain explicit.
+
+Updated readiness pointers in the manual, handover and redesign record. Existing
+PBI-052 and toolchain/pipeline items cover semantic/data-contract and evidence
+follow-up; no new backlog assignment/status was created. Historical E.1 evidence,
+presentation snapshot and root backlog/plan/progress board remain unchanged.
+
+### F.2 operator preparation correction
+
+The walkthrough now creates a separate execution clone at the retained F.1
+checkpoint c79fe9d. The operator runs native release, export, stage, custom SQL
+assembly and artifact generation, then qualifies the new execution-r1 archive.
+Reference archives and the original repository remain intact. A temporary clone
+confirmed the initial release/custom paths are absent and mappings are retained;
+F.2 shell syntax and candidate-name consistency were checked. The complete
+revised operator sequence has not been rerun: retained runtime qualification
+evidence belongs to the reference candidate, not the newly generated archive.
+
+### G operator preparation
+
+G now uses G.1–G.4 sections with separate numbered actions for terminal changes,
+exact commands, explicit expected output, the UAT URL and login card, and no
+manual file edits. The two native PROJECT comparisons and existing-rule rejection
+are attributed separately. Prototype use is explained before each invocation.
+The prepared baseline is verified on repeat rather than recaptured. Final browser
+checks are read-only so they do not invalidate the preserved-state comparison.
+G is ready for operator execution; it is not recorded as operator-completed.
+
+### G.2 clean native verification
+
+Replaced the instruction to expect Errors 1 with a checked SQLcl 25.4.1 native
+configuration/export/staging procedure. The explicit root path and separate
+client/store avoid nested-repository and version-selection mistakes. Native
+commands are visible and terminal changes start separate numbered steps. The
+client installation has a pinned reproducible recipe. The comparison expects
+Errors 0 / Warnings 0 / Info 15 for each declaration and stops on any error.
+No errors are waived in corrected G.2. F's earlier artifacts remain assessment
+evidence; a clean native comparison does not certify their altered APEX payload.
+
+### H ready for operator execution
+
+Replaced the assessment-only placeholder with H.1–H.5 native command sequences,
+separate steps for terminal switches, exact application/connection/URL/login card,
+expected counts/output, and explicit restoration. Each @/Python command has its
+purpose stated before invocation. No manual source or Builder edits are required.
+The chapter expects observed native success with drift, not an invented rejection.
+It distinguishes definition drift from artifact identity and identifies the
+file comparison's sole metadata exclusion. Rehearsal uses integration; actual
+UAT was checked read-only. H remains pending operator execution.
+
+## Product Owner handover publication — 2026-10-22
+
+The current decision brief and new 11-slide decision presentation supersede
+earlier handover-readiness statements above. The historical increment deck remains
+a separate exercise record. README now points to the current brief, gap analysis
+and native walkthrough. G/H state the evaluated native protection gaps; I separates
+unsupported automatic repair from supported but unexercised reviewed forward repair.
+No new H replay is required. F completion remains operator-reported.
+
+Reviewed docs/srs.md, docs/architecture.md, docs/test-profile.md, PLAN.md,
+PROGRESS_BOARD.md, the accepted E.2 design, implementation/test records and README.
+The SRS/architecture retain their accepted E.1 policy baseline; the handover
+recommends future policy refinement rather than silently adopting it. PLAN remains
+Progress and the board's current incomplete handover status remains unchanged.
+The merge request does not declare PBI-051 or the sprint complete.
+
+The [publication checks](tests/handover_commit_checks_20261022.json) record 277
+existing local links, six Python AST checks, two bash -n checks, twelve JSON parses,
+clean PPTX package checks, and the previously rendered/inspected decision deck.
+The decision deck's layout validation reported no findings or warnings.
+Known private credential values were not found in the public changed text.
+No database operation or new native recovery qualification was run for publication.
+Final git diff --check and staged-scope inspection are required immediately before
+commit. The separate local E.1 diagram edits remain excluded.
+
+The staged whitespace check also inspected new files. Retained SQLcl transcripts,
+generated filter inputs and patch context contain original trailing whitespace;
+scoped .gitattributes rules preserve those bytes, consistent with existing evidence
+policy. Two authored Markdown EOF blank lines were removed. No raw evidence was
+rewritten to satisfy whitespace formatting.

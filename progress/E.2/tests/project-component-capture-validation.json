@@ -1,0 +1,45 @@
+{
+  "scope": "Read-only database capture; isolated private Git rehearsal; no target deployment",
+  "checkpoints": [
+    {
+      "checkpoint": "foundation",
+      "schema": "E1_DEV_A",
+      "app": 810001,
+      "branch": "e2-foundation",
+      "commit": "bb2b1efbe20bca2f6ede2e5adf3fd05652c81e08",
+      "application_capture_count": 1
+    },
+    {
+      "checkpoint": "hello",
+      "schema": "E1_DEV_B",
+      "app": 810002,
+      "branch": "e2-hello",
+      "commit": "2f5786d4f2e92508aecc68a3c6c40056d9d17a0a",
+      "application_capture_count": 1
+    },
+    {
+      "checkpoint": "world",
+      "schema": "E1_DEV_C",
+      "app": 810003,
+      "branch": "e2-world",
+      "commit": "c46bf6bb2f46dde3101ed00bb9ecf3e8c69bd4c8",
+      "application_capture_count": 1
+    }
+  ],
+  "delivery_qualified": false,
+  "world_stage": {
+    "baseline": "e2-world-base",
+    "branch": "e2-world",
+    "result": "native stage completed; dist generated",
+    "qualified_release": false
+  },
+  "checks": [
+    "A-I headings match E.1",
+    "Checkpoint filters select 810001/810002/810003 respectively",
+    "Native init/config/export per branch passed",
+    "Native World stage passed",
+    "Local Markdown link targets exist",
+    "Bash code blocks pass bash -n",
+    "Maintained instructions contain no host-specific home path"
+  ]
+}

@@ -10,7 +10,7 @@ and Product Owner decision. The matching [editable presentation](sprint_E.2_incr
 ## Goal and starting state
 
 Give developers flexibility through stable, industry-standard tools and
-techniques. Inspect how PROJECT, Working Copies, Git and useful E.1 controls can
+techniques. Inspect how SQLcl PROJECT, Working Copies, Git and useful E.1 controls can
 coexist, which requirements still need controls, and what genuinely blocks the
 pinned path. This is a disposable Elaboration laboratory, not a production
 rollout or delivery of E.3/E.4/E.5 items.
@@ -23,7 +23,9 @@ the existing installation procedure, not an automatic fallback.
 
 ## 1. Inspect source, versions and owned resources
 
-In one terminal session:
+For the retained-run inspection, use the existing run below in one terminal
+session. Its inventory and repository already exist. `--preflight` checks
+prerequisites without creating a run; `--inspect` requires that run's inventory.
 
 ```bash
 cd "$(git rev-parse --show-toplevel)"
@@ -37,6 +39,11 @@ Expected: loopback FREEPDB1, observed APEX/Database identity, owned resource
 inventory and native repository checkpoints. The private credentials file is
 not part of inspection output. Relevant outcome: PBI-051.1; design A.
 
+Open the [Git repository layout](repository-layout.md) during the handover.
+Show the directory tree and follow its read-only inspection sequence. Trace
+Working Copy outcomes through Main into source and distribution, and identify
+the added component declaration and retained E.1 controls.
+
 Inspect the actual exported source and generated native install hierarchy:
 
 ```bash
@@ -49,7 +56,7 @@ Expected: Main APEX SQL plus readable YAML, bounded schema source, generated
 migrations/custom SQL and explicit component declarations. No ownership marker,
 private Working Copy export or runtime-history replacement data belongs there.
 
-## 2. Inspect PROJECT reconstruction and preservation
+## 2. Inspect SQLcl PROJECT reconstruction and preservation
 
 ```bash
 python3 scripts/cicd-oracle-lifecycle.py snapshot --run "$E2_RUN" --role upgrade
@@ -88,7 +95,7 @@ refresh/merge direction, stale-edit recovery and explicit deletion handling. Sho
 share a schema. Follow the manual's exact controls and the recorded operator
 ledger; do not recreate an earlier failure over the agreed Main checkpoint.
 
-Then inspect the team checkpoint in this same PROJECT repository and both
+Then inspect the team checkpoint in this same SQLcl PROJECT repository and both
 reconstructed page document titles, LOV values and greeting. A lower-level split export/import is a
 labeled comparison from the same Main state, not another maintained live source.
 Relevant outcome: PBI-051.2; design X2.
@@ -154,10 +161,13 @@ results do not substitute for the live review.
 ## Presentation map and reproduction limits
 
 Slides 1–4 establish goal, agenda, responsibilities and scope. Slide 5 maps to
-walkthrough 1. Slides 6–9 map to 2–3 (native lifecycle, verification and existing
-repository probe). Slides 10–14 map to the Working Copy journey in 4. Slides
-15–16 cover reconstruction and the identity gap. Slide 17 maps to admission in
-5. Slides 18–20 map to component contracts, roadmap and decisions in 6.
+walkthrough 1. Slide 6 introduces the native journey; slide 7 shows the actual
+repository layout. Slides 8–10 map to 2–3 (mapping, verification and existing
+repository probe). Slides 11–16 map to Working Copies in 4; slide 12 traces the
+checkpoint into Git and supplies read-only inspection commands. Slides 17–18
+cover reconstruction and the identity gap. Slide 19 maps to admission in 5.
+Slides 20–22 cover component contracts, roadmap and decisions in 6. Repository
+and command listings use Courier; paths remain on individual lines.
 
 [Public run evidence](tests/e2-20261019-01-evidence.zip) retains native candidates,
 logs, receipts, comparison source and a scratch Git bundle. Its
@@ -173,3 +183,14 @@ Read-only preflight/inspection and C/D completion-resume are rehearsed. E
 rehearsal stops at the real review checkpoint, without fabricating a fresh
 human observation. Expected native verification failure is retained. Actual
 Product Owner feedback/acceptance is required in the handover record.
+
+## Presentation formatting and desktop captures
+
+The current deck uses SQLcl PROJECT consistently and the title Scope and evidence.
+Parallel items have editable native bullets; the numbered agenda and ordered
+roadmap keep their numbering. Slides 13–15 show desktop walkthrough repeats
+from the separate E2 desktop walkthrough copy, labeled on the slides and in
+notes. These views illustrate the recorded workflow; the original exercise
+ZIP and captures remain unchanged. The repeat stopped before Confirm Merge
+and was abandoned. Main's observed definitions and rows remained identical;
+see the [repeat ledger](sprint_E.2_tests.md#desktop-presentation-repeat--2026-10-19).

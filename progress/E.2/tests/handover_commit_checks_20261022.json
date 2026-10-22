@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-22",
+  "scope": "E.2 native walkthrough, focused evidence and Product Owner handover publication",
+  "local_links": {
+    "checked": 277,
+    "missing": 0
+  },
+  "syntax": {
+    "python_ast_files": 6,
+    "bash_n_files": 2,
+    "json_files": 12,
+    "result": "pass"
+  },
+  "pptx_package_integrity": {
+    "product_owner_handover_slides": 11,
+    "earlier_increment_slides": 22,
+    "findings": 0
+  },
+  "decision_deck_layout": {
+    "findings": 0,
+    "warnings": 0,
+    "native_tables": [
+      2,
+      5
+    ],
+    "fonts": [
+      "Arial",
+      "Courier"
+    ]
+  },
+  "visual_review": "All 11 slides rendered and inspected during handover authoring; changed screenshot, roadmap and listing slides inspected again after corrections",
+  "known_private_credential_scan": {
+    "public_text_matches": 0,
+    "private_values_not_logged": true
+  },
+  "runtime_reexecuted": false,
+  "test_profile": "focused exercise evidence; no separate automated/regression suites",
+  "limits": [
+    "No new Oracle runtime qualification or PowerPoint-native execution claimed",
+    "Retained F artifacts remain assessment candidates with known verification failure",
+    "G/H protections and I reviewed-repair validation retain reported limits",
+    "No sprint/backlog completion or new adoption decision implied"
+  ],
+  "excluded_local_changes": [
+    "progress/E.1/model.drawio",
+    "progress/E.1/.$model.drawio.bkp"
+  ],
+  "whitespace_policy": "Retained SQLcl transcripts, generated filters and patch context preserve original bytes through scoped .gitattributes rules; authored Markdown EOF whitespace corrected"
+}

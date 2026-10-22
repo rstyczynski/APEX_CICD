@@ -12,6 +12,7 @@ if [[ "$RETRY" = capture ]]; then
   exit
 fi
 resume_completed
+if [[ "$RETRY" != patch ]]; then
 helper checkpoint --run "$RUN_ID" --section B --status in-progress --value 'X1 native PROJECT lifecycle'
 # SQLcl 25.3 stage/verify disagree on slash-containing branch directories.
 # This local experiment uses a recorded slashless branch; the product checkout
@@ -22,6 +23,7 @@ helper project --run "$RUN_ID" --value custom:seed
 helper project --run "$RUN_ID" --value mapping-hook
 pause_for 'Review exported inventory, native generated distribution, mapping hook and intentional seed SQL. Confirm no private Working Copies, ownership tables or runtime business rows were captured.'
 helper project --run "$RUN_ID" --value 'commit:feat: reviewed initial native distribution'
+fi
 assess_candidate() {
   local version="$1" base="$2" native_verify=passed
   if ! helper project --run "$RUN_ID" --value "verify:$base"; then
@@ -55,11 +57,19 @@ assess_candidate() {
     helper preservation --run "$RUN_ID" --role upgrade
   fi
 }
-assess_candidate 1.0.0 e2-empty-base
-git -C "$RUN_PATH/repo" branch e2-initial-baseline
-git -C "$RUN_PATH/repo" checkout -b e2-patch
+if [[ "$RETRY" = patch ]]; then
+  helper patch-resume --run "$RUN_ID"
+  helper checkpoint --run "$RUN_ID" --section B --status observation --value 'Resuming at patch authoring after validating retained initial delivery; no initial operation replayed'
+else
+  assess_candidate 1.0.0 e2-empty-base
+  git -C "$RUN_PATH/repo" branch e2-initial-baseline
+  git -C "$RUN_PATH/repo" checkout -b e2-patch
+fi
 pause_for 'In Main App Builder change page 1 title to E2 Hello patch and application version to 1.0.1. Save.'
-helper titles --run "$RUN_ID" --role author --value 'E2 Hello patch'
+if ! helper titles --run "$RUN_ID" --role author --value 'E2 Hello patch'; then
+  printf 'Patch has not started. Save Main page 1 Title and app Version, then continue with:\nbash scripts/cicd-oracle-lifecycle-B_project.sh --live --run "%s" --retry patch\n' "$RUN_ID" >&2
+  exit 1
+fi
 helper sql --run "$RUN_ID" --role author --file tests/sql/oracle_lifecycle/author_patch.sql
 helper contract-patch --run "$RUN_ID"
 helper project --run "$RUN_ID" --value export
