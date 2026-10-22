@@ -1,0 +1,5 @@
+Owned run: e2-20261019-01
+Operation: guard with unregistered target role foreign
+Observed: Foreign role refused before connection
+No SQL connection or deployment was invoked on this path.
+Limit: registered-target ownership/runtime checks are separate observations.

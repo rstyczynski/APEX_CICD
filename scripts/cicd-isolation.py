@@ -5,9 +5,10 @@ import json
 import re
 import sys
 from apex_sql import ROOT, run
+from cicd_config import load
 from cicd_environments import canonical, display
 
-AREAS = json.loads((ROOT/'config/areas.json').read_text())['areas']
+AREAS = load(ROOT/'config/areas.json')['areas']
 FILES = {'identity':'identity.sql', 'create-probe':'create_probe.sql',
          'deny-read':'deny_read.sql', 'deny-write':'deny_write.sql'}
 

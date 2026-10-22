@@ -1,0 +1,18 @@
+[0;37mThe current connection E1_DEV_C will be used for all operations[0m
+*** TABLES ***
+*** PACKAGE_SPECS ***
+*** PACKAGE_BODIES ***
+*** TRIGGERS ***
+*** APEX_APPLICATIONS ***
+*** REF_CONSTRAINTS ***
+Exporting Workspace E1_DEV_C - application 810003:APEX Delivery Laboratory
+[0;32m--------------------------------
+APEX_APPLICATION               1
+PACKAGE_BODY                   1
+PACKAGE_SPEC                   1
+REF_CONSTRAINT                 2
+TABLE                          7
+TRIGGER                       10
+--------------------------------[0m
+Exported 22 objects
+Elapsed 4 sec

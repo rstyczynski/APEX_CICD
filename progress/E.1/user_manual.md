@@ -534,6 +534,14 @@ sql -nohistory -noupdates -home "$APEX_CICD_CONNECTIONS" -name integration_test
 
 ## Prepare a repeatable walkthrough
 
+First prepare the exact reviewed inputs from the repository root:
+
+```bash
+python3 scripts/cicd-release-inputs.py
+```
+
+See [release-input preparation](cicd-walkthrough.md#prepare-reviewed-release-inputs) for hash checks, full-history requirements and evidence-replay limits. No archive copying from another host is needed.
+
 1. For the requested **fresh-start walkthrough**, follow [the explicit infrastructure lifecycle](../../docs/deploy.md#fresh-walkthrough-infrastructure-sequence): prerequisites precheck, named Podman host preparation, complete lab cleanup and database/APEX/ORDS installation.
 2. Run these as separate operations, waiting for each PASS:
 
@@ -714,3 +722,25 @@ bash scripts/cicd-protection-check.sh drift --show
 The regular drift check with **--show** first verifies protection and unchanged snapshots, then displays the read-only source comparison when drift is detected. A clean target reports no unexpected changes to display. The comparison verifies the selected patch archive against UAT's successful receipt, captures the native live definition and prints changed page values plus a SQL diff. Published lines have a minus sign; live lines have a plus sign. The saved review omits target-offset lines and generated Manifest comments only; a full raw diff and both source trees remain available. Other deployment metadata differences are retained rather than silently treated as page edits. Neither the live definition nor Git is overwritten.
 
 Choose whether to restore the published page/region values in Page Designer or retain the captured edit for Git review and a new release. Restoration is manual and explicit; the tool has no restore action. After restoring all edited attributes, run `bash scripts/cicd-protection-check.sh drift` and require NO DRIFT against the original receipt. If differences remain, inspect again rather than changing the accepted baseline. See the [test profile](../../docs/test-profile.md#read-only-drift-source-review).
+
+
+## Review experiment: stable APEX replacement identity
+
+This native integration test upgrades only private C to Hello 1.0.1 and imports the application twice. It reserves the full C scope, checks a wrong-workspace target is refused, creates one private saved report with public APEX APIs, preserves business snapshots, reuses the installed export's offset and compares report/region IDs. It removes only its saved-report fixture afterward. UAT is untouched. Run only when C has no active task:
+
+```bash
+bash tests/run.sh --integration --new-only tests/manifests/apex_identity.manifest
+```
+
+A failure retains the reservation/checkpoint and native backup for inspection; do not blindly restart it. See [BUG-6](sprint_E.1_bugs.md), [evidence](tests/apex_identity_20261018.txt) and [review decisions](sprint_E.1_review-1-decisions.md). Importer corrections must be packaged in a new reviewed archive; historical artifacts are not edited.
+
+
+## Review experiment: failed additive deployment and forward repair
+
+The [guided I chapter](cicd-walkthrough.md#i-inspect-and-repair-one-failed-additive-deployment) runs one integration-only scenario from verified Git-bound artifacts. A committed history index survives a later deliberate error; original attempts/Liquibase history remain. Normal access is blocked until a separately reviewed repair completes. `observe` displays the precise metadata/fingerprint/business snapshot and its hash; `repair --approve-observation` accepts only that inspected unchanged start. The [native proof](tests/recovery_proof_20261018.txt) includes client/server changed-observation rejection and an unchanged no-op repeat.
+
+```bash
+bash scripts/cicd-walkthrough-I_repair.sh
+```
+
+This changes the disposable integration release identity and adds two experiment changesets; it does not migrate UAT or rewrite an applied migration. A fresh cycle recreates integration explicitly. Other partial states, stale-worker races and complete session fencing remain outside this bounded proof. See [BUG-7](sprint_E.1_bugs.md), [design](sprint_E.1_design.md#bug-7-bounded-repair-experiment) and [test profile](../../docs/test-profile.md).

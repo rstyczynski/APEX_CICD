@@ -1,0 +1,124 @@
+ARCHIVE .local-apex/e2/project-walkthrough/component-repo/artifact/e2-1.0.0-mapped-r1.zip
+SHA256 0377604203edf3674ae5a2b3735da11f108de6f576c879266ea1325d4bf6e0d0
+ASSESSMENT ONLY: native verify retains its documented APEX error.
+
+SQLcl [integration_test]
+connect -name integration_test
+set long 1000000 longchunksize 1000000
+set sqlformat json
+select json_object(
+      'schema' value user,
+      'business_tables' value (select count(*) from user_tables where table_name in
+        ('LAB_COMPONENTS','LAB_STATE','HELLO_ENTRIES','WORLD_ENTRIES',
+         'HELLO_CONFIG','WORLD_CONFIG','GREETING_HISTORY')),
+      'invalid_business' value (select count(*) from user_objects where
+        status='INVALID' and object_type in ('PACKAGE','PACKAGE BODY','TRIGGER')),
+      'application' value (select json_object('id' value application_id,
+        'schema' value owner, 'status' value availability_status)
+        from apex_applications where application_id=810004) format json) as "payload" from dual;
+prompt E2_JSON_END
+set sqlformat ansiconsole
+
+SQLcl [integration_test]
+connect -name integration_test
+set long 1000000 longchunksize 1000000
+set sqlformat json
+select json_object('history' value (select coalesce(json_arrayagg(json_object(*) order by greeting_id returning clob),to_clob('[]')) from greeting_history) format json,
+'hello_entries' value (select coalesce(json_arrayagg(json_object(*) order by entry_id returning clob),to_clob('[]')) from hello_entries) format json,
+'world_entries' value (select coalesce(json_arrayagg(json_object(*) order by entry_id returning clob),to_clob('[]')) from world_entries) format json,
+'hello_config' value (select coalesce(json_arrayagg(json_object(*) order by config_id returning clob),to_clob('[]')) from hello_config) format json,
+'world_config' value (select coalesce(json_arrayagg(json_object(*) order by config_id returning clob),to_clob('[]')) from world_config) format json,
+'components' value (select coalesce(json_arrayagg(json_object(*) order by component returning clob),to_clob('[]')) from lab_components) format json returning clob) as "payload" from dual;
+prompt E2_JSON_END
+set sqlformat ansiconsole
+
+SQLcl [user_acceptance_test]
+connect -name user_acceptance_test
+set long 1000000 longchunksize 1000000
+set sqlformat json
+select json_object(
+      'schema' value user,
+      'business_tables' value (select count(*) from user_tables where table_name in
+        ('LAB_COMPONENTS','LAB_STATE','HELLO_ENTRIES','WORLD_ENTRIES',
+         'HELLO_CONFIG','WORLD_CONFIG','GREETING_HISTORY')),
+      'invalid_business' value (select count(*) from user_objects where
+        status='INVALID' and object_type in ('PACKAGE','PACKAGE BODY','TRIGGER')),
+      'application' value (select json_object('id' value application_id,
+        'schema' value owner, 'status' value availability_status)
+        from apex_applications where application_id=810005) format json) as "payload" from dual;
+prompt E2_JSON_END
+set sqlformat ansiconsole
+TARGET {"schema": "E1_UAT", "business_tables": 7, "invalid_business": 0, "application": {"id": 810005, "schema": "E1_UAT", "status": "Available"}}
+
+SQLcl [user_acceptance_test]
+connect -name user_acceptance_test
+set long 1000000 longchunksize 1000000
+set sqlformat json
+select json_object('history' value (select coalesce(json_arrayagg(json_object(*) order by greeting_id returning clob),to_clob('[]')) from greeting_history) format json,
+'hello_entries' value (select coalesce(json_arrayagg(json_object(*) order by entry_id returning clob),to_clob('[]')) from hello_entries) format json,
+'world_entries' value (select coalesce(json_arrayagg(json_object(*) order by entry_id returning clob),to_clob('[]')) from world_entries) format json,
+'hello_config' value (select coalesce(json_arrayagg(json_object(*) order by config_id returning clob),to_clob('[]')) from hello_config) format json,
+'world_config' value (select coalesce(json_arrayagg(json_object(*) order by config_id returning clob),to_clob('[]')) from world_config) format json,
+'components' value (select coalesce(json_arrayagg(json_object(*) order by component returning clob),to_clob('[]')) from lab_components) format json returning clob) as "payload" from dual;
+prompt E2_JSON_END
+set sqlformat ansiconsole
+
+SQLcl [user_acceptance_test]
+connect -name user_acceptance_test
+cd "/Users/rstyczynski/projects/APEX_CICD/.local-apex/e2/project-walkthrough/component-repo"
+set define on
+define DEFAULTS_FILE=utils/properties/uat.properties
+project deploy -file artifact/e2-1.0.0-mapped-r1.zip
+
+
+Starting the migration...
+Installing/updating schemas
+--Starting Liquibase at 2026-10-20T10:13:12.333544 using Java 21.0.12.1 (version 4.30.0 #0 built at 2025-04-01 10:24+0000)
+Database is up to date, no changesets to execute
+
+UPDATE SUMMARY
+Run:                          0
+Previously run:              23
+Filtered out:                 0
+-------------------------------
+Total change sets:           23
+
+
+Produced logfile: sqlcl-lb-1792483992236.log
+
+Operation completed successfully.
+
+
+
+
+SQLcl [user_acceptance_test]
+connect -name user_acceptance_test
+set long 1000000 longchunksize 1000000
+set sqlformat json
+select json_object(
+      'schema' value user,
+      'business_tables' value (select count(*) from user_tables where table_name in
+        ('LAB_COMPONENTS','LAB_STATE','HELLO_ENTRIES','WORLD_ENTRIES',
+         'HELLO_CONFIG','WORLD_CONFIG','GREETING_HISTORY')),
+      'invalid_business' value (select count(*) from user_objects where
+        status='INVALID' and object_type in ('PACKAGE','PACKAGE BODY','TRIGGER')),
+      'application' value (select json_object('id' value application_id,
+        'schema' value owner, 'status' value availability_status)
+        from apex_applications where application_id=810005) format json) as "payload" from dual;
+prompt E2_JSON_END
+set sqlformat ansiconsole
+
+SQLcl [user_acceptance_test]
+connect -name user_acceptance_test
+set long 1000000 longchunksize 1000000
+set sqlformat json
+select json_object('history' value (select coalesce(json_arrayagg(json_object(*) order by greeting_id returning clob),to_clob('[]')) from greeting_history) format json,
+'hello_entries' value (select coalesce(json_arrayagg(json_object(*) order by entry_id returning clob),to_clob('[]')) from hello_entries) format json,
+'world_entries' value (select coalesce(json_arrayagg(json_object(*) order by entry_id returning clob),to_clob('[]')) from world_entries) format json,
+'hello_config' value (select coalesce(json_arrayagg(json_object(*) order by config_id returning clob),to_clob('[]')) from hello_config) format json,
+'world_config' value (select coalesce(json_arrayagg(json_object(*) order by config_id returning clob),to_clob('[]')) from world_config) format json,
+'components' value (select coalesce(json_arrayagg(json_object(*) order by component returning clob),to_clob('[]')) from lab_components) format json returning clob) as "payload" from dual;
+prompt E2_JSON_END
+set sqlformat ansiconsole
+PASS same-byte UAT deployment; inspect the printed native changeset results
+NEXT browser: VERIFIER greeting/history; LAB_USER must be blocked while Restricted Access. If already Available, this was a preserved repeat.

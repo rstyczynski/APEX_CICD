@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-20",
+  "client": "SQLcl 25.3.0.0 / APEX 24.2",
+  "artifact": ".local-apex/e2/project-walkthrough/component-repo/artifact/e2-1.0.0-mapped-r1.zip",
+  "sha256": "0377604203edf3674ae5a2b3735da11f108de6f576c879266ea1325d4bf6e0d0",
+  "target": {
+    "schema": "E1_INTEGRATION",
+    "workspace": "E1_INTEGRATION",
+    "application_id": 810004,
+    "alias": "E2-INTEGRATION"
+  },
+  "source_application_id": 810003,
+  "mapped_deployment": "passed; 23 changesets",
+  "components": {
+    "Foundation": "1.0.0",
+    "Hello": "1.0.0",
+    "World": "1.0.0"
+  },
+  "restricted_verifier_greeting": "Hello World; VERIFIER; history id 1",
+  "restricted_lab_user": "blocked by native APEX",
+  "publication": "native APEX_APPLICATION_ADMIN",
+  "published_lab_user_greeting": "Hello World; LAB_USER; history id 2",
+  "repeat": "no changesets executed; full history and configuration snapshot identical",
+  "business_snapshot_sha256": "b7289e69785adb85fe4da91113650434fd981841d872c53f89d4fd9b25ac33c2",
+  "native_verify": {
+    "errors": 1,
+    "test": "stagechangelogcomplete",
+    "message": "APEX source not found in stage.changelog; generated APEX changelog is separate",
+    "formal_release_pass": false
+  },
+  "adaptations": [
+    "Oracle paper page 30 defaults-file installer hook",
+    "Exclude source-only E1_CTRL object-grant replay",
+    "Approved candidate-only replacement of E1_CTRL VPD gate with native restricted availability"
+  ],
+  "original_source_and_old_archive_preserved": true,
+  "source_commit": "87fa1dccd6464a2123e9c425630aa11e4e7afec6",
+  "archive_matches_committed_distribution": true,
+  "screenshots": [
+    "tests/project-integration-published-greeting.jpg",
+    "tests/project-integration-published-history.jpg",
+    "tests/project-integration-restricted.jpg",
+    "tests/project-integration-verifier-history.jpg"
+  ],
+  "native_liquibase_metadata_issue": "Generated DATABASECHANGELOG_DETAILS view invalid; application packages/triggers valid"
+}

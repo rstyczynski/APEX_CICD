@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-20",
+  "scope": "E.2 initial UAT runtime-assessment promotion prototype",
+  "artifact": ".local-apex/e2/project-walkthrough/component-repo/artifact/e2-1.0.0-mapped-r1.zip",
+  "sha256": "0377604203edf3674ae5a2b3735da11f108de6f576c879266ea1325d4bf6e0d0",
+  "same_bytes_as_integration": true,
+  "target": {
+    "schema": "E1_UAT",
+    "workspace": "E1_UAT",
+    "application_id": 810005,
+    "alias": "E2-UAT"
+  },
+  "initial_changesets": 23,
+  "repeat_changesets": 0,
+  "native_status": "Available",
+  "browser_verifier_greeting": "Hello World saved; actor VERIFIER",
+  "browser_lab_user_before_publication": "blocked by native restricted access",
+  "browser_lab_user_after_publication": "Hello World saved; actor LAB_USER",
+  "retained_setting": {
+    "hello_prefix": "UAT:",
+    "default_entry": "Hello"
+  },
+  "after_setting_greeting": "UAT:Hello World; prior Hello World rows unchanged",
+  "baseline_counts": {
+    "history": 3,
+    "hello_entries": 1,
+    "world_entries": 1,
+    "hello_config": 1,
+    "world_config": 1
+  },
+  "baseline_sha256": "c611d45e87e4e9b893d3d6feda90aa5ca4cebea5a3c53f0aed753652541272fd",
+  "repeat_preserved_every_business_field": true,
+  "baseline_file_not_overwritten": true,
+  "negative_prototype_checks": [
+    "archive hash mismatch refused",
+    "deploy without explicit assessment flag refused",
+    "changed history field rejected",
+    "changed setting rejected",
+    "additional history row permitted without altering prior rows",
+    "new columns permitted without changing prior fields",
+    "missing prior nullable field rejected"
+  ],
+  "native_verification": {
+    "errors": 1,
+    "test": "stagechangelogcomplete",
+    "message": "APEX source not found in stage.changelog; generated APEX changelog is separate",
+    "formal_release_pass": false
+  },
+  "prototype_boundaries": [
+    "local reviewed qualification record, not a production trust service",
+    "no competing-deployer serialization or request draining proof",
+    "no automated browser acceptance",
+    "no semantic dependency inference"
+  ],
+  "screenshots": [
+    "tests/project-uat-prefix.jpg",
+    "tests/project-uat-published-history.jpg",
+    "tests/project-uat-restricted.jpg",
+    "tests/project-uat-verifier-history.jpg"
+  ],
+  "prototype": "scripts/cicd-project-promote.py",
+  "prototype_sha256": "f7568a8d23d11405a2134061f41df314db6c3c69fd54973ef2d94ea7709c54f7"
+}

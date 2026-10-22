@@ -3,7 +3,7 @@
 ## Basis and decision status
 
 The Product Owner accepted this roadmap and the next-sprint proposal on
-2026-10-16, following acceptance of the README vision. The platform installation is preliminary historical work; I.1 owns the maintained infrastructure lifecycle procedure and its assessment. Sprint 0 is complete. I.1 is closed with all material explicitly accepted by the Product Owner on 2026-10-16; E.1 is now active under that authorization.
+2026-10-16, following acceptance of the README vision. The platform installation is preliminary historical work; I.1 owns the maintained infrastructure lifecycle procedure and its assessment. Sprint 0 is complete. I.1 is closed with all material explicitly accepted by the Product Owner on 2026-10-16; E.1 was subsequently closed by the Product Owner on 2026-10-18; follow-up work remains in the backlog.
 
 ## Completed preliminary work
 
@@ -48,8 +48,10 @@ approving an executable iteration.
 
 ## Elaboration — Validate the risky delivery path
 
-E.1, formerly labeled Sprint 2, is active in managed mode with
-PBI-011 through PBI-016. Use a thin Hello/World slice to validate source export,
+E.1, formerly labeled Sprint 2, concluded in managed mode on 2026-10-18 with
+the demonstrated A–I prototype and recorded remaining work. PBI-018–035 made
+the follow-up visible at closure; E.2–E.5 are now scheduled below. The original objective
+for PBI-011 through PBI-016 follows below as planning context. Use a thin Hello/World slice to validate source export,
 database evolution, packaging, target deployment, and an observable behavior
 change. Reuse existing assets where the accepted design supports them.
 Refine PBI-011 into bounded sprint children before construction, with Product
@@ -61,6 +63,61 @@ compatibility, runner/network constraints, evidence, and remaining limits.
 Revise the approach when evidence contradicts the research. Assess the
 Lifecycle Architecture milestone before committing to full Construction
 scope; retain further Elaboration if needed.
+
+## Elaboration E.2 — E.1 gap analysis and focused exercises
+
+E.2 is active in managed mode with PBI-051, starting from the current E.1 technology.
+The [E.2 scope record](progress/E.2/sprint_E.2_proposedchanges.md) defines a
+source-backed gap analysis against the supplied Oracle lifecycle paper,
+focused exercises to demonstrate material problems or solutions, and the
+established runnable walkthrough. Its outcome is an evidenced retain/replace/
+investigate recommendation, proposed backlog items and a dependency-ordered
+roadmap toward Oracle-recommended delivery. Working Copies and Git authority
+are a compatibility question to investigate, not an assumed product blocker.
+The analysis informs refinement of E.3/E.4; complex upgrades move to E.5.
+The [execution setup](progress/E.2/sprint_E.2_setup.md) records contracting;
+the separate [analysis](progress/E.2/sprint_E.2_analysis.md) establishes the
+problems, evidence and questions that drive exercise selection. Analysis was
+approved on 2026-10-19 after external review. The
+[revised exercise design](progress/E.2/sprint_E.2_design.md) and test specification
+are Proposed for managed approval. No exercise implementation or runtime success
+is claimed; its E.2-specific regression-scope proposal remains unapproved.
+
+## Elaboration E.3 — APEX-native team-centric development
+
+The Product Owner split the Oracle-style exercise on 2026-10-19. E.3 is Planned
+in managed mode and demonstrates shared DEV, page locks, Working Copies and
+APEX Main integration, followed by coordinated Git checkpoints. It establishes
+the native release/deployment, test/coverage, audit and pipeline foundation
+while reproducing the demonstrated E.1 protections and showing mini-app reuse.
+The [E.3 scope and backlog review](progress/E.3/sprint_E.3_proposedchanges.md)
+defines its 15 assigned outcomes, mandatory E.1 comparison and independent handover evidence.
+
+## Elaboration E.4 — Git-based feature-centric development
+
+E.4 is separately Planned in managed mode, depending on E.3's applicable
+accepted native tooling. It demonstrates private APEX branch environments,
+parallel feature branches, PR/conflict integration and central DEV refresh
+from Git main. Its five assigned outcomes also complete private-target
+reconstruction validation, the consolidated guide and independent reproduction
+and comparison of both approaches against E.1. The
+[E.4 scope record](progress/E.4/sprint_E.4_proposedchanges.md) owns that exercise;
+the [plan](PLAN.md) owns both iterations' assignments. Both require exact paper-page and version-specific Oracle-documentation
+traceability, recorded execution evidence and an E.1 comparison at their own
+handover; E.4 also delivers the final three-approach decision package. Neither sprint has
+started. Broader unresolved controls and Lifecycle Architecture acceptance
+remain explicit, evidence-based decisions.
+
+## Elaboration E.5 — Foundation upgrades on the stabilized toolchain
+
+E.5 is the final currently planned Elaboration step, in managed mode with
+PBI-048–050. The [E.5 upgrade scope](progress/E.5/sprint_E.5_proposedchanges.md)
+retains compatible and breaking API/schema evolution, initial data migration,
+legacy-write propagation and separate consumer maintenance windows. Entry
+requires an accepted, reproducible, stabilized technology/toolchain informed
+by E.2 findings and applicable E.3/E.4 evidence. Resolve blockers or refine the
+plan before implementation; the scheduling alone does not establish Lifecycle
+Architecture acceptance or make a particular toolchain the final choice.
 
 ## Construction — Complete the reusable example
 

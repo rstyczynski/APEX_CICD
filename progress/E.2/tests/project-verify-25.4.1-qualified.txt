@@ -1,0 +1,83 @@
+[0;32mProcess completed successfully[0m
+[0;37mThe current connection E1_DEV_C will be used for all operations[0m
+-------- Results Summary ----------
+[0;31mErrors:     2[0m
+[0;33mWarnings:   0[0m
+[0;32mInfo:       13[0m
+---------------------------------
+
+ ------- ----------- -------------------------------------- ---------------------------------- 
+  Level   Group       Test Name                              Message                           
+          Name                                                                                 
+ ------- ----------- -------------------------------------- ---------------------------------- 
+  [0;32mINFO[0m    init        verifyprojectname                      The final project name will be    
+                                                             "e2"                              
+                                                                                               
+  [0;31mERROR[0m   init        initconfigfileschanges                 Comparison with current SQLcl     
+                                                             version:                          
+                                                             Potential new option(s) (1        
+                                                             found) introduced in the current  
+                                                             SQLcl version, please             
+                                                             double-check:                     
+                                                             [sqlcl.autoConnect]               
+                                                                                               
+  [0;32mINFO[0m    stageapex   apexchangelogcomplete                  All Apex apps have been           
+                                                             verified, all staged apps have    
+                                                             an entry in apex changelog.       
+                                                                                               
+  [0;32mINFO[0m    stageapex   apexchangelogfilesvalid                All Apex apps have been           
+                                                             verified, everything is as        
+                                                             expected.                         
+                                                                                               
+  [0;31mERROR[0m   stageapex   apexinsrcmatchesdist                   Apex application(s) exist(s)      
+                                                             under dist, but cannot be found   
+                                                             under src: [f810003]              
+                                                                                               
+  [0;32mINFO[0m    stage       stagechangelogfilesvalid               .dbtools/project.config.json      
+                                                             generated format: liquibase       
+                                                             All included scripts are          
+                                                             present, not cross-referencing    
+                                                             and readable (31 checked)         
+                                                                                               
+  [0;32mINFO[0m    stage       stagesoftobjectisolationsprintchange   Soft objects are present in       
+                                                             changes folder and                
+                                                             SoftObjectIsolation value is set  
+                                                             to change.                        
+                                                                                               
+  [0;32mINFO[0m    stage       stagesoftobjectisolation               SoftObjectIsolation: Change       
+                                                             OK: Code folder is absent.        
+                                                                                               
+  [0;32mINFO[0m    stage       stageduplicateentries                  .dbtools/project.config.json      
+                                                             generated format: liquibase       
+                                                             dist/releases/main.changelog.xml  
+                                                             - There are no duplicate          
+                                                             entries.                          
+                                                             Release Changelogs - There are    
+                                                             no duplicate entries.             
+                                                             Stage Changelogs - There are no   
+                                                             duplicate entries.                
+                                                                                               
+  [0;32mINFO[0m    stage       stagechangelogcomplete                 Stage Changelog validation found  
+                                                             no issues.                        
+                                                                                               
+  [0;32mINFO[0m    stage       stagesourcediff                        All modified files are            
+                                                             represented in dist folder        
+                                                             All changes in dist folder are    
+                                                             represented in src folder         
+                                                                                               
+  [0;32mINFO[0m    project     sqlclversion                           SQLcl Version check passed        
+                                                                                               
+  [0;32mINFO[0m    export      exportvalidatefilters                  Filters validation is             
+                                                             successful.                       
+                                                                                               
+  [0;32mINFO[0m    export      exportformatterrules                   The XML parsing of                
+                                                             project.sqlformat.xml file        
+                                                             passed successfully.              
+                                                             Keys and values for               
+                                                             project.sqlformat.xml are all     
+                                                             valid.                            
+                                                                                               
+  [0;32mINFO[0m    snapshot    verifysnapshot                         Snapshot validation found no      
+                                                             issues.                           
+                                                                                               
+

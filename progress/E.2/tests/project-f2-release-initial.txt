@@ -1,0 +1,13 @@
+
+Creating a release version 1.0.0 for the current body of work
+
+Created dir:   dist/releases/next/changes/e2-hello-patch
+Created dir:   dist/releases/next/changes/e2-hello-patch/_custom
+Created change:dist/releases/next/changes/e2-hello-patch/stage.changelog.xml
+Updated change:dist/releases/main.changelog.xml
+Moved folder "dist/releases/next" to "dist/releases/1.0.0"
+Created file:  dist/releases/next
+Created change:dist/releases/next/release.changelog.xml
+Created change:dist/releases/next/release.changelog.xml
+Created file:  f2-rehearsal-repo/.dbtools/project.config.json
+Process completed successfully

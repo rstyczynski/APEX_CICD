@@ -1,0 +1,10 @@
+
+PASS whitespace-only Hello rejected with ORA-20314
+PASS Hello 1.0.1 normalization; verification inserts rolled back
+
+
+COMPONENT  INSTALLED VERSION 
+__________ _________ _______ 
+Foundation         1 1.0.0   
+Hello              1 1.0.1   
+World              1 1.0.0   

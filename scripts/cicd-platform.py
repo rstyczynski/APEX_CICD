@@ -9,8 +9,10 @@ import subprocess
 
 from apex_sql import LOCAL, ROOT, run
 from cicd_environments import canonical, display
+from cicd_config import load, identifier
+import re
 
-CONFIG = json.loads((ROOT / 'config/areas.json').read_text())
+CONFIG = load(ROOT / 'config/areas.json')
 
 
 def owned_inventory():
@@ -40,12 +42,16 @@ def credentials(keys):
     for key in keys:
         private.setdefault(key, 'Ee1_' + random_secrets.token_hex(18))
     fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
+    os.fchmod(fd, 0o600)
     with os.fdopen(fd, 'w') as f:
         json.dump(private, f)
     return private
 
 
 def create_schema(user, private):
+    identifier(user)
+    if not isinstance(private.get(user), str) or not re.fullmatch(r'[A-Za-z0-9_#]+', private[user]):
+        raise ValueError('Unsafe lab schema password')
     run(f"""declare n number; begin
       select count(*) into n from dba_users where username='{user}';
       if n=0 then

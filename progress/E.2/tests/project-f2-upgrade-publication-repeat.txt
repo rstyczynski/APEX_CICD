@@ -1,0 +1,31 @@
+
+PASS captured all business fields before deployment in E1_INTEGRATION
+
+PASS exact business fields unchanged by deployment in E1_INTEGRATION
+
+PASS captured all business fields before deployment in E1_INTEGRATION
+
+Starting the migration...
+Installing/updating schemas
+--Starting Liquibase at 2026-10-20T14:08:27.552031 using Java 21.0.12.1 (version 4.30.0 #0 built at 2025-04-01 10:24+0000)
+Database is up to date, no changesets to execute
+
+UPDATE SUMMARY
+Run:                          0
+Previously run:              26
+Filtered out:                 0
+-------------------------------
+Total change sets:           26
+
+
+Produced logfile: sqlcl-lb-1792498107475.log
+
+Operation completed successfully.
+
+
+PASS exact business fields unchanged by deployment in E1_INTEGRATION
+
+
+APPLICATION_ID OWNER          AVAILABILITY_STATUS 
+______________ ______________ ___________________ 
+        810004 E1_INTEGRATION Available           

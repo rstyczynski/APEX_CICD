@@ -44,11 +44,11 @@ text(s,'One application. A repeatable delivery path.\nEvidence at every gate.',6
 text(s,'Oracle APEX CI/CD Laboratory · 18 October 2026',65,590,1050,50,24,'#DCE7EB');
 
 s=slide('Review agenda',['progress/E.1/cicd-walkthrough.md']);
-body(s,['1. The application, source and delivery roles','2. A–F: assembly, release and compatible patch','3. G–H: incompatible upgrade and live drift','4. Evidence, remaining risks and next decision'],65,175,1140,31,104);
+body(s,['1. The application, source and delivery roles','2. A–F: assembly, release and compatible patch','3. G–I: incompatibility, drift and forward repair','4. Evidence, remaining risks and next decision'],65,175,1140,31,104);
 
 s=slide('The selected prototype',['progress/E.1/sprint_E.1_design.md','config/areas.json']);
 body(s,['One APEX application per area on one Oracle host','Foundation, Hello and World share one Git repository','Private A/B/C areas, disposable integration_test, retained UAT','Supported Oracle interfaces and small operator scripts'],65,175,1140,29,90);
-label(s,'Full concurrency, complete fencing and failed-deployment repair remain open',65,565,1130,C.red,26);
+label(s,'Bounded repair is proved; concurrency and complete fencing remain open',65,565,1130,C.red,26);
 
 s=slide('The delivery path',['progress/E.1/model.drawio','progress/E.1/repo_layout.md']);
 const lanes=[
@@ -140,16 +140,17 @@ note(s,'No CI provider, repository server or production target is selected. Exis
 
 s=slide('Walkthrough',['progress/E.1/cicd-walkthrough.md'],true);
 text(s,'The Product Owner sees\nresults after each operation',65,240,1110,160,48,C.white,true);
-text(s,'The following slides follow the implemented A–H journey',65,490,1130,75,29,'#DCE7EB');
+text(s,'The following slides follow the implemented A–I journey',65,490,1130,75,29,'#DCE7EB');
 
 s=slide('Infrastructure and project setup',['docs/deploy.md','progress/E.1/cicd-walkthrough.md']);
 text(s,'Fresh replay only: destruction removes every lab database row',65,160,1120,62,27,C.red,true);
-command(s,'bash scripts/cicd-walkthrough-prerequisites.sh',245);
-command(s,'bash scripts/cicd-walkthrough-host.sh',305);
-command(s,'bash scripts/apex-destroy.sh',365);
-command(s,'bash scripts/cicd-walkthrough-apex-init.sh',425);
+command(s,'python3 scripts/cicd-release-inputs.py',225);
+command(s,'bash scripts/cicd-walkthrough-prerequisites.sh',280);
+command(s,'bash scripts/cicd-walkthrough-host.sh',335);
+command(s,'bash scripts/apex-destroy.sh',390);
+command(s,'bash scripts/cicd-walkthrough-apex-init.sh',445);
 body(s,['Then initialize E1_CTRL and provision each named area separately.','Expected result: vanilla DB/APEX/ORDS first, then empty isolated project areas.'],65,535,1140,25,63);
-note(s,'Full commands, credentials, separate area provisioning and developer login setup are in companion Markdown stage 2. Infrastructure initialization cannot create project schemas. This is a previously rehearsed destructive fresh-start path, not a new run performed for this handover.');
+note(s,'Full commands, credentials, separate area provisioning and developer login setup are in companion Markdown stage 2. Infrastructure initialization cannot create project schemas. An independent clean-checkout A–I rehearsal passes at 54c0fd3 using a new empty engine, fresh credentials, reconstructed archives and explicit runtime API fixtures. Browser acceptance is separate.');
 
 s=slide('A–C: assemble the application',['progress/E.1/cicd-walkthrough.md','progress/E.1/model.drawio']);
 command(s,'bash scripts/cicd-walkthrough-A_foundation.sh',170);
@@ -233,27 +234,36 @@ note(s,'Current manual restoration is pending the Product Owner decision. Do not
 s=slide('Verification and recovery limits',['progress/E.1/sprint_E.1_tests.md','scripts/cicd-walkthrough-E_promotion.sh']);
 body(s,['Missing VERIFIER greeting: publication stops, then the prompt allows correction.','Post-publication fixture failure: delivery stays successful and history stays saved.','A bounded continuation resumes the matching checkpoint without reinstalling.'],65,175,1140,29,110);
 command(s,'bash scripts/cicd-walkthrough-E_promotion.sh --resume-examples',540,24);
-label(s,'These operator continuations do not prove automated repair of a failed database migration.',65,615,1140,C.red,24);
+label(s,'Checkpoint continuation is distinct from the additive-DDL repair shown next.',65,615,1140,C.red,24);
 note(s,'Observed E failures were ORA-20619 missing runtime snapshot and ORA-20304 fixture relying on an unset World default. Fixes: checkpoint-bound verification resume/missing-data retry, and explicit active-entry selections with post-publication example continuation. No new application release or general recovery contract was implied.');
+
+s=slide('I: repair a failed additive deployment',['scripts/cicd-walkthrough-I_repair.sh','progress/E.1/tests/recovery_proof_20261018.txt']);
+const failed=box(s,'First DDL commits\nSecond step fails',65,185,330,120,29);
+const inspect=box(s,'Inspect retained state\nApprove its exact hash',475,185,330,120,29);
+const repaired=box(s,'Apply reviewed repair\nPublish ready state',885,185,330,120,29);
+link(s,failed,inspect);link(s,inspect,repaired);
+body(s,['Failure keeps ownership and blocks ordinary runtime access.','Repair preserves prior DDL, all history and configuration.','Repeated repair is a no-op; changed partial state is rejected.'],65,360,1140,27,72);
+command(s,'bash scripts/cicd-walkthrough-I_repair.sh',605,25);
+note(s,'Bounded integration_test experiment only. A deliberately failed Liquibase changeset follows one successful additive index. A separate source-bound repair archive retains the first successful changeset identity and adds forward completion. Observation hash approval and database recheck precede repair. No checksum clearing, rollback of business history or arbitrary recovery claim.');
 
 s=slide('Evidence and remaining work',['PROGRESS_BOARD.md','progress/E.1/sprint_E.1_tests.md'],true);
 text(s,'The selected journey works.\nThe broader architecture still needs proof.',65,240,1130,180,46,C.white,true);
 text(s,'Prototype results and full sprint acceptance are separate decisions',65,515,1130,75,28,'#DCE7EB');
 
 s=slide('Delivered evidence and official status',['PROGRESS_BOARD.md','progress/E.1/sprint_E.1_assessment.md']);
-body(s,['PBI-011.1 and 011.3: tested on the board','PBI-011.2, 011.4, 011.6 and 011.7: under construction','PBI-011.5: under construction, with concurrent integration still unproved','PBI-011.8: failed additive deployment and repair remain unimplemented'],65,170,1140,28,90);
+body(s,['PBI-011.1 and 011.3: tested on the board','PBI-011.2, 011.4, 011.6 and 011.7: under construction','PBI-011.5: under construction, with concurrent integration still unproved','PBI-011.8: bounded additive failure/repair proved; broader acceptance remains open'],65,170,1140,28,90);
 label(s,'PBI-012–016 remain under_design. This handover proposes conclusions and follow-up, not status changes.',65,570,1140,C.red,25);
 
 s=slide('The remaining Elaboration proofs',['progress/E.1/sprint_E.1_design.md','docs/test-profile.md']);
-body(s,['Atomic contention: synchronized Hello competitors, exactly one winner','Parallel work: independent Hello/World contributions and safe integration','Maintenance: stale workers, in-flight sessions and verifier revocation','Recovery: schema drift and one failed additive deployment with history-preserving repair'],65,170,1140,28,108);
+body(s,['Atomic contention: synchronized Hello competitors, exactly one winner','Parallel work: independent Hello/World contributions and safe integration','Maintenance: stale workers, in-flight sessions and verifier revocation','Recovery: broader schema drift and unsupported partial database states'],65,170,1140,28,108);
 note(s,'Existing scope: PBI-011.2/.5/.7/.8, validation under PBI-012; original IT-6/7/8/9/12. These are registered child definitions, not newly scheduled sprints. Dedicated measurements and all full-suite gates remain incomplete.');
 
 s=slide('Recommended next step',['progress/E.1/sprint_E.1_assessment.md','ROADMAP.md']);
-body(s,['Retain the demonstrated delivery and protection slice as E.1 evidence.','Run one bounded Elaboration follow-up for concurrency, fencing and forward repair.','Reassess Lifecycle Architecture before committing to full Construction.'],65,185,1140,31,115);
+body(s,['Retain the demonstrated delivery and protection slice as E.1 evidence.','Run one bounded Elaboration follow-up for concurrency, fencing and broader drift controls.','Reassess Lifecycle Architecture before committing to full Construction.'],65,185,1140,31,115);
 label(s,'A follow-up sprint and revised scope require Product Owner selection. No new sprint is activated here.',65,600,1140,C.muted,24);
 
 s=slide('Product Owner review decision',['progress/E.1/sprint_E.1_handover.md'],true);
-body(s,['Does the handover explain and demonstrate the selected A–H outcomes?','Should the current manual edit be restored or retained for Git review?','Which remaining proofs should the next Elaboration increment prioritize?'],65,200,1140,31,115);
+body(s,['Does the handover explain and demonstrate the selected A–I outcomes?','Should the current manual edit be restored or retained for Git review?','Which remaining proofs should the next Elaboration increment prioritize?'],65,200,1140,31,115);
 // Dark slide body contrast.
 // Explicitly restyle body text on the dark ending.
 for(const sh of s.shapes.items){if(sh.position.top>=190 && sh.position.top<650) sh.text.color=C.white;}

@@ -4,7 +4,39 @@
 
 ## Decision status
 
-Current E.1 evidence is summarized in the [handover](../progress/E.1/sprint_E.1_handover.md) and [completion assessment](../progress/E.1/sprint_E.1_assessment.md). The selected A–H delivery/protection slice is demonstrated; concurrency, full maintenance fencing, scoped schema drift and failed additive deployment repair still prevent full Lifecycle Architecture acceptance. Historical I.1 future-tense statements below describe the analysis baseline; use the linked assessment for implementation status.
+The [E.2 analysis scope](../progress/E.2/sprint_E.2_proposedchanges.md) uses
+E.1's existing technology to assess the approach against the Oracle lifecycle
+paper and applicable official guidance. Focused exercises establish evidence
+for gaps, solutions and blockers before recommending retained or replacement
+mechanisms and the evolution roadmap. Tool limitations and policy conflicts
+must be distinguished; the target toolchain is not presumed validated.
+
+The Product Owner approved E.2 analysis on 2026-10-19. Its
+[accepted exercise design](../progress/E.2/sprint_E.2_design.md) uses isolated
+reduced fixtures and distinguishes native capabilities from a bounded bridge
+to existing component-dependency checks. It is not an accepted replacement
+architecture or a change to the E.1-stage policies stated below. The
+[construction record](../progress/E.2/sprint_E.2_implementation.md),
+[observed results](../progress/E.2/sprint_E.2_tests.md) and
+[gap-analysis draft](../progress/E.2/oracle-gap-analysis.md) distinguish
+successful mapped candidate delivery from the native verification release block
+and changed region identities on mapped replacement. Both require follow-up
+qualification before adoption.
+The final evolution decision and live handover remain pending.
+
+The [E.5 upgrade scope](../progress/E.5/sprint_E.5_proposedchanges.md) records
+the planned Foundation API/schema coexistence scenario. Initial data migration
+and legacy writes to both schema representations are agreed scenario inputs;
+transaction mechanics, shared-data visibility, version binding and recovery
+remain design decisions. The application-wide maintenance approach below must
+be refined before claiming independent consumer maintenance and availability.
+E.5 follows acceptance of the stabilized technology/toolchain.
+
+The [E.3 scope](../progress/E.3/sprint_E.3_proposedchanges.md) plans the APEX-native team-centric path and shared native release/test foundation; the [E.4 scope](../progress/E.4/sprint_E.4_proposedchanges.md) plans the separate Git-based feature-centric path, including validation of branch-instance identities. Both are Planned. Their designs must replace or justify custom release responsibilities while keeping APEX Main integration distinct from Git main integration. The E.1 mechanisms below describe the earlier candidate and demonstrated implementation, not a mandate to reproduce its custom packager.
+
+Both planned iterations must satisfy the [strict Oracle traceability and E.1 comparison contract](../progress/E.3/sprint_E.3_proposedchanges.md#strict-oracle-traceability-and-comparison-contract): scenario-level paper pages and applicable official version-specific Oracle guidance, executed evidence, explicit deviation dispositions and decision-ready comparisons at each handover.
+
+Current E.1 evidence is summarized in the [handover](../progress/E.1/sprint_E.1_handover.md) and [completion assessment](../progress/E.1/sprint_E.1_assessment.md). E.1 was closed on 2026-10-18 after the selected A–I slice, including bounded repair, passed. Remaining concurrency, complete maintenance fencing, scoped schema drift and broader acceptance proofs are recorded in the follow-up backlog before full Lifecycle Architecture acceptance. Historical I.1 future-tense statements below describe the analysis baseline; use the linked assessment for implementation status.
 
 Accepted as the revised I.1 analysis direction by the Product Owner on 2026-10-16, with the presentation wording correction. This is a direction for Elaboration validation, not a validated architecture baseline or E.1 construction approval. The [SRS](srs.md) owns behavior and scope; the [research](cicd-research.md) owns alternatives and source provenance. PBI-009 owns this document.
 
@@ -232,3 +264,15 @@ UC-5 recovery links the failed attempt, its immutable artifact, last successful 
 Retry unchanged archive bytes only when inspection proves safe repeat/resume. Corrected code or migrations require a new reviewed immutable artifact, qualified in a disposable reconstruction of the supported partial state. Ordinary integration_test against a successful baseline is insufficient. Preserve old success/failure receipts and never edit applied changesets or the original archive. Exercise the chosen committed-DDL failure and supported forward repair; no general arbitrary-state repair engine is promised. Repair executes automatically after the operator's decision and must pass the same maintenance/verification/final-state controls before recording success.
 
 E.1 must validate export stability/coverage, schema drift scope, connection isolation, the A/B/C delivery cycle and early Hello reservation race, version compatibility, stale-target rejection, state inheritance/enforcement, race/interruption handling, repeat deployment and forward repair. None has been executed in I.1. If the controller becomes disproportionate, compare the same slice with PROJECT and return material changes for approval. The [test profile](test-profile.md) defines future cases; the [plan proposal](../progress/I.1/sprint_I.1_proposedchanges.md) preserves E.1's prototype decomposition gate. E.1 is active; its proposed design requires approval before construction.
+
+
+## Reviewed replacement identity correction
+
+The [BUG-6 experiment](../progress/E.1/tests/apex_identity_20261018.txt) verifies replacement imports retain native region IDs and one private saved report in C. The importer obtains the existing offset through a supported native application export, rejects missing/malformed/wrong-workspace context and uses SET_OFFSET for replacement; GENERATE_OFFSET remains only for fresh application installation. It does not query or update private APEX repository tables. Oracle documents [GENERATE_OFFSET](https://docs.oracle.com/en/database/oracle/apex/24.2/aeapi/GENERATE_OFFSET-Procedure.html), [SET_OFFSET](https://docs.oracle.com/en/database/oracle/apex/24.2/aeapi/SET_OFFSET-Procedure.html) and [CLONE_REPORT](https://docs.oracle.com/en/database/oracle/apex/24.2/aeapi/CLONE_REPORT-Function.html). The [operator experiment](../progress/E.1/user_manual.md#review-experiment-stable-apex-replacement-identity) and [bug register](../progress/E.1/sprint_E.1_bugs.md) distinguish tested importer behavior from the pending corrected release artifact. This one report test is not general session/subscription preservation evidence.
+
+
+## Bounded failed-additive repair proof
+
+[BUG-7 evidence](../progress/E.1/tests/recovery_proof_20261018.txt) exercises one integration-only partial state: a successful index changeset followed by deliberate failure. A separate E1_CTRL recovery interface retains failure/repair attempts in the existing target epoch/ownership model. The partial observation covers history-table index identities, migration receipts, the APEX fingerprint and all existing business fields. Operator-approved observation identity and a database-side recheck gate the new immutable repair artifact before DDL. A new changeset completes the addition; original successful/failed histories are not rewritten. The ready gate and successful repair receipt commit together. Wrong targets, changed observations and unrelated artifacts reject; unchanged repeats write nothing.
+
+This is an executable architectural experiment, not a general recovery protocol, arbitrary-state migration engine or completed stale-worker/request-fencing proof. The [I operator chapter](../progress/E.1/cicd-walkthrough.md#i-inspect-and-repair-one-failed-additive-deployment), [selected design](../progress/E.1/sprint_E.1_design.md#bug-7-bounded-repair-experiment) and [review decisions](../progress/E.1/sprint_E.1_review-1-decisions.md) own its usage, limits and selection.

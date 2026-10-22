@@ -1,0 +1,102 @@
+{
+  "date": "2026-10-20",
+  "scope": "Prepared F.2 native PROJECT compatible Hello assessment; UAT promotion reserved for operator execution",
+  "source_commit": "3916ec62bc75872ec7fd3b75346c4d7889956519",
+  "f1_commit_preserved": "c79fe9d",
+  "artifact": ".local-apex/e2/project-walkthrough/component-repo/artifact/e2-1.0.1-assessment-r1.zip",
+  "sha256": "e1063f78aab39ec4315d12eda6871286762df36e1a3711f5bd6ba874e9174a46",
+  "initial_artifact": ".local-apex/e2/project-walkthrough/component-repo/artifact/e2-1.0.0-mapped-r1.zip",
+  "initial_sha256": "0377604203edf3674ae5a2b3735da11f108de6f576c879266ea1325d4bf6e0d0",
+  "native_verify": {
+    "errors": 1,
+    "warnings": 0,
+    "info": 7,
+    "finding": "stagechangelogcomplete lists frozen initial files and separate APEX source",
+    "formal_release_pass": false
+  },
+  "runtime_qualification": {
+    "target": "E1_INTEGRATION / application 810004",
+    "fresh": {
+      "run": 26,
+      "previously_run": 0,
+      "component_triple": [
+        "Foundation 1.0.0",
+        "Hello 1.0.1",
+        "World 1.0.0"
+      ],
+      "behavior_checks": "passed; verification inserts rolled back",
+      "verifier_browser_greeting": "Hello World",
+      "lab_user_restricted": "Hello patch verification in progress.",
+      "published_lab_user_greeting": "Hello World"
+    },
+    "upgrade": {
+      "initial_reconstruction_run": 23,
+      "run": 4,
+      "previously_run": 22,
+      "data_precondition": "No existing Hello entry is whitespace-only",
+      "retained_prefix": "QUAL:",
+      "retained_pre_upgrade_greeting": "QUAL:Hello World",
+      "exact_business_comparison": "passed using native SQLcl CLOB bind and Oracle JSON_EQUAL across project deploy",
+      "verifier_browser_greeting": "QUAL:Hello World",
+      "lab_user_restricted": "Hello patch verification in progress.",
+      "published_lab_user_greeting": "QUAL:Hello World"
+    },
+    "repeat": {
+      "run": 0,
+      "previously_run": 26,
+      "exact_business_comparison": "passed",
+      "availability": "Available"
+    }
+  },
+  "uat": {
+    "preparation_modified": false,
+    "application_id": 810005,
+    "availability": "Available",
+    "components": {
+      "Foundation": "1.0.0",
+      "Hello": "1.0.0",
+      "World": "1.0.0"
+    },
+    "prefix": "UAT:",
+    "history_rows": 5,
+    "all_business_and_component_fields_equal_before_after": true,
+    "promotion": "pending Product Owner execution"
+  },
+  "author_business_preservation": "passed; component declaration intentionally updated to Hello 1.0.1",
+  "f1_captured_metadata": {
+    "page1_region": "Hello World - Working Copy",
+    "page10_name": "Greeting history - Main checkpoint",
+    "page10_title": "Greeting history"
+  },
+  "initial_sql_preservation": "24 initial SQL files preserved byte-for-byte; initial applied identities retained",
+  "focused_guards": {
+    "changed_configuration": "rejected ORA-20890; SQLcl failure rollback restored probe",
+    "reset_under_author_identity": "rejected ORA-20896 before destructive statements",
+    "relative_sql_paths": "passed",
+    "source_export_repeat": "clean Git state"
+  },
+  "limits": [
+    "No formal native verification pass. Runtime assessment only.",
+    "UAT 1.0.1 deployment/publication and browser observations remain for operator execution.",
+    "JSON_EQUAL assertion is project-authored SQL using native Oracle primitives; PROJECT does not automatically check business preservation.",
+    "Native CLOB baseline requires the same SQLcl session and exact row equality before new browser writes; it complements the durable E6 baseline.",
+    "Compatibility applies to the tested component/data baseline; no semantic-version classification is inferred by PROJECT.",
+    "No Foundation upgrade, hosted pipeline, concurrent deployer or partial-failure recovery claim."
+  ],
+  "evidence": [
+    "project-f2-operator-release-initial.txt",
+    "project-f2-operator-stage.txt",
+    "project-f2-operator-verify-build.txt",
+    "project-f2-fresh-deploy.txt",
+    "project-f2-upgrade-initial.txt",
+    "project-f2-upgrade-deploy.txt",
+    "project-f2-upgrade-publication-repeat.txt",
+    "project-f2-fresh-greeting.jpg",
+    "project-f2-fresh-restricted.jpg",
+    "project-f2-fresh-published.jpg",
+    "project-f2-upgrade-history.jpg",
+    "project-f2-upgraded-components.jpg",
+    "project-f2-comparison-negative.txt",
+    "project-f2-reset-refusal.txt"
+  ]
+}

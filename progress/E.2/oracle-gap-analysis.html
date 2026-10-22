@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>E.2 — Oracle lifecycle gap analysis</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<h1 id="e2--oracle-lifecycle-gap-analysis">E.2 — Oracle lifecycle gap
+analysis</h1>
+<p><strong>Recommendation:</strong> use SQLcl PROJECT, APEX Working
+Copies and Git together. Retain supplementary controls only where native
+capabilities do not meet the requirement. Adoption still requires
+toolchain and protection qualification.</p>
+<p><strong>Give developers flexibility through stable, industry-standard
+tools and techniques.</strong></p>
+<h2 id="what-works">What works</h2>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Finding</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROJECT capture, staging and packaging</td>
+<td>Captures APEX/database source and generates a deployable Liquibase
+distribution.</td>
+<td><a href="tests/project-component-capture-validation.json">Capture
+receipt</a></td>
+</tr>
+<tr>
+<td>Initial delivery and compatible Hello upgrade</td>
+<td>Fresh installation, populated upgrade and repeat succeeded in
+integration. The same artifact can be promoted with target
+mappings.</td>
+<td><a href="tests/project-integration-mapped-validation.json">Initial
+delivery</a>, <a
+href="tests/project-f2-upgrade-validation.json">upgrade</a></td>
+</tr>
+<tr>
+<td>Working Copies → Main → Git</td>
+<td>Selective refresh/merge and capture of agreed Main changes work.
+Team checkpoints belong to this flow. Private copies need not become
+release sources.</td>
+<td><a href="tests/project-f1-working-copy-validation.json">Working Copy
+receipt</a></td>
+</tr>
+<tr>
+<td>Native runtime access controls</td>
+<td>Restricted verifier access and publication replace the exercised
+E1_CTRL runtime access gate. They do not replace its other
+responsibilities.</td>
+<td><a href="tests/project-integration-mapped-validation.json">Mapped
+deployment receipt</a></td>
+</tr>
+<tr>
+<td>Shared-instance targets</td>
+<td>Workspace, schema and application mappings work through the
+documented installer/defaults-file hook. Separate-instance qualification
+remains open.</td>
+<td><a href="tests/project-integration-mapped-validation.json">Mapped
+deployment receipt</a></td>
+</tr>
+</tbody>
+</table>
+<p>The Product Owner reported F completed, including UAT upgrade.
+Retained preparation receipts describe their own earlier integration
+runs; they are not a transcript of that operator execution.</p>
+<p>Oracle basis: <a
+href="../../refs/apex-lifecycle-management-v3.pdf">lifecycle paper</a>,
+<a
+href="https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.3/sqcug/project.html">SQLcl
+25.3 PROJECT</a>, <a
+href="https://docs.oracle.com/en/database/oracle/apex/24.2/htmdb/about-working-copies.html">APEX
+24.2 Working Copies</a>.</p>
+<h2 id="g-h-and-i--native-support-gaps">G, H and I — native support
+gaps</h2>
+<p>“Not supported” below refers to the specified automatic capability in
+the evaluated APEX/SQLcl PROJECT workflow.</p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Native support</th>
+<th>Consequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>G: component version dependency protection</strong></td>
+<td><strong>Not supported.</strong> Clean PROJECT verification accepted
+both allowed and conflicting component declarations.</td>
+<td>Keep explicit component contracts and supplementary compatibility
+admission. <a
+href="tests/project-verify-fix-validation.json">Evidence</a></td>
+</tr>
+<tr>
+<td><strong>H: automatic live-drift deployment protection</strong></td>
+<td><strong>Not supported by the evaluated delivery path.</strong> No
+qualified automatic comparison/rejection gate was supplied.</td>
+<td>Require application/schema/code comparison against the accepted
+target baseline before deployment. The zero-change replay did not test
+overwrite protection. <a href="h-live-drift-evidence.md">Evidence and
+limits</a></td>
+</tr>
+<tr>
+<td><strong>I: automatic failed-deployment repair</strong></td>
+<td><strong>Not supported.</strong> PROJECT does not design the
+repair.</td>
+<td>Inspect partial state and supply a reviewed forward repair.
+SQLcl/Liquibase can deliver that repair, but E.2 did not exercise the
+E.1-equivalent recovery scenario.</td>
+</tr>
+</tbody>
+</table>
+<p>APEX subscriptions provide shared-component reuse and propagation,
+not our component SemVer admission. <a
+href="https://docs.oracle.com/en/database/oracle/apex/24.2/htmdb/using-shared-component-subscriptions.html">Oracle
+APEX 24.2 subscriptions</a>. Reviewed repair uses changeset
+execution/history, not automatic repair. <a
+href="https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.2/sqcug/update.html">Oracle
+Liquibase update</a>.</p>
+<h2 id="blockers-and-corrections">Blockers and corrections</h2>
+<ul>
+<li><strong>Release qualification:</strong> SQLcl 25.3 verification
+failed on the retained F distribution. A clean 25.4.1 comparison passed,
+but does not certify the old artifacts. Select a pinned client and
+regenerate/verify a consistent release. <a
+href="tests/project-verify-fix-validation.json">Correction
+receipt</a>.</li>
+<li><strong>Packaging:</strong> post-stage APEX edits create
+source/distribution inconsistency. Express release configuration before
+capture or through qualified deployment hooks.</li>
+<li><strong>Identity:</strong> mapped replacement changed APEX region
+IDs in the earlier fixture. Qualify required identity and saved-report
+preservation before adoption. <a
+href="oracle-gap-analysis-detail.md">Detailed observations</a>.</li>
+<li><strong>Recovery:</strong> reviewed partial-failure repair remains
+missing E.2 validation; this is an implementation gap, not proof that
+Oracle cannot deliver repairs.</li>
+</ul>
+<p>No evidence establishes general incompatibility between PROJECT,
+Working Copies and Git. Repository coexistence is feasible; source
+layout and migration ownership must be explicit. Use one migration
+authority per target delivery stream.</p>
+<h2 id="policies-and-unnecessary-custom-mechanisms">Policies and
+unnecessary custom mechanisms</h2>
+<ul>
+<li>Reevaluate E.1's break-glass authoring and component-wide
+reservations. They are project policies; they do not prohibit native
+Working Copy authoring.</li>
+<li>Prefer native capture, staging, packaging, mappings and access
+controls. Do not rebuild these inside another custom controller.</li>
+<li>E1_CTRL is not wholly redundant: qualification/provenance,
+ownership, drift admission and repair governance need separate
+decisions.</li>
+<li>Define component contracts and major/minor/patch rules, including
+LOV return values and retained-data expectations. Automatic
+classification is not required for Elaboration.</li>
+</ul>
+<h2
+id="follow-up-roadmap--existing-backlog-no-duplicate-items">Follow-up
+roadmap — existing backlog, no duplicate items</h2>
+<table>
+<thead>
+<tr>
+<th>Order</th>
+<th>Work and acceptance</th>
+<th>Existing items</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Pin the client; qualify consistent source/distribution, mappings and
+stable required identities.</td>
+<td>PBI-028/029/037/038</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Establish PROJECT-compatible source layout, one migration owner and
+Working Copy team checkpoints. Qualify team contention and central
+synchronization.</td>
+<td>PBI-020/037/039/042</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Define component contracts/SemVer; enforce compatibility and
+automatic pre-deployment drift rejection. Prove ownership fencing.</td>
+<td>PBI-052/021/022/023/045</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Reproduce the integration-only partial failure and reviewed forward
+repair; preserve committed work and evidence.</td>
+<td>PBI-024/045</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Combine utPLSQL/coverage, native audits and browser checks against
+the same artifact; enforce results in pipelines and independently
+reproduce the walkthrough.</td>
+<td>PBI-040/041/043/046</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Perform complex Foundation upgrades <strong>in E.5, after toolchain
+stabilization</strong>.</td>
+<td>PBI-048/049/050</td>
+</tr>
+</tbody>
+</table>
+<p>These refine existing backlog acceptance; they do not change
+priority, assignment or completion status. E.1 evidence remains
+unchanged. The <a href="cicd-walkthrough.md">walkthrough</a> presents
+the demonstrated journeys and gaps; <a
+href="oracle-gap-analysis-detail.md">detailed evidence</a> remains
+available for inspection.</p>
+</body>
+</html>

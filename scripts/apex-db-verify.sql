@@ -1,5 +1,5 @@
 whenever oserror exit failure rollback
-whenever sqlerror exit sql.sqlcode rollback
+whenever sqlerror exit failure rollback
 set pagesize 100 linesize 200
 alter session set container=FREEPDB1;
 select sys_context('USERENV','CON_NAME') as container_name from dual;

@@ -210,3 +210,31 @@ Checked slide content against deploy/operator/capture.sql, import.sql, fingerpri
 ## Git presentation section — 2026-10-18
 
 Checked actual source directories, current manifest/capture profile and the existing developer-integration contract. Oracle APEX 24.2 split-export documentation supports granular source-control review and identifies shared install/application files affected by page additions. Git text-merge capability is distinguished from application semantic validation; no actual parallel APEX merge is claimed. New slides and the shifted native version table are rendered/visually reviewed; package/layout/font/reimport checks and synchronized local links/slide references pass. Current receipt identifies the delivered revision. No runtime tests/deployments are performed for this explanatory increment.
+
+## External review response verification — 2026-10-18
+
+[Review answers](sprint_E.1_review-1-response.md) map each finding to actual source and bounded acceptance evidence. Focused drift-review manifest passes 1/0 with five underlying Python tests; protection outcomes pass 10/0. Native SQLPlus probe raises ORA-20224 in an anonymous block: EXIT SQL.SQLCODE returns 0, EXIT FAILURE returns 1. Both probes contain no DDL/DML and request rollback. Confirmed both historical assembly commits exist, no archive tar files are tracked and no GitHub workflows are tracked. No new migration failure/repair, replacement import, independent clone replay or saved-report preservation test is claimed. No runtime fix is made.
+
+## Review fixes increment 1 — 2026-10-18
+
+[Captured results](tests/review_fixes_20261018.txt): review_fixes manifest passes 1 wrapper/8 Python cases; Python discovery passes 24/0. Cases cover isolated-history archive reconstruction without retained releases, tamper/missing-source/conflicting-byte rejection, malformed config before Oracle/secret access and dirty runner/manifest/Python/shell source rejection. Native SQLPlus ORA-20224 returns 1 under EXIT FAILURE. All five native area identities and their cross-area read/write denial checks pass. Local A–H preflight, Bash/Python syntax and document checks pass. This is not an independently provisioned fresh A–H/browser replay or full unfinished integration-suite acceptance.
+
+## BUG-6 native identity test — 2026-10-18
+
+[Native evidence](tests/apex_identity_20261018.txt) from explicit C upgrade: wrong target ORA-20645, immutable 005 applied once then no-op on repeat, two imports with identical region IDs/private saved report fields and unchanged history/configuration. Used public APEX_SESSION/IR/EXPORT/INSTALL APIs only. Tests/manifests/apex_identity.manifest exposes the same test as an explicit integration operation. No UAT change or general saved-report/subscription coverage is claimed. Corrected artifact preparation remains outstanding.
+
+## Corrected patch and repair-protocol preparation — 2026-10-18
+
+Corrected patch archive SHA-256 80b51f1ed3e371d6c198dc785a7df741fd671d2ab77d8db630f7dd63bd92d583 from 0cc6c68 passes candidate development checks and both fresh/initial-upgrade integration starts with preserved 21-row baseline/settings. Full private transcript: .local-apex/qualify-corrected-patch.log; this unattended check uses explicit runtime API fixtures, not a new browser demonstration. Retained UAT is unchanged. All Python source tests pass 25/0 including Git-bound recovery artifact/tamper/unsupported-target tests. New recovery authority/observer compile with zero errors. BUG-7 native failure/repair proof remains pending, explicitly not passed by artifact/unit checks.
+
+## BUG-7 native integration proof — 2026-10-18
+
+[Transcript](tests/recovery_proof_20261018.txt): failed-additive artifact 713133175024c2330f40779d746a55aca3ac0ab36db6adb0ad8e6a6741453504, repair artifact 78efc057e092a79440d787846121daf6d55450b29043e0634b20b87656d51ca2, source e7ee3de. ORA-20831 is expected after BUG7-001 commits; BUG7-002 is not marked run. Ordinary runtime rejects. An additional synthetic index changes the inspected observation; controller and server ORA-20846 both reject before repair. Only that controlled negative fixture is then removed. Repair reuses 001, adds 003, retains the failed receipt and prior 21-row fields/settings, publishes a separate successful receipt and repeats with ALREADY REPAIRED/no writes. UAT untouched. Wider stale-worker/session and arbitrary partial-state coverage is not claimed.
+
+## Independent clean-checkout native A–I proof — 2026-10-18
+
+[Portable evidence](tests/clean_checkout_20261018.txt) records committed source 54c0fd3facc22fa8f82574009ecffef40acd72bb, full history/pinned method, new empty owned VM, newly generated credentials and no copied release/database/connection state. Only public checksum-verified installer caches were reused. Vanilla infrastructure passed with zero project schemas/workspaces before separate project onboarding. All A–I operations passed: exact archive promotion, fresh/upgrade patch starts, 21-row integration/20-row UAT prior-field preservation, known incompatibility rejection, synthetic drift rejection/source review/exact restoration and bounded failure/repair with changed-observation rejection and unchanged repeat. Python discovery 26/0, smoke manifest 1/0 and database unit manifest 2/0 pass. Runtime API fixtures explicitly replace browser checkpoints; full default integration-suite acceptance is not claimed.
+
+## Closure disposition — 2026-10-18
+
+E.1 is closed by explicit Product Owner request. The native clean-checkout A–I and focused test results above remain the actual evidence. Full original concurrency/fencing/schema-drift and broader acceptance gates are not asserted passed; their remaining outcomes are mapped to proposed follow-up items in the assessment. No tests were rerun solely to change sprint status. See the [closure handover](sprint_E.1_handover.md#sprint-closure).

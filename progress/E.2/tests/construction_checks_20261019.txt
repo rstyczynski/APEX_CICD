@@ -1,0 +1,16 @@
+E.2 retained-run checks, 2026-10-19
+Bash syntax: passed for launcher/common/A-E
+Python compilation: passed for lifecycle helper
+Local file link targets: 307 checked, all exist (before final audit additions)
+Anchored Markdown links: 53 checked, all resolve (before final audit additions)
+Retained-run A preflight: exit 0, actual CDB/PDB workers 10/10
+Launcher inspect: exit 0
+C/D --rehearse --resume: exit 0; no mutation replay or fresh observation claimed
+B --rehearse --retry verify: expected exit 1; native finding retained
+E --rehearse: expected exit 3 at real live-review checkpoint
+Presentation: 20 slides; package/layout/font/import validation passed; every v4 slide visually inspected; final v5 renders identical and primary-source notes added
+Evidence ZIP: CRC, exact entry set and all 505 entry hashes verified; archive SHA256 verified
+Known generated lab/platform secrets: absent from exported plaintext, nested native ZIP entries and scratch Git history; private file excluded
+No separate automated test/regression suite was created or claimed
+Product Owner live demonstration/feedback/acceptance: pending
+Staged git diff --check: passed after narrowly extending the established raw-evidence whitespace attributes to three verbatim E.2 outputs; raw bytes preserved

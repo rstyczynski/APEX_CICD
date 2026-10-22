@@ -1,0 +1,10 @@
+PASS captured all business fields before deployment in E1_INTEGRATION
+
+declare
+*
+ERROR at line 1:
+ORA-20890: Business fields changed during deployment; inspect
+ORA-06512: at line 15
+
+https://docs.oracle.com/error-help/db/ora-20890/
+Expected rejection; SQLcl error handling rolled back the uncommitted probe.

@@ -1,0 +1,8 @@
+declare
+*
+ERROR at line 1:
+ORA-20896: Reset requires E1_INTEGRATION and the explicit reset token
+ORA-06512: at line 5
+
+https://docs.oracle.com/error-help/db/ora-20896/
+Expected wrong-identity rejection before destructive operations.

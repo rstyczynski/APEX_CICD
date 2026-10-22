@@ -1,0 +1,31 @@
+
+
+Starting execution of stage command using the current branch
+
+Stage is Comparing:
+Old Branch	refs/heads/e2-world
+New Branch	refs/heads/e2-hello-patch
+
+Updated file:  dist/releases/next/changes/e2-hello-patch/e1_dev_c/tables/hello_entries.sql
+Updated change:dist/releases/next/changes/e2-hello-patch/stage.changelog.xml
+Updated file:  dist/releases/next/changes/e2-hello-patch/e1_dev_c/triggers/hello_entries_guard.sql
+Updated change:dist/releases/next/changes/e2-hello-patch/stage.changelog.xml
+Updated change:dist/releases/next/changes/e2-hello-patch/stage.changelog.xml
+Updated change:dist/releases/next/release.changelog.xml
+Skipped change:dist/releases/next/release.changelog.xml
+Updated change:dist/releases/apex/apex.changelog.xml
+Created file:  dist/releases/apex/f810003/f810003.sql
+Created change:dist/releases/apex/f810003/f810003.xml
+
+Completed executing stage command on branch: e2-hello-patch
+
+Stage processesing completed, please review and commit your changes to repository
+
+Changes not staged for commit
+	modified: dist/releases/apex/f810003/f810003.xml
+	modified: dist/releases/apex/f810003/f810003.sql
+	modified: dist/releases/next/release.changelog.xml
+
+ Untracked files:
+	dist/releases/next/changes
+	dist/releases/1.0.0/changes/e2-hello-patch/_custom

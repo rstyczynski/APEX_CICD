@@ -1,0 +1,10 @@
+
+PASS H baseline: E1_UAT / 810005 / Available / 1.0.1 / no notification
+
+PASS captured all business fields before deployment in E1_UAT
+
+Exporting Workspace E1_UAT - application 810005:APEX Delivery Laboratory
+File ../h-uat-readonly/readable/application/f810005.yaml created
+
+PASS exact business fields unchanged by deployment in E1_UAT
+

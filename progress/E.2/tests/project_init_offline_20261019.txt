@@ -1,0 +1,11 @@
+
+
+------------------------
+PROJECT DETAILS
+------------------------
+Project name:    e2 
+Schema(s):       E2_20261019_A 
+Directory:       /Users/rstyczynski/projects/APEX_CICD/.local-apex/e2/e2-20261019/repo 
+Connection name:  
+Project root:     repo
+Your project has been successfully created

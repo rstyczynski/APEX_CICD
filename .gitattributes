@@ -2,3 +2,11 @@
 apex/** whitespace=-blank-at-eol
 progress/E.1/tests/*.log whitespace=-blank-at-eol
 tests/fixtures/drift-changed/** whitespace=-blank-at-eol
+# E.2 verbatim SQLcl help/init and approved scheduler observation output.
+progress/E.2/tests/sqlcl_project_help_20261019.txt whitespace=-blank-at-eol,-blank-at-eof
+progress/E.2/tests/project_init_offline_20261019.txt whitespace=-blank-at-eol,-blank-at-eof
+progress/E.2/tests/scheduler_capacity_20261019.txt whitespace=-blank-at-eol,-blank-at-eof
+# E.2 retained SQLcl transcripts and generated capture/patch inputs.
+progress/E.2/tests/*.txt whitespace=-blank-at-eol,-blank-at-eof
+progress/E.2/inputs/*.filters whitespace=-blank-at-eol
+progress/E.2/inputs/*.patch whitespace=-blank-at-eol

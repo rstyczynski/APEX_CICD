@@ -1,0 +1,45 @@
+{
+  "binding": {
+    "source_commit": "d477140782ad7995af678704d1526225ad55bdea",
+    "artifact_sha256": "6ae41f7a4b3e00e5c76d7bf42c162f428178f0d26c6efb83877c97371cd10572",
+    "allowed_sha256": "c4a3aea0e0425e84b9f30a774bff843b3ed10f60685f0151e815ef4c2140d796",
+    "incompatible_sha256": "e6ff7cddf28842f43a33419d65cdbf2d28ea3a76afa4e2b138e5c23c5b28c4c4",
+    "target_snapshot_sha256": "b8a66e2bf2381a5a2dce0714a402a19d4ee6a70ee8853e6c35a4978a4e538210",
+    "snapshot_sql_sha256": "fbe5eaff309d95e6345ce9c679fec056a5ef5f6fcfb03f452074d2ad2ef601bd",
+    "validator_sha256": "f9bdefea9a61d31ea7afe8258ae2e92b442ca0c45917de6803ba969a0d05b479",
+    "target": "user_acceptance_test / E1_UAT / 810005",
+    "source_worktree_sha256": "3eae7ba2f5d16fa2baa8fdfb4e81072c5aec250ea2f4921c5f11dc84b9ad40a6"
+  },
+  "result": "REJECTED",
+  "reason": "Hello requires Foundation 1.0.0; proposed Foundation 2.0.0",
+  "deploy_invocations": 0,
+  "target_unchanged": true,
+  "scope": "metadata-only proposal; project-authored gate reusing E.1 validator; no Foundation DDL",
+  "recorded_at": "2026-10-20T13:17:02.600592+00:00",
+  "operator_completion": false,
+  "native_comparison": {
+    "allowed": "Errors 1 / Warnings 0 / Info 7",
+    "incompatible": "Errors 1 / Warnings 0 / Info 7",
+    "outputs_identical": true,
+    "dependency_conflict_diagnostic": false
+  },
+  "rehearsal": {
+    "real_target_rejections": 3,
+    "deploy_invocations_each": 0,
+    "exact_target_comparisons": "passed before/after and retained check",
+    "positive_control": "supported 1.0.0 / 1.0.1 / 1.0.0 accepted",
+    "additional_negative_controls": [
+      "missing dependency",
+      "unknown Hello version",
+      "inconsistent Foundation dependency",
+      "changed artifact binding"
+    ]
+  },
+  "limits": [
+    "metadata-only Foundation 2.0.0 proposal; no breaking DDL",
+    "runtime browser confirmation remains an operator step",
+    "no production concurrency fence or general SemVer inference",
+    "native formal verification error remains unresolved"
+  ],
+  "native_comparison_followup": "project-verify-fix-validation.json: corrected SQLcl 25.4.1 comparison passes both declarations; original SQLcl 25.3 comparison is historical"
+}

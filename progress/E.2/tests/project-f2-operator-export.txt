@@ -1,0 +1,19 @@
+
+The current connection //127.0.0.1:1521/FREEPDB1 E1_DEV_C will be used for all operations
+*** TABLES ***
+*** APEX_APPLICATIONS ***
+*** PACKAGE_SPECS ***
+*** TRIGGERS ***
+*** PACKAGE_BODIES ***
+Exporting Workspace E1_DEV_C - application 810003:APEX Delivery Laboratory
+*** REF_CONSTRAINTS ***
+--------------------------------
+APEX_APPLICATION               1
+PACKAGE_BODY                   1
+PACKAGE_SPEC                   1
+REF_CONSTRAINT                 2
+TABLE                          7
+TRIGGER                       10
+--------------------------------
+Exported 22 objects
+Elapsed 4 sec

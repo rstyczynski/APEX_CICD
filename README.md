@@ -2,13 +2,17 @@
 
 **From Git to APEX: traceable releases, safe upgrades and protected deployments.**
 
+Our guiding principle: **Give developers flexibility through stable, industry-standard tools and techniques.**
+E.2 evaluates optional tool compatibility against this aim in its
+[analysis review](progress/E.2/sprint_E.2_inception.md#optional-tool-compatibility-hypotheses).
+
 An executable delivery example for Oracle APEX and Oracle Database. A small Foundation/Hello/World application makes the important operations visible: capture source, review it in Git, build one release, validate it in integration testing, promote the same artifact to UAT and preserve application data through an upgrade.
 
 The prototype runs on one Podman host using supported Oracle automation interfaces and small Bash/Python scripts. The source is public at [rstyczynski/APEX_CICD](https://github.com/rstyczynski/APEX_CICD). Hosted CI automation and production operation remain future work.
 
 ## What works today
 
-The assisted A–H walkthrough demonstrates:
+The assisted A–H walkthrough and native review-correction experiments demonstrate:
 
 1. **Separate infrastructure and project setup.** Provision Oracle Database/APEX/ORDS first, then delivery control and individually assigned project schemas/workspaces. Check target identity and logical isolation.
 2. **Foundation-first assembly.** A, B and C have private areas. Reviewed source snapshots build Foundation, Foundation/Hello and the complete application respectively. Incomplete checkpoints remain unavailable.
@@ -17,13 +21,15 @@ The assisted A–H walkthrough demonstrates:
 5. **Rejection of a known incompatible upgrade.** A Foundation **2.0.0** proposal conflicts with Hello/World dependencies and stops before maintenance, migration or application import.
 6. **Detection and inspection of live drift.** A real Page Designer edit changes the live fingerprint without changing the component version. Deployment stops; the operator can compare published/live source before choosing restoration or Git reconciliation.
 
+7. **One bounded forward repair.** In integration_test, fail after an additive index commits, retain the failed attempt and block ordinary access. Reject a changed partial observation, then apply a separate repair archive, preserve the 21-row baseline/settings and repeat unchanged without writes. See [chapter I](progress/E.1/cicd-walkthrough.md#i-inspect-and-repair-one-failed-additive-deployment).
+
 These are demonstrated prototype outcomes, not a declaration that the complete sprint acceptance scope or full test suite has passed. See the [handover](progress/E.1/sprint_E.1_handover.md), [test evidence](progress/E.1/sprint_E.1_tests.md) and [completion assessment](progress/E.1/sprint_E.1_assessment.md).
 
 ## Explore the delivery story
 
-- **[From Git to APEX — presentation](progress/E.1/sprint_E.1_increment_demo.pptx):** 28 slides covering architecture, Oracle interfaces, Git layout/cooperation, the A–H results and future CI pipelines. Includes editable diagrams adapted from the [draw.io model](progress/E.1/model.drawio).
+- **[From Git to APEX — presentation](progress/E.1/sprint_E.1_increment_demo.pptx):** 29 slides covering architecture, Oracle interfaces, Git layout/cooperation, the A–I results and future CI pipelines. Includes editable diagrams adapted from the [draw.io model](progress/E.1/model.drawio).
 - **[Presentation walkthrough](progress/E.1/sprint_E.1_increment_demo.md):** slide-linked review, commands, visible results and decisions.
-- **[A–H use-case walkthrough](progress/E.1/cicd-walkthrough.md):** the main guided operating journey, with a separate script for each stage.
+- **[A–I use-case walkthrough](progress/E.1/cicd-walkthrough.md):** the main guided operating journey, with a separate script for each stage.
 - **[Operator manual](progress/E.1/user_manual.md):** application inventory, endpoints, accounts and detailed operations.
 - **[Repository and pipeline guide](progress/E.1/repo_layout.md):** shared source, private areas, merge guidance and proposed CI automation. This remains an Elaboration draft for [PBI-017](BACKLOG.md#pbi-017-deliver-a-repository-and-pipeline-reference-guide).
 
@@ -62,10 +68,11 @@ Clone with the delivery-method submodule:
 git clone --recurse-submodules https://github.com/rstyczynski/APEX_CICD.git
 ```
 
-Open a Bash terminal inside the checkout, position at its Git root and run local preflight:
+The infrastructure provisioning path currently supports **macOS Apple Silicon**. Pure source/Python checks are separate from that host requirement. Open a Bash terminal inside the full checkout, position at its Git root, reconstruct reviewed release inputs and run local preflight:
 
 ```bash
 cd "$(git rev-parse --show-toplevel)"
+python3 scripts/cicd-release-inputs.py
 bash scripts/cicd-walkthrough.sh --preflight
 ```
 
@@ -75,15 +82,68 @@ Then follow the [preparation chapters](progress/E.1/cicd-walkthrough.md#prerequi
 2. Choose whether to destroy an existing disposable lab. **Complete cleanup removes all lab applications and history, including UAT.** It preserves host credentials/tools, retained archives/evidence and unrelated Podman resources.
 3. Install vanilla Database/APEX/ORDS using the [infrastructure procedure](docs/deploy.md#fresh-walkthrough-infrastructure-sequence).
 4. Initialize project control, provision each area and configure its assigned developer.
-5. Check readiness; run A–H using each chapter's script and browser instructions.
+5. Check readiness; run A–I using each chapter's script and browser instructions.
 
 Preflight alone does not provision the lab or prove database readiness. Normal upgrades preserve UAT data; destruction is a separate explicit lifecycle operation. Scripts and their walkthrough chapters are maintained together as one operating artifact.
 
 ## Remaining validation
 
-Sprint **E.1 remains active**. Important unfinished proofs are synchronized competing reservations, genuine parallel component integration, complete maintenance/request/verifier fencing, scoped schema-definition drift and an injected failed additive deployment with automated forward repair preserving history. A verification retry or restored drift fixture is not that repair proof.
+The [external review](progress/E.1/sprint_E.1_review-1.md) and [engineering response](progress/E.1/sprint_E.1_review-1-response.md) identified missing release inputs as an independent-reproduction blocker. The [BUG-2 correction](progress/E.1/cicd-walkthrough.md#prepare-reviewed-release-inputs) now reconstructs the exact historical archives from versioned recipes and pinned Git source. The [independent clean-checkout A–I rehearsal](progress/E.1/tests/clean_checkout_20261018.txt) now passes on newly provisioned infrastructure with new credentials and no copied release archives. It uses explicit runtime API fixtures; browser acceptance remains the separate assisted walkthrough.
+
+Sprint **E.1 was closed by the Product Owner on 2026-10-18**. Important unfinished proofs are synchronized competing reservations, genuine parallel component integration, complete maintenance/request/verifier fencing, scoped schema-definition drift and broader recovery/concurrency coverage beyond the single integration-only failed-DDL/forward-repair proof. A verification retry or restored drift fixture is not that repair proof.
 
 The [assessment](progress/E.1/sprint_E.1_assessment.md) recommends focused further Elaboration before full Lifecycle Architecture acceptance. Remote CI runners, protected-branch automation and release approvals are [future extensions](progress/E.1/repo_layout.md#future-pipeline-automation). Cloud deployment, production readiness and high availability are outside the demonstrated scope.
+
+Known follow-up work is registered in the [Product Backlog](BACKLOG.md#pbi-018-prove-atomic-task-reservations-under-contention). The historical [E.1 coverage map](progress/E.1/sprint_E.1_assessment.md#open-work-backlog-coverage) connects PBI-018–035 to remaining criteria and deferred review concerns. On 2026-10-19 the Product Owner split the Oracle-style exercise into **E.3: APEX-native team-centric development** and **E.4: Git-based feature-centric development**, both Planned. The [E.3 coverage and backlog review](progress/E.3/sprint_E.3_proposedchanges.md) owns Working Copies/page locks and the native release/test/pipeline foundation. The [E.4 scope](progress/E.4/sprint_E.4_proposedchanges.md) owns private Git branches, parallel PR integration, central DEV synchronization and the final comparison. The [plan](PLAN.md) owns the distinct assignments; neither approach is claimed implemented by this planning change. Both sprints have a strict [Oracle traceability and comparison requirement](progress/E.3/sprint_E.3_proposedchanges.md#strict-oracle-traceability-and-comparison-contract): exact paper/documentation sources, observed evidence and an E.1 comparison at each handover, followed by a three-approach decision package at E.4.
+
+The Product Owner refined **E.2 into gap analysis of E.1 against Oracle
+lifecycle guidance**, with focused exercises on the current E.1 technology
+and the established runnable walkthrough. The
+[E.2 analysis scope](progress/E.2/sprint_E.2_proposedchanges.md) schedules
+[PBI-051](BACKLOG.md#pbi-051-assess-the-e1-delivery-approach-against-oracle-lifecycle-guidance)
+to establish evidenced gaps, blockers, proposed backlog items and an evolution
+roadmap. E.3/E.4 retain their planned Oracle-style evaluations. The
+[E.5 upgrade scope](progress/E.5/sprint_E.5_proposedchanges.md) schedules
+[PBI-048](BACKLOG.md#pbi-048-prove-an-available-compatible-foundation-extension),
+[PBI-049](BACKLOG.md#pbi-049-prove-an-available-breaking-foundation-transition)
+and [PBI-050](BACKLOG.md#pbi-050-prove-an-in-place-foundation-upgrade-with-component-windows).
+E.5 covers compatible and breaking API/schema changes, initial data migration,
+legacy writes to both schemas and separate consumer maintenance windows.
+It is the final currently planned Elaboration step and requires a stabilized,
+accepted technology/toolchain. E.2 was activated on 2026-10-19 in managed mode;
+its [setup](progress/E.2/sprint_E.2_setup.md) records contracting and initial
+scoping. The separate [analysis](progress/E.2/sprint_E.2_analysis.md) is complete
+as a desk-analysis baseline; its [review summary](progress/E.2/sprint_E.2_inception.md)
+presents fourteen findings and prioritized evidence questions before exercise
+design. The Product Owner approved analysis on 2026-10-19. The
+[revised exercise design and verification plan](progress/E.2/sprint_E.2_design.md)
+were accepted by the Product Owner on 2026-10-19; construction is in progress.
+The [external design review](progress/E.2/sprint_E.2_design_review-1.md) found no
+required corrections to its reviewed version. The current design subsequently
+uses exercise-based verification without separate test suites, as approved by
+the Product Owner.
+The [external analysis review](progress/E.2/sprint_E.2_analysis_review-1.md) found no
+corrections required before exercise design. The
+[interim assessment](progress/E.2/sprint_E.2_assessment.md) records round closure
+and remaining exercise and handover work.
+The analysis also records the unscheduled follow-up
+[PBI-052: component contracts and semantic versioning rules](BACKLOG.md#pbi-052-define-semantic-versioning-rules-for-component-contracts).
+Current E.2 review starts with the [Product Owner decision brief](progress/E.2/sprint_E.2_handover.md)
+and its [decision presentation](progress/E.2/sprint_E.2_product_owner_handover.pptx).
+The [concise gap analysis](progress/E.2/oracle-gap-analysis.md) separates demonstrated
+native delivery from component-dependency, automatic drift-protection and automatic
+repair gaps. Reviewed forward repair remains supported but unexercised in E.2.
+
+The [native SQLcl walkthrough](progress/E.2/cicd-walkthrough.md) covers the
+Foundation/Hello/World delivery journeys. [Implementation](progress/E.2/sprint_E.2_implementation.md)
+and [exercise evidence](progress/E.2/sprint_E.2_tests.md) identify reference runs and
+limits. The Product Owner reported F completed. Retained F artifacts still have a
+SQLcl 25.3 verification failure; a separate clean 25.4.1 comparison does not
+certify them. Mapped identity preservation and delivery protections require
+qualification. The earlier increment presentation remains an exercise record.
+Handover decisions and sprint acceptance remain pending.
+
+E.3–E.5 remain Planned; their designs and runtime evidence are pending.
 
 ## Vision
 
@@ -99,4 +159,6 @@ The supplied [Oracle APEX lifecycle reference](refs/apex-lifecycle-management-v3
 
 [RUPStrikesBack](https://github.com/rstyczynski/RUPStrikesBack) is an iterative delivery method for collaboration between a Product Owner and AI agents. It combines RUP lifecycle phases with a prioritized backlog, bounded iterations, explicit requirements/design, executable validation and Product Owner review. Each increment connects its implementation, tests and documentation so decisions can be checked against evidence.
 
-This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0 and I.1 are closed; E.1 is the active Elaboration sprint, focused on proving the delivery architecture before broader construction.
+This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1 and E.1 are closed. E.2 is active in managed mode; E.3–E.5 remain Planned with distinct assigned Elaboration work recorded in the backlog and plan.
+
+For external expert review, use the [rup-external-review skill](.agents/skills/rup-external-review/SKILL.md). Codex prepares the prompts and engineering replies; the Product Owner relays them to the expert through the linked round files. Review outcomes and implementation evidence remain distinct from sprint acceptance.

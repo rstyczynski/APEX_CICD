@@ -2,6 +2,29 @@
 
 ## Status and purpose
 
+The [E.2 analysis scope](../progress/E.2/sprint_E.2_proposedchanges.md) requires
+source-traceable gap findings and focused exercises presented through a
+reproducible walkthrough. The [revised E.2 verification design](../progress/E.2/sprint_E.2_design.md#testing-strategy)
+uses no separate automated/regression suites for disposable helpers, as directed
+by the Product Owner and recorded in E.2 PLAN parameters. Actual
+exercise assertions, observed outcomes, preservation checks and live handover
+remain required. The Product Owner accepted the revised design on 2026-10-19. No separate test skeletons or test manifests are introduced. A shared/production-code change triggers a fresh
+verification assessment rather than inheriting this prototype-only tailoring.
+The [actual E.2 evidence](../progress/E.2/sprint_E.2_tests.md) and
+[walkthrough](../progress/E.2/sprint_E.2_increment_demo.md) record observations,
+retained failures and the pending live review.
+
+The [E.5 upgrade scope](../progress/E.5/sprint_E.5_proposedchanges.md) requires
+compatible and breaking Foundation upgrade evidence, migration catch-up,
+continuous unaffected-consumer traffic, dual-write failure/recovery checks and
+separate component maintenance windows. Exact commands and measurable limits
+must be approved during E.5 design on the stabilized toolchain; existing E.1 checks do not establish these
+new acceptance outcomes.
+
+The [E.3 scope](../progress/E.3/sprint_E.3_proposedchanges.md) plans native-APEX collaboration plus the common native release, utPLSQL coverage, Cypress and audit gates. The [E.4 scope](../progress/E.4/sprint_E.4_proposedchanges.md) separately requires parallel Git integration, private-target reconstruction, central DEV synchronization and fresh regression for changed artifacts. Each approved design must materialize exact commands and behavioral mappings before code-bearing execution; neither the E.1 commands nor E.3’s earlier results automatically qualify E.4 source.
+
+Both planned iterations must satisfy the [strict Oracle traceability and E.1 comparison contract](../progress/E.3/sprint_E.3_proposedchanges.md#strict-oracle-traceability-and-comparison-contract): scenario-level paper pages and applicable official version-specific Oracle guidance, executed evidence, explicit deviation dispositions and decision-ready comparisons at each handover.
+
 The [E.1 handover checks](../progress/E.1/tests/handover_checks_20261018.txt), [presentation walkthrough](../progress/E.1/sprint_E.1_increment_demo.md) and [completion assessment](../progress/E.1/sprint_E.1_assessment.md) identify current executable evidence and remaining cases. The I.1 future-command statements below preserve the original analysis contract; they are not a current inventory of implemented scripts or a claim that every specified test has passed.
 
 The [repository and pipeline draft](../progress/E.1/repo_layout.md#pipeline-paths-and-release-identities) maps source/artifact/environment roles to these checks. Keep it aligned with this contract and the linked E.1 execution evidence.
@@ -9,6 +32,10 @@ The [repository and pipeline draft](../progress/E.1/repo_layout.md#pipeline-path
 Concrete command contract for PBI-009, accepted with the revised I.1 analysis baseline on 2026-10-16. Commands below describe future E.1 interfaces; **none is claimed working or executed in I.1**. SQLcl, application sources, controllers and test runner do not yet exist as project deliverables. E.1 must implement and verify them after its own setup/design approval. This replaces unspecified toolchain fields with exact intended commands without implementing the application early.
 
 I.1 has `Test: none` and `Regression: none`: document consistency, source review, read-only environment assessment and shell syntax are its checks. No PL/SQL tests or application test skeletons are created or run this sprint.
+
+## Review correction gates
+
+[Review decisions](../progress/E.1/sprint_E.1_review-1-decisions.md) and the [bug register](../progress/E.1/sprint_E.1_bugs.md) define focused BUG-2–7 corrections. Run `bash tests/run.sh --unit --new-only tests/manifests/review_fixes.manifest` for release reconstruction/tamper/conflict, pre-SQL config validation, infrastructure exit policy and dirty-test-provenance checks. Native SQLPlus probes and current area/isolation checks supplement those cases. Exact historical input reconstruction is not a new candidate attestation or a claim that the full independent A–H acceptance replay passed. [Preparation steps](../progress/E.1/cicd-walkthrough.md#prepare-reviewed-release-inputs) keep acquisition separate from provisioning.
 
 ## Execution prerequisites for E.1
 
@@ -172,3 +199,8 @@ The [H.1 review/decision/restoration steps](../progress/E.1/cicd-walkthrough.md#
 Run `bash tests/run.sh --unit --new-only tests/manifests/drift_review.manifest` for five underlying cases: bounded normalization with complete raw diff, added/deleted source, escaped region names, unrelated receipt rejection and unchanged source. The native manual-drift check reports the current Home title/region changes without restoration. This is APEX source review, not a general SQL semantic diff or failed-deployment recovery tool. Restoration acceptance still requires the original published live fingerprint, not merely a clean text diff.
 
 The operator entry point for that source review is `bash scripts/cicd-protection-check.sh drift --show`. After a recognized drift rejection and unchanged-snapshot checks, it invokes the read-only comparison helper; a clean result reports no unexpected differences to display. Review failures propagate as nonzero without restoration. H.2 uses --expect-drift --show together. The protection-outcome manifest also covers --show with expected outcomes, rejection of compatibility --show and conflicting/duplicate flags.
+
+
+## Review repair and clean-checkout validation
+
+`bash scripts/cicd-walkthrough-I_repair.sh --rehearse` explicitly executes the selected native BUG-7 failure/observation/repair/negative/repeat experiment in disposable integration. It requires a fresh case, known ready 1.0.1 start and at least twenty baseline rows. It does not replace full IT-3/9 concurrency/unknown-state coverage or browser validation. [Recorded proof](../progress/E.1/tests/recovery_proof_20261018.txt) shows 21 preserved rows/settings and retained failure/success history. [Independent checkout procedure](deploy.md#independent-checkout-rehearsal-while-retaining-the-current-lab) validates clean source/inputs in a separate VM while preserving the retained lab intact; its results must be recorded before claiming that gate passed.

@@ -1,0 +1,276 @@
+ARCHIVE .local-apex/e2/project-walkthrough/component-repo/artifact/e2-1.0.0-mapped-r1.zip
+SHA256 0377604203edf3674ae5a2b3735da11f108de6f576c879266ea1325d4bf6e0d0
+ASSESSMENT ONLY: native verify retains its documented APEX error.
+
+SQLcl [integration_test]
+connect -name integration_test
+set long 1000000 longchunksize 1000000
+set sqlformat json
+select json_object(
+      'schema' value user,
+      'business_tables' value (select count(*) from user_tables where table_name in
+        ('LAB_COMPONENTS','LAB_STATE','HELLO_ENTRIES','WORLD_ENTRIES',
+         'HELLO_CONFIG','WORLD_CONFIG','GREETING_HISTORY')),
+      'application' value (select json_object('id' value application_id,
+        'schema' value owner, 'status' value availability_status)
+        from apex_applications where application_id=810004) format json) as "payload" from dual;
+prompt E2_JSON_END
+set sqlformat ansiconsole
+
+SQLcl [integration_test]
+connect -name integration_test
+set long 1000000 longchunksize 1000000
+set sqlformat json
+select json_object('history' value (select coalesce(json_arrayagg(json_object(*) order by greeting_id returning clob),to_clob('[]')) from greeting_history) format json,
+'hello_entries' value (select coalesce(json_arrayagg(json_object(*) order by entry_id returning clob),to_clob('[]')) from hello_entries) format json,
+'world_entries' value (select coalesce(json_arrayagg(json_object(*) order by entry_id returning clob),to_clob('[]')) from world_entries) format json,
+'hello_config' value (select coalesce(json_arrayagg(json_object(*) order by config_id returning clob),to_clob('[]')) from hello_config) format json,
+'world_config' value (select coalesce(json_arrayagg(json_object(*) order by config_id returning clob),to_clob('[]')) from world_config) format json,
+'components' value (select coalesce(json_arrayagg(json_object(*) order by component returning clob),to_clob('[]')) from lab_components) format json returning clob) as "payload" from dual;
+prompt E2_JSON_END
+set sqlformat ansiconsole
+
+SQLcl [user_acceptance_test]
+connect -name user_acceptance_test
+set long 1000000 longchunksize 1000000
+set sqlformat json
+select json_object(
+      'schema' value user,
+      'business_tables' value (select count(*) from user_tables where table_name in
+        ('LAB_COMPONENTS','LAB_STATE','HELLO_ENTRIES','WORLD_ENTRIES',
+         'HELLO_CONFIG','WORLD_CONFIG','GREETING_HISTORY')),
+      'application' value (select json_object('id' value application_id,
+        'schema' value owner, 'status' value availability_status)
+        from apex_applications where application_id=810005) format json) as "payload" from dual;
+prompt E2_JSON_END
+set sqlformat ansiconsole
+TARGET {"schema": "E1_UAT", "business_tables": 0, "application": null}
+
+SQLcl [user_acceptance_test]
+connect -name user_acceptance_test
+cd "/Users/rstyczynski/projects/APEX_CICD/.local-apex/e2/project-walkthrough/component-repo"
+set define on
+define DEFAULTS_FILE=utils/properties/uat.properties
+project deploy -file artifact/e2-1.0.0-mapped-r1.zip
+
+
+Starting the migration...
+Installing/updating schemas
+--Starting Liquibase at 2026-10-20T10:06:19.436879 using Java 21.0.12.1 (version 4.30.0 #0 built at 2025-04-01 10:24+0000)
+Running Changeset: e2-world/e1_dev_c/package_specs/lab_runtime.sql::1792478447413::E1_DEV_C
+
+
+Running Changeset: e2-world/e1_dev_c/tables/greeting_history.sql::1792478447481::E1_DEV_C
+
+
+Running Changeset: e2-world/e1_dev_c/tables/hello_config.sql::1792478447510::E1_DEV_C
+
+
+Running Changeset: e2-world/e1_dev_c/tables/hello_entries.sql::1792478447545::E1_DEV_C
+
+
+Running Changeset: e2-world/e1_dev_c/tables/lab_components.sql::1792478447586::E1_DEV_C
+
+
+Running Changeset: e2-world/e1_dev_c/tables/lab_state.sql::1792478447630::E1_DEV_C
+
+
+Running Changeset: e2-world/e1_dev_c/tables/world_config.sql::1792478447668::E1_DEV_C
+
+
+Running Changeset: e2-world/e1_dev_c/tables/world_entries.sql::1792478447703::E1_DEV_C
+
+
+Running Changeset: e2-world/e1_dev_c/package_bodies/lab_runtime.sql::1792478447403::E1_DEV_C
+
+
+Running Changeset: e2-world/e1_dev_c/triggers/greeting_history_immutable.sql::1792478447744::E1_DEV_C
+
+
+Running Changeset: e2-world/e1_dev_c/triggers/greeting_history_insert_guard.sql::1792478447771::E1_DEV_C
+
+
+Running Changeset: e2-world/e1_dev_c/triggers/hello_config_guard.sql::1792478447798::E1_DEV_C
+
+
+Running Changeset: e2-world/e1_dev_c/triggers/hello_config_no_delete.sql::1792478447822::E1_DEV_C
+
+
+Running Changeset: e2-world/e1_dev_c/triggers/hello_entries_guard.sql::1792478447848::E1_DEV_C
+
+
+Running Changeset: e2-world/e1_dev_c/triggers/hello_entries_no_delete.sql::1792478447874::E1_DEV_C
+
+
+Running Changeset: e2-world/e1_dev_c/triggers/world_config_guard.sql::1792478447902::E1_DEV_C
+
+
+Running Changeset: e2-world/e1_dev_c/triggers/world_config_no_delete.sql::1792478447927::E1_DEV_C
+
+
+Running Changeset: e2-world/e1_dev_c/triggers/world_entries_guard.sql::1792478447955::E1_DEV_C
+
+
+Running Changeset: e2-world/e1_dev_c/triggers/world_entries_no_delete.sql::1792478447981::E1_DEV_C
+
+
+Running Changeset: e2-world/e1_dev_c/ref_constraints/hello_config.hello_entries.sql::1792478447435::E1_DEV_C
+
+
+Running Changeset: e2-world/e1_dev_c/ref_constraints/world_config.world_entries.sql::1792478447455::E1_DEV_C
+
+
+Running Changeset: e2-world/_custom/e2_release_data.sql::1792479410147::SqlCl
+
+
+Running Changeset: releases/apex/f810003/f810003.xml::INSTALL_810003::SQLCL-Generated
+--application/set_environment
+APPLICATION 810001 - APEX Delivery Laboratory
+--application/delete_application
+--application/create_application
+--application/user_interfaces
+--application/shared_components/navigation/lists/navigation_menu
+--application/shared_components/navigation/lists/navigation_bar
+--application/shared_components/navigation/listentry
+--application/shared_components/files/icons_app_icon_144_rounded_png
+--application/shared_components/files/icons_app_icon_32_png
+--application/shared_components/files/icons_app_icon_192_png
+--application/shared_components/files/icons_app_icon_256_rounded_png
+--application/shared_components/files/icons_app_icon_512_png
+--application/plugin_settings
+--application/shared_components/security/authorizations/administration_rights
+--application/shared_components/navigation/navigation_bar
+--application/shared_components/logic/application_settings
+--application/shared_components/navigation/tabs/standard
+--application/shared_components/navigation/tabs/parent
+--application/shared_components/user_interface/lovs/hello_entries_entry_text
+--application/shared_components/user_interface/lovs/world_entries_entry_text
+--application/pages/page_groups
+--application/shared_components/navigation/breadcrumbs/breadcrumb
+--application/shared_components/navigation/breadcrumbentry
+--application/shared_components/user_interface/templates/popuplov
+--application/shared_components/user_interface/themes
+--application/shared_components/user_interface/theme_style
+--application/shared_components/user_interface/theme_files
+--application/shared_components/user_interface/template_opt_groups
+--application/shared_components/user_interface/template_options
+--application/shared_components/globalization/language
+--application/shared_components/logic/build_options
+--application/shared_components/globalization/messages
+--application/shared_components/globalization/dyntranslations
+--application/shared_components/security/authentications/oracle_apex_accounts
+--application/user_interfaces/combined_files
+--application/pages/page_00000
+--application/pages/page_00001
+--application/pages/page_00010
+--application/pages/page_00020
+--application/pages/page_00100
+--application/pages/page_00101
+--application/pages/page_00110
+--application/pages/page_00111
+--application/pages/page_00200
+--application/pages/page_00201
+--application/pages/page_00210
+--application/pages/page_00211
+--application/pages/page_09999
+--application/end_environment
+...done
+
+--application/set_environment
+APPLICATION 810001 - APEX Delivery Laboratory
+--application/delete_application
+--application/create_application
+--application/user_interfaces
+--application/shared_components/navigation/lists/navigation_menu
+--application/shared_components/navigation/lists/navigation_bar
+--application/shared_components/navigation/listentry
+--application/shared_components/files/icons_app_icon_144_rounded_png
+--application/shared_components/files/icons_app_icon_32_png
+--application/shared_components/files/icons_app_icon_192_png
+--application/shared_components/files/icons_app_icon_256_rounded_png
+--application/shared_components/files/icons_app_icon_512_png
+--application/plugin_settings
+--application/shared_components/security/authorizations/administration_rights
+--application/shared_components/navigation/navigation_bar
+--application/shared_components/logic/application_settings
+--application/shared_components/navigation/tabs/standard
+--application/shared_components/navigation/tabs/parent
+--application/shared_components/user_interface/lovs/hello_entries_entry_text
+--application/shared_components/user_interface/lovs/world_entries_entry_text
+--application/pages/page_groups
+--application/shared_components/navigation/breadcrumbs/breadcrumb
+--application/shared_components/navigation/breadcrumbentry
+--application/shared_components/user_interface/templates/popuplov
+--application/shared_components/user_interface/themes
+--application/shared_components/user_interface/theme_style
+--application/shared_components/user_interface/theme_files
+--application/shared_components/user_interface/template_opt_groups
+--application/shared_components/user_interface/template_options
+--application/shared_components/globalization/language
+--application/shared_components/logic/build_options
+--application/shared_components/globalization/messages
+--application/shared_components/globalization/dyntranslations
+--application/shared_components/security/authentications/oracle_apex_accounts
+--application/user_interfaces/combined_files
+--application/pages/page_00000
+--application/pages/page_00001
+--application/pages/page_00010
+--application/pages/page_00020
+--application/pages/page_00100
+--application/pages/page_00101
+--application/pages/page_00110
+--application/pages/page_00111
+--application/pages/page_00200
+--application/pages/page_00201
+--application/pages/page_00210
+--application/pages/page_00211
+--application/pages/page_09999
+--application/end_environment
+...done
+
+
+UPDATE SUMMARY
+Run:                         23
+Previously run:               0
+Filtered out:                 0
+-------------------------------
+Total change sets:           23
+
+Liquibase: Update has been successful. Rows affected: 23
+
+Produced logfile: sqlcl-lb-1792483579350.log
+
+Operation completed successfully.
+
+
+
+
+SQLcl [user_acceptance_test]
+connect -name user_acceptance_test
+set long 1000000 longchunksize 1000000
+set sqlformat json
+select json_object(
+      'schema' value user,
+      'business_tables' value (select count(*) from user_tables where table_name in
+        ('LAB_COMPONENTS','LAB_STATE','HELLO_ENTRIES','WORLD_ENTRIES',
+         'HELLO_CONFIG','WORLD_CONFIG','GREETING_HISTORY')),
+      'application' value (select json_object('id' value application_id,
+        'schema' value owner, 'status' value availability_status)
+        from apex_applications where application_id=810005) format json) as "payload" from dual;
+prompt E2_JSON_END
+set sqlformat ansiconsole
+
+SQLcl [user_acceptance_test]
+connect -name user_acceptance_test
+set long 1000000 longchunksize 1000000
+set sqlformat json
+select json_object('history' value (select coalesce(json_arrayagg(json_object(*) order by greeting_id returning clob),to_clob('[]')) from greeting_history) format json,
+'hello_entries' value (select coalesce(json_arrayagg(json_object(*) order by entry_id returning clob),to_clob('[]')) from hello_entries) format json,
+'world_entries' value (select coalesce(json_arrayagg(json_object(*) order by entry_id returning clob),to_clob('[]')) from world_entries) format json,
+'hello_config' value (select coalesce(json_arrayagg(json_object(*) order by config_id returning clob),to_clob('[]')) from hello_config) format json,
+'world_config' value (select coalesce(json_arrayagg(json_object(*) order by config_id returning clob),to_clob('[]')) from world_config) format json,
+'components' value (select coalesce(json_arrayagg(json_object(*) order by component returning clob),to_clob('[]')) from lab_components) format json returning clob) as "payload" from dual;
+prompt E2_JSON_END
+set sqlformat ansiconsole
+PASS same-byte UAT deployment; inspect the printed native changeset results
+NEXT browser: VERIFIER greeting/history; LAB_USER must be blocked while Restricted Access. If already Available, this was a preserved repeat.

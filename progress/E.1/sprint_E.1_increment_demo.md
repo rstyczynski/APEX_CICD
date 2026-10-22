@@ -1,6 +1,6 @@
 # From Git to APEX — guided presentation walkthrough
 
-Use this guide beside the [PowerPoint presentation](sprint_E.1_increment_demo.pptx). It follows the important parts of the [A–H use-case walkthrough](cicd-walkthrough.md), with slide references, commands, visible results and the next decision. The [operator manual](user_manual.md) provides the deeper SQL operations; the [handover](sprint_E.1_handover.md) records the results and review status.
+Use this guide beside the [PowerPoint presentation](sprint_E.1_increment_demo.pptx). It follows the important parts of the [A–I use-case walkthrough](cicd-walkthrough.md), with slide references, commands, visible results and the next decision. The [operator manual](user_manual.md) provides the deeper SQL operations; the [handover](sprint_E.1_handover.md) records the results and review status.
 
 ## What you will see
 
@@ -15,7 +15,7 @@ The selected Oracle toolchain is APEX/ORDS, SQLcl with Java, SQLcl's bundled Liq
 Choose how to review:
 
 1. **Use the retained lab:** perform stage 1, inspect existing results using stages 3–7, then start stage 8 at the current drift comparison. Do not rerun A–F over completed stage directories.
-2. **Reproduce from scratch:** explicitly choose stage 2, which destroys all lab database state. Then execute A–H in order. This is the previously rehearsed fresh-start path, not a second rebuild performed to prepare these slides.
+2. **Reproduce from scratch:** explicitly choose stage 2, which destroys all lab database state. Then execute A–I in order. The independent clean-checkout A–I rehearsal is recorded in [native evidence](tests/clean_checkout_20261018.txt); its runtime API fixtures do not replace the live browser checkpoints.
 
 ## Git layout, cooperation and future pipelines
 
@@ -34,7 +34,7 @@ cd "$(git rev-parse --show-toplevel)"
 bash scripts/cicd-walkthrough.sh --preflight
 ```
 
-1. Look for the A–H chapter/tool/file checks. This is local preflight, not a fresh database acceptance test.
+1. Look for the A–I chapter/tool/file checks. This is local preflight, not a fresh database acceptance test.
 2. Keep a browser open for runtime results and a **Terminal B** at the same Git repository root for password retrieval. Passwords are generated locally; none is printed in this handover or stored in Git.
 3. For ordinary application viewing, run in Terminal B:
 
@@ -53,6 +53,7 @@ Expected result: you can inspect the retained release and follow the presentatio
 Run each operation separately in Terminal A and wait for success:
 
 ```bash
+python3 scripts/cicd-release-inputs.py
 bash scripts/cicd-walkthrough-prerequisites.sh
 bash scripts/cicd-walkthrough-host.sh
 bash scripts/apex-destroy.sh
@@ -96,7 +97,7 @@ bash scripts/cicd-walkthrough-apex-init.sh
    bash scripts/cicd-walkthrough-ready.sh
    ```
 
-Expected result: **PASS walkthrough ready**, with empty A/B/C, integration_test and UAT. The maintained native provisioning/destruction procedure and troubleshooting are in [deploy.md](../../docs/deploy.md#fresh-walkthrough-infrastructure-sequence). No new installer version or rebuild is claimed by this handover preparation. This stage supplies the PBI-011.1 / UC-8 prerequisite for the later journey.
+Expected result: **PASS walkthrough ready**, with empty A/B/C, integration_test and UAT. The maintained native provisioning/destruction procedure and troubleshooting are in [deploy.md](../../docs/deploy.md#fresh-walkthrough-infrastructure-sequence). The independent rehearsal used the same pinned installer versions and newly provisioned infrastructure. This stage supplies the PBI-011.1 / UC-8 prerequisite for the later journey.
 
 ## 3. A–C: assemble the development application
 
@@ -272,11 +273,26 @@ These are alternatives, not a sequence to run now. The first two require their e
 
 Fresh-only unattended rehearsal uses `bash scripts/cicd-walkthrough.sh --rehearse` **after fresh infrastructure/onboarding**, and performs actual installs, upgrades and synthetic fixtures. It announces skipped browser checks; it is not a substitute for the operator's live acceptance.
 
-## 11. Evidence, conclusions and next decisions
+## 11. Repair a failed additive deployment
 
-**Slides 24–28.** The [completion assessment](sprint_E.1_assessment.md) lists each assigned PBI/child, official status, demonstrated subset and remaining acceptance work. The [test record](sprint_E.1_tests.md) and [handover checks](tests/handover_checks_20261018.txt) distinguish current native checks from reused earlier evidence.
+**Slide 24.** Use the disposable integration_test area after F; UAT stays retained.
+
+```bash
+bash scripts/cicd-walkthrough-I_repair.sh
+```
+
+1. Observe the first additive index commit and the deliberate failure of the next migration. Ordinary runtime access stays blocked.
+2. Inspect the retained state and the displayed observation hash. The failed attempt remains recorded.
+3. Approve that exact observation when prompted. A separate reviewed repair archive completes the migration without rewriting the successful changeset.
+4. Confirm the successful repair receipt, preserved greeting history/settings and unchanged repeat. An unexpected partial state rejects before repair.
+
+The [walkthrough I chapter](cicd-walkthrough.md#i-inspect-and-repair-one-failed-additive-deployment) and [native proof](tests/recovery_proof_20261018.txt) explain this bounded experiment. It does not establish recovery for arbitrary schema damage.
+
+## 12. Evidence, conclusions and next decisions
+
+**Slides 25–29.** The [completion assessment](sprint_E.1_assessment.md) lists each assigned PBI/child, official status, demonstrated subset and remaining acceptance work. The [test record](sprint_E.1_tests.md) and [handover checks](tests/handover_checks_20261018.txt) distinguish current native checks from reused earlier evidence.
 
 1. The selected assembly/release/patch/protection slice works and has been exercised with the Product Owner.
-2. The full E.1 acceptance scope is not complete. Genuine concurrent ownership/integration, full maintenance/verifier fencing, schema drift and failed additive deployment with automated repair remain open.
+2. The full E.1 acceptance scope is not complete. Genuine concurrent ownership/integration, full maintenance/verifier fencing, broader schema drift and unsupported repair states remain open. The bounded failed-additive-deployment repair is now proved.
 3. Recommend focused further Elaboration before full Lifecycle Architecture acceptance. The proposed next work reuses existing children; no new sprint is activated or Construction plan accepted by preparing this package.
 4. Review the handover outcome, choose what to do with the active manual edit, and select the remaining proofs to prioritize. Record the decision in the [handover](sprint_E.1_handover.md). The Product Owner's earlier stage PASS observations do not automatically close E.1.

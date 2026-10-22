@@ -1,0 +1,15 @@
+{
+  "kind": "desktop walkthrough repeat; original run ZIP unchanged",
+  "main_unchanged": true,
+  "presentation_sha256": "9c889bf7658d97b0a3f6b6d2a6cb9ee7beae25960584e25379b1498f37456011",
+  "files": {
+    "e2_desktop_repeat_diff.jpg": "c011d063e7193c4ea82f49406704e1c9abb1232ba2d7e1be2d1d576b250c37c0",
+    "e2_desktop_repeat_diff_full.jpg": "789f78dd1bd943e7deb6a55f675035822e5b435a2e806c4388641ac5504cefeb",
+    "e2_desktop_repeat_merge.jpg": "c4b6003d0f1d49fbca790f44905319305992cb5d0602fb379fe73e52c660e737",
+    "e2_desktop_repeat_merge_full.jpg": "83ae57c56f7cbedbb779b339de404a4caa2b7bf79969c8759a090a2e48cd5c75",
+    "e2_desktop_repeat_missing.jpg": "28114205c4ced8d750ea98d31f0020a01b3f684406db24df9b5f41e37fe35ebe",
+    "e2_desktop_repeat_missing_full.jpg": "617c4790e69ccda0701f82e412bd74cc6713a3cb9b782d5a2c4e5e6f370e6a02",
+    "desktop_repeat_main_preservation.json": "c99b6a25d86870ad28f1980bca341286213bb4371e26ef93dd76d92c7cc28157"
+  },
+  "validation": "Current 22-slide revision adds repository layout and Git checkpoint inspection; Courier listings. Package/layout/font/import checks passed; corrected tree and command slide inspected directly in desktop PowerPoint. Original captures and Main receipt unchanged."
+}

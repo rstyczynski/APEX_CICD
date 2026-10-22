@@ -1,0 +1,75 @@
+
+-------- Results Summary ----------
+Errors:     1
+Warnings:   0
+Info:       7
+---------------------------------
+
+ ------- ---------- -------------------------- ---------------------------------------------------------------------- 
+  Level   Group      Test Name                  Message                                                               
+          Name                                                                                                        
+ ------- ---------- -------------------------- ---------------------------------------------------------------------- 
+  INFO    init       verifyprojectname          The final project name will be "e2"                                   
+                                                                                                                      
+  INFO    stage      stagechangelogfilesvalid   .dbtools/project.config.json generated format: liquibase              
+                                                All included scripts are present, not cross-referencing and readable  
+                                                (31 checked)                                                          
+                                                                                                                      
+  INFO    stage      stagesoftobjectisolation   SoftObjectIsolation: Change                                           
+                                                OK: Code folder is absent.                                            
+                                                                                                                      
+  INFO    stage      stageduplicateentries      .dbtools/project.config.json generated format: liquibase              
+                                                dist/releases/main.changelog.xml - There are no duplicate entries.    
+                                                RELEASE CHANGELOGS - There are no duplicate entries.                  
+                                                TICKET CHANGELOGS - There are no duplicate entries.                   
+                                                                                                                      
+  ERROR   stage      stagechangelogcomplete     File not found in stage.changelog :                                   
+                                                src/database/e1_dev_c/package_bodies/lab_runtime.sql                  
+                                                File not found in stage.changelog :                                   
+                                                src/database/e1_dev_c/tables/greeting_history.sql                     
+                                                File not found in stage.changelog :                                   
+                                                src/database/e1_dev_c/tables/world_entries.sql                        
+                                                File not found in stage.changelog :                                   
+                                                src/database/e1_dev_c/tables/hello_config.sql                         
+                                                File not found in stage.changelog :                                   
+                                                src/database/e1_dev_c/tables/world_config.sql                         
+                                                File not found in stage.changelog :                                   
+                                                src/database/e1_dev_c/tables/lab_components.sql                       
+                                                File not found in stage.changelog :                                   
+                                                src/database/e1_dev_c/tables/lab_state.sql                            
+                                                File not found in stage.changelog :                                   
+                                                src/database/e1_dev_c/ref_constraints/world_config.world_entries.sql  
+                                                File not found in stage.changelog :                                   
+                                                src/database/e1_dev_c/ref_constraints/hello_config.hello_entries.sql  
+                                                File not found in stage.changelog :                                   
+                                                src/database/e1_dev_c/apex_apps/f810003/f810003.sql                   
+                                                File not found in stage.changelog :                                   
+                                                src/database/e1_dev_c/triggers/hello_config_guard.sql                 
+                                                File not found in stage.changelog :                                   
+                                                src/database/e1_dev_c/triggers/greeting_history_insert_guard.sql      
+                                                File not found in stage.changelog :                                   
+                                                src/database/e1_dev_c/triggers/world_entries_no_delete.sql            
+                                                File not found in stage.changelog :                                   
+                                                src/database/e1_dev_c/triggers/hello_config_no_delete.sql             
+                                                File not found in stage.changelog :                                   
+                                                src/database/e1_dev_c/triggers/world_config_guard.sql                 
+                                                File not found in stage.changelog :                                   
+                                                src/database/e1_dev_c/triggers/world_config_no_delete.sql             
+                                                File not found in stage.changelog :                                   
+                                                src/database/e1_dev_c/triggers/hello_entries_no_delete.sql            
+                                                File not found in stage.changelog :                                   
+                                                src/database/e1_dev_c/triggers/world_entries_guard.sql                
+                                                File not found in stage.changelog :                                   
+                                                src/database/e1_dev_c/triggers/greeting_history_immutable.sql         
+                                                File not found in stage.changelog :                                   
+                                                src/database/e1_dev_c/package_specs/lab_runtime.sql                   
+                                                                                                                      
+                                                                                                                      
+  INFO    stage      stagesourcediff            All modified files are represented in dist folder                     
+                                                All changes in dist folder are represented in src folder              
+                                                                                                                      
+  INFO    project    sqlclversion               SQLcl Version check passed                                            
+                                                                                                                      
+  INFO    snapshot   verifysnapshot             Snapshot validation found no issues.                                  
+                                                                                                                      
+

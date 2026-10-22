@@ -2,6 +2,18 @@
 
 ## Recommendation for review
 
+The [E.2 gap analysis](../progress/E.2/sprint_E.2_proposedchanges.md) will
+reassess the current E.1 technology and the earlier recommendations below
+against the supplied Oracle lifecycle paper. Required focused exercises and
+the walkthrough must support gap/blocker findings and proposed backlog and
+roadmap changes. E.2 does not assume a native replacement is already validated;
+complex upgrades are deferred to the [E.5 scope](../progress/E.5/sprint_E.5_proposedchanges.md)
+after the technology/toolchain is stabilized.
+
+The [E.3 scope](../progress/E.3/sprint_E.3_proposedchanges.md) and [E.4 scope](../progress/E.4/sprint_E.4_proposedchanges.md) record the Product Owner’s 2026-10-19 split into APEX-native team-centric and Git-based feature-centric exercises, sharing native Oracle release tooling. The earlier recommendation below explains E.1’s choice; no measured native PROJECT blocker was established by that choice. The planned iterations test native capabilities before proposing replacements and compare the approaches using matched scenarios.
+
+Both planned iterations must satisfy the [strict Oracle traceability and E.1 comparison contract](../progress/E.3/sprint_E.3_proposedchanges.md#strict-oracle-traceability-and-comparison-contract): scenario-level paper pages and applicable official version-specific Oracle guidance, executed evidence, explicit deviation dispositions and decision-ready comparisons at each handover.
+
 Proposed on 2026-10-16 for Sprint I.1; no toolchain selection is accepted yet. Use SQLcl 25.3, split APEX exports, and explicitly authored database migrations executed by its bundled Liquibase. After merge package the accepted revision once, qualify those exact archive bytes in a disposable role and promote them unchanged into retained TEST; pre-merge candidate validation remains a separate gate. Validate locally in E.1 before adding a GitHub Actions self-hosted runner for the initial release. This is an engineering recommendation for a small teaching example, not a measured comparison or a claim that the tools already work together here.
 
 ## Evidence and alternatives

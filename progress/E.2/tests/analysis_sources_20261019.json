@@ -1,0 +1,179 @@
+{
+  "created_at_utc": "2026-10-19T11:59:15.677128+00:00",
+  "analysis_date_local": "2026-10-19",
+  "purpose": "Read-only desk-analysis inputs; no E.2 runtime verification",
+  "checkout_head": "05fed3006564d83eb1af16328891f84f611fe905",
+  "files": {
+    "refs/apex-lifecycle-management-v3.pdf": {
+      "sha256": "6f41b2f4511bfc3e3e4bbe28f3240c897a56006a42e46177d62a06d493cc4425",
+      "bytes": 13109319
+    },
+    "BACKLOG.md": {
+      "sha256": "25763aa6e95472fa94973b2dab0a792a79b9a6bc1f97c97abc08331c42cc7980",
+      "bytes": 24697
+    },
+    "PLAN.md": {
+      "sha256": "801eeb55ad7a335e27733ac3f33d2233bbc76d618ec882467b18c87de52d1398",
+      "bytes": 10320
+    },
+    "docs/srs.md": {
+      "sha256": "ededa8ea1fe8ef0c966ce0b2ba9c8d4e381b06d8bac7cbdcc5fa917181ca2d60",
+      "bytes": 46202
+    },
+    "docs/architecture.md": {
+      "sha256": "3a92db4f6d5815c13ec8dbd22e4404e734dda69316ccb2dd4b651020eee4f526",
+      "bytes": 57625
+    },
+    "docs/cicd-research.md": {
+      "sha256": "1615cb5954a0cc01cd31a98b23df142392fe4f5264084889b6656456c932022b",
+      "bytes": 24574
+    },
+    "docs/test-profile.md": {
+      "sha256": "42a7f6631c141e631be99b34e6e897a19bb85fce5f4cb83d611e77f734ed42c1",
+      "bytes": 37392
+    },
+    "config/areas.json": {
+      "sha256": "37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0",
+      "bytes": 575
+    },
+    "scripts/cicd-artifact.py": {
+      "sha256": "aac9868908807642a01c19a760d7d8b918910f098e298032fff4bdd6170a2d5b",
+      "bytes": 7803
+    },
+    "scripts/cicd-candidate-check.sh": {
+      "sha256": "3bdefec6fb84f248180e00f2a7de1b345d5a34f422938e23ee34a02b1e391ecd",
+      "bytes": 1680
+    },
+    "scripts/cicd-tools.sh": {
+      "sha256": "278a6255c1142bc5c71635225134f04a93edd6a0b6e94d6af12224cad7667867",
+      "bytes": 1260
+    },
+    "scripts/cicd-task.py": {
+      "sha256": "fc7d3a57e5a7ce574b0f39db9a743e4b35df9649add4c928e4a27077c83f06b8",
+      "bytes": 1287
+    },
+    "scripts/cicd-promote.sh": {
+      "sha256": "530ef2c09ca6c9d3d7e61bf9e16a7d1e100afe30ec76854f0fd4dda07dec463c",
+      "bytes": 367
+    },
+    "scripts/cicd-integration-test.sh": {
+      "sha256": "3637206507453f4339d2ce2d96ffa17e80e07d60b97d17dec39002fcc8dc95c2",
+      "bytes": 282
+    },
+    "deploy/operator/capture.sql": {
+      "sha256": "d8990dd6b926272ec2c97ce2421190066b52f11dd31d4ef71b52958cbe83a32d",
+      "bytes": 641
+    },
+    "deploy/operator/import_patch.sql": {
+      "sha256": "e8d0eb702492471f1c7c90dd601f44dd6732c9d21d2ee32c5a9c432765dc376d",
+      "bytes": 2060
+    },
+    "deploy/operator/fingerprint.sql": {
+      "sha256": "36e2abff2cc2c3985de215eeca03c8ca02e6cc92085ef4c32051858fa045a8ce",
+      "bytes": 457
+    },
+    "db/changelog.xml": {
+      "sha256": "f1b36d3a4e4da8ef358b497f738fc8a8d8e89b42d68a7e8972de0eae8a318cb4",
+      "bytes": 1212
+    },
+    "release/manifest.json": {
+      "sha256": "5c0efa19d4af22d3021231709ec3237bb1565e1680982cd8c3375a2f2109e6e9",
+      "bytes": 887
+    },
+    "tests/unit/test_greeting.sh": {
+      "sha256": "58667e0b59b00f11c957438311071d02a220af8e2e612ab71c124efb19d035f0",
+      "bytes": 178
+    },
+    "tests/integration/test_release.sh": {
+      "sha256": "b2815c3b7f5b28436831a14a4d8e9db130b6e3f687b64f5004fa00a8f7b7f136",
+      "bytes": 2966
+    },
+    "tests/integration/test_development.sh": {
+      "sha256": "0783aa0ca6261470d53849ca454c4d52f10d45581e0066a221fe8f1b039fda86",
+      "bytes": 605
+    },
+    "tests/manifests/component_delivery.manifest": {
+      "sha256": "4676827edd8b33a067cd6b8d6412d9b3bcda306db44bf8b2186958ba783b3626",
+      "bytes": 409
+    },
+    "progress/E.1/sprint_E.1_assessment.md": {
+      "sha256": "9e140d8b47294fd242d13c65b50ad8b6121d0378c007aa4de5acc5f267084f80",
+      "bytes": 16308
+    },
+    "progress/E.1/sprint_E.1_handover.md": {
+      "sha256": "064333a0b0ac754c9a57a7702d5820685015f3f201e97146a7381f02343a6371",
+      "bytes": 11563
+    },
+    "progress/E.1/sprint_E.1_tests.md": {
+      "sha256": "7777513933ed1d059620348c3688e7549175714b98cf2bce50f477b07cdec30c",
+      "bytes": 36688
+    },
+    "progress/E.1/tests/apex_identity_20261018.txt": {
+      "sha256": "29fda295c7528baf6c9ea26f4cb1162d37d83506b4093de03e3255b8147e642d",
+      "bytes": 8799
+    },
+    "progress/E.1/tests/recovery_proof_20261018.txt": {
+      "sha256": "839af1c3611dba731bf29db209d44c8a045c4743f3955e174585877420b9a573",
+      "bytes": 13383
+    },
+    "progress/E.1/tests/clean_checkout_20261018.txt": {
+      "sha256": "f0cae35c573bb268a1d4b3faf9531b560df803840867828cb54f57d458e971ef",
+      "bytes": 3124
+    }
+  },
+  "official_sources_opened": [
+    "https://docs.oracle.com/en/database/oracle/apex/24.2/aeadm/exporting-one-or-more-applications.html",
+    "https://docs.oracle.com/en/database/oracle/apex/24.2/aeapi/APEX_APPLICATION_ADMIN.html",
+    "https://docs.oracle.com/en/database/oracle/apex/24.2/aeapi/GET_APPLICATION_Function.html",
+    "https://docs.oracle.com/en/database/oracle/apex/24.2/aeapi/GET_INFO-Function.html",
+    "https://docs.oracle.com/en/database/oracle/apex/24.2/aeapi/GET_OFFSET-Function.html",
+    "https://docs.oracle.com/en/database/oracle/apex/24.2/aeapi/toc.htm",
+    "https://docs.oracle.com/en/database/oracle/apex/24.2/htmdb/about-working-copies.html",
+    "https://docs.oracle.com/en/database/oracle/apex/24.2/htmdb/locking-and-unlocking-a-page.html",
+    "https://docs.oracle.com/en/database/oracle/apex/24.2/htmdb/running-advisor-to-check-application-integrity.html",
+    "https://docs.oracle.com/en/database/oracle/apex/24.2/htmdb/using-component-groups.html",
+    "https://docs.oracle.com/en/database/oracle/apex/24.2/htmdb/using-shared-component-subscriptions.html",
+    "https://docs.oracle.com/en/database/oracle/oracle-database/26/sqlrf/COMMIT.html",
+    "https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.3/sqcug/introduction.html",
+    "https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.3/sqcug/project.html",
+    "https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.3/sqcug/refining-exports-filters.html",
+    "https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.3/sqcug/sql-peformance-issues.html",
+    "https://www.oracle.com/tools/sqlcl/sqlcl-relnotes-25.3.0.html"
+  ],
+  "paper_printed_pages_visually_inspected_this_pass": [
+    29,
+    31,
+    34
+  ],
+  "historical_paper_page_inspected_previous_pass": [
+    32
+  ],
+  "source_scope_git_status": "",
+  "limits": [
+    "Source files inspected; no database connection or mutation",
+    "Historical test logs remain historical",
+    "Documentation has pre-existing uncommitted planning edits",
+    "No vendor-support determination for the pinned Java distribution"
+  ],
+  "project_fit_source_supplement": {
+    "review_date": "2026-10-19",
+    "case_study": {
+      "url": "https://pretius.com/pl/blog/project-oracle-sqlcl",
+      "published": "2024-12-12",
+      "reported_sqlcl": "24.3.2",
+      "role": "Worked example and hypotheses, not selected-version validation"
+    },
+    "official_version": "25.3",
+    "urls": [
+      "https://docs.oracle.com/en/database/oracle/apex/24.2/aeapi/Import-Script-Examples.html",
+      "https://docs.oracle.com/en/database/oracle/oracle-database/26/sqlrf/COMMIT.html",
+      "https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.3/sqcug/introduction.html",
+      "https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.3/sqcug/liquibase.html",
+      "https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.3/sqcug/project-command-usage-examples.html",
+      "https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.3/sqcug/project-command.html",
+      "https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.3/sqcug/project.html",
+      "https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.3/sqcug/refining-exports-filters.html"
+    ],
+    "new_runtime_evidence": false
+  }
+}

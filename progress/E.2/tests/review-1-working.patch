@@ -1,0 +1,540 @@
+diff --git a/BACKLOG.md b/BACKLOG.md
+index 8acd044..1e81ce1 100644
+--- a/BACKLOG.md
++++ b/BACKLOG.md
+@@ -247,3 +247,139 @@ Establish the optional future path from an existing application to an accepted s
+ Test: Demonstrate controlled reconstruction of an adopted application and rejection of incomplete capture, unsafe overwrite or unverified source state.
+ 
+ Status: Proposed
++
++### PBI-036. Define Oracle lifecycle use-case coverage
++
++Extend the laboratory scenarios with the actor journeys presented in the Oracle lifecycle paper. Require traceability from every scenario in both Oracle-style iterations to exact paper pages and applicable version-specific Oracle documentation, with observed evidence and explicit scope decisions. Distinguish documented recommendations from project extensions so native tool adoption does not silently weaken existing acceptance criteria.
++
++Test: Review complete bidirectional scenario-to-paper-and-Oracle-documentation coverage for both iterations, with assigned outcomes, evidence requirements and approved dispositions for deviations or exclusions.
++
++Status: Proposed
++
++### PBI-037. Establish native Oracle source capture and staging
++
++Make application and database changes reviewable and reconstructible through the Oracle-recommended project lifecycle. Preserve complete dependencies, stable identities and intentional data changes without maintaining a competing source or migration authority.
++
++Test: Demonstrate initial capture, a subsequent application and database change, reviewed distribution changes and reconstruction with consistent source identity.
++
++Status: Proposed
++
++### PBI-038. Deliver native Oracle release artifacts
++
++Reproduce the initial release and compatible Hello upgrade using Oracle-recommended release and deployment capabilities. Qualify and promote the same artifact while retaining source identity, supported starting states and existing user data.
++
++Test: Demonstrate fresh installation, baseline upgrade and safe repeat using one qualified native artifact per release, with unchanged prior data and traceable results.
++
++Status: Proposed
++
++### PBI-039. Demonstrate native team-centric APEX collaboration
++
++Show a small team completing a fix in shared development using native page coordination and isolated working changes. Include refresh, comparison, integration and abandonment so developers understand when this approach fits and where schema isolation stops.
++
++Test: Demonstrate competing page access, an isolated fix refreshed and merged into Main, and discarded experimental work without unintended application or data changes.
++
++Status: Proposed
++
++### PBI-040. Measure PL/SQL regression coverage with utPLSQL
++
++Make business-logic regression results and measured code coverage available for the laboratory releases. Use uncovered behavior to improve the tests and make failures visible to release reviewers.
++
++Test: Demonstrate a detected regression, archived test and coverage reports with an explicit denominator, and improved coverage after adding a missing test.
++
++Status: Proposed
++
++### PBI-041. Demonstrate Oracle-recommended application quality audits
++
++Expose application quality, security and performance findings before release using the audits described in the Oracle paper. Show how a developer investigates and corrects a finding, with unavailable or optional external products clearly distinguished from executed checks.
++
++Test: Demonstrate repeatable built-in audits and code inspection detecting a controlled finding, its correction and retained results with stated tool coverage.
++
++Status: Proposed
++
++### PBI-042. Synchronize central development after accepted merges
++
++Keep the central development application aligned with the accepted source revision after a feature is integrated. Make stale builds and unexported work visible so synchronization cannot silently overwrite another developer contribution.
++
++Test: Demonstrate an accepted merge reflected in central development and a blocked stale or unsafe refresh with pending work preserved.
++
++Status: Proposed
++
++### PBI-043. Operate the Oracle lifecycle automation pipelines
++
++Automate the paper’s source-to-release and build-test-deploy journeys with reviewable run history and downloadable artifacts and test results. Failed tests must stop downstream deployment, while a changed candidate requires fresh validation.
++
++Test: Demonstrate successful runs of both journeys and a failing test that blocks deployment, with attributable source, artifact and archived reports.
++
++Status: Proposed
++
++### PBI-044. Demonstrate native mini-app component reuse
++
++Show the paper’s optional modular application pattern separately from the single-application greeting release. Explain shared component subscriptions, controlled propagation and seamless authenticated navigation without presenting them as independent versioning of page groups.
++
++Test: Demonstrate a common component subscribed by two mini apps, publish and refresh behavior, and authenticated navigation across the applications.
++
++Status: Proposed
++
++### PBI-045. Preserve scenario protections around native Oracle delivery
++
++Retain the demonstrated incompatible-upgrade rejection, live application drift protection and inspected additive-failure repair when adopting the native lifecycle. Identify which protections Oracle supplies and justify any remaining project-specific control with observed evidence.
++
++Test: Demonstrate the three protection scenarios with native release artifacts, preserved prior data and failure evidence, and refusal of an interveningly changed repair state.
++
++Status: Proposed
++
++### PBI-046. Compare and independently reproduce the Oracle-style laboratory
++
++Let another operator reproduce the Git-based Oracle-style exercise and compare it with both the earlier custom prototype and the APEX-native exercise. Require paper and version-specific Oracle-documentation traceability alongside matched scenario results, operating effort and remaining gaps. Preserve historical evidence and provide a decision-ready recommendation without assuming which approach should win.
++
++Test: Demonstrate independent reproduction and review a three-approach comparison with source-backed Oracle conformance, attributable results, comparable measurements, limitations and an explicit Product Owner decision record.
++
++Status: Proposed
++
++### PBI-047. Compare APEX-native delivery with the earlier prototype
++
++Provide an evidence-based comparison of the APEX-native exercise with the earlier custom delivery prototype before accepting the native iteration. Map the scenarios to the Oracle paper and applicable Oracle documentation and explain observed benefits, limitations and remaining custom responsibilities. Preserve absent historical measurements as unknown rather than assuming improvement.
++
++Test: Review matched scenario evidence, Oracle traceability, operating and maintenance measures, limitations and a decision-ready recommendation at the APEX-native iteration handover.
++
++Status: Proposed
++
++### PBI-048. Prove an available compatible Foundation extension
++
++Extend Foundation from 1.0.0 to 1.1.0 with optional greeting-language support while preserving the existing public contract and legacy behavior. Cover both the PL/SQL interface and database schema so unchanged Hello and World consumers continue reading and writing throughout deployment and data migration. Preserve existing history and configuration, and demonstrate recovery from an interrupted upgrade without interrupting supported consumers.
++
++Test: Demonstrate continuous successful legacy reads and writes during upgrade and recovery, correct optional-language behavior after upgrade, and preserved history and configuration.
++
++Status: Proposed
++
++### PBI-049. Prove an available breaking Foundation transition
++
++Introduce a Foundation 2.0.0 public contract requiring greeting templates and structured parameters in place of arbitrary-text submission, following the compatible Foundation extension. Keep the legacy 1.x contract operational while Hello and World adopt the new contract independently, including simultaneous reads and writes against the evolving database schema. Preserve previously recorded greetings and configuration, and establish the supported return to legacy operation after new-contract writes before retiring legacy support.
++
++Test: Demonstrate continuous successful old and new contract traffic with one consumer migrated and the other unchanged, preserved data through interruption and return to legacy operation, and legacy retirement only after all old callers have left.
++
++Status: Proposed
++
++### PBI-050. Prove an in-place Foundation upgrade with component windows
++
++Upgrade the existing Foundation deployment from 1.1.0 to the breaking 2.0.0 contract across its PL/SQL API and database schema while preserving history and configuration. Keep Hello and World using Foundation 1.1.0 until each moves to Foundation 2.0.0 during its own maintenance window. Limit unavailability to the component being migrated while the other continues reading and writing, including during the interval when they use different Foundation versions. Establish safe recovery from an interrupted component migration without disrupting the other component.
++
++Test: Demonstrate separate Hello and World maintenance windows in the existing deployment, uninterrupted reads and writes by the other component, correct operation against Foundation 1.1.0 and 2.0.0 during coexistence, and preserved data through migration and interrupted-migration recovery.
++
++Status: Proposed
++
++### PBI-051. Assess the E.1 delivery approach against Oracle lifecycle guidance
++
++Assess the existing E.1 delivery approach against the supplied Oracle APEX lifecycle guidance to establish an evidence-backed evolution direction. Distinguish technology limitations, implementation gaps and project policy conflicts, using focused exercises where needed to demonstrate problems or solutions. Produce traceable gap findings, proposed backlog items and a dependency-ordered roadmap toward the Oracle-recommended approach, with explicit evidence for blockers and justified deviations. Present the findings and required exercises through a reproducible walkthrough on the current E.1 technology.
++
++Test: Review source-linked gap findings and blocker evidence through the walkthrough, reproduce required exercises and verify that proposed follow-up items and roadmap decisions follow the findings.
++
++Status: Proposed
++
++### PBI-052. Define semantic versioning rules for component contracts
++
++Define the observable interfaces and compatibility promises of APEX and database components, and map changes to major, minor and patch version increments. Cover consumer-facing behavior, shared definitions and retained-data expectations so developers can classify breaking changes, compatible extensions and compatible fixes consistently. Connect these rules to component version and dependency declarations understood by the delivery toolchain without requiring automatic inference from code changes.
++
++Test: Review representative APEX and database changes, including shared LOV changes, and demonstrate justified major, minor and patch classifications against explicit component contracts and consumer compatibility expectations.
++
++Status: Proposed
+diff --git a/PLAN.md b/PLAN.md
+index 3a83273..e59a4d8 100644
+--- a/PLAN.md
++++ b/PLAN.md
+@@ -100,3 +100,116 @@ Backlog Items:
+ * PBI-014. Stabilize the architecture baseline
+ * PBI-015. Assess the Lifecycle Architecture milestone
+ * PBI-016. Create the Construction plan
++
++## Sprint E.2 - Assess E.1 against Oracle lifecycle guidance
++
++Status: Progress
++Mode: managed
++Test: smoke, unit, integration
++Regression: smoke, unit, integration
++
++On 2026-10-19 the Product Owner refined E.2 to gap analysis of the existing
++E.1 technology against the supplied Oracle APEX lifecycle paper, with focused
++exercises where needed and a reproducible walkthrough. Establish evidenced
++gaps, blockers, proposed backlog items and a roadmap toward Oracle-recommended
++delivery; assess policy conflicts without assuming they are product limitations.
++The [E.2 scope record](progress/E.2/sprint_E.2_proposedchanges.md) defines the
++analysis and handover contract. Complex Foundation upgrades move to E.5 after
++the technology/toolchain is stabilized. The earlier renumbering of the native
++and Git-based exercises to E.3/E.4 remains in effect. Activated on 2026-10-19
++by explicit Product Owner request in managed mode. The
++[setup](progress/E.2/sprint_E.2_setup.md) records the execution contract. The
++separate [analysis](progress/E.2/sprint_E.2_analysis.md) establishes the findings
++and evidence questions before exercise selection. The earlier exercise design
++draft is held pending analysis review; its approval request is withdrawn.
++
++Backlog Items:
++
++* PBI-051. Assess the E.1 delivery approach against Oracle lifecycle guidance
++
++## Sprint E.3 - Validate APEX-native team-centric development
++
++Status: Planned
++Mode: managed
++Test: smoke, unit, integration
++Regression: smoke, unit, integration
++
++On 2026-10-19 the Product Owner split the Oracle-style exercise into two
++iterations. E.3 validates shared APEX development, page locks and Working
++Copies, with coordinated Git checkpoints feeding native release, test and
++deployment automation. The [E.3 scope record](progress/E.3/sprint_E.3_proposedchanges.md)
++defines its independent acceptance and common foundation for E.4. This plans
++work without starting execution or approving an implementation design.
++
++Strict acceptance: every scenario must map to exact pages in the supplied
++Oracle lifecycle paper and applicable version-specific Oracle documentation,
++with execution evidence and explicit approved deviations. Handover must
++include an evidence-based E.1 comparison under PBI-047; see the
++[shared evidence contract](progress/E.3/sprint_E.3_proposedchanges.md#strict-oracle-traceability-and-comparison-contract).
++
++Backlog Items:
++
++* PBI-036. Define Oracle lifecycle use-case coverage
++* PBI-037. Establish native Oracle source capture and staging
++* PBI-035. Validate adoption of an existing APEX application
++* PBI-039. Demonstrate native team-centric APEX collaboration
++* PBI-040. Measure PL/SQL regression coverage with utPLSQL
++* PBI-034. Automate application browser acceptance checks
++* PBI-041. Demonstrate Oracle-recommended application quality audits
++* PBI-027. Unify delivery environment configuration
++* PBI-038. Deliver native Oracle release artifacts
++* PBI-021. Complete release admission and promotion negative coverage
++* PBI-029. Strengthen automation failure diagnostics
++* PBI-045. Preserve scenario protections around native Oracle delivery
++* PBI-044. Demonstrate native mini-app component reuse
++* PBI-043. Operate the Oracle lifecycle automation pipelines
++* PBI-047. Compare APEX-native delivery with the earlier prototype
++
++## Sprint E.4 - Validate Git-based feature-centric development
++
++Status: Planned
++Mode: managed
++Test: smoke, unit, integration
++Regression: smoke, unit, integration
++
++Build on the accepted E.3 native release/test foundation to validate feature
++branches, private APEX branch environments, PR/conflict integration and safe
++post-merge central DEV synchronization. The [E.4 scope record](progress/E.4/sprint_E.4_proposedchanges.md)
++owns its separate exercise, regression evidence and final comparison of both
++approaches. E.4 requires E.3's applicable baseline and its own activation;
++shared tooling does not merge the two development workflows.
++
++Strict acceptance: apply the same
++[Oracle traceability and comparison contract](progress/E.3/sprint_E.3_proposedchanges.md#strict-oracle-traceability-and-comparison-contract)
++to E.4 scenarios and inherited capabilities. PBI-046 must deliver E.4 versus
++E.1 evidence and the final E.1/E.3/E.4 decision package; a narrative preference
++or an E.3 test result alone cannot satisfy this requirement.
++
++Backlog Items:
++
++* PBI-019. Prove parallel component collaboration and integration
++* PBI-020. Complete APEX capture and reconstruction validation
++* PBI-042. Synchronize central development after accepted merges
++* PBI-017. Deliver a repository and pipeline reference guide
++* PBI-046. Compare and independently reproduce the Oracle-style laboratory
++
++## Sprint E.5 - Validate Foundation upgrades and version coexistence
++
++Status: Planned
++Mode: managed
++Test: smoke, unit, integration
++Regression: smoke, unit, integration
++
++The final currently planned Elaboration step implements the compatible and
++breaking Foundation upgrade scenarios on an accepted, stabilized technology/
++toolchain informed by E.2 analysis and the applicable E.3/E.4 evidence. Verify
++API/schema evolution, data preservation, version coexistence and independent
++consumer maintenance windows. The [E.5 scope record](progress/E.5/sprint_E.5_proposedchanges.md)
++retains the agreed migration sequence and defines the toolchain entry gate;
++unresolved blockers require plan refinement before implementation.
++
++Backlog Items:
++
++* PBI-048. Prove an available compatible Foundation extension
++* PBI-049. Prove an available breaking Foundation transition
++* PBI-050. Prove an in-place Foundation upgrade with component windows
+diff --git a/PROGRESS_BOARD.md b/PROGRESS_BOARD.md
+index edfa714..9410513 100644
+--- a/PROGRESS_BOARD.md
++++ b/PROGRESS_BOARD.md
+@@ -26,3 +26,27 @@
+ | Sprint E.1 | Done | PBI-011.6 | under_construction |
+ | Sprint E.1 | Done | PBI-011.7 | under_construction |
+ | Sprint E.1 | Done | PBI-011.8 | under_construction |
++| Sprint E.2 | under_analysis | PBI-051 | analysed |
++| Sprint E.3 | Planned | PBI-036 | Planned |
++| Sprint E.3 | Planned | PBI-037 | Planned |
++| Sprint E.3 | Planned | PBI-035 | Planned |
++| Sprint E.3 | Planned | PBI-039 | Planned |
++| Sprint E.3 | Planned | PBI-040 | Planned |
++| Sprint E.3 | Planned | PBI-034 | Planned |
++| Sprint E.3 | Planned | PBI-041 | Planned |
++| Sprint E.3 | Planned | PBI-027 | Planned |
++| Sprint E.3 | Planned | PBI-038 | Planned |
++| Sprint E.3 | Planned | PBI-021 | Planned |
++| Sprint E.3 | Planned | PBI-029 | Planned |
++| Sprint E.3 | Planned | PBI-045 | Planned |
++| Sprint E.3 | Planned | PBI-044 | Planned |
++| Sprint E.3 | Planned | PBI-043 | Planned |
++| Sprint E.3 | Planned | PBI-047 | Planned |
++| Sprint E.4 | Planned | PBI-019 | Planned |
++| Sprint E.4 | Planned | PBI-020 | Planned |
++| Sprint E.4 | Planned | PBI-042 | Planned |
++| Sprint E.4 | Planned | PBI-017 | Planned |
++| Sprint E.4 | Planned | PBI-046 | Planned |
++| Sprint E.5 | Planned | PBI-048 | Planned |
++| Sprint E.5 | Planned | PBI-049 | Planned |
++| Sprint E.5 | Planned | PBI-050 | Planned |
+diff --git a/README.md b/README.md
+index 520bcda..1d7de1c 100644
+--- a/README.md
++++ b/README.md
+@@ -2,6 +2,10 @@
+ 
+ **From Git to APEX: traceable releases, safe upgrades and protected deployments.**
+ 
++Our guiding principle: **Give developers flexibility through stable, industry-standard tools and techniques.**
++E.2 evaluates optional tool compatibility against this aim in its
++[analysis review](progress/E.2/sprint_E.2_inception.md#optional-tool-compatibility-hypotheses).
++
+ An executable delivery example for Oracle APEX and Oracle Database. A small Foundation/Hello/World application makes the important operations visible: capture source, review it in Git, build one release, validate it in integration testing, promote the same artifact to UAT and preserve application data through an upgrade.
+ 
+ The prototype runs on one Podman host using supported Oracle automation interfaces and small Bash/Python scripts. The source is public at [rstyczynski/APEX_CICD](https://github.com/rstyczynski/APEX_CICD). Hosted CI automation and production operation remain future work.
+@@ -90,7 +94,34 @@ Sprint **E.1 was closed by the Product Owner on 2026-10-18**. Important unfinish
+ 
+ The [assessment](progress/E.1/sprint_E.1_assessment.md) recommends focused further Elaboration before full Lifecycle Architecture acceptance. Remote CI runners, protected-branch automation and release approvals are [future extensions](progress/E.1/repo_layout.md#future-pipeline-automation). Cloud deployment, production readiness and high availability are outside the demonstrated scope.
+ 
+-Known open work is registered as **Proposed, unscheduled PBI-018–035** in the [Product Backlog](BACKLOG.md#pbi-018-prove-atomic-task-reservations-under-contention). The [coverage map](progress/E.1/sprint_E.1_assessment.md#open-work-backlog-coverage) connects each proposal to current E.1 criteria or deferred review concerns. PBI-012–017 retain their existing assessment, planning and reference-guide outcomes.
++Known follow-up work is registered in the [Product Backlog](BACKLOG.md#pbi-018-prove-atomic-task-reservations-under-contention). The historical [E.1 coverage map](progress/E.1/sprint_E.1_assessment.md#open-work-backlog-coverage) connects PBI-018–035 to remaining criteria and deferred review concerns. On 2026-10-19 the Product Owner split the Oracle-style exercise into **E.3: APEX-native team-centric development** and **E.4: Git-based feature-centric development**, both Planned. The [E.3 coverage and backlog review](progress/E.3/sprint_E.3_proposedchanges.md) owns Working Copies/page locks and the native release/test/pipeline foundation. The [E.4 scope](progress/E.4/sprint_E.4_proposedchanges.md) owns private Git branches, parallel PR integration, central DEV synchronization and the final comparison. The [plan](PLAN.md) owns the distinct assignments; neither approach is claimed implemented by this planning change. Both sprints have a strict [Oracle traceability and comparison requirement](progress/E.3/sprint_E.3_proposedchanges.md#strict-oracle-traceability-and-comparison-contract): exact paper/documentation sources, observed evidence and an E.1 comparison at each handover, followed by a three-approach decision package at E.4.
++
++The Product Owner refined **E.2 into gap analysis of E.1 against Oracle
++lifecycle guidance**, with focused exercises on the current E.1 technology
++and the established runnable walkthrough. The
++[E.2 analysis scope](progress/E.2/sprint_E.2_proposedchanges.md) schedules
++[PBI-051](BACKLOG.md#pbi-051-assess-the-e1-delivery-approach-against-oracle-lifecycle-guidance)
++to establish evidenced gaps, blockers, proposed backlog items and an evolution
++roadmap. E.3/E.4 retain their planned Oracle-style evaluations. The
++[E.5 upgrade scope](progress/E.5/sprint_E.5_proposedchanges.md) schedules
++[PBI-048](BACKLOG.md#pbi-048-prove-an-available-compatible-foundation-extension),
++[PBI-049](BACKLOG.md#pbi-049-prove-an-available-breaking-foundation-transition)
++and [PBI-050](BACKLOG.md#pbi-050-prove-an-in-place-foundation-upgrade-with-component-windows).
++E.5 covers compatible and breaking API/schema changes, initial data migration,
++legacy writes to both schemas and separate consumer maintenance windows.
++It is the final currently planned Elaboration step and requires a stabilized,
++accepted technology/toolchain. E.2 was activated on 2026-10-19 in managed mode;
++its [setup](progress/E.2/sprint_E.2_setup.md) records contracting and initial
++scoping. The separate [analysis](progress/E.2/sprint_E.2_analysis.md) is complete
++as a desk-analysis baseline; its [review summary](progress/E.2/sprint_E.2_inception.md)
++presents fourteen findings and prioritized evidence questions before exercise
++design. The earlier exercise draft is held pending analysis review;
++its design approval request has been withdrawn.
++The [external analysis review prompt](progress/E.2/sprint_E.2_review-1-prompt.md)
++is prepared for Product Owner relay; the independent review is pending.
++The analysis also records the unscheduled follow-up
++[PBI-052: component contracts and semantic versioning rules](BACKLOG.md#pbi-052-define-semantic-versioning-rules-for-component-contracts).
++E.3–E.5 remain Planned; their designs and runtime evidence are pending.
+ 
+ ## Vision
+ 
+@@ -106,6 +137,6 @@ The supplied [Oracle APEX lifecycle reference](refs/apex-lifecycle-management-v3
+ 
+ [RUPStrikesBack](https://github.com/rstyczynski/RUPStrikesBack) is an iterative delivery method for collaboration between a Product Owner and AI agents. It combines RUP lifecycle phases with a prioritized backlog, bounded iterations, explicit requirements/design, executable validation and Product Owner review. Each increment connects its implementation, tests and documentation so decisions can be checked against evidence.
+ 
+-This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1 and E.1 are closed. No sprint is currently active; remaining Elaboration work is recorded in the backlog for later selection.
++This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1 and E.1 are closed. E.2 is active in managed mode; E.3–E.5 remain Planned with distinct assigned Elaboration work recorded in the backlog and plan.
+ 
+ For external expert review, use the [rup-external-review skill](.agents/skills/rup-external-review/SKILL.md). Codex prepares the prompts and engineering replies; the Product Owner relays them to the expert through the linked round files. Review outcomes and implementation evidence remain distinct from sprint acceptance.
+diff --git a/ROADMAP.md b/ROADMAP.md
+index f6c2912..63f466d 100644
+--- a/ROADMAP.md
++++ b/ROADMAP.md
+@@ -49,8 +49,8 @@ approving an executable iteration.
+ ## Elaboration — Validate the risky delivery path
+ 
+ E.1, formerly labeled Sprint 2, concluded in managed mode on 2026-10-18 with
+-the demonstrated A–I prototype and recorded remaining work. PBI-018–035 make
+-the follow-up visible; no new iteration is scheduled. The original objective
++the demonstrated A–I prototype and recorded remaining work. PBI-018–035 made
++the follow-up visible at closure; E.2–E.5 are now scheduled below. The original objective
+ for PBI-011 through PBI-016 follows below as planning context. Use a thin Hello/World slice to validate source export,
+ database evolution, packaging, target deployment, and an observable behavior
+ change. Reuse existing assets where the accepted design supports them.
+@@ -64,6 +64,59 @@ Revise the approach when evidence contradicts the research. Assess the
+ Lifecycle Architecture milestone before committing to full Construction
+ scope; retain further Elaboration if needed.
+ 
++## Elaboration E.2 — E.1 gap analysis and focused exercises
++
++E.2 is active in managed mode with PBI-051, starting from the current E.1 technology.
++The [E.2 scope record](progress/E.2/sprint_E.2_proposedchanges.md) defines a
++source-backed gap analysis against the supplied Oracle lifecycle paper,
++focused exercises to demonstrate material problems or solutions, and the
++established runnable walkthrough. Its outcome is an evidenced retain/replace/
++investigate recommendation, proposed backlog items and a dependency-ordered
++roadmap toward Oracle-recommended delivery. Working Copies and Git authority
++are a compatibility question to investigate, not an assumed product blocker.
++The analysis informs refinement of E.3/E.4; complex upgrades move to E.5.
++The [execution setup](progress/E.2/sprint_E.2_setup.md) records contracting;
++the separate [analysis](progress/E.2/sprint_E.2_analysis.md) establishes the
++problems, evidence and questions that must drive exercise selection. The earlier
++exercise draft is held pending analysis review. No exercise implementation
++or runtime success is claimed.
++
++## Elaboration E.3 — APEX-native team-centric development
++
++The Product Owner split the Oracle-style exercise on 2026-10-19. E.3 is Planned
++in managed mode and demonstrates shared DEV, page locks, Working Copies and
++APEX Main integration, followed by coordinated Git checkpoints. It establishes
++the native release/deployment, test/coverage, audit and pipeline foundation
++while reproducing the demonstrated E.1 protections and showing mini-app reuse.
++The [E.3 scope and backlog review](progress/E.3/sprint_E.3_proposedchanges.md)
++defines its 15 assigned outcomes, mandatory E.1 comparison and independent handover evidence.
++
++## Elaboration E.4 — Git-based feature-centric development
++
++E.4 is separately Planned in managed mode, depending on E.3's applicable
++accepted native tooling. It demonstrates private APEX branch environments,
++parallel feature branches, PR/conflict integration and central DEV refresh
++from Git main. Its five assigned outcomes also complete private-target
++reconstruction validation, the consolidated guide and independent reproduction
++and comparison of both approaches against E.1. The
++[E.4 scope record](progress/E.4/sprint_E.4_proposedchanges.md) owns that exercise;
++the [plan](PLAN.md) owns both iterations' assignments. Both require exact paper-page and version-specific Oracle-documentation
++traceability, recorded execution evidence and an E.1 comparison at their own
++handover; E.4 also delivers the final three-approach decision package. Neither sprint has
++started. Broader unresolved controls and Lifecycle Architecture acceptance
++remain explicit, evidence-based decisions.
++
++## Elaboration E.5 — Foundation upgrades on the stabilized toolchain
++
++E.5 is the final currently planned Elaboration step, in managed mode with
++PBI-048–050. The [E.5 upgrade scope](progress/E.5/sprint_E.5_proposedchanges.md)
++retains compatible and breaking API/schema evolution, initial data migration,
++legacy-write propagation and separate consumer maintenance windows. Entry
++requires an accepted, reproducible, stabilized technology/toolchain informed
++by E.2 findings and applicable E.3/E.4 evidence. Resolve blockers or refine the
++plan before implementation; the scheduling alone does not establish Lifecycle
++Architecture acceptance or make a particular toolchain the final choice.
++
+ ## Construction — Complete the reusable example
+ 
+ Define C.n iterations from the validated architecture and remaining backlog.
+diff --git a/docs/architecture.md b/docs/architecture.md
+index 8a1ba23..4180674 100644
+--- a/docs/architecture.md
++++ b/docs/architecture.md
+@@ -4,6 +4,25 @@
+ 
+ ## Decision status
+ 
++The [E.2 analysis scope](../progress/E.2/sprint_E.2_proposedchanges.md) uses
++E.1's existing technology to assess the approach against the Oracle lifecycle
++paper and applicable official guidance. Focused exercises establish evidence
++for gaps, solutions and blockers before recommending retained or replacement
++mechanisms and the evolution roadmap. Tool limitations and policy conflicts
++must be distinguished; the target toolchain is not presumed validated.
++
++The [E.5 upgrade scope](../progress/E.5/sprint_E.5_proposedchanges.md) records
++the planned Foundation API/schema coexistence scenario. Initial data migration
++and legacy writes to both schema representations are agreed scenario inputs;
++transaction mechanics, shared-data visibility, version binding and recovery
++remain design decisions. The application-wide maintenance approach below must
++be refined before claiming independent consumer maintenance and availability.
++E.5 follows acceptance of the stabilized technology/toolchain.
++
++The [E.3 scope](../progress/E.3/sprint_E.3_proposedchanges.md) plans the APEX-native team-centric path and shared native release/test foundation; the [E.4 scope](../progress/E.4/sprint_E.4_proposedchanges.md) plans the separate Git-based feature-centric path, including validation of branch-instance identities. Both are Planned. Their designs must replace or justify custom release responsibilities while keeping APEX Main integration distinct from Git main integration. The E.1 mechanisms below describe the earlier candidate and demonstrated implementation, not a mandate to reproduce its custom packager.
++
++Both planned iterations must satisfy the [strict Oracle traceability and E.1 comparison contract](../progress/E.3/sprint_E.3_proposedchanges.md#strict-oracle-traceability-and-comparison-contract): scenario-level paper pages and applicable official version-specific Oracle guidance, executed evidence, explicit deviation dispositions and decision-ready comparisons at each handover.
++
+ Current E.1 evidence is summarized in the [handover](../progress/E.1/sprint_E.1_handover.md) and [completion assessment](../progress/E.1/sprint_E.1_assessment.md). E.1 was closed on 2026-10-18 after the selected A–I slice, including bounded repair, passed. Remaining concurrency, complete maintenance fencing, scoped schema drift and broader acceptance proofs are recorded in the follow-up backlog before full Lifecycle Architecture acceptance. Historical I.1 future-tense statements below describe the analysis baseline; use the linked assessment for implementation status.
+ 
+ Accepted as the revised I.1 analysis direction by the Product Owner on 2026-10-16, with the presentation wording correction. This is a direction for Elaboration validation, not a validated architecture baseline or E.1 construction approval. The [SRS](srs.md) owns behavior and scope; the [research](cicd-research.md) owns alternatives and source provenance. PBI-009 owns this document.
+diff --git a/docs/cicd-research.md b/docs/cicd-research.md
+index 4fdd00e..f3341d1 100644
+--- a/docs/cicd-research.md
++++ b/docs/cicd-research.md
+@@ -2,6 +2,18 @@
+ 
+ ## Recommendation for review
+ 
++The [E.2 gap analysis](../progress/E.2/sprint_E.2_proposedchanges.md) will
++reassess the current E.1 technology and the earlier recommendations below
++against the supplied Oracle lifecycle paper. Required focused exercises and
++the walkthrough must support gap/blocker findings and proposed backlog and
++roadmap changes. E.2 does not assume a native replacement is already validated;
++complex upgrades are deferred to the [E.5 scope](../progress/E.5/sprint_E.5_proposedchanges.md)
++after the technology/toolchain is stabilized.
++
++The [E.3 scope](../progress/E.3/sprint_E.3_proposedchanges.md) and [E.4 scope](../progress/E.4/sprint_E.4_proposedchanges.md) record the Product Owner’s 2026-10-19 split into APEX-native team-centric and Git-based feature-centric exercises, sharing native Oracle release tooling. The earlier recommendation below explains E.1’s choice; no measured native PROJECT blocker was established by that choice. The planned iterations test native capabilities before proposing replacements and compare the approaches using matched scenarios.
++
++Both planned iterations must satisfy the [strict Oracle traceability and E.1 comparison contract](../progress/E.3/sprint_E.3_proposedchanges.md#strict-oracle-traceability-and-comparison-contract): scenario-level paper pages and applicable official version-specific Oracle guidance, executed evidence, explicit deviation dispositions and decision-ready comparisons at each handover.
++
+ Proposed on 2026-10-16 for Sprint I.1; no toolchain selection is accepted yet. Use SQLcl 25.3, split APEX exports, and explicitly authored database migrations executed by its bundled Liquibase. After merge package the accepted revision once, qualify those exact archive bytes in a disposable role and promote them unchanged into retained TEST; pre-merge candidate validation remains a separate gate. Validate locally in E.1 before adding a GitHub Actions self-hosted runner for the initial release. This is an engineering recommendation for a small teaching example, not a measured comparison or a claim that the tools already work together here.
+ 
+ ## Evidence and alternatives
+diff --git a/docs/srs.md b/docs/srs.md
+index 3aa6218..f6ab0fc 100644
+--- a/docs/srs.md
++++ b/docs/srs.md
+@@ -4,6 +4,23 @@
+ 
+ ## Decision status and system boundary
+ 
++The [E.2 analysis scope](../progress/E.2/sprint_E.2_proposedchanges.md) assesses
++the current E.1 approach against Oracle lifecycle guidance, including policy
++conflicts such as Working Copies and Git authority. It requires source-backed
++findings, focused exercises, a walkthrough and proposed backlog/roadmap changes;
++requirements are not silently relaxed by the analysis.
++
++The [E.5 upgrade scope](../progress/E.5/sprint_E.5_proposedchanges.md) records
++the planned compatible and breaking Foundation transitions, initial data
++migration, legacy-write propagation and separate consumer maintenance windows.
++Its managed refinement must reconcile the availability requirement with the
++existing maintenance baseline before implementation on the stabilized toolchain;
++no upgrade is proved here.
++
++The [E.3 scope](../progress/E.3/sprint_E.3_proposedchanges.md) plans APEX-native team-centric work with page locks and Working Copies; the [E.4 scope](../progress/E.4/sprint_E.4_proposedchanges.md) separately plans Git-based feature integration and private APEX branch environments. E.3’s coverage refinement maps UC-1–12 and the paper’s additional actor journeys across both iterations, explicitly resolving the ordinary Working Copy versus break-glass restriction and native page-lock versus atomic component-reservation differences. The current requirements below remain in force until that managed refinement; the split does not silently relax them.
++
++Both planned iterations must satisfy the [strict Oracle traceability and E.1 comparison contract](../progress/E.3/sprint_E.3_proposedchanges.md#strict-oracle-traceability-and-comparison-contract): scenario-level paper pages and applicable official version-specific Oracle guidance, executed evidence, explicit deviation dispositions and decision-ready comparisons at each handover.
++
+ I.1 analysis baseline accepted by the Product Owner on 2026-10-16, with the presentation wording correction. Derived from the accepted [vision](../README.md). PBI-003 through PBI-008 own this specification; [research](cicd-research.md) and the [candidate architecture](architecture.md) explain its technical direction. This acceptance establishes requirements; executable proof remains due in Elaboration.
+ 
+ The product is a reproducible local APEX/database delivery laboratory, including a minimal example application, reviewable sources, release artifacts, automated checks, controlled DEV-to-user_acceptance_test promotion, and operator guidance. Oracle Database, APEX, ORDS, Podman, Git, and the selected runner are dependencies. Cloud deployment, production service levels, high availability, a business application, and changes to unrelated host resources are outside its boundary.
+diff --git a/docs/test-profile.md b/docs/test-profile.md
+index 2c23c58..4ee28e4 100644
+--- a/docs/test-profile.md
++++ b/docs/test-profile.md
+@@ -2,6 +2,23 @@
+ 
+ ## Status and purpose
+ 
++The [E.2 analysis scope](../progress/E.2/sprint_E.2_proposedchanges.md) requires
++source-traceable gap findings and focused exercises on the current E.1 baseline,
++presented through a reproducible walkthrough. Define applicable smoke, unit,
++integration and regression checks for code-bearing exercises during design;
++document review alone does not establish runtime behavior.
++
++The [E.5 upgrade scope](../progress/E.5/sprint_E.5_proposedchanges.md) requires
++compatible and breaking Foundation upgrade evidence, migration catch-up,
++continuous unaffected-consumer traffic, dual-write failure/recovery checks and
++separate component maintenance windows. Exact commands and measurable limits
++must be approved during E.5 design on the stabilized toolchain; existing E.1 checks do not establish these
++new acceptance outcomes.
++
++The [E.3 scope](../progress/E.3/sprint_E.3_proposedchanges.md) plans native-APEX collaboration plus the common native release, utPLSQL coverage, Cypress and audit gates. The [E.4 scope](../progress/E.4/sprint_E.4_proposedchanges.md) separately requires parallel Git integration, private-target reconstruction, central DEV synchronization and fresh regression for changed artifacts. Each approved design must materialize exact commands and behavioral mappings before code-bearing execution; neither the E.1 commands nor E.3’s earlier results automatically qualify E.4 source.
++
++Both planned iterations must satisfy the [strict Oracle traceability and E.1 comparison contract](../progress/E.3/sprint_E.3_proposedchanges.md#strict-oracle-traceability-and-comparison-contract): scenario-level paper pages and applicable official version-specific Oracle guidance, executed evidence, explicit deviation dispositions and decision-ready comparisons at each handover.
++
+ The [E.1 handover checks](../progress/E.1/tests/handover_checks_20261018.txt), [presentation walkthrough](../progress/E.1/sprint_E.1_increment_demo.md) and [completion assessment](../progress/E.1/sprint_E.1_assessment.md) identify current executable evidence and remaining cases. The I.1 future-command statements below preserve the original analysis contract; they are not a current inventory of implemented scripts or a claim that every specified test has passed.
+ 
+ The [repository and pipeline draft](../progress/E.1/repo_layout.md#pipeline-paths-and-release-identities) maps source/artifact/environment roles to these checks. Keep it aligned with this contract and the linked E.1 execution evidence.

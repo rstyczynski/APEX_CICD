@@ -1,0 +1,11 @@
+
+PASS disposable integration application and tables removed; UAT not touched
+
+
+REMAINING_TABLES 
+________________ 
+               0 
+
+REMAINING_APPLICATION 
+_____________________ 
+                    0 

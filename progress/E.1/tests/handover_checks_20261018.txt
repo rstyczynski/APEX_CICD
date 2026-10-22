@@ -18,3 +18,8 @@ Applicability:
 A–G delivery observations reuse the assisted Product Owner walkthrough and retained stage/archive/receipt evidence. They were not rebuilt or redeployed during handover preparation. Manual H drift was natively checked again. The live edit remains unchanged; no rollback, new baseline adoption or synthetic drift injection was performed. No full smoke/unit/integration suite or independent end-to-end fresh replay is claimed. Concurrency, full fencing, schema drift and failed-additive-deployment repair remain open. Managed statuses and other sprints are unchanged.
 
 Document links/anchors, fenced blocks, traceability links, scope, whitespace and credentials are checked in the documentation audit before local commit. No push.
+
+Review-correction presentation revision:
+29 slides, including bounded failure/forward repair (I). Changed slides 2, 3, 12, 13, 23, 24 and 26–29 visually inspected; prior content retained. Package/layout/font checks and first-party reimport pass, no warnings. Final checksum is recorded in the portable JSON receipt. Independent checkout evidence is recorded separately after completion; this presentation check is not a browser acceptance or full sprint gate.
+
+Final review-correction deck: 29 slides, SHA-256 462d02239b76d9acd668a934dce381a4c30fa214f99f792f99917a9f91c245f3. New agenda/repair/status content visually inspected; package/layout/font/reimport validation passes with no findings or warnings. Independent native clone rehearsal passed; see clean_checkout_20261018.txt.

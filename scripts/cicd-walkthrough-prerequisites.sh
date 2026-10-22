@@ -36,8 +36,10 @@ helper_version="$(.local-apex/helper/bin/krunkit --version)"
 printf '%s\n' "$helper_version"
 printf '%s\n' "$helper_version" | rg -Fq '1.3.2'
 printf '%s  %s\n' a7ad0ba94f70b2d581f7dde97fe27cd07afc98c32ecc146d89fd70cce9b76456 .local-apex/apex_24.2.zip | shasum -a 256 -c -
+# Prepare inputs explicitly first: python3 scripts/cicd-release-inputs.py
 # Both reviewed releases must be available before discarding the current database.
 for pointer in initial-selected patch-selected; do
+  test -f ".local-apex/releases/$pointer.txt" || { echo "MISSING release inputs: run python3 scripts/cicd-release-inputs.py before precheck." >&2; exit 1; }
   archive="$(cat ".local-apex/releases/$pointer.txt")"
   python3 scripts/cicd-artifact.py inspect "$archive"
 done

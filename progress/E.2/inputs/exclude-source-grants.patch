@@ -1,0 +1,11 @@
+--- a/dist/releases/next/changes/e2-world/stage.changelog.xml
++++ b/dist/releases/next/changes/e2-world/stage.changelog.xml
+@@ -3,8 +3,6 @@
+                    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+-<include file="e1_ctrl/object_grants/object_grants_as_grantor.e1_ctrl.package_spec.e1_ownership.sql" relativeToChangelogFile="true"/>
+-<include file="e1_ctrl/object_grants/object_grants_as_grantor.e1_ctrl.package_spec.e1_release.sql" relativeToChangelogFile="true"/>
+ <include file="e1_dev_c/package_specs/lab_runtime.sql" relativeToChangelogFile="true"/>
+ <include file="e1_dev_c/tables/greeting_history.sql" relativeToChangelogFile="true"/>
+ <include file="e1_dev_c/tables/hello_config.sql" relativeToChangelogFile="true"/>

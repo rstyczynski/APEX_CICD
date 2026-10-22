@@ -1,0 +1,172 @@
+
+
+INCOMPATIBLE_HELLO_ROWS 
+_______________________ 
+                      0 
+PASS captured all business fields before deployment in E1_INTEGRATION
+
+Starting the migration...
+Installing/updating schemas
+--Starting Liquibase at 2026-10-20T14:05:50.636452 using Java 21.0.12.1 (version 4.30.0 #0 built at 2025-04-01 10:24+0000)
+Running Changeset: releases/apex/f810003/f810003.xml::INSTALL_810003::SQLCL-Generated
+--application/set_environment
+API Last Extended:20241130
+Your Current Version:20241130
+This import is compatible with version: 20241130
+COMPATIBLE (You should be able to run this import without issues.)
+ID offset during import: 6272244645760605
+New ID offset for application: 0
+
+APPLICATION 810001 - APEX Delivery Laboratory
+--application/delete_application
+--application/create_application
+--application/user_interfaces
+--application/shared_components/navigation/lists/navigation_menu
+--application/shared_components/navigation/lists/navigation_bar
+--application/shared_components/navigation/listentry
+--application/shared_components/files/icons_app_icon_144_rounded_png
+--application/shared_components/files/icons_app_icon_32_png
+--application/shared_components/files/icons_app_icon_192_png
+--application/shared_components/files/icons_app_icon_256_rounded_png
+--application/shared_components/files/icons_app_icon_512_png
+--application/plugin_settings
+--application/shared_components/security/authorizations/administration_rights
+--application/shared_components/navigation/navigation_bar
+--application/shared_components/logic/application_settings
+--application/shared_components/navigation/tabs/standard
+--application/shared_components/navigation/tabs/parent
+--application/shared_components/user_interface/lovs/hello_entries_entry_text
+--application/shared_components/user_interface/lovs/world_entries_entry_text
+--application/pages/page_groups
+--application/shared_components/navigation/breadcrumbs/breadcrumb
+--application/shared_components/navigation/breadcrumbentry
+--application/shared_components/user_interface/templates/popuplov
+--application/shared_components/user_interface/themes
+--application/shared_components/user_interface/theme_style
+--application/shared_components/user_interface/theme_files
+--application/shared_components/user_interface/template_opt_groups
+--application/shared_components/user_interface/template_options
+--application/shared_components/globalization/language
+--application/shared_components/logic/build_options
+--application/shared_components/globalization/messages
+--application/shared_components/globalization/dyntranslations
+--application/shared_components/security/authentications/oracle_apex_accounts
+--application/user_interfaces/combined_files
+--application/pages/page_00000
+--application/pages/page_00001
+--application/pages/page_00010
+--application/pages/page_00020
+--application/pages/page_00100
+--application/pages/page_00101
+--application/pages/page_00110
+--application/pages/page_00111
+--application/pages/page_00200
+--application/pages/page_00201
+--application/pages/page_00210
+--application/pages/page_00211
+--application/pages/page_09999
+--application/end_environment
+... elapsed: 1 sec
+
+...done
+
+--application/set_environment
+API Last Extended:20241130
+Your Current Version:20241130
+This import is compatible with version: 20241130
+COMPATIBLE (You should be able to run this import without issues.)
+ID offset during import: 6272244645760605
+New ID offset for application: 0
+
+APPLICATION 810001 - APEX Delivery Laboratory
+--application/delete_application
+--application/create_application
+--application/user_interfaces
+--application/shared_components/navigation/lists/navigation_menu
+--application/shared_components/navigation/lists/navigation_bar
+--application/shared_components/navigation/listentry
+--application/shared_components/files/icons_app_icon_144_rounded_png
+--application/shared_components/files/icons_app_icon_32_png
+--application/shared_components/files/icons_app_icon_192_png
+--application/shared_components/files/icons_app_icon_256_rounded_png
+--application/shared_components/files/icons_app_icon_512_png
+--application/plugin_settings
+--application/shared_components/security/authorizations/administration_rights
+--application/shared_components/navigation/navigation_bar
+--application/shared_components/logic/application_settings
+--application/shared_components/navigation/tabs/standard
+--application/shared_components/navigation/tabs/parent
+--application/shared_components/user_interface/lovs/hello_entries_entry_text
+--application/shared_components/user_interface/lovs/world_entries_entry_text
+--application/pages/page_groups
+--application/shared_components/navigation/breadcrumbs/breadcrumb
+--application/shared_components/navigation/breadcrumbentry
+--application/shared_components/user_interface/templates/popuplov
+--application/shared_components/user_interface/themes
+--application/shared_components/user_interface/theme_style
+--application/shared_components/user_interface/theme_files
+--application/shared_components/user_interface/template_opt_groups
+--application/shared_components/user_interface/template_options
+--application/shared_components/globalization/language
+--application/shared_components/logic/build_options
+--application/shared_components/globalization/messages
+--application/shared_components/globalization/dyntranslations
+--application/shared_components/security/authentications/oracle_apex_accounts
+--application/user_interfaces/combined_files
+--application/pages/page_00000
+--application/pages/page_00001
+--application/pages/page_00010
+--application/pages/page_00020
+--application/pages/page_00100
+--application/pages/page_00101
+--application/pages/page_00110
+--application/pages/page_00111
+--application/pages/page_00200
+--application/pages/page_00201
+--application/pages/page_00210
+--application/pages/page_00211
+--application/pages/page_09999
+--application/end_environment
+... elapsed: 1 sec
+
+...done
+
+Running Changeset: e2-hello-patch/e1_dev_c/tables/hello_entries.sql::1792497546404::E1_DEV_C
+
+
+Running Changeset: e2-hello-patch/e1_dev_c/triggers/hello_entries_guard.sql::1792497546463::E1_DEV_C
+
+
+Running Changeset: e2-hello-patch/_custom/hello_1_0_1_version.sql::1792497547531::SqlCl
+
+
+
+UPDATE SUMMARY
+Run:                          4
+Previously run:              22
+Filtered out:                 0
+-------------------------------
+Total change sets:           26
+
+Liquibase: Update has been successful. Rows affected: 4
+
+Produced logfile: sqlcl-lb-1792497950553.log
+
+Operation completed successfully.
+
+
+PASS exact business fields unchanged by deployment in E1_INTEGRATION
+
+PASS whitespace-only Hello rejected with ORA-20314
+PASS Hello 1.0.1 normalization; verification inserts rolled back
+
+
+COMPONENT  INSTALLED VERSION 
+__________ _________ _______ 
+Foundation         1 1.0.0   
+Hello              1 1.0.1   
+World              1 1.0.0   
+
+APPLICATION_ID OWNER          AVAILABILITY_STATUS 
+______________ ______________ ___________________ 
+        810004 E1_INTEGRATION Restricted Access   

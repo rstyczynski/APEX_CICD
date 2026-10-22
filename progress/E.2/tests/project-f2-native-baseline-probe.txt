@@ -1,0 +1,5 @@
+
+PASS captured all business fields before deployment in E1_INTEGRATION
+
+PASS exact business fields unchanged by deployment in E1_INTEGRATION
+

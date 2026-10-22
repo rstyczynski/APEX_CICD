@@ -1,0 +1,143 @@
+Native integration-only BUG-7 proof — 2026-10-18
+
+Source: e7ee3de7c57209adcdd418effb34ce4fd98a6600
+Runtime/API tests, not a new browser demonstration. Retained UAT untouched.
+
+BUILT .local-apex/releases/failed-additive-e7ee3de7c572.tar SHA256 713133175024c2330f40779d746a55aca3ac0ab36db6adb0ad8e6a6741453504
+BUILT .local-apex/releases/forward-repair-e7ee3de7c572.tar SHA256 78efc057e092a79440d787846121daf6d55450b29043e0634b20b87656d51ca2
+VERIFIED 713133175024c2330f40779d746a55aca3ac0ab36db6adb0ad8e6a6741453504 SOURCE e7ee3de7c57209adcdd418effb34ce4fd98a6600 KIND failed-additive
+VERIFIED 78efc057e092a79440d787846121daf6d55450b29043e0634b20b87656d51ca2 SOURCE e7ee3de7c57209adcdd418effb34ce4fd98a6600 KIND forward-repair
+REHEARSAL: pre-authorized scripted failure/observation/repair proof; no browser or new human review claim.
+OPERATION control AS lab-control
+@"<REPO_ROOT>/.local-apex/recovery/bootstrap.z9lzj2en/payload/deploy/recovery/control.sql"
+
+No errors.
+No errors.
+
+OPERATION observer AS integration_test
+@"<REPO_ROOT>/.local-apex/recovery/bootstrap.z9lzj2en/payload/deploy/recovery/observe.sql"
+
+No errors.
+
+PASS recovery bootstrap: integration-only authority/observer; no UAT change.
+OPERATION baseline AS integration_test
+@"<REPO_ROOT>/deploy/checks/patch_integrity.sql" 810004
+
+PASS patch release integrity: Foundation/World 1.0.0, Hello 1.0.1, migrations and pages.
+
+
+OPERATION admit AS integration_test
+begin
+ update lab_state set state='maintenance',reason='BUG-7 additive delivery' where state_key='Application';
+ E1_CTRL.e1_recovery.start_failure(8,'713133175024c2330f40779d746a55aca3ac0ab36db6adb0ad8e6a6741453504','e7ee3de7c57209adcdd418effb34ce4fd98a6600','80b51f1ed3e371d6c198dc785a7df741fd671d2ab77d8db630f7dd63bd92d583','SH256:uUwl5Vf6Aawgeh9MoT5dLRpKxpEgebVotAk69/0o13s=');
+end;
+/
+
+
+OPERATION failed-migration AS integration_test
+cd "<REPO_ROOT>/.local-apex/recovery/fail.xwd393o7/payload"
+lb validate -changelog-file deploy/recovery/failed.xml
+lb update -changelog-file deploy/recovery/failed.xml
+
+OPERATION partial-assertion AS integration_test
+declare n number; begin
+ select count(*) into n from user_indexes where index_name='E1_RP_HISTORY_ACTOR' and status='VALID';
+ if n<>1 then raise_application_error(-20851,'Committed first DDL missing'); end if;
+ select count(*) into n from databasechangelog where id='BUG7-001' and author='apex-lab';
+ if n<>1 then raise_application_error(-20852,'Committed changeset identity missing'); end if;
+ select count(*) into n from databasechangelog where id='BUG7-002' and author='apex-lab';
+ if n<>0 then raise_application_error(-20853,'Failed changeset must not be marked successful'); end if;
+ update lab_state set state='failed',reason='BUG-7 committed additive DDL; inspection required' where state_key='Application';
+end;
+/
+
+
+OPERATION record-failure AS integration_test
+begin E1_CTRL.e1_recovery.record_failure(9,'713133175024c2330f40779d746a55aca3ac0ab36db6adb0ad8e6a6741453504',e1_recovery_observation); end;
+/
+
+
+OPERATION assert-blocked AS integration_test
+begin
+ apex_application.g_flow_id:=810004; apex_application.g_flow_step_id:=1; apex_application.g_user:='LAB_USER';
+ begin E1_CTRL.e1_release.assert_runtime; raise_application_error(-20854,'Ordinary runtime unexpectedly open');
+ exception when others then if sqlcode<>-20631 then raise; end if; dbms_output.put_line('PASS ordinary runtime blocked during failure'); end;
+end;
+/
+
+PASS ordinary runtime blocked during failure
+
+
+EXPECTED FAILURE: committed additive DDL retained; failed receipt retained; ordinary runtime blocked.
+REVIEW OBSERVATION SHA256 3350d79b01668885398547a942edc5b84bc965d80fecf769033c0fcd0331ab55
+OBSERVATION {"business": {"hello": {"4": {"ACTIVE": "Y", "ENTRY_ID": 4, "ENTRY_TEXT": "Hello"}}, "hello_config": {"1": {"CONFIG_ID": 1, "DEFAULT_ENTRY_ID": 4, "PREFIX": null}}, "history": {"10": {"ACTOR": "VERIFIER", "CREATED_AT": "2026-10-18T17:44:55.020425Z", "GREETING_ID": 10, "GREETING_TEXT": "Hello World", "HELLO_ENTRY_ID": 4, "HELLO_PREFIX": null, "HELLO_TEXT": "Hello", "WORLD_ENTRY_ID": 4, "WORLD_PREFIX": null, "WORLD_TEXT": "World"}, "11": {"ACTOR": "VERIFIER", "CREATED_AT": "2026-10-18T17:44:55.020485Z", "GREETING_ID": 11, "GREETING_TEXT": "Hello World", "HELLO_ENTRY_ID": 4, "HELLO_PREFIX": null, "HELLO_TEXT": "Hello", "WORLD_ENTRY_ID": 4, "WORLD_PREFIX": null, "WORLD_TEXT": "World"}, "12": {"ACTOR": "VERIFIER", "CREATED_AT": "2026-10-18T17:44:55.020542Z", "GREETING_ID": 12, "GREETING_TEXT": "Hello World", "HELLO_ENTRY_ID": 4, "HELLO_PREFIX": null, "HELLO_TEXT": "Hello", "WORLD_ENTRY_ID": 4, "WORLD_PREFIX": null, "WORLD_TEXT": "World"}, "13": {"ACTOR": "VERIFIER", "CREATED_AT": "2026-10-18T17:44:55.020597Z", "GREETING_ID": 13, "GREETING_TEXT": "Hello World", "HELLO_ENTRY_ID": 4, "HELLO_PREFIX": null, "HELLO_TEXT": "Hello", "WORLD_ENTRY_ID": 4, "WORLD_PREFIX": null, "WORLD_TEXT": "World"}, "14": {"ACTOR": "VERIFIER", "CREATED_AT": "2026-10-18T17:44:55.020655Z", "GREETING_ID": 14, "GREETING_TEXT": "Hello World", "HELLO_ENTRY_ID": 4, "HELLO_PREFIX": null, "HELLO_TEXT": "Hello", "WORLD_ENTRY_ID": 4, "WORLD_PREFIX": null, "WORLD_TEXT": "World"}, "15": {"ACTOR": "VERIFIER", "CREATED_AT": "2026-10-18T17:44:55.020710Z", "GREETING_ID": 15, "GREETING_TEXT": "Hello World", "HELLO_ENTRY_ID": 4, "HELLO_PREFIX": null, "HELLO_TEXT": "Hello", "WORLD_ENTRY_ID": 4, "WORLD_PREFIX": null, "WORLD_TEXT": "World"}, "16": {"ACTOR": "VERIFIER", "CREATED_AT": "2026-10-18T17:44:55.020766Z", "GREETING_ID": 16, "GREETING_TEXT": "Hello World", "HELLO_ENTRY_ID": 4, "HELLO_PREFIX": null, "HELLO_TEXT": "Hello", "WORLD_ENTRY_ID": 4, "WORLD_PREFIX": null, "WORLD_TEXT": "World"}, "17": {"ACTOR": "VERIFIER", "CREATED_AT": "2026-10-18T17:44:55.020823Z", "GREETING_ID": 17, "GREETING_TEXT": "Hello World", "HELLO_ENTRY_ID": 4, "HELLO_PREFIX": null, "HELLO_TEXT": "Hello", "WORLD_ENTRY_ID": 4, "WORLD_PREFIX": null, "WORLD_TEXT": "World"}, "18": {"ACTOR": "VERIFIER", "CREATED_AT": "2026-10-18T17:44:55.020877Z", "GREETING_ID": 18, "GREETING_TEXT": "Hello World", "HELLO_ENTRY_ID": 4, "HELLO_PREFIX": null, "HELLO_TEXT": "Hello", "WORLD_ENTRY_ID": 4, "WORLD_PREFIX": null, "WORLD_TEXT": "World"}, "19": {"ACTOR": "VERIFIER", "CREATED_AT": "2026-10-18T17:44:55.020931Z", "GREETING_ID": 19, "GREETING_TEXT": "Hello World", "HELLO_ENTRY_ID": 4, "HELLO_PREFIX": null, "HELLO_TEXT": "Hello", "WORLD_ENTRY_ID": 4, "WORLD_PREFIX": null, "WORLD_TEXT": "World"}, "20": {"ACTOR": "VERIFIER", "CREATED_AT": "2026-10-18T17:44:55.020987Z", "GREETING_ID": 20, "GREETING_TEXT": "Hello World", "HELLO_ENTRY_ID": 4, "HELLO_PREFIX": null, "HELLO_TEXT": "Hello", "WORLD_ENTRY_ID": 4, "WORLD_PREFIX": null, "WORLD_TEXT": "World"}, "21": {"ACTOR": "VERIFIER", "CREATED_AT": "2026-10-18T17:44:55.021044Z", "GREETING_ID": 21, "GREETING_TEXT": "Hello World", "HELLO_ENTRY_ID": 4, "HELLO_PREFIX": null, "HELLO_TEXT": "Hello", "WORLD_ENTRY_ID": 4, "WORLD_PREFIX": null, "WORLD_TEXT": "World"}, "22": {"ACTOR": "VERIFIER", "CREATED_AT": "2026-10-18T17:44:55.021251Z", "GREETING_ID": 22, "GREETING_TEXT": "Hello World", "HELLO_ENTRY_ID": 4, "HELLO_PREFIX": null, "HELLO_TEXT": "Hello", "WORLD_ENTRY_ID": 4, "WORLD_PREFIX": null, "WORLD_TEXT": "World"}, "23": {"ACTOR": "VERIFIER", "CREATED_AT": "2026-10-18T17:44:55.021308Z", "GREETING_ID": 23, "GREETING_TEXT": "Hello World", "HELLO_ENTRY_ID": 4, "HELLO_PREFIX": null, "HELLO_TEXT": "Hello", "WORLD_ENTRY_ID": 4, "WORLD_PREFIX": null, "WORLD_TEXT": "World"}, "24": {"ACTOR": "VERIFIER", "CREATED_AT": "2026-10-18T17:44:55.021407Z", "GREETING_ID": 24, "GREETING_TEXT": "Hello World", "HELLO_ENTRY_ID": 4, "HELLO_PREFIX": null, "HELLO_TEXT": "Hello", "WORLD_ENTRY_ID": 4, "WORLD_PREFIX": null, "WORLD_TEXT": "World"}, "25": {"ACTOR": "VERIFIER", "CREATED_AT": "2026-10-18T17:44:55.021462Z", "GREETING_ID": 25, "GREETING_TEXT": "Hello World", "HELLO_ENTRY_ID": 4, "HELLO_PREFIX": null, "HELLO_TEXT": "Hello", "WORLD_ENTRY_ID": 4, "WORLD_PREFIX": null, "WORLD_TEXT": "World"}, "26": {"ACTOR": "VERIFIER", "CREATED_AT": "2026-10-18T17:44:57.625412Z", "GREETING_ID": 26, "GREETING_TEXT": "Hello World", "HELLO_ENTRY_ID": 4, "HELLO_PREFIX": null, "HELLO_TEXT": "Hello", "WORLD_ENTRY_ID": 4, "WORLD_PREFIX": null, "WORLD_TEXT": "World"}, "32": {"ACTOR": "VERIFIER", "CREATED_AT": "2026-10-18T17:45:38.539500Z", "GREETING_ID": 32, "GREETING_TEXT": "Hello World", "HELLO_ENTRY_ID": 4, "HELLO_PREFIX": null, "HELLO_TEXT": "Hello", "WORLD_ENTRY_ID": 4, "WORLD_PREFIX": null, "WORLD_TEXT": "World"}, "6": {"ACTOR": "VERIFIER", "CREATED_AT": "2026-10-18T17:44:55.020069Z", "GREETING_ID": 6, "GREETING_TEXT": "Hello World", "HELLO_ENTRY_ID": 4, "HELLO_PREFIX": null, "HELLO_TEXT": "Hello", "WORLD_ENTRY_ID": 4, "WORLD_PREFIX": null, "WORLD_TEXT": "World"}, "7": {"ACTOR": "VERIFIER", "CREATED_AT": "2026-10-18T17:44:55.020216Z", "GREETING_ID": 7, "GREETING_TEXT": "Hello World", "HELLO_ENTRY_ID": 4, "HELLO_PREFIX": null, "HELLO_TEXT": "Hello", "WORLD_ENTRY_ID": 4, "WORLD_PREFIX": null, "WORLD_TEXT": "World"}, "8": {"ACTOR": "VERIFIER", "CREATED_AT": "2026-10-18T17:44:55.020300Z", "GREETING_ID": 8, "GREETING_TEXT": "Hello World", "HELLO_ENTRY_ID": 4, "HELLO_PREFIX": null, "HELLO_TEXT": "Hello", "WORLD_ENTRY_ID": 4, "WORLD_PREFIX": null, "WORLD_TEXT": "World"}, "9": {"ACTOR": "VERIFIER", "CREATED_AT": "2026-10-18T17:44:55.020363Z", "GREETING_ID": 9, "GREETING_TEXT": "Hello World", "HELLO_ENTRY_ID": 4, "HELLO_PREFIX": null, "HELLO_TEXT": "Hello", "WORLD_ENTRY_ID": 4, "WORLD_PREFIX": null, "WORLD_TEXT": "World"}}, "world": {"4": {"ACTIVE": "Y", "ENTRY_ID": 4, "ENTRY_TEXT": "World"}}, "world_config": {"1": {"CONFIG_ID": 1, "DEFAULT_ENTRY_ID": 4, "PREFIX": null}}}, "fingerprint": "SH256:uUwl5Vf6Aawgeh9MoT5dLRpKxpEgebVotAk69/0o13s=", "metadata": "E1_RP_HISTORY_ACTOR:NONUNIQUE:VALID:78879:ACTOR:1|SYS_C0013960:UNIQUE:VALID:78849:GREETING_ID:1|MIGRATIONS|001-foundation:apex-lab:9:25a4b9bc7b8593b54f82992dbc4d0319:EXECUTED|002-foundation-runtime:apex-lab:9:564280fc3758fe9770cdbcb715472bd4:EXECUTED|003-hello:apex-lab:9:96961c873829d0f31e2fcd01bab8b152:EXECUTED|004-world:apex-lab:9:42aa85fcf95ec10da3efadcf990bb2ad:EXECUTED|005-hello-1.0.1:apex-lab:9:edda48bb80661678b448a67777eed988:EXECUTED|BUG7-001:apex-lab:9:991f259fc107171440d46a0f8c0b48b8:EXECUTED"}
+CURRENT SHA256 3350d79b01668885398547a942edc5b84bc965d80fecf769033c0fcd0331ab55
+REVIEWED SHA256 3350d79b01668885398547a942edc5b84bc965d80fecf769033c0fcd0331ab55
+NEGATIVE FIXTURE: create one unexpected index in integration_test only.
+ERROR: REJECTED changed partial observation; no repair admission or DDL
+Ownership/partial state and transcripts retained. No automatic reset or baseline adoption.
+
+PASS server-side recheck rejects changed partial state (ORA-20846).
+NEGATIVE FIXTURE RESTORE: drop only E1_RP_UNEXPECTED; this is not the failed deployment repair.
+OPERATION admit-repair AS integration_test
+begin E1_CTRL.e1_recovery.start_repair(9,'78efc057e092a79440d787846121daf6d55450b29043e0634b20b87656d51ca2','e7ee3de7c57209adcdd418effb34ce4fd98a6600',e1_recovery_observation); end;
+/
+
+
+OPERATION forward-migration AS integration_test
+cd "<REPO_ROOT>/.local-apex/recovery/repair.wskh5p_c/payload"
+lb validate -changelog-file deploy/recovery/repair.xml
+lb update -changelog-file deploy/recovery/repair.xml
+
+
+--Starting Liquibase at 2026-10-18T19:58:11.547605 using Java 21.0.12.1 (version 4.30.0 #0 built at 2025-04-01 10:24+0000)
+No validation errors found.
+
+
+Operation completed successfully.
+
+--Starting Liquibase at 2026-10-18T19:58:12.148858 using Java 21.0.12.1 (version 4.30.0 #0 built at 2025-04-01 10:24+0000)
+Running Changeset: e1-review-recovery::BUG7-003::apex-lab
+
+
+UPDATE SUMMARY
+Run:                          1
+Previously run:               1
+Filtered out:                 0
+-------------------------------
+Total change sets:            2
+
+Liquibase: Update has been successful. Rows affected: 1
+
+
+Operation completed successfully.
+
+
+OPERATION completion-assertion AS integration_test
+declare n number; begin
+ select count(*) into n from user_indexes where index_name in ('E1_RP_HISTORY_ACTOR','E1_RP_HISTORY_DATE') and status='VALID';
+ if n<>2 then raise_application_error(-20855,'Complete additive index set missing'); end if;
+ select count(*) into n from databasechangelog where author='apex-lab' and id in ('BUG7-001','BUG7-003');
+ if n<>2 then raise_application_error(-20856,'Forward migration history incomplete'); end if;
+ select count(*) into n from databasechangelog where author='apex-lab' and id='BUG7-002';
+ if n<>0 then raise_application_error(-20857,'Original failed changeset was rewritten or marked run'); end if;
+end;
+/
+
+
+OPERATION publish-repair AS integration_test
+begin
+ update lab_state set state='ready',reason='BUG-7 reviewed forward repair complete' where state_key='Application';
+ E1_CTRL.e1_recovery.finish_repair(9,'78efc057e092a79440d787846121daf6d55450b29043e0634b20b87656d51ca2',e1_recovery_observation,'SH256:uUwl5Vf6Aawgeh9MoT5dLRpKxpEgebVotAk69/0o13s=');
+ commit;
+end;
+/
+
+
+PASS FORWARD REPAIR: original failure retained, new successful receipt, prior twenty-plus history rows/settings preserved; no UAT change.
+ALREADY REPAIRED: identical artifact, metadata and retained data; no writes.
+
+PASS failed and successful control case retained
+
+
+PASS BUG-7: committed DDL failure, closed runtime gate, changed-observation rejection, forward repair, preserved history and unchanged repeat. UAT untouched.

@@ -346,3 +346,29 @@ Added slide 7 explaining the actual application-definition interfaces: SQLcl ape
 ## Git layout, cooperation and future pipeline section — 2026-10-18
 
 Added four presentation slides covering the actual shared repository layout, proposed task-branch cooperation, text-based APEX export merging and a future CI/PR pipeline around existing gates. The 28-slide deck distinguishes current sequential snapshot replay from unproved parallel capture/integration and hosted automation. Expanded the linked repository draft with merge review/validation and future pipeline guidance; synchronized guided slide references and handover. No Git merge behavior, source attributes, live pipeline or runtime is changed.
+
+## Review fixes increment 1 — 2026-10-18
+
+[BUG-2–5](sprint_E.1_bugs.md) fix release-input acquisition, infrastructure error status, pre-SQL configuration validation and complete test-source cleanliness. Added exact historical recipe reconstruction from Git/original evidence with member/final hashes, conflict protection and explicit operator documentation. Input replay never claims a new test. Configuration is validated before secret access/connection and bounded to the implemented controller mappings. SQLPlus infrastructure failures now use EXIT FAILURE. Candidate/package scope includes the complete tests tree. Existing archives, retained UAT and other Podman resources remain unchanged.
+
+[Evidence](tests/review_fixes_20261018.txt): eight focused Python cases, 24 Python regressions, local preflight, native SQLPlus failure probe and all five native identity/cross-area isolation checks. Stable replacement identity and bounded additive repair remain BUG-6/7, not completed by these changes. [Selected review decisions](sprint_E.1_review-1-decisions.md) keep work within existing E.1 scope.
+
+## BUG-6 importer identity correction — 2026-10-18
+
+Replacement imports verify application/workspace ownership and read the existing offset via public APEX export before SET_OFFSET. Fresh imports retain GENERATE_OFFSET. Native C experiment migrated Hello to 1.0.1, preserved business fields and a private saved report across two imports, compared region/report IDs and rejected a wrong-workspace app before import. C's ordinary availability/reservation was restored; UAT untouched. [Evidence](tests/apex_identity_20261018.txt). A new corrected patch archive remains required before closing BUG-6; historical archives retain their old code.
+
+## BUG-6 corrected delivery input and BUG-7 construction — 2026-10-18
+
+Candidate checks at 0cc6c68 pass against C and the corrected stable-offset patch archive 80b51f1e…d92d583 is built. Native disposable integration testing passes fresh and from the retained initial artifact, preserving all fields of 21 baseline rows/settings. The new versioned patch recipe makes that archive reproducible from a full checkout. The existing UAT artifact/pointer and manual drift are retained; no claim of new-byte UAT promotion.
+
+Added bounded integration-only recovery authority, two immutable Git-source artifact kinds, atomic operator steps and negative/tamper test specifications under existing PBI-011.8. The authority/observer compile natively and archive integrity tests pass; actual committed-DDL failure/repair qualification still follows. PBI-011.8 moves to under_construction following the Product Owner's selection, not tested or completed. This is prototype construction evidence, not closure of BUG-7.
+
+## BUG-7 native proof and independent-clone preparation — 2026-10-18
+
+[Native e7ee3de proof](tests/recovery_proof_20261018.txt) passes deliberate failure after committed additive DDL, no successful failed-changeset receipt, retained failed ownership/closed runtime, client and server observation rejection, new repair changeset, retained failure/success records, 21-row field preservation and unchanged no-op repeat. The I operator chapter/script is integrated with A–H; UAT remains untouched. BUG-7's bounded defect is fixed; child 8 remains under_construction pending full wider acceptance/gate reconciliation.
+
+The VM launch helper now accepts only the existing owned lab name or a dedicated rehearsal name, with a distinct launchd label. Native proof of a full independent checkout uses a second disposable engine and preserves retained volumes; until completed it remains a pending validation gate, not a new backup/restore claim. The procedure is documented in deploy.md.
+
+## Independent clean-checkout reproduction — 2026-10-18
+
+Completed the [native A–I rehearsal](tests/clean_checkout_20261018.txt) from a full clean clone at 54c0fd3, fresh engine and credentials. No release archives or database state were copied. Exact recipes reconstruct both delivery inputs, vanilla infrastructure is verified before separate project onboarding, and all selected delivery/protection/repair operations pass with focused smoke/unit checks. BUG-2's independent reproduction closing condition is met. Original retained volumes are stopped/restarted intact under the [scoped procedure](../../docs/deploy.md#independent-checkout-rehearsal-while-retaining-the-current-lab); this is not a backup/restore capability or production topology.

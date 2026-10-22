@@ -1,0 +1,49 @@
+
+Hello 1.0.1 authoring input already applied; inspect definitions below.
+
+
+COMPONENT  INSTALLED VERSION 
+__________ _________ _______ 
+Foundation         1 1.0.0   
+Hello              1 1.0.1   
+World              1 1.0.0   
+
+CONSTRAINT_NAME     STATUS  VALIDATED 
+___________________ _______ _________ 
+HELLO_TEXT_NONBLANK ENABLED VALIDATED 
+
+TEXT                                                                                                               
+__________________________________________________________________________________________________________________ 
+trigger hello_entries_guard                                                                                        
+before insert or update on hello_entries for each row                                                              
+declare n number;                                                                                                  
+begin                                                                                                              
+  lab_runtime.assert_ready;                                                                                        
+  :new.entry_text:=regexp_replace(:new.entry_text,'^[[:space:]]+|[[:space:]]+$','');                               
+  if :new.entry_text is null then                                                                                  
+    raise_application_error(-20314,'Hello entry must contain non-whitespace text');                                
+  end if;                                                                                                          
+  if :new.active='N' then                                                                                          
+    select count(*) into n from hello_config where default_entry_id=:new.entry_id;                                 
+    if n>0 then raise_application_error(-20310,'Choose another active Hello default before deactivation'); end if; 
+  end if;                                                                                                          
+end;                                                                                                               
+
+The current connection //127.0.0.1:1521/FREEPDB1 E1_DEV_C will be used for all operations
+*** TABLES ***
+*** PACKAGE_BODIES ***
+*** TRIGGERS ***
+*** PACKAGE_SPECS ***
+*** REF_CONSTRAINTS ***
+*** APEX_APPLICATIONS ***
+Exporting Workspace E1_DEV_C - application 810003:APEX Delivery Laboratory
+--------------------------------
+APEX_APPLICATION               1
+PACKAGE_BODY                   1
+PACKAGE_SPEC                   1
+REF_CONSTRAINT                 2
+TABLE                          7
+TRIGGER                       10
+--------------------------------
+Exported 22 objects
+Elapsed 6 sec
