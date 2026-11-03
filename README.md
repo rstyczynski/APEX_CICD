@@ -171,6 +171,12 @@ The [GitHub configuration guide](progress/E.3/sprint_E.3_github_configuration.md
 defines environment variables/secrets and generated job setup; no native.env or
 .local-apex settings are required. .local-apex is disposable scratch only.
 
+[PBI-055](BACKLOG.md#pbi-055-reduce-repeated-pipeline-toolchain-setup) proposes
+reducing repeated Java/SQLcl setup while preserving approved versions, tool
+integrity and private job connections. The [deployment walkthrough](progress/E.3/sprint_E.3_increment_demo.md#f-manually-deploy-the-published-tag--slide-10)
+explains the current setup and candidates for later optimization; this work
+has no sprint assignment yet.
+
 ## Vision
 
 The Product Owner accepted the vision on 2026-10-16: help Oracle APEX developers and DevOps engineers choose and reproduce a practical CI/CD approach, explain its tradeoffs and validate it with a small application. The product is an evidenced delivery example and its operating guidance. Foundation/Hello/World provides configurable greeting entries and persistent history so the workflow exercises application definitions, database objects and retained data.

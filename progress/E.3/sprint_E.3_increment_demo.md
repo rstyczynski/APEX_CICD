@@ -746,6 +746,22 @@ Require successful native verification, packaging, deployment, retained-data
 comparison, native session/heading/readiness checks and cleanup. Inspect the
 uploaded receipt for the selected tag, source commit and archive hash.
 
+The **Set up native tools and job-scoped connections** step selects Java 21
+through `setup-java` and downloads, checksum-verifies and extracts SQLcl on
+every deployment or qualification run. Java may reuse the runner's tool cache;
+SQLcl currently has no reuse step. This does not install Oracle Database, APEX
+or ORDS, which must already be running. Connections are generated privately
+for each job and removed afterward.
+
+Reducing this repeated setup is proposed in
+[PBI-055](../../BACKLOG.md#pbi-055-reduce-repeated-pipeline-toolchain-setup),
+without adding optimization to the E.3 happy-path prototype. Evaluate a verified
+tool cache or a provisioned runner toolchain first; a versioned custom image
+is another candidate if its platform, database connectivity and maintenance
+cost are justified. Keep secrets and connection stores out of reusable caches
+or images. GitHub documents [dependency caching](https://docs.github.com/en/actions/reference/workflows-and-actions/dependency-caching)
+and [container jobs](https://docs.github.com/en/actions/how-tos/write-workflows/choose-where-workflows-run/run-jobs-in-a-container).
+
 **Checkpoint:** the run succeeds for the tag you selected. If it fails, inspect
 the failed step before continuing; do not claim a successful deployment or
 automatically reset/redeploy the target.

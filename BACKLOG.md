@@ -399,3 +399,11 @@ Enable any operator with repository access and the documented prerequisites to g
 Test: Demonstrate an independent operator starting from a fresh checkout with no local state, obtaining configuration through the supported platform, generating required temporary files through documented setup steps, and completing the supported walkthrough and workflow with newly supplied credentials and no copied private files or machine-specific environment files.
 
 Status: Proposed
+
+### PBI-055. Reduce repeated pipeline toolchain setup
+
+Reduce deployment and qualification startup time and repeated tool downloads while preserving reproducible execution with the approved Java and SQLcl versions. Keep tool integrity and project compatibility checks effective when tools are reused or upgraded. Preserve private per-job connections and credentials independently of reusable tool installations.
+
+Test: Compare cold and repeated runs with recorded setup duration and download volume, demonstrate reduced repeated setup, and verify incompatible or altered tools are rejected without retaining credentials between jobs.
+
+Status: Proposed
