@@ -768,6 +768,19 @@ automatically reset/redeploy the target.
 
 ### G. Verify the browser and finish the demonstration — slides 11–12
 
+Retrieve **only LAB_USER's application password** in the terminal, using the
+same retained lab provisioning record as the earlier credential lookups:
+
+```bash
+jq -er '.LAB_USER | select(type == "string" and length > 0)' "$HOME/projects/APEX_CICD/.local-apex/e1-secrets.json"
+```
+
+Copy the displayed value into the application login form. This is the
+**LAB_USER application password**, distinct from the DEV_C Builder and
+E3_TARGET database passwords. The command only reads the existing record;
+keep the displayed password out of screenshots and Git. On another host, use
+that lab's assigned LAB_USER credential.
+
 Open [target application 810203](http://127.0.0.1:8080/ords/f?p=810203:1), sign
 in as **LAB_USER** using its existing application password, and check the **new
 page title from step C** in the browser tab, and the retained
