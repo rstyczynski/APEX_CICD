@@ -58,6 +58,27 @@ I.1 has `Test: none` and `Regression: none`: document consistency, source review
 
 [Review decisions](../progress/E.1/sprint_E.1_review-1-decisions.md) and the [bug register](../progress/E.1/sprint_E.1_bugs.md) define focused BUG-2–7 corrections. Run `bash tests/run.sh --unit --new-only tests/manifests/review_fixes.manifest` for release reconstruction/tamper/conflict, pre-SQL config validation, infrastructure exit policy and dirty-test-provenance checks. Native SQLPlus probes and current area/isolation checks supplement those cases. Exact historical input reconstruction is not a new candidate attestation or a claim that the full independent A–H acceptance replay passed. [Preparation steps](../progress/E.1/cicd-walkthrough.md#prepare-reviewed-release-inputs) keep acquisition separate from provisioning.
 
+## SQLcl PROJECT toolchain compatibility (NFR-5)
+
+Production acceptance for [NFR-5](srs.md#quality-requirements-and-initial-release)
+requires the following evidence; this list records required coverage, not a
+claim that a new automated test suite or toolchain upgrade has passed:
+
+1. A matching project/client release and qualified build complete native export,
+   stage, verify, packaging and deployment, with the actual tool version retained.
+2. A deliberately mismatched client is rejected before source/distribution or
+   target writes. The pipeline reports nonzero failure even if a native command
+   returns zero alongside its mismatch diagnostic.
+3. Several installed clients do not change selection: processing uses the
+   version recorded for the selected Git state, including a historical tag.
+4. An approved upgrade updates project metadata and tool setup/pins together,
+   and passes the native sequence, repeat deployment and data-preservation checks.
+
+[E.3 evidence](../progress/E.3/tests/native-sqlcl-version-compatibility.md) records
+the observed mismatched export rejection and successful matching export. It
+does not establish full production acceptance or qualify SQLcl 26.3 for this
+project.
+
 ## Execution prerequisites for E.1
 
 E.1 must take ownership of executing/adapting the I.1-owned [infrastructure lifecycle procedure](deploy.md), using it to provision, verify and destroy scoped experiment infrastructure as needed. I.1's analysis reference was Podman 6.0.0, database 23.26.3.0.0, APEX 24.2.0 and ORDS 25.3.0.r2671248 on 2026-10-16. Record the procedure/script revision and actual tool/image versions used. Validate lifecycle teardown with disposable fixtures only, preserving retained data, credentials and evidence. Do not assume a VM is already present or recreate infrastructure during ordinary application upgrades.

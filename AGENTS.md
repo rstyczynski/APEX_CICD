@@ -66,3 +66,21 @@ credentials. Generate required private connection files and mappings in
 registration belongs in the runner's managed host directory outside the
 checkout. Preserve historical evidence without presenting its retired local
 configuration instructions as the current setup.
+
+## SQLcl PROJECT toolchain compatibility
+
+Treat [SRS NFR-5](docs/srs.md#quality-requirements-and-initial-release) as a
+production requirement. For every accepted Git state, the running SQLcl release
+must match `.sqlcl.version` in `.dbtools/project.config.json`; developer and
+pipeline processing must use the same approved release and qualified build.
+Discovering an executable or installing a newer SQLcl does not satisfy this rule.
+Check compatibility before export, stage, verify, package or deployment and
+stop on a mismatch before changing source/distribution files or target state.
+Record the actual release/build; pin automated downloads and their checksums.
+
+Do not silently edit the project version to bypass SQLcl's native check. An
+upgrade is a reviewed change to project metadata, tool setup and version pins,
+followed by native pipeline and data-preservation validation. Multiple tool
+versions may coexist; select the version required by the Git state being
+processed, including a previously released tag. See the
+[architecture policy](docs/architecture.md#sqlcl-project-toolchain-compatibility).

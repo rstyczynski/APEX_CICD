@@ -338,6 +338,32 @@ The three logical components are **Database Foundation**, **Hello** and **World*
 
 **NFR-4 — Reproducible setup without hidden local state.** By Product Owner direction on 2026-11-03, an operator with repository access and documented infrastructure prerequisites must be able to run the supported workflows without copying another operator's files, machine paths, credentials or retained business data. Tools and required generated files must be prepared by declared setup steps; environment settings and credentials must come from the supported configuration platform and the new operator's authorized inputs. For GitHub workflows, use variables and encrypted secrets, generate private connection material in job temporary storage and remove it after execution. The checkout's ignored scratch directory is temporary only and must never be the source of persistent environment settings or runner registration; no machine-specific environment file is required. Acceptance requires an independent operator/clean-checkout run, including the wider lab/infrastructure prerequisites; [PBI-054](../BACKLOG.md#pbi-054-generate-the-complete-local-environment-from-a-fresh-checkout) retains that broader proof. The [current E.3 configuration](../progress/E.3/sprint_E.3_github_configuration.md) establishes the workflow boundary, not completion of all independent laboratory provisioning.
 
+**NFR-5 — SQLcl PROJECT toolchain compatibility.** For each accepted Git state,
+all SQLcl PROJECT processing—developer export/stage, verification, packaging and
+deployment—must use the agreed SQLcl release recorded as `.sqlcl.version` in
+`.dbtools/project.config.json` and the qualified full build declared by the
+toolchain setup. Check the actual executable before processing; reject a
+mismatch before source/distribution or target writes, with a nonzero result and
+a clear diagnostic. Automated setup must pin the approved build and download
+checksum. Retain actual release/build identity with execution evidence.
+
+A newer client requires a reviewed toolchain upgrade: update project metadata
+and developer/workflow setup together and validate export, stage, verify,
+package, deployment, repeat deployment and retained data. Do not silently edit
+the project version to suppress a mismatch. Resolve requirements from the Git
+state being processed, including historical release tags. Several installed
+SQLcl versions are allowed; arbitrary selection of the newest is insufficient.
+The SQLcl tool version is distinct from the application's semantic version.
+
+Native behavior observed in E.3: SQLcl 26.3 rejected export for a project
+recording 25.4.1; matching SQLcl completed export. The native release check and
+our production policy for qualified builds are distinct. See
+[compatibility evidence](../progress/E.3/tests/native-sqlcl-version-compatibility.md),
+[architecture](architecture.md#sqlcl-project-toolchain-compatibility) and
+[acceptance checks](test-profile.md#sqlcl-project-toolchain-compatibility-nfr-5).
+This requirement does not claim that the prototype implements every production
+gate or has completed upgrade qualification.
+
 The initial release must satisfy UC-1 through UC-12 and FR-1 through FR-13, including the A/B/C multi-developer journey and exactly-one-winner Hello reservation race. These are core acceptance criteria, not optional enhancements. Priority is: version-compatible isolated deployment and history preservation; component behavior; repeatable reviewed release; failure/repair; independent reproduction. E.1 validates a thin architectural slice, and does not promise the full release. Exclude independent component deployments, multiple APEX apps per target, real personal data, destructive migrations, data export/import between targets, cloud targets, production backups, extra CI platforms, and optional analysis services. Deferred enhancements require a backlog decision.
 
 ## Assumptions and risks

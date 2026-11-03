@@ -61,18 +61,19 @@ Select Java 21 in this terminal, then **discover the installed SQLcl**.
 The Java selection also checks for the earlier sprint's downloaded JDK if the
 Homebrew location is absent.
 Discovery first uses `sql` if it is already on PATH. Otherwise it searches your
-projects, Applications, Downloads and tools for a SQLcl executable, adds its
+earlier lab tool cache, Applications, Downloads and tools for a SQLcl executable, adds its
 actual directory to PATH and prints the installed version:
 
 ```bash
+echo "Selecting Java 21..."
 export JAVA_HOME="$(brew --prefix openjdk@21)/libexec/openjdk.jdk/Contents/Home"
 if [ ! -x "$JAVA_HOME/bin/java" ]; then
-  e3_java=$(find "$HOME/projects" "$HOME/Applications" "$HOME/tools" -type f -path '*/jdk-21*/Contents/Home/bin/java' -print -quit 2>/dev/null)
+  e3_java=$(find "$HOME/projects/APEX_CICD/.local-apex/tools" "$HOME/Applications" "$HOME/tools" -type f -path '*/jdk-21*/Contents/Home/bin/java' -print -quit 2>/dev/null)
   if [ -n "$e3_java" ]; then export JAVA_HOME="${e3_java%/bin/java}"; fi
 fi
 e3_sqlcl=$(command -v sql || true)
 if [ -z "$e3_sqlcl" ]; then
-  e3_sqlcl=$(find "$HOME/projects" "$HOME/Applications" "$HOME/Downloads" "$HOME/tools" -type f -path '*/sqlcl*/bin/sql' -print -quit 2>/dev/null)
+  e3_sqlcl=$(find "$HOME/projects/APEX_CICD/.local-apex/tools" "$HOME/Applications" "$HOME/Downloads" "$HOME/tools" -type f -path '*/sqlcl*/bin/sql' -print -quit 2>/dev/null)
 fi
 if [ -n "$e3_sqlcl" ] && [ -x "$e3_sqlcl" ]; then
   export PATH="$(dirname "$e3_sqlcl"):$PATH"
@@ -518,31 +519,43 @@ configuration and the workflow's SQLcl setup together, then verify export,
 stage, native verification, packaging and deployment with that version.
 Multiple SQLcl installations can coexist on the host. For this demonstration,
 select the version already recorded by the project and exercised by its pipeline.
+This is a project-wide production requirement:
+[NFR-5 — SQLcl PROJECT toolchain compatibility](../../docs/srs.md#quality-requirements-and-initial-release).
 
 ```bash
+echo "Selecting Java 21..."
 export JAVA_HOME="$(brew --prefix openjdk@21)/libexec/openjdk.jdk/Contents/Home"
 if [ ! -x "$JAVA_HOME/bin/java" ]; then
-  e3_java=$(find "$HOME/projects" "$HOME/Applications" "$HOME/tools" -type f -path '*/jdk-21*/Contents/Home/bin/java' -print -quit 2>/dev/null)
+  e3_java=$(find "$HOME/projects/APEX_CICD/.local-apex/tools" "$HOME/Applications" "$HOME/tools" -type f -path '*/jdk-21*/Contents/Home/bin/java' -print -quit 2>/dev/null)
   if [ -n "$e3_java" ]; then export JAVA_HOME="${e3_java%/bin/java}"; fi
 fi
+echo "Selecting SQLcl for this project..."
 e3_project_version=$(jq -er '.sqlcl.version' .dbtools/project.config.json)
 e3_sqlcl=''
 while IFS= read -r e3_candidate; do
-  e3_candidate_version=$("$e3_candidate" -version 2>&1) || continue
+  printf 'Checking SQLcl: %s\n' "$e3_candidate"
+  e3_candidate_version=$("$e3_candidate" -nohistory -noupdates -version </dev/null 2>&1) || { echo 'Version probe failed; continuing.' >&2; continue; }
   if [[ "$e3_candidate_version" == *"Release $e3_project_version "* ]]; then
     e3_sqlcl="$e3_candidate"
     break
   fi
-done < <(find "$HOME/projects" "$HOME/Applications" "$HOME/Downloads" "$HOME/tools" -type f -path '*/sqlcl*/bin/sql' -print 2>/dev/null)
+done < <(find "$HOME/projects/APEX_CICD/.local-apex/tools" "$HOME/Applications" "$HOME/Downloads" "$HOME/tools" \( -name .git -o -name node_modules -o -name .venv \) -prune -o -type f -path '*/sqlcl*/bin/sql' -print 2>/dev/null)
 if [ -n "$e3_sqlcl" ]; then
   export PATH="$(dirname "$e3_sqlcl"):$PATH"
   hash -r
   command -v sql
   sql -version
 else
-  echo 'No installed SQLcl matches the project configuration. Install a compatible SQLcl before capture.' >&2
+  echo 'No compatible SQLcl was selected. Review the probe messages before continuing.' >&2
 fi
 ```
+
+Search is limited to the earlier lab tool cache and the named application/tool
+directories; it does not traverse every project checkout. Each probe prints its
+executable path and runs with closed standard input so
+SQLcl cannot consume the discovery loop's path list or wait for terminal input.
+If you cancel discovery, the final message means selection did not complete;
+it does not establish that the required installation is absent.
 
 On first use, start SQLcl interactively:
 

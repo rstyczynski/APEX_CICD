@@ -108,6 +108,35 @@ The reference stack is APEX 24.2.0, Oracle Database 23.26.3.0.0 and ORDS 25.3.0.
 
 Project scripts must supply scope checks, sequencing, retries/recovery policy, redacted receipts and reliable exit status around these interfaces. No generic REST endpoint for editing/deploying arbitrary APEX pages is assumed, and routine deployment does not automate clicks in App Builder. Any missing supported operation is recorded as a risk and resolved during Elaboration before accepting that part of the architecture. See [the test profile](test-profile.md#automation-interface-validation) for required validation evidence.
 
+## SQLcl PROJECT toolchain compatibility
+
+[SRS NFR-5](srs.md#quality-requirements-and-initial-release) makes the SQLcl
+toolchain part of the versioned project contract. Before a native PROJECT
+operation, read `.sqlcl.version` from the selected Git state's
+`.dbtools/project.config.json` and compare it with the actual client's release.
+Developer capture/staging and workflow verification/packaging/deployment use
+the same approved release and qualified build. Automated installations pin
+the full build and archive checksum; record the actual executable version in
+evidence. A mismatch stops processing before source/distribution or target writes.
+
+Oracle documents the native `sqlcl.version` configuration and its management
+through `project config`; [E.3 observed a release-mismatch rejection](../progress/E.3/tests/native-sqlcl-version-compatibility.md).
+This is a native tool compatibility constraint, while full-build qualification
+and consistent use throughout our pipeline are project production policy.
+See [Oracle PROJECT configuration](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/26.3/sqcug/project.html).
+Native diagnostics alone must not be treated as a reliable nonzero failure:
+the observed mismatch returned process status zero. The surrounding gate must
+require positive operation evidence and reject failure diagnostics (NFR-3).
+
+Toolchain upgrades are reviewed changes to project metadata and setup/pins,
+with export, stage, verify, packaging, deployment, repeat and data-preservation
+validation. Updating `sqlcl.version` merely to suppress a mismatch is not an
+upgrade qualification. Preserve each release's toolchain identity for later
+redeployment; an unsupported historical tag must be rejected explicitly.
+Multiple installed SQLcl versions may coexist. The developer's PATH or a
+runner's newest installed client does not override the selected project's
+toolchain contract. SQLcl versions and application SemVer remain independent.
+
 ## Control model
 
 Git is the authoritative source for accepted application definitions, schema migrations, component versions and state policy. The deployment tool installs reviewed artifacts and records the observed target state. Browser-based editing occurs in developer areas; controlled integration/user_acceptance_test targets prohibit routine direct editing. Native Working Copies remain a break-glass option. Changes made through App Builder or native merges on a controlled target must be detected and reconciled through a PR before normal delivery resumes.
