@@ -89,8 +89,12 @@ git pull --ff-only
 Run the following setup from the prepared application checkout in an interactive
 Bash terminal. It creates your public lab repository, publishes the seed history
 and tags, configures Actions and labels, imports the seed release, and sets up
-`e3-lab` with its main-only rule and eight variables. Enter the existing
-**E1_DEV_C** and **E3_TARGET database passwords** at the two secret prompts.
+`e3-lab` with its main-only rule and eight variables. Existing environment secrets
+are retained. For each missing secret, enter the existing **E1_DEV_C** or
+**E3_TARGET database password** when prompted. These credentials belong to the
+local Oracle schemas; they are not GitHub account passwords. GitHub does not
+allow stored secret values to be read back or copied from the public seed.
+See [GitHub's secrets API](https://docs.github.com/en/rest/actions/secrets).
 
 The setup retains an existing repository, release and main branch rule, so it
 can complete an interrupted run. Git pushes are ordinary fast-forward pushes.
@@ -136,8 +140,15 @@ gh variable set TARGET_WORKSPACE --repo "$e3_repo" --env e3-lab --body E3_TARGET
 gh variable set TARGET_APP_ID --repo "$e3_repo" --env e3-lab --body 810203
 gh variable set TARGET_ALIAS --repo "$e3_repo" --env e3-lab --body E3-LAB
 gh variable set ORDS_URL --repo "$e3_repo" --env e3-lab --body http://127.0.0.1:8080/ords
-gh secret set AUTHOR_PASSWORD --repo "$e3_repo" --env e3-lab
-gh secret set TARGET_PASSWORD --repo "$e3_repo" --env e3-lab
+configured_secrets=$(gh secret list --repo "$e3_repo" --env e3-lab --json name)
+if ! jq -e 'any(.[]; .name == "AUTHOR_PASSWORD")' <<< "$configured_secrets" > /dev/null; then
+  printf '%s\n' 'Enter the existing E1_DEV_C database password:'
+  gh secret set AUTHOR_PASSWORD --repo "$e3_repo" --env e3-lab
+fi
+if ! jq -e 'any(.[]; .name == "TARGET_PASSWORD")' <<< "$configured_secrets" > /dev/null; then
+  printf '%s\n' 'Enter the existing E3_TARGET database password:'
+  gh secret set TARGET_PASSWORD --repo "$e3_repo" --env e3-lab
+fi
 
 seed_tag="v$(cat version.txt)"
 if ! gh release view "$seed_tag" --repo "$e3_repo" > /dev/null 2>&1; then

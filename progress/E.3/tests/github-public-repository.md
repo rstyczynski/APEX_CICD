@@ -32,3 +32,18 @@ permission rather than requiring private visibility. Bash syntax and ShellCheck
 passed. A new GitHub repository and a new Oracle/APEX/ORDS installation were not
 created as part of this verification; the recipe retains the existing native
 lab prerequisite. Full independent clean-lab provisioning is not claimed.
+
+## Existing-lab credential population
+
+The existing AUTHOR_PASSWORD and TARGET_PASSWORD secrets were transferred from
+the original repository's e3-lab environment to
+`rstyczynski/APEX_CICD_E3_LAB` / e3-lab using an owner-dispatched hosted
+[one-time job](https://github.com/rstyczynski/APEX_CICD_E3/actions/runs/41701254288).
+The job encrypted both values for the destination environment's public key;
+only ciphertext left the job. Both destination secret names were verified.
+The temporary workflow and encrypted transfer artifact were removed afterward.
+No database passwords were reset and no deployment was dispatched.
+
+Setup now retains existing environment secrets and requests only missing
+values. The original lab's plaintext credential files are not a setup or
+runtime dependency.

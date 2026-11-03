@@ -26,7 +26,8 @@ The commands below use this selected repository. Pass it explicitly to the
 runner launcher as well.
 The walkthrough's [lab setup](sprint_E.3_increment_demo.md#create-your-own-application-repository-once)
 creates **e3-lab**, configures its main-only branch policy, sets the variables
-and prompts for the two secrets. Run that block as part of lab creation. Its nonsecret variables are:
+and retains existing environment secrets, prompting only for missing ones.
+Run that block as part of lab creation. Its nonsecret variables are:
 
 | Variable | Demonstrated laboratory value |
 |---|---|
