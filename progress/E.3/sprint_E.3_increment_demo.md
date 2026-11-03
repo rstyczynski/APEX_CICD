@@ -734,6 +734,9 @@ Alternatively, in the authenticated application terminal:
 
 ```bash
 read -r -p "Published tag to deploy (for example v1.0.5): " version_tag
+```
+
+```bash
 gh release view "$version_tag" --repo "$e3_repo"
 gh workflow run release.yml --repo "$e3_repo" --ref main -f "version_tag=$version_tag"
 ```
