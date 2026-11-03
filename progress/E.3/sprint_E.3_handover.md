@@ -1,6 +1,11 @@
 # E.3 — Native pipeline and local runner handover
 
-The requested lab entry point is the executable
+**Start with the [final walkthrough](sprint_E.3_increment_demo.md#run-it-yourself).**
+It is the single manual execution entry point: prerequisites, configuration,
+runner startup, native authoring, PR/versioning, deployment and browser checks
+are presented in order alongside the slide numbers.
+
+The executable runner entry point is
 [scripts/e3-runner.sh](../../scripts/e3-runner.sh). From the laboratory repository
 root, the lab operator can retain/configure the official local runner and start it:
 

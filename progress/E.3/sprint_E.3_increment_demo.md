@@ -1,10 +1,256 @@
 # E.3 — Native Git pipeline walkthrough
 
-This is the corrected handover: **APEX/SQLcl provide native capabilities;
-GitHub Actions controls execution. No Python pipeline or recurring source
-adapter remains.** Read alongside the [editable deck](sprint_E.3_increment_demo.pptx),
-[manual](user_manual.md), [design](sprint_E.3_design.md) and
-[native correction evidence](sprint_E.3_native_correction.md).
+**Start here to run the E.3 demonstration manually.** Follow steps A–G below
+in order, using the [editable deck](sprint_E.3_increment_demo.pptx) alongside them.
+The commands, setup and expected results are included here. The
+[operator manual](user_manual.md) is a reference for additional detail, not a
+second starting point. The recorded run after step G is historical evidence.
+
+APEX/SQLcl provide native capabilities; GitHub Actions controls execution.
+
+## Run it yourself
+
+### A. Check access and prepare the two checkouts — slides 1–4
+
+This demonstration uses the **existing E.2/E.3 lab**, not a newly provisioned
+database. Use its macOS ARM64 host with Oracle at
+`127.0.0.1:1521/FREEPDB1` and ORDS at `http://127.0.0.1:8080/ords` running.
+You need the existing APEX developer credential for Main 810003 in E1_DEV_C,
+the E1_DEV_C and E3_TARGET database passwords, and LAB_USER's target application
+password. These are different credentials. The target is E3_TARGET / 810203;
+retained UAT is not used.
+
+Install Git, GitHub CLI (`gh`), jq, curl, nc, tar and shasum on this host.
+For developer capture, Java 21 and SQLcl **25.4.1.022.0618** must also be on
+your ordinary PATH. Release jobs install their own Java/SQLcl. Authenticate
+`gh` with access to the private application repository; runner setup additionally
+needs repository administration permission.
+
+Use a terminal in the parent lab checkout:
+
+```bash
+cd /Users/rstyczynski/projects/APEX_CICD
+gh auth status
+git --version
+jq --version
+sql -version
+gh repo view rstyczynski/APEX_CICD_E3
+```
+
+On another host, use that host's parent checkout path instead. The parent
+checkout contains this walkthrough and `scripts/e3-runner.sh`. A **separate
+application checkout** contains the source, native project and GitHub workflows.
+Create it once in your chosen working directory:
+
+```bash
+gh repo clone rstyczynski/APEX_CICD_E3 "$HOME/APEX_CICD_E3"
+```
+
+If it already exists, reuse it only after reviewing/committing any local work;
+do not clone over it. In the application terminal:
+
+```bash
+cd "$HOME/APEX_CICD_E3"
+git status --short
+git switch main
+git pull --ff-only
+```
+
+**Checkpoint:** private repository access works, SQLcl reports the pinned
+version, and the application checkout is clean and current.
+
+### B. Confirm GitHub settings and start the local runner — slide 4
+
+In the private repository, open Settings → Environments → **e3-lab**. Create it
+if absent and restrict deployment branches to **main**. Verify these variables
+against this existing lab; do not replace valid settings unnecessarily:
+
+| Variable | Lab value |
+|---|---|
+| DB_CONNECT | 127.0.0.1:1521/FREEPDB1 |
+| AUTHOR_SCHEMA | E1_DEV_C |
+| SOURCE_APP_ID | 810003 |
+| TARGET_SCHEMA | E3_TARGET |
+| TARGET_WORKSPACE | E3_TARGET |
+| TARGET_APP_ID | 810203 |
+| TARGET_ALIAS | E3-LAB |
+| ORDS_URL | http://127.0.0.1:8080/ords |
+
+Environment secrets **AUTHOR_PASSWORD** and **TARGET_PASSWORD** hold the
+respective database schema passwords. Configure missing/incorrect secrets
+through GitHub's UI; their existing values cannot be read back. No environment
+settings or credentials belong in `.local-apex`.
+
+In the **parent lab terminal**:
+
+```bash
+./scripts/e3-runner.sh setup
+./scripts/e3-runner.sh status
+```
+
+Setup retains a matching registration or installs/registers the official runner
+in `~/actions-runner-e3`. Expect **Setup complete** and successful Oracle TCP /
+ORDS HTTP checks. If status already reports this runner online, use that listener.
+Otherwise start it in this terminal:
+
+```bash
+./scripts/e3-runner.sh
+```
+
+Wait for **Listening for Jobs** and leave the terminal open. Use a second
+terminal for the remaining commands. Stop here if prerequisites fail; runner
+setup does not provision Oracle/APEX/ORDS. The runner uses their network ports;
+GitHub workflows prepare job-private tools/connections and clean them afterward.
+
+### C. Make a fresh native APEX change — slides 5–6
+
+Open App Builder, select Main **810003**, and create a **new Working Copy from
+current Main**. Do not reuse old copies 100/102 that predate the native baseline
+correction. The delivered lab already has the region heading
+`Hello World - Git pipeline`, and its acceptance SQL checks that exact region
+name. Keep it unchanged. For a fresh replay, change Home/page 1's **page title**
+to an easily recognised value, for example `Hello World demo 2`. Choose a
+different suffix on each replay so the export contains a real change.
+
+Run the Working Copy and check the browser page title. Use native comparison against Main:
+review the intended page change, create the native backup and merge that page
+to the coordinated Main checkpoint. Confirm Main now uses the new page title.
+Keep unrelated concurrent authoring out of this demonstration checkpoint.
+
+**Checkpoint:** Main contains your intended page title; its inherited initialization
+remains blank. Do not insert the retired E1 controller hook.
+
+### D. Capture, commit and stage using native SQLcl — slide 7
+
+On first use, start SQLcl interactively in the **application terminal**:
+
+```bash
+sql -nohistory -noupdates /nolog
+```
+
+At its SQL prompt, save your author connection, enter the database password when
+prompted, then exit:
+
+```sql
+connect -save lab-dev-c -savepwd E1_DEV_C@//127.0.0.1:1521/FREEPDB1
+exit
+```
+
+This is your native author profile outside the checkout; workflows create
+separate temporary connections from GitHub secrets. Back at the shell, use a
+new **slashless** feature branch, required by this pinned native comparison:
+
+```bash
+git switch -c "e3-demo-$(date +%Y%m%d%H%M%S)"
+git branch -f e3-base "$(jq -r .baseline_sha pipeline.json)"
+sql -nohistory -noupdates -S -L /nolog @sql/capture.sql
+git diff -- src
+git status --short
+```
+
+Review the export for the page title you just changed. If there is no intended
+diff, resolve the authoring/connection issue before continuing. Commit reviewed
+source **before** staging:
+
+```bash
+git add src
+git commit -m "fix: update demo page title"
+sql -nohistory -noupdates -S -L /nolog @sql/stage.sql
+sql -nohistory -noupdates -S -L /nolog @sql/verify.sql
+git diff -- dist
+git status --short
+```
+
+**Checkpoint:** read verification output and require **Errors: 0**; process exit
+success alone is insufficient. Review generated distribution and project metadata
+shown by `git status`. Commit only the generated changes you have reviewed:
+
+```bash
+git add dist
+git diff --cached --stat
+git commit -m "chore: stage native demo distribution"
+git status --short
+```
+
+If native tools changed additional tracked project metadata, review and include
+that metadata before pushing. Do not edit exported source or archives to make
+verification pass. Finish with a clean working tree.
+
+### E. Open the PR, review and let the workflow version it — slides 8–9
+
+Push the feature branch and explicitly create its PR:
+
+```bash
+git push -u origin HEAD
+gh pr create --repo rstyczynski/APEX_CICD_E3 --base main --title "fix: update demo page title" --label patch --body "Update the Home page title through native APEX Working Copy/Main and SQLcl PROJECT. Native verification reports Errors: 0."
+```
+
+Open the returned PR URL. The reviewer checks source/distribution diffs and
+successful **PR checks**, then **squash merges** with title
+`fix: update demo page title`. Exactly one classification label is allowed:
+`patch` matches `fix:`, `minor` matches `feat:`, and `major` matches `feat!:`.
+The squash commit's semantic history drives automated versioning.
+
+In Actions, wait for **Prepare version and changelog** to complete. Open the
+generated Release Please PR. Review its proposed version, `CHANGELOG.md`,
+`version.txt` and release manifest. If checks are absent on this bot-created PR,
+open Actions → **PR checks** → Run workflow, choose **main**, and enter the
+**current release PR number**. Wait for checks to pass on its latest head.
+
+Merge the generated release PR and wait for **Prepare version and changelog**
+again. In Releases, confirm the generated tag and matching release notes. Record
+that tag for step F. **Do not type a new version or create a tag yourself.**
+No PR merge, release PR merge or tag publication deploys the application.
+
+**Checkpoint:** the workflow has generated the version and both changelogs.
+For this display-only change, expect the next patch after the current accepted
+release, rather than a hard-coded replay of historical v1.0.4.
+
+### F. Manually deploy the published tag — slide 10
+
+The deployer opens Actions → **Deploy selected version** → Run workflow, chooses
+**main**, and enters the exact **published tag from step E** as `version_tag`.
+Alternatively, in the authenticated application terminal:
+
+```bash
+read -r -p "Published tag to deploy (for example v1.0.5): " version_tag
+gh release view "$version_tag" --repo rstyczynski/APEX_CICD_E3
+gh workflow run release.yml --repo rstyczynski/APEX_CICD_E3 --ref main -f "version_tag=$version_tag"
+```
+
+Open the newly dispatched run in Actions and follow its steps through completion.
+Require successful native verification, packaging, deployment, retained-data
+comparison, native session/heading/readiness checks and cleanup. Inspect the
+uploaded receipt for the selected tag, source commit and archive hash.
+
+**Checkpoint:** the run succeeds for the tag you selected. If it fails, inspect
+the failed step before continuing; do not claim a successful deployment or
+automatically reset/redeploy the target.
+
+### G. Verify the browser and finish the demonstration — slides 11–12
+
+Open [target application 810203](http://127.0.0.1:8080/ords/f?p=810203:1), sign
+in as **LAB_USER** using its existing application password, and check the **new
+page title from step C** in the browser tab, and the retained
+`Hello World - Git pipeline` region heading. Inspect the greeting history and confirm the existing
+rows remain. The inherited APEX footer stays 1.0.0; the pipeline release identity
+is the generated Git tag and deployment receipt.
+
+For the separate native rejection demonstration, open Actions → **Qualify native
+verification gate** → Run workflow, choose **main** and the same published tag.
+Wait for success: valid source verifies, a deliberately missing native changeset
+is rejected and the target stays unchanged. This workflow does not deploy.
+
+Record the source PR, release PR, generated tag, deployment run URL, receipt and
+browser observation for your run. When the lab is finished, stop the foreground
+runner you started with Control-C. The demonstration is complete when the
+selected release is deployed, the new page title is visible and prior history is
+retained. Product Owner acceptance and sprint closure are separate decisions.
+
+## Recorded run and supporting evidence
+
+The sections below describe the performed handover run. Their PR numbers, tags,
+screenshots and results are historical references, not inputs for a new replay.
 
 ## Goal and inherited foundation
 

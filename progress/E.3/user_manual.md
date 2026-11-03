@@ -3,7 +3,10 @@
 GitHub Actions owns configuration and setup. Native APEX/SQLcl owns authoring,
 verification, migration and deployment. There is no Python pipeline, source
 adapter, machine environment file or retained private connection-store dependency.
-See the [walkthrough](sprint_E.3_increment_demo.md),
+For a complete manual demonstration, start with the
+[final walkthrough](sprint_E.3_increment_demo.md#run-it-yourself). It includes
+the ordered setup and execution steps; this manual provides reference detail.
+See also the
 [configuration/evidence](sprint_E.3_github_configuration.md),
 [design](sprint_E.3_design.md) and [handover](sprint_E.3_handover.md).
 
