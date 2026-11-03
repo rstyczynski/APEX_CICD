@@ -361,7 +361,7 @@ prototype while retaining broader SRS protections/automation as unproven work.
 No production adoption, complete FR-8/9/10/13 compliance or full toolchain
 qualification is implied. Implementation was authorized through technical handover.
 
-## Implementation refinements recorded during execution
+## Historical 1.0.1 implementation refinements — superseded
 
 The Product Owner authorized completion without further questions. Native
 verification confirmed the slash-containing branch limitation, so the separate
@@ -376,3 +376,31 @@ same generated 1.0.1 release PR, demonstrating release batching. No post-stage
 source/archive modification or native verification bypass is used. See the
 [implementation record](sprint_E.3_implementation.md) and
 [test record](sprint_E.3_tests.md) for evidence and limits.
+
+## Product Owner correction — native tools and GitHub control
+
+Accepted by explicit Product Owner instruction on 2026-11-03: remove E.3 Python
+code, inherit E.2 native APEX achievements and use GitHub Actions as controller.
+This supersedes the recurring source adapter and Python helpers described in
+the historical execution section. The assigned PBI and SM-1/IT-1/IT-2 criteria
+remain unchanged.
+
+Establish Main's native authoring baseline once through App Builder. Capture
+then exports saved source without translation. SQLcl PROJECT owns export,
+stage, verify, packaging and deployment. Native APEX availability handles
+restriction/publication; inherited LAB_RUNTIME checks business readiness only.
+GitHub Actions expresses the sequence as separate steps and blocks subsequent
+steps on failure. Shell inside steps handles Git/CLI operations and output
+checks; jq validates PR metadata. No standalone release or source controller
+remains. Release Please and the approved manual version-tag selection remain.
+
+SQL from accepted main and selected application source use separate checkouts.
+Native verification precedes any target write. SQLcl can return success despite
+verification errors, so the workflow explicitly requires Errors: 0. Existing
+APEX import can restore source availability; reapply restriction after import
+and disclose that this is not atomic fencing. Full fencing/recovery remains
+deferred under the original scope.
+
+See the [native correction record](sprint_E.3_native_correction.md),
+[operator manual](user_manual.md), [E.2 native baseline](../E.2/cicd-walkthrough.md)
+and [SQLcl PROJECT reference](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.4/sqcug/project.html).

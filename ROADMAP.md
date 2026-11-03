@@ -87,6 +87,8 @@ path and expose remaining risks without completing all delivery capabilities.
 E.3 was activated on 2026-11-03 for design preparation; E.2 is closed.
 The [accepted design](progress/E.3/sprint_E.3_design.md) now has
 [executed evidence and technical handover](progress/E.3/sprint_E.3_handover.md).
+The [native correction](progress/E.3/sprint_E.3_native_correction.md) removes E.3
+Python and reuses E.2 native APEX/SQLcl with GitHub Actions control.
 Required gates and browser verification passed; wider capabilities remain
 deferred, and final acceptance/closure remains a separate Product Owner decision.
 

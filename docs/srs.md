@@ -1,5 +1,7 @@
 # Software Requirements Specification
 
+E.3 correction: [native APEX/SQLcl with GitHub Actions control](../progress/E.3/sprint_E.3_native_correction.md) supersedes the earlier Python wrapper and recurring source adapter.
+
 E.3 execution update — 2026-11-03: the Product Owner approved the bounded
 [Git pipeline design](../progress/E.3/sprint_E.3_design.md) and authorized
 implementation through technical handover. The
@@ -10,7 +12,7 @@ classified Git PRs, Release Please version/changelog preparation and manually
 selected-tag deployment. PBI-053 is tested; [PLAN](../PLAN.md) owns lifecycle
 status. E.4 requires refinement before activation. The wider E.1 requirements
 below retain their baseline meaning. E.3's ordinary Working Copies, sequential
-checkpoint and bounded readiness adapter are approved prototype dispositions,
+checkpoint and inherited native APEX approach are approved prototype dispositions,
 not proof that atomic reservations, full fencing/drift/identity coverage or
 FR-13 automation have been completed. Final acceptance/closure is separate.
 

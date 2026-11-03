@@ -132,8 +132,10 @@ retains component-contract/SemVer follow-up. Complex Foundation upgrades stay E.
 
 ### Sprint E.3 — Git pipeline architecture prototype
 
-E.3 implemented the Working Copy/Git happy path and deployed selected tag
-[v1.0.1](https://github.com/rstyczynski/APEX_CICD_E3/releases/tag/v1.0.1)
+E.3 inherits E.2 native APEX/SQLcl capabilities, uses GitHub Actions as controller
+and removes every E.3 Python helper and recurring source adapter. It implemented
+the Working Copy/Git happy path and deployed selected tag
+[v1.0.3](https://github.com/rstyczynski/APEX_CICD_E3/releases/tag/v1.0.3)
 through a manually dispatched workflow in the private
 [application repository](https://github.com/rstyczynski/APEX_CICD_E3).
 PR labels and matching Conventional Commit squash titles feed Release Please's
@@ -149,13 +151,18 @@ Start the [end-to-end walkthrough](progress/E.3/sprint_E.3_increment_demo.md),
 Native source/distribution verification, hosted checks, the selected-tag run,
 retained business fields, browser behavior and missing-changeset rejection passed.
 The first remote run failed before deployment and its workflow correction is
-retained. The release/tag is 1.0.1 while APEX's display footer remains 1.0.0;
+retained. The release/tag is 1.0.3 while APEX's display footer remains 1.0.0;
 automatic display-version stamping was not qualified.
 
 PBI-053 and its three children are tested. E.3 remains Progress pending separate
 Product Owner acceptance/closure; E.4/E.5 remain Planned. This is an architecture
 prototype, with concurrency, full identity preservation, drift/fencing and
 broader recovery still registered for later work.
+
+The [native correction record](progress/E.3/sprint_E.3_native_correction.md)
+links the final workflow, source, archive and fresh gates. It preserves the
+intermediate 1.0.2 browser failure and the native APEX_SESSION check added before
+publication.
 
 ## Vision
 

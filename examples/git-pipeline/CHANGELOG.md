@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.0.3](https://github.com/rstyczynski/APEX_CICD_E3/compare/v1.0.2...v1.0.3) (2026-11-03)
+
+
+### Bug Fixes
+
+* clear native initialization and validate APEX sessions ([#7](https://github.com/rstyczynski/APEX_CICD_E3/issues/7)) ([97d8db1](https://github.com/rstyczynski/APEX_CICD_E3/commit/97d8db1e476a87d33aa16b143922285ef19a827f))
+
+## [1.0.2](https://github.com/rstyczynski/APEX_CICD_E3/compare/v1.0.1...v1.0.2) (2026-11-03)
+
+
+### Bug Fixes
+
+* use a named branch for native release verification ([21af2bd](https://github.com/rstyczynski/APEX_CICD_E3/commit/21af2bd4ed2b97bf07532d9c9c54d0cbf9a8e1a1))
+* use native APEX and SQLcl controlled by GitHub Actions ([#6](https://github.com/rstyczynski/APEX_CICD_E3/issues/6)) ([28ce6c7](https://github.com/rstyczynski/APEX_CICD_E3/commit/28ce6c784651d979c365e5cb2aaf1f4f9645fd09))
+
 ## [1.0.1](https://github.com/rstyczynski/APEX_CICD_E3/compare/v1.0.0...v1.0.1) (2026-11-03)
 
 

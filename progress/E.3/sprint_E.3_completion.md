@@ -1,5 +1,10 @@
 # E.3 — RUP cycle delivery report
 
+Current correction — 2026-11-03: the Product Owner required native APEX/SQLcl
+and GitHub Actions control, with all E.3 Python removed. The
+[native correction record](sprint_E.3_native_correction.md) supersedes the earlier
+1.0.1 implementation described below. Historical evidence is retained.
+
 Sprint E.3; managed mode with the Product Owner's direction to proceed through
 handover without further questions. Execution status: implemented; parent
 PBI-053 and children PBI-053.1/.2/.3 are tested. PLAN remains Progress pending

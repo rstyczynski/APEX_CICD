@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       version_tag:
-        description: Published version tag, for example v1.0.1
+        description: Published version tag, for example v1.0.2
         required: true
         type: string
 permissions:
@@ -15,28 +15,79 @@ jobs:
   deploy:
     if: github.ref == 'refs/heads/main'
     runs-on: [self-hosted, macOS, ARM64, e3-lab]
+    defaults:
+      run:
+        shell: bash
+        working-directory: application
+    env:
+      GH_TOKEN: ${{ github.token }}
+      VERSION_TAG: ${{ inputs.version_tag }}
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Checkout workflow SQL from accepted main
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          path: controller
+      - name: Checkout application history
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           fetch-depth: 0
-      - name: Resolve selected version
-        env:
-          VERSION_TAG: ${{ inputs.version_tag }}
+          path: application
+      - name: Resolve published version
         run: |
           [[ "$VERSION_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]
-          git fetch origin "refs/tags/$VERSION_TAG:refs/tags/$VERSION_TAG"
           git checkout -B e3-release-build "$VERSION_TAG^{commit}"
-      - name: Verify, package, deploy and check preservation
-        env:
-          GH_TOKEN: ${{ github.token }}
-          VERSION_TAG: ${{ inputs.version_tag }}
-        run: bash scripts/release.sh "$VERSION_TAG"
-      - name: Retain archive and receipt
+          git merge-base --is-ancestor HEAD origin/main
+          test "$(cat version.txt)" = "${VERSION_TAG#v}"
+          gh release view "$VERSION_TAG" --json isDraft,tagName | jq -e --arg tag "$VERSION_TAG" '.isDraft == false and .tagName == $tag'
+          baseline=$(jq -er .baseline_sha pipeline.json)
+          [[ "$baseline" =~ ^[0-9a-f]{40}$ ]]
+          git branch -f e3-base "$baseline"
+          mkdir -p result
+          echo "SOURCE_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - name: Native verification before target writes
+        run: |
+          "$SQLCL" -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/verify.sql > result/verify.log 2>&1
+          cat result/verify.log
+          grep -Eq 'Errors:[[:space:]]*0([^0-9]|$)' result/verify.log
+          ! grep -Eq 'ORA-[0-9]+:|PLS-[0-9]+:|SP2-[0-9]+:|No database connection|Unknown Command' result/verify.log
+      - name: Package selected Git state with SQLcl PROJECT
+        run: |
+          "$SQLCL" -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/package.sql "${VERSION_TAG#v}" > result/package.log 2>&1
+          cat result/package.log
+          test -f "artifact/e3-${VERSION_TAG#v}.zip"
+      - name: Record private preservation baseline
+        run: |
+          "$SQLCL" -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/snapshot.sql "$RUNNER_TEMP/e3-before-$GITHUB_RUN_ID.txt" > "$RUNNER_TEMP/e3-before-$GITHUB_RUN_ID.log" 2>&1
+          test -s "$RUNNER_TEMP/e3-before-$GITHUB_RUN_ID.txt"
+      - name: Restrict application with native APEX availability
+        run: |
+          "$SQLCL" -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/restrict.sql
+      - name: Deploy native archive
+        run: |
+          "$SQLCL" -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/deploy.sql "artifact/e3-${VERSION_TAG#v}.zip" "$PWD/utils/properties/e3.properties" > result/deploy.log 2>&1
+          cat result/deploy.log
+          ! grep -Eq 'ORA-[0-9]+:|PLS-[0-9]+:|SP2-[0-9]+:|ERROR|SEVERE:|Unknown Command' result/deploy.log
+      - name: Check retained business data before publication
+        run: |
+          # An APEX import can restore the source application's availability.
+          # Reapply native restriction for checks; this is not atomic fencing.
+          "$SQLCL" -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/restrict.sql
+          "$SQLCL" -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/snapshot.sql "$RUNNER_TEMP/e3-after-$GITHUB_RUN_ID.txt" > "$RUNNER_TEMP/e3-after-$GITHUB_RUN_ID.log" 2>&1
+          cmp "$RUNNER_TEMP/e3-before-$GITHUB_RUN_ID.txt" "$RUNNER_TEMP/e3-after-$GITHUB_RUN_ID.txt"
+      - name: Verify behavior and publish with native APEX availability
+        run: |
+          "$SQLCL" -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/accept.sql
+      - name: Record release identity
+        run: |
+          archive_sha=$(shasum -a 256 "artifact/e3-${VERSION_TAG#v}.zip" | cut -d ' ' -f1)
+          jq -n --arg tag "$VERSION_TAG" --arg source "$SOURCE_SHA" --arg hash "$archive_sha" --arg run "$GITHUB_RUN_ID" \
+            '{version_tag:$tag,source_sha:$source,artifact_sha256:$hash,run_id:$run,target_schema:"E3_TARGET",target_application:810203,history_configuration_preserved:true,controller:"GitHub Actions",engine:"SQLcl PROJECT"}' > result/receipt.json
+      - name: Retain archive, native logs and receipt
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: e3-release-${{ github.run_id }}
           path: |
-            artifact/*.zip
-            result/receipt.json
+            application/artifact/*.zip
+            application/result/*
           if-no-files-found: warn

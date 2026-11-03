@@ -1,0 +1,7 @@
+RUN integration:test_pipeline.sh:test_IT1_manual_release
+PASS native selected-tag workflow, release notes/changelog, archive identity and current preservation
+PASS test_IT1_manual_release
+RUN integration:test_pipeline.sh:test_IT2_verification_blocks_deploy
+PASS native verification blocks missing changeset; no deployment; target unchanged
+PASS test_IT2_verification_blocks_deploy
+Tests: 2; failed: 0

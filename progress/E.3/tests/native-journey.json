@@ -1,0 +1,13 @@
+{
+  "change_pr": 7,
+  "initial_correction_pr": 6,
+  "release_pr": 8,
+  "release_checks_run": 41673185644,
+  "version_tag": "v1.0.3",
+  "source_sha": "4f378fbb5bc620070df0001847b905b03e235a7b",
+  "deploy_run": 41673394174,
+  "failed_browser_version": "v1.0.2",
+  "failed_browser_run": 41671639134,
+  "controller": "GitHub Actions",
+  "native_engine": "SQLcl PROJECT"
+}

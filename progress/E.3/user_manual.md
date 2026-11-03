@@ -1,135 +1,157 @@
-# E.3 operator manual
+# E.3 — Native pipeline operator manual
 
-This operates the small Git/Working Copy architecture prototype in the private
-[application repository](https://github.com/rstyczynski/APEX_CICD_E3). Start with
-the [presentation walkthrough](sprint_E.3_increment_demo.md), which owns the
-end-to-end sequence and evidence. The [design](sprint_E.3_design.md) owns mechanisms;
-[implementation](sprint_E.3_implementation.md) records corrections;
-[tests](sprint_E.3_tests.md) records actual validation. This is a lab, not a shared
-production delivery service.
+This manual implements the Product Owner's correction: inherit E.2's native
+APEX approach, remove E.3 Python, and let GitHub Actions control the pipeline.
+See the [walkthrough](sprint_E.3_increment_demo.md),
+[design](sprint_E.3_design.md), [tests](sprint_E.3_tests.md) and
+[handover](sprint_E.3_handover.md). Earlier 1.0.1 receipts are historical.
 
-## Current environment and prerequisites
+## Prepared laboratory
 
-Run from the parent APEX_CICD checkout. Require Git, authenticated gh with access
-to the private example, Python 3, actionlint and the existing Oracle/APEX lab.
-`code` must be on PATH for the file-viewing examples. The demo release client is
-SQLcl 25.4.1.022.0618 with the retained Java 21 runtime. The older E.1 client is
-unchanged. Podman operations use the named apex-cicd connection, not whichever
-machine happens to be the global default.
+**Fresh-checkout setup gap:** These instructions currently assume a retained lab and private local files. The Product Owner requires generation of every required `.local-apex/` file from a fresh checkout, including `native.env`, tool and connection setup, and runner configuration, using documented commands and the new operator's authorized inputs. [SRS NFR-4](../../docs/srs.md#quality-requirements-and-initial-release) owns this requirement; [PBI-054](../../BACKLOG.md#pbi-054-generate-the-complete-local-environment-from-a-fresh-checkout) tracks delivery, with the gap also exposed in the [project orientation](../../README.md). No complete generator or independent clean-checkout proof is currently provided for this E.3 setup.
 
-Authoring uses E1_DEV_C / Main application 810003 and retained Working Copy 100,
-“E3 heading patch”. Working Copies share the schema. Only the reviewed Home
-page was merged, with native backup enabled. Target is the new disposable
-E3_TARGET schema/workspace and application 810203. E1_UAT is not a target.
-Existing user credentials remain in the private lab store; do not copy passwords
-into shell commands, source, screenshots or CI variables. Deployment config is
-`.local-apex/e3/lab.json` with mode 0600. The local runner inherits its path;
-the runner registration/connection stores remain private.
+Use the existing Oracle/APEX/ORDS lab, Java 21 and SQLcl 25.4.1.022.0618.
+DEV Main is E1_DEV_C/810003; the separate target is E3_TARGET/810203. Retained
+E1_UAT is not a target. The dedicated runner e3-lab-mac belongs only to the
+private [application repository](https://github.com/rstyczynski/APEX_CICD_E3).
+Git, gh, jq and shasum are required. Hosted checks use actionlint 1.7.7.
 
-## Inspect and replay the completed release
-
-From the parent repository:
+The private file `.local-apex/e3/native.env` exports SQLCL (executable),
+SQLCL_HOME (connection store) and JAVA_HOME (Java 21). It contains paths only;
+credentials are saved by SQLcl. Load it in an operator terminal:
 
 ```bash
-cd "$(git rev-parse --show-toplevel)"
-export E3_LAB_CONFIG="$PWD/.local-apex/e3/lab.json"
-gh pr view 1 --repo rstyczynski/APEX_CICD_E3
-gh pr view 2 --repo rstyczynski/APEX_CICD_E3
-gh release view v1.0.1 --repo rstyczynski/APEX_CICD_E3
-code progress/E.3/sprint_E.3_increment_demo.md
+source .local-apex/e3/native.env
 ```
 
-The PRs show the patch label/title and generated 1.0.1 version/changelog change.
-The release has the two patch entries. Neither publishing it nor opening a PR
-deploys. Start the dedicated runner in a separate terminal if it is offline:
+The saved connections are `lab-dev-c` and `e3-target`. If configuring a different
+operator's private SQLcl store, start the same client with `/nolog` and use its
+native prompt, entering the existing assigned credential when requested:
 
-```bash
-cd "$(git rev-parse --show-toplevel)"
-python3 scripts/e3-runner.py run
+```sql
+connect -save e3-target -savepwd E3_TARGET@//127.0.0.1:1521/FREEPDB1
 ```
 
-Then explicitly request deployment from Git main, choosing the version tag:
+Do not commit the store, passwords, runner registration or business snapshots.
+This manual uses retained prepared resources; it does not promise a fresh lab
+provisioner. E.3's Python provisioning and runner helpers have been removed.
+The existing runner was installed from GitHub's official checksum-verified
+2.338.2 distribution. Use GitHub's Settings → Actions → Runners instructions and
+its native `config.sh` for a new registration; do not overwrite the retained one.
+
+## Native authoring baseline
+
+The one-time baseline correction was performed through App Builder: application
+810003 → Edit Application Definition → Security → Database Session → clear the
+E1_CTRL initialization code → Apply Changes. This follows E.2's native APEX
+availability approach. Export now captures the actual saved application; nothing
+rewrites exported SQL or YAML. LAB_RUNTIME remains an inherited business-schema
+readiness check, not a deployment controller or application initialization hook.
+The [saved screen](tests/native-author-baseline.png) records the result.
+
+Old Working Copies 100/102 predate that baseline correction. Before later work,
+refresh the relevant application definition from Main using native Working Copy
+comparison, or create a new Working Copy. Review every native merge; do not merge
+an obsolete application definition back into Main. Historical E.2 evidence and
+retained UAT remain unchanged; Main's baseline change is explicit.
+
+## Developer capture and PR
+
+In the application repository, create a slashless feature branch. Slash-containing
+stage paths remain a known SQLcl comparison limitation. Establish the comparison
+branch from the committed pipeline baseline:
 
 ```bash
-gh workflow run release.yml --repo rstyczynski/APEX_CICD_E3 --ref main -f version_tag=v1.0.1
-gh run list --repo rstyczynski/APEX_CICD_E3 --workflow release.yml --limit 3
+git switch -c e3-next-change
+git branch -f e3-base "$(jq -r .baseline_sha pipeline.json)"
+"$SQLCL" -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @sql/capture.sql
+git diff -- src
 ```
 
-Use the resulting run ID in `gh run view RUN_ID --repo rstyczynski/APEX_CICD_E3`
-and `gh run download RUN_ID --repo rstyczynski/APEX_CICD_E3 --dir DESTINATION`.
-RUN_ID and DESTINATION are explicit operator choices; do not reuse a populated
-download directory. Inspect the receipt's version tag, resolved commit, target,
-archive hash and preservation result. Actual reference run IDs are in
-[tests](sprint_E.3_tests.md). A workflow success does not replace the browser check.
-
-Open [the deployed application](http://127.0.0.1:8080/ords/f?p=810203:1), sign in
-as LAB_USER using the existing lab credential, and confirm “Hello World - Git
-pipeline”. Open Greeting history and inspect the retained greeting. Source APEX
-application display version remains independent from the repository release tag;
-this prototype reports the selected tag in the release/run receipt.
-
-## A new developer change
-
-Coordinate a single-author checkpoint; preserve any unexported work first.
-Create a new Working Copy of 810003 in App Builder, edit one supported page
-property, save, compare with Main, review the exact selected page, then merge
-with target backup enabled and without deleting the copy. For the executed
-example the Home region Name changed from “Hello World - Working Copy” to
-“Hello World - Git pipeline”. Do not replay that replacement over unrelated work.
-
-In the application checkout, start a new slashless branch from accepted main,
-set pipeline.json's baseline_sha to that accepted base and expected_heading to
-the intended visible heading. Create/update local e3-base at that base. Then:
+`capture.sql` connects to lab-dev-c and runs `project export -list` and
+`project export`. Inspect the real source diff, then commit it before staging:
 
 ```bash
-bash scripts/capture.sh
-git diff -- src pipeline.json
-git add src pipeline.json
-git commit -m "fix: update Home heading"
-python3 scripts/lab.py stage
-python3 scripts/lab.py verify
+git add src
+git commit -m 'fix: describe the reviewed application change'
+"$SQLCL" -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @sql/stage.sql
+"$SQLCL" -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @sql/verify.sql
 git diff -- dist
-git add dist
-git commit -m "fix: stage reviewed Home heading distribution"
 ```
 
-Capture uses native export then an explicit pre-stage source adapter replacing
-only the legacy E1_CTRL session hook with LAB_RUNTIME.assert_ready in SQL/YAML.
-Review it with the heading diff. Do not edit source after stage without restaging
-and revalidating. No native verify errors are waived. After review, push the new
-branch and open a PR with label patch and title `fix: update Home heading`.
-The branch name/heading are new experiment inputs; the performed example and its
-actual evidence are in the walkthrough rather than claimed as a new run here.
+Require **Errors: 0**; SQLcl can report verification failures without a nonzero
+process exit, so read the summary. GitHub's workflow checks it explicitly.
+Review/commit the generated distribution, push the feature branch, then manually
+open its PR. Classify patch with `fix:`, minor with `feat:`, major with `feat!:`;
+scopes such as `fix(home):` are accepted. Missing/conflicting labels and mismatched
+titles fail the hosted policy. The reviewer inspects the diff/checks, then squash
+merges. These sample Git commits are instructions for a real next change, not a
+reason to create an empty demonstration change.
 
-For minor use label minor/title `feat: ...`; for major use major/title `feat!: ...`.
-Missing/multiple labels or a mismatch fails the PR check. Squash merge preserves
-the title. The reviewer checks Release Please's generated release PR and manually
-dispatches pr.yml with its PR number before merging it. That merge creates the
-tag/GitHub Release; the deployer still chooses when to deploy it. Accumulation
-into one release and leaving later prepared versions undeployed are supported.
+## Version and both changelogs
 
-## Provisioning and retention
+The version workflow runs on main and uses Release Please. Review its generated
+release PR, including version.txt and CHANGELOG.md. If the bot PR has no checks,
+manually run PR checks with that PR's number:
 
-[Preparation](../../scripts/e3-prepare.py) creates only E3_TARGET and refuses an
-existing schema/workspace/application; it does not destroy/rebuild the lab or
-silently overwrite a retained experiment. The source bundle under
-[the example](../../examples/git-pipeline/) preserves the inspected Git baseline
-and history. Runner installation/configuration use `e3-runner.py install` and
-`configure`; do not overwrite a retained runner directory or registration.
-These provisioning steps are not repeated as part of a normal deployment.
-No whole-lab cleanup or automated teardown is provided by E.3.
+```bash
+gh workflow run pr.yml --repo rstyczynski/APEX_CICD_E3 --ref main -f pr_number=8
+```
 
-## Failure handling and limits
+After a successful run on the latest head, merge the release PR. The version
+workflow publishes its tag and GitHub Release notes. PR8 is the performed 1.0.3
+release PR; choose the actual current number for a later release. Reviewers retain
+control of integration and release-PR merge. Neither operation deploys.
 
-An invalid tag, failed native verify, missing mapping or failed SQL operation
-stops the run. Inspect logs before retrying. A failure after committed Oracle DDL
-requires inspection and a reviewed repair; there is no general rollback promise.
-Never change the selected release tag to conceal a failed run. Native verify
-requires a named local build branch, which the corrected workflow creates from
-the exact selected tag. Both slash-stage and detached-HEAD observations are
-retained in the test/implementation records.
+## Manual deployment and runner
 
-This prototype does not qualify parallel team work, full identity preservation,
-production privileges, atomic ownership, drift rejection, fencing or recovery.
-Those remain existing backlog requirements. Stop the foreground runner with
-Control-C when finished; this does not delete the registration or application.
+In a separate terminal at the parent project root, start the official runner
+in the foreground. Stop any earlier foreground runner first with Control-C;
+only one listener may use this registration.
+
+```bash
+source .local-apex/e3/native.env
+cd .local-apex/e3/runner
+./run.sh
+```
+
+Wait for **Listening for Jobs**. The runner inherits the SQLcl/Java paths and
+private connection store. No OS service or Python runner helper is needed.
+In GitHub Actions, select **Deploy selected version**, branch **main**, enter the
+published tag and Run workflow. The CLI equivalent is:
+
+```bash
+gh workflow run release.yml --repo rstyczynski/APEX_CICD_E3 --ref main -f version_tag=v1.0.3
+```
+
+Read each visible job step: resolve the published tag; native verification before
+writes; native packaging; private baseline; native restriction; native deployment;
+reapply restriction and compare data; verify heading/readiness and publish; receipt.
+Workflow SQL comes from accepted main; application/configuration comes from the
+selected tag. Their identities are distinct. No export from DEV occurs during
+release. The immutable tag is attached to a local named branch for SQLcl verify.
+
+The artifact uses the committed target mapping by absolute checkout path because
+repository-level utils is outside the native ZIP. Data snapshots stay private in
+runner temporary files; uploaded artifacts contain the native ZIP, native logs and
+nonsecret receipt. Inspect the application as LAB_USER and its retained history.
+The repository version is distinct from the inherited 1.0.0 APEX footer.
+
+## Failure and recovery
+
+A failed verification prevents packaging and target writes. Later failures stop
+publication and require inspection of the failed step/native log; do not
+automatically reset, repair, retag or overwrite the target. APEX import can restore
+source availability, so restriction is reapplied immediately after import. This
+is a happy-path demonstration, not atomic maintenance fencing or general DDL
+rollback. Browser verification follows the successful workflow; SQL checks alone
+do not qualify every application behavior. Use the existing backlog for broader
+recovery, concurrency, drift and identity proof.
+
+The native correction initially published 1.0.2. Its workflow passed, but the
+browser exposed whitespace left in the initialization field. That version is
+historical failed browser evidence. The final 1.0.3 correction clears the field
+without inserting editor indentation and adds native APEX_SESSION.CREATE_SESSION
+plus DELETE_SESSION before publication. This executes initialization and would
+reject that observed failure; it does not replace real authentication/browser
+validation. See the [correction record](sprint_E.3_native_correction.md).

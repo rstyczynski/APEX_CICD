@@ -1,0 +1,10 @@
+{
+  "sha256": "295c751b722d8cecb2c2e140de67ae518dfdaed1dbb367a2f354a828db73e508",
+  "slide_count": 12,
+  "package_integrity": "pass",
+  "layout_findings": 0,
+  "layout_warnings": 0,
+  "first_party_import": true,
+  "visual_inspection": "All 12 final native-v2 renders individually inspected; no clipping/overlap; Courier command lines intact",
+  "native_powerpoint_inspection": false
+}

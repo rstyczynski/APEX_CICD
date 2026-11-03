@@ -158,7 +158,10 @@ selected during analysis/design; comprehensive delivery suites are deferred.
 Activated on 2026-11-03 by explicit Product Owner request to prepare the design.
 The Product Owner approved implementation through technical handover on
 2026-11-03 without further questions. Prototype implementation, required gates
-and browser verification are complete; sprint closure and final Product Owner
+and browser verification are complete. The Product Owner's subsequent native-only
+correction is implemented and freshly verified; see the
+[native correction record](progress/E.3/sprint_E.3_native_correction.md).
+Sprint closure and final Product Owner
 acceptance are not inferred. See the
 [setup and analysis](progress/E.3/sprint_E.3_setup.md) and
 [accepted design and test specification](progress/E.3/sprint_E.3_design.md),

@@ -1,0 +1,18 @@
+Rollback
+begin
+*
+ERROR at line 1:
+ORA-20987: APEX - Error processing database session setup code. - Contact your application administrator.
+ORA-06512: at "APEX_240200.WWV_FLOW_ERROR", line 1150
+ORA-06512: at "APEX_240200.WWV_FLOW_ERROR", line 1608
+ORA-06512: at "APEX_240200.WWV_FLOW_SECURITY", line 3822
+ORA-06512: at "APEX_240200.WWV_FLOW_SESSION", line 2901
+ORA-06512: at "APEX_240200.WWV_FLOW_SESSION_API", line 63
+ORA-06512: at line 3
+
+https://docs.oracle.com/error-help/db/ora-20987/
+
+
+More Details :
+https://docs.oracle.com/error-help/db/ora-20987/
+https://docs.oracle.com/error-help/db/ora-06512/

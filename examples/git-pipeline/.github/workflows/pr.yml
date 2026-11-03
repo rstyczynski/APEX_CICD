@@ -19,16 +19,22 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           fetch-depth: 0
-      - name: Read PR metadata and checkout its head
+      - name: Validate PR classification and select head
         env:
           GH_TOKEN: ${{ github.token }}
           PR_NUMBER: ${{ github.event.pull_request.number || inputs.pr_number }}
         run: |
           [[ "$PR_NUMBER" =~ ^[0-9]+$ ]]
           gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER" > /tmp/e3-pr.json
-          python3 scripts/check_pr.py /tmp/e3-pr.json
+          jq -er -f .github/pr-policy.jq /tmp/e3-pr.json
           git fetch origin "pull/$PR_NUMBER/head"
           git checkout --detach FETCH_HEAD
-      - run: bash scripts/check.sh
+      - name: Check native project layout
+        run: |
+          test -f .dbtools/project.config.json
+          test -d src/database
+          test -f dist/install.sql
+          test -f sql/capture.sql
+          test -z "$(find . -type f -name '*.py' -not -path './.git/*' -print -quit)"
       - name: Validate workflows
         run: docker run --rm -v "$PWD:/repo" -w /repo rhysd/actionlint:1.7.7 -color

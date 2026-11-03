@@ -1,5 +1,10 @@
 # E.3 — Test execution and experiment results
 
+Current correction — 2026-11-03: the Product Owner required native APEX/SQLcl
+and GitHub Actions control, with all E.3 Python removed. The
+[native correction record](sprint_E.3_native_correction.md) supersedes the earlier
+1.0.1 implementation described below. Historical evidence is retained.
+
 2026-11-03. Test: smoke, integration. Regression: smoke. The
 [accepted design](sprint_E.3_design.md) defines SM-1/IT-1/IT-2;
 [implementation](sprint_E.3_implementation.md) explains fixes. The

@@ -1,5 +1,10 @@
 # E.3 — Contract and analysis
 
+Current correction — 2026-11-03: the Product Owner required native APEX/SQLcl
+and GitHub Actions control, with all E.3 Python removed. The
+[native correction record](sprint_E.3_native_correction.md) supersedes the earlier
+1.0.1 implementation described below. Historical evidence is retained.
+
 SPRINT E.3 | MODE: managed | Test: smoke, integration | Regression: smoke
 
 ## Contract

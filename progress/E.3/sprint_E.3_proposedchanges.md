@@ -25,7 +25,7 @@ setup/design approval, execution record or claim that any new test passed.
 No application, database, runner or infrastructure is changed by this plan.
 
 The [Product Backlog](../../BACKLOG.md) owns item definitions and priority;
-the [Sprint Plan](../../PLAN.md#sprint-e3---validate-apex-native-team-centric-development)
+the [Sprint Plan](../../PLAN.md#sprint-e3---prototype-the-git-based-development-pipeline)
 owns assignments and lifecycle status; the [progress board](../../PROGRESS_BOARD.md)
 contains the assigned Planned rows. The [SRS](../../docs/srs.md) owns current
 actor goals and acceptance requirements. The [architecture](../../docs/architecture.md)
@@ -482,3 +482,13 @@ test/regression fields and no active sprint. Validated 72 planning links and
 applicable anchors; the whitespace check passed. This validates the planning
 change only: the scenario source maps, executions and comparisons themselves
 remain required future deliverables, not completed evidence.
+
+## Native APEX inheritance and removal of Python
+
+Status: Accepted — explicit Product Owner instruction on 2026-11-03.
+
+Remove all E.3 Python implementations and recurring source transformations.
+Use native APEX/SQLcl with GitHub Actions as the pipeline controller.
+The [design correction](sprint_E.3_design.md#product-owner-correction--native-tools-and-github-control) and
+[execution record](sprint_E.3_native_correction.md) record implementation without
+adding scope or closing the sprint.

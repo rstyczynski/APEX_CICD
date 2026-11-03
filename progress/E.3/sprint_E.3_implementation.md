@@ -1,5 +1,10 @@
 # E.3 — Implementation record
 
+Current correction — 2026-11-03: the Product Owner required native APEX/SQLcl
+and GitHub Actions control, with all E.3 Python removed. The
+[native correction record](sprint_E.3_native_correction.md) supersedes the earlier
+1.0.1 implementation described below. Historical evidence is retained.
+
 The Product Owner authorized implementation through handover without further
 questions on 2026-11-03. The [accepted design](sprint_E.3_design.md) and its
 three child outcomes govern the prototype. [PLAN](../../PLAN.md) owns status;
@@ -43,7 +48,7 @@ of E.1 fencing/ownership guarantees.
 
 The three workflows and thin scripts are versioned in
 [examples/git-pipeline](../../examples/git-pipeline/), with a baseline Git bundle
-and [preparation script](../../scripts/e3-prepare.py) preserving source provenance.
+and [preparation script](user_manual.md#prepared-laboratory) preserving source provenance.
 PR checks validate exactly one patch/minor/major label against the Conventional
 Commit title, run source/shell checks and actionlint. Squash merge retains that
 title. Release Please generates the version/changelog release PR; both that
@@ -63,7 +68,7 @@ The official runner archive SHA-256 was checked before extraction. Registration
 required running outside the filesystem sandbox after .NET initialization failed.
 No OS service was installed. PR/version jobs run on hosted runners; only the
 manually dispatched lab deployment uses this local runner and private connection
-configuration. [Runner entry point](../../scripts/e3-runner.py) starts it for
+configuration. [Runner entry point](user_manual.md#manual-deployment-and-runner) starts it for
 future use. Run results, evidence and final limitations belong in the test and
 handover records as they become available.
 

@@ -21,9 +21,9 @@ s=slide('E.3 Git development pipeline\nArchitecture prototype',E+'sprint_E.3_han
 text(s,'Working Copy → reviewed Git source\nAutomated version and changelog\nManual deployment by version tag',64,235,1120,220,42,'#FFFFFF',true);
 text(s,'3 November 2026 · one lab target · real GitHub and Oracle execution',64,610,1100,50,24,C.soft);
 s=slide('Walkthrough agenda',E+'sprint_E.3_increment_demo.md');
-text(s,'1. Author and capture one heading change\n\n2. Review the PR and prepare version 1.0.1\n\n3. Deploy the selected tag and inspect history\n\n4. Review failure evidence and remaining risks',64,185,1120,420,32);
+text(s,'1. Author and capture one heading change\n\n2. Review the PR and prepare version 1.0.3\n\n3. Deploy the selected tag and inspect history\n\n4. Review failure evidence and remaining risks',64,185,1120,420,32);
 s=slide('Architecture and responsibilities',E+'sprint_E.3_design.md');
-const rows=[['Developer / APEX Working Copy','Edit metadata; compare and merge into DEV Main'],['Git + SQLcl PROJECT','Review source and stage native Liquibase distribution'],['GitHub-hosted checks + Release Please','Validate label/title; generate release PR, version and changelogs'],['Deployer / local runner','Select tag; verify, package and deploy to E3_TARGET']];
+const rows=[['Developer / APEX Working Copy','Edit metadata; compare and merge into DEV Main'],['E.2 foundation / native SQLcl PROJECT','Export, stage, verify, package and deploy without source rewriting'],['GitHub-hosted checks + Release Please','Validate label/title; generate release PR, version and changelogs'],['Deployer / GitHub Actions / local runner','Select tag; Actions controls ordered native SQLcl/APEX steps']];
 rows.forEach(([a,b],i)=>{text(s,a,64,165+i*108,1130,40,30,C.teal,true);text(s,b,92,211+i*108,1100,46,25);});
 text(s,'PR merge, tag creation and GitHub Release publication do not deploy.',64,630,1130,34,26,C.red,true);
 s=slide('Working Copy: change one Home heading',E+'tests/working-copy-inspection.png');
@@ -34,23 +34,23 @@ text(s,'Observed native comparison: 1 changed · 0 added · 0 missing',64,180,11
 bullets(s,['Selected component: Page 1, Home','Original heading: Hello World - Working Copy','Accepted heading: Hello World - Git pipeline','Target backup enabled; Working Copy retained','Main merge completed successfully'],280,29);
 s.speakerNotes.text+=' Raw original comparison capture is retained; no later screenshot is represented as the historical merge.';
 s=slide('Native source capture and staging',E+'sprint_E.3_implementation.md');
-code(s,['bash scripts/capture.sh','git diff -- src pipeline.json','python3 scripts/lab.py stage','python3 scripts/lab.py verify','git diff -- dist'],190,29);
-text(s,'Source adapter replaces the inherited E1 controller hook before stage.\nNative verification must report zero errors.',64,540,1130,100,28,C.teal,true);
+code(s,['connect -name lab-dev-c','project export','-- Review and commit src before staging','project stage -branch-name e3-base','project verify -cbn e3-base -verbose'],190,29);
+text(s,'Run these commands in SQLcl; review and commit src, then dist.\nMain contains the native baseline. No source adapter.',64,540,1130,100,28,C.teal,true);
 s=slide('PR labels and Conventional Commits','https://github.com/rstyczynski/APEX_CICD_E3/pull/1');
 bullets(s,['patch → fix: update Home heading','minor → feat: add a compatible capability','major → feat!: change the contract','Hosted checks reject missing/conflicting labels or title mismatch','Squash merge retains the classification in Git history'],175,30);
-text(s,'Performed: PR 1 heading fix and PR 3 runtime correction; both patch.',64,635,1120,35,24,C.teal,true);
-s=slide('Release Please: version and both changelogs','https://github.com/rstyczynski/APEX_CICD_E3/pull/2');
-bullets(s,['Two accepted fixes accumulated into release PR 2','Generated version.txt: 1.0.0 → 1.0.1','Generated CHANGELOG.md and matching GitHub Release notes','Hosted checks were manually dispatched on the bot PR head','Release-PR merge created tag v1.0.1; target stayed unchanged'],175,30);
+text(s,'Performed: PRs 6/7 establish native source and native session validation.',64,635,1120,35,24,C.teal,true);
+s=slide('Release Please: version and both changelogs','https://github.com/rstyczynski/APEX_CICD_E3/pull/8');
+bullets(s,['Native corrections accepted in PRs 6/7; release PR 8','Generated version.txt: 1.0.2 → 1.0.3','Generated CHANGELOG.md and matching GitHub Release notes','Hosted checks were manually dispatched on the bot PR head','Release-PR merge created tag v1.0.3; deployment stays manual'],175,30);
 s=slide('Manual deployment of the selected tag',E+'tests/release-receipt.json');
-code(s,['gh workflow run release.yml \\','  --repo rstyczynski/APEX_CICD_E3 \\','  --ref main -f version_tag=v1.0.1','','gh run view 41664798289 \\','  --repo rstyczynski/APEX_CICD_E3'],195,27);
+code(s,['gh workflow run release.yml \\','  --repo rstyczynski/APEX_CICD_E3 \\','  --ref main -f version_tag=v1.0.3','','gh run view 41673394174 \\','  --repo rstyczynski/APEX_CICD_E3'],195,27);
 text(s,'Succeeded: native verify → one archive → target deployment → preservation',64,545,1135,75,28,C.teal,true);
 text(s,'Exact tag source uses a named local build branch; no live DEV export.',64,630,1135,40,24,C.muted);
-s=slide('Deployed application and retained history',E+'tests/deployed-home.png; '+E+'tests/deployed-history.png');
-await shot(s,E+'tests/deployed-home.png',155,380);
+s=slide('Deployed application and retained history',E+'tests/native-deployed-home.png; '+E+'tests/native-deployed-history.png');
+await shot(s,E+'tests/native-deployed-home.png',155,380);
 text(s,'Observed in browser: Hello World - Git pipeline\nRetained Hello World history row and all prior fields verified.',64,555,1130,85,28,C.teal,true);
-text(s,'Repository release: v1.0.1. APEX display metadata remains 1.0.0.',64,650,1100,25,20,C.muted);
-s=slide('Observed failures and corrections',E+'sprint_E.3_tests.md');
-bullets(s,['Slash-containing branch: native source/dist verification failed; use explicit slashless demo branches','Mapping file lookup: resolve committed properties from the selected checkout','Inherited E1 runtime hook: correct reviewed source before native staging','Detached HEAD: first remote run stopped; corrected workflow uses a named build branch','Missing changeset: real native verification rejected it; target unchanged'],160,28);
+text(s,'Repository release: v1.0.3. APEX display metadata remains 1.0.0.',64,650,1100,25,20,C.muted);
+s=slide('Baseline correction and native limitations',E+'sprint_E.3_native_correction.md');
+bullets(s,['Native Main baseline established in App Builder; no recurring source conversion','Python helpers and standalone pipeline controllers removed','1.0.2 passed workflow checks but failed in browser: whitespace initialization','1.0.3 clears the field and validates initialization through APEX_SESSION','Native status gating does not establish atomic maintenance fencing'],160,28);
 s=slide('Results and handover boundary',E+'sprint_E.3_handover.md; '+E+'sprint_E.3_tests.md');
 text(s,`1. PBI-053.1: Working Copy, Git capture and native verification
 

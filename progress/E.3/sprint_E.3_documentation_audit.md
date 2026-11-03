@@ -162,3 +162,31 @@ The maintained readable log now removes trailing spaces/blank end lines only;
 the evidence exporter applies that same deterministic formatting on future runs.
 No error text, source/target identity or test criterion changes. The correction
 is checked before a follow-up commit; no prior commit or release tag is rewritten.
+
+## Native correction audit — 2026-11-03
+
+The Product Owner explicitly rejected Python/source adaptation. The
+[native correction record](sprint_E.3_native_correction.md), design refinement,
+manual, walkthrough, handover, deck and shared orientation now reflect native
+APEX/SQLcl with GitHub Actions control. Earlier 1.0.1 implementation records are
+marked historical. No E.1/E.2 source history was rewritten. The baseline bundle
+was regenerated and separately hashed with current main/tags; older identity
+receipts remain historical. Removed Python helpers/caches and shell controllers.
+
+Hosted patch/release checks and manual v1.0.3 execution passed. A1 1/1, A3 2/2,
+B1 2/2 passed freshly. Native APEX_SESSION reproduced the failed 1.0.2
+initialization, then validated corrected 1.0.3 before publication. Actual browser
+authentication, heading and retained history were checked again. The source
+export omits the initialization property; no source translation is used.
+
+The first documentation build lacked the runtime-module environment for import
+verification. That environment was supplied; final native-v2 package/layout/font
+and first-party import checks passed with zero findings/warnings. All twelve
+final slide renders were individually inspected. No native PowerPoint run is
+claimed. The final PPTX is copied unchanged from that validated output.
+
+Independent clean-checkout provisioning remains outside this correction; the
+manual explicitly requires prepared private lab state. Existing unrelated
+Product Owner edits to fresh-setup requirements/backlog are preserved.
+Final local link, source, whitespace and credential-value checks are recorded
+in the native correction checks receipt before the scoped completion commit.

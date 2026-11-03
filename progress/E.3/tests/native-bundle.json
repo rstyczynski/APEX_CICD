@@ -1,0 +1,9 @@
+{
+  "path": "examples/git-pipeline/baseline.bundle",
+  "sha256": "c4176b9b6d58df9976d617f8aca1e5ae91baf77c96486f23e685c1d1cbc3c936",
+  "main": "4f378fbb5bc620070df0001847b905b03e235a7b",
+  "latest_tag": "v1.0.3",
+  "current_main_contains_python": false,
+  "historical_python_retained_in_git_history": true,
+  "bundle_verification": "passed"
+}
