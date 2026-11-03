@@ -10,6 +10,14 @@ Start with the [walkthrough](../../progress/E.3/sprint_E.3_increment_demo.md),
 [design](../../progress/E.3/sprint_E.3_design.md). The live private example is
 [APEX_CICD_E3](https://github.com/rstyczynski/APEX_CICD_E3).
 
+The application repository is a public seed. To run the lab without write access
+to the shared repository, use the walkthrough's
+[creation procedure](../../progress/E.3/sprint_E.3_increment_demo.md#create-your-own-application-repository-once).
+It preserves native baseline history/tags, creates your own public repository
+and imports the seed release. Configure your own environment secrets and runner;
+those are not transferred by cloning. This creates the GitHub repository, not
+the prerequisite Oracle/APEX/ORDS lab.
+
 Developer: Working Copy → compare/merge to agreed Main → `project export` →
 review/commit source → `project stage` → `project verify` → review/commit dist →
 manual PR. Exactly one patch/minor/major label matches its Conventional Commit

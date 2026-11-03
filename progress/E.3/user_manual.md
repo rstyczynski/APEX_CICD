@@ -12,7 +12,12 @@ See also the
 
 ## Configuration ownership
 
-Use the private [application repository](https://github.com/rstyczynski/APEX_CICD_E3).
+The public [application repository](https://github.com/rstyczynski/APEX_CICD_E3)
+is the seed. Its authorised operators can reuse it; other participants follow
+the [repository creation procedure](sprint_E.3_increment_demo.md#create-your-own-application-repository-once)
+to create their own writable copy with full history and tags. The commands below
+show the original operator's repository; substitute your selected repository for
+`rstyczynski/APEX_CICD_E3` and pass `--repo OWNER/REPO` to the runner launcher.
 Under Settings → Environments, create **e3-lab** and restrict deployment branches
 to **main**. Its nonsecret variables are:
 
@@ -192,7 +197,7 @@ connections are removed afterward. It shares deployment concurrency to avoid
 racing the lab demonstration. PR/version workflows remain separate.
 
 The parent repository's smoke/integration checks require gh, Git, jq, Node, curl,
-shasum and authenticated read access to the private repository. They download
+shasum and authenticated API access to the selected repository. They download
 fresh attributable workflow evidence into OS temporary directories and remove
 it afterward; they need no local database passwords or retained source clone.
 Platform smoke reads its endpoint from GitHub and checks the live ORDS/APEX login.

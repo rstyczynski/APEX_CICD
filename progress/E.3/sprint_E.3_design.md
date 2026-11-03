@@ -1,5 +1,12 @@
 # E.3 — Git-based pipeline prototype design
 
+Repository setup update (2026-11-03): the Product Owner requested public access
+and an operator-owned repository creation procedure. The
+[final walkthrough](sprint_E.3_increment_demo.md#create-your-own-application-repository-once)
+supersedes the private-repository setup proposal below. It preserves the native
+baseline history/tags, configures each operator's repository and uses sibling
+working checkouts under `~/projects`; no environment settings live in scratch.
+
 ## PBI-053 — Simple development-to-release journey
 
 Status: Accepted

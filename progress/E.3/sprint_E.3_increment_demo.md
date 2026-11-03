@@ -23,8 +23,9 @@ retained UAT is not used.
 Install Git, GitHub CLI (`gh`), jq, curl, nc, tar and shasum on this host.
 For developer capture, Java 21 and SQLcl **25.4.1.022.0618** must also be on
 your ordinary PATH. Release jobs install their own Java/SQLcl. Authenticate
-`gh` with access to the private application repository; runner setup additionally
-needs repository administration permission.
+`gh` with your GitHub account. The public source is readable by everyone;
+creating your own repository and configuring its runner requires your own
+repository administration permission.
 
 Start in your home directory; no checkout is required yet. Check the installed
 tools and GitHub access:
@@ -52,8 +53,11 @@ gh repo clone rstyczynski/APEX_CICD_E3 APEX_CICD_E3
 The **parent lab checkout**, `~/projects/APEX_CICD`, contains this walkthrough
 and `scripts/e3-runner.sh`. The **application checkout**,
 `~/projects/APEX_CICD_E3`, contains the source, native project and workflows.
-The prepared remote application repository is reused across demonstrations;
-cloning creates a local checkout, not a new GitHub repository.
+The public prepared application repository supplies the seed. Its owner and
+authorised collaborators can reuse it across demonstrations. Other participants
+create their own writable repository using the procedure below; public read
+access does not grant permission to push or dispatch workflows in the shared
+repository.
 
 If a checkout already exists, reuse it only after reviewing/committing any local
 work; do not clone over it. Open the **parent lab terminal** and prepare it:
@@ -74,12 +78,98 @@ git switch main
 git pull --ff-only
 ```
 
-**Checkpoint:** private repository access works, SQLcl reports the pinned
-version, and the application checkout is clean and current.
+#### Create your own application repository once
+
+Run this section only when creating a **new GitHub repository**. For repeat
+runs, keep the existing repository, tags and history and skip creation. No
+database, workspace or application is created by these Git commands; the
+existing E.2 native lab remains the prerequisite described above.
+
+In the application terminal, choose your account's repository name. If that
+name is already in use, reuse that repository or choose a different name:
+
+```bash
+e3_owner=$(gh api user --jq .login)
+e3_repo="$e3_owner/APEX_CICD_E3"
+```
+
+Keep the complete native baseline history and tags. Do **not** use GitHub's
+template button, copy just the files, use a shallow clone or reinitialise Git:
+`pipeline.json` refers to an earlier commit needed by native PROJECT comparison.
+The clone from step A preserves that history. For an offline seed alternative,
+clone the parent's `examples/git-pipeline/baseline.bundle` into a **new**
+application checkout instead of cloning the public source.
+
+Create an empty public repository, enable workflow-created release PRs, and
+publish the prepared history from your application checkout:
+
+```bash
+gh repo create "$e3_repo" --public --description "Native APEX E.3 Git pipeline lab"
+gh api --method PUT "repos/$e3_repo/actions/permissions/workflow" -f default_workflow_permissions=read -F can_approve_pull_request_reviews=true
+gh api --method PUT "repos/$e3_repo/actions/permissions/fork-pr-contributor-approval" -f approval_policy=all_external_contributors
+git remote set-url origin "https://github.com/$e3_repo.git"
+git push -u origin main
+git push origin --tags
+gh repo edit "$e3_repo" --default-branch main --enable-squash-merge --squash-merge-commit-message pr-title
+gh label create patch --repo "$e3_repo" --color 0E8A16 --description "Patch release" --force
+gh label create minor --repo "$e3_repo" --color 1D76DB --description "Minor release" --force
+gh label create major --repo "$e3_repo" --color B60205 --description "Major release" --force
+```
+
+Recreate the seed's existing GitHub Release in the new repository, because Git
+push transfers tags but not GitHub Release objects. This imports an already
+assigned seed version; all subsequent version bumps are workflow-generated:
+
+```bash
+seed_tag="v$(cat version.txt)"
+seed_notes=$(mktemp)
+gh release view "$seed_tag" --repo rstyczynski/APEX_CICD_E3 --json body --jq .body > "$seed_notes"
+gh release create "$seed_tag" --repo "$e3_repo" --verify-tag --title "$seed_tag" --notes-file "$seed_notes"
+rm -f "$seed_notes"
+```
+
+Confirm **Actions** is enabled and that **Prepare version and changelog** runs
+on main. Repository/org policy must permit Actions to create pull requests.
+No inherited secrets, environment configuration, runner registrations, PRs,
+workflow runs or uploaded artifacts are copied. Configure your own in step B.
+Public repositories require review before approving external contributors'
+workflow runs. PR checks use hosted runners; keep database-accessing jobs manual
+on accepted main, and review workflow changes before merging them. See
+[GitHub's Actions access settings](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository).
+On a new machine, native authoring also requires the same prepared source
+schema/application identities; changing GitHub variables alone does not create
+or rename them.
+
+#### Select the repository for this session
+
+In **each terminal**, set `e3_repo` to the repository you own or are authorised
+to operate. For example, after creating your own copy:
+
+```bash
+e3_repo="$(gh api user --jq .login)/APEX_CICD_E3"
+gh repo view "$e3_repo"
+```
+
+The original operator can instead set `e3_repo=rstyczynski/APEX_CICD_E3` to reuse
+the shared prepared repository. Use your chosen name if you created a differently
+named repository. This shell variable is a nonsecret command input for this
+terminal session; it is not a machine configuration file.
+
+**Checkpoint:** your selected repository is writable, its main and tags are
+present, the baseline commit resolves, SQLcl reports the pinned version, and the
+application checkout is clean and current:
+
+```bash
+git cat-file -t "$(jq -r .baseline_sha pipeline.json)"
+git remote -v
+git status --short
+```
+
+Expect `commit`, the selected origin URL, and no uncommitted changes.
 
 ### B. Confirm GitHub settings and start the local runner — slide 4
 
-In the private repository, open Settings → Environments → **e3-lab**. Create it
+In **your selected repository**, open Settings → Environments → **e3-lab**. Create it
 if absent and restrict deployment branches to **main**. Verify these variables
 against this existing lab; do not replace valid settings unnecessarily:
 
@@ -103,17 +193,20 @@ In the **parent lab terminal**:
 
 ```bash
 cd "$HOME/projects/APEX_CICD"
-./scripts/e3-runner.sh setup
-./scripts/e3-runner.sh status
+./scripts/e3-runner.sh setup --repo "$e3_repo"
+./scripts/e3-runner.sh status --repo "$e3_repo"
 ```
 
 Setup retains a matching registration or installs/registers the official runner
-in `~/actions-runner-e3`. Expect **Setup complete** and successful Oracle TCP /
+in `~/actions-runner-e3`. If that directory belongs to another repository, use
+`--directory "$HOME/actions-runner-e3-mylab"` consistently on setup, status and
+run; the launcher refuses to replace an unrelated registration. Expect
+**Setup complete** and successful Oracle TCP /
 ORDS HTTP checks. If status already reports this runner online, use that listener.
 Otherwise start it in this terminal:
 
 ```bash
-./scripts/e3-runner.sh
+./scripts/e3-runner.sh --repo "$e3_repo"
 ```
 
 Wait for **Listening for Jobs** and leave the terminal open. Use a second
@@ -201,7 +294,7 @@ Push the feature branch and explicitly create its PR:
 
 ```bash
 git push -u origin HEAD
-gh pr create --repo rstyczynski/APEX_CICD_E3 --base main --title "fix: update demo page title" --label patch --body "Update the Home page title through native APEX Working Copy/Main and SQLcl PROJECT. Native verification reports Errors: 0."
+gh pr create --repo "$e3_repo" --base main --title "fix: update demo page title" --label patch --body "Update the Home page title through native APEX Working Copy/Main and SQLcl PROJECT. Native verification reports Errors: 0."
 ```
 
 Open the returned PR URL. The reviewer checks source/distribution diffs and
@@ -233,8 +326,8 @@ Alternatively, in the authenticated application terminal:
 
 ```bash
 read -r -p "Published tag to deploy (for example v1.0.5): " version_tag
-gh release view "$version_tag" --repo rstyczynski/APEX_CICD_E3
-gh workflow run release.yml --repo rstyczynski/APEX_CICD_E3 --ref main -f "version_tag=$version_tag"
+gh release view "$version_tag" --repo "$e3_repo"
+gh workflow run release.yml --repo "$e3_repo" --ref main -f "version_tag=$version_tag"
 ```
 
 Open the newly dispatched run in Actions and follow its steps through completion.

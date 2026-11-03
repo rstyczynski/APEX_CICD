@@ -49,7 +49,7 @@ case "$command_name" in
     else
       [[ "$(uname -s)/$(uname -m)" == Darwin/arm64 ]] || { echo 'This lab installer supports macOS ARM64.' >&2; exit 2; }
       for dependency in curl tar shasum; do command -v "$dependency" >/dev/null; done
-      gh api "repos/$repository" --jq .private | jq -e '. == true' >/dev/null
+      gh api "repos/$repository" --jq .permissions.admin | jq -e '. == true' >/dev/null
       if [[ -d "$runner_dir" && -n "$(ls -A "$runner_dir")" ]]; then
         echo 'Unregistered runner directory is not empty; inspect it before setup.' >&2; exit 2
       fi

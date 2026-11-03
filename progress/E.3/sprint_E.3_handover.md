@@ -5,6 +5,14 @@ It is the single manual execution entry point: prerequisites, configuration,
 runner startup, native authoring, PR/versioning, deployment and browser checks
 are presented in order alongside the slide numbers.
 
+The application repository is now a public seed. The walkthrough includes
+[creation of an operator-owned repository](sprint_E.3_increment_demo.md#create-your-own-application-repository-once)
+with native baseline history/tags, release metadata, PR labels and Actions
+permissions. Each participant supplies their own GitHub environment and runner;
+the procedure creates the repository and assumes the existing native lab.
+The [publication and creation check](tests/github-public-repository.md) records
+visibility verification, secret-scan scope and local baseline-clone validation.
+
 The executable runner entry point is
 [scripts/e3-runner.sh](../../scripts/e3-runner.sh). From the laboratory repository
 root, the lab operator can retain/configure the official local runner and start it:
