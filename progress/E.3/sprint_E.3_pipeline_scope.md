@@ -6,7 +6,9 @@ Prepared on 2026-11-03 from the Product Owner's direction. Subsequently activate
 on the same date by explicit request to prepare the design. E.3 is Progress in
 managed mode. The [setup](sprint_E.3_setup.md), [analysis](sprint_E.3_analysis.md)
 and [proposed design](sprint_E.3_design.md) record that work; implementation
-approval remains pending. Its purpose is an understandable,
+was subsequently authorized through technical handover by explicit Product
+Owner direction. See the [handover](sprint_E.3_handover.md) for actual results;
+final acceptance/closure remains separate. Its purpose is an understandable,
 executable architecture prototype of the happy path, rather than a complete
 delivery solution.
 
@@ -30,11 +32,15 @@ Oracle operations still need accurate version-specific source support.
 The developer makes one small, visible change in an APEX Working Copy, captures
 the intended change as reviewable source in a Git feature branch, commits and
 pushes it, and manually opens a pull request. The reviewer inspects the change
-and accepts its merge. The deployer separately selects the accepted revision
-and manually triggers the release workflow. The workflow builds, checks and
+and accepts a squash merge with a patch label and matching `fix:` title for
+this heading-only change. Release Please prepares a version/changelog release
+PR; its reviewed merge lets the workflow create the version tag and matching
+GitHub Release notes. The deployer separately selects that version tag and manually triggers
+the release workflow. The workflow builds, checks and
 deploys the selected candidate to a named laboratory target. The operator
 opens the application and verifies the intended change and retained baseline
-history. Record the source revision, release artifact and target result.
+history. Record the version tag, resolved source revision, release artifact and
+target result.
 
 Use the existing greeting application, lab and native tooling where suitable.
 One developer change, one PR and one target are enough for the prototype.
@@ -55,7 +61,7 @@ Keep PR validation separate from release/deployment. A PR may run proportionate
 checks, but opening, updating or merging it must not itself deploy to the
 release target. Manual release selection is the E.3 baseline. During design,
 describe a small future automation option, such as an explicitly approved
-release tag or promotion action, including eligibility, required validation
+promotion action for an existing version tag, including eligibility, required validation
 and target selection. Explain how several accepted PRs could form one release.
 Do not implement a release policy engine or automatic deployment for every PR.
 
@@ -79,7 +85,7 @@ calling the result a prototype.
 
 Demonstrate the complete actor journey live with one small compatible change.
 Show the source diff, manually opened PR, accepted merge, explicit release
-trigger, selected revision, generated artifact, workflow result and changed
+trigger, selected version tag and resolved revision, generated artifact, workflow result and changed
 application. Confirm a PR alone leaves the release target unchanged and that
 the release workflow stops when its required command/check fails. Verify the
 selected baseline history remains present. This is focused prototype evidence,

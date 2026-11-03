@@ -31,7 +31,10 @@
 | Sprint E.2 | Done | PBI-051.2 | Done |
 | Sprint E.2 | Done | PBI-051.3 | Done |
 | Sprint E.2 | Done | PBI-051.4 | Done |
-| Sprint E.3 | under_design | PBI-053 | under_design |
+| Sprint E.3 | implemented | PBI-053 | tested |
+| Sprint E.3 | implemented | PBI-053.1 | tested |
+| Sprint E.3 | implemented | PBI-053.2 | tested |
+| Sprint E.3 | implemented | PBI-053.3 | tested |
 | Sprint E.4 | Planned | PBI-019 | Planned |
 | Sprint E.4 | Planned | PBI-020 | Planned |
 | Sprint E.4 | Planned | PBI-042 | Planned |

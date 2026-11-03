@@ -1,19 +1,19 @@
 # Project test profile
 
-E.3 planning update — 2026-11-03: the [simple Git-based pipeline preparation](../progress/E.3/sprint_E.3_pipeline_scope.md)
-replaces the earlier full native-team exercise. PBI-053 proves one Working Copy
-change through manual PR creation, accepted Git integration and manually triggered
-release. Analysis/design must settle the capture path, separate PR checks from
-deployment and consider selective future automation. Full delivery capabilities
-remain backlog work for Construction or a justified later architectural experiment.
-[PLAN](../PLAN.md) owns the current assignments. E.4 requires scope refinement
-before activation. Existing E.1 requirements and mechanisms below retain their
-baseline meaning; E.3 analysis must explicitly reconcile affected authoring and
-integration policies before design approval. This update claims no runtime result. E.3 is now active for
-design; the [proposed design](../progress/E.3/sprint_E.3_design.md) and
-[analysis](../progress/E.3/sprint_E.3_analysis.md) specify the bounded Working Copy
-authoring exception, release workflow and remaining compliance gaps. These
-proposals await approval and do not amend the broader baseline by implication.
+E.3 execution update — 2026-11-03: the Product Owner approved the bounded
+[Git pipeline design](../progress/E.3/sprint_E.3_design.md) and authorized
+implementation through technical handover. The
+[walkthrough](../progress/E.3/sprint_E.3_increment_demo.md),
+[implementation](../progress/E.3/sprint_E.3_implementation.md) and
+[tests](../progress/E.3/sprint_E.3_tests.md) record real Working Copy/Main capture,
+classified Git PRs, Release Please version/changelog preparation and manually
+selected-tag deployment. PBI-053 is tested; [PLAN](../PLAN.md) owns lifecycle
+status. E.4 requires refinement before activation. The wider E.1 requirements
+below retain their baseline meaning. E.3's ordinary Working Copies, sequential
+checkpoint and bounded readiness adapter are approved prototype dispositions,
+not proof that atomic reservations, full fencing/drift/identity coverage or
+FR-13 automation have been completed. Final acceptance/closure is separate.
+
 
 
 ## Status and purpose
@@ -222,15 +222,22 @@ The operator entry point for that source review is `bash scripts/cicd-protection
 
 `bash scripts/cicd-walkthrough-I_repair.sh --rehearse` explicitly executes the selected native BUG-7 failure/observation/repair/negative/repeat experiment in disposable integration. It requires a fresh case, known ready 1.0.1 start and at least twenty baseline rows. It does not replace full IT-3/9 concurrency/unknown-state coverage or browser validation. [Recorded proof](../progress/E.1/tests/recovery_proof_20261018.txt) shows 21 preserved rows/settings and retained failure/success history. [Independent checkout procedure](deploy.md#independent-checkout-rehearsal-while-retaining-the-current-lab) validates clean source/inputs in a separate VM while preserving the retained lab intact; its results must be recorded before claiming that gate passed.
 
-## E.3 proposed pipeline checks
+## E.3 implemented pipeline checks
 
-The [E.3 design](../progress/E.3/sprint_E.3_design.md#test-specification) defines
-SM-1 (workflow contract), IT-1 (manual PR/release journey) and IT-2 (verification
-failure stopping deployment). Run the registered skeletons with
+The [E.3 test specification](../progress/E.3/sprint_E.3_design.md#test-specification)
+is implemented in the centralized delivery-domain tests. Run
 `bash tests/run.sh --smoke --new-only progress/E.3/new_tests.manifest` and
 `bash tests/run.sh --integration --new-only progress/E.3/new_tests.manifest`.
-They intentionally fail until implementation after design approval. Full smoke
-regression remains `bash tests/run.sh --smoke`, including retained E.1 checks;
-do not repoint the older client's installation to the E.3 SQLcl version.
-The [design audit](../progress/E.3/sprint_E.3_documentation_audit.md) records what
-was checked. Live workflow/browser evidence remains pending.
+The actual registered totals are 1/1 and 2/2 passed. Full smoke regression
+`bash tests/run.sh --smoke` passed 2/2, retaining the separate E.1 SQLcl client.
+The [test record](../progress/E.3/sprint_E.3_tests.md) links timestamped logs,
+remote runs and required private/current-state prerequisites.
+
+SM-1 covers actionlint, trigger/runner boundaries and nine label/title examples.
+IT-1 re-queries merged PRs, tag and successful manual deployment, verifies the
+actual downloaded archive hash and both changelogs, and compares live Oracle
+business fields with their private baseline. IT-2 removes an included native
+changeset in a disposable clone, requires real verification failure and checks
+the target remains unchanged. Browser Home/history checks are separately
+recorded rather than simulated as automated browser coverage. General recovery,
+parallelism, drift/fencing and full identity coverage remain outside this slice.

@@ -1,19 +1,19 @@
 # Candidate architecture
 
-E.3 planning update — 2026-11-03: the [simple Git-based pipeline preparation](../progress/E.3/sprint_E.3_pipeline_scope.md)
-replaces the earlier full native-team exercise. PBI-053 proves one Working Copy
-change through manual PR creation, accepted Git integration and manually triggered
-release. Analysis/design must settle the capture path, separate PR checks from
-deployment and consider selective future automation. Full delivery capabilities
-remain backlog work for Construction or a justified later architectural experiment.
-[PLAN](../PLAN.md) owns the current assignments. E.4 requires scope refinement
-before activation. Existing E.1 requirements and mechanisms below retain their
-baseline meaning; E.3 analysis must explicitly reconcile affected authoring and
-integration policies before design approval. This update claims no runtime result. E.3 is now active for
-design; the [proposed design](../progress/E.3/sprint_E.3_design.md) and
-[analysis](../progress/E.3/sprint_E.3_analysis.md) specify the bounded Working Copy
-authoring exception, release workflow and remaining compliance gaps. These
-proposals await approval and do not amend the broader baseline by implication.
+E.3 execution update — 2026-11-03: the Product Owner approved the bounded
+[Git pipeline design](../progress/E.3/sprint_E.3_design.md) and authorized
+implementation through technical handover. The
+[walkthrough](../progress/E.3/sprint_E.3_increment_demo.md),
+[implementation](../progress/E.3/sprint_E.3_implementation.md) and
+[tests](../progress/E.3/sprint_E.3_tests.md) record real Working Copy/Main capture,
+classified Git PRs, Release Please version/changelog preparation and manually
+selected-tag deployment. PBI-053 is tested; [PLAN](../PLAN.md) owns lifecycle
+status. E.4 requires refinement before activation. The wider E.1 requirements
+below retain their baseline meaning. E.3's ordinary Working Copies, sequential
+checkpoint and bounded readiness adapter are approved prototype dispositions,
+not proof that atomic reservations, full fencing/drift/identity coverage or
+FR-13 automation have been completed. Final acceptance/closure is separate.
+
 
 
 **Delivery principle:** Accepted revisions in the Git repository are the golden source of truth for the engineered CI/CD system. Releases are built from those revisions. Native Oracle APEX Working Copies remain available for break-glass investigation/repair; retained changes return through a reconciliation branch, PR validation and controlled deployment (UC-5).

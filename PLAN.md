@@ -156,16 +156,21 @@ without implementing automatic deployment for every PR. The
 journey, design questions, evidence and deferrals. Exact focused checks are
 selected during analysis/design; comprehensive delivery suites are deferred.
 Activated on 2026-11-03 by explicit Product Owner request to prepare the design.
-Implementation remains subject to managed design approval. See the
+The Product Owner approved implementation through technical handover on
+2026-11-03 without further questions. Prototype implementation, required gates
+and browser verification are complete; sprint closure and final Product Owner
+acceptance are not inferred. See the
 [setup and analysis](progress/E.3/sprint_E.3_setup.md) and
-[proposed design and test specification](progress/E.3/sprint_E.3_design.md).
+[accepted design and test specification](progress/E.3/sprint_E.3_design.md),
+[executed walkthrough](progress/E.3/sprint_E.3_increment_demo.md) and
+[handover](progress/E.3/sprint_E.3_handover.md).
 
 The former 15 assigned items return to the unscheduled backlog with their
 acceptance criteria unchanged. PBI-053 owns the independently reviewable
 prototype; partial reuse of broader capabilities does not complete their PBIs.
 Complete those items in Construction or schedule focused later Elaboration
 proofs when an identified risk warrants them. No Construction sprint is
-created by this refinement. E.2 was accepted and closed on 2026-11-03; E.3 activation remains separate.
+created by this refinement. E.2 was accepted and closed on 2026-11-03; E.3 activation was explicitly requested separately.
 
 Backlog Items:
 

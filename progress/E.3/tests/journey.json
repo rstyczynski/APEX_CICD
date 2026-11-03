@@ -1,0 +1,12 @@
+{
+  "repository": "rstyczynski/APEX_CICD_E3",
+  "change_pr": 1,
+  "correction_pr": 3,
+  "runner_pr": 4,
+  "release_pr": 2,
+  "version_tag": "v1.0.1",
+  "release_sha": "2e203ba571bbce9fd30cafc5531e36250d5594b2",
+  "deploy_run": 41664798289,
+  "first_failed_run": 41664285664,
+  "no_deploy_before_dispatch": true
+}

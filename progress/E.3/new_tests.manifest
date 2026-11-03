@@ -1,4 +1,4 @@
-# E.3 / PBI-053 design skeletons; all remain red before implementation.
+# E.3 / PBI-053 implemented smoke and live integration checks.
 smoke:test_pipeline.sh:test_SM1_pipeline_contract
 integration:test_pipeline.sh:test_IT1_manual_release
 integration:test_pipeline.sh:test_IT2_verification_blocks_deploy

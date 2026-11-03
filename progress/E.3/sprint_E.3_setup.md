@@ -15,9 +15,9 @@ Codex performs the manager, analyst, designer and test-architect responsibilitie
 serially. The canonical manager and role procedures, generic cooperation/Git/
 test rules, GitHub Actions rules and local patch/preferences have been reviewed.
 The local patch and explicit request take precedence over generic instructions
-to execute all phases or push at each phase. The present authorization ends at
-design preparation. No implementation, deployment, repository creation, runner
-registration or remote publication is performed in this increment.
+to execute all phases or push at each phase. The initial authorization ended at design preparation; at that checkpoint no
+implementation, deployment, repository creation or runner registration was
+performed. The subsequent authorization and executed outcomes are recorded below.
 
 Keep E.1/E.2 evidence and their tool installations intact. Preserve existing
 uncommitted planning edits. Do not weaken broader backlog criteria or turn
@@ -30,8 +30,11 @@ Do not claim design checks or failing skeletons establish runtime success.
 The full [analysis](sprint_E.3_analysis.md) identifies the actors, happy path,
 policy changes, evidence and risks. The selected design recommendation is a
 coordinated Working Copy-to-APEX-Main checkpoint captured into a feature branch;
-a manually opened/reviewed PR integrates it into Git main. A separate manual
-release workflow builds from an accepted commit and deploys to one lab target.
+a manually opened/reviewed PR supplies a patch/minor/major label and matching
+Conventional Commit squash title. Release Please prepares a release PR with the
+version/changelog update; merging it creates the tag and GitHub Release notes. The deployer selects that version tag for a separate manual
+release workflow, which builds its resolved accepted commit and deploys to one
+lab target. Version assignment does not trigger deployment.
 
 Recommend GitHub Actions: hosted PR checks without lab credentials, and a
 manual release job on the local Mac with access to the loopback lab. A small
@@ -46,3 +49,12 @@ Owner review. No scope clarification is needed to prepare it. Repository/runner
 selection and prototype policy exceptions are included in that decision, rather
 than silently treated as accepted. Runtime/toolchain qualification is pending.
 Token accounting is not exposed per phase by this environment; no count is invented.
+
+## Implementation authorization and outcome
+
+The Product Owner approved the flow and explicitly directed implementation
+through the end of handover without further questions on 2026-11-03. The
+[design](sprint_E.3_design.md) is Accepted, the prototype and required gates
+are complete, and the [technical handover](sprint_E.3_handover.md) links the
+executed journey and evidence. Final acceptance/closure is not inferred.
+Earlier preparation-only authorization statements above describe that stage.

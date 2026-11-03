@@ -1,0 +1,9 @@
+{
+  "slides": 12,
+  "package_integrity": "pass",
+  "layout_findings": 0,
+  "layout_warnings": 0,
+  "first_party_import": true,
+  "sha256": "9ab8d92140f38afbfea7470552d2f6641a6f9a1488ac85d3df740ea51529f9de",
+  "visual_review": "All 12 slides individually reviewed; revised 4/5/12 rechecked. Final crop on 4 inspected; raw historical narrow captures retained, later inspection labeled."
+}

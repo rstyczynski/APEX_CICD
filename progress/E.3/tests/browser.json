@@ -1,0 +1,10 @@
+{
+  "application_id": 810203,
+  "observed_heading": "Hello World - Git pipeline",
+  "authenticated_user": "LAB_USER",
+  "history_greeting": "Hello World",
+  "history_actor": "E3_TARGET",
+  "apex_display_version": "1.0.0",
+  "repository_release": "v1.0.1",
+  "source": "live browser inspection after deployment"
+}

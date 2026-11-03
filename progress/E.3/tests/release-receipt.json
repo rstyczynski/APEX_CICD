@@ -1,0 +1,11 @@
+{
+  "version_tag": "v1.0.1",
+  "source_sha": "2e203ba571bbce9fd30cafc5531e36250d5594b2",
+  "artifact_sha256": "3553480967f5aa4492e90192e508221e9630ecee0c10ccdbbb2a8a7bea3ffb22",
+  "target_schema": "E3_TARGET",
+  "target_application": 810203,
+  "history_configuration_preserved": true,
+  "heading": "Hello World - Git pipeline",
+  "run_id": "41664798289",
+  "sqlcl": "25.4.1.022.0618"
+}

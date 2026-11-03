@@ -1,0 +1,13 @@
+{
+  "main_application": 810003,
+  "working_copy": 100,
+  "working_copy_name": "E3 heading patch",
+  "changed_pages": 1,
+  "added_components": 0,
+  "missing_components": 0,
+  "selected_page": 1,
+  "backup_target_enabled": true,
+  "working_copy_deleted": false,
+  "merge_result": "Your changes have been successfully merged!",
+  "source": "Observed live App Builder operations in this execution; recorded after completion. Later working-copy-inspection.png is inspection of retained state, not a replay of the merge."
+}

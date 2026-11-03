@@ -1,0 +1,8 @@
+{
+  "file": "examples/git-pipeline/baseline.bundle",
+  "sha256": "477c06b35973b3186dc5a5fddfb02d188bc6e066fc5017c6335edf53c84d48db",
+  "main": "21af2bd4ed2b97bf07532d9c9c54d0cbf9a8e1a1",
+  "release_tag": "v1.0.1",
+  "release_sha": "2e203ba571bbce9fd30cafc5531e36250d5594b2",
+  "contents": "Complete application history, native source/distribution and workflows; no runtime business rows or credentials"
+}

@@ -96,8 +96,11 @@ The [assessment](progress/E.1/sprint_E.1_assessment.md) recommends focused furth
 
 Known follow-up work is registered in the [Product Backlog](BACKLOG.md#pbi-018-prove-atomic-task-reservations-under-contention). The historical [E.1 coverage map](progress/E.1/sprint_E.1_assessment.md#open-work-backlog-coverage) connects PBI-018–035 to remaining criteria and deferred review concerns. On 2026-11-03 the Product Owner narrowed **E.3 to a simple Git-based
 pipeline architecture prototype**. The [E.3 preparation](progress/E.3/sprint_E.3_pipeline_scope.md)
-plans one Working Copy change captured in Git, a manually opened PR and a
-separately triggered release workflow. Analysis/design will consider selective
+plans one Working Copy change captured in Git, a manually opened PR, a
+label/title classification feeding Release Please version and changelog
+automation, and a separately triggered release workflow where the deployer
+selects the version tag. A reviewed release PR commits CHANGELOG.md and version
+metadata before the workflow creates the tag and matching GitHub Release notes. Analysis/design will consider selective
 future release automation. The former 15 full-solution assignments return to
 the backlog for Construction or risk-driven later Elaboration; PBI-053 owns
 this bounded prototype. E.4's five assignments remain pending scope refinement
@@ -127,11 +130,32 @@ protection qualification remain backlog work. E.1 evidence is unchanged.
 [PBI-052](BACKLOG.md#pbi-052-define-semantic-versioning-rules-for-component-contracts)
 retains component-contract/SemVer follow-up. Complex Foundation upgrades stay E.5.
 
-E.3 was activated on 2026-11-03 to prepare its design. Review the
-[proposed E.3 design and test specification](progress/E.3/sprint_E.3_design.md),
-supported by the [setup](progress/E.3/sprint_E.3_setup.md) and
-[analysis](progress/E.3/sprint_E.3_analysis.md). Implementation and runtime
-evidence remain pending; E.4/E.5 remain Planned.
+### Sprint E.3 — Git pipeline architecture prototype
+
+E.3 implemented the Working Copy/Git happy path and deployed selected tag
+[v1.0.1](https://github.com/rstyczynski/APEX_CICD_E3/releases/tag/v1.0.1)
+through a manually dispatched workflow in the private
+[application repository](https://github.com/rstyczynski/APEX_CICD_E3).
+PR labels and matching Conventional Commit squash titles feed Release Please's
+version/changelog release PR. Both CHANGELOG.md and GitHub Release notes are
+generated; neither PR merges nor tag publication deploys to the lab.
+
+Start the [end-to-end walkthrough](progress/E.3/sprint_E.3_increment_demo.md),
+[editable presentation](progress/E.3/sprint_E.3_increment_demo.pptx) and
+[operator manual](progress/E.3/user_manual.md). The
+[handover](progress/E.3/sprint_E.3_handover.md),
+[implementation](progress/E.3/sprint_E.3_implementation.md) and
+[test evidence](progress/E.3/sprint_E.3_tests.md) state actual results and limits.
+Native source/distribution verification, hosted checks, the selected-tag run,
+retained business fields, browser behavior and missing-changeset rejection passed.
+The first remote run failed before deployment and its workflow correction is
+retained. The release/tag is 1.0.1 while APEX's display footer remains 1.0.0;
+automatic display-version stamping was not qualified.
+
+PBI-053 and its three children are tested. E.3 remains Progress pending separate
+Product Owner acceptance/closure; E.4/E.5 remain Planned. This is an architecture
+prototype, with concurrency, full identity preservation, drift/fencing and
+broader recovery still registered for later work.
 
 ## Vision
 
@@ -147,6 +171,6 @@ The supplied [Oracle APEX lifecycle reference](refs/apex-lifecycle-management-v3
 
 [RUPStrikesBack](https://github.com/rstyczynski/RUPStrikesBack) is an iterative delivery method for collaboration between a Product Owner and AI agents. It combines RUP lifecycle phases with a prioritized backlog, bounded iterations, explicit requirements/design, executable validation and Product Owner review. Each increment connects its implementation, tests and documentation so decisions can be checked against evidence.
 
-This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1, E.1 and E.2 are closed; E.3 is active for design; E.4/E.5 remain Planned with distinct assigned Elaboration work recorded in the backlog and plan.
+This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1, E.1 and E.2 are closed; E.3 has a tested prototype and technical handover; E.4/E.5 remain Planned with distinct assigned Elaboration work recorded in the backlog and plan.
 
 For external expert review, use the [rup-external-review skill](.agents/skills/rup-external-review/SKILL.md). Codex prepares the prompts and engineering replies; the Product Owner relays them to the expert through the linked round files. Review outcomes and implementation evidence remain distinct from sprint acceptance.

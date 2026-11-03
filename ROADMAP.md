@@ -85,8 +85,10 @@ separate from deployment and consider selective future automation during design.
 Reuse prior evidence and simple native mechanisms. Demonstrate the real happy
 path and expose remaining risks without completing all delivery capabilities.
 E.3 was activated on 2026-11-03 for design preparation; E.2 is closed.
-The [proposed design](progress/E.3/sprint_E.3_design.md) awaits Product Owner
-approval before implementation.
+The [accepted design](progress/E.3/sprint_E.3_design.md) now has
+[executed evidence and technical handover](progress/E.3/sprint_E.3_handover.md).
+Required gates and browser verification passed; wider capabilities remain
+deferred, and final acceptance/closure remains a separate Product Owner decision.
 
 The former 15 E.3 items return to the backlog with full criteria unchanged.
 Complete them in Construction or schedule a focused later Elaboration proof

@@ -1,0 +1,8 @@
+{
+  "source_tag": "v1.0.1",
+  "branch": "e3-capture-rehearsal",
+  "capture_and_prestage_adapter": "passed",
+  "native_stage": "passed",
+  "native_verify": "zero errors",
+  "scope": "throwaway source clone, same live Main, no deployment or history mutation"
+}
