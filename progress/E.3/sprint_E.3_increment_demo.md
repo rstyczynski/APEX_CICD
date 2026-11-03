@@ -46,6 +46,49 @@ does not have to be open. Oracle Database, APEX and ORDS are already installed
 inside the prepared lab; they do not need separate macOS installations.
 Image versions/digests are retained in [apex-images.env](../../scripts/apex-images.env).
 
+#### Prepare Java 21 and SQLcl
+
+Run this setup before the first `sql` command. GitHub's workflow tool setup
+applies to its jobs; your developer terminal needs its own installation.
+On this macOS lab, install Java 21 with [Homebrew](https://brew.sh/):
+
+```bash
+brew install openjdk@21
+```
+
+Install the same pinned SQLcl version used by the workflows. This block downloads
+the Oracle archive, checks its SHA-256 and extracts it under your Applications
+directory. Run it once; repeat it if that tool directory has been removed:
+
+```bash
+(
+set -euo pipefail
+mkdir -p "$HOME/Downloads" "$HOME/Applications/apex-cicd/sqlcl-25.4.1.022.0618"
+curl --fail --location --retry 3 https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-25.4.1.022.0618.zip -o "$HOME/Downloads/sqlcl-25.4.1.022.0618.zip"
+printf '%s  %s\n' b717d83aa1a7ada2ca38e7c8be5b369ea6a2f9f50c5fdb55e18d263b471ecab9 "$HOME/Downloads/sqlcl-25.4.1.022.0618.zip" | shasum -a 256 -c -
+unzip -q -o "$HOME/Downloads/sqlcl-25.4.1.022.0618.zip" -d "$HOME/Applications/apex-cicd/sqlcl-25.4.1.022.0618"
+chmod +x "$HOME/Applications/apex-cicd/sqlcl-25.4.1.022.0618/sqlcl/bin/sql"
+)
+```
+
+In **each terminal used for authoring**, select Java 21 and add SQLcl to PATH:
+
+```bash
+export JAVA_HOME="$(brew --prefix openjdk@21)/libexec/openjdk.jdk/Contents/Home"
+export PATH="$HOME/Applications/apex-cicd/sqlcl-25.4.1.022.0618/sqlcl/bin:$JAVA_HOME/bin:$PATH"
+hash -r
+command -v sql
+java -version
+sql -version
+```
+
+Expect `command -v sql` to show the Applications path above, Java **21**, and
+SQLcl build **25.4.1.022.0618**. The exports affect the current terminal; a new
+terminal needs the same exports. `bash: sql: command not found` means this PATH
+step has not been applied there or the installation is missing. Keep the
+installation in Applications; no tool settings file is needed in `.local-apex`.
+See [Oracle's SQLcl environment requirements](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.4/sqcug/preparing-your-environment.html).
+
 Start in your home directory; no checkout is required yet. Check the installed
 tools and GitHub access:
 
@@ -441,7 +484,18 @@ remains blank. Do not insert the retired E1 controller hook.
 
 ### D. Capture, commit and stage using native SQLcl — slide 7
 
-On first use, start SQLcl interactively in the **application terminal**:
+In the **application terminal**, apply the PATH selection from
+[Prepare Java 21 and SQLcl](#prepare-java-21-and-sqlcl), including when this is a
+new terminal opened after setup:
+
+```bash
+export JAVA_HOME="$(brew --prefix openjdk@21)/libexec/openjdk.jdk/Contents/Home"
+export PATH="$HOME/Applications/apex-cicd/sqlcl-25.4.1.022.0618/sqlcl/bin:$JAVA_HOME/bin:$PATH"
+hash -r
+sql -version
+```
+
+On first use, start SQLcl interactively:
 
 ```bash
 sql -nohistory -noupdates /nolog
