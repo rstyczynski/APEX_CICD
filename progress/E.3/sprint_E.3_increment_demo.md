@@ -557,14 +557,25 @@ SQLcl cannot consume the discovery loop's path list or wait for terminal input.
 If you cancel discovery, the final message means selection did not complete;
 it does not establish that the required installation is absent.
 
-On first use, start SQLcl interactively:
+**1. Get the E1_DEV_C database password in the Bash terminal.** Run this before
+opening SQLcl, and copy the printed value:
+
+```bash
+jq -er '.E1_DEV_C | select(type == "string" and length > 0)' "$HOME/projects/APEX_CICD/.local-apex/e1-secrets.json"
+```
+
+This reads the prepared host's existing provisioning record. Select the
+**E1_DEV_C** key for the database login; the **DEV_C** key is the different
+Builder password used for browser sign-in.
+
+**2. Start SQLcl interactively:**
 
 ```bash
 sql -nohistory -noupdates /nolog
 ```
 
-At its SQL prompt, save the author connection with the exact name **lab-dev-c**.
-Enter the **E1_DEV_C database password** when prompted. This name is the
+**3. At the SQL prompt, save the author connection as lab-dev-c.** Paste the
+password retrieved in step 1 at the password prompt. This name is the
 project's configured connection name; do not append your Git branch or demo ID.
 `-replace` repairs an existing definition under that same name:
 
@@ -576,12 +587,8 @@ exit
 ```
 
 Require a successful connection and **E1_DEV_C** from the query before capture.
-The password is the schema credential, distinct from the DEV_C Builder password.
-On this prepared host, its existing provisioning record can supply it:
-
-```bash
-jq -er '.E1_DEV_C | select(type == "string" and length > 0)' "$HOME/projects/APEX_CICD/.local-apex/e1-secrets.json"
-```
+If Oracle reports ORA-01017, stop and retrieve the E1_DEV_C value again; do not
+continue to export while disconnected or substitute the DEV_C Builder password.
 
 Use the same SQLcl home for profile setup and capture: the commands here use
 the default native connection store. A profile saved with another `-home`

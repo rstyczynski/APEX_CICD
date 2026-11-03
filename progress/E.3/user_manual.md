@@ -142,8 +142,17 @@ Follow [Prepare Java 21 and SQLcl](sprint_E.3_increment_demo.md#prepare-java-21-
 to discover an installed SQLcl before downloading it,
 and set PATH to its actual location in each developer terminal. Record the build
 printed by `sql -version`. The author
-uses their own native SQLcl profile outside the checkout. At its prompt, connect and
-save the logical author connection, entering the authorized password when asked:
+uses their own native SQLcl profile outside the checkout. In Bash, retrieve
+the database password from the prepared host's existing provisioning record
+**before starting SQLcl**:
+
+```bash
+jq -er '.E1_DEV_C | select(type == "string" and length > 0)' "$HOME/projects/APEX_CICD/.local-apex/e1-secrets.json"
+sql -nohistory -noupdates /nolog
+```
+
+Copy the printed E1_DEV_C value and paste it when the following connection
+command prompts for a password. The DEV_C Builder password is different:
 
 ```sql
 connect -save lab-dev-c -savepwd -replace E1_DEV_C@//127.0.0.1:1521/FREEPDB1
