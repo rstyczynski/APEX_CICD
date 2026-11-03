@@ -581,6 +581,11 @@ project's configured connection name; do not append your Git branch or demo ID.
 
 ```sql
 connect -save lab-dev-c -savepwd -replace E1_DEV_C@//127.0.0.1:1521/FREEPDB1
+```
+
+When the password is provided you may continue.
+
+```sql
 connect -name lab-dev-c
 select user from dual;
 exit
