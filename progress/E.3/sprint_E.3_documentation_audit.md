@@ -151,3 +151,14 @@ The preparation entry point was also rerun against the retained lab and correctl
 refused overwrite before mutation. Final Python syntax and diff-whitespace checks
 passed. Earlier design-stage pending/red statements were reconciled with their
 current results while preserving the historical receipts.
+
+## Staged-log formatting correction
+
+Completion commit a106ccc was created after the staged whitespace check reported
+SQLcl table padding in the newly staged rejection log. This was a check-handling
+error, not a product-test failure. Raw bytes are preserved in the original commit
+and privately under .local-apex/e3/logs/native-verification-rejection-raw.log.
+The maintained readable log now removes trailing spaces/blank end lines only;
+the evidence exporter applies that same deterministic formatting on future runs.
+No error text, source/target identity or test criterion changes. The correction
+is checked before a follow-up commit; no prior commit or release tag is rewritten.

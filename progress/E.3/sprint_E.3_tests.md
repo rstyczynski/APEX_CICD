@@ -109,7 +109,7 @@ This is normal release batching/selection, not unfinished application deployment
 [B1 smoke regression](tests/test_run_B1_smoke_20261103_153419.log) are the final
 timestamped gate logs. [Earlier integration](tests/integration.log) and
 [earlier smoke regression](tests/regression-smoke.log) record exploratory checks.
-[Native rejection output](tests/native-verification-rejection.log) and
+[Readable native rejection output](tests/native-verification-rejection.log) and
 [rejection receipt](tests/rejection.json) support IT-2.
 
 [Journey identities](tests/journey.json), [release receipt](tests/release-receipt.json),
@@ -127,3 +127,7 @@ not current failures: [smoke](tests/design_red_smoke_20261103_121830.log),
 [receipt](tests/design_checks_20261103_121830.json). Detailed private native
 capture/stage/bootstrap logs and business snapshots stay under .local-apex/e3;
 credentials and runtime rows are not published as CI artifacts.
+
+The readable rejection log removes SQLcl's trailing table-padding spaces only.
+Raw output is retained in the original completion commit and privately under
+.local-apex/e3/logs/native-verification-rejection-raw.log; no test facts changed.

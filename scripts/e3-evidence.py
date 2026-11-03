@@ -66,7 +66,9 @@ def rejection():
         missing=files[0];missing.unlink()
         r=subprocess.run([sys.executable,str(repo/'scripts/lab.py'),'verify'],env=os.environ,text=True,capture_output=True)
         out=r.stdout+r.stderr
-        (ROOT/'progress/E.3/tests/native-verification-rejection.log').write_text(out)
+        (LOCAL/'logs/native-verification-rejection-raw.log').write_text(out)
+        readable='\n'.join(line.rstrip() for line in out.splitlines()).strip()+'\n'
+        (ROOT/'progress/E.3/tests/native-verification-rejection.log').write_text(readable)
         assert r.returncode!=0 and 'Errors:' in out and ('stagechangelogfilesvalid' in out or 'stagechangelogcomplete' in out),out
     after=lab(LOCAL/'repo').snapshot()
     assert before==after
