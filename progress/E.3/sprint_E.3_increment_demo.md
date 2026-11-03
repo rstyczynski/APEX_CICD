@@ -13,19 +13,38 @@ APEX/SQLcl provide native capabilities; GitHub Actions controls execution.
 ### A. Check access and prepare the two checkouts — slides 1–4
 
 This demonstration uses the **existing E.2/E.3 lab**, not a newly provisioned
-database. Use its macOS ARM64 host with Oracle at
-`127.0.0.1:1521/FREEPDB1` and ORDS at `http://127.0.0.1:8080/ords` running.
+database. Use its macOS ARM64 host. The startup sequence below brings Oracle up
+at `127.0.0.1:1521/FREEPDB1` and ORDS at `http://127.0.0.1:8080/ords`.
 You need the existing APEX developer credential for Main 810003 in E1_DEV_C,
 the E1_DEV_C and E3_TARGET database passwords, and LAB_USER's target application
 password. These are different credentials. The target is E3_TARGET / 810203;
 retained UAT is not used.
 
-Install Podman, Git, GitHub CLI (`gh`), jq, curl, nc, tar and shasum on this host.
+Install Podman, Git, GitHub CLI (`gh`), jq, curl, nc, tar, unzip and shasum on this host.
 For developer capture, Java 21 and SQLcl **25.4.1.022.0618** must also be on
 your ordinary PATH. Release jobs install their own Java/SQLcl. Authenticate
 `gh` with your GitHub account. The public source is readable by everyone;
 creating your own repository and configuring its runner requires your own
 repository administration permission.
+
+The software runs in these locations; starting the GitHub runner does not start
+the database or web server:
+
+| Location | Required software / resource | Purpose |
+|---|---|---|
+| macOS host | Podman CLI (demonstrated: 6.0.0) | Starts the Linux VM and its containers |
+| macOS host | Git, gh, jq, curl, nc, tar, unzip, shasum | Repository setup, connectivity and runner setup |
+| macOS author terminal | Java 21 and SQLcl 25.4.1.022.0618 | Native PROJECT capture, staging and verification |
+| Podman VM `apex-cicd` | Prepared Linux container engine; demonstrated sizing: 4 CPUs, 6 GiB RAM, 30 GiB disk | Hosts the two containers |
+| Container `apex-db` | Oracle Database Free 23.26.3, with APEX 24.2 installed in FREEPDB1 | Database, APEX definitions and existing lab data |
+| Container `apex-ords` | ORDS 25.3 and APEX static assets | Serves App Builder and application HTTP URLs |
+
+If Podman is missing, install the macOS package from the
+[official Podman installer](https://podman.io/docs/installation), then reopen
+Terminal and check `podman --version`. The CLI is sufficient; Podman Desktop
+does not have to be open. Oracle Database, APEX and ORDS are already installed
+inside the prepared lab; they do not need separate macOS installations.
+Image versions/digests are retained in [apex-images.env](../../scripts/apex-images.env).
 
 Start in your home directory; no checkout is required yet. Check the installed
 tools and GitHub access:
@@ -75,26 +94,88 @@ git switch main
 git pull --ff-only
 ```
 
-Start the existing native lab from this parent checkout before continuing:
+#### Start Podman, Oracle Database, APEX and ORDS
+
+Run this sequence at the beginning of each lab session, from the parent checkout.
+Already running resources are retained. The order is **VM → database/APEX →
+ORDS → browser → GitHub runner**.
+
+**1. Check the prepared machine and its connection.**
+
+```bash
+podman --version
+podman machine list
+podman system connection list
+```
+
+Expect a machine and connection named **apex-cicd**. On macOS, Podman containers
+run inside this Linux VM. Use the explicit connection below even if another
+connection is marked as default. If `apex-cicd` is absent, stop: this is not the
+prepared earlier-sprint host. Creating an empty VM would not restore its database,
+APEX applications or data. This session-start sequence reuses that prepared lab.
+
+**2. Start the VM if it is stopped, then check the engine.**
 
 ```bash
 if ! podman --connection apex-cicd info > /dev/null 2>&1; then
   podman machine start apex-cicd
 fi
-bash scripts/apex-start.sh
-podman --connection apex-cicd ps --format '{{.Names}}\t{{.Status}}\t{{.Ports}}'
+podman --connection apex-cicd info
+podman --connection apex-cicd ps -a --format '{{.Names}}\t{{.Status}}\t{{.Ports}}'
 ```
 
-Expect **APEX available at http://127.0.0.1:8080/ords/** and both `apex-db`
-and `apex-ords` running, with ports 1521 and 8080 exposed on localhost. The
-explicit Podman connection selects the owned lab even if your default connection
-points to another VM. These commands start existing containers and retain their
-data; the `apex-cicd` machine and prepared containers must already exist.
+Expect engine information and containers **apex-db** and **apex-ords**, which may
+still be stopped. If startup reports another VM already running, inspect
+`podman machine list` and finish that VM's work before stopping it; do not remove
+it. See [Podman's machine-start reference](https://docs.podman.io/en/stable/markdown/podman-machine-start.1.html).
+Stop on engine errors or missing lab containers before proceeding.
+
+**3. Start the database/APEX, wait for readiness, then start ORDS.**
+
+The versioned command below performs those operations and waits for their
+readiness checks:
+
+```bash
+bash scripts/apex-start.sh
+```
+
+It runs `podman --connection apex-cicd start apex-db`, waits for
+`podman --connection apex-cicd exec apex-db healthcheck.sh` to succeed, starts
+`apex-ords`, then waits for the ORDS HTTP endpoint. APEX runs inside Oracle
+Database; there is no separate APEX container or APEX start command. Expect:
+
+```text
+APEX available at http://127.0.0.1:8080/ords/
+```
+
+**4. Check both containers and the browser endpoint before continuing.**
+
+```bash
+podman --connection apex-cicd ps --format '{{.Names}}\t{{.Status}}\t{{.Ports}}'
+podman --connection apex-cicd exec apex-db healthcheck.sh
+nc -z -w 3 127.0.0.1 1521
+curl --fail --silent --show-error --location --output /dev/null --write-out 'APEX HTTP %{http_code}\n' http://127.0.0.1:8080/ords/
+```
+
+Expect both containers **Up**, database port **127.0.0.1:1521**, ORDS port
+**127.0.0.1:8080**, successful database/TCP checks and **APEX HTTP 200** after
+redirects. If startup or readiness fails, inspect the relevant logs and resolve
+the error before starting the GitHub runner:
+
+```bash
+podman --connection apex-cicd logs --tail 80 apex-db
+podman --connection apex-cicd logs --tail 80 apex-ords
+```
+
+Starting the prepared containers retains schemas, applications and history.
+Do not run the earlier sprint's destroy/reinstall commands for an E.3 replay.
 
 Open [APEX / App Builder](http://127.0.0.1:8080/ords/). If the ORDS landing page
 appears, choose **APEX**. Sign in to workspace **E1_DEV_C** as developer **DEV_C**
 with the existing developer password, then choose **App Builder**. This password
 is distinct from the E1_DEV_C database password used by GitHub workflows.
+
+#### Prepare the application terminal
 
 Open a second, **application terminal**, and prepare that checkout:
 

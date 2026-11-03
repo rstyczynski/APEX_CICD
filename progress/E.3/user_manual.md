@@ -71,10 +71,11 @@ mean the runner shares the lab host. The demonstrated private runner is
 lab and schema/workspace/application accounts are infrastructure prerequisites;
 this workflow does not provision or reset them. Retained UAT is not the target.
 
-The walkthrough includes [startup of the existing Podman lab](sprint_E.3_increment_demo.md#a-check-access-and-prepare-the-two-checkouts--slides-14)
-before runner setup. It uses the explicit `apex-cicd` connection and
-`bash scripts/apex-start.sh` to start the existing database/ORDS containers and
-wait for readiness. Open [APEX / App Builder](http://127.0.0.1:8080/ords/) and
+The walkthrough includes [startup of Podman, Oracle Database, APEX and ORDS](sprint_E.3_increment_demo.md#start-podman-oracle-database-apex-and-ords)
+before runner setup. It identifies the required software, checks the named VM,
+starts the engine and existing containers, waits for database/HTTP readiness
+and provides the log commands for failures. It uses the explicit `apex-cicd`
+connection. Open [APEX / App Builder](http://127.0.0.1:8080/ords/) and
 sign in to E1_DEV_C as DEV_C; the target application is
 [810203](http://127.0.0.1:8080/ords/f?p=810203:1).
 
