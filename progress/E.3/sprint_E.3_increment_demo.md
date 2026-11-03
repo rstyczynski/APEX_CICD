@@ -40,24 +40,30 @@ gh repo view rstyczynski/APEX_CICD
 gh repo view rstyczynski/APEX_CICD_E3
 ```
 
-Create a working directory and clone the two existing repositories as siblings.
-Run each clone command only if its destination does not already exist:
+On the first run, create a working directory and clone the parent repository
+and public seed as siblings. Name the seed's local checkout `APEX_CICD_E3_LAB`
+to distinguish your working lab from the shared seed:
 
 ```bash
 mkdir -p "$HOME/projects"
 cd "$HOME/projects"
 gh repo clone rstyczynski/APEX_CICD APEX_CICD
-gh repo clone rstyczynski/APEX_CICD_E3 APEX_CICD_E3
+gh repo clone rstyczynski/APEX_CICD_E3 APEX_CICD_E3_LAB
 ```
 
 The **parent lab checkout**, `~/projects/APEX_CICD`, contains this walkthrough
 and `scripts/e3-runner.sh`. The **application checkout**,
-`~/projects/APEX_CICD_E3`, contains the source, native project and workflows.
-The public prepared application repository supplies the seed. Its owner and
-authorised collaborators can reuse it across demonstrations. Other participants
-create their own writable repository using the procedure below; public read
-access does not grant permission to push or dispatch workflows in the shared
-repository.
+`~/projects/APEX_CICD_E3_LAB`, contains the source, native project and workflows.
+Everyone, including the seed owner, uses their own
+`<operator>/APEX_CICD_E3_LAB` GitHub repository for this walkthrough. The public
+`rstyczynski/APEX_CICD_E3` repository supplies the seed only. Cloning downloads
+its history to your computer; the creation step below makes your writable
+GitHub repository and changes this checkout's origin to it.
+
+On later runs, skip both cloning and repository creation. Reuse your existing
+lab checkout/repository, whose origin already points to your own lab. If the
+local checkout is missing but your lab repository already exists, clone
+`<operator>/APEX_CICD_E3_LAB` instead of cloning the seed again.
 
 If a checkout already exists, reuse it only after reviewing/committing any local
 work; do not clone over it. Open the **parent lab terminal** and prepare it:
@@ -72,7 +78,7 @@ git pull --ff-only
 Open a second, **application terminal**, and prepare that checkout:
 
 ```bash
-cd "$HOME/projects/APEX_CICD_E3"
+cd "$HOME/projects/APEX_CICD_E3_LAB"
 git status --short
 git switch main
 git pull --ff-only
@@ -85,12 +91,12 @@ runs, keep the existing repository, tags and history and skip creation. No
 database, workspace or application is created by these Git commands; the
 existing E.2 native lab remains the prerequisite described above.
 
-In the application terminal, choose your account's repository name. If that
-name is already in use, reuse that repository or choose a different name:
+In the application terminal, select your account's lab repository. If it already
+exists, skip creation and use its checkout rather than republishing the seed:
 
 ```bash
 e3_owner=$(gh api user --jq .login)
-e3_repo="$e3_owner/APEX_CICD_E3"
+e3_repo="$e3_owner/APEX_CICD_E3_LAB"
 ```
 
 Keep the complete native baseline history and tags. Do **not** use GitHub's
@@ -142,18 +148,17 @@ or rename them.
 
 #### Select the repository for this session
 
-In **each terminal**, set `e3_repo` to the repository you own or are authorised
-to operate. For example, after creating your own copy:
+In **each terminal**, select your own lab repository:
 
 ```bash
-e3_repo="$(gh api user --jq .login)/APEX_CICD_E3"
+e3_repo="$(gh api user --jq .login)/APEX_CICD_E3_LAB"
 gh repo view "$e3_repo"
 ```
 
-The original operator can instead set `e3_repo=rstyczynski/APEX_CICD_E3` to reuse
-the shared prepared repository. Use your chosen name if you created a differently
-named repository. This shell variable is a nonsecret command input for this
-terminal session; it is not a machine configuration file.
+For the seed owner this resolves to `rstyczynski/APEX_CICD_E3_LAB`, following
+the same procedure as every other participant. This shell variable is a
+nonsecret command input for this terminal session; it is not a machine
+configuration file.
 
 **Checkpoint:** your selected repository is writable, its main and tags are
 present, the baseline commit resolves, SQLcl reports the pinned version, and the

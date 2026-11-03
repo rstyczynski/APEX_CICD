@@ -13,11 +13,17 @@ See also the
 ## Configuration ownership
 
 The public [application repository](https://github.com/rstyczynski/APEX_CICD_E3)
-is the seed. Its authorised operators can reuse it; other participants follow
+is the seed. Every participant, including its owner, follows
 the [repository creation procedure](sprint_E.3_increment_demo.md#create-your-own-application-repository-once)
-to create their own writable copy with full history and tags. The commands below
-show the original operator's repository; substitute your selected repository for
-`rstyczynski/APEX_CICD_E3` and pass `--repo OWNER/REPO` to the runner launcher.
+to create their own writable `APEX_CICD_E3_LAB` with full history and tags.
+Repeat demonstrations reuse that lab repository. In each terminal, select it:
+
+```bash
+e3_repo="$(gh api user --jq .login)/APEX_CICD_E3_LAB"
+```
+
+The commands below use this selected repository. Pass it explicitly to the
+runner launcher as well.
 Under Settings → Environments, create **e3-lab** and restrict deployment branches
 to **main**. Its nonsecret variables are:
 
@@ -43,16 +49,16 @@ commands below configure this specific lab; run each secret command interactivel
 and enter its existing authorized password when prompted:
 
 ```bash
-gh variable set DB_CONNECT --repo rstyczynski/APEX_CICD_E3 --env e3-lab --body 127.0.0.1:1521/FREEPDB1
-gh variable set AUTHOR_SCHEMA --repo rstyczynski/APEX_CICD_E3 --env e3-lab --body E1_DEV_C
-gh variable set SOURCE_APP_ID --repo rstyczynski/APEX_CICD_E3 --env e3-lab --body 810003
-gh variable set TARGET_SCHEMA --repo rstyczynski/APEX_CICD_E3 --env e3-lab --body E3_TARGET
-gh variable set TARGET_WORKSPACE --repo rstyczynski/APEX_CICD_E3 --env e3-lab --body E3_TARGET
-gh variable set TARGET_APP_ID --repo rstyczynski/APEX_CICD_E3 --env e3-lab --body 810203
-gh variable set TARGET_ALIAS --repo rstyczynski/APEX_CICD_E3 --env e3-lab --body E3-LAB
-gh variable set ORDS_URL --repo rstyczynski/APEX_CICD_E3 --env e3-lab --body http://127.0.0.1:8080/ords
-gh secret set AUTHOR_PASSWORD --repo rstyczynski/APEX_CICD_E3 --env e3-lab
-gh secret set TARGET_PASSWORD --repo rstyczynski/APEX_CICD_E3 --env e3-lab
+gh variable set DB_CONNECT --repo "$e3_repo" --env e3-lab --body 127.0.0.1:1521/FREEPDB1
+gh variable set AUTHOR_SCHEMA --repo "$e3_repo" --env e3-lab --body E1_DEV_C
+gh variable set SOURCE_APP_ID --repo "$e3_repo" --env e3-lab --body 810003
+gh variable set TARGET_SCHEMA --repo "$e3_repo" --env e3-lab --body E3_TARGET
+gh variable set TARGET_WORKSPACE --repo "$e3_repo" --env e3-lab --body E3_TARGET
+gh variable set TARGET_APP_ID --repo "$e3_repo" --env e3-lab --body 810203
+gh variable set TARGET_ALIAS --repo "$e3_repo" --env e3-lab --body E3-LAB
+gh variable set ORDS_URL --repo "$e3_repo" --env e3-lab --body http://127.0.0.1:8080/ords
+gh secret set AUTHOR_PASSWORD --repo "$e3_repo" --env e3-lab
+gh secret set TARGET_PASSWORD --repo "$e3_repo" --env e3-lab
 ```
 
 ## Runner infrastructure and workflow setup
@@ -67,8 +73,8 @@ The executable [lab launcher](../../scripts/e3-runner.sh) is versioned in the
 parent laboratory repository. From that repository root, the lab operator runs:
 
 ```bash
-./scripts/e3-runner.sh setup
-./scripts/e3-runner.sh
+./scripts/e3-runner.sh setup --repo "$e3_repo"
+./scripts/e3-runner.sh --repo "$e3_repo"
 ```
 
 Setup installs the official checksum-verified GitHub runner and registers it
@@ -84,7 +90,8 @@ checks local Oracle TCP and ORDS HTTP access, then invokes the official runner.
 It clears inherited operator tokens and retired tool/connection variables;
 workflows prepare their own configuration. Wait for **Listening for Jobs**.
 This foreground lab runner stays open for the lab session; stop it with Control-C.
-Use `./scripts/e3-runner.sh status` or `preflight` for read-only checks.
+Use `./scripts/e3-runner.sh status --repo "$e3_repo"` or
+`./scripts/e3-runner.sh preflight --repo "$e3_repo"` for read-only checks.
 Do not start a second listener while this registration is already online.
 
 The Product Owner explicitly selected a local runnable lab script. No OS service
@@ -157,19 +164,21 @@ checks, then squash merges. No exported SQL/YAML or packaged archive is rewritte
 
 Release Please prepares version.txt, CHANGELOG.md and its release manifest.
 Review its generated release PR. If checks are absent on the bot PR, manually
-run PR checks using the current PR number; the performed 1.0.4 proposal is PR10:
+run PR checks using the release PR number in your own lab repository:
 
 ```bash
-gh workflow run pr.yml --repo rstyczynski/APEX_CICD_E3 --ref main -f pr_number=10
+read -r -p "Current release PR number: " release_pr
+gh workflow run pr.yml --repo "$e3_repo" --ref main -f "pr_number=$release_pr"
 ```
 
 After checks pass on its latest head, merge the release PR. The version workflow
 creates its tag and matching GitHub Release notes. None of these events deploys.
 The deployer separately chooses a published tag in **Deploy selected version**,
-main, Run workflow. The performed selection is:
+main, Run workflow. Select the tag generated in your lab repository:
 
 ```bash
-gh workflow run release.yml --repo rstyczynski/APEX_CICD_E3 --ref main -f version_tag=v1.0.4
+read -r -p "Published tag to deploy: " version_tag
+gh workflow run release.yml --repo "$e3_repo" --ref main -f "version_tag=$version_tag"
 ```
 
 Inspect the ordered job steps: resolve source → explicit tools/connections setup
@@ -186,7 +195,7 @@ A separate manually dispatched **Qualify native verification gate** workflow
 exercises the existing IT-2 criterion without deployment:
 
 ```bash
-gh workflow run qualification.yml --repo rstyczynski/APEX_CICD_E3 --ref main -f version_tag=v1.0.4
+gh workflow run qualification.yml --repo "$e3_repo" --ref main -f "version_tag=$version_tag"
 ```
 
 It uses the same explicit setup, first verifies valid source, snapshots the target,

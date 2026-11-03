@@ -10,6 +10,9 @@ The application repository is now a public seed. The walkthrough includes
 with native baseline history/tags, release metadata, PR labels and Actions
 permissions. Each participant supplies their own GitHub environment and runner;
 the procedure creates the repository and assumes the existing native lab.
+The shared `rstyczynski/APEX_CICD_E3` is the seed; every participant, including
+its owner, runs demonstrations in `<operator>/APEX_CICD_E3_LAB`. Create that
+repository once, then reuse it on later runs.
 The [publication and creation check](tests/github-public-repository.md) records
 visibility verification, secret-scan scope and local baseline-clone validation.
 
@@ -18,8 +21,9 @@ The executable runner entry point is
 root, the lab operator can retain/configure the official local runner and start it:
 
 ```bash
-./scripts/e3-runner.sh setup
-./scripts/e3-runner.sh
+e3_repo="$(gh api user --jq .login)/APEX_CICD_E3_LAB"
+./scripts/e3-runner.sh setup --repo "$e3_repo"
+./scripts/e3-runner.sh --repo "$e3_repo"
 ```
 
 The launcher was exercised, reached local Oracle/ORDS and ran both the selected-tag
