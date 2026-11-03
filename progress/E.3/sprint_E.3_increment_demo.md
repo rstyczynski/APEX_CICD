@@ -35,6 +35,7 @@ gh auth status
 git --version
 jq --version
 sql -version
+gh repo view rstyczynski/APEX_CICD
 gh repo view rstyczynski/APEX_CICD_E3
 ```
 
