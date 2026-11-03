@@ -86,31 +86,29 @@ git pull --ff-only
 
 #### Create your own application repository once
 
-Run this section only when creating a **new GitHub repository**. For repeat
-runs, keep the existing repository, tags and history and skip creation. No
-database, workspace or application is created by these Git commands; the
-existing E.2 native lab remains the prerequisite described above.
+Run the following setup from the prepared application checkout in an interactive
+Bash terminal. It creates your public lab repository, publishes the seed history
+and tags, configures Actions and labels, imports the seed release, and sets up
+`e3-lab` with its main-only rule and eight variables. Enter the existing
+**E1_DEV_C** and **E3_TARGET database passwords** at the two secret prompts.
 
-In the application terminal, select your account's lab repository. If it already
-exists, skip creation and use its checkout rather than republishing the seed:
+The setup retains an existing repository, release and main branch rule, so it
+can complete an interrupted run. Git pushes are ordinary fast-forward pushes.
+On later demonstrations, reuse the configured lab and skip this setup.
 
-```bash
-e3_owner=$(gh api user --jq .login)
-e3_repo="$e3_owner/APEX_CICD_E3_LAB"
-```
-
-Keep the complete native baseline history and tags. Do **not** use GitHub's
-template button, copy just the files, use a shallow clone or reinitialise Git:
-`pipeline.json` refers to an earlier commit needed by native PROJECT comparison.
-The clone from step A preserves that history. For an offline seed alternative,
-clone the parent's `examples/git-pipeline/baseline.bundle` into a **new**
-application checkout instead of cloning the public source.
-
-Create an empty public repository, enable workflow-created release PRs, and
-publish the prepared history from your application checkout:
+Keep the complete seed history: `pipeline.json` refers to an earlier commit
+needed by native PROJECT comparison. The existing Oracle/APEX/ORDS lab remains
+a prerequisite.
 
 ```bash
-gh repo create "$e3_repo" --public --description "Native APEX E.3 Git pipeline lab"
+(
+set -euo pipefail
+cd "$HOME/projects/APEX_CICD_E3_LAB"
+e3_repo="$(gh api user --jq .login)/APEX_CICD_E3_LAB"
+
+if ! gh repo view "$e3_repo" > /dev/null 2>&1; then
+  gh repo create "$e3_repo" --public --description "Native APEX E.3 Git pipeline lab"
+fi
 gh api --method PUT "repos/$e3_repo/actions/permissions/workflow" -f default_workflow_permissions=read -F can_approve_pull_request_reviews=true
 gh api --method PUT "repos/$e3_repo/actions/permissions/fork-pr-contributor-approval" -f approval_policy=all_external_contributors
 git remote set-url origin "https://github.com/$e3_repo.git"
@@ -120,48 +118,7 @@ gh repo edit "$e3_repo" --default-branch main --enable-squash-merge --squash-mer
 gh label create patch --repo "$e3_repo" --color 0E8A16 --description "Patch release" --force
 gh label create minor --repo "$e3_repo" --color 1D76DB --description "Minor release" --force
 gh label create major --repo "$e3_repo" --color B60205 --description "Major release" --force
-```
 
-Recreate the seed's existing GitHub Release in the new repository, because Git
-push transfers tags but not GitHub Release objects. This imports an already
-assigned seed version; all subsequent version bumps are workflow-generated:
-
-```bash
-seed_tag="v$(cat version.txt)"
-seed_notes=$(mktemp)
-gh release view "$seed_tag" --repo rstyczynski/APEX_CICD_E3 --json body --jq .body > "$seed_notes"
-gh release create "$seed_tag" --repo "$e3_repo" --verify-tag --title "$seed_tag" --notes-file "$seed_notes"
-rm -f "$seed_notes"
-```
-
-Confirm **Actions** is enabled and that **Prepare version and changelog** runs
-on main. Repository/org policy must permit Actions to create pull requests.
-No inherited secrets, environment configuration, runner registrations, PRs,
-workflow runs or uploaded artifacts are copied. Create the GitHub environment
-with the next command block; step B verifies it and starts the runner.
-Public repositories require review before approving external contributors'
-workflow runs. PR checks use hosted runners; keep database-accessing jobs manual
-on accepted main, and review workflow changes before merging them. See
-[GitHub's Actions access settings](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository).
-On a new machine, native authoring also requires the same prepared source
-schema/application identities; changing GitHub variables alone does not create
-or rename them.
-
-#### Configure the GitHub environment by script
-
-This is part of first-time lab creation. **If your `APEX_CICD_E3_LAB` repository
-already exists but its Environments page is empty, resume here** rather than
-rerunning `gh repo create` or pushing seed history again.
-
-Run this block in an interactive Bash terminal. It creates `e3-lab`, enables
-custom deployment branch rules, allows branch `main`, and sets the eight lab
-variables. The two final commands securely prompt for the **E1_DEV_C** and
-**E3_TARGET database passwords**, respectively. Enter your existing authorised
-passwords at those prompts, not in the command text. No settings or credentials
-are written to `.local-apex` or another local environment file.
-
-```bash
-e3_repo="$(gh api user --jq .login)/APEX_CICD_E3_LAB"
 gh api --method PUT "repos/$e3_repo/environments/e3-lab" --input - <<'JSON'
 {"deployment_branch_policy":{"protected_branches":false,"custom_branch_policies":true}}
 JSON
@@ -181,18 +138,20 @@ gh variable set TARGET_ALIAS --repo "$e3_repo" --env e3-lab --body E3-LAB
 gh variable set ORDS_URL --repo "$e3_repo" --env e3-lab --body http://127.0.0.1:8080/ords
 gh secret set AUTHOR_PASSWORD --repo "$e3_repo" --env e3-lab
 gh secret set TARGET_PASSWORD --repo "$e3_repo" --env e3-lab
+
+seed_tag="v$(cat version.txt)"
+if ! gh release view "$seed_tag" --repo "$e3_repo" > /dev/null 2>&1; then
+  seed_notes=$(mktemp)
+  gh release view "$seed_tag" --repo rstyczynski/APEX_CICD_E3 --json body --jq .body > "$seed_notes"
+  gh release create "$seed_tag" --repo "$e3_repo" --verify-tag --title "$seed_tag" --notes-file "$seed_notes"
+  rm -f "$seed_notes"
+fi
+)
 ```
 
-On subsequent runs, reuse this configuration. Rerun this block only to complete
-an interrupted setup or deliberately update these lab values/passwords; it
-retains the environment and existing main rule. It does not delete other rules.
-The verification in step B requires main to be the sole allowed branch rule.
-For different lab endpoints, change the nonsecret values in the block before
-running it. Native source identities still have to match the prepared project.
-
-References: [GitHub environment API](https://docs.github.com/en/rest/deployments/environments),
-[deployment branch policies](https://docs.github.com/en/rest/deployments/branch-policies),
-and [interactive secret entry](https://cli.github.com/manual/gh_secret_set).
+Expect the repository, its release and the `e3-lab` environment to be present
+when setup finishes. Subsequent version bumps are generated by the workflow.
+Step B checks the configuration before runner startup.
 
 #### Select the repository for this session
 
@@ -250,7 +209,7 @@ UI configuration is required.
 
 Environment secrets **AUTHOR_PASSWORD** and **TARGET_PASSWORD** hold the
 respective database schema passwords. If configuration is missing, return to
-the scripted environment setup above before starting the runner. No environment
+the lab setup above before starting the runner. No environment
 settings or credentials belong in `.local-apex`.
 
 In the **parent lab terminal**:

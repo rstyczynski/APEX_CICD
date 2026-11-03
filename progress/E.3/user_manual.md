@@ -24,11 +24,9 @@ e3_repo="$(gh api user --jq .login)/APEX_CICD_E3_LAB"
 
 The commands below use this selected repository. Pass it explicitly to the
 runner launcher as well.
-The walkthrough's [scripted environment setup](sprint_E.3_increment_demo.md#configure-the-github-environment-by-script)
+The walkthrough's [lab setup](sprint_E.3_increment_demo.md#create-your-own-application-repository-once)
 creates **e3-lab**, configures its main-only branch policy, sets the variables
-and prompts for the two secrets. Run that block as part of lab creation; it
-also handles an existing repository with an empty Environments page. No manual
-Settings UI setup is required. Its nonsecret variables are:
+and prompts for the two secrets. Run that block as part of lab creation. Its nonsecret variables are:
 
 | Variable | Demonstrated laboratory value |
 |---|---|

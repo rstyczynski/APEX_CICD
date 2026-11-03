@@ -13,10 +13,9 @@ the procedure creates the repository and assumes the existing native lab.
 The shared `rstyczynski/APEX_CICD_E3` is the seed; every participant, including
 its owner, runs demonstrations in `<operator>/APEX_CICD_E3_LAB`. Create that
 repository once, then reuse it on later runs.
-Lab creation includes [scripted GitHub environment setup](sprint_E.3_increment_demo.md#configure-the-github-environment-by-script):
-the e3-lab environment, main branch policy, eight variables and interactive
-entry of two encrypted secrets. An existing repository with no environment can
-resume at that block; no manual environment creation is required.
+The [lab setup](sprint_E.3_increment_demo.md#create-your-own-application-repository-once)
+configures the repository and its e3-lab environment, main branch policy, eight
+variables and interactive entry of two encrypted secrets in one command block.
 The [publication and creation check](tests/github-public-repository.md) records
 visibility verification, secret-scan scope and local baseline-clone validation.
 
