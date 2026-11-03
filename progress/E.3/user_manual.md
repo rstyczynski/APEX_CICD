@@ -75,9 +75,12 @@ The walkthrough includes [startup of Podman, Oracle Database, APEX and ORDS](spr
 before runner setup. It identifies the required software, checks the named VM,
 starts the engine and existing containers, waits for database/HTTP readiness
 and provides the log commands for failures. It uses the explicit `apex-cicd`
-connection. Open [APEX / App Builder](http://127.0.0.1:8080/ords/) and
+connection. Open [APEX workspace sign-in](http://127.0.0.1:8080/ords/r/apex/workspace-sign-in/oracle-apex-sign-in) and
 sign in to E1_DEV_C as DEV_C; the target application is
 [810203](http://127.0.0.1:8080/ords/f?p=810203:1).
+Step A of the walkthrough includes the CLI lookup of the DEV_C Builder password
+from the prepared host's existing E.1/E.2 provisioning record. That password is
+separate from the schema passwords in GitHub secrets.
 
 The executable [lab launcher](../../scripts/e3-runner.sh) is versioned in the
 parent laboratory repository. From that repository root, the lab operator runs:
