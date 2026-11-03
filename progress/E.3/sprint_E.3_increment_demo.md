@@ -227,20 +227,20 @@ In the **parent lab terminal**:
 
 ```bash
 cd "$HOME/projects/APEX_CICD"
-./scripts/e3-runner.sh setup --repo "$e3_repo"
-./scripts/e3-runner.sh status --repo "$e3_repo"
+./scripts/e3-runner.sh setup --repo "$e3_repo" --directory "$HOME/actions-runner-e3-lab"
+./scripts/e3-runner.sh status --repo "$e3_repo" --directory "$HOME/actions-runner-e3-lab"
 ```
 
 Setup retains a matching registration or installs/registers the official runner
-in `~/actions-runner-e3`. If that directory belongs to another repository, use
-`--directory "$HOME/actions-runner-e3-mylab"` consistently on setup, status and
-run; the launcher refuses to replace an unrelated registration. Expect
+in `~/actions-runner-e3-lab`, selected explicitly by these commands so an older
+seed runner in `~/actions-runner-e3` can be retained. Use the same directory on
+setup, status and run; the launcher refuses to replace an unrelated registration. Expect
 **Setup complete** and successful Oracle TCP /
 ORDS HTTP checks. If status already reports this runner online, use that listener.
 Otherwise start it in this terminal:
 
 ```bash
-./scripts/e3-runner.sh --repo "$e3_repo"
+./scripts/e3-runner.sh --repo "$e3_repo" --directory "$HOME/actions-runner-e3-lab"
 ```
 
 Wait for **Listening for Jobs** and leave the terminal open. Use a second

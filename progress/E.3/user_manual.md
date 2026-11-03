@@ -75,8 +75,8 @@ The executable [lab launcher](../../scripts/e3-runner.sh) is versioned in the
 parent laboratory repository. From that repository root, the lab operator runs:
 
 ```bash
-./scripts/e3-runner.sh setup --repo "$e3_repo"
-./scripts/e3-runner.sh --repo "$e3_repo"
+./scripts/e3-runner.sh setup --repo "$e3_repo" --directory "$HOME/actions-runner-e3-lab"
+./scripts/e3-runner.sh --repo "$e3_repo" --directory "$HOME/actions-runner-e3-lab"
 ```
 
 Setup installs the official checksum-verified GitHub runner and registers it
@@ -92,8 +92,8 @@ checks local Oracle TCP and ORDS HTTP access, then invokes the official runner.
 It clears inherited operator tokens and retired tool/connection variables;
 workflows prepare their own configuration. Wait for **Listening for Jobs**.
 This foreground lab runner stays open for the lab session; stop it with Control-C.
-Use `./scripts/e3-runner.sh status --repo "$e3_repo"` or
-`./scripts/e3-runner.sh preflight --repo "$e3_repo"` for read-only checks.
+Use `./scripts/e3-runner.sh status --repo "$e3_repo" --directory "$HOME/actions-runner-e3-lab"` or
+`./scripts/e3-runner.sh preflight --repo "$e3_repo" --directory "$HOME/actions-runner-e3-lab"` for read-only checks.
 Do not start a second listener while this registration is already online.
 
 The Product Owner explicitly selected a local runnable lab script. No OS service

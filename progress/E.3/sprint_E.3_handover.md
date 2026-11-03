@@ -26,8 +26,8 @@ root, the lab operator can retain/configure the official local runner and start 
 
 ```bash
 e3_repo="$(gh api user --jq .login)/APEX_CICD_E3_LAB"
-./scripts/e3-runner.sh setup --repo "$e3_repo"
-./scripts/e3-runner.sh --repo "$e3_repo"
+./scripts/e3-runner.sh setup --repo "$e3_repo" --directory "$HOME/actions-runner-e3-lab"
+./scripts/e3-runner.sh --repo "$e3_repo" --directory "$HOME/actions-runner-e3-lab"
 ```
 
 The launcher was exercised, reached local Oracle/ORDS and ran both the selected-tag

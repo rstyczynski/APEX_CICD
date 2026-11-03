@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # Local lab infrastructure only. GitHub workflows own tools, settings and secrets.
 # Operating guide: progress/E.3/user_manual.md
-set -euo pipefail
+set -Eeuo pipefail
 command_name=run
+trap 'result=$?; printf "ERROR: runner %s failed at line %s (exit %s).\n" "$command_name" "$LINENO" "$result" >&2; exit "$result"' ERR
 repository=rstyczynski/APEX_CICD_E3
 runner_dir="$HOME/actions-runner-e3"
 runner_name="e3-lab-$(hostname -s)"
@@ -17,27 +18,34 @@ while (($#)); do
     *) printf 'Unknown option: %s\n' "$1" >&2; exit 2 ;;
   esac
 done
-[[ "$repository" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]]
+[[ "$repository" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]] || { echo 'Use --repo OWNER/REPO; check that e3_repo is set in this terminal.' >&2; exit 2; }
 case "$runner_dir/" in
   "$project_root/"*|*/.local-apex/*) echo 'Runner registration must be outside the checkout and .local-apex.' >&2; exit 2 ;;
   /*) ;;
   *) echo 'Use an absolute runner directory.' >&2; exit 2 ;;
 esac
-for dependency in gh jq; do command -v "$dependency" >/dev/null; done
+require_command() {
+  command -v "$1" >/dev/null || { printf 'Missing required command: %s\n' "$1" >&2; return 1; }
+}
+for dependency in gh jq; do require_command "$dependency"; done
 check_registration() {
-  test -f "$runner_dir/.runner" || { echo 'Runner is not configured. Run scripts/e3-runner.sh setup first.' >&2; return 1; }
-  jq -e --arg url "https://github.com/$repository" '.gitHubUrl == $url' "$runner_dir/.runner" >/dev/null
+  test -f "$runner_dir/.runner" || { printf 'Runner is not configured in %s. Run setup with the same --repo and --directory.\n' "$runner_dir" >&2; return 1; }
+  if ! jq -e --arg url "https://github.com/$repository" '.gitHubUrl == $url' "$runner_dir/.runner" >/dev/null; then
+    printf 'Runner registration in %s does not match %s.\n' "$runner_dir" "$repository" >&2
+    printf 'Use a separate --directory for this repository, for example "%s/actions-runner-e3-lab", on setup, status and run.\n' "$HOME" >&2
+    return 1
+  fi
 }
 preflight() {
-  command -v curl >/dev/null
-  command -v nc >/dev/null
+  require_command curl
+  require_command nc
   local connect endpoint authority host port
   connect=$(gh api "repos/$repository/environments/e3-lab/variables/DB_CONNECT" --jq .value)
   endpoint=$(gh api "repos/$repository/environments/e3-lab/variables/ORDS_URL" --jq .value)
-  [[ "$connect" =~ ^[A-Za-z0-9.:-]+/[A-Za-z0-9._-]+$ && "$endpoint" =~ ^https?:// ]]
+  [[ "$connect" =~ ^[A-Za-z0-9.:-]+/[A-Za-z0-9._-]+$ && "$endpoint" =~ ^https?:// ]] || { echo 'Invalid DB_CONNECT or ORDS_URL in the GitHub e3-lab environment.' >&2; return 1; }
   authority=${connect%%/*}; host=${authority%:*}; port=${authority##*:}
-  [[ "$port" =~ ^[0-9]+$ ]]
-  nc -z -w 3 "$host" "$port"
+  [[ "$port" =~ ^[0-9]+$ ]] || { echo 'DB_CONNECT must include a numeric port.' >&2; return 1; }
+  nc -z -w 3 "$host" "$port" || { printf 'Oracle TCP connection failed: %s:%s\n' "$host" "$port" >&2; return 1; }
   curl --fail --silent --show-error --max-time 10 --location "$endpoint/" >/dev/null
   echo 'PASS local Oracle TCP and ORDS HTTP access; settings read from GitHub e3-lab.'
 }
@@ -48,8 +56,8 @@ case "$command_name" in
       echo 'Existing matching runner registration retained.'
     else
       [[ "$(uname -s)/$(uname -m)" == Darwin/arm64 ]] || { echo 'This lab installer supports macOS ARM64.' >&2; exit 2; }
-      for dependency in curl tar shasum; do command -v "$dependency" >/dev/null; done
-      gh api "repos/$repository" --jq .permissions.admin | jq -e '. == true' >/dev/null
+      for dependency in curl tar shasum; do require_command "$dependency"; done
+      gh api "repos/$repository" --jq .permissions.admin | jq -e '. == true' >/dev/null || { printf 'Repository administration permission is required for %s.\n' "$repository" >&2; exit 1; }
       if [[ -d "$runner_dir" && -n "$(ls -A "$runner_dir")" ]]; then
         echo 'Unregistered runner directory is not empty; inspect it before setup.' >&2; exit 2
       fi
@@ -69,12 +77,13 @@ case "$command_name" in
       check_registration
     fi
     preflight
-    echo 'Setup complete. Start with scripts/e3-runner.sh.'
+    printf 'Setup complete for %s in %s. Start run with the same --repo and --directory.\n' "$repository" "$runner_dir"
     ;;
   preflight) preflight ;;
   status)
     check_registration
-    gh api "repos/$repository/actions/runners" --jq '.runners[] | select(any(.labels[]; .name == "e3-lab")) | {name,status,busy}'
+    printf 'GitHub runners for %s (label e3-lab):\n' "$repository"
+    gh api "repos/$repository/actions/runners" --jq '[.runners[] | select(any(.labels[]; .name == "e3-lab")) | {name,status,busy}]'
     ;;
   run)
     check_registration
