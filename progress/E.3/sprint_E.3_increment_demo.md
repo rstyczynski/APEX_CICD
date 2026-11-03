@@ -137,7 +137,8 @@ rm -f "$seed_notes"
 Confirm **Actions** is enabled and that **Prepare version and changelog** runs
 on main. Repository/org policy must permit Actions to create pull requests.
 No inherited secrets, environment configuration, runner registrations, PRs,
-workflow runs or uploaded artifacts are copied. Configure your own in step B.
+workflow runs or uploaded artifacts are copied. Create the GitHub environment
+with the next command block; step B verifies it and starts the runner.
 Public repositories require review before approving external contributors'
 workflow runs. PR checks use hosted runners; keep database-accessing jobs manual
 on accepted main, and review workflow changes before merging them. See
@@ -145,6 +146,53 @@ on accepted main, and review workflow changes before merging them. See
 On a new machine, native authoring also requires the same prepared source
 schema/application identities; changing GitHub variables alone does not create
 or rename them.
+
+#### Configure the GitHub environment by script
+
+This is part of first-time lab creation. **If your `APEX_CICD_E3_LAB` repository
+already exists but its Environments page is empty, resume here** rather than
+rerunning `gh repo create` or pushing seed history again.
+
+Run this block in an interactive Bash terminal. It creates `e3-lab`, enables
+custom deployment branch rules, allows branch `main`, and sets the eight lab
+variables. The two final commands securely prompt for the **E1_DEV_C** and
+**E3_TARGET database passwords**, respectively. Enter your existing authorised
+passwords at those prompts, not in the command text. No settings or credentials
+are written to `.local-apex` or another local environment file.
+
+```bash
+e3_repo="$(gh api user --jq .login)/APEX_CICD_E3_LAB"
+gh api --method PUT "repos/$e3_repo/environments/e3-lab" --input - <<'JSON'
+{"deployment_branch_policy":{"protected_branches":false,"custom_branch_policies":true}}
+JSON
+
+branch_rules=$(gh api "repos/$e3_repo/environments/e3-lab/deployment-branch-policies")
+if ! jq -e 'any(.branch_policies[]; .name == "main" and .type == "branch")' <<< "$branch_rules" > /dev/null; then
+  gh api --method POST "repos/$e3_repo/environments/e3-lab/deployment-branch-policies" -f name=main -f type=branch
+fi
+
+gh variable set DB_CONNECT --repo "$e3_repo" --env e3-lab --body 127.0.0.1:1521/FREEPDB1
+gh variable set AUTHOR_SCHEMA --repo "$e3_repo" --env e3-lab --body E1_DEV_C
+gh variable set SOURCE_APP_ID --repo "$e3_repo" --env e3-lab --body 810003
+gh variable set TARGET_SCHEMA --repo "$e3_repo" --env e3-lab --body E3_TARGET
+gh variable set TARGET_WORKSPACE --repo "$e3_repo" --env e3-lab --body E3_TARGET
+gh variable set TARGET_APP_ID --repo "$e3_repo" --env e3-lab --body 810203
+gh variable set TARGET_ALIAS --repo "$e3_repo" --env e3-lab --body E3-LAB
+gh variable set ORDS_URL --repo "$e3_repo" --env e3-lab --body http://127.0.0.1:8080/ords
+gh secret set AUTHOR_PASSWORD --repo "$e3_repo" --env e3-lab
+gh secret set TARGET_PASSWORD --repo "$e3_repo" --env e3-lab
+```
+
+On subsequent runs, reuse this configuration. Rerun this block only to complete
+an interrupted setup or deliberately update these lab values/passwords; it
+retains the environment and existing main rule. It does not delete other rules.
+The verification in step B requires main to be the sole allowed branch rule.
+For different lab endpoints, change the nonsecret values in the block before
+running it. Native source identities still have to match the prepared project.
+
+References: [GitHub environment API](https://docs.github.com/en/rest/deployments/environments),
+[deployment branch policies](https://docs.github.com/en/rest/deployments/branch-policies),
+and [interactive secret entry](https://cli.github.com/manual/gh_secret_set).
 
 #### Select the repository for this session
 
@@ -174,9 +222,20 @@ Expect `commit`, the selected origin URL, and no uncommitted changes.
 
 ### B. Confirm GitHub settings and start the local runner — slide 4
 
-In **your selected repository**, open Settings → Environments → **e3-lab**. Create it
-if absent and restrict deployment branches to **main**. Verify these variables
-against this existing lab; do not replace valid settings unnecessarily:
+The creation script above has already configured **your lab repository's**
+`e3-lab` environment. Verify it from the terminal before starting the runner:
+
+```bash
+gh api "repos/$e3_repo/environments/e3-lab" --jq .deployment_branch_policy
+gh api "repos/$e3_repo/environments/e3-lab/deployment-branch-policies" | jq -e '.total_count == 1 and .branch_policies[0].name == "main" and .branch_policies[0].type == "branch"'
+gh variable list --repo "$e3_repo" --env e3-lab
+gh secret list --repo "$e3_repo" --env e3-lab
+```
+
+Expect custom branch policies enabled, the sole rule `main` / `branch`, the
+following eight variables, and both secret names. Secret values are never read
+back. The Settings → Environments UI is an optional inspection view; no manual
+UI configuration is required.
 
 | Variable | Lab value |
 |---|---|
@@ -190,8 +249,8 @@ against this existing lab; do not replace valid settings unnecessarily:
 | ORDS_URL | http://127.0.0.1:8080/ords |
 
 Environment secrets **AUTHOR_PASSWORD** and **TARGET_PASSWORD** hold the
-respective database schema passwords. Configure missing/incorrect secrets
-through GitHub's UI; their existing values cannot be read back. No environment
+respective database schema passwords. If configuration is missing, return to
+the scripted environment setup above before starting the runner. No environment
 settings or credentials belong in `.local-apex`.
 
 In the **parent lab terminal**:

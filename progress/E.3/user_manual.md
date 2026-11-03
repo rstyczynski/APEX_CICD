@@ -24,8 +24,11 @@ e3_repo="$(gh api user --jq .login)/APEX_CICD_E3_LAB"
 
 The commands below use this selected repository. Pass it explicitly to the
 runner launcher as well.
-Under Settings → Environments, create **e3-lab** and restrict deployment branches
-to **main**. Its nonsecret variables are:
+The walkthrough's [scripted environment setup](sprint_E.3_increment_demo.md#configure-the-github-environment-by-script)
+creates **e3-lab**, configures its main-only branch policy, sets the variables
+and prompts for the two secrets. Run that block as part of lab creation; it
+also handles an existing repository with an empty Environments page. No manual
+Settings UI setup is required. Its nonsecret variables are:
 
 | Variable | Demonstrated laboratory value |
 |---|---|
@@ -44,9 +47,9 @@ commit them. For a different operator/lab, supply that operator's authorized
 endpoint and credentials through GitHub; do not copy another operator's files.
 The native project still describes the demonstrated E1_DEV_C/810003 source.
 
-The Settings UI is the normal configuration entry point. The equivalent gh
-commands below configure this specific lab; run each secret command interactively
-and enter its existing authorized password when prompted:
+The following are reference commands for deliberately updating values after
+the scripted setup has created the environment. Run each secret command
+interactively and enter its existing authorized password when prompted:
 
 ```bash
 gh variable set DB_CONNECT --repo "$e3_repo" --env e3-lab --body 127.0.0.1:1521/FREEPDB1
