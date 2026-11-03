@@ -26,10 +26,11 @@ your ordinary PATH. Release jobs install their own Java/SQLcl. Authenticate
 `gh` with access to the private application repository; runner setup additionally
 needs repository administration permission.
 
-Use a terminal in the parent lab checkout:
+Start in your home directory; no checkout is required yet. Check the installed
+tools and GitHub access:
 
 ```bash
-cd /Users/rstyczynski/projects/APEX_CICD
+cd ~
 gh auth status
 git --version
 jq --version
@@ -37,20 +38,36 @@ sql -version
 gh repo view rstyczynski/APEX_CICD_E3
 ```
 
-On another host, use that host's parent checkout path instead. The parent
-checkout contains this walkthrough and `scripts/e3-runner.sh`. A **separate
-application checkout** contains the source, native project and GitHub workflows.
-Create it once in your chosen working directory:
+Create a working directory and clone the two existing repositories as siblings.
+Run each clone command only if its destination does not already exist:
 
 ```bash
-gh repo clone rstyczynski/APEX_CICD_E3 "$HOME/APEX_CICD_E3"
+mkdir -p "$HOME/projects"
+cd "$HOME/projects"
+gh repo clone rstyczynski/APEX_CICD APEX_CICD
+gh repo clone rstyczynski/APEX_CICD_E3 APEX_CICD_E3
 ```
 
-If it already exists, reuse it only after reviewing/committing any local work;
-do not clone over it. In the application terminal:
+The **parent lab checkout**, `~/projects/APEX_CICD`, contains this walkthrough
+and `scripts/e3-runner.sh`. The **application checkout**,
+`~/projects/APEX_CICD_E3`, contains the source, native project and workflows.
+The prepared remote application repository is reused across demonstrations;
+cloning creates a local checkout, not a new GitHub repository.
+
+If a checkout already exists, reuse it only after reviewing/committing any local
+work; do not clone over it. Open the **parent lab terminal** and prepare it:
 
 ```bash
-cd "$HOME/APEX_CICD_E3"
+cd "$HOME/projects/APEX_CICD"
+git status --short
+git switch main
+git pull --ff-only
+```
+
+Open a second, **application terminal**, and prepare that checkout:
+
+```bash
+cd "$HOME/projects/APEX_CICD_E3"
 git status --short
 git switch main
 git pull --ff-only
@@ -84,6 +101,7 @@ settings or credentials belong in `.local-apex`.
 In the **parent lab terminal**:
 
 ```bash
+cd "$HOME/projects/APEX_CICD"
 ./scripts/e3-runner.sh setup
 ./scripts/e3-runner.sh status
 ```
