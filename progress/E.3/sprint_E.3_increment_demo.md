@@ -170,6 +170,10 @@ podman --connection apex-cicd logs --tail 80 apex-ords
 Starting the prepared containers retains schemas, applications and history.
 Do not run the earlier sprint's destroy/reinstall commands for an E.3 replay.
 
+When all four checks pass, continue to [Sign in to APEX App Builder](#sign-in-to-apex-app-builder).
+
+#### Sign in to APEX App Builder
+
 Open [APEX workspace sign-in](http://127.0.0.1:8080/ords/r/apex/workspace-sign-in/oracle-apex-sign-in).
 This direct URL opens the login form. The shorter `/ords/` URL opens the ORDS
 landing page; its **Oracle APEX → Go** button leads to the same form.
@@ -195,6 +199,9 @@ of screenshots and Git. It differs from the E1_DEV_C database password used by
 GitHub workflows. After signing in, choose **App Builder**.
 
 ![APEX workspace sign-in with workspace E1_DEV_C and username DEV_C](tests/walkthrough/00-builder-sign-in.jpg)
+
+**Checkpoint:** the APEX workspace home shows **DEV_C / E1_DEV_C** and provides
+the **App Builder** link. Continue to the application terminal setup below.
 
 #### Prepare the application terminal
 
@@ -373,10 +380,10 @@ GitHub workflows prepare job-private tools/connections and clean them afterward.
 
 ### C. Make a fresh native APEX change — slides 5–6
 
-Open [APEX workspace sign-in](http://127.0.0.1:8080/ords/r/apex/workspace-sign-in/oracle-apex-sign-in).
-Use workspace **E1_DEV_C**, username **DEV_C**, and the Builder password
-retrieved with the CLI command in step A. Choose
-**App Builder → APEX Delivery Laboratory (810003)**.
+In the signed-in Builder session, choose
+**App Builder → APEX Delivery Laboratory (810003)**. If your session has expired,
+follow [Sign in to APEX App Builder](#sign-in-to-apex-app-builder), which contains
+the direct URL, credentials and password lookup command.
 
 **Create the Working Copy.** In the first screenshot, **①** identifies Main
 810003 and **②** points to **Create Working Copy** in the right sidebar.

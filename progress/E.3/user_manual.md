@@ -78,7 +78,8 @@ and provides the log commands for failures. It uses the explicit `apex-cicd`
 connection. Open [APEX workspace sign-in](http://127.0.0.1:8080/ords/r/apex/workspace-sign-in/oracle-apex-sign-in) and
 sign in to E1_DEV_C as DEV_C; the target application is
 [810203](http://127.0.0.1:8080/ords/f?p=810203:1).
-Step A of the walkthrough includes the CLI lookup of the DEV_C Builder password
+The walkthrough's [APEX sign-in chapter](sprint_E.3_increment_demo.md#sign-in-to-apex-app-builder)
+includes the CLI lookup of the DEV_C Builder password
 from the prepared host's existing E.1/E.2 provisioning record. That password is
 separate from the schema passwords in GitHub secrets.
 
