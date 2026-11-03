@@ -669,6 +669,14 @@ and staged distribution; review any generated metadata changes as well.
 **③ Open Checks.** Require successful **PR checks** for the latest head commit.
 The example below shows the successful check for `2c28802`.
 
+The two **PR checks** entries are separate runs of the same workflow for this
+commit: PR events such as opening the PR and adding its label can each trigger
+a run. Both validate the classification label against the semantic PR title,
+check the required native project/source/distribution files and absence of
+Python files, and lint the GitHub workflows with `actionlint`. They do not
+connect to APEX or deploy; native verification is performed during staging and
+again in the deployment workflow.
+
 ![Successful PR checks for the latest change PR head](tests/walkthrough/github/03-pr-checks.jpg)
 
 Return to **Conversation**. While signed in with merge permission, use the
