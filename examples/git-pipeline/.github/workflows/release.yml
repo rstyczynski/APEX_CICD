@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       version_tag:
-        description: Published version tag, for example v1.0.2
+        description: Published version tag, for example v1.0.4
         required: true
         type: string
 permissions:
@@ -14,6 +14,7 @@ concurrency:
 jobs:
   deploy:
     if: github.ref == 'refs/heads/main'
+    environment: e3-lab
     runs-on: [self-hosted, macOS, ARM64, e3-lab]
     defaults:
       run:
@@ -22,6 +23,9 @@ jobs:
     env:
       GH_TOKEN: ${{ github.token }}
       VERSION_TAG: ${{ inputs.version_tag }}
+      TARGET_SCHEMA: ${{ vars.TARGET_SCHEMA }}
+      TARGET_WORKSPACE: ${{ vars.TARGET_WORKSPACE }}
+      TARGET_APP_ID: ${{ vars.TARGET_APP_ID }}
     steps:
       - name: Checkout workflow SQL from accepted main
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -44,44 +48,68 @@ jobs:
           git branch -f e3-base "$baseline"
           mkdir -p result
           echo "SOURCE_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - name: Set up native tools and job-scoped connections
+        id: native
+        uses: ./controller/.github/actions/setup-native
+        with:
+          db_connect: ${{ vars.DB_CONNECT }}
+          author_schema: ${{ vars.AUTHOR_SCHEMA }}
+          author_password: ${{ secrets.AUTHOR_PASSWORD }}
+          source_app_id: ${{ vars.SOURCE_APP_ID }}
+          target_schema: ${{ vars.TARGET_SCHEMA }}
+          target_password: ${{ secrets.TARGET_PASSWORD }}
+          target_workspace: ${{ vars.TARGET_WORKSPACE }}
+          target_app_id: ${{ vars.TARGET_APP_ID }}
+          target_alias: ${{ vars.TARGET_ALIAS }}
+      - name: Export generated job paths
+        env:
+          GENERATED_HOME: ${{ steps.native.outputs.sqlcl_home }}
+          GENERATED_PRIVATE: ${{ steps.native.outputs.private_dir }}
+          GENERATED_MAPPING: ${{ steps.native.outputs.defaults_file }}
+        run: |
+          {
+            echo "SQLCL_HOME=$GENERATED_HOME"
+            echo "PRIVATE_DIR=$GENERATED_PRIVATE"
+            echo "DEFAULTS_FILE=$GENERATED_MAPPING"
+          } >> "$GITHUB_ENV"
       - name: Native verification before target writes
         run: |
-          "$SQLCL" -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/verify.sql > result/verify.log 2>&1
+          sql -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/verify.sql > result/verify.log 2>&1
           cat result/verify.log
           grep -Eq 'Errors:[[:space:]]*0([^0-9]|$)' result/verify.log
           ! grep -Eq 'ORA-[0-9]+:|PLS-[0-9]+:|SP2-[0-9]+:|No database connection|Unknown Command' result/verify.log
       - name: Package selected Git state with SQLcl PROJECT
         run: |
-          "$SQLCL" -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/package.sql "${VERSION_TAG#v}" > result/package.log 2>&1
+          sql -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/package.sql "${VERSION_TAG#v}" > result/package.log 2>&1
           cat result/package.log
           test -f "artifact/e3-${VERSION_TAG#v}.zip"
       - name: Record private preservation baseline
         run: |
-          "$SQLCL" -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/snapshot.sql "$RUNNER_TEMP/e3-before-$GITHUB_RUN_ID.txt" > "$RUNNER_TEMP/e3-before-$GITHUB_RUN_ID.log" 2>&1
-          test -s "$RUNNER_TEMP/e3-before-$GITHUB_RUN_ID.txt"
+          sql -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/snapshot.sql "$PRIVATE_DIR/before.txt" "$TARGET_SCHEMA" > "$PRIVATE_DIR/before.log" 2>&1
+          test -s "$PRIVATE_DIR/before.txt"
       - name: Restrict application with native APEX availability
         run: |
-          "$SQLCL" -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/restrict.sql
+          sql -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/restrict.sql "$TARGET_SCHEMA" "$TARGET_WORKSPACE" "$TARGET_APP_ID"
       - name: Deploy native archive
         run: |
-          "$SQLCL" -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/deploy.sql "artifact/e3-${VERSION_TAG#v}.zip" "$PWD/utils/properties/e3.properties" > result/deploy.log 2>&1
+          sql -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/deploy.sql "artifact/e3-${VERSION_TAG#v}.zip" "$DEFAULTS_FILE" "$TARGET_SCHEMA" > result/deploy.log 2>&1
           cat result/deploy.log
           ! grep -Eq 'ORA-[0-9]+:|PLS-[0-9]+:|SP2-[0-9]+:|ERROR|SEVERE:|Unknown Command' result/deploy.log
       - name: Check retained business data before publication
         run: |
           # An APEX import can restore the source application's availability.
           # Reapply native restriction for checks; this is not atomic fencing.
-          "$SQLCL" -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/restrict.sql
-          "$SQLCL" -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/snapshot.sql "$RUNNER_TEMP/e3-after-$GITHUB_RUN_ID.txt" > "$RUNNER_TEMP/e3-after-$GITHUB_RUN_ID.log" 2>&1
-          cmp "$RUNNER_TEMP/e3-before-$GITHUB_RUN_ID.txt" "$RUNNER_TEMP/e3-after-$GITHUB_RUN_ID.txt"
+          sql -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/restrict.sql "$TARGET_SCHEMA" "$TARGET_WORKSPACE" "$TARGET_APP_ID"
+          sql -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/snapshot.sql "$PRIVATE_DIR/after.txt" "$TARGET_SCHEMA" > "$PRIVATE_DIR/after.log" 2>&1
+          cmp "$PRIVATE_DIR/before.txt" "$PRIVATE_DIR/after.txt"
       - name: Verify behavior and publish with native APEX availability
         run: |
-          "$SQLCL" -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/accept.sql
+          sql -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/accept.sql "$TARGET_SCHEMA" "$TARGET_WORKSPACE" "$TARGET_APP_ID"
       - name: Record release identity
         run: |
           archive_sha=$(shasum -a 256 "artifact/e3-${VERSION_TAG#v}.zip" | cut -d ' ' -f1)
-          jq -n --arg tag "$VERSION_TAG" --arg source "$SOURCE_SHA" --arg hash "$archive_sha" --arg run "$GITHUB_RUN_ID" \
-            '{version_tag:$tag,source_sha:$source,artifact_sha256:$hash,run_id:$run,target_schema:"E3_TARGET",target_application:810203,history_configuration_preserved:true,controller:"GitHub Actions",engine:"SQLcl PROJECT"}' > result/receipt.json
+          jq -n --arg tag "$VERSION_TAG" --arg source "$SOURCE_SHA" --arg hash "$archive_sha" --arg run "$GITHUB_RUN_ID" --arg schema "$TARGET_SCHEMA" --arg app "$TARGET_APP_ID" \
+            '{version_tag:$tag,source_sha:$source,artifact_sha256:$hash,run_id:$run,target_schema:$schema,target_application:($app|tonumber),history_configuration_preserved:true,controller:"GitHub Actions",engine:"SQLcl PROJECT"}' > result/receipt.json
       - name: Retain archive, native logs and receipt
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -91,3 +119,6 @@ jobs:
             application/artifact/*.zip
             application/result/*
           if-no-files-found: warn
+      - name: Remove private job material
+        if: always()
+        run: rm -rf -- "$RUNNER_TEMP/e3-private-$GITHUB_RUN_ID"

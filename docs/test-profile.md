@@ -1,5 +1,7 @@
 # Project test profile
 
+Current E.3 setup: [GitHub environment configuration and ephemeral native connections](../progress/E.3/sprint_E.3_github_configuration.md). No machine environment file or .local-apex settings are required; scratch is temporary only.
+
 E.3 correction: [native APEX/SQLcl with GitHub Actions control](../progress/E.3/sprint_E.3_native_correction.md) supersedes the earlier Python wrapper and recurring source adapter.
 
 E.3 execution update — 2026-11-03: the Product Owner approved the bounded
@@ -226,20 +228,28 @@ The operator entry point for that source review is `bash scripts/cicd-protection
 
 ## E.3 implemented pipeline checks
 
-The [E.3 test specification](../progress/E.3/sprint_E.3_design.md#test-specification)
-is implemented in the centralized delivery-domain tests. Run
-`bash tests/run.sh --smoke --new-only progress/E.3/new_tests.manifest` and
+The [E.3 specification](../progress/E.3/sprint_E.3_design.md#test-specification)
+retains SM-1/IT-1/IT-2. Current setup and evidence belong to the
+[GitHub configuration record](../progress/E.3/sprint_E.3_github_configuration.md).
+Run `bash tests/run.sh --smoke --new-only progress/E.3/new_tests.manifest` and
 `bash tests/run.sh --integration --new-only progress/E.3/new_tests.manifest`.
-The actual registered totals are 1/1 and 2/2 passed. Full smoke regression
-`bash tests/run.sh --smoke` passed 2/2, retaining the separate E.1 SQLcl client.
-The [test record](../progress/E.3/sprint_E.3_tests.md) links timestamped logs,
-remote runs and required private/current-state prerequisites.
+Current totals are 1/1 and 2/2 passed; `bash tests/run.sh --smoke` passed 2/2.
+Parent checks use gh/read access, actionlint, jq, Git, Node, curl and shasum.
+They require no private local database settings or retained source/data clone.
 
-SM-1 covers actionlint, trigger/runner boundaries and nine label/title examples.
-IT-1 re-queries merged PRs, tag and successful manual deployment, verifies the
-actual downloaded archive hash and both changelogs, and compares live Oracle
-business fields with their private baseline. IT-2 removes an included native
-changeset in a disposable clone, requires real verification failure and checks
-the target remains unchanged. Browser Home/history checks are separately
-recorded rather than simulated as automated browser coverage. General recovery,
-parallelism, drift/fencing and full identity coverage remain outside this slice.
+SM-1 covers actionlint, trigger/runner/configuration boundaries and nine PR label/
+title cases. IT-1 re-queries accepted PRs/tag/manual run, downloads actual artifacts,
+checks archive identity and both changelogs, and requires successful native setup,
+retained-field comparison and cleanup steps. IT-2 consumes a fresh attributable
+qualification run: native valid-source verification, deliberate missing changeset
+rejection, unchanged target and no deployment. That manual workflow creates its
+own temporary connections from GitHub configuration and uses the same setup action.
+Root tests download evidence into new OS temporary directories and remove it.
+
+The platform smoke was adapted explicitly: it now reads ORDS/application settings
+from GitHub and checks live ORDS plus the database-backed APEX login, retaining
+cookies temporarily for APEX redirects. Historical E.1 five-schema identity/client
+checks are not silently represented as re-executed, nor are broader identity
+requirements marked complete. Native deployment/session checks remain in GitHub;
+actual authenticated browser Home/history observations remain separate evidence.
+Broader drift/fencing, parallelism, identity and recovery proof remains deferred.

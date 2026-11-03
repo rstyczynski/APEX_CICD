@@ -1,0 +1,11 @@
+{
+  "version_tag": "v1.0.4",
+  "source_sha": "fbda57a0cbe4d32961ad826852bd04394a500c11",
+  "artifact_sha256": "d66d6cb7a267e491fc20f6cfd48b62708128a40a4b9e4dc7ecbf60c3dff2cc8b",
+  "run_id": "41679427616",
+  "target_schema": "E3_TARGET",
+  "target_application": 810203,
+  "history_configuration_preserved": true,
+  "controller": "GitHub Actions",
+  "engine": "SQLcl PROJECT"
+}

@@ -1,0 +1,4 @@
+RUN smoke:test_pipeline.sh:test_SM1_pipeline_contract
+PASS native workflow boundary and 9 PR classification cases
+PASS test_SM1_pipeline_contract
+Tests: 1; failed: 0

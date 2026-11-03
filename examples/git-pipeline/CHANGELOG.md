@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/rstyczynski/APEX_CICD_E3/compare/v1.0.3...v1.0.4) (2026-11-03)
+
+
+### Bug Fixes
+
+* configure native workflows through GitHub environments ([#9](https://github.com/rstyczynski/APEX_CICD_E3/issues/9)) ([a1f2b50](https://github.com/rstyczynski/APEX_CICD_E3/commit/a1f2b504bfeb8351da6dfa71eadbbaa7861d3306))
+
 ## [1.0.3](https://github.com/rstyczynski/APEX_CICD_E3/compare/v1.0.2...v1.0.3) (2026-11-03)
 
 

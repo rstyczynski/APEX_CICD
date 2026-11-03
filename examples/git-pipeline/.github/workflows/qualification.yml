@@ -1,0 +1,85 @@
+name: Qualify native verification gate
+on:
+  workflow_dispatch:
+    inputs:
+      version_tag:
+        description: Accepted version to verify, without deployment
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: e3-lab-deployment
+  cancel-in-progress: false
+jobs:
+  qualify:
+    if: github.ref == 'refs/heads/main'
+    environment: e3-lab
+    runs-on: [self-hosted, macOS, ARM64, e3-lab]
+    defaults:
+      run:
+        shell: bash
+        working-directory: application
+    env:
+      VERSION_TAG: ${{ inputs.version_tag }}
+      TARGET_SCHEMA: ${{ vars.TARGET_SCHEMA }}
+    steps:
+      - name: Checkout accepted native controls
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          path: controller
+      - name: Checkout application history
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          path: application
+      - name: Select qualification source
+        run: |
+          [[ "$VERSION_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          git checkout -B e3-qualification "$VERSION_TAG^{commit}"
+          git merge-base --is-ancestor HEAD origin/main
+          git branch -f e3-base "$(jq -er .baseline_sha pipeline.json)"
+          mkdir -p result
+      - name: Set up native tools and job-scoped connections
+        id: native
+        uses: ./controller/.github/actions/setup-native
+        with:
+          db_connect: ${{ vars.DB_CONNECT }}
+          author_schema: ${{ vars.AUTHOR_SCHEMA }}
+          author_password: ${{ secrets.AUTHOR_PASSWORD }}
+          source_app_id: ${{ vars.SOURCE_APP_ID }}
+          target_schema: ${{ vars.TARGET_SCHEMA }}
+          target_password: ${{ secrets.TARGET_PASSWORD }}
+          target_workspace: ${{ vars.TARGET_WORKSPACE }}
+          target_app_id: ${{ vars.TARGET_APP_ID }}
+          target_alias: ${{ vars.TARGET_ALIAS }}
+      - name: Reject missing changeset with target unchanged
+        env:
+          SQLCL_HOME: ${{ steps.native.outputs.sqlcl_home }}
+          PRIVATE_DIR: ${{ steps.native.outputs.private_dir }}
+        run: |
+          sql -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/verify.sql > result/positive.log 2>&1
+          grep -Eq 'Errors:[[:space:]]*0([^0-9]|$)' result/positive.log
+          sql -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/snapshot.sql "$PRIVATE_DIR/before.txt" "$TARGET_SCHEMA" > "$PRIVATE_DIR/before.log" 2>&1
+          missing=$(find dist/releases/next/changes -name '*.sql' -type f -print -quit)
+          test -n "$missing"
+          rm "$missing"
+          if sql -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/verify.sql > result/negative.log 2>&1; then :; fi
+          if grep -Eq 'Errors:[[:space:]]*0([^0-9]|$)' result/negative.log; then
+            echo 'Expected native rejection was not observed'; exit 1
+          fi
+          grep -Eq 'stagechangelogfilesvalid|stagechangelogcomplete' result/negative.log
+          sql -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/snapshot.sql "$PRIVATE_DIR/after.txt" "$TARGET_SCHEMA" > "$PRIVATE_DIR/after.log" 2>&1
+          cmp "$PRIVATE_DIR/before.txt" "$PRIVATE_DIR/after.txt"
+          jq -n --arg source "$(git rev-parse HEAD)" --arg run "$GITHUB_RUN_ID" \
+            '{source_sha:$source,run_id:$run,positive_native_verify:true,missing_changeset_rejected:true,target_unchanged:true,deployment_called:false}' > result/qualification.json
+      - name: Retain native qualification evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: e3-qualification-${{ github.run_id }}
+          path: application/result/*
+          if-no-files-found: warn
+      - name: Remove private job material
+        if: always()
+        run: rm -rf -- "$RUNNER_TEMP/e3-private-$GITHUB_RUN_ID"

@@ -26,10 +26,24 @@ after import. This bounded gate does not prove atomic maintenance fencing.
 The SQL files contain native commands and small lab assertions. Shell snippets
 inside the workflow perform Git/CLI operations and compare outputs; jq validates
 PR metadata and writes the nonsecret receipt. No standalone orchestration script
-is used. SQLcl saved connections and private runner environment stay outside Git.
+is used. GitHub environment variables/secrets supply configuration; the setup-native
+action installs Java/SQLcl and generates new job-scoped SQLcl connections and
+mapping properties under RUNNER_TEMP. Always-run cleanup removes them. No
+machine environment file or retained connection store is used. The official
+runner registration belongs outside the checkout; .local-apex is scratch only.
 
 baseline.bundle retains the reviewed native source/distribution and release
 history. Its current main and latest release contain no Python. Earlier commits
 and older tags preserve the superseded implementation as historical evidence;
 no history is rewritten. Use `git bundle verify` before cloning. Native
 verification is mandatory; the E.2 assessment waiver is not reused.
+
+The manual-only qualification workflow exercises native missing-changeset
+rejection without deployment. It shares the setup action and lab concurrency.
+See the [GitHub configuration guide](../../progress/E.3/sprint_E.3_github_configuration.md)
+for configuration ownership, exact fields and actual run evidence.
+
+The parent lab includes an executable [local runner launcher](../../scripts/e3-runner.sh).
+It installs/registers the official runner and checks local Oracle/ORDS reachability
+using GitHub variables. It stores runner registration outside the checkout,
+clears retired inherited settings and starts the foreground lab runner.

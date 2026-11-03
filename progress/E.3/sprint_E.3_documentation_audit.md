@@ -190,3 +190,41 @@ manual explicitly requires prepared private lab state. Existing unrelated
 Product Owner edits to fresh-setup requirements/backlog are preserved.
 Final local link, source, whitespace and credential-value checks are recorded
 in the native correction checks receipt before the scoped completion commit.
+
+## GitHub configuration and local-runner correction
+
+The Product Owner rejected machine environment files and confirmed that the lab
+uses a local runner with a runnable repository script. The
+[configuration record](sprint_E.3_github_configuration.md), manual, walkthrough,
+design, README, SRS, test profile, PLAN and AGENTS policy now state GitHub
+configuration ownership and temporary-only scratch. PBI-054's wording was
+corrected without assigning/closing it or claiming a new-operator infrastructure
+proof. The retired E.3 native.env/lab.json/custom launch helper were deleted;
+native runner registration moved outside the checkout. No OS service was
+installed; the latest Product Owner direction is the foreground lab launcher.
+
+The executable scripts/e3-runner.sh was checked with bash -n; help, preflight,
+status, existing-registration setup and real launch were exercised. It reached
+Oracle TCP and ORDS HTTP, then executed the final 1.0.4 release and qualification
+through the official runner. Bootstrap on a different machine was not claimed.
+
+A1 1/1, A3 2/2 and B1 2/2 passed. The updated platform smoke checks actual
+ORDS/APEX login using GitHub configuration; it does not re-run the historical
+five-schema identity checks through retired local configuration. The first
+HTTP probe lacked cookie persistence and failed on redirects; this test issue
+was corrected with an OS-temporary cookie jar and rechecked successfully.
+Native missing-changeset rejection and private cleanup passed on GitHub. Browser
+authentication, heading and retained history were observed again. Downloaded
+artifacts/evidence use OS temporary directories; no environment state is read
+from .local-apex. Its remaining presentation build/cache usage is disposable.
+
+The deck adds a configuration/topology slide and updates the walkthrough map
+to 13 slides. Final package/layout/import checks, individual slide inspection,
+local links, source matching and executable checks are recorded in the GitHub
+configuration evidence receipts before the scoped completion commit.
+
+### Runner setup explanation correction — 2026-11-03
+
+The Product Owner requested explicit setup documentation in the implementation record and presentation pair. The manual already contained the setup and launch commands; the implementation record and walkthrough only linked to the launcher, and slide 4 omitted setup. The [implementation record](sprint_E.3_implementation.md#current-runner-installation-and-launch), [walkthrough stage 5](sprint_E.3_increment_demo.md#5-deployer-selects-the-version) and PPTX slide 4 now distinguish one-time installation/registration from starting the foreground listener each lab session. They state the persistent directory, expected output, GitHub authentication and connectivity prerequisites, retained matching registration and the boundary between runner setup, existing lab infrastructure and workflow tool setup.
+
+This documentation correction was checked against the actual launcher source. Script syntax, local links/anchors, PPTX package/layout and first-party import passed. Slide 4 was visually inspected; the other 12 rendered PNGs are byte-identical to the previous inspected revision. One density warning on slide 4 was reviewed and accepted with readable, unclipped text. The [presentation receipt](tests/github-presentation-checks.json) now identifies the revised canonical deck; [documentation checks](tests/runner-setup-document-checks.json) record this scope. Setup and live runner execution were not repeated for this text-only change; prior operational evidence remains historical. No sprint or PBI status was changed.

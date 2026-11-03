@@ -60,6 +60,8 @@ A/B/C use **E1_DEV_A/B/C**, applications **810001/810002/810003**. The disposabl
 
 Current A–C scripts replay reviewed sequential Git snapshots. Independent task branches, genuine parallel Hello/World integration and hosted PR/CI execution are proposed extensions, not demonstrated by that replay. Ignored `.local-apex/` contains local tools, credentials, staging, release archives and host evidence; credentials and runtime business data stay outside Git.
 
+Workflows must prepare tools and generated files through explicit setup and obtain environment settings and credentials from their configuration platform. **`.local-apex/` is disposable scratch only**, never an environment-settings or credential store. E.3 uses GitHub variables/secrets and job-scoped temporary SQLcl connections, as described in the [configuration guide](progress/E.3/sprint_E.3_github_configuration.md). [SRS NFR-4](docs/srs.md#quality-requirements-and-initial-release) and [PBI-054](BACKLOG.md#pbi-054-generate-the-complete-local-environment-from-a-fresh-checkout) retain the broader independent-operator/lab setup proof; a machine-specific environment file is not the required solution.
+
 ## Run the walkthrough
 
 Clone with the delivery-method submodule:
@@ -135,7 +137,7 @@ retains component-contract/SemVer follow-up. Complex Foundation upgrades stay E.
 E.3 inherits E.2 native APEX/SQLcl capabilities, uses GitHub Actions as controller
 and removes every E.3 Python helper and recurring source adapter. It implemented
 the Working Copy/Git happy path and deployed selected tag
-[v1.0.3](https://github.com/rstyczynski/APEX_CICD_E3/releases/tag/v1.0.3)
+[v1.0.4](https://github.com/rstyczynski/APEX_CICD_E3/releases/tag/v1.0.4)
 through a manually dispatched workflow in the private
 [application repository](https://github.com/rstyczynski/APEX_CICD_E3).
 PR labels and matching Conventional Commit squash titles feed Release Please's
@@ -151,7 +153,7 @@ Start the [end-to-end walkthrough](progress/E.3/sprint_E.3_increment_demo.md),
 Native source/distribution verification, hosted checks, the selected-tag run,
 retained business fields, browser behavior and missing-changeset rejection passed.
 The first remote run failed before deployment and its workflow correction is
-retained. The release/tag is 1.0.3 while APEX's display footer remains 1.0.0;
+retained. The release/tag is 1.0.4 while APEX's display footer remains 1.0.0;
 automatic display-version stamping was not qualified.
 
 PBI-053 and its three children are tested. E.3 remains Progress pending separate
@@ -163,6 +165,11 @@ The [native correction record](progress/E.3/sprint_E.3_native_correction.md)
 links the final workflow, source, archive and fresh gates. It preserves the
 intermediate 1.0.2 browser failure and the native APEX_SESSION check added before
 publication.
+
+Run the versioned local lab runner with [scripts/e3-runner.sh](scripts/e3-runner.sh).
+The [GitHub configuration guide](progress/E.3/sprint_E.3_github_configuration.md)
+defines environment variables/secrets and generated job setup; no native.env or
+.local-apex settings are required. .local-apex is disposable scratch only.
 
 ## Vision
 

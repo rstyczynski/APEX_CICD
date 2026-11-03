@@ -1,0 +1,20 @@
+{
+  "script": "scripts/e3-runner.sh",
+  "sha256": "569146b3fae94d4cd9a74a77a3d24444ae1211d9de964b4ae29977d77b4cc9ff",
+  "executable": true,
+  "bash_syntax": "passed",
+  "shellcheck_bash": "passed",
+  "exercised": [
+    "help",
+    "existing-registration setup",
+    "preflight",
+    "status",
+    "actual launch"
+  ],
+  "oracle_tcp_access": true,
+  "ords_http_access": true,
+  "successful_deploy_run": 41679427616,
+  "successful_qualification_run": 41679432928,
+  "fresh_independent_host_setup_claimed": false,
+  "os_service_installed": false
+}

@@ -1,5 +1,7 @@
 # E.3 — Native inheritance correction
 
+Configuration update: the [GitHub-owned setup](sprint_E.3_github_configuration.md) supersedes every retained-local-file/tool-path assumption below. Earlier run results remain historical evidence for their original revisions.
+
 The Product Owner explicitly required removal of E.3 Python and use of native
 APEX tools with GitHub Actions as controller on 2026-11-03. This corrects the
 initial handover and supersedes its recurring source adapter. The

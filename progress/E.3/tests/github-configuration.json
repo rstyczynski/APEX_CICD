@@ -1,0 +1,29 @@
+{
+  "environment": "e3-lab",
+  "variables": [
+    "AUTHOR_SCHEMA",
+    "DB_CONNECT",
+    "ORDS_URL",
+    "SOURCE_APP_ID",
+    "TARGET_ALIAS",
+    "TARGET_APP_ID",
+    "TARGET_SCHEMA",
+    "TARGET_WORKSPACE"
+  ],
+  "secret_names_only": [
+    "AUTHOR_PASSWORD",
+    "TARGET_PASSWORD"
+  ],
+  "branch_policy": [
+    {
+      "name": "main",
+      "type": "branch"
+    }
+  ],
+  "native_env_removed": true,
+  "e3_lab_json_removed": true,
+  "launcher": "scripts/e3-runner.sh",
+  "registration": "~/actions-runner-e3",
+  "runtime_configuration": "GitHub environment; job-generated RUNNER_TEMP connections/mapping",
+  "os_service_installed": false
+}

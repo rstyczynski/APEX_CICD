@@ -1,0 +1,10 @@
+{
+  "scope": "Runner setup documentation only",
+  "local_links_and_anchors": 31,
+  "result": "pass",
+  "script_syntax": "bash -n passed",
+  "setup_and_live_runner_reexecuted": false,
+  "presentation_sha256": "636e5ff6c7d63b6d17dd82b58a79dc23fba92ebb66cfce43ea45e9401054f928",
+  "changed_slide": 4,
+  "unchanged_render_hashes": 12
+}

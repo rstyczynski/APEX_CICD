@@ -391,3 +391,11 @@ Demonstrate a small architecture prototype in which a developer's Working Copy c
 Test: Demonstrate one Working Copy change through a manually opened pull request, accepted merge and manually triggered release to a lab target, with visible application behavior and traceable source and artifact evidence.
 
 Status: Proposed
+
+### PBI-054. Generate the complete local environment from a fresh checkout
+
+Enable any operator with repository access and the documented prerequisites to generate every local file required to prepare and run the supported laboratory and workflows from a fresh checkout. Use declared platform configuration and reproducible tool/connection setup, with persistent infrastructure registration managed outside temporary checkout state. Do not require machine-specific environment files or copy another operator's private files, paths or retained lab. Obtain secrets and account authorization from the operator through documented inputs and keep them private; generate fresh local state rather than requiring another operator's credentials or business data.
+
+Test: Demonstrate an independent operator starting from a fresh checkout with no local state, obtaining configuration through the supported platform, generating required temporary files through documented setup steps, and completing the supported walkthrough and workflow with newly supplied credentials and no copied private files or machine-specific environment files.
+
+Status: Proposed

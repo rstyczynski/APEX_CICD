@@ -24,6 +24,12 @@ minor|feat!: title
 CASES
   test -z "$(find "$example" -name '*.py' -print -quit)"
   ! rg -n 'python|scripts/(lab|release|capture)' "$example/.github" "$example/sql"
+  ! rg -n '\.local-apex|native\.env|\$SQLCL"' "$example/.github" "$example/sql"
+  rg -q 'environment: e3-lab' "$example/.github/workflows/release.yml"
+  rg -q 'actions/setup-java@' "$example/.github/actions/setup-native/action.yml"
+  rg -q 'GITHUB_PATH' "$example/.github/actions/setup-native/action.yml"
+  rg -q 'secrets.TARGET_PASSWORD' "$example/.github/workflows/release.yml"
+  ! rg 'project deploy|sql/deploy.sql' "$example/.github/workflows/qualification.yml"
   test "$(rg -c '^  workflow_dispatch:' "$example/.github/workflows/release.yml")" = 1
   ! rg '^  (push|pull_request|release):' "$example/.github/workflows/release.yml"
   rg -q 'project export' "$example/sql/capture.sql"

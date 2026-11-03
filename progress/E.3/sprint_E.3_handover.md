@@ -1,62 +1,76 @@
-# E.3 — Corrected native technical handover
+# E.3 — Native pipeline and local runner handover
 
-The Product Owner rejected the recurring E1 source adaptation and instructed:
-remove E.3 Python, inherit E.2 native achievements and use GitHub Actions as
-controller. That direction governs this handover. See the
-[native correction record](sprint_E.3_native_correction.md),
-[walkthrough](sprint_E.3_increment_demo.md), [operator manual](user_manual.md),
-[editable deck](sprint_E.3_increment_demo.pptx) and
-[accepted design refinement](sprint_E.3_design.md#product-owner-correction--native-tools-and-github-control).
-[PLAN](../../PLAN.md) retains E.3 as Progress; final acceptance is separate.
+The requested lab entry point is the executable
+[scripts/e3-runner.sh](../../scripts/e3-runner.sh). From the laboratory repository
+root, the lab operator can retain/configure the official local runner and start it:
 
-## Delivered path
+```bash
+./scripts/e3-runner.sh setup
+./scripts/e3-runner.sh
+```
 
-APEX Working Copy → native compare/merge to agreed Main → native SQLcl PROJECT
-export/stage/verify → manually opened classified Git PR → squash merge → Release
-Please release PR with version.txt/CHANGELOG.md → tag/GitHub Release notes →
-deployer explicitly selects the version → GitHub Actions runs native verify,
-packaging, deployment and APEX acceptance/publication steps.
+The launcher was exercised, reached local Oracle/ORDS and ran both the selected-tag
+deployment and native rejection check. It remains a foreground local lab runner,
+as explicitly requested; no OS service was installed. Once it is online, the
+deployer only selects a published version tag and dispatches the release workflow.
 
-Main's native baseline is established in App Builder. Capture no longer modifies
-exported SQL/YAML. SQLcl PROJECT is the migration/package engine, native APEX
-availability controls restriction/publication and APEX_SESSION validates
-initialization. GitHub Actions provides the controller. PR metadata validation
-uses jq; command steps use standard Git/CLI operations. There are no Python
-pipeline, preparation, runner or evidence helpers, nor shell release controllers.
+The [manual](user_manual.md) defines configuration, setup and operation. The
+[configuration record](sprint_E.3_github_configuration.md),
+[walkthrough](sprint_E.3_increment_demo.md),
+[editable deck](sprint_E.3_increment_demo.pptx),
+[design](sprint_E.3_design.md) and [audit](sprint_E.3_documentation_audit.md)
+connect implementation, evidence and limits.
 
-The original heading change and Working Copy/Main comparison remain valid
-historical authoring evidence. PRs6/7 correct the implementation; release PR8
-prepares 1.0.3. The correction record identifies the final source, manual run,
-archive identity, browser results and fresh gates. It also preserves the failed
-1.0.2 browser check instead of equating a green workflow with working software.
+## Current delivered boundary
 
-## Reuse and operation
+GitHub environment e3-lab owns eight nonsecret variables and two encrypted
+schema-password secrets, restricted to main. Workflow setup explicitly installs
+Java and pinned SQLcl, adds sql to PATH, generates private native connections
+and target mappings under RUNNER_TEMP, and cleans them afterward. No machine
+native.env, retained local SQLcl store, committed target properties or .local-apex
+settings are used. .local-apex is disposable scratch only. Runner registration
+is persistent host infrastructure outside the checkout. AGENTS and NFR-4 now
+record that boundary; PBI-054 retains the broader independent-operator/lab proof.
 
-[examples/git-pipeline](../../examples/git-pipeline/README.md) contains the
-workflow/SQL configuration and bundled native application history. Use the
-existing prepared target E3_TARGET/810203 and official runner e3-lab-mac. Start
-it with its own `./run.sh`, using the private SQLcl/Java environment. Saved SQLcl
-connections supply credentials; they are not committed or included in artifacts.
-The manual explains the native commands and release selection. Old Working
-Copies must refresh Main's application definition before later merges.
+Native APEX Working Copies/Main and SQLcl PROJECT provide the inherited source,
+verification, packaging and migration path. GitHub Actions controls ordered steps.
+The versioned Bash launcher manages local runner infrastructure; it is not a
+migration/release controller. There is no Python implementation or recurring
+source adapter in the E.3 pipeline.
 
-Only the explicitly selected version is deployed. PR merges, tags and GitHub
-Release publication do not trigger deployment. Separate accepted-main control
-and selected-tag application checkouts preserve those identities. Business
-snapshots remain private; artifacts contain native archives/logs and a receipt.
-Retained UAT and historical E.1/E.2 evidence remain intact.
+## Executed result
 
-## Scope and acceptance boundary
+[Version 1.0.4](https://github.com/rstyczynski/APEX_CICD_E3/releases/tag/v1.0.4)
+was explicitly selected in
+[deployment 41679427616](https://github.com/rstyczynski/APEX_CICD_E3/actions/runs/41679427616).
+It passed explicit tool/connection setup, native verification, packaging,
+deployment, retained-field comparison, native APEX session validation and cleanup.
+The [receipt](tests/github-release-receipt.json) binds source and native ZIP hash.
+The separate [qualification 41679432928](https://github.com/rstyczynski/APEX_CICD_E3/actions/runs/41679432928)
+proved a missing included changeset is rejected with target unchanged, without
+calling deployment. These jobs ran through the repository's local launcher.
 
-PBI-053 and children .1/.2/.3 retain their approved prototype criteria and the
-SM-1/IT-1/IT-2 checks. The correction does not expand the sprint into a complete
-solution. Native import can restore source availability; reapplying restriction
-after import does not prove atomic fencing. Full concurrency, drift/identity
-coverage, production privileges and general DDL recovery remain deferred.
-Native session validation does not replace actual password authentication.
-The APEX footer remains 1.0.0, distinct from the repository release version.
+New smoke passed 1/1, integration 2/2 and full smoke 2/2. Browser sign-in as
+LAB_USER showed the expected Home heading and the original Hello World history
+row. [Browser observation](tests/github-browser.json) and
+[gate evidence](sprint_E.3_github_configuration.md#verification-scope) retain the
+results, including the initial HTTP-test cookie correction. Configuration/private
+connection files and raw business snapshots are absent from uploaded artifacts.
+GitHub-hosted runners do not access this localhost lab; the local runner uses
+its published Oracle/ORDS network ports and needs no APEX installation files.
 
-The earlier handover was corrected following Product Owner feedback. Technical
-verification and Product Owner acceptance remain distinct. No final acceptance,
-sprint closure or next sprint activation is inferred. The
-[documentation audit](sprint_E.3_documentation_audit.md) records the revision.
+## Scope and acceptance
+
+PBI-053 and children .1/.2/.3 retain the approved bounded architecture-prototype
+criteria and remain tested. Ordinary PR integration, automated version/changelog
+preparation and manual deployment remain separate. Both CHANGELOG.md and GitHub
+Release notes are generated; no PR merge/tag publication triggers deployment.
+
+This does not complete independent clean-lab provisioning, full drift/identity/
+fencing, general DDL recovery or production operation. Native import may restore
+source availability; status gating is not atomic fencing. The inherited APEX
+footer remains 1.0.0, distinct from the Git release version. Historical E.1/E.2
+and earlier E.3 evidence remains attributable to its original revision.
+
+Technical handover is delivered. PLAN remains Progress pending separate Product
+Owner acceptance/closure; no next sprint or unscheduled PBI completion is inferred.

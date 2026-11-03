@@ -1,0 +1,7 @@
+RUN smoke:test_platform.sh:test_SM1_platform
+curl: (47) Maximum (50) redirects followed
+FAIL test_SM1_platform
+RUN smoke:test_pipeline.sh:test_SM1_pipeline_contract
+PASS native workflow boundary and 9 PR classification cases
+PASS test_SM1_pipeline_contract
+Tests: 2; failed: 1

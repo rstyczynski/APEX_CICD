@@ -1,0 +1,12 @@
+{
+  "version_tag": "v1.0.4",
+  "application": 810203,
+  "authenticated_as": "LAB_USER",
+  "observed_heading": "Hello World - Git pipeline",
+  "history_greeting": "Hello World",
+  "history_rows": 1,
+  "actor": "E3_TARGET",
+  "footer": "1.0.0",
+  "local_runner_launcher": "scripts/e3-runner.sh",
+  "initialization_error": false
+}

@@ -1,5 +1,7 @@
 # E.3 — Implementation record
 
+Configuration update: the [GitHub-owned setup](sprint_E.3_github_configuration.md) supersedes every retained-local-file/tool-path assumption below. Earlier run results remain historical evidence for their original revisions.
+
 Current correction — 2026-11-03: the Product Owner required native APEX/SQLcl
 and GitHub Actions control, with all E.3 Python removed. The
 [native correction record](sprint_E.3_native_correction.md) supersedes the earlier
@@ -48,7 +50,7 @@ of E.1 fencing/ownership guarantees.
 
 The three workflows and thin scripts are versioned in
 [examples/git-pipeline](../../examples/git-pipeline/), with a baseline Git bundle
-and [preparation script](user_manual.md#prepared-laboratory) preserving source provenance.
+and [preparation script](user_manual.md#configuration-ownership) preserving source provenance.
 PR checks validate exactly one patch/minor/major label against the Conventional
 Commit title, run source/shell checks and actionlint. Squash merge retains that
 title. Release Please generates the version/changelog release PR; both that
@@ -63,12 +65,18 @@ this is not an independent human peer-review claim.
 
 ## PBI-053.3 — Manual deployment and handover
 
+### Current runner installation and launch
+
+The versioned [runner launcher](../../scripts/e3-runner.sh) implements installation separately from starting the listener. From the parent laboratory repository root, `./scripts/e3-runner.sh setup` prepares a new macOS ARM64 host: it downloads GitHub runner 2.338.2, verifies its pinned SHA-256, extracts it into `~/actions-runner-e3`, obtains a short-lived registration token through the operator's authenticated `gh` session and invokes the official `config.sh` for the private application repository with label `e3-lab`. A matching existing registration is retained; an unrelated or nonempty unregistered directory is rejected. Setup finishes by checking the GitHub-configured Oracle TCP and ORDS HTTP endpoints.
+
+Installation and registration are required once per new runner host so GitHub can assign jobs to it. For subsequent lab sessions, `./scripts/e3-runner.sh` checks registration and endpoint access, clears inherited operator tokens and retired tool settings, then starts the official foreground `run.sh`. Wait for **Listening for Jobs** and keep the terminal open; Control-C stops it. Setup does not start a listener or provision Oracle/APEX/ORDS. Java, SQLcl and temporary job connections are prepared by the workflow. The [manual](user_manual.md#runner-infrastructure-and-workflow-setup) owns prerequisites and options; [walkthrough stage 5](sprint_E.3_increment_demo.md#5-deployer-selects-the-version) and presentation slide 4 show the operator sequence. The following initial-run account is historical.
+
 A dedicated runner, e3-lab-mac, is registered only to the private demo repository.
 The official runner archive SHA-256 was checked before extraction. Registration
 required running outside the filesystem sandbox after .NET initialization failed.
 No OS service was installed. PR/version jobs run on hosted runners; only the
 manually dispatched lab deployment uses this local runner and private connection
-configuration. [Runner entry point](user_manual.md#manual-deployment-and-runner) starts it for
+configuration. [Runner entry point](user_manual.md#runner-infrastructure-and-workflow-setup) starts it for
 future use. Run results, evidence and final limitations belong in the test and
 handover records as they become available.
 

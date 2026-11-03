@@ -1,0 +1,15 @@
+{
+  "change_pr": 9,
+  "release_pr": 10,
+  "release_checks_run": 41676987381,
+  "version_tag": "v1.0.4",
+  "source_sha": "fbda57a0cbe4d32961ad826852bd04394a500c11",
+  "deploy_run": 41679427616,
+  "qualification_run": 41679432928,
+  "initial_deploy_run": 41677666720,
+  "initial_qualification_run": 41677672274,
+  "environment": "e3-lab",
+  "runner_launcher": "scripts/e3-runner.sh",
+  "runner_type": "local self-hosted",
+  "private_settings_source": "GitHub environment variables/secrets"
+}

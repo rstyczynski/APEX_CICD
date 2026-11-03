@@ -1,0 +1,7 @@
+RUN integration:test_pipeline.sh:test_IT1_manual_release
+PASS fresh GitHub evidence: explicit tool setup, selected tag/archive, changelogs, preservation and cleanup
+PASS test_IT1_manual_release
+RUN integration:test_pipeline.sh:test_IT2_verification_blocks_deploy
+PASS real native missing-changeset rejection in GitHub; target unchanged; no deployment
+PASS test_IT2_verification_blocks_deploy
+Tests: 2; failed: 0

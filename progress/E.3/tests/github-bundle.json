@@ -1,0 +1,8 @@
+{
+  "path": "examples/git-pipeline/baseline.bundle",
+  "sha256": "c74b4357eced232e8b8241796d736c7100129cf29b3ae8ffd4cc4fbfe8b9cfc9",
+  "main": "fbda57a0cbe4d32961ad826852bd04394a500c11",
+  "latest_tag": "v1.0.4",
+  "bundle_verification": "passed",
+  "historical_revisions_retained": true
+}

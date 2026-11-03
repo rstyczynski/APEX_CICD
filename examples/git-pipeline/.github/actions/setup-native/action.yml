@@ -1,0 +1,98 @@
+name: Set up native Oracle tools and job connections
+description: Install pinned SQLcl and Java; create private, job-scoped SQLcl connections from GitHub configuration.
+inputs:
+  db_connect:
+    required: true
+    description: Oracle host:port/service
+  author_schema:
+    required: true
+    description: Authoring schema
+  author_password:
+    required: true
+    description: Authoring database password from an environment secret
+  source_app_id:
+    required: true
+    description: Source APEX application identifier
+  target_schema:
+    required: true
+    description: Deployment schema
+  target_password:
+    required: true
+    description: Target database password from an environment secret
+  target_workspace:
+    required: true
+    description: Target APEX workspace
+  target_app_id:
+    required: true
+    description: Target APEX application identifier
+  target_alias:
+    required: true
+    description: Target APEX alias
+outputs:
+  private_dir:
+    description: Temporary directory to clean at job completion
+    value: ${{ steps.connections.outputs.private_dir }}
+  sqlcl_home:
+    description: Generated private SQLcl connection store
+    value: ${{ steps.connections.outputs.sqlcl_home }}
+  defaults_file:
+    description: Generated native deployment mapping
+    value: ${{ steps.connections.outputs.defaults_file }}
+runs:
+  using: composite
+  steps:
+    - name: Set up Java 21
+      uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3 # v4
+      with:
+        distribution: temurin
+        java-version: '21'
+    - name: Install verified SQLcl on PATH
+      shell: bash
+      env:
+        SQLCL_URL: https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-25.4.1.022.0618.zip
+        SQLCL_SHA256: b717d83aa1a7ada2ca38e7c8be5b369ea6a2f9f50c5fdb55e18d263b471ecab9
+      run: |
+        curl --fail --location --retry 3 "$SQLCL_URL" -o "$RUNNER_TEMP/sqlcl.zip"
+        echo "$SQLCL_SHA256  $RUNNER_TEMP/sqlcl.zip" | shasum -a 256 -c -
+        unzip -q "$RUNNER_TEMP/sqlcl.zip" -d "$RUNNER_TEMP/e3-tools"
+        chmod +x "$RUNNER_TEMP/e3-tools/sqlcl/bin/sql"
+        echo "$RUNNER_TEMP/e3-tools/sqlcl/bin" >> "$GITHUB_PATH"
+    - name: Generate private job connections and native mapping
+      id: connections
+      shell: bash
+      env:
+        DB_CONNECT: ${{ inputs.db_connect }}
+        AUTHOR_SCHEMA: ${{ inputs.author_schema }}
+        AUTHOR_PASSWORD: ${{ inputs.author_password }}
+        SOURCE_APP_ID: ${{ inputs.source_app_id }}
+        TARGET_SCHEMA: ${{ inputs.target_schema }}
+        TARGET_PASSWORD: ${{ inputs.target_password }}
+        TARGET_WORKSPACE: ${{ inputs.target_workspace }}
+        TARGET_APP_ID: ${{ inputs.target_app_id }}
+        TARGET_ALIAS: ${{ inputs.target_alias }}
+      run: |
+        umask 077
+        [[ "$DB_CONNECT" =~ ^[a-zA-Z0-9.:-]+/[a-zA-Z0-9._-]+$ ]]
+        for value in "$AUTHOR_SCHEMA" "$TARGET_SCHEMA" "$TARGET_WORKSPACE"; do
+          [[ "$value" =~ ^[A-Z][A-Z0-9_]*$ ]]
+        done
+        [[ "$SOURCE_APP_ID" =~ ^[0-9]+$ && "$TARGET_APP_ID" =~ ^[0-9]+$ ]]
+        [[ "$TARGET_ALIAS" =~ ^[A-Z0-9_-]+$ ]]
+        for password in "$AUTHOR_PASSWORD" "$TARGET_PASSWORD"; do
+          test -n "$password"
+          [[ "$password" != *\"* && "$password" != *$'\n'* && "$password" != *$'\r'* ]]
+        done
+        private="$RUNNER_TEMP/e3-private-$GITHUB_RUN_ID"
+        mkdir -p "$private/sqlcl"
+        echo "private_dir=$private" >> "$GITHUB_OUTPUT"
+        echo "sqlcl_home=$private/sqlcl" >> "$GITHUB_OUTPUT"
+        echo "defaults_file=$private/target.properties" >> "$GITHUB_OUTPUT"
+        printf 'apex.%s.workspace:%s\napex.%s.appId:%s\napex.%s.schema:%s\napex.%s.alias:%s\n' \
+          "$SOURCE_APP_ID" "$TARGET_WORKSPACE" "$SOURCE_APP_ID" "$TARGET_APP_ID" \
+          "$SOURCE_APP_ID" "$TARGET_SCHEMA" "$SOURCE_APP_ID" "$TARGET_ALIAS" > "$private/target.properties"
+        {
+          printf '%s\n' 'set echo off verify off define off' 'whenever sqlerror exit failure rollback' 'whenever oserror exit failure rollback'
+          printf 'connect -save lab-dev-c -savepwd %s/"%s"@//%s\n' "$AUTHOR_SCHEMA" "$AUTHOR_PASSWORD" "$DB_CONNECT"
+          printf 'connect -save e3-target -savepwd %s/"%s"@//%s\n' "$TARGET_SCHEMA" "$TARGET_PASSWORD" "$DB_CONNECT"
+          printf '%s\n' 'exit success'
+        } | sql -nohistory -noupdates -home "$private/sqlcl" -S -L /nolog > "$private/connections.log" 2>&1

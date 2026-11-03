@@ -1,5 +1,7 @@
 # E.3 — Contract and analysis
 
+Configuration update: the [GitHub-owned setup](sprint_E.3_github_configuration.md) supersedes every retained-local-file/tool-path assumption below. Earlier run results remain historical evidence for their original revisions.
+
 Current correction — 2026-11-03: the Product Owner required native APEX/SQLcl
 and GitHub Actions control, with all E.3 Python removed. The
 [native correction record](sprint_E.3_native_correction.md) supersedes the earlier

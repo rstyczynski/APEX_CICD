@@ -161,6 +161,9 @@ The Product Owner approved implementation through technical handover on
 and browser verification are complete. The Product Owner's subsequent native-only
 correction is implemented and freshly verified; see the
 [native correction record](progress/E.3/sprint_E.3_native_correction.md).
+The later [GitHub configuration correction](progress/E.3/sprint_E.3_github_configuration.md)
+removes retained local settings and provides the requested versioned local lab
+runner launcher; its release/qualification and required gates passed.
 Sprint closure and final Product Owner
 acceptance are not inferred. See the
 [setup and analysis](progress/E.3/sprint_E.3_setup.md) and

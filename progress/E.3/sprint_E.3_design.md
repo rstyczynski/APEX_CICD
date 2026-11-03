@@ -404,3 +404,23 @@ deferred under the original scope.
 See the [native correction record](sprint_E.3_native_correction.md),
 [operator manual](user_manual.md), [E.2 native baseline](../E.2/cicd-walkthrough.md)
 and [SQLcl PROJECT reference](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.4/sqcug/project.html).
+
+## Product Owner correction — GitHub configuration ownership
+
+Accepted by explicit instruction on 2026-11-03 after the linked native.env
+discussion: no environment-specific settings in .local-apex; scratch is
+temporary only. GitHub environment variables/secrets are authoritative.
+The setup-native composite action selects Java, installs checksum-pinned SQLcl
+on PATH and generates new native connection/mapping files under RUNNER_TEMP.
+Job outputs/GITHUB_ENV pass those generated paths; cleanup runs on success and
+failure. Runner registration moves to a persistent managed host directory
+outside the checkout. No custom environment file is generated or sourced.
+
+The existing IT-2 native rejection check moves into a separately manual
+qualification workflow, using the same setup and lab concurrency, with no deploy
+command. Parent integration checks fetch attributable GitHub evidence into fresh
+OS temporary directories; platform smoke reads GitHub configuration and checks
+live ORDS/APEX login. Historical five-schema identity evidence is not re-run
+through retired local configuration. Assigned PBI criteria and test case IDs
+remain unchanged. The [configuration record](sprint_E.3_github_configuration.md)
+and [manual](user_manual.md) own setup details and results.

@@ -492,3 +492,13 @@ Use native APEX/SQLcl with GitHub Actions as the pipeline controller.
 The [design correction](sprint_E.3_design.md#product-owner-correction--native-tools-and-github-control) and
 [execution record](sprint_E.3_native_correction.md) record implementation without
 adding scope or closing the sprint.
+
+## GitHub-owned configuration and temporary-only scratch
+
+Status: Accepted — explicit Product Owner instruction on 2026-11-03.
+
+Remove machine environment files and retained local settings from E.3.
+Use explicit GitHub tool setup, environment variables/secrets and disposable
+private job connections. Correct the independent-setup requirement so it does
+not mandate recreating native.env. See the
+[configuration record](sprint_E.3_github_configuration.md).

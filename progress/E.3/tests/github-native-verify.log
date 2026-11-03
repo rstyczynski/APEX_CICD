@@ -1,0 +1,77 @@
+The current connection E1_DEV_C will be used for all operations
+-------- Results Summary ----------
+Errors:     0
+Warnings:   0
+Info:       15
+---------------------------------
+
+ ------- ----------- -------------------------------------- ----------------------------------
+  Level   Group       Test Name                              Message
+          Name
+ ------- ----------- -------------------------------------- ----------------------------------
+  INFO    init        verifyprojectname                      The final project name will be
+                                                             "e3"
+
+  INFO    init        initconfigfileschanges                 Comparison with current SQLcl
+                                                             version:
+                                                             There are no differences found.
+
+  INFO    stageapex   apexchangelogcomplete                  All Apex apps have been
+                                                             verified, all staged apps have
+                                                             an entry in apex changelog.
+
+  INFO    stageapex   apexchangelogfilesvalid                All Apex apps have been
+                                                             verified, everything is as
+                                                             expected.
+
+  INFO    stageapex   apexinsrcmatchesdist                   All Apex applications and their
+                                                             contents in dist match the Apex
+                                                             applications in src, no issues
+                                                             found.
+
+  INFO    stage       stagechangelogfilesvalid               .dbtools/project.config.json
+                                                             generated format: liquibase
+                                                             All included scripts are
+                                                             present, not cross-referencing
+                                                             and readable (26 checked)
+
+  INFO    stage       stagesoftobjectisolationsprintchange   Soft objects are present in
+                                                             changes folder and
+                                                             SoftObjectIsolation value is set
+                                                             to change.
+
+  INFO    stage       stagesoftobjectisolation               SoftObjectIsolation: Change
+                                                             OK: Code folder is absent.
+
+  INFO    stage       stageduplicateentries                  .dbtools/project.config.json
+                                                             generated format: liquibase
+                                                             dist/releases/main.changelog.xml
+                                                             - There are no duplicate
+                                                             entries.
+                                                             Release Changelogs - There are
+                                                             no duplicate entries.
+                                                             Stage Changelogs - There are no
+                                                             duplicate entries.
+
+  INFO    stage       stagechangelogcomplete                 Stage Changelog validation found
+                                                             no issues.
+
+  INFO    stage       stagesourcediff                        All modified files are
+                                                             represented in dist folder
+                                                             All changes in dist folder are
+                                                             represented in src folder
+
+  INFO    project     sqlclversion                           SQLcl Version check passed
+
+  INFO    export      exportvalidatefilters                  Filters validation is
+                                                             successful.
+
+  INFO    export      exportformatterrules                   The XML parsing of
+                                                             project.sqlformat.xml file
+                                                             passed successfully.
+                                                             Keys and values for
+                                                             project.sqlformat.xml are all
+                                                             valid.
+
+  INFO    snapshot    verifysnapshot                         Snapshot validation found no
+                                                             issues.

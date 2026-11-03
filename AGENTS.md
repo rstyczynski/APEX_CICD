@@ -50,3 +50,19 @@ Codex does not natively register the submodule's Claude slash commands. An expli
 ## Scope
 
 The submodule’s instructions describe the adopted delivery method. They do not authorize unrelated actions such as remote pushes, copying submodule policies wholesale, or changing project scope without a Product Owner request.
+
+## Environment configuration and temporary files
+
+By explicit Product Owner instruction, `.local-apex/` is disposable scratch only:
+download caches, temporary checkouts, build outputs and diagnostic evidence. Never
+use it as the authoritative store for environment settings, credentials, saved
+connections, runner registration or executable-path environment files.
+
+GitHub Actions must declare tool setup and configuration explicitly. Use GitHub
+environment/repository variables for nonsecret settings and GitHub secrets for
+credentials. Generate required private connection files and mappings in
+`RUNNER_TEMP`, clean them on success or failure, and use `GITHUB_PATH`,
+`GITHUB_ENV` or step outputs for generated job paths. Persistent runner
+registration belongs in the runner's managed host directory outside the
+checkout. Preserve historical evidence without presenting its retired local
+configuration instructions as the current setup.
