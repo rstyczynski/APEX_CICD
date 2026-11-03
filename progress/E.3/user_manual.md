@@ -146,9 +146,19 @@ uses their own native SQLcl profile outside the checkout. At its prompt, connect
 save the logical author connection, entering the authorized password when asked:
 
 ```sql
-connect -save lab-dev-c -savepwd E1_DEV_C@//127.0.0.1:1521/FREEPDB1
+connect -save lab-dev-c -savepwd -replace E1_DEV_C@//127.0.0.1:1521/FREEPDB1
+connect -name lab-dev-c
+select user from dual;
 ```
 
+Require E1_DEV_C from the query. The saved name must be exactly `lab-dev-c`,
+without the Git branch/demo suffix, in the same default native connection store
+used by capture. Starting the client with `-name lab-dev-c -L` makes a missing
+saved profile fail before the SQL script is executed.
+Before capture, step D selects an installed SQLcl matching the project's
+`.sqlcl.version` value. Native PROJECT rejects a mismatched client even when
+its connection succeeds; generic tool discovery alone is not that compatibility
+check. The walkthrough reads the required value from project metadata.
 This logical alias matches the project's native configuration; the workflow
 creates its own separate, temporary alias from GitHub secrets. It does not read
 an author's profile. In the application checkout, use a slashless feature branch
@@ -157,7 +167,7 @@ because the pinned native comparison has a known slash-path issue:
 ```bash
 git switch -c e3-next-change
 git branch -f e3-base "$(jq -r .baseline_sha pipeline.json)"
-sql -nohistory -noupdates -S -L /nolog @sql/capture.sql
+sql -nohistory -noupdates -S -L -name lab-dev-c @sql/capture.sql
 git diff -- src
 ```
 
@@ -165,8 +175,8 @@ Capture connects to lab-dev-c and runs native PROJECT export. Inspect and commit
 the source before native staging; then run:
 
 ```bash
-sql -nohistory -noupdates -S -L /nolog @sql/stage.sql
-sql -nohistory -noupdates -S -L /nolog @sql/verify.sql
+sql -nohistory -noupdates -S -L -name lab-dev-c @sql/stage.sql
+sql -nohistory -noupdates -S -L -name lab-dev-c @sql/verify.sql
 git diff -- dist
 ```
 

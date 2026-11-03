@@ -507,9 +507,17 @@ remains blank. Do not insert the retired E1 controller hook.
 
 ### D. Capture, commit and stage using native SQLcl — slide 7
 
-In the **application terminal**, apply the PATH selection from
-[Prepare Java 21 and SQLcl](#prepare-java-21-and-sqlcl), including when this is a
-new terminal opened after setup:
+In the **application terminal**, use the project's recorded SQLcl version to
+select an installed tool. SQLcl PROJECT enforces `.sqlcl.version` from
+`.dbtools/project.config.json`; a newer executable can be installed successfully
+and still be rejected by this project. Read that value rather than hard-coding
+a version or changing the project to match whichever tool was found first:
+
+A newer SQLcl can be adopted as a reviewed toolchain upgrade: update the project
+configuration and the workflow's SQLcl setup together, then verify export,
+stage, native verification, packaging and deployment with that version.
+Multiple SQLcl installations can coexist on the host. For this demonstration,
+select the version already recorded by the project and exercised by its pipeline.
 
 ```bash
 export JAVA_HOME="$(brew --prefix openjdk@21)/libexec/openjdk.jdk/Contents/Home"
@@ -517,17 +525,22 @@ if [ ! -x "$JAVA_HOME/bin/java" ]; then
   e3_java=$(find "$HOME/projects" "$HOME/Applications" "$HOME/tools" -type f -path '*/jdk-21*/Contents/Home/bin/java' -print -quit 2>/dev/null)
   if [ -n "$e3_java" ]; then export JAVA_HOME="${e3_java%/bin/java}"; fi
 fi
-e3_sqlcl=$(command -v sql || true)
-if [ -z "$e3_sqlcl" ]; then
-  e3_sqlcl=$(find "$HOME/projects" "$HOME/Applications" "$HOME/Downloads" "$HOME/tools" -type f -path '*/sqlcl*/bin/sql' -print -quit 2>/dev/null)
-fi
-if [ -n "$e3_sqlcl" ] && [ -x "$e3_sqlcl" ]; then
+e3_project_version=$(jq -er '.sqlcl.version' .dbtools/project.config.json)
+e3_sqlcl=''
+while IFS= read -r e3_candidate; do
+  e3_candidate_version=$("$e3_candidate" -version 2>&1) || continue
+  if [[ "$e3_candidate_version" == *"Release $e3_project_version "* ]]; then
+    e3_sqlcl="$e3_candidate"
+    break
+  fi
+done < <(find "$HOME/projects" "$HOME/Applications" "$HOME/Downloads" "$HOME/tools" -type f -path '*/sqlcl*/bin/sql' -print 2>/dev/null)
+if [ -n "$e3_sqlcl" ]; then
   export PATH="$(dirname "$e3_sqlcl"):$PATH"
   hash -r
   command -v sql
   sql -version
 else
-  echo 'SQLcl was not found. Install SQLcl before continuing.' >&2
+  echo 'No installed SQLcl matches the project configuration. Install a compatible SQLcl before capture.' >&2
 fi
 ```
 
@@ -537,22 +550,39 @@ On first use, start SQLcl interactively:
 sql -nohistory -noupdates /nolog
 ```
 
-At its SQL prompt, save your author connection, enter the database password when
-prompted, then exit:
+At its SQL prompt, save the author connection with the exact name **lab-dev-c**.
+Enter the **E1_DEV_C database password** when prompted. This name is the
+project's configured connection name; do not append your Git branch or demo ID.
+`-replace` repairs an existing definition under that same name:
 
 ```sql
-connect -save lab-dev-c -savepwd E1_DEV_C@//127.0.0.1:1521/FREEPDB1
+connect -save lab-dev-c -savepwd -replace E1_DEV_C@//127.0.0.1:1521/FREEPDB1
+connect -name lab-dev-c
+select user from dual;
 exit
 ```
 
+Require a successful connection and **E1_DEV_C** from the query before capture.
+The password is the schema credential, distinct from the DEV_C Builder password.
+On this prepared host, its existing provisioning record can supply it:
+
+```bash
+jq -er '.E1_DEV_C | select(type == "string" and length > 0)' "$HOME/projects/APEX_CICD/.local-apex/e1-secrets.json"
+```
+
+Use the same SQLcl home for profile setup and capture: the commands here use
+the default native connection store. A profile saved with another `-home`
+is not automatically available in this default store.
+
 This is your native author profile outside the checkout; workflows create
-separate temporary connections from GitHub secrets. Back at the shell, use a
-new **slashless** feature branch, required by this pinned native comparison:
+separate temporary connections from GitHub secrets. Back at the shell, create
+one **slashless** feature branch per change. If already on that feature branch,
+continue with the baseline/capture commands rather than creating another branch:
 
 ```bash
 git switch -c "e3-demo-$(date +%Y%m%d%H%M%S)"
 git branch -f e3-base "$(jq -r .baseline_sha pipeline.json)"
-sql -nohistory -noupdates -S -L /nolog @sql/capture.sql
+sql -nohistory -noupdates -S -L -name lab-dev-c @sql/capture.sql
 git diff -- src
 git status --short
 ```
@@ -564,8 +594,8 @@ source **before** staging:
 ```bash
 git add src
 git commit -m "fix: update demo page title"
-sql -nohistory -noupdates -S -L /nolog @sql/stage.sql
-sql -nohistory -noupdates -S -L /nolog @sql/verify.sql
+sql -nohistory -noupdates -S -L -name lab-dev-c @sql/stage.sql
+sql -nohistory -noupdates -S -L -name lab-dev-c @sql/verify.sql
 git diff -- dist
 git status --short
 ```
