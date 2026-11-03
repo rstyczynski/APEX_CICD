@@ -1,6 +1,7 @@
 # E.2 — Product Owner decision brief
 
-22 October 2026 · Decisions pending
+**Accepted and closed on 3 November 2026.** The 22 October decision presentation
+is retained as the review snapshot. This record owns the subsequent acceptance.
 
 **Recommendation:** continue with SQLcl PROJECT, APEX Working Copies and Git as
 compatible options. Preserve the useful E.1 controls until qualified replacements
@@ -62,22 +63,19 @@ There is no demonstrated general incompatibility between PROJECT, Working Copies
 and Git. Reevaluate E.1's break-glass authoring and broad reservations as project
 policies. Keep one migration authority for each delivery stream.
 
-## Decisions requested
+## Product Owner decision
 
-1. **Accept E.2's assessment with its stated limits?** Recommended: yes. Retain G/H
-   as protection gaps and I's reviewed-repair validation as unfinished. Acceptance
-   does not certify a production release or close the sprint automatically.
-2. **Keep PROJECT and Working Copies as supported options?** Recommended: yes.
-   Maintain compatible repository conventions, Main team checkpoints and qualified
-   lower-level alternatives. Do not mandate one tool for every journey.
-3. **Prioritize stabilization and protection before pipeline adoption?** Recommended:
-   yes. Use the existing backlog below, without creating duplicate work.
-4. **Reevaluate E.1 authoring restrictions?** Recommended: yes, through native team
-   collaboration evidence. Preserve required coordination and ownership outcomes.
-5. **Keep complex Foundation upgrades in E.5?** Recommended: yes, after toolchain
-   stabilization. No complex Foundation upgrade is delivered by E.2.
+The Product Owner accepted E.2's assessment, handover and closure on 2026-11-03,
+including the stated G/H protection gaps, unvalidated reviewed repair in I and
+remaining release-qualification limits. This completes PBI-051's assessment
+outcomes, not the outstanding delivery capabilities.
 
-Record each decision as accepted, amended or deferred. Decisions remain pending.
+PROJECT and Working Copies remain compatible options for further validation.
+Existing requirements and E.1 protections are not silently waived. The current
+next step is the bounded E.3 pipeline prototype in [PLAN](../../PLAN.md), not a
+full production pipeline. Complete hardening before production adoption; it is
+not a prerequisite for every disposable architectural prototype. E.3 remains
+Planned. Complex Foundation upgrades stay E.5 after toolchain stabilization.
 
 ## Proposed order of follow-up
 
@@ -93,7 +91,9 @@ Record each decision as accepted, amended or deferred. Decisions remain pending.
    browser checks on the same candidate, then independently reproduce delivery.
    PBI-040/041/043/046. Complex Foundation evolution follows in E.5, PBI-048/049/050.
 
-These are refinements of [existing backlog items](../../BACKLOG.md), not new
+This is the order of capability dependencies, not an assignment of all work to
+the next sprint. The narrowed E.3 prototype remains separate. These are
+refinements of [existing backlog items](../../BACKLOG.md), not new
 assignments or completed later-sprint work. E.1 historical evidence remains intact.
 
 ## Review package

@@ -64,24 +64,16 @@ Revise the approach when evidence contradicts the research. Assess the
 Lifecycle Architecture milestone before committing to full Construction
 scope; retain further Elaboration if needed.
 
-## Elaboration E.2 — E.1 gap analysis and focused exercises
+## Elaboration E.2 — Accepted Oracle lifecycle assessment
 
-E.2 is active in managed mode with PBI-051, starting from the current E.1 technology.
-The [E.2 scope record](progress/E.2/sprint_E.2_proposedchanges.md) defines a
-source-backed gap analysis against the supplied Oracle lifecycle paper,
-focused exercises to demonstrate material problems or solutions, and the
-established runnable walkthrough. Its outcome is an evidenced retain/replace/
-investigate recommendation, proposed backlog items and a dependency-ordered
-roadmap toward Oracle-recommended delivery. Working Copies and Git authority
-are a compatibility question to investigate, not an assumed product blocker.
-The analysis informs refinement of E.3/E.4; complex upgrades move to E.5.
-The [execution setup](progress/E.2/sprint_E.2_setup.md) records contracting;
-the separate [analysis](progress/E.2/sprint_E.2_analysis.md) establishes the
-problems, evidence and questions that drive exercise selection. Analysis was
-approved on 2026-10-19 after external review. The
-[revised exercise design](progress/E.2/sprint_E.2_design.md) and test specification
-are Proposed for managed approval. No exercise implementation or runtime success
-is claimed; its E.2-specific regression-scope proposal remains unapproved.
+The Product Owner accepted and closed E.2 on 2026-11-03. PBI-051 delivered
+[findings and follow-up](progress/E.2/oracle-gap-analysis.md), focused native
+exercises, the [walkthrough](progress/E.2/cicd-walkthrough.md) and
+[accepted handover](progress/E.2/sprint_E.2_handover.md). PROJECT, Working Copies
+and Git coexist in the demonstrated path. Toolchain qualification, component
+compatibility, drift protection and reviewed recovery remain explicit follow-up.
+Closure accepts the assessment, not production readiness. No next sprint starts
+automatically. Complex Foundation upgrades remain E.5 after stabilization.
 
 ## Elaboration E.3 — APEX-native team-centric development
 

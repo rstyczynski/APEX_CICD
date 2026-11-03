@@ -1,5 +1,8 @@
 # E.2 — Design acceptance
 
+Phase record retained for traceability. E.2 was accepted and closed on
+2026-11-03; the [final assessment](sprint_E.2_assessment.md) owns current status.
+
 The Product Owner explicitly accepted the [revised design](sprint_E.2_design.md)
 and directed implementation on 2026-10-19. This includes PROJECT first, Working
 Copies through the same repository, appropriate E.1-tool reuse, individually

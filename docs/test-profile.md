@@ -12,7 +12,10 @@ remain required. The Product Owner accepted the revised design on 2026-10-19. No
 verification assessment rather than inheriting this prototype-only tailoring.
 The [actual E.2 evidence](../progress/E.2/sprint_E.2_tests.md) and
 [walkthrough](../progress/E.2/sprint_E.2_increment_demo.md) record observations,
-retained failures and the pending live review.
+retained failures. The Product Owner accepted the
+[assessment and handover](../progress/E.2/sprint_E.2_handover.md) on 2026-11-03.
+E.2 closes with its Test: none / Regression: none experiment profile; no
+new suite or production-release pass is implied.
 
 The [E.5 upgrade scope](../progress/E.5/sprint_E.5_proposedchanges.md) requires
 compatible and breaking Foundation upgrade evidence, migration catch-up,

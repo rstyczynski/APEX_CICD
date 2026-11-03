@@ -374,7 +374,7 @@ Assess the existing E.1 delivery approach against the supplied Oracle APEX lifec
 
 Test: Review source-linked gap findings and blocker evidence through the walkthrough, reproduce required exercises and verify that proposed follow-up items and roadmap decisions follow the findings.
 
-Status: Proposed
+Status: Done
 
 ### PBI-052. Define semantic versioning rules for component contracts
 

@@ -1,5 +1,8 @@
 # E.2 — Analysis review
 
+Phase record retained for traceability. E.2 was accepted and closed on
+2026-11-03; the [final assessment](sprint_E.2_assessment.md) owns current status.
+
 Analysis approved by the Product Owner on 2026-10-19; revised exercise design
 and test specification are Proposed. PBI-051 remains unfinished.
 The [full analysis](sprint_E.2_analysis.md) owns the conclusions, exact source

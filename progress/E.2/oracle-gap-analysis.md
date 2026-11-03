@@ -1,5 +1,8 @@
 # E.2 — Oracle lifecycle gap analysis
 
+Accepted with its stated limits on 2026-11-03. The
+[final assessment](sprint_E.2_assessment.md) records closure.
+
 **Recommendation:** use SQLcl PROJECT, APEX Working Copies and Git together.
 Retain supplementary controls only where native capabilities do not meet the
 requirement. Adoption still requires toolchain and protection qualification.
@@ -85,3 +88,7 @@ These refine existing backlog acceptance; they do not change priority, assignmen
 or completion status. E.1 evidence remains unchanged. The
 [walkthrough](cicd-walkthrough.md) presents the demonstrated journeys and gaps;
 [detailed evidence](oracle-gap-analysis-detail.md) remains available for inspection.
+
+The next E.3 step is a bounded architecture prototype, not full pipeline adoption.
+It may precede complete delivery hardening; the production qualification gates
+above remain. Current assignments belong to [PLAN](../../PLAN.md).

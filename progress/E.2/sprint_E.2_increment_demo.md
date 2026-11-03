@@ -1,5 +1,9 @@
 # E.2 — Oracle lifecycle gap-analysis walkthrough
 
+Historical exercise presentation. The [accepted handover](sprint_E.2_handover.md)
+and [final assessment](sprint_E.2_assessment.md) record closure on 2026-11-03.
+Use the [native walkthrough](cicd-walkthrough.md) for the later business journeys.
+
 Status: prepared for live Product Owner review; actual feedback and acceptance remain pending. This is the
 single handover entry point. The [manual](user_manual.md) supplies operating and
 recovery detail; [gap analysis](oracle-gap-analysis.md) supplies recommendations,

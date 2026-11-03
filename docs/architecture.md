@@ -22,7 +22,10 @@ architecture or a change to the E.1-stage policies stated below. The
 successful mapped candidate delivery from the native verification release block
 and changed region identities on mapped replacement. Both require follow-up
 qualification before adoption.
-The final evolution decision and live handover remain pending.
+The Product Owner accepted the [E.2 assessment and handover](../progress/E.2/sprint_E.2_handover.md)
+on 2026-11-03. Coexistence is an accepted direction for further validation.
+Verification, identity and protection limits remain; closure does not accept
+a production architecture or remove the existing requirement baseline.
 
 The [E.5 upgrade scope](../progress/E.5/sprint_E.5_proposedchanges.md) records
 the planned Foundation API/schema coexistence scenario. Initial data migration

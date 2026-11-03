@@ -1,0 +1,285 @@
+{
+  "scope": "Existing raw E.2 logs, indexed at closure without reexecution or modification",
+  "files": [
+    {
+      "path": "progress/E.2/tests/analysis_review_checks_20261019.txt",
+      "sha256": "d37467fb373989c4b97ef998330b67a6a0310c62ba1e1e7d2f4f6adb19d9957d"
+    },
+    {
+      "path": "progress/E.2/tests/analysis_state_checks_20261019.txt",
+      "sha256": "81c2a336fee9c8672a245624183cae02a9391f60acc9957811ba575045ab3da0"
+    },
+    {
+      "path": "progress/E.2/tests/coexistence_goals_checks_20261019.txt",
+      "sha256": "493cd43694676384bbb80bb0c6269a633b8b48e06474c812a1a2051eeef1cf22"
+    },
+    {
+      "path": "progress/E.2/tests/construction_checks_20261019.txt",
+      "sha256": "7e1b223222e9b38cdea63acfb7900859e52e8000db95da9d425ee75bb7b4c898"
+    },
+    {
+      "path": "progress/E.2/tests/design_gate_checks_20261019.txt",
+      "sha256": "ee615a70d140b5bb104971d38e58eb6d332b29b461dbaeb3e905100afe9155a8"
+    },
+    {
+      "path": "progress/E.2/tests/design_review_checks_20261019.txt",
+      "sha256": "8226fed554a646b2ba0065adfcc3b1865914cbed498507fd1dd41747a4787cf9"
+    },
+    {
+      "path": "progress/E.2/tests/foreign_scope_refusal_20261019.txt",
+      "sha256": "0d4bcf1bead998be251f0f7a613e7b4de731328068ba7943446167548bb68d15"
+    },
+    {
+      "path": "progress/E.2/tests/optional_compatibility_checks_20261019.txt",
+      "sha256": "a1ff2d91d3687f479a1d4f02d77cbee5a9594503e0aa979614590b6fc2ffdcf5"
+    },
+    {
+      "path": "progress/E.2/tests/project-f1-export-list.txt",
+      "sha256": "143d5b6832b4963fe3cf2ff5d9e3a10added1623cedd05db03c0b58c293a6dde"
+    },
+    {
+      "path": "progress/E.2/tests/project-f1-export-original-filter.txt",
+      "sha256": "9c2dbe2954c2a9295dbe3d74481672a7523682abebc763d28b7b1b7969241453"
+    },
+    {
+      "path": "progress/E.2/tests/project-f1-export-rehearsal-main.txt",
+      "sha256": "0726ed42413ff232b7097c06c8a2e28b61bc1d4b9e32c074d69f79414ef6776a"
+    },
+    {
+      "path": "progress/E.2/tests/project-f1-main-copy-metadata.txt",
+      "sha256": "84a76d6b955af1bbaba996ef0329ed6959d3e094293a647060e060d50920dbd7"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-author-input.txt",
+      "sha256": "4d8ee93cbd9b26118078966c12697a04a789fc8e64f519f33417d7b687518b9b"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-author-verify.txt",
+      "sha256": "6d464e70b7b6f8da7e654bc30411dd3e29991237f22d5d0451729252ebdd1d08"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-comparison-negative.txt",
+      "sha256": "aa69acd7af9c4c1dcc2c0b4dc35589d7cb413dc57e100eacb46cfd7a74cbf381"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-export.txt",
+      "sha256": "1df9e383f266fc61d5acaeecaa2e2519dfb0d1d483cb7f6900ec501a0630f1d0"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-fresh-deploy.txt",
+      "sha256": "e35479a1ee49ef799b44a5f7455074b11890dcede72cace03d16772b7a38bb3a"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-fresh-publication.txt",
+      "sha256": "a4f256a074fe9f0feaab2bcf257d62e1e96ca02d5ba667af5a3c9ed0564edb06"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-native-baseline-probe.txt",
+      "sha256": "a4f256a074fe9f0feaab2bcf257d62e1e96ca02d5ba667af5a3c9ed0564edb06"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-native-verify.txt",
+      "sha256": "56eb213226ba0796912286a45eab7bc6f3125eb97d5216698e476ea1d36c0536"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-operator-export.txt",
+      "sha256": "d23de6f1e19ae8a3966c186da28b18cf2a7148d00a93d70b78af598f5130633e"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-operator-release-initial.txt",
+      "sha256": "196925d91c7e7daf1708747fc3fe7ce63a900a75e4130abe3dcde060877f60f9"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-operator-stage.txt",
+      "sha256": "53d211f51610be603c5bc5b292a0d298f1cb947014eee6852444332de8a11401"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-operator-verify-build.txt",
+      "sha256": "db5d76a6d9a649284510c711cad2929fcb58f540b63d1fc5a4dd4a63d7632202"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-qualification-ownership.txt",
+      "sha256": "e687615c15a5526b5fb75b081de3d5da3abdc60a815ce23b732d5d689a66a5e5"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-relative-author-repeat.txt",
+      "sha256": "57ee4e07c241106107225bb28068bcdbfadf3416f6ad912fecd6273f1fcd933a"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-relative-baseline.txt",
+      "sha256": "a4f256a074fe9f0feaab2bcf257d62e1e96ca02d5ba667af5a3c9ed0564edb06"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-release-initial.txt",
+      "sha256": "624aaf7baef8a8487b51822923c3f4a0cfff06af9c23f1b3ee1bc9569af13106"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-reset-first.txt",
+      "sha256": "34e9977eac1633c7dc0edd8bc799ad9d2ed8ead8c94a8dda88abe0e085310060"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-reset-refusal.txt",
+      "sha256": "339e7e6772fa83034924a184ed86ccd94f254c3bc4b236c2c649763d1c3be24d"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-stage-discovery-failure.txt",
+      "sha256": "28f8f06e006132f5e64021cd62eca84cebef9e58bc19032f17b29d5cd979d06a"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-stage.txt",
+      "sha256": "0292203ea57bbb3ad2b04031bf541018561ae890ec691dfac2eeb46c75981636"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-upgrade-deploy.txt",
+      "sha256": "27adc2b3dc723764538131e4a67f116f58cede71309ac8134f35d32966344631"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-upgrade-initial.txt",
+      "sha256": "77f26628f60bbe7d497ee5bfc4bba72359ed18cef90112e2bf0dda9d83a4a972"
+    },
+    {
+      "path": "progress/E.2/tests/project-f2-upgrade-publication-repeat.txt",
+      "sha256": "bbaa8c4d416b2a890de06252cc9ebb5009b7048594bc4637eb208a329f765317"
+    },
+    {
+      "path": "progress/E.2/tests/project-g-25.4.1-allowed.txt",
+      "sha256": "a124ecb8c95aa33114bd77fcbc2c831976aac31c9ed302e6b6f1563d471234fa"
+    },
+    {
+      "path": "progress/E.2/tests/project-g-25.4.1-incompatible.txt",
+      "sha256": "43af58fd3d293cd5045656aaeadad2db636227a25e9879c400dc0fd094d8c871"
+    },
+    {
+      "path": "progress/E.2/tests/project-g-25.4.1-native-export.txt",
+      "sha256": "f9439cf3390f68a2ffc0aa4d75b23fffbdf6c1309c289836bc0e42f95705da3c"
+    },
+    {
+      "path": "progress/E.2/tests/project-g-native-allowed.txt",
+      "sha256": "56eb213226ba0796912286a45eab7bc6f3125eb97d5216698e476ea1d36c0536"
+    },
+    {
+      "path": "progress/E.2/tests/project-g-native-incompatible.txt",
+      "sha256": "56eb213226ba0796912286a45eab7bc6f3125eb97d5216698e476ea1d36c0536"
+    },
+    {
+      "path": "progress/E.2/tests/project-h-browser-repeat-deploy.txt",
+      "sha256": "0fc440fa1a2ea7dc26565eaac196a78e1656cf37a151200f072d7b69a38380f9"
+    },
+    {
+      "path": "progress/E.2/tests/project-h-native-rehearsal.txt",
+      "sha256": "1f94c0923fd40bf2fe30421e3e018a5e5d8836b24c25d33d1c6863c384b42c88"
+    },
+    {
+      "path": "progress/E.2/tests/project-h-uat-readonly-preflight.txt",
+      "sha256": "e86ccdd1f33eedc56bc339d832d9d66a16a0c6f7f2d7e0cc254278bc6fae62e1"
+    },
+    {
+      "path": "progress/E.2/tests/project-h-wrong-target.txt",
+      "sha256": "9ed5934fb418af78d0eec5306c64290cfdc047739a21dcb705719b9e6e83d35e"
+    },
+    {
+      "path": "progress/E.2/tests/project-integration-native-deploy.txt",
+      "sha256": "7e2e13c478b402b952f6d88d74f4cbea96ade0079300536ee1c18d9688938dac"
+    },
+    {
+      "path": "progress/E.2/tests/project-integration-native-repeat.txt",
+      "sha256": "b2b57142b3d3519d5e76da8e28ab5c4aae1922aee9c7264eaa90b86a4e89d833"
+    },
+    {
+      "path": "progress/E.2/tests/project-integration-native-verify.txt",
+      "sha256": "7816746a53fa80414356d366dcd28909b0e47761432972c8ac741770b77536d8"
+    },
+    {
+      "path": "progress/E.2/tests/project-uat-prototype-baseline-repeat.txt",
+      "sha256": "a54e4e0ce95a5498f89452bc2fcc7136c623d59405bd627aac5712b2270768d9"
+    },
+    {
+      "path": "progress/E.2/tests/project-uat-prototype-baseline.txt",
+      "sha256": "08df4ea9d6e965ddda2aa7ae70eab160cc48ce532e44399666f852953a066ac6"
+    },
+    {
+      "path": "progress/E.2/tests/project-uat-prototype-check-baseline.txt",
+      "sha256": "1038a768e619b51e600a50f7cc9cb63c8b78a97b3b2eb5b5ecd457197d0acb1e"
+    },
+    {
+      "path": "progress/E.2/tests/project-uat-prototype-deploy.txt",
+      "sha256": "f7db1b250cbed6e0c33d592498eb67d36f6e54388c7b89b6f536e3e5429d8613"
+    },
+    {
+      "path": "progress/E.2/tests/project-uat-prototype-inspect.txt",
+      "sha256": "0c0b32cbc4290720c5b1002a629d6898ff4d8da353e46d7ad849f07197ceeb55"
+    },
+    {
+      "path": "progress/E.2/tests/project-uat-prototype-publish.txt",
+      "sha256": "8c4dad23fef58adde2606825016faa54ea92b174bdfc279d71865dcfe9d51446"
+    },
+    {
+      "path": "progress/E.2/tests/project-uat-prototype-repeat.txt",
+      "sha256": "5c8d534119ab6bb7021d53dff30134bce2fd7790be1c8c65a4b3b46bb53e64bb"
+    },
+    {
+      "path": "progress/E.2/tests/project-verify-25.4.1-qualified.txt",
+      "sha256": "80a371f24fe72d21ead5412f8e821aa31afb4311f785f6fa80ebcbb20c6f9aac"
+    },
+    {
+      "path": "progress/E.2/tests/project-verify-26.3-qualified.txt",
+      "sha256": "20d9fd4b53d7facb2d240ae7a8b3213e95af04a46d1adf943d79403ae243b396"
+    },
+    {
+      "path": "progress/E.2/tests/project-verify-26.3-unmodified.txt",
+      "sha256": "a62df72ca78a79d9feb9d9df171852dabff89fc706f0be52d78aba2c9d41a658"
+    },
+    {
+      "path": "progress/E.2/tests/project-verify-fix-missing-include.txt",
+      "sha256": "3a17550d867958a74c156b48c73e0610576fa60a5e79aa32087999edb42838a6"
+    },
+    {
+      "path": "progress/E.2/tests/project-verify-fix-native-export.txt",
+      "sha256": "2b5826b4876114650f1d92b926a45fdbec40a1c0a899ef94afb8281695530ef7"
+    },
+    {
+      "path": "progress/E.2/tests/project-verify-fix-native-stage.txt",
+      "sha256": "a124ecb8c95aa33114bd77fcbc2c831976aac31c9ed302e6b6f1563d471234fa"
+    },
+    {
+      "path": "progress/E.2/tests/project-verify-fix-poststage-edit.txt",
+      "sha256": "a2e54cb5925d366c52cd76cb6a163d101023045731c67e96b63817f7fd304844"
+    },
+    {
+      "path": "progress/E.2/tests/project_configuration_render_failure_20261019.txt",
+      "sha256": "d80d112d00d4baac8e48d5f6eab56b033d1dae2918448928c8e0ef178d9913a6"
+    },
+    {
+      "path": "progress/E.2/tests/project_fit_checks_20261019.txt",
+      "sha256": "81a5977eae57e1e3f7e4a3acf56f5cf7e20feb01f5ad4e89e5d5f4515b381fce"
+    },
+    {
+      "path": "progress/E.2/tests/project_init_offline_20261019.txt",
+      "sha256": "d252714c940645fde2b26990ec3c549b3724ee3af34ff77b2e011e269cc82ce1"
+    },
+    {
+      "path": "progress/E.2/tests/review-1-package-checks.txt",
+      "sha256": "2e9d37aec26e9d644e96ba7864de28e9bb1f8aef39d2c20a07baa8b03eeff245"
+    },
+    {
+      "path": "progress/E.2/tests/review-1-response-checks.txt",
+      "sha256": "6b396fb0a80854ebc85c2f33db34b281aa6edd2a0b66f7a401a3746b85725208"
+    },
+    {
+      "path": "progress/E.2/tests/scheduler_capacity_20261019.txt",
+      "sha256": "e621594cc9f43c4cd000153191c3bdcdeae55553c9840ea3ba8431b97e7a0a9b"
+    },
+    {
+      "path": "progress/E.2/tests/sprint_E.2_design_review-1-package-checks.txt",
+      "sha256": "70c1321b57ae2f67a003ea6b7f84195f348caa09c477b5a45b5c8bdb6f022af5"
+    },
+    {
+      "path": "progress/E.2/tests/sprint_E.2_design_review-1-response-checks.txt",
+      "sha256": "2aa78f9be1e025e732b1d64ab9412ee6b56925b907e3c28e94a860a0fa6050af"
+    },
+    {
+      "path": "progress/E.2/tests/sqlcl_project_help_20261019.txt",
+      "sha256": "9a303d5cdcc707de57be257fc98c65417ff21280a918a25c07267377820fcffe"
+    }
+  ]
+}

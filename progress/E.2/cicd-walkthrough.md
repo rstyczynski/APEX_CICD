@@ -1,5 +1,9 @@
 # E.2 — Deliver Foundation, Hello and World with SQLcl PROJECT
 
+E.2 assessment accepted and closed on 2026-11-03. The
+[final assessment](sprint_E.2_assessment.md) owns acceptance and remaining gaps;
+recorded commands/evidence below are not fresh runtime checks at closure.
+
 Repeat the E.1 application journeys using SQLcl PROJECT for capture, staging,
 packaging and deployment, and APEX Working Copies for a small authoring change.
 Inspect the application and retained data after each delivery.

@@ -1,5 +1,10 @@
 # E.2 — Laboratory operating reference
 
+E.2 closed on 2026-11-03 with the [accepted assessment](sprint_E.2_assessment.md).
+Earlier reduced-fixture operating steps remain reference material. Use the
+[native walkthrough](cicd-walkthrough.md) and [handover](sprint_E.2_handover.md)
+for the accepted business-journey findings and limits.
+
 The [native SQLcl use-case walkthrough](cicd-walkthrough.md) is the current
 operating guide, aligned with E.1's A–I application journeys. It uses
 preloaded development assemblies and direct PROJECT commands. A–E include

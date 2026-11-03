@@ -1,5 +1,8 @@
 # E.2 — Contract and analysis
 
+Phase record retained for traceability. E.2 was accepted and closed on
+2026-11-03; the [final assessment](sprint_E.2_assessment.md) owns current status.
+
 ## Contract
 
 Sprint E.2 was activated on 2026-10-19 at the Product Owner's explicit request.

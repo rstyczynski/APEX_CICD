@@ -4,6 +4,11 @@
 
 ## Decision status and system boundary
 
+The Product Owner accepted the [E.2 gap assessment](../progress/E.2/sprint_E.2_assessment.md)
+and closed E.2 on 2026-11-03. This accepts the assessment and its stated gaps;
+it does not waive compatibility, drift protection or reviewed recovery requirements.
+
+
 The [E.2 analysis scope](../progress/E.2/sprint_E.2_proposedchanges.md) assesses
 the current E.1 approach against Oracle lifecycle guidance, including policy
 conflicts such as Working Copies and Git authority. It requires source-backed

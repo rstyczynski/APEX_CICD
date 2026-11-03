@@ -1,5 +1,9 @@
 # E.2 — Focused exercise evidence
 
+The Product Owner accepted the E.2 assessment and handover on 2026-11-03.
+Runtime observations below retain their execution-time scope. The closure review
+adds no runtime execution or production qualification.
+
 Separate automated tests/regression: not applicable by Product Owner direction.
 This record reports actual observations against the
 [accepted design](sprint_E.2_design.md#exercise-verification) and
@@ -456,3 +460,96 @@ schema/application ownership was refused before any edit. Actual UAT preflight,
 business snapshot equality and 24-file native export passed read-only. Rendered
 Bash blocks passed bash -n without heredoc warnings. No automated test suite
 was added, and operator H completion is not claimed.
+
+## Closure review — 2026-11-03
+
+The accepted experiment profile remains Test: none / Regression: none. The
+[final assessment](sprint_E.2_assessment.md) and
+[documentation summary](sprint_E.2_documentation.md) distinguish assessment
+acceptance from missing production protections and unexercised reviewed repair.
+The [closure receipt](tests/closure_checks_20261103.json) owns the final local
+consistency checks. Prior PPTX visual/package checks remain dated evidence; the
+slides and their review-time pending labels are preserved as the 22 October
+snapshot, not silently presented as a new live demonstration.
+
+## Artifacts
+
+The [raw log manifest](tests/closure_artifact_manifest_20261103.json) records
+retained paths and SHA-256 values. Existing receipts and screenshots remain
+under [tests](tests/). No log was rerun or rewritten for closure.
+
+<details>
+<summary>Retained raw exercise logs</summary>
+
+- [analysis_review_checks_20261019.txt](tests/analysis_review_checks_20261019.txt)
+- [analysis_state_checks_20261019.txt](tests/analysis_state_checks_20261019.txt)
+- [coexistence_goals_checks_20261019.txt](tests/coexistence_goals_checks_20261019.txt)
+- [construction_checks_20261019.txt](tests/construction_checks_20261019.txt)
+- [design_gate_checks_20261019.txt](tests/design_gate_checks_20261019.txt)
+- [design_review_checks_20261019.txt](tests/design_review_checks_20261019.txt)
+- [foreign_scope_refusal_20261019.txt](tests/foreign_scope_refusal_20261019.txt)
+- [optional_compatibility_checks_20261019.txt](tests/optional_compatibility_checks_20261019.txt)
+- [project-f1-export-list.txt](tests/project-f1-export-list.txt)
+- [project-f1-export-original-filter.txt](tests/project-f1-export-original-filter.txt)
+- [project-f1-export-rehearsal-main.txt](tests/project-f1-export-rehearsal-main.txt)
+- [project-f1-main-copy-metadata.txt](tests/project-f1-main-copy-metadata.txt)
+- [project-f2-author-input.txt](tests/project-f2-author-input.txt)
+- [project-f2-author-verify.txt](tests/project-f2-author-verify.txt)
+- [project-f2-comparison-negative.txt](tests/project-f2-comparison-negative.txt)
+- [project-f2-export.txt](tests/project-f2-export.txt)
+- [project-f2-fresh-deploy.txt](tests/project-f2-fresh-deploy.txt)
+- [project-f2-fresh-publication.txt](tests/project-f2-fresh-publication.txt)
+- [project-f2-native-baseline-probe.txt](tests/project-f2-native-baseline-probe.txt)
+- [project-f2-native-verify.txt](tests/project-f2-native-verify.txt)
+- [project-f2-operator-export.txt](tests/project-f2-operator-export.txt)
+- [project-f2-operator-release-initial.txt](tests/project-f2-operator-release-initial.txt)
+- [project-f2-operator-stage.txt](tests/project-f2-operator-stage.txt)
+- [project-f2-operator-verify-build.txt](tests/project-f2-operator-verify-build.txt)
+- [project-f2-qualification-ownership.txt](tests/project-f2-qualification-ownership.txt)
+- [project-f2-relative-author-repeat.txt](tests/project-f2-relative-author-repeat.txt)
+- [project-f2-relative-baseline.txt](tests/project-f2-relative-baseline.txt)
+- [project-f2-release-initial.txt](tests/project-f2-release-initial.txt)
+- [project-f2-reset-first.txt](tests/project-f2-reset-first.txt)
+- [project-f2-reset-refusal.txt](tests/project-f2-reset-refusal.txt)
+- [project-f2-stage-discovery-failure.txt](tests/project-f2-stage-discovery-failure.txt)
+- [project-f2-stage.txt](tests/project-f2-stage.txt)
+- [project-f2-upgrade-deploy.txt](tests/project-f2-upgrade-deploy.txt)
+- [project-f2-upgrade-initial.txt](tests/project-f2-upgrade-initial.txt)
+- [project-f2-upgrade-publication-repeat.txt](tests/project-f2-upgrade-publication-repeat.txt)
+- [project-g-25.4.1-allowed.txt](tests/project-g-25.4.1-allowed.txt)
+- [project-g-25.4.1-incompatible.txt](tests/project-g-25.4.1-incompatible.txt)
+- [project-g-25.4.1-native-export.txt](tests/project-g-25.4.1-native-export.txt)
+- [project-g-native-allowed.txt](tests/project-g-native-allowed.txt)
+- [project-g-native-incompatible.txt](tests/project-g-native-incompatible.txt)
+- [project-h-browser-repeat-deploy.txt](tests/project-h-browser-repeat-deploy.txt)
+- [project-h-native-rehearsal.txt](tests/project-h-native-rehearsal.txt)
+- [project-h-uat-readonly-preflight.txt](tests/project-h-uat-readonly-preflight.txt)
+- [project-h-wrong-target.txt](tests/project-h-wrong-target.txt)
+- [project-integration-native-deploy.txt](tests/project-integration-native-deploy.txt)
+- [project-integration-native-repeat.txt](tests/project-integration-native-repeat.txt)
+- [project-integration-native-verify.txt](tests/project-integration-native-verify.txt)
+- [project-uat-prototype-baseline-repeat.txt](tests/project-uat-prototype-baseline-repeat.txt)
+- [project-uat-prototype-baseline.txt](tests/project-uat-prototype-baseline.txt)
+- [project-uat-prototype-check-baseline.txt](tests/project-uat-prototype-check-baseline.txt)
+- [project-uat-prototype-deploy.txt](tests/project-uat-prototype-deploy.txt)
+- [project-uat-prototype-inspect.txt](tests/project-uat-prototype-inspect.txt)
+- [project-uat-prototype-publish.txt](tests/project-uat-prototype-publish.txt)
+- [project-uat-prototype-repeat.txt](tests/project-uat-prototype-repeat.txt)
+- [project-verify-25.4.1-qualified.txt](tests/project-verify-25.4.1-qualified.txt)
+- [project-verify-26.3-qualified.txt](tests/project-verify-26.3-qualified.txt)
+- [project-verify-26.3-unmodified.txt](tests/project-verify-26.3-unmodified.txt)
+- [project-verify-fix-missing-include.txt](tests/project-verify-fix-missing-include.txt)
+- [project-verify-fix-native-export.txt](tests/project-verify-fix-native-export.txt)
+- [project-verify-fix-native-stage.txt](tests/project-verify-fix-native-stage.txt)
+- [project-verify-fix-poststage-edit.txt](tests/project-verify-fix-poststage-edit.txt)
+- [project_configuration_render_failure_20261019.txt](tests/project_configuration_render_failure_20261019.txt)
+- [project_fit_checks_20261019.txt](tests/project_fit_checks_20261019.txt)
+- [project_init_offline_20261019.txt](tests/project_init_offline_20261019.txt)
+- [review-1-package-checks.txt](tests/review-1-package-checks.txt)
+- [review-1-response-checks.txt](tests/review-1-response-checks.txt)
+- [scheduler_capacity_20261019.txt](tests/scheduler_capacity_20261019.txt)
+- [sprint_E.2_design_review-1-package-checks.txt](tests/sprint_E.2_design_review-1-package-checks.txt)
+- [sprint_E.2_design_review-1-response-checks.txt](tests/sprint_E.2_design_review-1-response-checks.txt)
+- [sqlcl_project_help_20261019.txt](tests/sqlcl_project_help_20261019.txt)
+
+</details>

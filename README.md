@@ -96,52 +96,27 @@ The [assessment](progress/E.1/sprint_E.1_assessment.md) recommends focused furth
 
 Known follow-up work is registered in the [Product Backlog](BACKLOG.md#pbi-018-prove-atomic-task-reservations-under-contention). The historical [E.1 coverage map](progress/E.1/sprint_E.1_assessment.md#open-work-backlog-coverage) connects PBI-018–035 to remaining criteria and deferred review concerns. On 2026-10-19 the Product Owner split the Oracle-style exercise into **E.3: APEX-native team-centric development** and **E.4: Git-based feature-centric development**, both Planned. The [E.3 coverage and backlog review](progress/E.3/sprint_E.3_proposedchanges.md) owns Working Copies/page locks and the native release/test/pipeline foundation. The [E.4 scope](progress/E.4/sprint_E.4_proposedchanges.md) owns private Git branches, parallel PR integration, central DEV synchronization and the final comparison. The [plan](PLAN.md) owns the distinct assignments; neither approach is claimed implemented by this planning change. Both sprints have a strict [Oracle traceability and comparison requirement](progress/E.3/sprint_E.3_proposedchanges.md#strict-oracle-traceability-and-comparison-contract): exact paper/documentation sources, observed evidence and an E.1 comparison at each handover, followed by a three-approach decision package at E.4.
 
-The Product Owner refined **E.2 into gap analysis of E.1 against Oracle
-lifecycle guidance**, with focused exercises on the current E.1 technology
-and the established runnable walkthrough. The
-[E.2 analysis scope](progress/E.2/sprint_E.2_proposedchanges.md) schedules
-[PBI-051](BACKLOG.md#pbi-051-assess-the-e1-delivery-approach-against-oracle-lifecycle-guidance)
-to establish evidenced gaps, blockers, proposed backlog items and an evolution
-roadmap. E.3/E.4 retain their planned Oracle-style evaluations. The
-[E.5 upgrade scope](progress/E.5/sprint_E.5_proposedchanges.md) schedules
-[PBI-048](BACKLOG.md#pbi-048-prove-an-available-compatible-foundation-extension),
-[PBI-049](BACKLOG.md#pbi-049-prove-an-available-breaking-foundation-transition)
-and [PBI-050](BACKLOG.md#pbi-050-prove-an-in-place-foundation-upgrade-with-component-windows).
-E.5 covers compatible and breaking API/schema changes, initial data migration,
-legacy writes to both schemas and separate consumer maintenance windows.
-It is the final currently planned Elaboration step and requires a stabilized,
-accepted technology/toolchain. E.2 was activated on 2026-10-19 in managed mode;
-its [setup](progress/E.2/sprint_E.2_setup.md) records contracting and initial
-scoping. The separate [analysis](progress/E.2/sprint_E.2_analysis.md) is complete
-as a desk-analysis baseline; its [review summary](progress/E.2/sprint_E.2_inception.md)
-presents fourteen findings and prioritized evidence questions before exercise
-design. The Product Owner approved analysis on 2026-10-19. The
-[revised exercise design and verification plan](progress/E.2/sprint_E.2_design.md)
-were accepted by the Product Owner on 2026-10-19; construction is in progress.
-The [external design review](progress/E.2/sprint_E.2_design_review-1.md) found no
-required corrections to its reviewed version. The current design subsequently
-uses exercise-based verification without separate test suites, as approved by
-the Product Owner.
-The [external analysis review](progress/E.2/sprint_E.2_analysis_review-1.md) found no
-corrections required before exercise design. The
-[interim assessment](progress/E.2/sprint_E.2_assessment.md) records round closure
-and remaining exercise and handover work.
-The analysis also records the unscheduled follow-up
-[PBI-052: component contracts and semantic versioning rules](BACKLOG.md#pbi-052-define-semantic-versioning-rules-for-component-contracts).
-Current E.2 review starts with the [Product Owner decision brief](progress/E.2/sprint_E.2_handover.md)
-and its [decision presentation](progress/E.2/sprint_E.2_product_owner_handover.pptx).
-The [concise gap analysis](progress/E.2/oracle-gap-analysis.md) separates demonstrated
-native delivery from component-dependency, automatic drift-protection and automatic
-repair gaps. Reviewed forward repair remains supported but unexercised in E.2.
+### Sprint E.2 — Oracle lifecycle assessment
 
-The [native SQLcl walkthrough](progress/E.2/cicd-walkthrough.md) covers the
-Foundation/Hello/World delivery journeys. [Implementation](progress/E.2/sprint_E.2_implementation.md)
-and [exercise evidence](progress/E.2/sprint_E.2_tests.md) identify reference runs and
-limits. The Product Owner reported F completed. Retained F artifacts still have a
-SQLcl 25.3 verification failure; a separate clean 25.4.1 comparison does not
-certify them. Mapped identity preservation and delivery protections require
-qualification. The earlier increment presentation remains an exercise record.
-Handover decisions and sprint acceptance remain pending.
+**Closed and accepted on 2026-11-03.** PBI-051 delivered the source-backed gap
+analysis, focused native delivery/Working Copy exercises, runnable walkthrough
+and Product Owner decision package. The [final assessment](progress/E.2/sprint_E.2_assessment.md)
+and [accepted handover](progress/E.2/sprint_E.2_handover.md) record the closure.
+
+Use the [gap analysis](progress/E.2/oracle-gap-analysis.md),
+[native SQLcl walkthrough](progress/E.2/cicd-walkthrough.md) and
+[decision presentation](progress/E.2/sprint_E.2_product_owner_handover.pptx).
+The presentation is the 22 October review snapshot; the handover records the
+subsequent acceptance and current follow-up decisions. The earlier increment
+deck remains historical exercise material.
+
+SQLcl PROJECT, Working Copies and Git can coexist. Component dependency and
+automatic drift-protection gaps remain; reviewed forward repair is supported
+but unexercised in E.2. Retained F artifacts still have their verification limit,
+and a separate clean 25.4.1 comparison does not certify them. Identity and
+protection qualification remain backlog work. E.1 evidence is unchanged.
+[PBI-052](BACKLOG.md#pbi-052-define-semantic-versioning-rules-for-component-contracts)
+retains component-contract/SemVer follow-up. Complex Foundation upgrades stay E.5.
 
 E.3–E.5 remain Planned; their designs and runtime evidence are pending.
 
@@ -159,6 +134,6 @@ The supplied [Oracle APEX lifecycle reference](refs/apex-lifecycle-management-v3
 
 [RUPStrikesBack](https://github.com/rstyczynski/RUPStrikesBack) is an iterative delivery method for collaboration between a Product Owner and AI agents. It combines RUP lifecycle phases with a prioritized backlog, bounded iterations, explicit requirements/design, executable validation and Product Owner review. Each increment connects its implementation, tests and documentation so decisions can be checked against evidence.
 
-This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1 and E.1 are closed. E.2 is active in managed mode; E.3–E.5 remain Planned with distinct assigned Elaboration work recorded in the backlog and plan.
+This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1, E.1 and E.2 are closed; E.3–E.5 remain Planned with distinct assigned Elaboration work recorded in the backlog and plan.
 
 For external expert review, use the [rup-external-review skill](.agents/skills/rup-external-review/SKILL.md). Codex prepares the prompts and engineering replies; the Product Owner relays them to the expert through the linked round files. Review outcomes and implementation evidence remain distinct from sprint acceptance.

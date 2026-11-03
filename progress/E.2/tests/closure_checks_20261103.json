@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-03",
+  "scope": "E.2 assessment acceptance and documentation closure",
+  "local_links_checked": 626,
+  "missing_local_links": 0,
+  "native_walkthrough_bash_blocks_checked": 55,
+  "bash_syntax_findings": 0,
+  "standalone_exit_commands_in_current_walkthrough": 0,
+  "traceability_links": 30,
+  "raw_logs_hash_verified": 70,
+  "plan": "E.2 Done; E.3 Planned; no sprint active",
+  "board": "E.2/PBI-051 and four assessment children Done",
+  "backlog": "PBI-051 Done; PBI-052 Proposed",
+  "pptx_zip_xml_integrity": {
+    "sprint_E.2_product_owner_handover.pptx": 11,
+    "sprint_E.2_increment_demo.pptx": 22
+  },
+  "new_runtime_executions": 0,
+  "new_automated_or_regression_suites": 0,
+  "accepted_limits": [
+    "Retained F verification limit and source/distribution consistency",
+    "Mapped identity preservation and ownership qualification",
+    "G component contract admission remains project logic",
+    "H automatic drift gate unqualified; no-change replay is not overwrite protection",
+    "I reviewed forward repair supported but unexercised"
+  ],
+  "other_work": "Existing E.3 planning edits preserved; no next sprint activated"
+}
