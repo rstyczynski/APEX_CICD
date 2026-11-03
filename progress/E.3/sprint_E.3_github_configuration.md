@@ -127,5 +127,5 @@ separate; no next sprint or broader PBI completion is inferred.
 
 The [launcher check receipt](tests/github-runner-checks.json) records the exact
 script hash and exercised commands. The [presentation check](tests/github-presentation-checks.json)
-records 13 inspected slides and passed package/layout/import checks. The
+records the final 12-slide deck and passed package/layout/import checks. The
 [document check](tests/github-document-checks.json) records source/link agreement.

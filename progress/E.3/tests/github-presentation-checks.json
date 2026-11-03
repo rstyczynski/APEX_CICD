@@ -1,10 +1,11 @@
 {
-  "sha256": "636e5ff6c7d63b6d17dd82b58a79dc23fba92ebb66cfce43ea45e9401054f928",
-  "slides": 13,
+  "sha256": "f97088ba3bcfa612d52d0a02961690855b1a1ea9d6a02fa5921120068496c2d2",
+  "slides": 12,
   "package_integrity": "pass",
   "layout_findings": 0,
   "layout_warnings": 1,
   "first_party_import": true,
-  "visual_inspection": "Runner setup revision: slide 4 inspected at full size; remaining 12 PNG hashes identical to inspected github-v2 renders. One density warning on slide 4 reviewed; text is readable and unclipped.",
+  "preserved_package_parts": 69,
+  "visual_inspection": "Changed slides 2/7/8/9/10 and renumbered closing slide 12 inspected; other 6 slide PNG hashes unchanged; unrelated source parts preserved byte for byte",
   "native_powerpoint_inspection": false
 }

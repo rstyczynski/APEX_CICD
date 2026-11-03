@@ -21,7 +21,7 @@ s=slide('E.3 Git development pipeline\nArchitecture prototype',E+'sprint_E.3_han
 text(s,'Working Copy → reviewed Git source\nAutomated version and changelog\nManual deployment by version tag',64,235,1120,220,42,'#FFFFFF',true);
 text(s,'3 November 2026 · one lab target · real GitHub and Oracle execution',64,610,1100,50,24,C.soft);
 s=slide('Walkthrough agenda',E+'sprint_E.3_increment_demo.md');
-text(s,'1. Author and capture one heading change\n\n2. Review the PR and prepare version 1.0.4\n\n3. Deploy the selected tag and inspect history\n\n4. Review failure evidence and remaining risks',64,185,1120,420,32);
+text(s,'1. Author and capture one heading change\n\n2. Review the PR and prepare version 1.0.4\n\n3. Deploy the selected tag and inspect history\n\n4. Review results and next steps',64,185,1120,420,32);
 s=slide('Architecture and responsibilities',E+'sprint_E.3_design.md');
 const rows=[["Developer / APEX Working Copy","Edit through local ORDS; compare and merge into Main"],["Lab Mac / local runner + native SQLcl PROJECT","Export, verify, package and deploy over Oracle TCP"],["GitHub cloud / checks + Release Please","Validate PRs; prepare versions; store environment variables/secrets"],["Deployer / GitHub Actions","Select a published tag; dispatch native operations to the lab runner"]];
 rows.forEach(([a,b],i)=>{text(s,a,64,165+i*108,1130,40,30,C.teal,true);text(s,b,92,211+i*108,1100,46,25);});
@@ -41,22 +41,20 @@ bullets(s,['Selected component: Page 1, Home','Original heading: Hello World - W
 s.speakerNotes.text+=' Raw original comparison capture is retained; no later screenshot is represented as the historical merge.';
 s=slide('Native source capture and staging',E+'sprint_E.3_implementation.md');
 code(s,['connect -name lab-dev-c','project export','-- Review and commit src before staging','project stage -branch-name e3-base','project verify -cbn e3-base -verbose'],190,29);
-text(s,'Run these commands in SQLcl; review and commit src, then dist.\nMain contains the native baseline. No source adapter.',64,540,1130,100,28,C.teal,true);
+text(s,'Run these commands in SQLcl; review and commit src, then dist.\nRequire zero errors from native verification before opening the PR.',64,540,1130,100,28,C.teal,true);
 s=slide('PR labels and Conventional Commits','https://github.com/rstyczynski/APEX_CICD_E3/pull/1');
 bullets(s,['patch → fix: update Home heading','minor → feat: add a compatible capability','major → feat!: change the contract','Hosted checks reject missing/conflicting labels or title mismatch','Squash merge retains the classification in Git history'],175,30);
-text(s,'Performed: PR 9 moves configuration and generated setup into GitHub.',64,635,1120,35,24,C.teal,true);
+text(s,'Reviewer checks the diff and required checks, then squash merges.',64,635,1120,35,24,C.teal,true);
 s=slide('Release Please: version and both changelogs','https://github.com/rstyczynski/APEX_CICD_E3/pull/10');
-bullets(s,['GitHub configuration accepted in PR 9; generated release PR 10','Generated version.txt: 1.0.3 → 1.0.4','Generated CHANGELOG.md and matching GitHub Release notes','Hosted checks were manually dispatched on the bot PR head','Release-PR merge created tag v1.0.4; deployment stays manual'],175,30);
+bullets(s,['Semantic commit history determines the next release version','Generated version.txt: 1.0.3 → 1.0.4','Generated CHANGELOG.md and matching GitHub Release notes','Reviewer merges the generated release PR when ready','Release-PR merge created tag v1.0.4; deployment stays manual'],175,30);
 s=slide('Manual deployment of the selected tag',E+'tests/github-release-receipt.json');
 code(s,['gh workflow run release.yml \\','  --repo rstyczynski/APEX_CICD_E3 \\','  --ref main -f version_tag=v1.0.4','','gh run view 41679427616 \\','  --repo rstyczynski/APEX_CICD_E3'],195,27);
 text(s,'Succeeded: native verify → one archive → target deployment → preservation',64,545,1135,75,28,C.teal,true);
-text(s,'Exact tag source uses a named local build branch; no live DEV export.',64,630,1135,40,24,C.muted);
+text(s,'The version is calculated automatically; the deployer selects the published tag.',64,630,1135,40,24,C.muted);
 s=slide('Deployed application and retained history',E+'tests/github-deployed-home.png; '+E+'tests/github-deployed-history.png');
 await shot(s,E+'tests/github-deployed-home.png',155,380);
 text(s,'Observed in browser: Hello World - Git pipeline\nRetained Hello World history row and all prior fields verified.',64,555,1130,85,28,C.teal,true);
 text(s,'Repository release: v1.0.4. APEX display metadata remains 1.0.0.',64,650,1100,25,20,C.muted);
-s=slide('Corrections and remaining limits',E+'sprint_E.3_github_configuration.md');
-bullets(s,['Native Main baseline and Python removal remain the E.2/E.3 foundation','1.0.2 whitespace initialization failed in browser; native session check added','Hidden native.env paths removed; GitHub owns settings and tool setup','Local lab launcher reaches Oracle/ORDS; job connections are temporary','APEX status gating is non-atomic; full drift/recovery proof remains deferred'],160,28);
 s=slide('Results and handover boundary',E+'sprint_E.3_handover.md; '+E+'sprint_E.3_tests.md');
 text(s,`1. PBI-053.1: Working Copy, Git capture and native verification
 

@@ -228,3 +228,18 @@ configuration evidence receipts before the scoped completion commit.
 The Product Owner requested explicit setup documentation in the implementation record and presentation pair. The manual already contained the setup and launch commands; the implementation record and walkthrough only linked to the launcher, and slide 4 omitted setup. The [implementation record](sprint_E.3_implementation.md#current-runner-installation-and-launch), [walkthrough stage 5](sprint_E.3_increment_demo.md#5-deployer-selects-the-version) and PPTX slide 4 now distinguish one-time installation/registration from starting the foreground listener each lab session. They state the persistent directory, expected output, GitHub authentication and connectivity prerequisites, retained matching registration and the boundary between runner setup, existing lab infrastructure and workflow tool setup.
 
 This documentation correction was checked against the actual launcher source. Script syntax, local links/anchors, PPTX package/layout and first-party import passed. Slide 4 was visually inspected; the other 12 rendered PNGs are byte-identical to the previous inspected revision. One density warning on slide 4 was reviewed and accepted with readable, unclipped text. The [presentation receipt](tests/github-presentation-checks.json) now identifies the revised canonical deck; [documentation checks](tests/runner-setup-document-checks.json) record this scope. Setup and live runner execution were not repeated for this text-only change; prior operational evidence remains historical. No sprint or PBI status was changed.
+
+## Final-deck focus — Product Owner correction
+
+The Product Owner excluded internal implementation-fix history from the final
+PPTX. Removed the corrections slide and repair-history captions; retained the
+delivered pipeline, demonstration, results and relevant next steps. The final
+slide map has 12 slides. Detailed failure/correction evidence stays in the
+engineering records. This explicit audience/content decision supersedes the
+generic expectation to show each implementation failure in the handover deck.
+
+The current PowerPoint file contained user edits at task entry. It was backed
+up and edited surgically at package level to preserve unrelated slide/master/
+layout/style content. Package/layout/import checks and before/after renders
+were checked before replacing the canonical file; no runtime tests or workflow
+execution were repeated for this presentation-only change.

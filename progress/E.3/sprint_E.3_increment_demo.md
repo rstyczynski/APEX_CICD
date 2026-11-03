@@ -169,8 +169,7 @@ read fresh GitHub evidence, not a retained local source/data snapshot.
 | 9 | Release Please version and both changelogs |
 | 10 | Manual selected-tag native deployment |
 | 11 | Deployed application and retained history |
-| 12 | Baseline/configuration corrections and native limits |
-| 13 | Assigned outcomes and next acceptance decision |
+| 12 | Assigned outcomes and next acceptance decision |
 
 PBI-053.1/.2/.3 retain their original criteria and SM-1/IT-1/IT-2 tests.
 Construction completeness, full fencing/drift/identity coverage and general DDL
@@ -184,3 +183,7 @@ without inserting editor indentation and adds native APEX_SESSION.CREATE_SESSION
 plus DELETE_SESSION before publication. This executes initialization and would
 reject that observed failure; it does not replace real authentication/browser
 validation. See the [correction record](sprint_E.3_native_correction.md).
+
+The final PPTX omits internal implementation-fix history at the Product Owner's
+request. Detailed corrections remain in the engineering records; the 12-slide
+deck presents the delivered pipeline, operator journey, results and next steps.
