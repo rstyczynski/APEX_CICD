@@ -139,43 +139,37 @@ Backlog Items:
 
 * PBI-051. Assess the E.1 delivery approach against Oracle lifecycle guidance
 
-## Sprint E.3 - Validate APEX-native team-centric development
+## Sprint E.3 - Prototype the Git-based development pipeline
 
-Status: Planned
+Status: Progress
 Mode: managed
-Test: smoke, unit, integration
-Regression: smoke, unit, integration
+Test: smoke, integration
+Regression: smoke
 
-On 2026-10-19 the Product Owner split the Oracle-style exercise into two
-iterations. E.3 validates shared APEX development, page locks and Working
-Copies, with coordinated Git checkpoints feeding native release, test and
-deployment automation. The [E.3 scope record](progress/E.3/sprint_E.3_proposedchanges.md)
-defines its independent acceptance and common foundation for E.4. This plans
-work without starting execution or approving an implementation design.
+On 2026-11-03 the Product Owner narrowed E.3 to a simple Elaboration
+architecture prototype. Demonstrate one Working Copy change captured in Git,
+a developer manually opening a PR, accepted integration and a deployer
+manually triggering the release workflow. Keep PR validation separate from
+deployment. Analysis/design considers selective future release automation
+without implementing automatic deployment for every PR. The
+[E.3 preparation](progress/E.3/sprint_E.3_pipeline_scope.md) owns the bounded
+journey, design questions, evidence and deferrals. Exact focused checks are
+selected during analysis/design; comprehensive delivery suites are deferred.
+Activated on 2026-11-03 by explicit Product Owner request to prepare the design.
+Implementation remains subject to managed design approval. See the
+[setup and analysis](progress/E.3/sprint_E.3_setup.md) and
+[proposed design and test specification](progress/E.3/sprint_E.3_design.md).
 
-Strict acceptance: every scenario must map to exact pages in the supplied
-Oracle lifecycle paper and applicable version-specific Oracle documentation,
-with execution evidence and explicit approved deviations. Handover must
-include an evidence-based E.1 comparison under PBI-047; see the
-[shared evidence contract](progress/E.3/sprint_E.3_proposedchanges.md#strict-oracle-traceability-and-comparison-contract).
+The former 15 assigned items return to the unscheduled backlog with their
+acceptance criteria unchanged. PBI-053 owns the independently reviewable
+prototype; partial reuse of broader capabilities does not complete their PBIs.
+Complete those items in Construction or schedule focused later Elaboration
+proofs when an identified risk warrants them. No Construction sprint is
+created by this refinement. E.2 was accepted and closed on 2026-11-03; E.3 activation remains separate.
 
 Backlog Items:
 
-* PBI-036. Define Oracle lifecycle use-case coverage
-* PBI-037. Establish native Oracle source capture and staging
-* PBI-035. Validate adoption of an existing APEX application
-* PBI-039. Demonstrate native team-centric APEX collaboration
-* PBI-040. Measure PL/SQL regression coverage with utPLSQL
-* PBI-034. Automate application browser acceptance checks
-* PBI-041. Demonstrate Oracle-recommended application quality audits
-* PBI-027. Unify delivery environment configuration
-* PBI-038. Deliver native Oracle release artifacts
-* PBI-021. Complete release admission and promotion negative coverage
-* PBI-029. Strengthen automation failure diagnostics
-* PBI-045. Preserve scenario protections around native Oracle delivery
-* PBI-044. Demonstrate native mini-app component reuse
-* PBI-043. Operate the Oracle lifecycle automation pipelines
-* PBI-047. Compare APEX-native delivery with the earlier prototype
+* PBI-053. Prove a simple Git-based development-to-release journey
 
 ## Sprint E.4 - Validate Git-based feature-centric development
 
@@ -184,18 +178,15 @@ Mode: managed
 Test: smoke, unit, integration
 Regression: smoke, unit, integration
 
-Build on the accepted E.3 native release/test foundation to validate feature
-branches, private APEX branch environments, PR/conflict integration and safe
-post-merge central DEV synchronization. The [E.4 scope record](progress/E.4/sprint_E.4_proposedchanges.md)
-owns its separate exercise, regression evidence and final comparison of both
-approaches. E.4 requires E.3's applicable baseline and its own activation;
-shared tooling does not merge the two development workflows.
-
-Strict acceptance: apply the same
-[Oracle traceability and comparison contract](progress/E.3/sprint_E.3_proposedchanges.md#strict-oracle-traceability-and-comparison-contract)
-to E.4 scenarios and inherited capabilities. PBI-046 must deliver E.4 versus
-E.1 evidence and the final E.1/E.3/E.4 decision package; a narrative preference
-or an E.3 test result alone cannot satisfy this requirement.
+The earlier [E.4 scope record](progress/E.4/sprint_E.4_proposedchanges.md)
+retains the planned feature-centric exercise and its five assignments below.
+Following the 2026-11-03 [E.3 refinement](progress/E.3/sprint_E.3_pipeline_scope.md),
+E.3 no longer promises the former full native release/test foundation.
+Before E.4 activation, refine its scope from the prototype's actual evidence:
+retain bounded architectural-risk experiments in Elaboration and schedule
+completion work in Construction. The former broad comparison and qualification
+obligations remain backlog requirements, not implied E.3 completion. This
+preparation neither activates E.4 nor approves its earlier implementation scope.
 
 Backlog Items:
 

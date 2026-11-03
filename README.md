@@ -94,7 +94,16 @@ Sprint **E.1 was closed by the Product Owner on 2026-10-18**. Important unfinish
 
 The [assessment](progress/E.1/sprint_E.1_assessment.md) recommends focused further Elaboration before full Lifecycle Architecture acceptance. Remote CI runners, protected-branch automation and release approvals are [future extensions](progress/E.1/repo_layout.md#future-pipeline-automation). Cloud deployment, production readiness and high availability are outside the demonstrated scope.
 
-Known follow-up work is registered in the [Product Backlog](BACKLOG.md#pbi-018-prove-atomic-task-reservations-under-contention). The historical [E.1 coverage map](progress/E.1/sprint_E.1_assessment.md#open-work-backlog-coverage) connects PBI-018–035 to remaining criteria and deferred review concerns. On 2026-10-19 the Product Owner split the Oracle-style exercise into **E.3: APEX-native team-centric development** and **E.4: Git-based feature-centric development**, both Planned. The [E.3 coverage and backlog review](progress/E.3/sprint_E.3_proposedchanges.md) owns Working Copies/page locks and the native release/test/pipeline foundation. The [E.4 scope](progress/E.4/sprint_E.4_proposedchanges.md) owns private Git branches, parallel PR integration, central DEV synchronization and the final comparison. The [plan](PLAN.md) owns the distinct assignments; neither approach is claimed implemented by this planning change. Both sprints have a strict [Oracle traceability and comparison requirement](progress/E.3/sprint_E.3_proposedchanges.md#strict-oracle-traceability-and-comparison-contract): exact paper/documentation sources, observed evidence and an E.1 comparison at each handover, followed by a three-approach decision package at E.4.
+Known follow-up work is registered in the [Product Backlog](BACKLOG.md#pbi-018-prove-atomic-task-reservations-under-contention). The historical [E.1 coverage map](progress/E.1/sprint_E.1_assessment.md#open-work-backlog-coverage) connects PBI-018–035 to remaining criteria and deferred review concerns. On 2026-11-03 the Product Owner narrowed **E.3 to a simple Git-based
+pipeline architecture prototype**. The [E.3 preparation](progress/E.3/sprint_E.3_pipeline_scope.md)
+plans one Working Copy change captured in Git, a manually opened PR and a
+separately triggered release workflow. Analysis/design will consider selective
+future release automation. The former 15 full-solution assignments return to
+the backlog for Construction or risk-driven later Elaboration; PBI-053 owns
+this bounded prototype. E.4's five assignments remain pending scope refinement
+against E.3 evidence before activation. The [plan](PLAN.md) owns assignments
+and status. Earlier native-team/Git-team split records remain planning history;
+their full qualification and comparison gates are not E.3 prototype criteria.
 
 ### Sprint E.2 — Oracle lifecycle assessment
 
@@ -118,7 +127,11 @@ protection qualification remain backlog work. E.1 evidence is unchanged.
 [PBI-052](BACKLOG.md#pbi-052-define-semantic-versioning-rules-for-component-contracts)
 retains component-contract/SemVer follow-up. Complex Foundation upgrades stay E.5.
 
-E.3–E.5 remain Planned; their designs and runtime evidence are pending.
+E.3 was activated on 2026-11-03 to prepare its design. Review the
+[proposed E.3 design and test specification](progress/E.3/sprint_E.3_design.md),
+supported by the [setup](progress/E.3/sprint_E.3_setup.md) and
+[analysis](progress/E.3/sprint_E.3_analysis.md). Implementation and runtime
+evidence remain pending; E.4/E.5 remain Planned.
 
 ## Vision
 
@@ -134,6 +147,6 @@ The supplied [Oracle APEX lifecycle reference](refs/apex-lifecycle-management-v3
 
 [RUPStrikesBack](https://github.com/rstyczynski/RUPStrikesBack) is an iterative delivery method for collaboration between a Product Owner and AI agents. It combines RUP lifecycle phases with a prioritized backlog, bounded iterations, explicit requirements/design, executable validation and Product Owner review. Each increment connects its implementation, tests and documentation so decisions can be checked against evidence.
 
-This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1, E.1 and E.2 are closed; E.3–E.5 remain Planned with distinct assigned Elaboration work recorded in the backlog and plan.
+This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1, E.1 and E.2 are closed; E.3 is active for design; E.4/E.5 remain Planned with distinct assigned Elaboration work recorded in the backlog and plan.
 
 For external expert review, use the [rup-external-review skill](.agents/skills/rup-external-review/SKILL.md). Codex prepares the prompts and engineering replies; the Product Owner relays them to the expert through the linked round files. Review outcomes and implementation evidence remain distinct from sprint acceptance.

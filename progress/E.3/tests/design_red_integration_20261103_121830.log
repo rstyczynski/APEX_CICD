@@ -1,0 +1,7 @@
+RUN integration:test_pipeline.sh:test_IT1_manual_release
+FAIL test_IT1_manual_release
+RUN integration:test_pipeline.sh:test_IT2_verification_blocks_deploy
+FAIL test_IT2_verification_blocks_deploy
+Tests: 2; failed: 2
+PENDING IT-1: manual PR-to-release journey has not been demonstrated.
+PENDING IT-2: verification failure blocking deployment is not implemented.

@@ -1,5 +1,21 @@
 # Project test profile
 
+E.3 planning update — 2026-11-03: the [simple Git-based pipeline preparation](../progress/E.3/sprint_E.3_pipeline_scope.md)
+replaces the earlier full native-team exercise. PBI-053 proves one Working Copy
+change through manual PR creation, accepted Git integration and manually triggered
+release. Analysis/design must settle the capture path, separate PR checks from
+deployment and consider selective future automation. Full delivery capabilities
+remain backlog work for Construction or a justified later architectural experiment.
+[PLAN](../PLAN.md) owns the current assignments. E.4 requires scope refinement
+before activation. Existing E.1 requirements and mechanisms below retain their
+baseline meaning; E.3 analysis must explicitly reconcile affected authoring and
+integration policies before design approval. This update claims no runtime result. E.3 is now active for
+design; the [proposed design](../progress/E.3/sprint_E.3_design.md) and
+[analysis](../progress/E.3/sprint_E.3_analysis.md) specify the bounded Working Copy
+authoring exception, release workflow and remaining compliance gaps. These
+proposals await approval and do not amend the broader baseline by implication.
+
+
 ## Status and purpose
 
 The [E.2 analysis scope](../progress/E.2/sprint_E.2_proposedchanges.md) requires
@@ -24,9 +40,7 @@ separate component maintenance windows. Exact commands and measurable limits
 must be approved during E.5 design on the stabilized toolchain; existing E.1 checks do not establish these
 new acceptance outcomes.
 
-The [E.3 scope](../progress/E.3/sprint_E.3_proposedchanges.md) plans native-APEX collaboration plus the common native release, utPLSQL coverage, Cypress and audit gates. The [E.4 scope](../progress/E.4/sprint_E.4_proposedchanges.md) separately requires parallel Git integration, private-target reconstruction, central DEV synchronization and fresh regression for changed artifacts. Each approved design must materialize exact commands and behavioral mappings before code-bearing execution; neither the E.1 commands nor E.3’s earlier results automatically qualify E.4 source.
 
-Both planned iterations must satisfy the [strict Oracle traceability and E.1 comparison contract](../progress/E.3/sprint_E.3_proposedchanges.md#strict-oracle-traceability-and-comparison-contract): scenario-level paper pages and applicable official version-specific Oracle guidance, executed evidence, explicit deviation dispositions and decision-ready comparisons at each handover.
 
 The [E.1 handover checks](../progress/E.1/tests/handover_checks_20261018.txt), [presentation walkthrough](../progress/E.1/sprint_E.1_increment_demo.md) and [completion assessment](../progress/E.1/sprint_E.1_assessment.md) identify current executable evidence and remaining cases. The I.1 future-command statements below preserve the original analysis contract; they are not a current inventory of implemented scripts or a claim that every specified test has passed.
 
@@ -207,3 +221,16 @@ The operator entry point for that source review is `bash scripts/cicd-protection
 ## Review repair and clean-checkout validation
 
 `bash scripts/cicd-walkthrough-I_repair.sh --rehearse` explicitly executes the selected native BUG-7 failure/observation/repair/negative/repeat experiment in disposable integration. It requires a fresh case, known ready 1.0.1 start and at least twenty baseline rows. It does not replace full IT-3/9 concurrency/unknown-state coverage or browser validation. [Recorded proof](../progress/E.1/tests/recovery_proof_20261018.txt) shows 21 preserved rows/settings and retained failure/success history. [Independent checkout procedure](deploy.md#independent-checkout-rehearsal-while-retaining-the-current-lab) validates clean source/inputs in a separate VM while preserving the retained lab intact; its results must be recorded before claiming that gate passed.
+
+## E.3 proposed pipeline checks
+
+The [E.3 design](../progress/E.3/sprint_E.3_design.md#test-specification) defines
+SM-1 (workflow contract), IT-1 (manual PR/release journey) and IT-2 (verification
+failure stopping deployment). Run the registered skeletons with
+`bash tests/run.sh --smoke --new-only progress/E.3/new_tests.manifest` and
+`bash tests/run.sh --integration --new-only progress/E.3/new_tests.manifest`.
+They intentionally fail until implementation after design approval. Full smoke
+regression remains `bash tests/run.sh --smoke`, including retained E.1 checks;
+do not repoint the older client's installation to the E.3 SQLcl version.
+The [design audit](../progress/E.3/sprint_E.3_documentation_audit.md) records what
+was checked. Live workflow/browser evidence remains pending.

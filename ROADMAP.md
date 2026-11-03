@@ -75,30 +75,34 @@ compatibility, drift protection and reviewed recovery remain explicit follow-up.
 Closure accepts the assessment, not production readiness. No next sprint starts
 automatically. Complex Foundation upgrades remain E.5 after stabilization.
 
-## Elaboration E.3 — APEX-native team-centric development
+## Elaboration E.3 — Simple Git-based pipeline prototype
 
-The Product Owner split the Oracle-style exercise on 2026-10-19. E.3 is Planned
-in managed mode and demonstrates shared DEV, page locks, Working Copies and
-APEX Main integration, followed by coordinated Git checkpoints. It establishes
-the native release/deployment, test/coverage, audit and pipeline foundation
-while reproducing the demonstrated E.1 protections and showing mini-app reuse.
-The [E.3 scope and backlog review](progress/E.3/sprint_E.3_proposedchanges.md)
-defines its 15 assigned outcomes, mandatory E.1 comparison and independent handover evidence.
+On 2026-11-03 the Product Owner narrowed E.3 to an understandable architecture
+prototype, assigned PBI-053. The [E.3 preparation](progress/E.3/sprint_E.3_pipeline_scope.md)
+plans one Working Copy change captured in Git, manual PR creation and accepted
+integration, followed by a manually triggered release workflow. Keep PR checks
+separate from deployment and consider selective future automation during design.
+Reuse prior evidence and simple native mechanisms. Demonstrate the real happy
+path and expose remaining risks without completing all delivery capabilities.
+E.3 was activated on 2026-11-03 for design preparation; E.2 is closed.
+The [proposed design](progress/E.3/sprint_E.3_design.md) awaits Product Owner
+approval before implementation.
 
-## Elaboration E.4 — Git-based feature-centric development
+The former 15 E.3 items return to the backlog with full criteria unchanged.
+Complete them in Construction or schedule a focused later Elaboration proof
+when a specific architectural risk requires it. The former exhaustive paper
+coverage and comparative programme remains prior planning context, not this
+prototype's exit gate. Verify sources for the actual Oracle operations used.
 
-E.4 is separately Planned in managed mode, depending on E.3's applicable
-accepted native tooling. It demonstrates private APEX branch environments,
-parallel feature branches, PR/conflict integration and central DEV refresh
-from Git main. Its five assigned outcomes also complete private-target
-reconstruction validation, the consolidated guide and independent reproduction
-and comparison of both approaches against E.1. The
-[E.4 scope record](progress/E.4/sprint_E.4_proposedchanges.md) owns that exercise;
-the [plan](PLAN.md) owns both iterations' assignments. Both require exact paper-page and version-specific Oracle-documentation
-traceability, recorded execution evidence and an E.1 comparison at their own
-handover; E.4 also delivers the final three-approach decision package. Neither sprint has
-started. Broader unresolved controls and Lifecycle Architecture acceptance
-remain explicit, evidence-based decisions.
+## Elaboration E.4 — Refine from prototype evidence
+
+E.4 remains Planned with its existing five backlog assignments in the
+[plan](PLAN.md). Its [earlier scope](progress/E.4/sprint_E.4_proposedchanges.md)
+assumed the full native release/test foundation formerly assigned to E.3.
+Refine that scope before activation using E.3 findings; keep only justified
+architecture experiments in Elaboration and schedule completion in Construction.
+The preparation of E.3 does not approve a full E.4 implementation or schedule
+new Construction iterations.
 
 ## Elaboration E.5 — Foundation upgrades on the stabilized toolchain
 

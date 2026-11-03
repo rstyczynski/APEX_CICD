@@ -1,0 +1,4 @@
+RUN smoke:test_pipeline.sh:test_SM1_pipeline_contract
+FAIL test_SM1_pipeline_contract
+Tests: 1; failed: 1
+PENDING SM-1: pipeline workflow contract is not implemented.

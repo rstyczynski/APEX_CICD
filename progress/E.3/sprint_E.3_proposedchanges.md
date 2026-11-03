@@ -1,5 +1,11 @@
 # E.3 APEX-native team-centric lifecycle: backlog review and exercise plan
 
+> Prior planning context: the Product Owner replaced this E.3 execution scope
+> on 2026-11-03 with the [simple Git-based pipeline prototype](sprint_E.3_pipeline_scope.md).
+> The assignments, full-coverage gates and runner defaults below describe the
+> earlier plan; use PLAN.md and the new preparation for current E.3 scope.
+
+
 ## Decision and status
 
 This planned exercise was renumbered from E.2 to E.3 on 2026-10-19 when

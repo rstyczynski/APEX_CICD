@@ -1,0 +1,18 @@
+[
+  {
+    "check": "red skeleton smoke",
+    "exit_code": 1,
+    "expected_failure": true,
+    "log": "progress/E.3/tests/design_red_smoke_20261103_121830.log"
+  },
+  {
+    "check": "red skeleton integration",
+    "exit_code": 1,
+    "expected_failure": true,
+    "log": "progress/E.3/tests/design_red_integration_20261103_121830.log"
+  },
+  {
+    "check": "single active sprint, backlog/board consistency and current local link targets",
+    "result": "pass"
+  }
+]

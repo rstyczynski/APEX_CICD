@@ -1,5 +1,21 @@
 # Candidate architecture
 
+E.3 planning update — 2026-11-03: the [simple Git-based pipeline preparation](../progress/E.3/sprint_E.3_pipeline_scope.md)
+replaces the earlier full native-team exercise. PBI-053 proves one Working Copy
+change through manual PR creation, accepted Git integration and manually triggered
+release. Analysis/design must settle the capture path, separate PR checks from
+deployment and consider selective future automation. Full delivery capabilities
+remain backlog work for Construction or a justified later architectural experiment.
+[PLAN](../PLAN.md) owns the current assignments. E.4 requires scope refinement
+before activation. Existing E.1 requirements and mechanisms below retain their
+baseline meaning; E.3 analysis must explicitly reconcile affected authoring and
+integration policies before design approval. This update claims no runtime result. E.3 is now active for
+design; the [proposed design](../progress/E.3/sprint_E.3_design.md) and
+[analysis](../progress/E.3/sprint_E.3_analysis.md) specify the bounded Working Copy
+authoring exception, release workflow and remaining compliance gaps. These
+proposals await approval and do not amend the broader baseline by implication.
+
+
 **Delivery principle:** Accepted revisions in the Git repository are the golden source of truth for the engineered CI/CD system. Releases are built from those revisions. Native Oracle APEX Working Copies remain available for break-glass investigation/repair; retained changes return through a reconciliation branch, PR validation and controlled deployment (UC-5).
 
 ## Decision status
@@ -35,9 +51,7 @@ remain design decisions. The application-wide maintenance approach below must
 be refined before claiming independent consumer maintenance and availability.
 E.5 follows acceptance of the stabilized technology/toolchain.
 
-The [E.3 scope](../progress/E.3/sprint_E.3_proposedchanges.md) plans the APEX-native team-centric path and shared native release/test foundation; the [E.4 scope](../progress/E.4/sprint_E.4_proposedchanges.md) plans the separate Git-based feature-centric path, including validation of branch-instance identities. Both are Planned. Their designs must replace or justify custom release responsibilities while keeping APEX Main integration distinct from Git main integration. The E.1 mechanisms below describe the earlier candidate and demonstrated implementation, not a mandate to reproduce its custom packager.
 
-Both planned iterations must satisfy the [strict Oracle traceability and E.1 comparison contract](../progress/E.3/sprint_E.3_proposedchanges.md#strict-oracle-traceability-and-comparison-contract): scenario-level paper pages and applicable official version-specific Oracle guidance, executed evidence, explicit deviation dispositions and decision-ready comparisons at each handover.
 
 Current E.1 evidence is summarized in the [handover](../progress/E.1/sprint_E.1_handover.md) and [completion assessment](../progress/E.1/sprint_E.1_assessment.md). E.1 was closed on 2026-10-18 after the selected A–I slice, including bounded repair, passed. Remaining concurrency, complete maintenance fencing, scoped schema drift and broader acceptance proofs are recorded in the follow-up backlog before full Lifecycle Architecture acceptance. Historical I.1 future-tense statements below describe the analysis baseline; use the linked assessment for implementation status.
 

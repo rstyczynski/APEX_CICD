@@ -1,5 +1,21 @@
 # Software Requirements Specification
 
+E.3 planning update — 2026-11-03: the [simple Git-based pipeline preparation](../progress/E.3/sprint_E.3_pipeline_scope.md)
+replaces the earlier full native-team exercise. PBI-053 proves one Working Copy
+change through manual PR creation, accepted Git integration and manually triggered
+release. Analysis/design must settle the capture path, separate PR checks from
+deployment and consider selective future automation. Full delivery capabilities
+remain backlog work for Construction or a justified later architectural experiment.
+[PLAN](../PLAN.md) owns the current assignments. E.4 requires scope refinement
+before activation. Existing E.1 requirements and mechanisms below retain their
+baseline meaning; E.3 analysis must explicitly reconcile affected authoring and
+integration policies before design approval. This update claims no runtime result. E.3 is now active for
+design; the [proposed design](../progress/E.3/sprint_E.3_design.md) and
+[analysis](../progress/E.3/sprint_E.3_analysis.md) specify the bounded Working Copy
+authoring exception, release workflow and remaining compliance gaps. These
+proposals await approval and do not amend the broader baseline by implication.
+
+
 **Delivery principle:** The engineered CI/CD system uses accepted revisions in the Git repository as the golden source of truth for application definitions and database migrations. Native Oracle APEX Working Copies are available as a break-glass procedure under UC-5. Any retained emergency change must be captured into Git, reviewed and validated before controlled deployment; it does not bypass repository authority.
 
 ## Decision status and system boundary
@@ -26,9 +42,7 @@ Its managed refinement must reconcile the availability requirement with the
 existing maintenance baseline before implementation on the stabilized toolchain;
 no upgrade is proved here.
 
-The [E.3 scope](../progress/E.3/sprint_E.3_proposedchanges.md) plans APEX-native team-centric work with page locks and Working Copies; the [E.4 scope](../progress/E.4/sprint_E.4_proposedchanges.md) separately plans Git-based feature integration and private APEX branch environments. E.3’s coverage refinement maps UC-1–12 and the paper’s additional actor journeys across both iterations, explicitly resolving the ordinary Working Copy versus break-glass restriction and native page-lock versus atomic component-reservation differences. The current requirements below remain in force until that managed refinement; the split does not silently relax them.
 
-Both planned iterations must satisfy the [strict Oracle traceability and E.1 comparison contract](../progress/E.3/sprint_E.3_proposedchanges.md#strict-oracle-traceability-and-comparison-contract): scenario-level paper pages and applicable official version-specific Oracle guidance, executed evidence, explicit deviation dispositions and decision-ready comparisons at each handover.
 
 I.1 analysis baseline accepted by the Product Owner on 2026-10-16, with the presentation wording correction. Derived from the accepted [vision](../README.md). PBI-003 through PBI-008 own this specification; [research](cicd-research.md) and the [candidate architecture](architecture.md) explain its technical direction. This acceptance establishes requirements; executable proof remains due in Elaboration.
 
