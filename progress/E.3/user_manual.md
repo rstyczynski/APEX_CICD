@@ -139,8 +139,9 @@ and merge the intended page into the coordinated Main checkpoint with a backup.
 See the [saved baseline](tests/native-author-baseline.png).
 
 Follow [Prepare Java 21 and SQLcl](sprint_E.3_increment_demo.md#prepare-java-21-and-sqlcl)
-to discover and verify an existing pinned installation before downloading it,
-and set PATH to its actual location in each developer terminal. Require SQLcl build 25.4.1.022.0618 before capture. The author
+to discover an installed SQLcl before downloading it,
+and set PATH to its actual location in each developer terminal. Record the build
+printed by `sql -version`. The author
 uses their own native SQLcl profile outside the checkout. At its prompt, connect and
 save the logical author connection, entering the authorized password when asked:
 

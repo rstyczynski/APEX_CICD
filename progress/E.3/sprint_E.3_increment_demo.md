@@ -57,12 +57,12 @@ If Java 21 is missing, install it with [Homebrew](https://brew.sh/):
 brew install openjdk@21
 ```
 
-Select Java 21 in this terminal, then **discover the existing pinned SQLcl**.
+Select Java 21 in this terminal, then **discover the installed SQLcl**.
 The Java selection also checks for the earlier sprint's downloaded JDK if the
 Homebrew location is absent.
-The search includes the earlier sprint's downloaded tools under your projects,
-as well as Applications, Downloads and tools. It verifies the executable's
-reported build before adding its actual directory to PATH:
+Discovery first uses `sql` if it is already on PATH. Otherwise it searches your
+projects, Applications, Downloads and tools for a SQLcl executable, adds its
+actual directory to PATH and prints the installed version:
 
 ```bash
 export JAVA_HOME="$(brew --prefix openjdk@21)/libexec/openjdk.jdk/Contents/Home"
@@ -70,28 +70,26 @@ if [ ! -x "$JAVA_HOME/bin/java" ]; then
   e3_java=$(find "$HOME/projects" "$HOME/Applications" "$HOME/tools" -type f -path '*/jdk-21*/Contents/Home/bin/java' -print -quit 2>/dev/null)
   if [ -n "$e3_java" ]; then export JAVA_HOME="${e3_java%/bin/java}"; fi
 fi
-e3_sqlcl=$(find "$HOME/projects" "$HOME/Applications" "$HOME/Downloads" "$HOME/tools" -type f -path '*/sqlcl-25.4.1.022.0618/sqlcl/bin/sql' -print -quit 2>/dev/null)
-if [ -n "$e3_sqlcl" ]; then
-  e3_sqlcl_version=$("$e3_sqlcl" -version 2>&1)
-  if [[ "$e3_sqlcl_version" == *25.4.1.022.0618* ]]; then
-    export PATH="$(dirname "$e3_sqlcl"):$PATH"
-    hash -r
-    command -v sql
-    printf '%s\n' "$e3_sqlcl_version"
-  else
-    printf 'SQLcl version check failed: %s\n' "$e3_sqlcl_version" >&2
-  fi
+e3_sqlcl=$(command -v sql || true)
+if [ -z "$e3_sqlcl" ]; then
+  e3_sqlcl=$(find "$HOME/projects" "$HOME/Applications" "$HOME/Downloads" "$HOME/tools" -type f -path '*/sqlcl*/bin/sql' -print -quit 2>/dev/null)
+fi
+if [ -n "$e3_sqlcl" ] && [ -x "$e3_sqlcl" ]; then
+  export PATH="$(dirname "$e3_sqlcl"):$PATH"
+  hash -r
+  command -v sql
+  sql -version
 else
-  echo 'SQLcl 25.4.1.022.0618 was not found. Use the installation block below.' >&2
+  echo 'SQLcl was not found. Install SQLcl before continuing.' >&2
 fi
 ```
 
-If the version is found, **skip installation**. A location such as
-`~/projects/APEX_CICD/.local-apex/tools/sqlcl-25.4.1.022.0618/sqlcl/bin/sql`
-is an existing tool binary, not an environment-settings file. Discovery does
-not create settings or credentials there.
+If SQLcl is found, **skip installation**. The earlier sprint's tool cache can
+supply the executable. Discovery reads tool binaries and creates no settings or
+credentials. Record the version printed by `sql -version`; discovery does not
+filter by a fixed version string.
 
-**Only if discovery finds no matching installation**, install the same pinned
+**Only if discovery finds no SQLcl installation**, install the same pinned
 SQLcl version used by the workflows. This block downloads
 the Oracle archive, checks its SHA-256 and extracts it under your Applications
 directory. Run it once; repeat it if that tool directory has been removed:
@@ -109,7 +107,7 @@ chmod +x "$HOME/Applications/apex-cicd/sqlcl-25.4.1.022.0618/sqlcl/bin/sql"
 
 After installation, rerun the discovery block above. In **each new authoring
 terminal**, select Java 21 and run discovery again. Expect `command -v sql` to
-show the **discovered path**, and SQLcl to report **25.4.1.022.0618**. PATH changes
+show the **discovered path**, and `sql -version` to report its actual build. PATH changes
 affect that terminal only. A `command not found` error requires discovery or
 installation, rather than exporting an assumed directory.
 See [Oracle's SQLcl environment requirements](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.4/sqcug/preparing-your-environment.html).
@@ -519,19 +517,17 @@ if [ ! -x "$JAVA_HOME/bin/java" ]; then
   e3_java=$(find "$HOME/projects" "$HOME/Applications" "$HOME/tools" -type f -path '*/jdk-21*/Contents/Home/bin/java' -print -quit 2>/dev/null)
   if [ -n "$e3_java" ]; then export JAVA_HOME="${e3_java%/bin/java}"; fi
 fi
-e3_sqlcl=$(find "$HOME/projects" "$HOME/Applications" "$HOME/Downloads" "$HOME/tools" -type f -path '*/sqlcl-25.4.1.022.0618/sqlcl/bin/sql' -print -quit 2>/dev/null)
-if [ -n "$e3_sqlcl" ]; then
-  e3_sqlcl_version=$("$e3_sqlcl" -version 2>&1)
-  if [[ "$e3_sqlcl_version" == *25.4.1.022.0618* ]]; then
-    export PATH="$(dirname "$e3_sqlcl"):$PATH"
-    hash -r
-    command -v sql
-    printf '%s\n' "$e3_sqlcl_version"
-  else
-    printf 'SQLcl version check failed: %s\n' "$e3_sqlcl_version" >&2
-  fi
+e3_sqlcl=$(command -v sql || true)
+if [ -z "$e3_sqlcl" ]; then
+  e3_sqlcl=$(find "$HOME/projects" "$HOME/Applications" "$HOME/Downloads" "$HOME/tools" -type f -path '*/sqlcl*/bin/sql' -print -quit 2>/dev/null)
+fi
+if [ -n "$e3_sqlcl" ] && [ -x "$e3_sqlcl" ]; then
+  export PATH="$(dirname "$e3_sqlcl"):$PATH"
+  hash -r
+  command -v sql
+  sql -version
 else
-  echo 'SQLcl 25.4.1.022.0618 was not found. Follow Prepare Java 21 and SQLcl before continuing.' >&2
+  echo 'SQLcl was not found. Install SQLcl before continuing.' >&2
 fi
 ```
 
