@@ -650,21 +650,69 @@ gh pr create --repo "$e3_repo" --base main --title "fix: update demo page title"
 ```
 
 Open the returned PR URL. The reviewer checks source/distribution diffs and
-successful **PR checks**, then **squash merges** with title
-`fix: update demo page title`. Exactly one classification label is allowed:
+successful **PR checks**. Follow the screens below in your own lab repository;
+PR numbers and branch names vary on each replay.
+
+**① Confirm the change PR title and classification.** The example is
+[lab PR #1](https://github.com/rstyczynski/APEX_CICD_E3_LAB/pull/1).
+Exactly one classification label is allowed:
 `patch` matches `fix:`, `minor` matches `feat:`, and `major` matches `feat!:`.
+
+![Change PR with semantic title and patch label](tests/walkthrough/github/01-change-pr.jpg)
+
+**② Open Files changed.** Review both `src` and `dist` in the left file tree.
+Expand the page changes and confirm the intended title appears in both source
+and staged distribution; review any generated metadata changes as well.
+
+![Files changed showing source and distribution in the file tree](tests/walkthrough/github/02-files-changed.jpg)
+
+**③ Open Checks.** Require successful **PR checks** for the latest head commit.
+The example below shows the successful check for `2c28802`.
+
+![Successful PR checks for the latest change PR head](tests/walkthrough/github/03-pr-checks.jpg)
+
+Return to **Conversation**. While signed in with merge permission, use the
+merge button's dropdown to select **Squash and merge**. In the confirmation
+form, set the squash title to `fix: update demo page title`, then confirm.
 The squash commit's semantic history drives automated versioning.
 
-In Actions, wait for **Prepare version and changelog** to complete. Open the
-generated Release Please PR. Review its proposed version, `CHANGELOG.md`,
-`version.txt` and release manifest. If checks are absent on this bot-created PR,
-open Actions → **PR checks** → Run workflow, choose **main**, and enter the
-**current release PR number**. Wait for checks to pass on its latest head.
+**④ In Actions, wait for Prepare version and changelog to complete.** Open
+the run triggered by your merged change and require **Success**.
 
-Merge the generated release PR and wait for **Prepare version and changelog**
+The remaining screenshots are **historical examples from the public seed
+repository `rstyczynski/APEX_CICD_E3`**. They show the completed v1.0.4 run,
+including an already merged release PR. Use your own lab's current release PR
+and generated version when following these steps.
+
+![Historical successful Prepare version and changelog run](tests/walkthrough/github/08-prepare-version.jpg)
+
+**⑤ Open the generated Release Please PR.** Its bot-authored description
+contains the proposed version and release notes. This historical example is
+[release PR #10](https://github.com/rstyczynski/APEX_CICD_E3/pull/10).
+
+![Historical bot-generated release PR with proposed changelog](tests/walkthrough/github/04-release-pr.jpg)
+
+Open **Files changed** and review `CHANGELOG.md`, `version.txt` and
+`.release-please-manifest.json`. Confirm the same proposed version in all three.
+
+![Historical release PR file tree and generated version and changelog diffs](tests/walkthrough/github/05-release-files.jpg)
+
+**⑥ Check the release PR before merging.** If checks are absent on this
+bot-created PR, open **Actions → PR checks → Run workflow**, choose **main**,
+enter the **current release PR number**, and click **Run workflow**. These
+controls require a signed-in account with workflow permission. Wait for the
+run to finish successfully and inspect its `check` job to confirm it validated
+your release PR's latest head. The run summary displays `main` because that is
+the workflow dispatch branch; the PR number selects the PR being checked.
+
+![Historical successful manually triggered PR checks run](tests/walkthrough/github/06-release-pr-check-run.jpg)
+
+**⑦ Merge the generated release PR** and wait for **Prepare version and changelog**
 again. In Releases, confirm the generated tag and matching release notes. Record
 that tag for step F. **Do not type a new version or create a tag yourself.**
 No PR merge, release PR merge or tag publication deploys the application.
+
+![Historical GitHub Release published by github-actions with tag and release notes](tests/walkthrough/github/07-published-release.jpg)
 
 **Checkpoint:** the workflow has generated the version and both changelogs.
 For this display-only change, expect the next patch after the current accepted
