@@ -20,7 +20,7 @@ the E1_DEV_C and E3_TARGET database passwords, and LAB_USER's target application
 password. These are different credentials. The target is E3_TARGET / 810203;
 retained UAT is not used.
 
-Install Git, GitHub CLI (`gh`), jq, curl, nc, tar and shasum on this host.
+Install Podman, Git, GitHub CLI (`gh`), jq, curl, nc, tar and shasum on this host.
 For developer capture, Java 21 and SQLcl **25.4.1.022.0618** must also be on
 your ordinary PATH. Release jobs install their own Java/SQLcl. Authenticate
 `gh` with your GitHub account. The public source is readable by everyone;
@@ -74,6 +74,27 @@ git status --short
 git switch main
 git pull --ff-only
 ```
+
+Start the existing native lab from this parent checkout before continuing:
+
+```bash
+if ! podman --connection apex-cicd info > /dev/null 2>&1; then
+  podman machine start apex-cicd
+fi
+bash scripts/apex-start.sh
+podman --connection apex-cicd ps --format '{{.Names}}\t{{.Status}}\t{{.Ports}}'
+```
+
+Expect **APEX available at http://127.0.0.1:8080/ords/** and both `apex-db`
+and `apex-ords` running, with ports 1521 and 8080 exposed on localhost. The
+explicit Podman connection selects the owned lab even if your default connection
+points to another VM. These commands start existing containers and retain their
+data; the `apex-cicd` machine and prepared containers must already exist.
+
+Open [APEX / App Builder](http://127.0.0.1:8080/ords/). If the ORDS landing page
+appears, choose **APEX**. Sign in to workspace **E1_DEV_C** as developer **DEV_C**
+with the existing developer password, then choose **App Builder**. This password
+is distinct from the E1_DEV_C database password used by GitHub workflows.
 
 Open a second, **application terminal**, and prepare that checkout:
 
@@ -250,18 +271,60 @@ GitHub workflows prepare job-private tools/connections and clean them afterward.
 
 ### C. Make a fresh native APEX change — slides 5–6
 
-Open App Builder, select Main **810003**, and create a **new Working Copy from
-current Main**. Do not reuse old copies 100/102 that predate the native baseline
-correction. The delivered lab already has the region heading
-`Hello World - Git pipeline`, and its acceptance SQL checks that exact region
-name. Keep it unchanged. For a fresh replay, change Home/page 1's **page title**
-to an easily recognised value, for example `Hello World demo 2`. Choose a
-different suffix on each replay so the export contains a real change.
+Open [APEX / App Builder](http://127.0.0.1:8080/ords/), choose **APEX** if the
+ORDS landing page appears, then sign in with workspace **E1_DEV_C** and developer
+**DEV_C**. Choose **App Builder → APEX Delivery Laboratory (810003)**.
 
-Run the Working Copy and check the browser page title. Use native comparison against Main:
-review the intended page change, create the native backup and merge that page
-to the coordinated Main checkpoint. Confirm Main now uses the new page title.
-Keep unrelated concurrent authoring out of this demonstration checkpoint.
+**Create the Working Copy.** In the first screenshot, **①** identifies Main
+810003 and **②** points to **Create Working Copy** in the right sidebar.
+
+![Main 810003 and Create Working Copy, numbered pointers 1 and 2](tests/walkthrough/01-main-annotated.png)
+
+[Original capture](tests/walkthrough/01-main.jpg).
+
+Enter a unique Working Copy Name and click **Create Working Copy**. Create it
+from current Main; old copies 100/102 predate the baseline correction. The
+screenshots use the separate documentation copy **103**, “E3 screenshot guide”;
+your newly assigned copy ID will differ.
+
+![Create Working Copy dialog with Main application 810003 and a copy name](tests/walkthrough/02-create-working-copy.jpg)
+
+**Change the page title.** In your Working Copy, open **1 – Home**. In Page
+Designer, select the **Page 1: Home** tree root (**①**), then change
+**Identification → Title** in the right property panel (**②**) to
+`Hello World demo 2`. Use a different suffix on each replay. Click **Save**
+(**③**), wait for **Changes saved**, then run the page and check the browser
+tab title. The field to change is the page Title, not the page Name or the
+region Name. Keep the `Hello World - Git pipeline` region heading unchanged;
+the existing acceptance SQL checks that exact region name.
+
+![Page Designer: select page root, edit Title, and Save, numbered pointers 1 to 3](tests/walkthrough/04-page-title-annotated.png)
+
+[Original capture](tests/walkthrough/04-page-title.jpg).
+
+**Compare with Main.** Return to the Working Copy's application home using
+the **Application** breadcrumb. Under **Working Copy Tasks**, choose
+**Compare Changes** to review, or **Merge into Main** to enter the comparison
+and merge wizard shown below. Expect **1 Changed**, with only **Home / PAGE:1**
+selected. Review its difference before clicking **Next**. Keep unrelated
+concurrent authoring out of this checkpoint.
+
+![Working Copy home with Compare Changes and Merge into Main links](tests/walkthrough/03-working-copy.jpg)
+
+![Native comparison showing one changed Home page](tests/walkthrough/05-compare.jpg)
+
+**Merge the reviewed page.** At confirmation, check that the selected component
+is **Home / PAGE:1** (**①**). Keep **Backup target app first** selected (**②**).
+Leave **Delete Working Copy after merge** unchecked if retaining it for the
+demo. Click **Confirm Merge** (**③**). Open Main **810003**, run Home, and check
+that its browser tab title now matches your change.
+
+![Confirm merge: Home page, native backup, and Confirm Merge, numbered pointers 1 to 3](tests/walkthrough/06-confirm-merge-annotated.png)
+
+[Original capture](tests/walkthrough/06-confirm-merge.jpg).
+
+These screenshots show the confirmation controls; the documentation copy was
+not merged into Main while capturing them. Perform the merge for your own demo.
 
 **Checkpoint:** Main contains your intended page title; its inherited initialization
 remains blank. Do not insert the retired E1 controller hook.
