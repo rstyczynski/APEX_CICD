@@ -216,3 +216,6 @@ snapshot inspection, production validation or reviewer-contact action occurred.
 The next exchange asks the expert to challenge these positions and closing
 conditions. Selection, implementation, runtime revalidation and sprint acceptance
 remain distinct later steps.
+
+The [same-round feedback prompt](sprint_E.3_handover_review-1-feedback-prompt.md)
+pins this answer's publication revision and names the expected expert reply.

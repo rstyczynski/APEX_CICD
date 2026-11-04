@@ -378,3 +378,11 @@ report and engineering response. Source hashes, relative links, JSON and
 whitespace are checked for publication; no deployment, workflow, database,
 credential lookup, code correction or sprint-status change is part of this
 review response. The next action is user-relayed expert feedback.
+
+The original report/response were published at
+`b0e4580a9b099b622dd217694431b71a1070c94f`, verified through origin/main.
+The subsequent [feedback prompt](sprint_E.3_handover_review-1-feedback-prompt.md)
+pins that answer, retains all four finding IDs and explicitly states no fixes
+are included. Its report/response/evidence inputs are accessible in that commit;
+the outgoing prompt and reciprocal navigation are published separately so no
+artifact tries to embed its own future commit SHA.
