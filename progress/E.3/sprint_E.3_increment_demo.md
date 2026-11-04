@@ -865,7 +865,74 @@ This establishes structural/source consistency for the exercised case. It does
 not prove business correctness, complete dependency capture or target-schema
 drift protection.
 
-#### Run the rejection experiment
+#### First demonstrate the native check manually
+
+Use the **application terminal from step D**, with the project-compatible
+SQLcl on PATH and the saved `lab-dev-c` connection working. Keep Oracle running.
+Use the published `version_tag` selected in step F. This exercise makes a
+temporary clone, so your application checkout and published tag stay intact.
+It runs verification only; it does not package or deploy anything.
+The clone uses a named branch because this SQLcl PROJECT version requires one
+for its branch comparison.
+
+Run this Bash block from the application repository. Read the output at each
+numbered marker: the first verification must pass, the second must identify
+the missing file, and the final verification must pass after restoration.
+
+```bash
+(
+  set -euo pipefail
+  cd "$(git rev-parse --show-toplevel)"
+  : "${version_tag:?Set version_tag to the published tag used in step F}"
+  git fetch origin "refs/tags/$version_tag:refs/tags/$version_tag"
+  e3_demo=$(mktemp -d "${TMPDIR:-/tmp}/e3-native-rejection.XXXXXX")
+  printf 'Disposable exercise and logs: %s\n' "$e3_demo"
+  git clone --no-hardlinks --no-checkout . "$e3_demo/application"
+  cd "$e3_demo/application"
+  git checkout -B e3-manual-qualification "$version_tag"
+  git branch -f e3-base "$(jq -er .baseline_sha pipeline.json)"
+
+  printf '\n① Intact distribution: expect Errors: 0\n'
+  sql -nohistory -noupdates -S -L -name lab-dev-c @sql/verify.sql \
+    | tee "$e3_demo/positive.log"
+  grep -Eq 'Errors:[[:space:]]*0([^0-9]|$)' "$e3_demo/positive.log"
+
+  e3_missing=$(find dist/releases/next/changes -type f -name '*.sql' -print -quit)
+  test -n "$e3_missing"
+  printf '\n② Remove this staged script, leaving its changelog reference: %s\n' "$e3_missing"
+  find dist/releases/next/changes -name '*.xml' \
+    -exec grep -nHF "$(basename "$e3_missing")" {} +
+  mv "$e3_missing" "$e3_demo/removed-changeset.sql"
+
+  printf '\n③ Incomplete distribution: expect a missing-file ERROR\n'
+  if sql -nohistory -noupdates -S -L -name lab-dev-c @sql/verify.sql \
+    | tee "$e3_demo/negative.log"; then :; fi
+  if grep -Eq 'Errors:[[:space:]]*0([^0-9]|$)' "$e3_demo/negative.log"; then
+    printf 'FAIL: expected native rejection was not observed\n' >&2
+    exit 1
+  fi
+  grep -Eq 'ERROR.*stage[[:space:]]+stagechangelogfilesvalid' "$e3_demo/negative.log"
+
+  printf '\n④ Restore the script: expect Errors: 0 again\n'
+  mv "$e3_demo/removed-changeset.sql" "$e3_missing"
+  sql -nohistory -noupdates -S -L -name lab-dev-c @sql/verify.sql \
+    | tee "$e3_demo/restored.log"
+  grep -Eq 'Errors:[[:space:]]*0([^0-9]|$)' "$e3_demo/restored.log"
+  git status --short
+  printf '\nPASS: intact → rejected → restored. Logs retained in %s\n' "$e3_demo"
+)
+```
+
+Inspect the **ERROR** row in the second result. Its changelog path and missing
+script path explain the failure directly. The final `git status --short`
+should be empty. The subshell returns you to your original application
+checkout; the disposable clone and logs remain at the printed temporary path.
+
+The [manual rehearsal log](tests/manual-native-rejection.log) records this
+sequence on 2026-11-04 using historical tag v1.0.4 and SQLcl 25.4.1.022.0618:
+zero errors, one missing-file error, then zero errors after restoration.
+
+#### Then demonstrate the same check automated by GitHub Actions
 
 Keep the local runner running. Open **Actions → Qualify native verification
 gate → Run workflow**, choose **main** and the same published tag, then run it.
@@ -874,6 +941,11 @@ SQL file from its disposable runner checkout and requires native verification
 to reject the incomplete distribution. The repository and published tag remain
 unchanged. It compares target snapshots before and after the experiment and
 never calls deployment.
+
+The workflow automates the intact-versus-missing-file comparison you just ran
+manually, adding private job connections, target snapshots and an archived
+receipt. It uses its own disposable checkout rather than the CLI exercise's
+temporary clone.
 
 Require **Success** for the workflow: success here means the deliberate defect
 was rejected, not that the broken distribution passed. Download its
