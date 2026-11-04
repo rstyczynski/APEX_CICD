@@ -1,19 +1,372 @@
 # E.3 — Implementation record
 
-Configuration update: the [GitHub-owned setup](sprint_E.3_github_configuration.md) supersedes every retained-local-file/tool-path assumption below. Earlier run results remain historical evidence for their original revisions.
+## Current native implementation — 2026-11-04
 
-Current correction — 2026-11-03: the Product Owner required native APEX/SQLcl
-and GitHub Actions control, with all E.3 Python removed. The
-[native correction record](sprint_E.3_native_correction.md) supersedes the earlier
-1.0.1 implementation described below. Historical evidence is retained.
+This section describes the implemented APEX-native/GitHub Actions prototype.
+The earlier adapter-based implementation is retained below as historical
+engineering evidence and is superseded. The public
+[APEX_CICD_E3 seed](https://github.com/rstyczynski/APEX_CICD_E3) supplies application
+source and workflows; each operator creates a writable application repository.
+The parent APEX_CICD repository supplies the walkthrough and local runner launcher.
 
-The Product Owner authorized implementation through handover without further
-questions on 2026-11-03. The [accepted design](sprint_E.3_design.md) and its
-three child outcomes govern the prototype. [PLAN](../../PLAN.md) owns status;
-[tests](sprint_E.3_tests.md) will own actual outcomes. This record is updated as
-execution completes, not a claim of production readiness.
+[Requirements](../../docs/srs.md) own the product contract;
+[architecture](../../docs/architecture.md) and [accepted design](sprint_E.3_design.md)
+own architectural decisions. This record explains the implementation.
+The [walkthrough](sprint_E.3_increment_demo.md) owns the single manual starting
+point and repeats complete SQL source before execution. The
+[configuration guide](sprint_E.3_github_configuration.md) and
+[operator manual](user_manual.md) own settings and operating reference details;
+[tests](sprint_E.3_tests.md) and linked receipts own observed results.
+[PLAN](../../PLAN.md) owns sprint assignment/status. This correction changes no
+status and makes no production-readiness claim.
 
-## PBI-053.1 — Capture and native baseline
+### PBI-053.1 — Working Copy, capture, staging and verification
+
+A developer creates a fresh APEX Working Copy from Main 810003, changes the
+Home page title, compares and merges the selected page into Main using native
+APEX collaboration. The region heading remains Hello World - Git pipeline,
+which the acceptance script checks. Main is the coordinated export checkpoint;
+SQLcl PROJECT captures its configured definitions without a Python adapter or
+exported-source rewrite. This preserves the E.2 native approach.
+
+The application project records its SQLcl release in project.config.json.
+The qualified build is 25.4.1.022.0618; another installed client is not substituted
+merely because it is newer. Named, slashless branches support the qualified
+PROJECT comparison path. The e3-base branch identifies pipeline.json's baseline
+commit, and source is committed before staging so the comparison sees the
+intended revision. A detached checkout was observed to fail PROJECT verification;
+release and qualification therefore attach the selected tag to local named
+branches without moving the tag.
+
+The three author scripts use lab-dev-c. Their prologue disables echo and
+substitution verification and disables ampersand substitution. SQL/OS failures
+request a failing exit and rollback, but PROJECT diagnostics still require
+inspection of their own result summary. SQLcl's launcher selects the saved
+profile before the file runs, preventing an absent connection from silently
+continuing through later statements. The workflow uses isolated job profiles;
+the author's CLI uses its existing native profile.
+
+#### Capture source
+
+**Complete source — `sql/capture.sql`:**
+
+```sql
+set echo off verify off define off
+whenever sqlerror exit failure rollback
+whenever oserror exit failure rollback
+connect -name lab-dev-c
+project export -list
+project export
+exit success
+```
+
+The first PROJECT command displays the configured export scope; the second
+writes captured definitions into src. This reads authoring definitions and
+changes local files, not the deployment target. Review the intended page-title
+diff before committing. No live DEV export occurs during release packaging.
+
+#### Stage the committed change
+
+**Complete source — `sql/stage.sql`:**
+
+```sql
+set echo off verify off define off
+whenever sqlerror exit failure rollback
+whenever oserror exit failure rollback
+connect -name lab-dev-c
+project stage -branch-name e3-base
+exit success
+```
+
+PROJECT compares the current named branch with e3-base and generates native
+Liquibase distribution files and changelog entries in dist. The developer
+reviews and commits the generated distribution. Staging does not execute the
+installation against the target.
+
+#### Verify source and distribution
+
+**Complete source — `sql/verify.sql`:**
+
+```sql
+set echo off verify off define off
+whenever sqlerror exit failure rollback
+whenever oserror exit failure rollback
+connect -name lab-dev-c
+project verify -cbn e3-base -verbose
+exit success
+```
+
+PROJECT verifies the selected baseline comparison, referenced staged scripts,
+APEX export completeness and agreement, changelog structure/duplicates and
+project configuration. In the observed missing-file case,
+stagechangelogfilesvalid reports the changelog reference and absent script;
+stagechangelogcomplete can still pass. These checks establish exercised source
+consistency, not business correctness or full database drift protection.
+The [native positive](tests/github-native-verify.log) and
+[negative](tests/github-native-rejection.log) logs preserve exact rule output.
+The release gate requires Errors: 0 and rejects configured Oracle/client error
+patterns before target writes; a zero process exit alone is insufficient.
+
+### PBI-053.2 — Git review and automatic version preparation
+
+The hosted PR checks workflow responds to PR changes and also accepts an
+explicit PR number for manual checks. It reads that PR's live metadata,
+validates classification with pr-policy.jq, fetches its head and checks the
+native project layout, absence of Python files and actionlint workflow syntax.
+Two visible checks can be separate events running the same workflow on one head;
+they are not two different native database tests. The hosted job receives no
+Oracle password and does not connect to the lab database.
+
+Ordinary change PRs require exactly one classification label and matching
+semantic title: patch/fix:, minor/feat:, or major/feat!:. Squash merging keeps
+the reviewed semantic title in main's history. Release Please runs on main
+updates, proposes the version, CHANGELOG.md, version.txt and release manifest,
+and publishes the matching tag and GitHub Release notes after its release PR
+is merged. Labels validate intent; accepted semantic history drives the bump.
+There is no implemented manual version override.
+
+The generated bot PR is recognized through its bot identity, release branch
+prefix and pending-release label. If bot-token event suppression leaves it
+without checks, an operator dispatches PR checks from main with the current
+release PR number. The job then validates that PR's current head; the dispatch
+summary's main branch does not identify the tested PR revision. None of these
+PR, version, tag or release events dispatches deployment.
+
+### PBI-053.3 — Local runner and selected-tag deployment
+
+scripts/e3-runner.sh installs/registers the official pinned runner with checksum
+verification and a short-lived registration token, or retains a matching
+registration. Explicit repository and persistent directory arguments separate
+an operator's lab from the public seed. Registration lives outside the checkout
+and disposable scratch. Status queries GitHub; the default run operation checks
+registration/connectivity, clears inherited operator tokens and retired tool
+settings, and starts the foreground listener. It does not provision Oracle,
+APEX or ORDS. Those run in the existing Podman lab; the named Podman connection
+avoids accidental use of another default VM. The Mac runner reaches the exposed
+Oracle/ORDS ports without accessing APEX installation files.
+
+Only workflow_dispatch from main runs Deploy selected version on the local
+macOS ARM64 e3-lab runner. It validates the published tag, accepted ancestry and
+version file, checks out controller SQL from main separately from the tagged
+application, and creates the e3-release-build branch. A shared concurrency group
+serializes deployment and qualification jobs in this repository; it does not
+provide global database ownership or fencing across other writers.
+
+#### Private tools, profiles and target mapping
+
+The setup-native composite action uses setup-java for Java 21, downloads the
+pinned SQLcl archive on each job and verifies its SHA-256. It publishes the
+executable directory through GITHUB_PATH. GitHub environment e3-lab owns eight
+nonsecret variables and AUTHOR_PASSWORD/TARGET_PASSWORD secrets. Generated
+SQLcl connections lab-dev-c and e3-target use a private -home under RUNNER_TEMP;
+passwords arrive through standard input, not committed SQL source. A generated
+native defaults file maps source APEX identity to target schema/workspace/app ID
+and alias. Action outputs and GITHUB_ENV pass paths to subsequent steps.
+Always-run cleanup removes private connections and snapshots; uploaded results
+exclude those private files. No native.env or .local-apex configuration is used.
+
+Repeated tool setup is an explicit prototype cost. Proposed
+[PBI-055](../../BACKLOG.md#pbi-055-reduce-repeated-pipeline-toolchain-setup)
+covers reducing it while retaining approved versions, integrity checks and
+private per-job credentials. A cache, provisioned toolchain or custom image is
+not implemented by this documentation change.
+
+#### Package the verified tagged state
+
+The release first runs verify.sql above with the private author connection and
+requires its explicit zero-error result. Only then does it package:
+
+**Complete source — `sql/package.sql`:**
+
+```sql
+set echo off verify off define on
+whenever sqlerror exit failure rollback
+whenever oserror exit failure rollback
+project gen-artifact -name e3 -version &1 -format zip
+exit success
+```
+
+The first argument is the selected tag's numeric version. DEFINE ON permits
+SQLcl positional substitution; the workflow validates the tag's syntax first.
+PROJECT creates artifact/e3-<version>.zip from the selected state without
+recapturing live DEV. The same archive is installed and retained with its hash.
+
+#### Capture retained fields before and after deployment
+
+**Complete source — `sql/snapshot.sql`:**
+
+```sql
+set echo off verify off define on serveroutput off
+whenever sqlerror exit failure rollback
+whenever oserror exit failure rollback
+connect -name e3-target
+begin
+  if user <> '&2' then raise_application_error(-20931,'Unexpected target'); end if;
+end;
+/
+set heading off pagesize 0 feedback off linesize 32767 long 1000000 longchunksize 32767 trimspool on
+spool "&1"
+select 'greeting_history|'||json_object(*) from greeting_history order by greeting_id;
+select 'hello_entries|'||json_object(*) from hello_entries order by entry_id;
+select 'world_entries|'||json_object(*) from world_entries order by entry_id;
+select 'hello_config|'||json_object(*) from hello_config order by config_id;
+select 'world_config|'||json_object(*) from world_config order by config_id;
+select 'lab_components|'||json_object(*) from lab_components order by component;
+select 'lab_state|'||json_object(*) from lab_state order by state_key;
+spool off
+exit success
+```
+
+The script selects e3-target and rejects an unexpected current schema.
+Argument 1 is a private output path; argument 2 is the expected schema.
+Ordered JSON rows include every selected table column, while formatting settings
+suppress headings/feedback that would interfere with comparison. The workflow
+uses cmp on before/after files. This covers these seven tables' captured fields,
+not every database object, runtime session or user preference. Full snapshots
+remain private rather than being uploaded as release artifacts.
+
+#### Restrict application access
+
+**Complete source — `sql/restrict.sql`:**
+
+```sql
+set echo off verify off define on
+whenever sqlerror exit failure rollback
+whenever oserror exit failure rollback
+connect -name e3-target
+begin
+  if user <> '&1' then raise_application_error(-20931,'Unexpected target'); end if;
+  apex_util.set_security_group_id(apex_util.find_security_group_id('&2'));
+  apex_application_admin.set_application_status(
+    p_application_id => &3, p_application_status => apex_application_admin.c_app_restricted_access,
+    p_allowed_users_list => apex_t_varchar2('VERIFIER'));
+  commit;
+end;
+/
+exit success
+```
+
+Arguments 1/2/3 identify schema, workspace and application. The schema guard
+precedes APEX workspace-context selection. Native APEX availability permits
+VERIFIER while restricting ordinary users, then commits. This is application
+availability control, not an exclusive database lock. Because import can restore
+source availability, the workflow repeats this script after installation before
+checking retained fields; that repetition does not make the import window atomic.
+
+#### Install the native archive
+
+**Complete source — `sql/deploy.sql`:**
+
+```sql
+set echo off verify off define on
+whenever sqlerror exit failure rollback
+whenever oserror exit failure rollback
+connect -name e3-target
+begin
+  if user <> '&3' then raise_application_error(-20931,'Unexpected target'); end if;
+end;
+/
+define DEFAULTS_FILE = '&2'
+project deploy -file &1
+exit success
+```
+
+Arguments 1/2/3 are archive path, generated defaults-file path and expected
+schema. The guard rejects the wrong database identity before PROJECT deploy.
+DEFAULTS_FILE exposes the native target mapping to the archive's installer.
+PROJECT executes native installation through Liquibase. The workflow captures
+its log and rejects its configured error patterns. Rollback on a SQL error does
+not undo already committed Oracle DDL, so general failed-deployment recovery
+remains outside this happy-path prototype.
+
+#### Accept native behavior and publish
+
+**Complete source — `sql/accept.sql`:**
+
+```sql
+set echo off verify off define on
+whenever sqlerror exit failure rollback
+whenever oserror exit failure rollback
+connect -name e3-target
+-- Read-only behavior checks precede publication.
+declare n number;
+begin
+  if user <> '&1' then raise_application_error(-20931,'Unexpected target'); end if;
+  lab_runtime.assert_ready;
+  select count(*) into n from apex_application_page_regions
+   where application_id=&3 and page_id=1 and region_name='Hello World - Git pipeline';
+  if n <> 1 then raise_application_error(-20932,'Expected Home heading missing'); end if;
+  apex_util.set_security_group_id(apex_util.find_security_group_id('&2'));
+  -- Native APEX executes the application's Initialization PL/SQL Code.
+  apex_session.create_session(p_app_id=>&3,p_page_id=>1,p_username=>'VERIFIER');
+  apex_session.delete_session;
+end;
+/
+-- APEX availability is inherited from the E.2 native approach.
+begin
+  apex_util.set_security_group_id(apex_util.find_security_group_id('&1'));
+  apex_application_admin.set_application_status(
+    p_application_id => &3, p_application_status => apex_application_admin.c_app_available);
+  commit;
+end;
+/
+prompt PASS native readiness, heading and APEX publication
+exit success
+```
+
+Arguments 1/2/3 identify schema, workspace and application. LAB_RUNTIME checks
+readiness, the metadata query requires the expected region, and native APEX
+session creation executes application initialization as VERIFIER before the
+session is removed. Only after those checks does the second block publish
+availability and commit. Its final workspace lookup uses argument 1; the current
+lab works because schema and workspace are both E3_TARGET. Supporting different
+names requires a reviewed correction rather than assuming that this code covers it.
+Browser verification separately checks the new page title and retained history;
+the inherited APEX footer is not automatically stamped with the pipeline version.
+
+The release receipt binds published tag, source SHA, archive SHA-256, workflow
+run and target identifiers. The job retains the archive, public native logs and
+receipt, and cleans private job material on success or failure. A failed step
+blocks subsequent ordinary steps; cleanup/artifact retention use always-run
+conditions. Failure is not an automatic redeploy or rollback request.
+
+### Manual rejection first, then workflow automation
+
+The [chapter H CLI exercise](sprint_E.3_increment_demo.md#first-demonstrate-the-native-check-manually)
+uses a temporary clone on e3-manual-qualification. It runs the verify.sql source
+above unchanged, moves one referenced staged SQL file outside the application
+while leaving the changelog intact, requires the native missing-file error,
+restores the file and verifies again. The original checkout and tag remain
+intact. The [manual rehearsal](tests/manual-native-rejection.log), performed on
+2026-11-04 against v1.0.4 with the qualified client, records Errors: 0, then 1,
+then 0 and a clean restored tree.
+
+The qualification workflow automates the intact/missing-file comparison on its
+own named branch. It uses the same private setup and verify/snapshot SQL, requires
+the initial zero-error summary, removes a referenced file, requires rejection
+and compares target snapshots. Its receipt records positive_native_verify,
+missing_changeset_rejected and target_unchanged as true and deployment_called
+as false. It contains no package, deploy, restrict or publish step. This is a
+negative architecture experiment, separate from verifying a deployed application.
+
+### Evidence and remaining boundaries
+
+The [configuration/run record](sprint_E.3_github_configuration.md#verification-scope)
+links the native release and qualification receipts and observed checks.
+The [handover](sprint_E.3_handover.md) owns the acceptance discussion. These
+records do not establish independent peer review, clean-host provisioning,
+complete identity/state preservation, atomic fencing, full drift detection or
+general DDL recovery. The broader proofs remain registered follow-up work;
+Elaboration prototype delivery and production readiness are different outcomes.
+
+## Historical implementation — superseded
+
+The sections below preserve the earlier 1.0.1 implementation, including its
+private-repository assumption, Python source adapter and former runner defaults.
+They are historical accounts, not current instructions. The current native
+implementation above and GitHub configuration guide supersede them.
+
+### PBI-053.1 — Capture and native baseline
 
 Created the private application repository
 [APEX_CICD_E3](https://github.com/rstyczynski/APEX_CICD_E3), a schema/workspace
@@ -46,7 +399,7 @@ The original author application/control packages and retained UAT are not change
 by that conversion. This is a documented prototype adapter, not general removal
 of E.1 fencing/ownership guarantees.
 
-## PBI-053.2 — GitHub integration and version preparation
+### PBI-053.2 — GitHub integration and version preparation
 
 The three workflows and thin scripts are versioned in
 [examples/git-pipeline](../../examples/git-pipeline/), with a baseline Git bundle
@@ -63,9 +416,9 @@ both are patch fixes accumulated into release PR 2 for 1.0.1. The sequential
 review/merge roles are exercised by Codex under the Product Owner's instruction;
 this is not an independent human peer-review claim.
 
-## PBI-053.3 — Manual deployment and handover
+### PBI-053.3 — Manual deployment and handover
 
-### Current runner installation and launch
+#### Current runner installation and launch
 
 The versioned [runner launcher](../../scripts/e3-runner.sh) implements installation separately from starting the listener. From the parent laboratory repository root, `./scripts/e3-runner.sh setup` prepares a new macOS ARM64 host: it downloads GitHub runner 2.338.2, verifies its pinned SHA-256, extracts it into `~/actions-runner-e3`, obtains a short-lived registration token through the operator's authenticated `gh` session and invokes the official `config.sh` for the private application repository with label `e3-lab`. A matching existing registration is retained; an unrelated or nonempty unregistered directory is rejected. Setup finishes by checking the GitHub-configured Oracle TCP and ORDS HTTP endpoints.
 
@@ -89,7 +442,7 @@ history preserves both revisions. The second dispatch uses the same 1.0.1 app
 version with that corrected workflow. Later Release Please proposals need not
 be published or deployed for this experiment.
 
-## Delivered verification and retention
+### Delivered verification and retention
 
 The second manual run 41664798289 passed, binding version v1.0.1 to source
 2e203ba571bbce9fd30cafc5531e36250d5594b2 and the downloaded native ZIP hash.

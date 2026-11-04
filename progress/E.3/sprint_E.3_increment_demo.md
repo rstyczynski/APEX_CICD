@@ -9,6 +9,9 @@ source; it is an architecture experiment rather than deployment verification.
 The recorded run after chapter H is historical evidence.
 
 APEX/SQLcl provide native capabilities; GitHub Actions controls execution.
+The [current implementation record](sprint_E.3_implementation.md#current-native-implementation--2026-11-04)
+explains the implemented mechanisms and complete SQL source by backlog outcome;
+this walkthrough presents them in operator execution order.
 
 ## Table of contents
 

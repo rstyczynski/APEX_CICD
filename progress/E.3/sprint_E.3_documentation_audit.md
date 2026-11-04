@@ -284,3 +284,27 @@ heading links and whitespace checks were repeated. No executable SQL or workflow
 was changed or rerun; this correction publishes and explains the existing code.
 The standing preference now explicitly requires fenced complete SQL source,
 not descriptions or source links alone.
+
+### Reconcile the implementation record with the explained source
+
+The implementation document had retained the earlier adapter-based narrative
+with supersession links, while recent explanations were added only to the
+walkthrough. It now leads with a current native implementation organized by
+PBI-053 child outcome, followed by explicitly superseded historical material.
+All eight executable SQL files are embedded and explained with their connection
+contexts, arguments, generated files, ordering and failure limits. GitHub review,
+semantic version preparation, local runner registration, private tool setup,
+selected-tag deployment and manual-versus-workflow rejection are described in
+the implementation record itself. Reciprocal walkthrough links preserve the
+single operating starting point.
+
+This reconciliation follows the constructor's implementation-documentation
+requirements and the documentor's cross-document consistency checks, together
+with local P8 and the Product Owner's explicit inline-source instruction.
+Generic RUP documentation requirements do not independently require every SQL
+file to be reproduced; that additional requirement comes from the Product Owner.
+Validation compared all eight implementation source blocks against the same
+executable files and the nine walkthrough blocks. Relative document links and
+internal anchors in both changed documents were checked, as was whitespace.
+No code, workflow, sprint status or test criterion changed; runtime tests were
+not repeated for this documentation reconciliation.
