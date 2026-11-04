@@ -109,7 +109,10 @@ recorded prototype result. The
 [engineering response](sprint_E.3_handover_review-1-response.md) agrees with
 R1-M1, R1-M2 and R1-L2, and partly agrees with R1-L1 while identifying the
 Product Owner's explicit credential-lookup direction. These are engineering
-positions, not selected or implemented corrections. The Product Owner next
-relays the [feedback prompt](sprint_E.3_handover_review-1-feedback-prompt.md)
-and returns `progress/E.3/sprint_E.3_handover_review-1-feedback.md`.
-No round closure or sprint acceptance is claimed.
+positions, not selected or implemented corrections. The
+[expert feedback](sprint_E.3_handover_review-1-feedback.md) accepts that direction
+with closing clarifications. The [decision proposals](sprint_E.3_handover_review-1-decisions.md)
+identify focused M1/M2/L2 corrections and the required Product Owner choice
+between a compliant credential-source path and a temporary prepared-host
+accommodation for L1. All findings remain unresolved. No round closure or sprint
+acceptance is claimed.

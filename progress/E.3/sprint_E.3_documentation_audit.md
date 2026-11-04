@@ -386,3 +386,23 @@ pins that answer, retains all four finding IDs and explicitly states no fixes
 are included. Its report/response/evidence inputs are accessible in that commit;
 the outgoing prompt and reciprocal navigation are published separately so no
 artifact tries to embed its own future commit SHA.
+
+### Round 1 feedback and decision proposals
+
+The returned [expert feedback](sprint_E.3_handover_review-1-feedback.md) was read
+in full and preserved unchanged with SHA-256
+`3433744fc3c8f91393bb3efdd58bd68e386c1215b150702a69f05dabf07a2c82`.
+It assesses the engineering response at b0e4580a9b099b622dd217694431b71a1070c94f
+and accepts the proposed direction with specific closing conditions. The
+[decision proposals](sprint_E.3_handover_review-1-decisions.md) retain all four
+IDs/statuses and distinguish proposal agreement from selected or verified work.
+M1 variable provenance, M2 fixed-reference wording, L1's unresolved credential
+policy and L2's same-result rule/path/error association and legacy-receipt
+compatibility are carried into the proposed acceptance evidence.
+
+No additional expert exchange is needed before selection. No decision is
+selected, deferred or rejected on the Product Owner's behalf; there is no source
+fix or new runtime claim. Existing expert/report bytes, related paths and
+whitespace were checked before publishing this feedback/decision checkpoint.
+Handover navigation now identifies the pending Product Owner choice rather
+than requesting a feedback file that has already arrived.
