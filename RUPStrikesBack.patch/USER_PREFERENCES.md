@@ -50,3 +50,15 @@ files and directories on macOS and Windows. Prefer `code path/to/file` and
 `open` or `open -t`. State that the `code` command must be available on PATH.
 This viewing preference does not imply that all other shell commands or
 runtime prerequisites are portable between operating systems.
+
+## Explain encapsulated scripts before invocation — 2026-11-04
+
+Before each script invocation in operating instructions or a demonstration,
+provide an introduction/explanation subsection describing the code it hides.
+For SQL files, explain the significant SQL, PL/SQL and native tool commands,
+their inputs, connection context, effects, checks and failure behavior. For
+other scripts or workflow automation, explain non-obvious techniques and how
+they relate to the visible manual operations. Address an experienced engineer;
+omit basic Bash, SQL and command-line tutorials. Repeated invocations may refer
+to an earlier explanation, but must identify their particular purpose before
+execution. Encapsulation must not obscure the operation being demonstrated.

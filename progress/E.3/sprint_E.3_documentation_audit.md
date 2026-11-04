@@ -243,3 +243,27 @@ up and edited surgically at package level to preserve unrelated slide/master/
 layout/style content. Package/layout/import checks and before/after renders
 were checked before replacing the canonical file; no runtime tests or workflow
 execution were repeated for this presentation-only change.
+
+## Explain encapsulated operations before execution — 2026-11-04
+
+The [walkthrough](sprint_E.3_increment_demo.md) now introduces the startup and
+runner scripts, native capture/stage/verify SQL, every deployment SQL phase,
+and manual/workflow rejection exercises before their invocations. Descriptions
+were checked against `scripts/apex-start.sh`, `scripts/apex-vm-start.sh`,
+`scripts/e3-runner.sh`, and the application checkout's capture, stage, verify,
+package, snapshot, restrict, deploy and accept SQL files and release/qualification
+workflows. They distinguish author and target connections, private SQLcl homes,
+positional arguments, changelog comparison, captured-row comparison, session
+initialization, availability commits and the absence of atomic DDL rollback or
+deployment fencing. Historical examples now refer readers to the current
+explanations before showing their recorded commands.
+
+The [standing documentation preference](../../RUPStrikesBack.patch/USER_PREFERENCES.md#explain-encapsulated-scripts-before-invocation--2026-11-04)
+records the Product Owner's mandatory introduction requirement. No executable
+behavior, requirements, architecture, test contract, sprint assignment or status
+changed; the manual's operating commands and deck are unaffected. Validation:
+all 24 internal heading links resolve, the extracted manual exercise passes
+`bash -n`, and `git diff --check` passes. The native exercise's existing
+[rehearsal evidence](tests/manual-native-rejection.log) remains applicable:
+its only executable-block changes in this correction are explanatory comments;
+no fresh deployment or database mutation was performed.

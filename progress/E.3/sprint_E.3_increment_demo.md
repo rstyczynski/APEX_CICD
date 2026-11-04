@@ -222,8 +222,19 @@ Stop on engine errors or missing lab containers before proceeding.
 
 **3. Start the database/APEX, wait for readiness, then start ORDS.**
 
-The versioned command below performs those operations and waits for their
-readiness checks:
+##### Script introduction: `apex-start.sh`
+
+This script addresses the named Podman connection `apex-cicd` explicitly,
+avoiding whichever unrelated VM is the host default. It starts `apex-db` and
+polls the image's `healthcheck.sh` before starting `apex-ords`, then polls the
+ORDS HTTP endpoint. Database and HTTP readiness have separate bounded waits;
+either timeout stops the script. It starts retained containers rather than
+recreating their data. If the engine is unavailable, it delegates VM startup
+to `apex-vm-start.sh`, whose macOS `launchd` launch keeps the VM independent of
+the invoking terminal. The preceding VM check should already have established
+engine access for this walkthrough.
+
+Run the startup script:
 
 ```bash
 bash scripts/apex-start.sh
@@ -443,6 +454,18 @@ respective database schema passwords. If configuration is missing, return to
 the lab setup above before starting the runner. No environment
 settings or credentials belong in `.local-apex`.
 
+#### Script introduction: runner setup and status
+
+`e3-runner.sh setup` validates the selected repository and persistent runner
+directory. For a new installation it downloads the pinned official macOS ARM64
+runner, verifies its SHA-256 and obtains a short-lived GitHub registration token
+through `gh`; the token registers the runner with label `e3-lab`. A matching
+existing registration is retained, while a mismatched registration is rejected.
+Its preflight reads `DB_CONNECT` and `ORDS_URL` from the selected GitHub
+environment and checks TCP/HTTP access; it does not authenticate to Oracle.
+`status` checks that registration and queries GitHub for matching runners'
+online/offline and busy state. Neither command starts a listener.
+
 In the **parent lab terminal**:
 
 ```bash
@@ -458,6 +481,15 @@ setup, status and run; the launcher refuses to replace an unrelated registration
 **Setup complete** and successful Oracle TCP /
 ORDS HTTP checks. If status already reports this runner online, use that listener.
 Otherwise start it in this terminal:
+
+#### Script introduction: foreground runner listener
+
+With no subcommand, `e3-runner.sh` selects `run`. It validates the same
+registration and connectivity, removes inherited GitHub tokens and retired
+tool/connection overrides from the child environment, then replaces itself
+with the installed runner's `run.sh`. That listener receives GitHub jobs; the
+job's workflow supplies its own tools and environment secrets. Control-C stops
+the listener while preserving registration for the next session.
 
 ```bash
 ./scripts/e3-runner.sh --repo "$e3_repo" --directory "$HOME/actions-runner-e3-lab"
@@ -623,7 +655,30 @@ the default native connection store. A profile saved with another `-home`
 is not automatically available in this default store.
 
 This is your native author profile outside the checkout; workflows create
-separate temporary connections from GitHub secrets. Back at the shell, create
+separate temporary connections from GitHub secrets.
+
+#### Script introduction: capture the authoring checkpoint
+
+`sql/capture.sql` reconnects to **lab-dev-c**, runs `project export -list` to
+show the export scope, then `project export` to capture the configured schema
+and APEX definitions into `src`. It reads the authoring database and writes
+repository files; it does not stage a release or deploy to the target. The
+project's export settings determine which definitions are captured.
+
+The SQL prologue disables command echo, substitution verification and `&`
+substitution (`set echo off verify off define off`). `whenever sqlerror` and
+`whenever oserror` request failure exit and rollback for SQL/OS errors; they
+do not guarantee every PROJECT diagnostic becomes a failing process status.
+`exit success` therefore needs the visible output checks described below.
+The same prologue and named author connection are used by stage/verify.
+
+In the launcher, `-name lab-dev-c` establishes the saved connection before
+the file executes, so a missing profile fails at startup. `-L` avoids repeated
+login attempts, `-S` suppresses startup noise, and `-nohistory -noupdates`
+avoids statement-history persistence and update checks. The script's own
+`connect -name lab-dev-c` makes its connection context explicit as well.
+
+Back at the shell, create
 one **slashless** feature branch per change. If already on that feature branch,
 continue with the baseline/capture commands rather than creating another branch:
 
@@ -642,7 +697,32 @@ source **before** staging:
 ```bash
 git add src
 git commit -m "fix: update demo page title"
+```
+
+#### Script introduction: stage the committed source change
+
+`sql/stage.sql` connects to **lab-dev-c** and runs
+`project stage -branch-name e3-base`. `e3-base` identifies the accepted baseline
+from `pipeline.json`; SQLcl compares it with the current named feature branch
+and creates the native distribution and Liquibase changelogs in `dist`.
+Committing source first makes that branch comparison meaningful. This builds
+deployment inputs without applying them to the target database.
+
+```bash
 sql -nohistory -noupdates -S -L -name lab-dev-c @sql/stage.sql
+```
+
+#### Script introduction: verify source and staged distribution
+
+`sql/verify.sql` connects to **lab-dev-c** and runs
+`project verify -cbn e3-base -verbose`. It checks source/distribution agreement,
+changelog references, APEX exports and project/tool configuration against the
+same baseline. It does not execute the staged installation. Read the native
+summary and require **Errors: 0**, even if the SQLcl process exits successfully.
+[Chapter H](#how-native-verification-detects-an-incomplete-distribution)
+explains the individual rules and demonstrates a missing-file failure.
+
+```bash
 sql -nohistory -noupdates -S -L -name lab-dev-c @sql/verify.sql
 git diff -- dist
 git status --short
@@ -753,7 +833,89 @@ release, rather than a hard-coded replay of historical v1.0.4.
 
 The deployer opens Actions → **Deploy selected version** → Run workflow, chooses
 **main**, and enters the exact **published tag from step E** as `version_tag`.
-Alternatively, in the authenticated application terminal:
+Before starting it, read the SQL sequence below so each workflow step has a
+visible meaning. Alternatively, use the authenticated application terminal
+after reviewing this introduction.
+
+#### Workflow introduction: tool setup and isolated connections
+
+`release.yml` checks out control scripts from `main` in `controller` and the
+selected tagged application in `application`. The controller runs the accepted
+automation while the tag identifies the application content being packaged.
+The workflow verifies that the tag is a published release, its commit belongs
+to accepted history, and `version.txt` agrees with the selected tag.
+
+The shared `setup-native` action selects Java and verifies the downloaded
+SQLcl archive checksum. It sends generated `connect -save ... -savepwd`
+commands to SQLcl through standard input using GitHub environment secrets.
+`-home` isolates the saved **lab-dev-c** and **e3-target** profiles in a private
+job directory rather than the operator's default SQLcl store. It also creates
+the native APEX deployment mapping for workspace, application ID, schema and
+alias. `GITHUB_PATH` supplies the tool executable, action outputs expose generated
+paths, and `GITHUB_ENV` makes those paths available to subsequent steps.
+Private connection material and snapshots are excluded from published artifacts
+and removed by an always-run cleanup step.
+
+#### SQL introduction: verify and package before target writes
+
+First, `sql/verify.sql` performs the native check explained in
+[step D](#script-introduction-verify-source-and-staged-distribution), using the
+job's isolated author profile. The workflow requires **Errors: 0** and rejects
+the Oracle/client diagnostic patterns it checks before proceeding.
+
+Next, `sql/package.sql` runs
+`project gen-artifact -name e3 -version &1 -format zip`. `&1` receives the selected
+tag's numeric version. Its `define on` enables this positional substitution;
+the workflow restricts the tag to the expected semantic-version format first.
+The command packages the selected Git state as `artifact/e3-<version>.zip`.
+It does not recapture live DEV or install the archive.
+
+#### SQL introduction: preserve a target baseline and restrict access
+
+`sql/snapshot.sql` connects to **e3-target**, checks `user` against its expected
+schema argument and spools ordered `json_object(*)` rows from greeting history,
+Hello/World entries and configuration, component metadata and lab state.
+`&1` is the private output path and `&2` the expected schema. Stable ordering
+and disabled report headings/feedback let `cmp` compare captured business
+fields before and after deployment. This is not a complete schema snapshot.
+
+`sql/restrict.sql` also checks the target schema, selects the APEX workspace
+security group with `apex_util.set_security_group_id`, then calls
+`apex_application_admin.set_application_status` with restricted access and
+**VERIFIER** as the allowed user. It commits that availability change.
+Its three arguments identify schema, workspace and application; this is an
+APEX availability control, not an exclusive database deployment lock.
+
+#### SQL introduction: deploy the archive and compare retained data
+
+`sql/deploy.sql` connects to **e3-target** and checks the expected schema (`&3`).
+It defines `DEFAULTS_FILE` from `&2`, making the generated APEX target mapping
+available to the native installer, then runs `project deploy -file &1` on the
+packaged archive. SQLcl PROJECT executes its native installation through
+Liquibase. SQL/OS errors request failure exit; the workflow additionally scans
+the deployment log for its configured error patterns. Oracle DDL can commit
+implicitly, so the prologue's rollback is not an all-or-nothing deployment
+guarantee.
+
+Import can restore source application availability, so the workflow runs
+`restrict.sql` again with the same target arguments before its checks. It then
+runs `snapshot.sql` again into a second private file and uses `cmp` to require
+the captured rows and fields to match. Reapplying restriction does not prove
+atomic fencing throughout the import.
+
+#### SQL introduction: check readiness and publish availability
+
+`sql/accept.sql` connects to **e3-target**, checks the schema and calls
+`lab_runtime.assert_ready`. It requires exactly one page-1 region named
+`Hello World - Git pipeline`. After selecting the workspace security group,
+it creates and deletes an APEX session as **VERIFIER**; session creation
+executes native application initialization and can expose errors that a metadata
+query alone misses. Only after those checks does it set the application status
+to available and commit. This is native runtime acceptance, while step G checks
+the actual browser page title and history. A successful workflow also writes
+a receipt binding the tag, source commit and archive SHA-256.
+
+#### Start the reviewed deployment workflow
 
 ```bash
 read -r -p "Published tag to deploy (for example v1.0.5): " version_tag
@@ -875,6 +1037,26 @@ It runs verification only; it does not package or deploy anything.
 The clone uses a named branch because this SQLcl PROJECT version requires one
 for its branch comparison.
 
+##### Script introduction: the three `verify.sql` calls
+
+Each call executes the same `connect -name lab-dev-c` and
+`project verify -cbn e3-base -verbose` explained in
+[step D](#script-introduction-verify-source-and-staged-distribution). The first
+checks the intact tagged distribution; the second checks a local copy with a
+referenced SQL file moved aside; the third checks it after restoration.
+The changelog is deliberately left untouched, so its reference becomes dangling
+in the second call. No custom SQL validation replaces the native rule.
+
+The subshell limits directory/variable changes to this exercise. Cloning with
+`--no-hardlinks` separates its files from the application checkout. `tee`
+retains visible SQLcl output; `pipefail` preserves command failure through the
+pipeline. The negative call allows an expected nonzero exit so its diagnostic
+can be inspected, then requires the native missing-file **ERROR** explicitly.
+The positive/restored calls require **Errors: 0**. These assertions matter
+because PROJECT diagnostics are not reliably represented by process status
+alone. Moving the script outside the clone's application tree preserves it
+for restoration without editing the changelog or published source.
+
 Run this Bash block from the application repository. Read the output at each
 numbered marker: the first verification must pass, the second must identify
 the missing file, and the final verification must pass after restoration.
@@ -893,6 +1075,7 @@ the missing file, and the final verification must pass after restoration.
   git branch -f e3-base "$(jq -er .baseline_sha pipeline.json)"
 
   printf '\n① Intact distribution: expect Errors: 0\n'
+  # Native PROJECT verification of the unmodified tagged distribution.
   sql -nohistory -noupdates -S -L -name lab-dev-c @sql/verify.sql \
     | tee "$e3_demo/positive.log"
   grep -Eq 'Errors:[[:space:]]*0([^0-9]|$)' "$e3_demo/positive.log"
@@ -905,6 +1088,7 @@ the missing file, and the final verification must pass after restoration.
   mv "$e3_missing" "$e3_demo/removed-changeset.sql"
 
   printf '\n③ Incomplete distribution: expect a missing-file ERROR\n'
+  # The same verification now follows a changelog reference to a missing file.
   if sql -nohistory -noupdates -S -L -name lab-dev-c @sql/verify.sql \
     | tee "$e3_demo/negative.log"; then :; fi
   if grep -Eq 'Errors:[[:space:]]*0([^0-9]|$)' "$e3_demo/negative.log"; then
@@ -915,6 +1099,7 @@ the missing file, and the final verification must pass after restoration.
 
   printf '\n④ Restore the script: expect Errors: 0 again\n'
   mv "$e3_demo/removed-changeset.sql" "$e3_missing"
+  # The same verification must pass again after restoring the referenced file.
   sql -nohistory -noupdates -S -L -name lab-dev-c @sql/verify.sql \
     | tee "$e3_demo/restored.log"
   grep -Eq 'Errors:[[:space:]]*0([^0-9]|$)' "$e3_demo/restored.log"
@@ -933,6 +1118,19 @@ sequence on 2026-11-04 using historical tag v1.0.4 and SQLcl 25.4.1.022.0618:
 zero errors, one missing-file error, then zero errors after restoration.
 
 #### Then demonstrate the same check automated by GitHub Actions
+
+##### Workflow introduction: `qualification.yml`
+
+The workflow selects the tag on a named qualification branch and reuses the
+private connection setup described in step F. Its first `verify.sql` call
+requires zero errors. Before disturbing the runner's files, `snapshot.sql`
+records the captured target rows using the target-schema guard described in
+step F. It then removes one staged SQL file locally and calls `verify.sql`
+again, requiring the loss of the zero-error summary and a stage-changelog
+diagnostic. A second `snapshot.sql` call captures the same target fields and
+`cmp` requires them unchanged. It writes `qualification.json`, uploads only
+public result logs/receipt and removes private job material. No packaging,
+restriction, deployment or publication SQL is called in this workflow.
 
 Keep the local runner running. Open **Actions → Qualify native verification
 gate → Run workflow**, choose **main** and the same published tag, then run it.
@@ -1001,6 +1199,14 @@ in the [manual](user_manual.md#native-authoring-and-developer-pr). The
 correction was performed on slashless branch e3-native-only. The actual commands
 are SQLcl calls, with small SQL files that expose the native operations:
 
+#### Historical script introduction: capture
+
+As explained in [step D](#script-introduction-capture-the-authoring-checkpoint),
+`capture.sql` selects `lab-dev-c`, lists configured export objects and exports
+them into `src`. The historical invocation below used `/nolog` and relied on
+the connection inside the script; the current walkthrough establishes the
+named connection at startup as well.
+
 ```bash
 git branch -f e3-base "$(jq -r .baseline_sha pipeline.json)"
 sql -nohistory -noupdates -S -L /nolog @sql/capture.sql
@@ -1011,6 +1217,16 @@ Inside `capture.sql`: `connect -name lab-dev-c`, `project export -list`,
 `project export`. The native source now has a blank initialization setting;
 it contains neither E1_CTRL's controller hook nor an adapter-inserted hook.
 Review and commit the source before native staging:
+
+#### Historical script introduction: staging and verification
+
+`stage.sql` connects as the author and runs
+`project stage -branch-name e3-base` to generate the native distribution from
+committed changes. `verify.sql` then runs
+`project verify -cbn e3-base -verbose` against the same baseline without applying
+the installation. These are the operations explained before their current
+invocations in step D; the historical run below also relied on the scripts'
+internal connection selection.
 
 ```bash
 sql -nohistory -noupdates -S -L /nolog @sql/stage.sql
@@ -1064,6 +1280,15 @@ in the parent lab repository. On a new macOS ARM64 host, with authenticated `gh`
 the documented command dependencies and the existing Oracle/APEX/ORDS lab ready,
 run this sequence from the repository root (presentation slide 4):
 
+#### Historical script introduction: runner setup and listening
+
+The setup command below registers or retains the runner, verifies the downloaded
+runner archive and checks Oracle/ORDS connectivity. The second invocation
+starts its foreground job listener; the two commands have the distinct effects
+explained in step B. These historical commands use the seed repository and
+default runner directory. For a fresh replay, use step B's explicit lab
+repository and directory instead.
+
 ```bash
 ./scripts/e3-runner.sh setup  # Once per host: install and register with GitHub
 ./scripts/e3-runner.sh        # Each lab session: start the foreground listener
@@ -1084,6 +1309,13 @@ for setup behavior. Once the local runner is online, the deployer only selects
 the tag. In GitHub Actions choose
 **Deploy selected version**, main, **v1.0.4**, then Run workflow. The same
 explicit manual selection is available through gh:
+
+#### Historical workflow introduction: selected-tag deployment
+
+The dispatch below requests the historical seed release v1.0.4. The SQL scripts
+execute the verify, package, snapshot, restrict, deploy, compare and publish
+sequence explained before dispatch in step F. It is a historical example,
+not a request to redeploy that tag when following the current walkthrough.
 
 ```bash
 gh workflow run release.yml --repo rstyczynski/APEX_CICD_E3 --ref main -f version_tag=v1.0.4
