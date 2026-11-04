@@ -22,13 +22,13 @@ APEX/SQLcl provide native capabilities; GitHub Actions controls execution.
   - [G. Verify the deployed application in the browser](#g-verify-the-deployed-application-in-the-browser--slides-1112)
   - [H. Demonstrate rejection of incomplete source](#h-demonstrate-rejection-of-incomplete-source)
 - [Recorded run and supporting evidence](#recorded-run-and-supporting-evidence)
-- [Goal and inherited foundation](#goal-and-inherited-foundation)
-- [1. Working Copy and Main checkpoint](#1-working-copy-and-main-checkpoint)
-- [2. Native capture, review, staging and verification](#2-native-capture-review-staging-and-verification)
-- [3. Manual PR and automated release preparation](#3-manual-pr-and-automated-release-preparation)
-- [4. GitHub configuration and explicit setup](#4-github-configuration-and-explicit-setup)
-- [5. Deployer selects the version](#5-deployer-selects-the-version)
-- [6. Application and rejection evidence](#6-application-and-rejection-evidence)
+  - [Goal and inherited foundation](#goal-and-inherited-foundation)
+  - [1. Working Copy and Main checkpoint](#1-working-copy-and-main-checkpoint)
+  - [2. Native capture, review, staging and verification](#2-native-capture-review-staging-and-verification)
+  - [3. Manual PR and automated release preparation](#3-manual-pr-and-automated-release-preparation)
+  - [4. GitHub configuration and explicit setup](#4-github-configuration-and-explicit-setup)
+  - [5. Deployer selects the version](#5-deployer-selects-the-version)
+  - [6. Application and rejection evidence](#6-application-and-rejection-evidence)
 - [Slide map and handover boundary](#slide-map-and-handover-boundary)
 
 ## Run it yourself
@@ -852,7 +852,7 @@ Product Owner acceptance and sprint closure are separate decisions.
 The sections below describe the performed handover run. Their PR numbers, tags,
 screenshots and results are historical references, not inputs for a new replay.
 
-## Goal and inherited foundation
+### Goal and inherited foundation
 
 E.2 established native Working Copy collaboration, PROJECT capture/staging and
 native APEX availability. E.3 adds classified Git review, generated version and
@@ -866,7 +866,7 @@ native export. The [saved native baseline](tests/native-author-baseline.png)
 and corrected source prove the change. No exported source/archive is rewritten.
 Native APEX availability is used; business-schema readiness stays in LAB_RUNTIME.
 
-## 1. Working Copy and Main checkpoint
+### 1. Working Copy and Main checkpoint
 
 The original performed authoring change remains valid evidence: Working Copy
 100, “E3 heading patch”, changed Home's heading to “Hello World - Git pipeline”.
@@ -879,7 +879,7 @@ The retained old Working Copies predate the baseline correction. Refresh their
 application definition from Main or create a new Working Copy before later work.
 Do not merge the old E1 initialization hook back into Main.
 
-## 2. Native capture, review, staging and verification
+### 2. Native capture, review, staging and verification
 
 In the prepared private application checkout, use SQLcl on the author's ordinary PATH and the native author profile described
 in the [manual](user_manual.md#native-authoring-and-developer-pr). The
@@ -908,7 +908,7 @@ Those files run `project stage -branch-name e3-base` and
 **Errors: 0, Warnings: 0**. Review/commit the native distribution. Capture does
 not transform source; release does not recapture live DEV.
 
-## 3. Manual PR and automated release preparation
+### 3. Manual PR and automated release preparation
 
 The original heading PR1 and native-baseline corrections PRs6/7 remain historical
 source evidence. The current configuration correction is
@@ -927,7 +927,7 @@ Merging it published v1.0.4 and matching GitHub Release notes. None of these
 events deploys. Roles were exercised sequentially by Codex under the Product
 Owner's instruction; independent human review is not claimed.
 
-## 4. GitHub configuration and explicit setup
+### 4. GitHub configuration and explicit setup
 
 The GitHub **e3-lab** environment is the configuration authority: eight nonsecret
 variables and two database-password secrets, restricted to main. The
@@ -942,7 +942,7 @@ RUNNER_TEMP. Output paths feed later steps through GITHUB_ENV. Always-run cleanu
 removes private material. No runner-inherited tool paths or saved connection
 files are read. The manual contains the complete configuration matrix.
 
-## 5. Deployer selects the version
+### 5. Deployer selects the version
 
 The lab operator uses the versioned [runner launcher](../../scripts/e3-runner.sh)
 in the parent lab repository. On a new macOS ARM64 host, with authenticated `gh`,
@@ -986,7 +986,7 @@ APEX import can restore source availability during import. Reapplying restrictio
 does not establish atomic fencing; that broader risk remains deferred. No
 custom controller is added to conceal this native boundary.
 
-## 6. Application and rejection evidence
+### 6. Application and rejection evidence
 
 Open [application 810203](http://127.0.0.1:8080/ords/f?p=810203:1), sign in as
 LAB_USER with the existing credential, inspect the Home heading and greeting
