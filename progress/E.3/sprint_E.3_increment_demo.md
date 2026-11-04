@@ -4,7 +4,9 @@
 in order, using the [editable deck](sprint_E.3_increment_demo.pptx) alongside them.
 The commands, setup and expected results are included here. The
 [operator manual](user_manual.md) is a reference for additional detail, not a
-second starting point. The recorded run after step G is historical evidence.
+second starting point. Chapter H separately demonstrates rejection of incomplete
+source; it is an architecture experiment rather than deployment verification.
+The recorded run after chapter H is historical evidence.
 
 APEX/SQLcl provide native capabilities; GitHub Actions controls execution.
 
@@ -766,7 +768,7 @@ and [container jobs](https://docs.github.com/en/actions/how-tos/write-workflows/
 the failed step before continuing; do not claim a successful deployment or
 automatically reset/redeploy the target.
 
-### G. Verify the browser and finish the demonstration — slides 11–12
+### G. Verify the deployed application in the browser — slides 11–12
 
 Retrieve **only LAB_USER's application password** in the terminal, using the
 same retained lab provisioning record as the earlier credential lookups:
@@ -788,16 +790,41 @@ page title from step C** in the browser tab, and the retained
 rows remain. The inherited APEX footer stays 1.0.0; the pipeline release identity
 is the generated Git tag and deployment receipt.
 
-For the separate native rejection demonstration, open Actions → **Qualify native
-verification gate** → Run workflow, choose **main** and the same published tag.
-Wait for success: valid source verifies, a deliberately missing native changeset
-is rejected and the target stays unchanged. This workflow does not deploy.
-
 Record the source PR, release PR, generated tag, deployment run URL, receipt and
-browser observation for your run. When the lab is finished, stop the foreground
-runner you started with Control-C. The demonstration is complete when the
-selected release is deployed, the new page title is visible and prior history is
-retained. Product Owner acceptance and sprint closure are separate decisions.
+browser observation for your run.
+
+**Checkpoint:** deployment verification is complete when the selected release
+is deployed, the new page title is visible and prior history is retained.
+
+### H. Demonstrate rejection of incomplete source
+
+**Purpose:** test whether native SQLcl PROJECT verification detects an
+incomplete staged distribution before deployment. This is a separate negative
+test of the architecture's verification gate; it does not verify the application
+deployed in steps F–G.
+
+Keep the local runner running. Open **Actions → Qualify native verification
+gate → Run workflow**, choose **main** and the same published tag, then run it.
+The workflow first verifies the intact source. It then deletes one changeset
+SQL file from its disposable runner checkout and requires native verification
+to reject the incomplete distribution. The repository and published tag remain
+unchanged. It compares target snapshots before and after the experiment and
+never calls deployment.
+
+Require **Success** for the workflow: success here means the deliberate defect
+was rejected, not that the broken distribution passed. Download its
+`e3-qualification-<run ID>` artifact and inspect `positive.log`, `negative.log`
+and `qualification.json`. The receipt must report `positive_native_verify`,
+`missing_changeset_rejected` and `target_unchanged` as `true`, and
+`deployment_called` as `false`. The target comparison covers the fields captured
+by the workflow's snapshots; it is not a full database drift check.
+
+**Checkpoint:** intact source passes, incomplete source is rejected and the
+captured target state is unchanged. Record the qualification run URL separately
+from the deployment run.
+
+When the lab is finished, stop the foreground runner with Control-C.
+Product Owner acceptance and sprint closure are separate decisions.
 
 ## Recorded run and supporting evidence
 
