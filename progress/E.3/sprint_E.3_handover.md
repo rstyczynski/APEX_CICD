@@ -102,7 +102,12 @@ Round 1 is prepared against published parent revision
 `b695ec9627f1453220a04032563f812242f7ac0f`. The
 [expert prompt](sprint_E.3_handover_review-1-prompt.md) identifies the exact
 application snapshot, accessible source/evidence and Elaboration review boundary.
-The Product Owner relays it and returns the expert's original report as
-`progress/E.3/sprint_E.3_handover_review-1.md`. No expert report has arrived;
-no independent review result or sprint acceptance is claimed. The source
-baseline predates this review-navigation addition; implementation is unchanged.
+The [original expert report](sprint_E.3_handover_review-1.md) has arrived and is
+preserved unchanged. It recommends corrections for the bounded handover: two
+medium and two low findings, with no high-severity finding invalidating the
+recorded prototype result. The
+[engineering response](sprint_E.3_handover_review-1-response.md) agrees with
+R1-M1, R1-M2 and R1-L2, and partly agrees with R1-L1 while identifying the
+Product Owner's explicit credential-lookup direction. These are engineering
+positions, not selected or implemented corrections. Expert feedback on the
+response is the next exchange. No round closure or sprint acceptance is claimed.

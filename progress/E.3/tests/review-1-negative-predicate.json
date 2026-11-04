@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-04",
+  "finding": "R1-L2",
+  "scope": "Offline evaluation of the existing qualification/evidence-reader predicate; no project or SQLcl runtime execution",
+  "source_parent_sha": "b695ec9627f1453220a04032563f812242f7ac0f",
+  "zero_summary_regex": "Errors:\\s*0([^0-9]|$)",
+  "rule_name_regex": "stagechangelogfilesvalid|stagechangelogcomplete",
+  "predicate": "No zero-error summary, and at least one rule name occurs anywhere",
+  "cases": [
+    {
+      "name": "retained missing-file rejection",
+      "input": "progress/E.3/tests/github-native-rejection.log",
+      "accepted_by_current_predicate": true,
+      "classification": "expected"
+    },
+    {
+      "name": "retained positive verification",
+      "input": "progress/E.3/tests/github-native-verify.log",
+      "accepted_by_current_predicate": false,
+      "classification": "expected"
+    },
+    {
+      "name": "synthetic unrelated version error with successful stage rows",
+      "input_text": "Errors: 1\nERROR project sqlclversion Version mismatch\nINFO stage stagechangelogfilesvalid All scripts present\nINFO stage stagechangelogcomplete No issues\n",
+      "accepted_by_current_predicate": true,
+      "classification": "false positive"
+    },
+    {
+      "name": "synthetic connection failure without stage-rule output",
+      "input_text": "Connection failed\nORA-01017\n",
+      "accepted_by_current_predicate": false,
+      "classification": "expected"
+    }
+  ],
+  "native_historical_rejection_invalidated": false,
+  "implementation_changed": false
+}

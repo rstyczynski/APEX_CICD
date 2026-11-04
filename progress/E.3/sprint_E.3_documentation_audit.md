@@ -356,3 +356,25 @@ pipeline or database check was rerun. The publication increment changes only
 review coordination metadata and preserves the pinned source snapshot.
 Prompt paths, source revisions, bundle integrity and whitespace were checked
 before publishing the relay instructions.
+
+### Round 1 engineering response
+
+The Product Owner returned the original E.3 expert report. Its SHA-256
+`532cbcc6a732a7b654cc858a4985f417e2ccf500af834825a79695dc0973a57f`
+was recorded before assessment and its bytes remain unchanged. The
+[response](sprint_E.3_handover_review-1-response.md) assesses all four stable
+finding IDs against actual slide text, source/test predicates, operating guidance
+and existing native logs. It agrees with M1/M2/L2 and partly agrees with L1,
+distinguishing the source-policy contradiction from authority to remove the
+Product Owner's requested credential lookup. Proposed actions and acceptance
+checks remain unselected and unimplemented.
+
+A bounded offline evaluation demonstrated that the existing negative predicate
+accepts an unrelated-error fixture containing successful INFO stage rows. The
+[check record](tests/review-1-negative-predicate.json) labels synthetic inputs
+and the absence of new runtime execution. It does not invalidate the genuine
+retained missing-file diagnostic. Handover navigation now links the original
+report and engineering response. Source hashes, relative links, JSON and
+whitespace are checked for publication; no deployment, workflow, database,
+credential lookup, code correction or sprint-status change is part of this
+review response. The next action is user-relayed expert feedback.
