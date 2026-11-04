@@ -25,6 +25,11 @@ production qualification or sprint-status change.
 
 ## Current finding status
 
+Corrections are committed and published at parent
+`d37b461e23bf459ba34d5e5298a7f47af0306750` and seed controller
+`eac24dedab3f611ef09b0196623cfabf674e7e1c`. Fixed labels below identify
+committed corrections with engineering offline evidence; expert recheck is pending.
+
 The expert accepts the proposed direction and requests the closing conditions
 below. The Product Owner explicitly approved the fixes and selected Option B for L1:
 “Approve fixes; allow temporary lookup on this prepared host.” M1/M2/L2 are
@@ -33,10 +38,10 @@ under the narrow accommodation and ending/reconsideration trigger below.
 
 | Finding | Current status | Reviewer reaction | Proposed Product Owner action |
 |---|---|---|---|
-| R1-M1 | selected | Accept | Select focused deck/notes/authoring-source correction. |
-| R1-M2 | selected | Accept documentation-only option | Select clarification of fixed reference-evidence tests and separate LAB acceptance. |
+| R1-M1 | fixed@d37b461 | Accept | Select focused deck/notes/authoring-source correction. |
+| R1-M2 | fixed@d37b461 | Accept documentation-only option | Select clarification of fixed reference-evidence tests and separate LAB acceptance. |
 | R1-L1 | deferred | Accept with clarification | Option B approved: temporary retained-host lookup; supported explicit VM startup; no new store. |
-| R1-L2 | selected | Accept with clarification | Select a specific negative assertion with offline validation; keep runtime claims separate. |
+| R1-L2 | fixed@d37b461 | Accept with clarification | Select a specific negative assertion with offline validation; keep runtime claims separate. |
 
 ## R1-M1 — Proposed focused presentation correction
 
@@ -177,3 +182,6 @@ the feedback against the prior engineering response, verifying exact revisions,
 original-report/feedback integrity, relative navigation and whitespace. No code
 or runtime check was repeated. The selected disposition is recorded above. No private records were read, moved
 or deleted to implement the accommodation.
+
+The [round-2 recheck prompt](sprint_E.3_handover_review-2-prompt.md) pins the
+committed source and evidence. No independent recheck or round closure is claimed.

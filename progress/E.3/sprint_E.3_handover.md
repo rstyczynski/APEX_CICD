@@ -136,3 +136,10 @@ are unchanged. The [correction receipt](tests/review-1-correction-checks.json)
 records scope and source/package identities. Independent recheck is pending;
 no fresh native qualification, deployment, round closure or sprint acceptance
 is claimed.
+
+The [round-2 expert recheck prompt](sprint_E.3_handover_review-2-prompt.md)
+pins corrected parent d37b461e23bf459ba34d5e5298a7f47af0306750 and seed
+controller eac24dedab3f611ef09b0196623cfabf674e7e1c. The Product Owner relays
+it and returns `progress/E.3/sprint_E.3_handover_review-2.md`. No round-2 report
+has arrived; the three committed corrections and approved deferral await that
+proportionate independent recheck.

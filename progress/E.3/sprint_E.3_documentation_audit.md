@@ -449,3 +449,13 @@ release PR was merged, tag moved, native qualification dispatched or deployment
 performed. New native runtime success is not claimed. The immutable original
 review/feedback hashes are preserved. A subsequent expert review will pin the
 committed correction, reusing R1 IDs and checking the explicit deferral boundary.
+
+The parent correction was published as
+`d37b461e23bf459ba34d5e5298a7f47af0306750` and verified with origin/main.
+The subsequent [round-2 prompt](sprint_E.3_handover_review-2-prompt.md) pins that
+source and the published corrected seed main, retains R1 finding IDs and
+distinguishes offline validation from unexecuted runtime checks. Current decision
+labels now identify the committed correction while L1 remains explicitly
+deferred. The unrelated user-created untracked model.drawio was excluded and
+untouched. This publication changes review navigation/status metadata only;
+it does not claim expert recheck or sprint closure.
