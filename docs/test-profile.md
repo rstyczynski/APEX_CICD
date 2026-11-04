@@ -1,6 +1,6 @@
 # Project test profile
 
-Current E.3 setup: [GitHub environment configuration and ephemeral native connections](../progress/E.3/sprint_E.3_github_configuration.md). No machine environment file or .local-apex settings are required; scratch is temporary only.
+Current E.3 setup: [GitHub environment configuration and ephemeral native connections](../progress/E.3/sprint_E.3_github_configuration.md). GitHub jobs require no machine environment file or .local-apex settings. The temporary prepared-host interactive credential lookup is the explicit [R1-L1 deferral](../progress/E.3/sprint_E.3_handover_review-1-decisions.md#r1-l1--product-owner-policy-choice-required), not production NFR-4 compliance; that record remains a retained dependency until replaced.
 
 E.3 correction: [native APEX/SQLcl with GitHub Actions control](../progress/E.3/sprint_E.3_native_correction.md) supersedes the earlier Python wrapper and recurring source adapter.
 
@@ -250,27 +250,51 @@ The operator entry point for that source review is `bash scripts/cicd-protection
 ## E.3 implemented pipeline checks
 
 The [E.3 specification](../progress/E.3/sprint_E.3_design.md#test-specification)
-retains SM-1/IT-1/IT-2. Current setup and evidence belong to the
-[GitHub configuration record](../progress/E.3/sprint_E.3_github_configuration.md).
-Run `bash tests/run.sh --smoke --new-only progress/E.3/new_tests.manifest` and
-`bash tests/run.sh --integration --new-only progress/E.3/new_tests.manifest`.
-Current totals are 1/1 and 2/2 passed; `bash tests/run.sh --smoke` passed 2/2.
-Parent checks use gh/read access, actionlint, jq, Git, Node, curl and shasum.
-They require no private local database settings or retained source/data clone.
+retains SM-1/IT-1/IT-2. These parent commands perform fixed **reference-run
+regression**, not selected-LAB replay acceptance:
 
-SM-1 covers actionlint, trigger/runner/configuration boundaries and nine PR label/
-title cases. IT-1 re-queries accepted PRs/tag/manual run, downloads actual artifacts,
-checks archive identity and both changelogs, and requires successful native setup,
-retained-field comparison and cleanup steps. IT-2 consumes a fresh attributable
-qualification run: native valid-source verification, deliberate missing changeset
-rejection, unchanged target and no deployment. That manual workflow creates its
-own temporary connections from GitHub configuration and uses the same setup action.
-Root tests download evidence into new OS temporary directories and remove it.
+```bash
+bash tests/run.sh --smoke --new-only progress/E.3/new_tests.manifest
+bash tests/run.sh --integration --new-only progress/E.3/new_tests.manifest
+bash tests/run.sh --smoke
+```
 
-The platform smoke was adapted explicitly: it now reads ORDS/application settings
-from GitHub and checks live ORDS plus the database-backed APEX login, retaining
-cookies temporarily for APEX redirects. Historical E.1 five-schema identity/client
-checks are not silently represented as re-executed, nor are broader identity
-requirements marked complete. Native deployment/session checks remain in GitHub;
-actual authenticated browser Home/history observations remain separate evidence.
-Broader drift/fencing, parallelism, identity and recovery proof remains deferred.
+The recorded historical totals are 1/1, 2/2 and 2/2. SM-1 statically checks the
+example workflows, configuration boundary and nine PR classification fixtures.
+IT-1/IT-2 hard-code rstyczynski/APEX_CICD_E3 and
+progress/E.3/tests/github-environment-journey.json: deployment 41679427616,
+qualification 41679432928, tag v1.0.4. They read existing public run metadata and
+download retained artifacts into disposable directories; they do not dispatch
+workflows, create a clone with a missing file or execute native verification.
+A new download is not a new workflow result, and artifacts can expire.
+
+IT-1 checks the recorded PR/tag/archive/changelog identities and reported setup,
+preservation and cleanup steps. IT-2 checks the recorded qualification receipt,
+positive log and the specific missing-file ERROR/count/path using the shared
+assertion. Compatibility with its path-less legacy receipt is allowed only for
+the pinned original source/run/path; new-format receipts require the selected
+path and controller identity. Historical receipts are never rewritten.
+
+Platform smoke makes a current HTTP probe using the **seed** environment's ORDS
+and application variables. It requires permission to read that seed environment;
+public source access or LAB ownership is insufficient. It checks a login form,
+not LAB_USER authentication or the selected LAB's current state. Parent checks
+need gh, Git, jq, Node, curl, shasum and awk; SM-1 also needs actionlint. They
+need no local database passwords or private snapshots.
+
+For a new LAB replay, use the operator repository and actual source/release PRs,
+generated tag/source SHA, deployment receipt/archive identity and native logs,
+separate qualification run if performed, and browser title/history observations.
+Passing seed readers cannot substitute for those checks or be required of every
+LAB operator. Wider drift/fencing/identity and new-host reproduction remain deferred.
+
+The review's focused offline classifier/receipt regression is separate:
+
+```bash
+bash tests/unit/test_missing_changeset.sh
+```
+
+It exercises the actual assertions against retained and synthetic diagnostic
+fixtures, including unrelated errors, wrong paths, incomplete output, ANSI and
+wrapped paths, and new/legacy receipt constraints. It does not connect to Oracle,
+dispatch qualification or establish a new native runtime success.

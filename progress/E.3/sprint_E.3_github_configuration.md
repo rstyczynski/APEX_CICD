@@ -38,6 +38,15 @@ is reserved for disposable checkouts, caches, build outputs and diagnostics;
 it is not a configuration or credential authority. Historical E.1/E.2 evidence
 retains its original paths and is not presented as current E.3 setup.
 
+The Product Owner explicitly selected one temporary local exception on
+2026-11-04: read the existing E.1/E.2 credential record for interactive logins
+on this prepared host only. It must be retained while required, not treated as
+disposable or copied elsewhere. Jobs never read it. The
+[R1-L1 decision](sprint_E.3_handover_review-1-decisions.md#r1-l1--product-owner-policy-choice-required)
+owns the ending/reconsideration trigger; NFR-4 is not declared satisfied.
+The inherited VM-start fallback's scratch override is outside the supported
+explicit-VM-start path until corrected.
+
 References: [GitHub variables](https://docs.github.com/en/actions/concepts/workflows-and-actions/variables),
 [deployment environments](https://docs.github.com/en/actions/concepts/workflows-and-actions/deployment-environments),
 [runner temporary paths](https://docs.github.com/en/actions/reference/workflows-and-actions/variables),
@@ -74,8 +83,13 @@ uses the same native setup, verifies valid source first, removes an included
 changeset in a temporary checkout, requires native rejection and compares private
 target snapshots. It contains no deployment command. It shares lab concurrency
 with release. Parent integration checks query live GitHub PR/tag/run/release state,
-download actual artifacts into new OS temporary directories and verify hashes,
-changelogs, native result and cleanup. They require no local database settings.
+for the fixed seed v1.0.4 journey (deployment 41679427616 and qualification
+41679432928), download existing artifacts into new temporary directories and
+verify hashes, changelogs, native result and cleanup. They do not create fresh
+native runs or validate an operator's selected LAB. They need no local database
+settings; platform smoke separately needs permission to read the seed environment
+variables and probes that configured HTTP endpoint. Public source access does
+not grant environment API access. See the current test profile for exact scope.
 
 Platform smoke now obtains its endpoint/application from GitHub and checks live
 ORDS plus the database-backed APEX login. The historical five-schema identity

@@ -1,6 +1,6 @@
-# Sprint E.3 technical handover — round 1 decision proposals
+# Sprint E.3 technical handover — round 1 decisions
 
-**Round:** E.3, round 1, proposed Product Owner decisions, 2026-11-04.
+**Round:** E.3, round 1, Product Owner decisions and implementation checkpoint, 2026-11-04.
 
 **Revision:** Original reviewed parent
 `b695ec9627f1453220a04032563f812242f7ac0f`; application
@@ -8,7 +8,7 @@
 The expert assessed the engineering response published at
 `b0e4580a9b099b622dd217694431b71a1070c94f`. The maintained parent at feedback
 entry was `9987e529caf8b9ad15f05cf536afc6c6baded036`; intervening changes are
-review coordination only. No implementation patch is included or verified here.
+review coordination only. The Product Owner subsequently selected the focused corrections and the temporary prepared-host credential accommodation. Correction evidence is linked below; no fresh runtime qualification is claimed.
 
 **Reviewer:** Original external Codex engineering reviewer; exact model build
 not exposed. Decision coordinator: Codex. Decision owner: Product Owner.
@@ -26,15 +26,17 @@ production qualification or sprint-status change.
 ## Current finding status
 
 The expert accepts the proposed direction and requests the closing conditions
-below. These are proposals awaiting Product Owner disposition; no selection,
-deferral, rejection, fix or verification is inferred from reviewer agreement.
+below. The Product Owner explicitly approved the fixes and selected Option B for L1:
+“Approve fixes; allow temporary lookup on this prepared host.” M1/M2/L2 are
+selected for implementation with offline validation. L1 is explicitly deferred
+under the narrow accommodation and ending/reconsideration trigger below.
 
 | Finding | Current status | Reviewer reaction | Proposed Product Owner action |
 |---|---|---|---|
-| R1-M1 | agreed | Accept | Select focused deck/notes/authoring-source correction. |
-| R1-M2 | agreed | Accept documentation-only option | Select clarification of fixed reference-evidence tests and separate LAB acceptance. |
-| R1-L1 | partly-agreed | Accept with clarification | Choose a coherent supported credential/startup path or a narrow temporary deferral. |
-| R1-L2 | agreed | Accept with clarification | Select a specific negative assertion with offline validation; keep runtime claims separate. |
+| R1-M1 | selected | Accept | Select focused deck/notes/authoring-source correction. |
+| R1-M2 | selected | Accept documentation-only option | Select clarification of fixed reference-evidence tests and separate LAB acceptance. |
+| R1-L1 | deferred | Accept with clarification | Option B approved: temporary retained-host lookup; supported explicit VM startup; no new store. |
+| R1-L2 | selected | Accept with clarification | Select a specific negative assertion with offline validation; keep runtime claims separate. |
 
 ## R1-M1 — Proposed focused presentation correction
 
@@ -95,15 +97,14 @@ from GitHub. GitHub secrets cannot supply readable interactive passwords through
 their API. The concrete credential-source instruction must be confirmed before
 claiming this option implemented.
 
-**Option B — temporary prepared-host accommodation.** Explicitly retain the
+**Selected Option B — temporary prepared-host accommodation.** Explicitly retain the
 requested lookup from the existing E.1/E.2 record on the already prepared lab
 host as a narrow temporary exception. Do not create new authoritative settings
 there or present the file as disposable while it remains required. Keep GitHub
 environment secrets authoritative for jobs and native author profiles outside
-the checkout. Do not move/delete any private record. This would be a proposed
-**deferral**, not verification of the scratch prohibition.
+the checkout. Do not move/delete any private record. This is the approved **deferral**, not verification of the scratch prohibition.
 
-**Proposed deferral trigger for Option B:** End the accommodation when a compliant
+**Approved deferral trigger for Option B:** End the accommodation when a compliant
 credential-source remedy is selected; reconsider before independent/new-host
 reproduction, scratch cleanup or any expansion of this retained-host exception.
 PBI-054 remains the wider reproduction proof, not a completion claim here.
@@ -160,18 +161,19 @@ assessed.
 
 ## Outcome and next step
 
-The expert feedback accepts the engineering direction and preserves the bounded
-Elaboration objective. No clarification exchange is needed before Product Owner
-selection. Recommend M1, M2's documentation-only option and L2 with offline
-validation, with the explicit L1 policy choice above. This file records proposals
-only; the round remains open and the recommendation remains corrections required.
-No finding closure, sprint acceptance, new backlog assignment or next-sprint
-activation is implied.
+The Product Owner selected M1's focused PPTX correction, M2's documentation-only
+clarification, L2's specific assertion with offline validation, and L1 Option B.
+Codex owns the selected implementation/documentation; the Product Owner owns
+L1's exception and eventual remedy. No fresh native qualification or deployment
+was selected. The next independent review will assess the committed correction
+and its stated offline validation level; it must not infer a runtime result.
+The [correction checks](tests/review-1-correction-checks.json) identify evidence.
+No sprint acceptance, new backlog assignment or next-sprint activation is implied.
 
 The original feedback's SHA-256 is
 `3433744fc3c8f91393bb3efdd58bd68e386c1215b150702a69f05dabf07a2c82`.
 Its text is preserved unchanged. Checks for this coordination step were reading
 the feedback against the prior engineering response, verifying exact revisions,
 original-report/feedback integrity, relative navigation and whitespace. No code
-or runtime check was repeated. After selection, record the actual disposition
-and implement only its approved scope before preparing independent recheck.
+or runtime check was repeated. The selected disposition is recorded above. No private records were read, moved
+or deleted to implement the accommodation.

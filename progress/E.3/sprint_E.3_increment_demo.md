@@ -76,6 +76,17 @@ the E1_DEV_C and E3_TARGET database passwords, and LAB_USER's target application
 password. These are different credentials. The target is E3_TARGET / 810203;
 retained UAT is not used.
 
+**Temporary credential accommodation approved on 2026-11-04:** on this already
+prepared E.2/E.3 host, the existing `.local-apex/e1-secrets.json` record remains
+the read-only source for the three interactive password lookups below. It is
+a retained dependency until replaced, not disposable scratch. Do not create new
+settings there, copy the record to another host, move/delete it or use it in
+GitHub jobs. Jobs use GitHub environment secrets; author profiles live outside
+the checkout. The exception ends when a compliant source remedy is selected and
+must be reconsidered before new-host reproduction, scratch cleanup or expansion.
+It is an explicit [R1-L1 deferral](sprint_E.3_handover_review-1-decisions.md#r1-l1--product-owner-policy-choice-required),
+not a claim that NFR-4 is satisfied. Another host needs its own assigned credentials.
+
 Install Podman, Git, GitHub CLI (`gh`), jq, curl, nc, tar, unzip and shasum on this host.
 For developer capture, Java 21 and SQLcl **25.4.1.022.0618** must also be on
 your ordinary PATH. Release jobs install their own Java/SQLcl. Authenticate
@@ -266,6 +277,11 @@ recreating their data. If the engine is unavailable, it delegates VM startup
 to `apex-vm-start.sh`, whose macOS `launchd` launch keeps the VM independent of
 the invoking terminal. The preceding VM check should already have established
 engine access for this walkthrough.
+
+The inherited fallback reads a retained `.local-apex/containers.conf` override
+without generating it. It is outside this walkthrough's supported startup path:
+complete the explicit VM-start/check step above first. Stop on failure rather
+than relying on that fallback or treating its configuration as optional scratch.
 
 Run the startup script:
 
@@ -486,6 +502,9 @@ Environment secrets **AUTHOR_PASSWORD** and **TARGET_PASSWORD** hold the
 respective database schema passwords. If configuration is missing, return to
 the lab setup above before starting the runner. No environment
 settings or credentials belong in `.local-apex`.
+
+That rule governs workflow configuration. The explicitly approved prepared-host
+interactive credential accommodation in step A is the narrow temporary exception.
 
 #### Script introduction: runner setup and status
 
@@ -1196,9 +1215,12 @@ changelog that includes it. Other rules can still pass: this example's
 
 The deployment workflow requires an explicit **Errors: 0** summary and rejects
 the Oracle/client error patterns it checks before packaging or target writes;
-it does not rely solely on SQLcl's process exit code. The qualification workflow
-requires the intact copy to report zero errors, then requires the damaged copy
-to lose that zero-error result and contain a native stage-changelog diagnostic.
+it does not rely solely on SQLcl's process exit code. The corrected qualification
+requires the intact copy to report zero errors. For the damaged copy it requires
+a positive error count, ERROR rows only for the intended stage rule, and the
+literal selected missing path inside that rule's diagnostic. The historical
+workflow used a weaker rule-name check; its retained log nevertheless shows the
+genuine missing-file failure.
 This establishes structural/source consistency for the exercised case. It does
 not prove business correctness, complete dependency capture or target-schema
 drift protection.
@@ -1238,7 +1260,12 @@ The subshell limits directory/variable changes to this exercise. Cloning with
 `--no-hardlinks` separates its files from the application checkout. `tee`
 retains visible SQLcl output; `pipefail` preserves command failure through the
 pipeline. The negative call allows an expected nonzero exit so its diagnostic
-can be inspected, then requires the native missing-file **ERROR** explicitly.
+can be inspected. The shared `assert-missing-changeset.awk` assertion requires
+the positive error count, intended **ERROR** rule and literal selected path in
+that same rule's message. It strips ANSI/table padding and joins only fragments
+forming the exact expected path; unrelated errors or paths under another rule
+cannot establish success. It asserts native output rather than replacing PROJECT
+verification. Load it from the parent checkout so old tags need not contain it.
 The positive/restored calls require **Errors: 0**. These assertions matter
 because PROJECT diagnostics are not reliably represented by process status
 alone. Moving the script outside the clone's application tree preserves it
@@ -1253,6 +1280,8 @@ the missing file, and the final verification must pass after restoration.
   set -euo pipefail
   cd "$(git rev-parse --show-toplevel)"
   : "${version_tag:?Set version_tag to the published tag used in step F}"
+  e3_controls="$(git -C ../APEX_CICD rev-parse --show-toplevel)/examples/git-pipeline/.github"
+  test -f "$e3_controls/assert-missing-changeset.awk"
   git fetch origin "refs/tags/$version_tag:refs/tags/$version_tag"
   e3_demo=$(mktemp -d "${TMPDIR:-/tmp}/e3-native-rejection.XXXXXX")
   printf 'Disposable exercise and logs: %s\n' "$e3_demo"
@@ -1278,11 +1307,7 @@ the missing file, and the final verification must pass after restoration.
   # The same verification now follows a changelog reference to a missing file.
   if sql -nohistory -noupdates -S -L -name lab-dev-c @sql/verify.sql \
     | tee "$e3_demo/negative.log"; then :; fi
-  if grep -Eq 'Errors:[[:space:]]*0([^0-9]|$)' "$e3_demo/negative.log"; then
-    printf 'FAIL: expected native rejection was not observed\n' >&2
-    exit 1
-  fi
-  grep -Eq 'ERROR.*stage[[:space:]]+stagechangelogfilesvalid' "$e3_demo/negative.log"
+  awk -v expected="$e3_missing" -f "$e3_controls/assert-missing-changeset.awk" "$e3_demo/negative.log"
 
   printf '\n④ Restore the script: expect Errors: 0 again\n'
   mv "$e3_demo/removed-changeset.sql" "$e3_missing"
@@ -1300,9 +1325,11 @@ script path explain the failure directly. The final `git status --short`
 should be empty. The subshell returns you to your original application
 checkout; the disposable clone and logs remain at the printed temporary path.
 
-The [manual rehearsal log](tests/manual-native-rejection.log) records this
+The [manual rehearsal log](tests/manual-native-rejection.log) records the earlier
 sequence on 2026-11-04 using historical tag v1.0.4 and SQLcl 25.4.1.022.0618:
 zero errors, one missing-file error, then zero errors after restoration.
+The corrected assertion has offline fixture coverage; this review correction
+does not claim a fresh SQLcl rehearsal or qualification run.
 
 #### Then demonstrate the same check automated by GitHub Actions
 
@@ -1313,8 +1340,9 @@ private connection setup described in step F. Its first `verify.sql` call
 requires zero errors. Before disturbing the runner's files, `snapshot.sql`
 records the captured target rows using the target-schema guard described in
 step F. It then removes one staged SQL file locally and calls `verify.sql`
-again, requiring the loss of the zero-error summary and a stage-changelog
-diagnostic. A second `snapshot.sql` call captures the same target fields and
+again, requiring the error-count/rule/path assertion described above. The path
+comes from the actual selected file before removal. A second `snapshot.sql`
+call captures the same target fields and
 `cmp` requires them unchanged. It writes `qualification.json`, uploads only
 public result logs/receipt and removes private job material. No packaging,
 restriction, deployment or publication SQL is called in this workflow.
@@ -1331,6 +1359,15 @@ The workflow automates the intact-versus-missing-file comparison you just ran
 manually, adding private job connections, target snapshots and an archived
 receipt. It uses its own disposable checkout rather than the CLI exercise's
 temporary clone.
+
+New receipts use `verification_schema: 2` and record `missing_changeset`,
+`controller_sha` and `sqlcl_version_output`, separately from the application SHA.
+The receipt path must match the selected path used by the diagnostic assertion.
+Historical v1.0.4 receipts remain unchanged and are supported only with their
+pinned original run/source/path context; absent fields do not establish a
+new-format pass. An existing LAB must adopt the reviewed controller/helper
+revision before claiming this corrected qualification behavior. Offline tests
+do not establish a fresh native workflow run.
 
 Require **Success** for the workflow: success here means the deliberate defect
 was rejected, not that the broken distribution passed. Download its

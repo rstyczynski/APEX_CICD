@@ -65,14 +65,15 @@ jobs:
           test -n "$missing"
           rm "$missing"
           if sql -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/verify.sql > result/negative.log 2>&1; then :; fi
-          if grep -Eq 'Errors:[[:space:]]*0([^0-9]|$)' result/negative.log; then
-            echo 'Expected native rejection was not observed'; exit 1
-          fi
-          grep -Eq 'stagechangelogfilesvalid|stagechangelogcomplete' result/negative.log
+          awk -v expected="$missing" -f ../controller/.github/assert-missing-changeset.awk result/negative.log
+          sql -nohistory -noupdates -version </dev/null > result/sqlcl-version.log 2>&1
           sql -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/snapshot.sql "$PRIVATE_DIR/after.txt" "$TARGET_SCHEMA" > "$PRIVATE_DIR/after.log" 2>&1
           cmp "$PRIVATE_DIR/before.txt" "$PRIVATE_DIR/after.txt"
           jq -n --arg source "$(git rev-parse HEAD)" --arg run "$GITHUB_RUN_ID" \
-            '{source_sha:$source,run_id:$run,positive_native_verify:true,missing_changeset_rejected:true,target_unchanged:true,deployment_called:false}' > result/qualification.json
+            --arg missing "$missing" --arg controller "$GITHUB_SHA" --rawfile tool result/sqlcl-version.log \
+            '{verification_schema:2,source_sha:$source,controller_sha:$controller,run_id:$run,missing_changeset:$missing,sqlcl_version_output:$tool,positive_native_verify:true,missing_changeset_rejected:true,target_unchanged:true,deployment_called:false}' > result/qualification.json
+          jq -e --arg source "$(git rev-parse HEAD)" --arg run "$GITHUB_RUN_ID" --arg expected_missing "$missing" \
+            -f ../controller/.github/qualification-receipt.jq result/qualification.json
       - name: Retain native qualification evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

@@ -14,7 +14,35 @@ and GitHub Actions control, with all E.3 Python removed. The
 [Handover](sprint_E.3_handover.md) owns the delivery boundary. This is prototype
 validation, not production qualification or full E.1 regression acceptance.
 
-## Quality gates
+## Current command behavior — reference evidence, not a new LAB journey
+
+The copyable parent commands below run static/reference checks. Integration
+IT-1/IT-2 read the fixed seed journey from github-environment-journey.json,
+deployment 41679427616 and qualification 41679432928, v1.0.4. They download old
+run artifacts and inspect their logs/receipts; they do not create a new native
+defect or qualification run and need no private preservation snapshot. Current
+platform smoke probes the seed-configured login form and needs seed environment
+API permission. These commands do not accept the operator's selected LAB replay.
+The [test profile](../../docs/test-profile.md#e3-implemented-pipeline-checks)
+and [manual](user_manual.md) identify access requirements and new-run acceptance.
+The older accounts below remain historical and are not fresh execution claims.
+
+## Review correction checks — 2026-11-04
+
+`bash tests/unit/test_missing_changeset.sh` passed 21/21 offline diagnostic and
+receipt cases. It runs the actual shared AWK/jq assertions on retained logs and
+synthetic fixtures, including unrelated errors, wrong paths, incomplete output,
+ANSI/padding/wrapping and legacy/new receipt constraints. `bash tests/run.sh
+--smoke --new-only progress/E.3/new_tests.manifest` passed 1/1 static smoke.
+These are proportionate offline review regressions, not a new native workflow
+or a rerun of the reference integrations/platform smoke. The
+[diagnostic log](tests/review-1-offline-diagnostics.log),
+[static smoke log](tests/review-1-static-smoke.log) and
+[correction receipt](tests/review-1-correction-checks.json) record the results.
+Slides 4/10 were inspected before/after; package/import/layout and source/link
+checks passed. No database, deployment or qualification was dispatched.
+
+## Historical quality-gate execution
 
 A1 new smoke passed: 1/1 registered test, including actionlint, script checks,
 workflow deployment separation and nine label/title classification examples.
@@ -38,9 +66,10 @@ bash tests/run.sh --smoke
 ```
 
 Expected registered totals are 1/0, 2/0 and 2/0 tests/failed respectively.
-The integration rejection case creates/deletes only its own throwaway Git clone;
-it does not reset a database. Live checks require the current deployed reference
-state and private preservation snapshot; they fail if evidence or state changes.
+These commands now fetch fixed seed evidence; they do not create/delete a
+native experiment clone, inject a defect or read a private preservation snapshot.
+The older clone-based integration execution described elsewhere is historical.
+Artifact availability and seed environment API access can limit repetition.
 
 ## Native and hosted observations
 

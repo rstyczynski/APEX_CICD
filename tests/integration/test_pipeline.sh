@@ -23,12 +23,12 @@ test_IT1_manual_release() (
   gh api "repos/$repository/contents/CHANGELOG.md?ref=$tag" -H 'Accept: application/vnd.github.raw+json' > "$scratch/changelog.txt"
   node -e 'const f=require("fs");if(!f.readFileSync(process.argv[1],"utf8").includes(f.readFileSync(process.argv[2],"utf8").trim()))process.exit(1)' "$scratch/changelog.txt" "$scratch/notes.txt"
   gh api "repos/$repository/git/trees/$source?recursive=1" | jq -e 'all(.tree[]; (.path | endswith(".py") | not))' > /dev/null
-  echo 'PASS fresh GitHub evidence: explicit tool setup, selected tag/archive, changelogs, preservation and cleanup'
+  echo 'PASS reference seed evidence: recorded tag/archive, changelogs, preservation and cleanup; not a new LAB deployment'
 )
 
 test_IT2_verification_blocks_deploy() (
   set -euo pipefail
-  local scratch run repository=rstyczynski/APEX_CICD_E3 source
+  local scratch run repository=rstyczynski/APEX_CICD_E3 source expected_missing
   scratch=$(mktemp -d "${TMPDIR:-/tmp}/apex-e3-qualification.XXXXXX")
   trap 'rm -rf "$scratch"' EXIT
   run=$(jq -er .qualification_run progress/E.3/tests/github-environment-journey.json)
@@ -37,9 +37,11 @@ test_IT2_verification_blocks_deploy() (
   gh api "repos/$repository/actions/runs/$run" | jq -e '.conclusion == "success" and .event == "workflow_dispatch"' > /dev/null
   gh api "repos/$repository/actions/runs/$run/jobs" | jq -e '[.jobs[].steps[] | select(.name == "Remove private job material") | .conclusion] == ["success"]' > /dev/null
   gh run download "$run" --repo "$repository" --name "e3-qualification-$run" --dir "$scratch"
-  jq -e --arg source "$source" '.source_sha == $source and .positive_native_verify == true and .missing_changeset_rejected == true and .target_unchanged == true and .deployment_called == false' "$scratch/qualification.json" > /dev/null
+  # This reader is pinned to the unchanged legacy v1.0.4 experiment, not a replay.
+  expected_missing=dist/releases/next/changes/e3-initial/e1_dev_c/package_bodies/lab_runtime.sql
+  jq -e --arg source "$source" --arg run "$run" --arg expected_missing "$expected_missing" \
+    -f examples/git-pipeline/.github/qualification-receipt.jq "$scratch/qualification.json" > /dev/null
   grep -Eq 'Errors:[[:space:]]*0([^0-9]|$)' "$scratch/positive.log"
-  if grep -Eq 'Errors:[[:space:]]*0([^0-9]|$)' "$scratch/negative.log"; then return 1; fi
-  grep -Eq 'stagechangelogfilesvalid|stagechangelogcomplete' "$scratch/negative.log"
-  echo 'PASS real native missing-changeset rejection in GitHub; target unchanged; no deployment'
+  awk -v expected="$expected_missing" -f examples/git-pipeline/.github/assert-missing-changeset.awk "$scratch/negative.log"
+  echo 'PASS legacy reference qualification evidence; no new defect injection, LAB qualification or deployment'
 )

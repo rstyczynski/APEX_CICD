@@ -49,7 +49,14 @@ schema-password secrets, restricted to main. Workflow setup explicitly installs
 Java and pinned SQLcl, adds sql to PATH, generates private native connections
 and target mappings under RUNNER_TEMP, and cleans them afterward. No machine
 native.env, retained local SQLcl store, committed target properties or .local-apex
-settings are used. .local-apex is disposable scratch only. Runner registration
+settings are used by GitHub jobs. A Product Owner-approved temporary exception
+permits read-only interactive credential lookup from the existing E.1/E.2 record
+on this prepared host. That record is retained while needed and must not be
+discarded or copied to another host; no new settings/store is authorized. The
+exception's owner and ending/reconsideration triggers are in the
+[R1-L1 decision](sprint_E.3_handover_review-1-decisions.md#r1-l1--product-owner-policy-choice-required).
+The inherited VM-start fallback's scratch configuration dependency is outside
+the supported explicit-VM-start sequence until corrected. Runner registration
 is persistent host infrastructure outside the checkout. AGENTS and NFR-4 now
 record that boundary; PBI-054 retains the broader independent-operator/lab proof.
 
@@ -80,6 +87,14 @@ connection files and raw business snapshots are absent from uploaded artifacts.
 GitHub-hosted runners do not access this localhost lab; the local runner uses
 its published Oracle/ORDS network ports and needs no APEX installation files.
 
+Those are dated engineering observations of the seed reference journey. Running
+the parent IT-1/IT-2 commands now retrieves its fixed historical runs; it does
+not execute a new LAB qualification/deployment. Platform smoke is a current HTTP
+probe of seed-configured endpoints and needs permission to read seed environment
+variables. Accept each operator replay using that LAB's actual PR/tag/source,
+receipt/archive/native logs, qualification result if performed and browser
+title/history observations. Seed-reader success cannot accept another LAB run.
+
 ## Scope and acceptance
 
 PBI-053 and children .1/.2/.3 retain the approved bounded architecture-prototype
@@ -108,11 +123,16 @@ medium and two low findings, with no high-severity finding invalidating the
 recorded prototype result. The
 [engineering response](sprint_E.3_handover_review-1-response.md) agrees with
 R1-M1, R1-M2 and R1-L2, and partly agrees with R1-L1 while identifying the
-Product Owner's explicit credential-lookup direction. These are engineering
-positions, not selected or implemented corrections. The
+Product Owner's explicit credential-lookup direction. The
 [expert feedback](sprint_E.3_handover_review-1-feedback.md) accepts that direction
-with closing clarifications. The [decision proposals](sprint_E.3_handover_review-1-decisions.md)
-identify focused M1/M2/L2 corrections and the required Product Owner choice
-between a compliant credential-source path and a temporary prepared-host
-accommodation for L1. All findings remain unresolved. No round closure or sprint
-acceptance is claimed.
+with closing clarifications. The Product Owner approved M1/M2/L2 corrections
+with offline validation and selected the temporary prepared-host accommodation
+for L1. The [decisions](sprint_E.3_handover_review-1-decisions.md) record that
+selection and deferral trigger. Slides 4/10 and test-scope guidance are corrected;
+the specific native-diagnostic/receipt assertion passes 21 offline cases and
+static pipeline smoke passes 1/1. Corrected seed controller main is
+`eac24dedab3f611ef09b0196623cfabf674e7e1c`; v1.0.4 and its historical evidence
+are unchanged. The [correction receipt](tests/review-1-correction-checks.json)
+records scope and source/package identities. Independent recheck is pending;
+no fresh native qualification, deployment, round closure or sprint acceptance
+is claimed.

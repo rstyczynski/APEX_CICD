@@ -338,6 +338,13 @@ The three logical components are **Database Foundation**, **Hello** and **World*
 
 **NFR-4 — Reproducible setup without hidden local state.** By Product Owner direction on 2026-11-03, an operator with repository access and documented infrastructure prerequisites must be able to run the supported workflows without copying another operator's files, machine paths, credentials or retained business data. Tools and required generated files must be prepared by declared setup steps; environment settings and credentials must come from the supported configuration platform and the new operator's authorized inputs. For GitHub workflows, use variables and encrypted secrets, generate private connection material in job temporary storage and remove it after execution. The checkout's ignored scratch directory is temporary only and must never be the source of persistent environment settings or runner registration; no machine-specific environment file is required. Acceptance requires an independent operator/clean-checkout run, including the wider lab/infrastructure prerequisites; [PBI-054](../BACKLOG.md#pbi-054-generate-the-complete-local-environment-from-a-fresh-checkout) retains that broader proof. The [current E.3 configuration](../progress/E.3/sprint_E.3_github_configuration.md) establishes the workflow boundary, not completion of all independent laboratory provisioning.
 
+The Product Owner selected a temporary prepared-host credential accommodation
+on 2026-11-04 in [R1-L1](../progress/E.3/sprint_E.3_handover_review-1-decisions.md#r1-l1--product-owner-policy-choice-required).
+It permits only read-only interactive lookup of the existing E.1/E.2 record;
+it does not satisfy NFR-4 or authorize new authoritative scratch state. GitHub
+job configuration remains independent. Reconsider before new-host reproduction,
+scratch cleanup or expansion; end it when a compliant source remedy is selected.
+
 **NFR-5 — SQLcl PROJECT toolchain compatibility.** For each accepted Git state,
 all SQLcl PROJECT processing—developer export/stage, verification, packaging and
 deployment—must use the agreed SQLcl release recorded as `.sqlcl.version` in

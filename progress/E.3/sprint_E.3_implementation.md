@@ -360,6 +360,30 @@ missing_changeset_rejected and target_unchanged as true and deployment_called
 as false. It contains no package, deploy, restrict or publish step. This is a
 negative architecture experiment, separate from verifying a deployed application.
 
+Review correction R1-L2 replaces the weak rule-name predicate with the shared
+`.github/assert-missing-changeset.awk` assertion. It requires a positive summary
+consistent with ERROR rows, the expected failing stage rule and the literal
+selected file path in that rule's message. It strips ANSI/padding and joins
+only exact expected-path continuation fragments. The workflow and manual use
+the selected file; the fixed reference reader uses the recorded legacy path.
+The shared receipt filter requires path/controller/tool-output fields in schema
+2 and permits the unchanged old receipt only for its pinned v1.0.4 source/run/path.
+New receipts record controller SHA separately from application SHA. The corrected
+assertions have offline fixture validation, not a newly executed native run.
+
+Parent IT-1/IT-2 remain fixed seed-evidence readers of deployment 41679427616
+and qualification 41679432928; they do not validate a selected LAB replay.
+Platform smoke currently probes seed-configured endpoints and needs seed
+environment API access. A replay is accepted through its own actual repository,
+PR/tag/source, receipt/archive/native logs and browser observations.
+
+R1-L1 is an explicitly approved temporary prepared-host credential deferral:
+read the existing E.1/E.2 record for interactive logins without creating new
+scratch authority or copying/deleting private records. GitHub jobs remain
+independent. The [decision record](sprint_E.3_handover_review-1-decisions.md)
+owns the accommodation's ending/reconsideration trigger. The inherited startup
+fallback's scratch override is outside the supported explicit-VM-start path.
+
 ### Evidence and remaining boundaries
 
 The [configuration/run record](sprint_E.3_github_configuration.md#verification-scope)

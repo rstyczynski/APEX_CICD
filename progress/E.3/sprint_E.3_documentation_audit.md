@@ -406,3 +406,46 @@ fix or new runtime claim. Existing expert/report bytes, related paths and
 whitespace were checked before publishing this feedback/decision checkpoint.
 Handover navigation now identifies the pending Product Owner choice rather
 than requesting a feedback file that has already arrived.
+
+### Approved review corrections — 2026-11-04
+
+The Product Owner approved the focused fixes and the temporary prepared-host
+lookup accommodation. R1-M1 corrects actual PPTX slides 4/10, notes and authoring
+source: each terminal defines e3_repo, runner setup/run share an explicit LAB
+directory, and the deployer reads a published tag from step E. Historical seed
+success is labeled. Only those slide/notes parts change; 75 package parts remain
+byte-identical. All slides were rendered and the changed slides inspected;
+package integrity, first-party import and layout validation pass.
+
+R1-M2 reconciles the manual, test profile/record, implementation, configuration,
+handover and README context with the actual fixed seed evidence readers and
+seed-configured platform HTTP probe. New-LAB acceptance identifies its own
+repository/PR/tag/source, receipt/archive/native logs and browser observations.
+Old passes and artifact-expiry limitations remain historical. The broad SRS,
+architecture, setup/design and progress board retain their accepted prototype
+scope; no test parameterization, sprint assignment or lifecycle-status change
+is implied.
+
+R1-L1 is explicitly deferred by the Product Owner, not called NFR-4-compliant.
+AGENTS, SRS context and current guidance identify the narrow read-only existing
+prepared-host record, no new store/state, no copying or deletion and ending/
+reconsideration triggers. The inherited VM-start fallback's scratch override is
+excluded from the supported explicit-VM-start path. No private file was opened,
+migrated or deleted for this correction.
+
+R1-L2 adds shared native-output and receipt assertions to the parent example
+and public seed controller. Error count, failing rule and literal selected path
+must agree in the same diagnostic. Schema-2 receipts bind path, controller and
+tool-version output; old receipts remain unchanged and are accepted only in
+their pinned legacy context. The manual uses the same AWK assertion from its
+parent checkout. Current seed main is eac24dedab3f611ef09b0196623cfabf674e7e1c;
+the regenerated tracked bundle includes it and retains all original tags.
+
+Validation: 21/21 actual offline diagnostic/receipt cases, static SM-1 1/1,
+actionlint, Bash/authoring syntax, full source-block comparisons, local link/
+anchor checks and whitespace. The [correction receipt](tests/review-1-correction-checks.json)
+and linked logs retain details. The code push may prepare a version PR, but no
+release PR was merged, tag moved, native qualification dispatched or deployment
+performed. New native runtime success is not claimed. The immutable original
+review/feedback hashes are preserved. A subsequent expert review will pin the
+committed correction, reusing R1 IDs and checking the explicit deferral boundary.

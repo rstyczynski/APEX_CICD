@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-04",
+  "authorization": "Product Owner: Approve fixes; allow temporary lookup on this prepared host",
+  "parent_baseline": "3907d087a3877abbd4e19e7270de8494e5d11331",
+  "seed_controller_sha": "eac24dedab3f611ef09b0196623cfabf674e7e1c",
+  "unchanged_application_tag": "v1.0.4",
+  "unchanged_application_sha": "fbda57a0cbe4d32961ad826852bd04394a500c11",
+  "bundle_sha256": "f7963088c2ee0a888973c2ecf54782c66490a4b555f0e2f36a44844fd57f5c38",
+  "bundle_integrity": "passed; complete history; main is corrected controller, tags unchanged",
+  "classification": {
+    "actual_assertion_cases": 21,
+    "failed": 0,
+    "evidence": "review-1-offline-diagnostics.log",
+    "scope": "actual AWK and jq assertions; retained logs and synthetic fixtures; no native execution"
+  },
+  "static_smoke": {
+    "tests": 1,
+    "failed": 0,
+    "evidence": "review-1-static-smoke.log"
+  },
+  "presentation": {
+    "sha256": "9b3423fbc29a037ee92fd58b10e8bb8aa8288ec96b68abd0ce12c022bec3e71f",
+    "slides": 12,
+    "changed_slides": [
+      4,
+      10
+    ],
+    "changed_parts": [
+      "ppt/notesSlides/notesSlide10.xml",
+      "ppt/notesSlides/notesSlide4.xml",
+      "ppt/slides/slide4.xml",
+      "ppt/slides/slide10.xml"
+    ],
+    "unchanged_parts": 75,
+    "package_integrity": "pass",
+    "layout_findings": 0,
+    "layout_warnings": 1,
+    "first_party_import": true,
+    "visual_inspection": "Changed slides inspected before/after at full size; all 12 rendered; other slide parts unchanged.",
+    "native_powerpoint_inspection": false
+  },
+  "runtime": {
+    "project_tests_live": false,
+    "sqlcl_executed": false,
+    "qualification_dispatched": false,
+    "deployment_dispatched": false,
+    "private_credential_access": false,
+    "controller_push_may_prepare_release_pr": true
+  },
+  "historical_expert_sha256": "532cbcc6a732a7b654cc858a4985f417e2ccf500af834825a79695dc0973a57f",
+  "historical_feedback_sha256": "3433744fc3c8f91393bb3efdd58bd68e386c1215b150702a69f05dabf07a2c82",
+  "static_document_checks": {
+    "checked_markdown_files": 14,
+    "relative_links": 373,
+    "matching_SQL_blocks": 17,
+    "expert_inputs_unchanged": true,
+    "seed_example_assertions_match": true,
+    "all_callers_use_shared_assertion": true
+  }
+}

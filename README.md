@@ -60,7 +60,7 @@ A/B/C use **E1_DEV_A/B/C**, applications **810001/810002/810003**. The disposabl
 
 Current A–C scripts replay reviewed sequential Git snapshots. Independent task branches, genuine parallel Hello/World integration and hosted PR/CI execution are proposed extensions, not demonstrated by that replay. Ignored `.local-apex/` contains local tools, credentials, staging, release archives and host evidence; credentials and runtime business data stay outside Git.
 
-Workflows must prepare tools and generated files through explicit setup and obtain environment settings and credentials from their configuration platform. **`.local-apex/` is disposable scratch only**, never an environment-settings or credential store. E.3 uses GitHub variables/secrets and job-scoped temporary SQLcl connections, as described in the [configuration guide](progress/E.3/sprint_E.3_github_configuration.md). [SRS NFR-4](docs/srs.md#quality-requirements-and-initial-release) and [PBI-054](BACKLOG.md#pbi-054-generate-the-complete-local-environment-from-a-fresh-checkout) retain the broader independent-operator/lab setup proof; a machine-specific environment file is not the required solution.
+Workflows must prepare tools and generated files through explicit setup and obtain environment settings and credentials from their configuration platform. **`.local-apex/` is disposable scratch only**, never a new environment-settings or credential store. The sole temporary exception is the Product Owner-approved read-only prepared-host lookup of the existing E.1/E.2 credential record, with the scope/ending trigger in [R1-L1](progress/E.3/sprint_E.3_handover_review-1-decisions.md#r1-l1--product-owner-policy-choice-required). That retained dependency must not be discarded as scratch. E.3 uses GitHub variables/secrets and job-scoped temporary SQLcl connections, as described in the [configuration guide](progress/E.3/sprint_E.3_github_configuration.md). [SRS NFR-4](docs/srs.md#quality-requirements-and-initial-release) and [PBI-054](BACKLOG.md#pbi-054-generate-the-complete-local-environment-from-a-fresh-checkout) retain the broader independent-operator/lab setup proof; a machine-specific environment file is not the required solution.
 
 ## Run the walkthrough
 
@@ -170,6 +170,12 @@ Run the versioned local lab runner with [scripts/e3-runner.sh](scripts/e3-runner
 The [GitHub configuration guide](progress/E.3/sprint_E.3_github_configuration.md)
 defines environment variables/secrets and generated job setup; no native.env or
 .local-apex settings are required. .local-apex is disposable scratch only.
+
+The prepared host has one explicit temporary exception: read-only interactive
+password lookup from its existing E.1/E.2 record. That dependency must be retained
+until replaced; it is not used by GitHub jobs or copied to new hosts. The
+[R1-L1 decision](progress/E.3/sprint_E.3_handover_review-1-decisions.md#r1-l1--product-owner-policy-choice-required)
+owns its scope and reconsideration trigger, not a claim of NFR-4 compliance.
 
 [PBI-055](BACKLOG.md#pbi-055-reduce-repeated-pipeline-toolchain-setup) proposes
 reducing repeated Java/SQLcl setup while preserving approved versions, tool

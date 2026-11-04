@@ -67,6 +67,21 @@ registration belongs in the runner's managed host directory outside the
 checkout. Preserve historical evidence without presenting its retired local
 configuration instructions as the current setup.
 
+### Temporary prepared-host credential accommodation — 2026-11-04
+
+The Product Owner explicitly approved retaining read-only lookup of the existing
+E.1/E.2 `.local-apex/e1-secrets.json` record on the already prepared E.3 host.
+This narrow R1-L1 deferral preserves requested Builder, author-schema and LAB_USER
+password retrieval; it does not authorize creating new settings/credentials in
+scratch, copying the record to another host, or using it in GitHub jobs. The
+record is a retained dependency while this exception applies and must not be
+discarded as disposable scratch. Do not move/delete it or introduce a new store.
+GitHub environment secrets remain the job authority and native author profiles
+remain outside checkout scratch. End the accommodation when a compliant source
+remedy is selected; reconsider before new-host reproduction, scratch cleanup or
+expanding this exception. See the [review decision](progress/E.3/sprint_E.3_handover_review-1-decisions.md#r1-l1--product-owner-policy-choice-required).
+This is a temporary prepared-host exception, not production NFR-4 compliance.
+
 ## SQLcl PROJECT toolchain compatibility
 
 Treat [SRS NFR-5](docs/srs.md#quality-requirements-and-initial-release) as a

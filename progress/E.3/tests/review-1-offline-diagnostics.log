@@ -1,0 +1,22 @@
+PASS retained-missing-file
+PASS retained-positive
+PASS bounded-format
+PASS unrelated-error-with-INFO-rule
+PASS literal-wrong-path
+PASS expected-path-outside-error-block
+PASS zero-error-summary
+PASS missing-summary
+PASS connection-failure
+PASS inconsistent-error-count
+PASS conflicting-summaries
+PASS missing-diagnostic-message
+PASS additional-unrelated-error
+PASS ANSI-and-padding
+PASS path-continuation
+PASS pinned-legacy-receipt
+PASS unrecognized-legacy-run
+PASS new-format-receipt
+PASS receipt-path-mismatch
+PASS new-format-missing-path
+PASS missing-controller-identity
+Checks: 21; failed: 0; offline only

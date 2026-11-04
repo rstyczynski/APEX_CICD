@@ -125,8 +125,16 @@ the host. An always-run cleanup removes the private directory even if setup or
 deployment fails. No target properties file is taken from a retained local folder.
 
 `.local-apex/` may hold disposable downloads, build artifacts or diagnostics. It
-must never supply environment settings, credentials, named connections or runner
-registration. The former E.3 native.env, lab.json and custom launch helper were
+must not supply workflow environment settings, credentials, named connections or
+runner registration. **Temporary prepared-host exception (2026-11-04):** the
+Product Owner approved read-only lookup of the existing E.1/E.2
+`e1-secrets.json` record for interactive Builder/author/LAB_USER logins. It is
+a retained dependency, not disposable while used. Do not create new settings
+there, copy it to another host or move/delete it. GitHub jobs do not read it.
+The exception ends when a compliant credential-source remedy is selected and
+must be reconsidered before new-host reproduction, scratch cleanup or expansion.
+This is the [R1-L1 deferral](sprint_E.3_handover_review-1-decisions.md#r1-l1--product-owner-policy-choice-required),
+not proof of production NFR-4 compliance. The former E.3 native.env, lab.json and custom launch helper were
 removed. Their historical references describe retired implementations only.
 
 ## Native authoring and developer PR
@@ -241,12 +249,24 @@ called. Its native logs and receipt support the test; private snapshots and
 connections are removed afterward. It shares deployment concurrency to avoid
 racing the lab demonstration. PR/version workflows remain separate.
 
-The parent repository's smoke/integration checks require gh, Git, jq, Node, curl,
-shasum and authenticated API access to the selected repository. They download
-fresh attributable workflow evidence into OS temporary directories and remove
-it afterward; they need no local database passwords or retained source clone.
-Platform smoke reads its endpoint from GitHub and checks the live ORDS/APEX login.
-Earlier five-schema identity evidence remains historical E.1 evidence.
+The parent smoke/integration commands are **reference-run regression checks**,
+not acceptance of your selected LAB replay. IT-1/IT-2 hard-code
+`rstyczynski/APEX_CICD_E3` and the committed journey record: v1.0.4 deployment
+41679427616 and qualification 41679432928. They fetch existing metadata/artifacts
+into new temporary directories; they do not dispatch workflows, inject a new
+defect or execute a new deployment. Artifacts can expire. Required tools are gh,
+Git, jq, Node, curl, shasum, awk and actionlint for smoke; these readers need no
+local database passwords. Platform smoke makes a current HTTP probe against
+seed-configured endpoints and requires authenticated permission to read the
+**seed's environment variables**. Public source visibility or ownership of your
+LAB does not grant that permission. The probe reaches the login form; it does
+not authenticate as LAB_USER. Earlier five-schema identity checks are historical.
+
+Accept a new LAB run using your own repository, actual change/release PRs,
+generated tag and source SHA, deployment receipt/archive hash and native logs,
+separate qualification result if performed, and browser page-title/history
+observations from that run. Passing the fixed seed readers neither validates
+that LAB journey nor is a prerequisite available to every operator.
 
 Open the configured APEX target as LAB_USER with its existing authorized end-user
 credential. Inspect the Home heading and retained greeting history. Password

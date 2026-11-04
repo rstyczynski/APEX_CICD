@@ -47,6 +47,13 @@ and older tags preserve the superseded implementation as historical evidence;
 no history is rewritten. Use `git bundle verify` before cloning. Native
 verification is mandatory; the E.2 assessment waiver is not reused.
 
+Review R1-L2 adds a shared AWK missing-file diagnostic assertion and schema-2
+receipt checks. Current bundle main contains that corrected controller; v1.0.4
+and its original receipt/logs remain unchanged historical application evidence.
+The [correction receipt](../../progress/E.3/tests/review-1-correction-checks.json)
+records the new seed/bundle identities and offline validation. No new native
+qualification or deployment is claimed for this correction.
+
 The manual-only qualification workflow exercises native missing-changeset
 rejection without deployment. It shares the setup action and lab concurrency.
 See the [GitHub configuration guide](../../progress/E.3/sprint_E.3_github_configuration.md)

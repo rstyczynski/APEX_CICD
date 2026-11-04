@@ -35,9 +35,9 @@ text(s,'PR merge, tag creation and GitHub Release publication do not deploy.',64
 s=slide('GitHub configuration and local execution',E+'sprint_E.3_github_configuration.md');
 text(s,'GitHub e3-lab: 8 variables and 2 encrypted database secrets',64,160,1130,50,28,C.teal,true);
 code(s,['environment: e3-lab','db_connect: ${{ vars.DB_CONNECT }}','author_password: ${{ secrets.AUTHOR_PASSWORD }}','target_password: ${{ secrets.TARGET_PASSWORD }}'],235,26);
-text(s,'./scripts/e3-runner.sh setup  # Once: install + register\n./scripts/e3-runner.sh        # Each session: listen for jobs',64,405,1152,80,25,C.ink,false,'Courier');
-text(s,'Setup: verified download + GitHub registration + Oracle/ORDS checks.\nRunner stays in ~/actions-runner-e3; wait for Listening for Jobs.\nWorkflow installs Java/SQLcl; private job files use RUNNER_TEMP.\n.local-apex is scratch only; setup does not provision the database.',64,510,1130,130,24,C.teal,true);
-s.speakerNotes.text+=' Runner commands run from the parent laboratory repository on macOS ARM64 with authenticated gh and the prerequisites in user_manual.md. Setup retains a matching registration and does not start the listener. Keep the runner terminal open; dispatch from GitHub or another terminal. Stop with Control-C. See sprint_E.3_implementation.md#current-runner-installation-and-launch and sprint_E.3_increment_demo.md#5-deployer-selects-the-version.';
+text(s,"e3_repo=\"$(gh api user --jq .login)/APEX_CICD_E3_LAB\"\n./scripts/e3-runner.sh setup --repo \"$e3_repo\" \\\n  --directory \"$HOME/actions-runner-e3-lab\"\n./scripts/e3-runner.sh --repo \"$e3_repo\" \\\n  --directory \"$HOME/actions-runner-e3-lab\"",64,385,1152,133,22,C.ink,false,'Courier');
+text(s,"Parent terminal: step B explains setup and starts the listener.\nWait for Listening for Jobs; keep that terminal open.\nJobs use RUNNER_TEMP; registration stays outside the checkout.\nPrepared-host credential exception: see walkthrough step A.",64,545,1130,112,23,C.teal,true);
+s.speakerNotes.text+=' Run from the parent repository terminal after walkthrough A creates the LAB; the displayed e3_repo lookup defines the variable in this terminal. Both commands pass explicit LAB repository/directory. See walkthrough B, not the historical runner chapter. Keep Listening for Jobs open. Prepared-host password exception is scoped in walkthrough A; jobs use GitHub secrets.';
 s=slide('Working Copy: change one Home heading',E+'tests/working-copy-inspection.png');
 await shot(s,E+'tests/working-copy-inspection.png',152,440,{left:0.42,top:0,right:0,bottom:0.5});
 text(s,'Later inspection of retained Working Copy 100 · Main 810003 · shared schema',64,620,1135,42,25,C.teal,true);
@@ -54,8 +54,9 @@ text(s,'Reviewer checks the diff and required checks, then squash merges.',64,63
 s=slide('Release Please: version and both changelogs','https://github.com/rstyczynski/APEX_CICD_E3/pull/10');
 bullets(s,['Semantic commit history determines the next release version','Generated version.txt: 1.0.3 → 1.0.4','Generated CHANGELOG.md and matching GitHub Release notes','Reviewer merges the generated release PR when ready','Release-PR merge created tag v1.0.4; deployment stays manual'],175,30);
 s=slide('Manual deployment of the selected tag',E+'tests/github-release-receipt.json');
-code(s,['gh workflow run release.yml \\','  --repo rstyczynski/APEX_CICD_E3 \\','  --ref main -f version_tag=v1.0.4','','gh run view 41679427616 \\','  --repo rstyczynski/APEX_CICD_E3'],195,27);
-text(s,'Succeeded: native verify → one archive → target deployment → preservation',64,545,1135,75,28,C.teal,true);
+code(s,["e3_repo=\"$(gh api user --jq .login)/APEX_CICD_E3_LAB\"","read -r -p \"Published tag from step E: \" version_tag","gh release view \"$version_tag\" --repo \"$e3_repo\"","gh workflow run release.yml --repo \"$e3_repo\" \\","  --ref main -f \"version_tag=$version_tag\""],195,25);
+text(s,'Historical seed observation: v1.0.4 / run 41679427616 succeeded.\nFor this replay, inspect the newly dispatched LAB run.',64,545,1135,75,27,C.teal,true);
+s.speakerNotes.text+=' Current walkthrough F uses the application terminal. Displayed lookup defines e3_repo here; read selects the workflow-generated published tag from step E. Confirm it with gh release view, then dispatch the LAB. The step-B runner must listen for this repository. Historical seed results are observations, not replay inputs. Inspect the returned LAB run and its receipt/logs/browser result.';
 text(s,'The version is calculated automatically; the deployer selects the published tag.',64,630,1135,40,24,C.muted);
 s=slide('Deployed application and retained history',E+'tests/github-deployed-home.png; '+E+'tests/github-deployed-history.png');
 await shot(s,E+'tests/github-deployed-home.png',155,380);
