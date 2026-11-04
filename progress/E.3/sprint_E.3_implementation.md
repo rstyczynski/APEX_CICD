@@ -9,6 +9,17 @@ engineering evidence and is superseded. The public
 source and workflows; each operator creates a writable application repository.
 The parent APEX_CICD repository supplies the walkthrough and local runner launcher.
 
+Foundation, Hello and World are **project-defined logical components within one
+APEX application**. Hello and World contain separate page sets plus supporting
+database objects; Foundation supplies shared runtime/data and component metadata.
+They are not native APEX application entities or separately deployed mini apps.
+The [walkthrough introduction](sprint_E.3_increment_demo.md#application-structure-and-terminology)
+and PPTX slide 2 explain the distinction. Oracle's
+[mini-app guidance](https://www.oracle.com/a/tech/docs/apex-lifecycle-management-v3.pdf#page=15)
+describes a pattern for larger solutions using separate APEX applications,
+common components and shared authentication. That proposed PBI-044 scenario
+does not change the current single-application implementation.
+
 [Requirements](../../docs/srs.md) own the product contract;
 [architecture](../../docs/architecture.md) and [accepted design](sprint_E.3_design.md)
 own architectural decisions. This record explains the implementation.

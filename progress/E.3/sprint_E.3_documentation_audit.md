@@ -308,3 +308,30 @@ executable files and the nine walkthrough blocks. Relative document links and
 internal anchors in both changed documents were checked, as was whitespace.
 No code, workflow, sprint status or test criterion changed; runtime tests were
 not repeated for this documentation reconciliation.
+
+### Explain application structure before the walkthrough
+
+The walkthrough now begins with the exact distinction “project-defined logical
+components within one APEX application.” It explains Foundation's shared data
+and runtime responsibilities, Hello/World page sets and supporting objects,
+and the author/target copies of the assembled application. The implementation
+record links back to that explanation. Slide 2 now presents the same structure
+before its condensed walkthrough agenda; the deck remains 12 slides and the
+slide map and authoring source are synchronized.
+
+The mini-app note was checked against the retained Oracle APEX lifecycle paper
+version 3.2, pages 7 and 15–16. It describes a pattern for larger solutions:
+separate APEX applications, common component subscriptions and shared
+authentication, with optional separate schemas. It preserves Oracle's explicit
+qualification that smaller solutions need not split and identifies PBI-044 as
+proposed rather than implemented. No component model or sprint scope changed.
+
+The [presentation receipt](tests/application-structure-presentation-checks.json)
+records the final file hash, source provenance and validation. Only slide 2 and
+its notes changed; 77 other package parts are byte-identical to the source.
+Package integrity, first-party import and layout validation passed with zero
+findings; the pre-existing density warning remains on unchanged slide 4.
+Slide 2 was inspected before/after at full size, all slides were rendered and
+the full-deck montage was scanned. Native PowerPoint inspection was not claimed.
+Relative links, authoring-script syntax and whitespace checks passed. No runtime
+pipeline checks were repeated for this explanation-only change.

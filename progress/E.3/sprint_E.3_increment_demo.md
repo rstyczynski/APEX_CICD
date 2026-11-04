@@ -13,8 +13,38 @@ The [current implementation record](sprint_E.3_implementation.md#current-native-
 explains the implemented mechanisms and complete SQL source by backlog outcome;
 this walkthrough presents them in operator execution order.
 
+## Application structure and terminology
+
+Foundation, Hello and World are **project-defined logical components within one
+APEX application**. In APEX, Hello and World are separate sets of pages for
+entries, editing and configuration, backed by their tables and logic. Foundation
+provides shared PL/SQL, greeting history and component version/readiness records.
+These project groupings are not native APEX entities or independent deployment
+units. Native APEX pages, regions and Shared Components remain the actual
+application definitions.
+
+Main **810003** and target **810203** are development and deployment copies of
+the same assembled application. Capture exports the configured application and
+included schema definitions; Git identifies the files changed by your edit.
+The E.3 workflow packages and deploys the assembled application rather than
+releasing Hello and World as separate applications. This is the structure shown
+on **slide 2** and detailed in the
+[implementation record](sprint_E.3_implementation.md#current-native-implementation--2026-11-04).
+
+**Oracle mini-app best-practice note.** For larger solutions, Oracle's lifecycle
+guidance describes modularizing into multiple smaller APEX applications, with
+common/library components reused through subscriptions and shared authentication
+for seamless navigation. Separate database schemas are optional. The paper
+explicitly says smaller solutions do not require this split. Our three logical
+components are therefore not three mini apps. See the
+[Oracle APEX lifecycle paper, version 3.2, pages 7 and 15–16](https://www.oracle.com/a/tech/docs/apex-lifecycle-management-v3.pdf#page=15).
+The separate mini-app reuse scenario remains proposed in
+[PBI-044](../../BACKLOG.md#pbi-044-demonstrate-native-mini-app-component-reuse);
+it is not delivered by this walkthrough.
+
 ## Table of contents
 
+- [Application structure and terminology](#application-structure-and-terminology)
 - [Run it yourself](#run-it-yourself)
   - [A. Check access and prepare the two checkouts](#a-check-access-and-prepare-the-two-checkouts--slides-14)
   - [B. Confirm GitHub settings and start the local runner](#b-confirm-github-settings-and-start-the-local-runner--slide-4)
@@ -1509,7 +1539,7 @@ read fresh GitHub evidence, not a retained local source/data snapshot.
 | Slide | Topic |
 |---|---|
 | 1 | E.3 goal and architecture prototype |
-| 2 | Walkthrough agenda |
+| 2 | Application structure and walkthrough |
 | 3 | E.2 native foundation and GitHub responsibilities |
 | 4 | GitHub configuration and generated job setup |
 | 5 | Retained Working Copy heading change |

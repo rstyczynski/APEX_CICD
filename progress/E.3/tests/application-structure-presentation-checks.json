@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-04",
+  "sha256": "ffd36e16f21c0bf22679ccfebfb4d3aa54c0045951a0f12f29498cdc3d06af87",
+  "slides": 12,
+  "changed_slide": 2,
+  "changed_package_parts": [
+    "ppt/notesSlides/notesSlide2.xml",
+    "ppt/slides/slide2.xml"
+  ],
+  "unchanged_package_parts": 77,
+  "package_integrity": "pass",
+  "layout_findings": 0,
+  "layout_warnings": 1,
+  "warning_scope": "Existing density warning on unchanged slide 4",
+  "first_party_import": true,
+  "visual_inspection": "Slide 2 before/after inspected at full size; all 12 slides rendered and montage scanned. Other slide/notes parts preserved byte for byte.",
+  "native_powerpoint_inspection": false,
+  "source": "Oracle APEX lifecycle technical paper version 3.2, pages 7 and 15–16; refs/apex-lifecycle-management-v3.pdf",
+  "source_url": "https://www.oracle.com/a/tech/docs/apex-lifecycle-management-v3.pdf",
+  "source_sha256": "6f41b2f4511bfc3e3e4bbe28f3240c897a56006a42e46177d62a06d493cc4425"
+}
