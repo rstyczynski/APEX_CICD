@@ -13,9 +13,9 @@ review coordination only. The Product Owner subsequently selected the focused co
 **Reviewer:** Original external Codex engineering reviewer; exact model build
 not exposed. Decision coordinator: Codex. Decision owner: Product Owner.
 
-**Scope:** Assess the received feedback and present bounded corrections and
-closing conditions. No runtime execution, source fixes, credential access,
-production qualification or sprint-status change.
+**Scope:** Record selected corrections and their independent source/document/offline
+verification, plus the approved prepared-host deferral. No new native runtime
+qualification, credential access, production acceptance or sprint-status change.
 
 **Inputs:** [Original review](sprint_E.3_handover_review-1.md),
 [engineering response](sprint_E.3_handover_review-1-response.md),
@@ -28,24 +28,26 @@ production qualification or sprint-status change.
 Corrections are committed and published at parent
 `d37b461e23bf459ba34d5e5298a7f47af0306750` and seed controller
 `eac24dedab3f611ef09b0196623cfabf674e7e1c`. Fixed labels below identify
-committed corrections with engineering offline evidence; expert recheck is pending.
+committed corrections now independently rechecked in
+[round 2](sprint_E.3_handover_review-2.md). The review concluded on 2026-11-04.
 
 The expert accepts the proposed direction and requests the closing conditions
 below. The Product Owner explicitly approved the fixes and selected Option B for L1:
 “Approve fixes; allow temporary lookup on this prepared host.” M1/M2/L2 are
-selected for implementation with offline validation. L1 is explicitly deferred
+implemented and independently rechecked at the selected offline/documentation
+level. L1 is explicitly deferred
 under the narrow accommodation and ending/reconsideration trigger below.
 
-| Finding | Current status | Reviewer reaction | Proposed Product Owner action |
+| Finding | Current status | Reviewer reaction | Final disposition |
 |---|---|---|---|
-| R1-M1 | fixed@d37b461 | Accept | Select focused deck/notes/authoring-source correction. |
-| R1-M2 | fixed@d37b461 | Accept documentation-only option | Select clarification of fixed reference-evidence tests and separate LAB acceptance. |
+| R1-M1 | verified@d37b461 | Accept | PPTX, notes and source corrected; rendered/independent recheck passed. |
+| R1-M2 | verified@d37b461 | Accept documentation-only option | Documentation-only correction independently verified. |
 | R1-L1 | deferred | Accept with clarification | Option B approved: temporary retained-host lookup; supported explicit VM startup; no new store. |
-| R1-L2 | fixed@d37b461 | Accept with clarification | Select a specific negative assertion with offline validation; keep runtime claims separate. |
+| R1-L2 | verified@d37b461 | Accept with clarification | Actual assertions independently pass 21 offline cases; no new native run claimed. |
 
-## R1-M1 — Proposed focused presentation correction
+## R1-M1 — Completed presentation correction
 
-**Owner if selected:** Codex implementation/documentation, reviewed by Product
+**Implementation owner:** Codex implementation/documentation, reviewed by Product
 Owner. **Why now:** Current presentation commands can select the shared seed
 instead of the operator's LAB during the promised demonstration.
 
@@ -59,9 +61,9 @@ notes, authoring source, walkthrough references and presentation validation.
 with walkthrough B/F; rendered inspection of changed slides and preservation
 of unrelated deck content. No runner registration or deployment is needed.
 
-## R1-M2 — Proposed documentation-only evidence clarification
+## R1-M2 — Completed evidence clarification
 
-**Owner if selected:** Codex documentation, reviewed by Product Owner.
+**Implementation owner:** Codex documentation, reviewed by Product Owner.
 **Why now:** Fixed seed evidence-reader results cannot accept another operator's
 new LAB journey, and access to seed environment variables is not implied by
 public source visibility.
@@ -126,9 +128,9 @@ residual prepared-host dependency, owner, reason and trigger. Merely calling
 the file legacy does not close the contradiction. No credential values need
 to be supplied to the reviewer.
 
-## R1-L2 — Proposed assertion correction and validation level
+## R1-L2 — Completed assertion correction at the selected offline level
 
-**Owner if selected:** Codex implementation/test/documentation, reviewed by
+**Implementation owner:** Codex implementation/test/documentation, reviewed by
 Product Owner. **Why now:** The current predicate can label an unrelated native
 error as the intended missing-file rejection. The recorded missing-file failure
 itself remains genuine.
@@ -146,7 +148,7 @@ field. Explicitly distinguish that pinned legacy evidence from new-format
 qualification. Identify corrected controller revision separately from selected
 application SHA; correcting main does not change the application tag.
 
-**Proposed validation level:** Offline checks first. Execute the actual corrected
+**Selected validation level:** Offline checks first. Execute the actual corrected
 predicate against retained positive/negative logs and fixtures for unrelated
 errors with INFO stage rows, wrong paths, incomplete/connection failures and
 supported formatting variants. Check receipt/path agreement and all callers'
@@ -161,17 +163,21 @@ success. Do not rewrite the accepted v1.0.4 tag or historical evidence.
 
 **Closing evidence:** Committed correction with actual offline results and exact
 source identities; any claimed fresh native success additionally needs its own
-run evidence. The next independent recheck must say which validation level it
-assessed.
+run evidence. The [round-2 recheck](sprint_E.3_handover_review-2.md) independently
+executed the 21 offline cases and static smoke, inspected all callers and verified
+the correction at that selected level. No native runtime success was claimed.
 
-## Outcome and next step
+## Outcome and closure
 
 The Product Owner selected M1's focused PPTX correction, M2's documentation-only
 clarification, L2's specific assertion with offline validation, and L1 Option B.
 Codex owns the selected implementation/documentation; the Product Owner owns
 L1's exception and eventual remedy. No fresh native qualification or deployment
-was selected. The next independent review will assess the committed correction
-and its stated offline validation level; it must not infer a runtime result.
+was selected. The [round-2 report](sprint_E.3_handover_review-2.md) independently verifies the
+committed M1/M2/L2 corrections at their selected documentation/source/offline
+level and confirms the approved L1 deferral remains appropriate. No new material
+finding or regression was raised. Both review rounds are concluded with that
+deferral; there is no remaining review action for this bounded handover.
 The [correction checks](tests/review-1-correction-checks.json) identify evidence.
 No sprint acceptance, new backlog assignment or next-sprint activation is implied.
 
@@ -184,4 +190,10 @@ or runtime check was repeated. The selected disposition is recorded above. No pr
 or deleted to implement the accommodation.
 
 The [round-2 recheck prompt](sprint_E.3_handover_review-2-prompt.md) pins the
-committed source and evidence. No independent recheck or round closure is claimed.
+committed source and evidence. Its returned report supports closure recorded in
+the [sprint assessment](sprint_E.3_assessment.md#external-technical-review-conclusion).
+
+The original round-2 report is preserved unchanged with SHA-256
+`d136db9b3f55c6a170dfac050f8e2d51fdb4c84869be9fc46ce9b8bc0183d221`.
+The coordinator checked its revisions and artifact hashes against the committed
+correction evidence; no new native execution was needed for review closure.

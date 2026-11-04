@@ -133,13 +133,16 @@ the specific native-diagnostic/receipt assertion passes 21 offline cases and
 static pipeline smoke passes 1/1. Corrected seed controller main is
 `eac24dedab3f611ef09b0196623cfabf674e7e1c`; v1.0.4 and its historical evidence
 are unchanged. The [correction receipt](tests/review-1-correction-checks.json)
-records scope and source/package identities. Independent recheck is pending;
-no fresh native qualification, deployment, round closure or sprint acceptance
-is claimed.
+records scope and source/package identities. No fresh native qualification,
+deployment or sprint acceptance is claimed; the independent recheck outcome
+and review closure are recorded below.
 
-The [round-2 expert recheck prompt](sprint_E.3_handover_review-2-prompt.md)
-pins corrected parent d37b461e23bf459ba34d5e5298a7f47af0306750 and seed
-controller eac24dedab3f611ef09b0196623cfabf674e7e1c. The Product Owner relays
-it and returns `progress/E.3/sprint_E.3_handover_review-2.md`. No round-2 report
-has arrived; the three committed corrections and approved deferral await that
-proportionate independent recheck.
+The [round-2 expert report](sprint_E.3_handover_review-2.md) independently
+rechecks corrected parent d37b461e23bf459ba34d5e5298a7f47af0306750 and seed
+controller eac24dedab3f611ef09b0196623cfabf674e7e1c. It verifies M1/M2/L2 at
+the selected documentation/presentation/offline levels and confirms L1's approved
+deferral. It reports no new material finding or regression. **The external
+technical review is concluded**, with the final dispositions and boundary in
+the [assessment](sprint_E.3_assessment.md#external-technical-review-conclusion).
+No further review exchange is required. Sprint acceptance/closure and any
+future native runtime qualification remain separate.

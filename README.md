@@ -161,6 +161,12 @@ Product Owner acceptance/closure; E.4/E.5 remain Planned. This is an architectur
 prototype, with concurrency, full identity preservation, drift/fencing and
 broader recovery still registered for later work.
 
+The [E.3 external technical review](progress/E.3/sprint_E.3_assessment.md#external-technical-review-conclusion)
+concluded on 2026-11-04: three corrections independently verified at the selected
+documentation/source/offline levels, with one explicitly approved temporary
+prepared-host credential deferral. This concludes the review, not Product Owner
+sprint acceptance or production qualification.
+
 The [native correction record](progress/E.3/sprint_E.3_native_correction.md)
 links the final workflow, source, archive and fresh gates. It preserves the
 intermediate 1.0.2 browser failure and the native APEX_SESSION check added before
