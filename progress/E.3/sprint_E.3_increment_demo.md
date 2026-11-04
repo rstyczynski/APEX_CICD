@@ -10,6 +10,27 @@ The recorded run after chapter H is historical evidence.
 
 APEX/SQLcl provide native capabilities; GitHub Actions controls execution.
 
+## Table of contents
+
+- [Run it yourself](#run-it-yourself)
+  - [A. Check access and prepare the two checkouts](#a-check-access-and-prepare-the-two-checkouts--slides-14)
+  - [B. Confirm GitHub settings and start the local runner](#b-confirm-github-settings-and-start-the-local-runner--slide-4)
+  - [C. Make a fresh native APEX change](#c-make-a-fresh-native-apex-change--slides-56)
+  - [D. Capture, commit and stage using native SQLcl](#d-capture-commit-and-stage-using-native-sqlcl--slide-7)
+  - [E. Open the PR, review and let the workflow version it](#e-open-the-pr-review-and-let-the-workflow-version-it--slides-89)
+  - [F. Manually deploy the published tag](#f-manually-deploy-the-published-tag--slide-10)
+  - [G. Verify the deployed application in the browser](#g-verify-the-deployed-application-in-the-browser--slides-1112)
+  - [H. Demonstrate rejection of incomplete source](#h-demonstrate-rejection-of-incomplete-source)
+- [Recorded run and supporting evidence](#recorded-run-and-supporting-evidence)
+- [Goal and inherited foundation](#goal-and-inherited-foundation)
+- [1. Working Copy and Main checkpoint](#1-working-copy-and-main-checkpoint)
+- [2. Native capture, review, staging and verification](#2-native-capture-review-staging-and-verification)
+- [3. Manual PR and automated release preparation](#3-manual-pr-and-automated-release-preparation)
+- [4. GitHub configuration and explicit setup](#4-github-configuration-and-explicit-setup)
+- [5. Deployer selects the version](#5-deployer-selects-the-version)
+- [6. Application and rejection evidence](#6-application-and-rejection-evidence)
+- [Slide map and handover boundary](#slide-map-and-handover-boundary)
+
 ## Run it yourself
 
 ### A. Check access and prepare the two checkouts — slides 1–4
