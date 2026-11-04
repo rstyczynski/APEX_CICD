@@ -95,3 +95,14 @@ and earlier E.3 evidence remains attributable to its original revision.
 
 Technical handover is delivered. PLAN remains Progress pending separate Product
 Owner acceptance/closure; no next sprint or unscheduled PBI completion is inferred.
+
+## External technical handover review
+
+Round 1 is prepared against published parent revision
+`b695ec9627f1453220a04032563f812242f7ac0f`. The
+[expert prompt](sprint_E.3_handover_review-1-prompt.md) identifies the exact
+application snapshot, accessible source/evidence and Elaboration review boundary.
+The Product Owner relays it and returns the expert's original report as
+`progress/E.3/sprint_E.3_handover_review-1.md`. No expert report has arrived;
+no independent review result or sprint acceptance is claimed. The source
+baseline predates this review-navigation addition; implementation is unchanged.
