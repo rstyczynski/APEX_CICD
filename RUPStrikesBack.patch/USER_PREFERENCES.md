@@ -62,3 +62,8 @@ they relate to the visible manual operations. Address an experienced engineer;
 omit basic Bash, SQL and command-line tutorials. Repeated invocations may refer
 to an earlier explanation, but must identify their particular purpose before
 execution. Encapsulation must not obscure the operation being demonstrated.
+Include the complete SQL source in a fenced SQL block in the document before
+its invocation, alongside the explanation; prose, selected command names and
+links to a source file alone do not satisfy this requirement. Keep displayed
+source synchronized with the executable file. Repeat the small SQL source
+when a separate exercise needs it to be understandable in place.

@@ -659,6 +659,18 @@ separate temporary connections from GitHub secrets.
 
 #### Script introduction: capture the authoring checkpoint
 
+**Complete source — `sql/capture.sql`:**
+
+```sql
+set echo off verify off define off
+whenever sqlerror exit failure rollback
+whenever oserror exit failure rollback
+connect -name lab-dev-c
+project export -list
+project export
+exit success
+```
+
 `sql/capture.sql` reconnects to **lab-dev-c**, runs `project export -list` to
 show the export scope, then `project export` to capture the configured schema
 and APEX definitions into `src`. It reads the authoring database and writes
@@ -701,6 +713,17 @@ git commit -m "fix: update demo page title"
 
 #### Script introduction: stage the committed source change
 
+**Complete source — `sql/stage.sql`:**
+
+```sql
+set echo off verify off define off
+whenever sqlerror exit failure rollback
+whenever oserror exit failure rollback
+connect -name lab-dev-c
+project stage -branch-name e3-base
+exit success
+```
+
 `sql/stage.sql` connects to **lab-dev-c** and runs
 `project stage -branch-name e3-base`. `e3-base` identifies the accepted baseline
 from `pipeline.json`; SQLcl compares it with the current named feature branch
@@ -713,6 +736,17 @@ sql -nohistory -noupdates -S -L -name lab-dev-c @sql/stage.sql
 ```
 
 #### Script introduction: verify source and staged distribution
+
+**Complete source — `sql/verify.sql`:**
+
+```sql
+set echo off verify off define off
+whenever sqlerror exit failure rollback
+whenever oserror exit failure rollback
+connect -name lab-dev-c
+project verify -cbn e3-base -verbose
+exit success
+```
 
 `sql/verify.sql` connects to **lab-dev-c** and runs
 `project verify -cbn e3-base -verbose`. It checks source/distribution agreement,
@@ -863,6 +897,16 @@ First, `sql/verify.sql` performs the native check explained in
 job's isolated author profile. The workflow requires **Errors: 0** and rejects
 the Oracle/client diagnostic patterns it checks before proceeding.
 
+**Complete source — `sql/package.sql`:**
+
+```sql
+set echo off verify off define on
+whenever sqlerror exit failure rollback
+whenever oserror exit failure rollback
+project gen-artifact -name e3 -version &1 -format zip
+exit success
+```
+
 Next, `sql/package.sql` runs
 `project gen-artifact -name e3 -version &1 -format zip`. `&1` receives the selected
 tag's numeric version. Its `define on` enables this positional substitution;
@@ -872,12 +916,55 @@ It does not recapture live DEV or install the archive.
 
 #### SQL introduction: preserve a target baseline and restrict access
 
+**Complete source — `sql/snapshot.sql`:**
+
+```sql
+set echo off verify off define on serveroutput off
+whenever sqlerror exit failure rollback
+whenever oserror exit failure rollback
+connect -name e3-target
+begin
+  if user <> '&2' then raise_application_error(-20931,'Unexpected target'); end if;
+end;
+/
+set heading off pagesize 0 feedback off linesize 32767 long 1000000 longchunksize 32767 trimspool on
+spool "&1"
+select 'greeting_history|'||json_object(*) from greeting_history order by greeting_id;
+select 'hello_entries|'||json_object(*) from hello_entries order by entry_id;
+select 'world_entries|'||json_object(*) from world_entries order by entry_id;
+select 'hello_config|'||json_object(*) from hello_config order by config_id;
+select 'world_config|'||json_object(*) from world_config order by config_id;
+select 'lab_components|'||json_object(*) from lab_components order by component;
+select 'lab_state|'||json_object(*) from lab_state order by state_key;
+spool off
+exit success
+```
+
 `sql/snapshot.sql` connects to **e3-target**, checks `user` against its expected
 schema argument and spools ordered `json_object(*)` rows from greeting history,
 Hello/World entries and configuration, component metadata and lab state.
 `&1` is the private output path and `&2` the expected schema. Stable ordering
 and disabled report headings/feedback let `cmp` compare captured business
 fields before and after deployment. This is not a complete schema snapshot.
+
+**Complete source — `sql/restrict.sql`:**
+
+```sql
+set echo off verify off define on
+whenever sqlerror exit failure rollback
+whenever oserror exit failure rollback
+connect -name e3-target
+begin
+  if user <> '&1' then raise_application_error(-20931,'Unexpected target'); end if;
+  apex_util.set_security_group_id(apex_util.find_security_group_id('&2'));
+  apex_application_admin.set_application_status(
+    p_application_id => &3, p_application_status => apex_application_admin.c_app_restricted_access,
+    p_allowed_users_list => apex_t_varchar2('VERIFIER'));
+  commit;
+end;
+/
+exit success
+```
 
 `sql/restrict.sql` also checks the target schema, selects the APEX workspace
 security group with `apex_util.set_security_group_id`, then calls
@@ -887,6 +974,22 @@ Its three arguments identify schema, workspace and application; this is an
 APEX availability control, not an exclusive database deployment lock.
 
 #### SQL introduction: deploy the archive and compare retained data
+
+**Complete source — `sql/deploy.sql`:**
+
+```sql
+set echo off verify off define on
+whenever sqlerror exit failure rollback
+whenever oserror exit failure rollback
+connect -name e3-target
+begin
+  if user <> '&3' then raise_application_error(-20931,'Unexpected target'); end if;
+end;
+/
+define DEFAULTS_FILE = '&2'
+project deploy -file &1
+exit success
+```
 
 `sql/deploy.sql` connects to **e3-target** and checks the expected schema (`&3`).
 It defines `DEFAULTS_FILE` from `&2`, making the generated APEX target mapping
@@ -905,6 +1008,39 @@ atomic fencing throughout the import.
 
 #### SQL introduction: check readiness and publish availability
 
+**Complete source — `sql/accept.sql`:**
+
+```sql
+set echo off verify off define on
+whenever sqlerror exit failure rollback
+whenever oserror exit failure rollback
+connect -name e3-target
+-- Read-only behavior checks precede publication.
+declare n number;
+begin
+  if user <> '&1' then raise_application_error(-20931,'Unexpected target'); end if;
+  lab_runtime.assert_ready;
+  select count(*) into n from apex_application_page_regions
+   where application_id=&3 and page_id=1 and region_name='Hello World - Git pipeline';
+  if n <> 1 then raise_application_error(-20932,'Expected Home heading missing'); end if;
+  apex_util.set_security_group_id(apex_util.find_security_group_id('&2'));
+  -- Native APEX executes the application's Initialization PL/SQL Code.
+  apex_session.create_session(p_app_id=>&3,p_page_id=>1,p_username=>'VERIFIER');
+  apex_session.delete_session;
+end;
+/
+-- APEX availability is inherited from the E.2 native approach.
+begin
+  apex_util.set_security_group_id(apex_util.find_security_group_id('&1'));
+  apex_application_admin.set_application_status(
+    p_application_id => &3, p_application_status => apex_application_admin.c_app_available);
+  commit;
+end;
+/
+prompt PASS native readiness, heading and APEX publication
+exit success
+```
+
 `sql/accept.sql` connects to **e3-target**, checks the schema and calls
 `lab_runtime.assert_ready`. It requires exactly one page-1 region named
 `Hello World - Git pipeline`. After selecting the workspace security group,
@@ -914,6 +1050,13 @@ query alone misses. Only after those checks does it set the application status
 to available and commit. This is native runtime acceptance, while step G checks
 the actual browser page title and history. A successful workflow also writes
 a receipt binding the tag, source commit and archive SHA-256.
+
+In `accept.sql`, `&1`, `&2` and `&3` receive target schema, workspace and
+application ID respectively. The publication block looks up the workspace
+using `&1`; this works for this lab because schema and workspace are both
+`E3_TARGET`. It must not be assumed to support different schema/workspace names
+without a reviewed correction. The source is shown as executed, including this
+lab-specific assumption.
 
 #### Start the reviewed deployment workflow
 
@@ -1038,6 +1181,17 @@ The clone uses a named branch because this SQLcl PROJECT version requires one
 for its branch comparison.
 
 ##### Script introduction: the three `verify.sql` calls
+
+**Complete source — `sql/verify.sql`:**
+
+```sql
+set echo off verify off define off
+whenever sqlerror exit failure rollback
+whenever oserror exit failure rollback
+connect -name lab-dev-c
+project verify -cbn e3-base -verbose
+exit success
+```
 
 Each call executes the same `connect -name lab-dev-c` and
 `project verify -cbn e3-base -verbose` explained in

@@ -267,3 +267,20 @@ all 24 internal heading links resolve, the extracted manual exercise passes
 [rehearsal evidence](tests/manual-native-rejection.log) remains applicable:
 its only executable-block changes in this correction are explanatory comments;
 no fresh deployment or database mutation was performed.
+
+### Inline SQL source correction
+
+The previous introduction change explained operations but omitted complete
+SQL source. The walkthrough now embeds the executable contents of all eight
+SQL files before their operations: capture, stage, verify, package, snapshot,
+restrict, deploy and accept. The separate CLI rejection exercise repeats
+`verify.sql` so the native operation is visible in place. Explanations cover
+the actual statements and arguments, including the existing acceptance script's
+assumption that target schema and workspace share the same name.
+
+All nine displayed source blocks were compared byte-for-byte after trimming
+the final newline against the application checkout's executable files. Internal
+heading links and whitespace checks were repeated. No executable SQL or workflow
+was changed or rerun; this correction publishes and explains the existing code.
+The standing preference now explicitly requires fenced complete SQL source,
+not descriptions or source links alone.
