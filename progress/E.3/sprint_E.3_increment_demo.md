@@ -824,6 +824,49 @@ incomplete staged distribution before deployment. This is a separate negative
 test of the architecture's verification gate; it does not verify the application
 deployed in steps F–G.
 
+#### How native verification detects an incomplete distribution
+
+The workflow runs `project verify -cbn e3-base -verbose` through `sql/verify.sql`.
+SQLcl uses the project configuration, staged Liquibase changelogs, exported
+source and comparison branch. `e3-base` points to the baseline commit recorded
+in `pipeline.json`. These are native SQLcl rules, not checks inferred from PR
+labels or semantic commit messages. Oracle documents the command and branch
+comparison in the [SQLcl 25.4 PROJECT reference](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.4/sqcug/project.html).
+
+The [successful verification log](tests/github-native-verify.log) records these
+relevant rules for the qualified tool version:
+
+1. **Referenced scripts must exist and be readable.**
+   `stagechangelogfilesvalid` checks included scripts and cross-references.
+   `stagechangelogcomplete` separately validates the stage changelog structure.
+2. **Source changes and staged changes must correspond.** `stagesourcediff`
+   compares against the selected baseline and checks that modified source is
+   represented in `dist` and distribution changes are represented in `src`.
+3. **Staged APEX exports must be complete and match source.**
+   `apexchangelogcomplete`, `apexchangelogfilesvalid` and `apexinsrcmatchesdist`
+   check APEX changelog entries, staged files and source/distribution agreement.
+4. **Project structure must be consistent.** Additional checks cover duplicate
+   changelog entries, configured soft-object placement, SQLcl version,
+   export filters/formatting configuration and snapshot validity.
+
+In this experiment, the deleted SQL file remains referenced by its stage
+changelog. SQLcl therefore reports **ERROR `stagechangelogfilesvalid`** and
+**Errors: 1**. The [recorded rejection log](tests/github-native-rejection.log)
+identifies the missing `e1_dev_c/package_bodies/lab_runtime.sql` file and the
+changelog that includes it. Other rules can still pass: this example's
+`stagechangelogcomplete` result remains successful.
+
+The deployment workflow requires an explicit **Errors: 0** summary and rejects
+the Oracle/client error patterns it checks before packaging or target writes;
+it does not rely solely on SQLcl's process exit code. The qualification workflow
+requires the intact copy to report zero errors, then requires the damaged copy
+to lose that zero-error result and contain a native stage-changelog diagnostic.
+This establishes structural/source consistency for the exercised case. It does
+not prove business correctness, complete dependency capture or target-schema
+drift protection.
+
+#### Run the rejection experiment
+
 Keep the local runner running. Open **Actions → Qualify native verification
 gate → Run workflow**, choose **main** and the same published tag, then run it.
 The workflow first verifies the intact source. It then deletes one changeset
