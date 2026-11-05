@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-05",
+  "E.3": "Done",
+  "PBI-053": "Done",
+  "children": "PBI-053.1/.2/.3 Done",
+  "E.4/E.5": "Planned",
+  "active_sprint": null,
+  "deferred_gap_statuses": "unchanged",
+  "retained_quality_gates": "smoke 1/1, integration 2/2, regression smoke 2/2",
+  "presentation_hash_matches_receipt": true,
+  "authoring_script_syntax": "pass",
+  "runtime_tests": "not rerun, closure and documentation only"
+}

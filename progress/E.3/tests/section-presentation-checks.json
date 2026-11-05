@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-05",
+  "slides": 21,
+  "agenda": 2,
+  "section_headers": [
+    3,
+    7,
+    11,
+    14,
+    18
+  ],
+  "original_to_final": {
+    "1": 1,
+    "2": 4,
+    "3": 5,
+    "4": 6,
+    "5": 8,
+    "6": 9,
+    "7": 10,
+    "8": 12,
+    "9": 13,
+    "10": 15,
+    "11": 16,
+    "12": 17,
+    "13": 19,
+    "14": 20,
+    "15": 21
+  },
+  "sha256": "e9b493282a58b2623bcf9b93c9ac2564484d09fdc48765147cc334e0c91a9665",
+  "package_integrity": "pass",
+  "layout_findings": 0,
+  "layout_warnings": [
+    {
+      "character_count": 237,
+      "kind": "dense_bold_paragraphs_without_spacing",
+      "object_id": "6",
+      "paragraph_count": 4,
+      "slide": 6,
+      "usable_height_pt": 84
+    }
+  ],
+  "first_party_import": true,
+  "original_content_preservation": "pass except expected slide numbers and two evidence cross-references",
+  "visual_review": "Six added slides individually inspected. All slides rendered and whole-deck montage scanned."
+}

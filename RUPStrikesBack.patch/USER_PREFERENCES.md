@@ -67,3 +67,19 @@ its invocation, alongside the explanation; prose, selected command names and
 links to a source file alone do not satisfy this requirement. Keep displayed
 source synchronized with the executable file. Repeat the small SQL source
 when a separate exercise needs it to be understandable in place.
+
+## Presentation agenda and section headers — 2026-11-05
+
+Always include an agenda near the start of a multi-slide presentation, immediately
+after the cover when present, and a dedicated section header slide before each
+major section. Apply this when creating and editing PPTX decks. Keep agenda
+labels, section titles, slide numbers and walkthrough references synchronized.
+Reuse existing agenda/divider slides rather than adding duplicates. Follow an
+explicit later request for a different structure or fixed slide count.
+
+## Presentation closing slide — 2026-11-05
+
+Always end a multi-slide presentation with a dedicated closing slide such as
+“Thank you” or “Q&A”. Apply this to new decks and edits, preserving an existing
+closing slide when present. Match the deck style and keep the slide map current.
+A later explicit request for a different ending takes precedence.

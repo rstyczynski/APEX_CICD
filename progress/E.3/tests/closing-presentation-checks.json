@@ -1,0 +1,20 @@
+{
+  "slides": 22,
+  "closing_slide": 22,
+  "sha256": "b380dc750c382b5a0b4f13c088f316e31834ed79454e66c7bb4485388f6c2f80",
+  "original_21_slides_text": "preserved",
+  "package_integrity": "pass",
+  "layout_findings": 0,
+  "layout_warnings": [
+    {
+      "character_count": 237,
+      "kind": "dense_bold_paragraphs_without_spacing",
+      "object_id": "6",
+      "paragraph_count": 4,
+      "slide": 6,
+      "usable_height_pt": 84
+    }
+  ],
+  "first_party_import": true,
+  "visual_review": "Closing slide inspected individually at full size. All slides rendered. Existing slides retain original text."
+}

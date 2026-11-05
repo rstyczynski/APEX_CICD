@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-05",
+  "slides": 22,
+  "changed_slides": [
+    17,
+    21
+  ],
+  "mapping_status": "Accepted by Product Owner",
+  "new_backlog_items": [
+    "PBI-056",
+    "PBI-057"
+  ],
+  "existing_gap_owners": [
+    "PBI-034",
+    "PBI-040",
+    "PBI-041",
+    "PBI-043",
+    "PBI-044"
+  ],
+  "sha256": "5c55cfc4e1e6588b326b568950e75d332c1abfe174858e294417e064f0ed83a7",
+  "package_integrity": "pass",
+  "layout_findings": 0,
+  "layout_warnings": [
+    {
+      "character_count": 237,
+      "kind": "dense_bold_paragraphs_without_spacing",
+      "object_id": "6",
+      "paragraph_count": 4,
+      "slide": 6,
+      "usable_height_pt": 84
+    }
+  ],
+  "first_party_import": true,
+  "unrelated_slide_text": "preserved",
+  "visual_review": "Changed slides 17 and 21 individually inspected at 1280x720. All 22 slides rendered.",
+  "backlog_numbering_and_format": "pass",
+  "new_local_links_checked": 14,
+  "runtime_tests": "not applicable, documentary changes"
+}

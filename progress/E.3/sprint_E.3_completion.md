@@ -7,10 +7,28 @@ and GitHub Actions control, with all E.3 Python removed. The
 [native correction record](sprint_E.3_native_correction.md) supersedes the earlier
 1.0.1 implementation described below. Historical evidence is retained.
 
-Sprint E.3; managed mode with the Product Owner's direction to proceed through
-handover without further questions. Execution status: implemented; parent
-PBI-053 and children PBI-053.1/.2/.3 are tested. PLAN remains Progress pending
-separate final acceptance and closure. E.4/E.5 remain Planned.
+## Final closure — 2026-11-05
+
+Status: Done. The Product Owner accepted the bounded native APEX/SQLcl and
+GitHub prototype, the LC-1 lifecycle mapping and the handover, and explicitly
+requested closure. PBI-053 and children PBI-053.1/.2/.3 are Done.
+[PLAN](../../PLAN.md), [BACKLOG](../../BACKLOG.md#pbi-053-prove-a-simple-git-based-development-to-release-journey)
+and the [progress board](../../PROGRESS_BOARD.md) record this decision.
+The [handover closure](sprint_E.3_handover.md#sprint-closure) is the current
+acceptance record. E.4/E.5 remain Planned, with no next sprint activated.
+
+Retained final GitHub-configuration gates passed new smoke 1/1, integration
+2/2 and smoke regression 2/2. The later external technical review concluded
+with the Product Owner's explicit prepared-host credential accommodation,
+and the final mapping/presentation checks passed. These are retained results,
+not a fresh deployment. The [test record](sprint_E.3_tests.md) owns dates and
+execution boundaries. The [accepted LC-1 gap dispositions](sprint_E.3_pipeline_scope.md#lc-1--oracle-apex-lifecycle-alignment-validation)
+link future work, including PBI-034/040/041/044/056/057. Those capabilities
+are not marked complete by this closure.
+
+The following original delivery account retains its historical v1.0.1 source
+and observations. The later native/configuration corrections and final v1.0.4
+reference evidence in the handover supersede those implementation details.
 
 ## Phases executed
 

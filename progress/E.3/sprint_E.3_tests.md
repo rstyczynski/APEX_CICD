@@ -1,5 +1,16 @@
 # E.3 — Test execution and experiment results
 
+## Added validation LC-1 — accepted
+
+The Product Owner accepted the lifecycle mapping on 2026-11-05 and explicitly
+removed the separate pending-acceptance/report requirement. The
+[accepted mapping and gap dispositions](sprint_E.3_pipeline_scope.md#lc-1--oracle-apex-lifecycle-alignment-validation)
+record the paper references, retained evidence and backlog owners. Slides
+19–21 present the mapping; identified follow-up is tracked by existing items
+and new PBI-056/057. LC-1 is accepted for the demonstrated E.3 slice. This is
+an accepted documentary assessment using retained evidence, not a new runtime
+test or proof that deferred capabilities have been delivered.
+
 Configuration update: the [GitHub-owned setup](sprint_E.3_github_configuration.md) supersedes every retained-local-file/tool-path assumption below. Earlier run results remain historical evidence for their original revisions.
 
 Current correction — 2026-11-03: the Product Owner required native APEX/SQLcl

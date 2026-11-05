@@ -141,10 +141,17 @@ Backlog Items:
 
 ## Sprint E.3 - Prototype the Git-based development pipeline
 
-Status: Progress
+Status: Done
 Mode: managed
 Test: smoke, integration
 Regression: smoke
+
+On 2026-11-05 the Product Owner accepted LC-1, the mapping of the delivered
+native APEX/SQLcl and GitHub journey to the Oracle APEX lifecycle paper.
+The [accepted mapping and gap dispositions](progress/E.3/sprint_E.3_pipeline_scope.md#lc-1--oracle-apex-lifecycle-alignment-validation)
+replace the earlier separate-report acceptance requirement. Remaining
+capabilities are tracked in the backlog, including new PBI-056 and PBI-057;
+these items are not assigned to E.3.
 
 On 2026-11-03 the Product Owner narrowed E.3 to a simple Elaboration
 architecture prototype. Demonstrate one Working Copy change captured in Git,
@@ -164,8 +171,8 @@ correction is implemented and freshly verified; see the
 The later [GitHub configuration correction](progress/E.3/sprint_E.3_github_configuration.md)
 removes retained local settings and provides the requested versioned local lab
 runner launcher; its release/qualification and required gates passed.
-Sprint closure and final Product Owner
-acceptance are not inferred. See the
+The Product Owner accepted the delivered prototype and explicitly authorized
+E.3 closure on 2026-11-05. PBI-053 and its three children are Done. See the
 [setup and analysis](progress/E.3/sprint_E.3_setup.md) and
 [accepted design and test specification](progress/E.3/sprint_E.3_design.md),
 [executed walkthrough](progress/E.3/sprint_E.3_increment_demo.md) and

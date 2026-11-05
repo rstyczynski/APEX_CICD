@@ -156,7 +156,7 @@ The first remote run failed before deployment and its workflow correction is
 retained. The release/tag is 1.0.4 while APEX's display footer remains 1.0.0;
 automatic display-version stamping was not qualified.
 
-PBI-053 and its three children are tested. E.3 remains Progress pending separate
+PBI-053 and its three children are Done. E.3 closed on 2026-11-05 by explicit
 Product Owner acceptance/closure; E.4/E.5 remain Planned. This is an architecture
 prototype, with concurrency, full identity preservation, drift/fencing and
 broader recovery still registered for later work.
@@ -164,8 +164,10 @@ broader recovery still registered for later work.
 The [E.3 external technical review](progress/E.3/sprint_E.3_assessment.md#external-technical-review-conclusion)
 concluded on 2026-11-04: three corrections independently verified at the selected
 documentation/source/offline levels, with one explicitly approved temporary
-prepared-host credential deferral. This concludes the review, not Product Owner
-sprint acceptance or production qualification.
+prepared-host credential deferral. The Product Owner subsequently accepted and
+closed E.3 on 2026-11-05; see the
+[closure record](progress/E.3/sprint_E.3_handover.md#sprint-closure). Production
+qualification remains outside this bounded prototype.
 
 The [native correction record](progress/E.3/sprint_E.3_native_correction.md)
 links the final workflow, source, archive and fresh gates. It preserves the
@@ -185,9 +187,16 @@ owns its scope and reconsideration trigger, not a claim of NFR-4 compliance.
 
 [PBI-055](BACKLOG.md#pbi-055-reduce-repeated-pipeline-toolchain-setup) proposes
 reducing repeated Java/SQLcl setup while preserving approved versions, tool
-integrity and private job connections. The [deployment walkthrough](progress/E.3/sprint_E.3_increment_demo.md#f-manually-deploy-the-published-tag--slide-10)
+integrity and private job connections. The [deployment walkthrough](progress/E.3/sprint_E.3_increment_demo.md#f-manually-deploy-the-published-tag--slide-15)
 explains the current setup and candidates for later optimization; this work
 has no sprint assignment yet.
+
+The [accepted E.3 lifecycle mapping and gap dispositions](progress/E.3/sprint_E.3_pipeline_scope.md#lc-1--oracle-apex-lifecycle-alignment-validation)
+connect the Oracle paper to existing backlog follow-up and new
+[PBI-056](BACKLOG.md#pbi-056-provide-isolated-apex-environments-for-git-feature-branches)
+for private branch environments and
+[PBI-057](BACKLOG.md#pbi-057-show-the-deployed-release-identity-in-apex)
+for deployed APEX release identity. Both new items remain unscheduled.
 
 ## Vision
 
@@ -203,6 +212,6 @@ The supplied [Oracle APEX lifecycle reference](refs/apex-lifecycle-management-v3
 
 [RUPStrikesBack](https://github.com/rstyczynski/RUPStrikesBack) is an iterative delivery method for collaboration between a Product Owner and AI agents. It combines RUP lifecycle phases with a prioritized backlog, bounded iterations, explicit requirements/design, executable validation and Product Owner review. Each increment connects its implementation, tests and documentation so decisions can be checked against evidence.
 
-This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1, E.1 and E.2 are closed; E.3 has a tested prototype and technical handover; E.4/E.5 remain Planned with distinct assigned Elaboration work recorded in the backlog and plan.
+This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1, E.1, E.2 and E.3 are closed; E.3 delivered the accepted prototype, lifecycle mapping and handover; E.4/E.5 remain Planned with distinct assigned Elaboration work recorded in the backlog and plan.
 
 For external expert review, use the [rup-external-review skill](.agents/skills/rup-external-review/SKILL.md). Codex prepares the prompts and engineering replies; the Product Owner relays them to the expert through the linked round files. Review outcomes and implementation evidence remain distinct from sprint acceptance.

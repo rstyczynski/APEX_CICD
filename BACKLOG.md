@@ -390,7 +390,7 @@ Demonstrate a small architecture prototype in which a developer's Working Copy c
 
 Test: Demonstrate one Working Copy change through a manually opened pull request, accepted merge and manually triggered release to a lab target, with visible application behavior and traceable source and artifact evidence.
 
-Status: Proposed
+Status: Done
 
 ### PBI-054. Generate the complete local environment from a fresh checkout
 
@@ -405,5 +405,21 @@ Status: Proposed
 Reduce deployment and qualification startup time and repeated tool downloads while preserving reproducible execution with the approved Java and SQLcl versions. Keep tool integrity and project compatibility checks effective when tools are reused or upgraded. Preserve private per-job connections and credentials independently of reusable tool installations.
 
 Test: Compare cold and repeated runs with recorded setup duration and download volume, demonstrate reduced repeated setup, and verify incompatible or altered tools are rejected without retaining credentials between jobs.
+
+Status: Proposed
+
+### PBI-056. Provide isolated APEX environments for Git feature branches
+
+Let developers obtain and retire private APEX development environments associated with their Git feature branches. Isolate application and database changes from shared development and other branches while preserving accepted source identity and keeping private credentials and business data out of shared artifacts.
+
+Test: Demonstrate two independently prepared branch environments, isolated application and database changes, refresh from accepted source and retirement of one environment without changing the other or shared development.
+
+Status: Proposed
+
+### PBI-057. Show the deployed release identity in APEX
+
+Let operators and users identify the installed application release from the APEX application and reconcile it with the selected Git release and deployment evidence. Keep displayed application metadata consistent through installation, upgrade and repeat deployment without confusing application release identity with independently versioned component contracts.
+
+Test: Demonstrate that the APEX display and application metadata identify the selected release after installation, upgrade and repeat deployment and match its source and deployment receipt.
 
 Status: Proposed

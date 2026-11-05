@@ -28,7 +28,7 @@ the same assembled application. Capture exports the configured application and
 included schema definitions; Git identifies the files changed by your edit.
 The E.3 workflow packages and deploys the assembled application rather than
 releasing Hello and World as separate applications. This is the structure shown
-on **slide 2** and detailed in the
+on **slide 4** and detailed in the
 [implementation record](sprint_E.3_implementation.md#current-native-implementation--2026-11-04).
 
 **Oracle mini-app best-practice note.** For larger solutions, Oracle's lifecycle
@@ -66,7 +66,7 @@ it is not delivered by this walkthrough.
 
 ## Run it yourself
 
-### A. Check access and prepare the two checkouts — slides 1–4
+### A. Check access and prepare the two checkouts — slides 1–6
 
 This demonstration uses the **existing E.2/E.3 lab**, not a newly provisioned
 database. Use its macOS ARM64 host. The startup sequence below brings Oracle up
@@ -470,7 +470,7 @@ git status --short
 
 Expect `commit`, the selected origin URL, and no uncommitted changes.
 
-### B. Confirm GitHub settings and start the local runner — slide 4
+### B. Confirm GitHub settings and start the local runner — slide 6
 
 The creation script above has already configured **your lab repository's**
 `e3-lab` environment. Verify it from the terminal before starting the runner:
@@ -552,7 +552,7 @@ terminal for the remaining commands. Stop here if prerequisites fail; runner
 setup does not provision Oracle/APEX/ORDS. The runner uses their network ports;
 GitHub workflows prepare job-private tools/connections and clean them afterward.
 
-### C. Make a fresh native APEX change — slides 5–6
+### C. Make a fresh native APEX change — slides 8–9
 
 In the signed-in Builder session, choose
 **App Builder → APEX Delivery Laboratory (810003)**. If your session has expired,
@@ -613,7 +613,7 @@ not merged into Main while capturing them. Perform the merge for your own demo.
 **Checkpoint:** Main contains your intended page title; its inherited initialization
 remains blank. Do not insert the retired E1 controller hook.
 
-### D. Capture, commit and stage using native SQLcl — slide 7
+### D. Capture, commit and stage using native SQLcl — slide 10
 
 In the **application terminal**, use the project's recorded SQLcl version to
 select an installed tool. SQLcl PROJECT enforces `.sqlcl.version` from
@@ -829,7 +829,7 @@ If native tools changed additional tracked project metadata, review and include
 that metadata before pushing. Do not edit exported source or archives to make
 verification pass. Finish with a clean working tree.
 
-### E. Open the PR, review and let the workflow version it — slides 8–9
+### E. Open the PR, review and let the workflow version it — slides 12–13
 
 Push the feature branch and explicitly create its PR:
 
@@ -915,7 +915,7 @@ No PR merge, release PR merge or tag publication deploys the application.
 For this display-only change, expect the next patch after the current accepted
 release, rather than a hard-coded replay of historical v1.0.4.
 
-### F. Manually deploy the published tag — slide 10
+### F. Manually deploy the published tag — slide 15
 
 The deployer opens Actions → **Deploy selected version** → Run workflow, chooses
 **main**, and enters the exact **published tag from step E** as `version_tag`.
@@ -1146,7 +1146,7 @@ and [container jobs](https://docs.github.com/en/actions/how-tos/write-workflows/
 the failed step before continuing; do not claim a successful deployment or
 automatically reset/redeploy the target.
 
-### G. Verify the deployed application in the browser — slides 11–12
+### G. Verify the deployed application in the browser — slides 16–17
 
 Retrieve **only LAB_USER's application password** in the terminal, using the
 same retained lab provisioning record as the earlier credential lookups:
@@ -1382,7 +1382,7 @@ captured target state is unchanged. Record the qualification run URL separately
 from the deployment run.
 
 When the lab is finished, stop the foreground runner with Control-C.
-Product Owner acceptance and sprint closure are separate decisions.
+The Product Owner accepted this increment and closed E.3 on 2026-11-05.
 
 ## Recorded run and supporting evidence
 
@@ -1502,7 +1502,7 @@ files are read. The manual contains the complete configuration matrix.
 The lab operator uses the versioned [runner launcher](../../scripts/e3-runner.sh)
 in the parent lab repository. On a new macOS ARM64 host, with authenticated `gh`,
 the documented command dependencies and the existing Oracle/APEX/ORDS lab ready,
-run this sequence from the repository root (presentation slide 4):
+run this sequence from the repository root (presentation slide 6):
 
 #### Historical script introduction: runner setup and listening
 
@@ -1576,22 +1576,41 @@ read fresh GitHub evidence, not a retained local source/data snapshot.
 | Slide | Topic |
 |---|---|
 | 1 | E.3 goal and architecture prototype |
-| 2 | Application structure and walkthrough |
-| 3 | E.2 native foundation and GitHub responsibilities |
-| 4 | GitHub configuration and generated job setup |
-| 5 | Retained Working Copy heading change |
-| 6 | Native comparison and Main checkpoint |
-| 7 | Direct SQLcl capture, stage and verify |
-| 8 | PR labels and Conventional Commit titles |
-| 9 | Release Please version and both changelogs |
-| 10 | Manual selected-tag native deployment |
-| 11 | Deployed application and retained history |
-| 12 | Assigned outcomes and next acceptance decision |
+| 2 | Agenda |
+| 3 | Section 1: Architecture and setup |
+| 4 | Application structure and walkthrough |
+| 5 | E.2 native foundation and GitHub responsibilities |
+| 6 | GitHub configuration and generated job setup |
+| 7 | Section 2: Native authoring and capture |
+| 8 | Retained Working Copy heading change |
+| 9 | Native comparison and Main checkpoint |
+| 10 | Direct SQLcl capture, stage and verify |
+| 11 | Section 3: Review and release preparation |
+| 12 | PR labels and Conventional Commit titles |
+| 13 | Release Please version and both changelogs |
+| 14 | Section 4: Deployment and results |
+| 15 | Manual selected-tag native deployment |
+| 16 | Deployed application and retained history |
+| 17 | Assigned outcomes and next acceptance decision |
+| 18 | Section 5: Oracle lifecycle mapping |
+| 19 | Oracle lifecycle mapping: native authoring, Git capture and review |
+| 20 | Oracle lifecycle mapping: GitHub automation, releases and deployment |
+| 21 | Oracle lifecycle mapping: adaptations, accepted LC-1 and backlog follow-up |
+| 22 | Thank you / Q&A closing |
+
+Slides 19–21 map the demonstrated journey to the foundation
+[Oracle lifecycle paper](../../refs/apex-lifecycle-management-v3.pdf), with
+printed page references on slides and implementation/evidence pointers in
+speaker notes. The Product Owner accepted
+[LC-1 and its gap dispositions](sprint_E.3_pipeline_scope.md#lc-1--oracle-apex-lifecycle-alignment-validation)
+on 2026-11-05. The gaps have backlog owners; full feature-centric and production
+qualification remain outside the demonstrated slice.
 
 PBI-053.1/.2/.3 retain their original criteria and SM-1/IT-1/IT-2 tests.
 Construction completeness, full fencing/drift/identity coverage and general DDL
 recovery remain deferred. The [handover](sprint_E.3_handover.md) records the final
-outcome. Product Owner acceptance and sprint closure remain separate.
+outcome. The Product Owner accepted the increment and closed E.3 on 2026-11-05; see the
+[closure record](sprint_E.3_handover.md#sprint-closure).
 
 The native correction initially published 1.0.2. Its workflow passed, but the
 browser exposed whitespace left in the initialization field. That version is
@@ -1602,5 +1621,5 @@ reject that observed failure; it does not replace real authentication/browser
 validation. See the [correction record](sprint_E.3_native_correction.md).
 
 The final PPTX omits internal implementation-fix history at the Product Owner's
-request. Detailed corrections remain in the engineering records; the 12-slide
+request. Detailed corrections remain in the engineering records; the 22-slide
 deck presents the delivered pipeline, operator journey, results and next steps.

@@ -9,12 +9,15 @@ implementation through technical handover. The
 [implementation](../progress/E.3/sprint_E.3_implementation.md) and
 [tests](../progress/E.3/sprint_E.3_tests.md) record real Working Copy/Main capture,
 classified Git PRs, Release Please version/changelog preparation and manually
-selected-tag deployment. PBI-053 is tested; [PLAN](../PLAN.md) owns lifecycle
+selected-tag deployment. PBI-053 is Done; [PLAN](../PLAN.md) owns lifecycle
 status. E.4 requires refinement before activation. The wider E.1 requirements
 below retain their baseline meaning. E.3's ordinary Working Copies, sequential
 checkpoint and inherited native APEX approach are approved prototype dispositions,
 not proof that atomic reservations, full fencing/drift/identity coverage or
-FR-13 automation have been completed. Final acceptance/closure is separate.
+FR-13 automation have been completed. The Product Owner accepted the prototype
+and closed E.3 on 2026-11-05; the
+[handover closure](../progress/E.3/sprint_E.3_handover.md#sprint-closure) records
+the decision and remaining backlog work.
 
 
 

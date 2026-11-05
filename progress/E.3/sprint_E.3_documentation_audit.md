@@ -481,3 +481,143 @@ review round was created and no PLAN/backlog/progress status changed. The
 unrelated user model remains untracked and untouched. Validation checked expert
 input integrity, current PPTX/bundle hashes against the report/receipt, metadata-
 only differences since the corrected source, relative links and whitespace.
+
+
+## Oracle lifecycle mapping slides — 2026-11-05
+
+By Product Owner request, the [deck](sprint_E.3_increment_demo.pptx) now adds
+slides 13–15 mapping native authoring/capture and GitHub automation to the
+[foundation paper](../../refs/apex-lifecycle-management-v3.pdf). Printed page
+references and speaker notes distinguish the delivered slice, adaptations and
+deferred guidance. The [walkthrough](sprint_E.3_increment_demo.md#slide-map-and-handover-boundary)
+and [handover](sprint_E.3_handover.md) link the new coverage.
+The [append source](presentation-handover/add-lifecycle.mjs) imports the prior
+12-slide deck and adds these slides without renumbering the walkthrough.
+
+The paper's relevant authoring, release, automation and recommendation sections
+were read alongside the native correction, GitHub configuration record, current
+example workflow sources and v1.0.4 journey receipt. Original slide text and
+positioned shape transforms were compared after import/export and preserved.
+All final slides were rendered, new slides reviewed individually and the whole
+deck scanned. Package integrity and first-party import passed with zero layout
+findings. One density warning on unchanged slide 4 was visually reviewed.
+The [check receipt](tests/lifecycle-presentation-checks.json) binds these checks
+to the delivered PPTX. `git diff --check` passed. No runtime test was needed
+for this presentation-only change. LC-1 remains pending, with its specification
+in the scope record and PLAN; no backlog, board or sprint-status change occurs.
+
+
+## Agenda and section structure — 2026-11-05
+
+The Product Owner requested an opening agenda and dedicated section header
+slides. The [deck](sprint_E.3_increment_demo.pptx) now has 21 slides: agenda on
+slide 2 and five section dividers on 3/7/11/14/18. The original 15 content slides
+retain their content, with updated slide numbers and evidence cross-references.
+The [walkthrough](sprint_E.3_increment_demo.md#slide-map-and-handover-boundary)
+and [handover](sprint_E.3_handover.md) now reference the new numbering.
+The [section-insertion source](presentation-handover/add-sections.mjs) preserves
+the imported deck. The required agenda/divider rule is recorded in
+[project preferences](../../RUPStrikesBack.patch/USER_PREFERENCES.md#presentation-agenda-and-section-headers--2026-11-05).
+
+Package integrity and first-party import passed with zero layout findings.
+All 21 slides were rendered, all six new slides inspected individually and the
+whole deck scanned. Original content preservation passed after excluding only
+intentional footer/reference updates. The existing density warning on slide 6
+was retained from former slide 4. The
+[check receipt](tests/section-presentation-checks.json) records the delivered
+PPTX hash and numbering. `git diff --check` passed. No runtime workflow changed
+and no runtime test was run. LC-1 and sprint acceptance remain pending.
+
+The installed presentation SKILL.md now also requires the opening agenda and
+section header slides for future multi-slide creation/edits. Its exact prepared
+edit and unchanged frontmatter were verified. The skill-creator validator could
+not run because PyYAML is absent in the bundled Python; this small prose-only
+change was checked directly instead.
+
+
+## Closing slide — 2026-11-05
+
+The [deck](sprint_E.3_increment_demo.pptx) now ends on slide 22 with “Thank you”
+and “Q&A”, matching the existing dark section style. The
+[walkthrough slide map](sprint_E.3_increment_demo.md#slide-map-and-handover-boundary)
+now includes that closing slide. The
+[append source](presentation-handover/add-closing.mjs) retains prior content.
+The durable rule is recorded in [project preferences](../../RUPStrikesBack.patch/USER_PREFERENCES.md#presentation-closing-slide--2026-11-05).
+The [check receipt](tests/closing-presentation-checks.json) binds the final hash
+to package/import/layout checks. All slides rendered and the closing slide was
+visually inspected. Original 21 slides retain their text. Zero layout findings,
+with the existing slide 6 density warning unchanged. `git diff --check` passed.
+No runtime behavior or sprint acceptance status changed.
+
+The installed presentation skill now requires a closing slide for multi-slide
+decks. Its exact reviewed edit was verified after application.
+
+
+## Accepted lifecycle mapping and gap backlog — 2026-11-05
+
+The Product Owner explicitly accepted the mapping and directed removal of the
+pending-acceptance requirement and backlog follow-up for gaps. This decision
+supersedes all earlier LC-1 pending/report-gate statements above. The
+[accepted scope and gap dispositions](sprint_E.3_pipeline_scope.md#lc-1--oracle-apex-lifecycle-alignment-validation),
+[PLAN](../../PLAN.md), [test record](sprint_E.3_tests.md),
+[handover](sprint_E.3_handover.md) and
+[walkthrough](sprint_E.3_increment_demo.md#slide-map-and-handover-boundary) now
+record LC-1 as accepted. No extra report or acceptance is required for LC-1.
+
+New [PBI-056](../../BACKLOG.md#pbi-056-provide-isolated-apex-environments-for-git-feature-branches)
+owns repeatable private branch environment preparation/isolation/retirement,
+distinct from PBI-019's parallel contribution/integration outcome. New
+[PBI-057](../../BACKLOG.md#pbi-057-show-the-deployed-release-identity-in-apex)
+owns the observed deployed display-version mismatch. Existing PBI-034/040/041/043/044
+retain ownership of UI automation, PL/SQL coverage, audits, full pipelines and
+mini-app reuse. [README](../../README.md) provides reciprocal navigation.
+The new items are Proposed and unscheduled; no board row or assignment changes.
+
+The [deck](sprint_E.3_increment_demo.pptx) replaces pending language on slide 21
+with accepted mapping and backlog IDs and updates the slide 17 result footer.
+The [authoring correction](presentation-handover/accept-mapping.mjs) and earlier
+authoring sources agree with the result. The
+[validation receipt](tests/mapping-acceptance-checks.json) records the delivered
+hash, package integrity, first-party import, zero layout findings and the
+unchanged existing slide 6 density warning. All 22 slides rendered; changed
+slides 17/21 were inspected individually. Unrelated slides retained their text.
+Backlog numbering through PBI-057, new-item format, and 14 relevant local
+links/anchors passed checks. `git diff --check` passed. No runtime tests were
+needed for this documentary change, and no unexecuted runtime result is claimed.
+
+
+## Final acceptance and sprint closure — 2026-11-05
+
+The Product Owner explicitly requested E.3 Done after accepting the mapping
+and confirming the backlog gap ownership. [PLAN](../../PLAN.md),
+[BACKLOG](../../BACKLOG.md#pbi-053-prove-a-simple-git-based-development-to-release-journey)
+and the [progress board](../../PROGRESS_BOARD.md) now record E.3 and
+PBI-053/.1/.2/.3 as Done. The [handover closure](sprint_E.3_handover.md#sprint-closure),
+[completion report](sprint_E.3_completion.md) and
+[assessment](sprint_E.3_assessment.md) record the final decision. E.4/E.5 remain
+Planned, no sprint is active, and deferred gaps retain their existing status.
+
+The SRS, architecture and test-profile E.3 execution notices were checked and
+updated from tested/separate-closure wording to the accepted closure and its
+limits. Their wider requirements, NFR-4 exception and NFR-5 toolchain policy
+remain unchanged. Setup, accepted design, implementation and functional test
+records were checked against the bounded journey and later native/GitHub
+corrections; setup now links its historical activation to final closure. README,
+walkthrough, scope, handover, completion and assessment now navigate to the
+current decision. Historical test logs and expert reports retain their original
+dates, versions and conclusions. The PPTX already records accepted mapping
+and backlog follow-up; its final 22-slide hash matches the inspected receipt.
+
+The [closure checks](tests/closure-checks.json) confirm plan/board/backlog
+consistency, unchanged deferred gap statuses, no next-sprint activation, retained
+GitHub-configuration A1/A3/B1 results of 1/1, 2/2 and 2/2 with zero failures,
+matching presentation hash and successful Node syntax checks on all authoring
+modules. `git diff --check` and closure-reference checks passed. Runtime tests
+were not repeated for these documentation/status changes. No failed applicable
+check or unresolved acceptance gate remains for the accepted E.3 slice.
+
+The completion commit includes this chat's accepted presentation structure,
+lifecycle mapping, backlog dispositions and closure as one coherent increment.
+The unrelated user-owned model.drawio remains untracked and excluded. Installed
+presentation-skill changes were separately authorized and are outside this
+repository. No remote push is performed.

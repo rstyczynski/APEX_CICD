@@ -71,7 +71,7 @@ text(s,`1. PBI-053.1: Working Copy, Git capture and native verification
 text(s,`New smoke and integration gates passed; existing smoke regression passed.
 
 Parallelism, full identity coverage, drift/fencing and general recovery remain later work.`,64,465,1130,150,27);
-text(s,'Technical handover delivered. Product Owner acceptance and sprint closure remain separate.',64,635,1135,46,23,C.teal,true);
+text(s,'Technical handover delivered. Oracle lifecycle mapping accepted; gaps tracked in backlog.',64,635,1135,46,23,C.teal,true);
 const candidate=path.join(build,`candidate-${revision}.pptx`);await(await PresentationFile.exportPptx(deck)).save(candidate);
 const finalPath=path.join(out,`sprint_E.3_increment_demo-${revision}.pptx`);
 await finalizePresentation({workspaceDir:root,candidatePath:candidate,finalPath,pythonExecutable:python,integrityValidatorPath:path.join(skill,'container_tools/inspect_presentation_package_integrity.py'),layoutValidatorPath:path.join(skill,'container_tools/inspect_presentation_layout_geometry.py'),layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-bullet-geometry','--validate-heading-fit'],requiredNativeTableOwnerSlides:[],requiredNativeChartOwnerSlides:[],fontPolicy:{basis:'design',families:['Arial','Courier']},verifyArtifactToolImport:true,receiptPath:path.join(build,`validation-${revision}.json`)});

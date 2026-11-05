@@ -1,5 +1,28 @@
 # E.3 — Native pipeline and local runner handover
 
+## Sprint closure
+
+**Done — 2026-11-05.** The Product Owner accepted the E.3 prototype, lifecycle
+mapping and handover and explicitly requested closure. PBI-053 and children
+PBI-053.1/.2/.3 are Done in [PLAN](../../PLAN.md),
+[BACKLOG](../../BACKLOG.md#pbi-053-prove-a-simple-git-based-development-to-release-journey)
+and the [progress board](../../PROGRESS_BOARD.md). The retained smoke,
+integration and regression results support the bounded prototype. The
+[accepted lifecycle gap dispositions](sprint_E.3_pipeline_scope.md#lc-1--oracle-apex-lifecycle-alignment-validation)
+retain follow-up in the backlog. E.4/E.5 remain Planned; no next sprint is
+activated. The [completion report](sprint_E.3_completion.md) records the outcome.
+
+
+**LC-1 accepted on 2026-11-05.** The Product Owner accepted the native
+APEX/SQLcl and GitHub lifecycle mapping and directed backlog follow-up for the
+identified gaps. The [deck](sprint_E.3_increment_demo.pptx), slides 19–21,
+presents the accepted mapping. The
+[gap dispositions](sprint_E.3_pipeline_scope.md#lc-1--oracle-apex-lifecycle-alignment-validation)
+link existing backlog owners and new PBI-056 (private branch environments) and
+PBI-057 (deployed APEX release identity). The earlier separate-report and
+pending-acceptance requirement is superseded; no further LC-1 acceptance is
+required.
+
 **Start with the [final walkthrough](sprint_E.3_increment_demo.md#run-it-yourself).**
 It is the single manual execution entry point: prerequisites, configuration,
 runner startup, native authoring, PR/versioning, deployment and browser checks
@@ -108,8 +131,8 @@ source availability; status gating is not atomic fencing. The inherited APEX
 footer remains 1.0.0, distinct from the Git release version. Historical E.1/E.2
 and earlier E.3 evidence remains attributable to its original revision.
 
-Technical handover is delivered. PLAN remains Progress pending separate Product
-Owner acceptance/closure; no next sprint or unscheduled PBI completion is inferred.
+Technical handover and final Product Owner acceptance are complete. E.3 is Done
+as of 2026-11-05; unscheduled backlog work retains its existing status.
 
 ## External technical handover review
 
@@ -128,7 +151,8 @@ Product Owner's explicit credential-lookup direction. The
 with closing clarifications. The Product Owner approved M1/M2/L2 corrections
 with offline validation and selected the temporary prepared-host accommodation
 for L1. The [decisions](sprint_E.3_handover_review-1-decisions.md) record that
-selection and deferral trigger. Slides 4/10 and test-scope guidance are corrected;
+selection and deferral trigger. Slides 4/10 (now 6/15 after section insertion)
+and test-scope guidance are corrected;
 the specific native-diagnostic/receipt assertion passes 21 offline cases and
 static pipeline smoke passes 1/1. Corrected seed controller main is
 `eac24dedab3f611ef09b0196623cfabf674e7e1c`; v1.0.4 and its historical evidence

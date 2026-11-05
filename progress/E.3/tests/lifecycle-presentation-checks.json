@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-05",
+  "slides": 15,
+  "added_slides": [
+    13,
+    14,
+    15
+  ],
+  "sha256": "bf968f9b0d6192e2a69b334162609dae04f8299c0ba8a0ce92d4b5ab5ee34900",
+  "package_integrity": "pass",
+  "layout_findings": 0,
+  "layout_warnings": [
+    {
+      "character_count": 237,
+      "kind": "dense_bold_paragraphs_without_spacing",
+      "object_id": "6",
+      "paragraph_count": 4,
+      "slide": 4,
+      "usable_height_pt": 84
+    }
+  ],
+  "first_party_import": true,
+  "original_12_slide_text_and_positioned_transforms": "preserved",
+  "visual_review": "New slides individually reviewed at 1280x720, whole-deck montage scanned, unchanged slide 4 density warning reviewed.",
+  "runtime_tests": "not run, presentation-only edit",
+  "LC-1": "pending"
+}

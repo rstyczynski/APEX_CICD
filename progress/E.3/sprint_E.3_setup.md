@@ -13,7 +13,9 @@ SPRINT E.3 | MODE: managed | Test: smoke, integration | Regression: smoke
 
 The Product Owner explicitly requested E.3 activation and preparation of its
 design on 2026-11-03. E.2 is already Done in [PLAN](../../PLAN.md), with an
-[accepted handover](../E.2/sprint_E.2_handover.md). E.3 is the sole active sprint.
+[accepted handover](../E.2/sprint_E.2_handover.md). E.3 was the sole active sprint at activation. The Product Owner subsequently
+accepted and closed it on 2026-11-05; the
+[closure record](sprint_E.3_handover.md#sprint-closure) owns the final status.
 Only [PBI-053](../../BACKLOG.md#pbi-053-prove-a-simple-git-based-development-to-release-journey)
 is assigned. The [scope](sprint_E.3_pipeline_scope.md) bounds the work to an
 architectural prototype of one Git-based happy path.
