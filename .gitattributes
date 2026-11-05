@@ -10,3 +10,5 @@ progress/E.2/tests/scheduler_capacity_20261019.txt whitespace=-blank-at-eol,-bla
 progress/E.2/tests/*.txt whitespace=-blank-at-eol,-blank-at-eof
 progress/E.2/inputs/*.filters whitespace=-blank-at-eol
 progress/E.2/inputs/*.patch whitespace=-blank-at-eol
+# E.3 native SQLcl evidence retains its original formatted output.
+progress/E.3/tests/release-correction/*.log whitespace=-blank-at-eol,-blank-at-eof
