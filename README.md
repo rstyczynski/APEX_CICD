@@ -1,5 +1,7 @@
 # Oracle APEX CI/CD Laboratory
 
+E.3 reopened correction: [native release implementation and evidence](progress/E.3/sprint_E.3_release_correction.md), [final Oracle lifecycle gap reassessment](progress/E.3/sprint_E.3_final_gap_analysis.md) and [current walkthrough/presentation](progress/E.3/sprint_E.3_increment_demo.md). The paper is E.3's authoritative lifecycle reference. The corrected local seed includes native release preparation before tag/package; historical remote runs remain separately attributed.
+
 **From Git to APEX: traceable releases, safe upgrades and protected deployments.**
 
 Our guiding principle: **Give developers flexibility through stable, industry-standard tools and techniques.**
@@ -156,8 +158,7 @@ The first remote run failed before deployment and its workflow correction is
 retained. The release/tag is 1.0.4 while APEX's display footer remains 1.0.0;
 automatic display-version stamping was not qualified.
 
-PBI-053 and its three children are Done. E.3 closed on 2026-11-05 by explicit
-Product Owner acceptance/closure; E.4/E.5 remain Planned. This is an architecture
+PBI-053 and its three children are Done. E.3 was previously closed on 2026-11-05, then reopened by explicit Product Owner direction for PBI-058. That correction is implemented/tested locally; E.3 awaits handover/reclosure. E.4/E.5 remain Planned. This is an architecture
 prototype, with concurrency, full identity preservation, drift/fencing and
 broader recovery still registered for later work.
 
@@ -212,6 +213,6 @@ The supplied [Oracle APEX lifecycle reference](refs/apex-lifecycle-management-v3
 
 [RUPStrikesBack](https://github.com/rstyczynski/RUPStrikesBack) is an iterative delivery method for collaboration between a Product Owner and AI agents. It combines RUP lifecycle phases with a prioritized backlog, bounded iterations, explicit requirements/design, executable validation and Product Owner review. Each increment connects its implementation, tests and documentation so decisions can be checked against evidence.
 
-This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1, E.1, E.2 and E.3 are closed; E.3 delivered the accepted prototype, lifecycle mapping and handover; E.4/E.5 remain Planned with distinct assigned Elaboration work recorded in the backlog and plan.
+This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1, E.1 and E.2 are closed; E.3 is reopened for the implemented/tested PBI-058 native-release correction; E.4/E.5 remain Planned with distinct assigned Elaboration work recorded in the backlog and plan.
 
 For external expert review, use the [rup-external-review skill](.agents/skills/rup-external-review/SKILL.md). Codex prepares the prompts and engineering replies; the Product Owner relays them to the expert through the linked round files. Review outcomes and implementation evidence remain distinct from sprint acceptance.

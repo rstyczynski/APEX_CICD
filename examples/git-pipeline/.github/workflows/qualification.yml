@@ -61,7 +61,10 @@ jobs:
           sql -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/verify.sql > result/positive.log 2>&1
           grep -Eq 'Errors:[[:space:]]*0([^0-9]|$)' result/positive.log
           sql -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/snapshot.sql "$PRIVATE_DIR/before.txt" "$TARGET_SCHEMA" > "$PRIVATE_DIR/before.log" 2>&1
-          missing=$(find dist/releases/next/changes -name '*.sql' -type f -print -quit)
+          native_version=$(jq -r '.lastReleaseVersion // ""' .dbtools/project.config.json)
+          distribution=${native_version:-next}
+          [[ "$distribution" == next || "$distribution" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          missing=$(find "dist/releases/$distribution/changes" -name '*.sql' -type f -print -quit)
           test -n "$missing"
           rm "$missing"
           if sql -nohistory -noupdates -home "$SQLCL_HOME" -S -L /nolog @../controller/sql/verify.sql > result/negative.log 2>&1; then :; fi

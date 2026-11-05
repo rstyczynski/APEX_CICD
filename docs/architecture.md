@@ -1,5 +1,7 @@
 # Candidate architecture
 
+E.3 reopened — 2026-11-05: [PBI-058 native release correction](../progress/E.3/sprint_E.3_release_correction.md) implements the paper's native release/commit/tag/package sequence and updates the [final gap reassessment](../progress/E.3/sprint_E.3_final_gap_analysis.md). The paper is the authoritative E.3 lifecycle reference. Prior closure and v1.0.4 observations below are historical; corrected local upgrade/repeat evidence does not claim a new GitHub run or clean-host installation.
+
 Current E.3 setup: [GitHub environment configuration and ephemeral native connections](../progress/E.3/sprint_E.3_github_configuration.md). No machine environment file or .local-apex settings are required; scratch is temporary only.
 
 E.3 correction: [native APEX/SQLcl with GitHub Actions control](../progress/E.3/sprint_E.3_native_correction.md) supersedes the earlier Python wrapper and recurring source adapter.

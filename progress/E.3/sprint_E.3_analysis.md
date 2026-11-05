@@ -39,13 +39,13 @@ Conventional Commit title. For this heading correction use `patch` and
 classification. The reviewer checks the diff and results, then squash merges
 using that title as the commit message.
 
-A GitHub workflow runs Release Please on main. It reads the Conventional Commit
-history and opens/updates a release PR containing the next version and generated
-CHANGELOG.md. For this example a 1.0.0 baseline produces 1.0.1. After the reviewer
-checks and merges that release PR, the workflow creates the matching version
-tag and GitHub Release notes from the same change history. Several change PRs
-can accumulate before that release decision; the highest increment wins. This
-replaces the earlier manual tagging proposal. Deployment never assigns the version.
+A GitHub workflow runs Release Please on main to propose version.txt and
+CHANGELOG.md from Conventional Commit history. It no longer creates the tag
+or publishes the release automatically. After the reviewer merges that version
+proposal, the operator performs native project release on main, reviews and
+commits the numbered distribution/metadata, then tags/publishes that accepted
+commit with matching changelog notes. Several change PRs may accumulate before
+that decision. Deployment consumes the selected version and never assigns it.
 
 The deployer explicitly selects the version tag and manually triggers a different
 release workflow. It resolves that tag to its accepted commit, verifies and
@@ -53,7 +53,7 @@ packages that exact Git state under the selected version, deploys the archive
 and checks behavior/history. Creating the version tag does not trigger deployment.
 
 Success leaves traceable change/release PRs, version.txt, CHANGELOG.md, matching
-GitHub Release notes, version tag, resolved release-PR merge commit, artifact
+GitHub Release notes, version tag, resolved native-release commit, artifact
 identity and target result.
 
 APEX Main is an authoring/capture checkpoint; Git main is release integration
@@ -113,3 +113,11 @@ The [design](sprint_E.3_design.md) was accepted and implemented under the Produc
 Owner's explicit instruction. [Implementation](sprint_E.3_implementation.md) and
 [test evidence](sprint_E.3_tests.md) now establish the bounded runtime result;
 this does not establish the wider production architecture.
+
+## PBI-058 — Native release correction, 2026-11-05
+
+The Product Owner explicitly reopened E.3, assigned PBI-058 and directed implementation through completion without further approval pauses. This direction supersedes the earlier closure for this correction; prior runtime evidence remains historical. The supplied [Oracle lifecycle paper](../../refs/apex-lifecycle-management-v3.pdf), Version 3.2, June 2025, is the authoritative lifecycle reference for E.3. [PLAN](../../PLAN.md) owns the reopened sprint, [BACKLOG](../../BACKLOG.md#pbi-058-fix-e3-omission-of-native-sqlcl-project-release) owns the defect and the [correction record](sprint_E.3_release_correction.md) owns current execution evidence.
+
+The defect is omission of native project release, not absence of a ZIP. Paper p.26 requires project release on main after the milestone merge, moving the next distribution into a versioned release directory. P.27 commits that change before optional tagging and artifact generation. Existing E.3 instead published a Git tag and packaged the next distribution; the final LC-1 mapping failed to disclose this deviation. Release Please's version calculation does not perform native distribution release preparation.
+
+Preserve Release Please as a version/changelog proposal service, disable its automatic tag/publication, and perform native release on main after the version PR merge. Review and commit native changes before tagging/publishing. Deployment must reject tags whose native lastReleaseVersion differs from version.txt or whose versioned distribution is missing. No live DEV export is added to deployment. The approved SQLcl release/build remains 25.4.1.022.0618 with Java 21; project metadata must match before any native operation.

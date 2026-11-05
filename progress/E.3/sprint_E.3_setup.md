@@ -41,7 +41,9 @@ policy changes, evidence and risks. The selected design recommendation is a
 coordinated Working Copy-to-APEX-Main checkpoint captured into a feature branch;
 a manually opened/reviewed PR supplies a patch/minor/major label and matching
 Conventional Commit squash title. Release Please prepares a release PR with the
-version/changelog update; merging it creates the tag and GitHub Release notes. The deployer selects that version tag for a separate manual
+version/changelog update only. After merging it, native project release on main
+prepares the numbered distribution; review/commit that change before publishing
+the tag and matching GitHub Release notes. The deployer selects that version tag for a separate manual
 release workflow, which builds its resolved accepted commit and deploys to one
 lab target. Version assignment does not trigger deployment.
 
@@ -67,3 +69,11 @@ through the end of handover without further questions on 2026-11-03. The
 are complete, and the [technical handover](sprint_E.3_handover.md) links the
 executed journey and evidence. Final acceptance/closure is not inferred.
 Earlier preparation-only authorization statements above describe that stage.
+
+## PBI-058 — Native release correction, 2026-11-05
+
+The Product Owner explicitly reopened E.3, assigned PBI-058 and directed implementation through completion without further approval pauses. This direction supersedes the earlier closure for this correction; prior runtime evidence remains historical. The supplied [Oracle lifecycle paper](../../refs/apex-lifecycle-management-v3.pdf), Version 3.2, June 2025, is the authoritative lifecycle reference for E.3. [PLAN](../../PLAN.md) owns the reopened sprint, [BACKLOG](../../BACKLOG.md#pbi-058-fix-e3-omission-of-native-sqlcl-project-release) owns the defect and the [correction record](sprint_E.3_release_correction.md) owns current execution evidence.
+
+The defect is omission of native project release, not absence of a ZIP. Paper p.26 requires project release on main after the milestone merge, moving the next distribution into a versioned release directory. P.27 commits that change before optional tagging and artifact generation. Existing E.3 instead published a Git tag and packaged the next distribution; the final LC-1 mapping failed to disclose this deviation. Release Please's version calculation does not perform native distribution release preparation.
+
+Preserve Release Please as a version/changelog proposal service, disable its automatic tag/publication, and perform native release on main after the version PR merge. Review and commit native changes before tagging/publishing. Deployment must reject tags whose native lastReleaseVersion differs from version.txt or whose versioned distribution is missing. No live DEV export is added to deployment. The approved SQLcl release/build remains 25.4.1.022.0618 with Java 21; project metadata must match before any native operation.

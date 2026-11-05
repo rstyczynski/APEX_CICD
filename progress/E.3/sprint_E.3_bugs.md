@@ -63,3 +63,9 @@ receipts bind the path/controller and legacy receipt support is explicitly
 pinned. The actual corrected assertions pass 21 offline fixture checks. This
 does not claim a fresh native workflow run. R1-L1 is a separate approved policy
 deferral in the review decisions; no private record was migrated/deleted.
+
+## BUG-058: Native release omitted from E.3
+
+Item: PBI-058. Severity: high. Status: fixed for the supported E.3 release path.
+
+Historical E.3 packaged the next distribution after GitHub version publication, skipping the paper's native release preparation. The final LC-1 mapping did not disclose the omission. The correction adds native release preparation before commit/tag/package, disables premature Release Please publication and rejects unfrozen deployment inputs. Native release/package/verify, supported-target upgrade/repeat and preservation checks passed; the inherited fresh-schema guard remains an explicit separate limitation. See the [correction record](sprint_E.3_release_correction.md) and [gap reassessment](sprint_E.3_final_gap_analysis.md).

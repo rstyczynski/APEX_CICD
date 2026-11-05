@@ -1,0 +1,10 @@
+RUN smoke:test_platform.sh:test_SM1_platform
+PASS live ORDS and database-backed APEX login; configuration read from GitHub environment
+PASS test_SM1_platform
+RUN smoke:test_pipeline.sh:test_SM1_pipeline_contract
+PASS native workflow boundary and 9 PR classification cases
+PASS test_SM1_pipeline_contract
+RUN smoke:test_pipeline.sh:test_SM58_native_release_boundary
+PASS frozen release accepted; unfrozen, mismatched, unsafe, missing and dirty inputs rejected
+PASS test_SM58_native_release_boundary
+Tests: 3; failed: 0

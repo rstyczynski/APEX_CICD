@@ -1,0 +1,13 @@
+[0;37mThe current connection E1_DEV_C will be used for all operations[0m
+
+Stage is Comparing:
+[0;33mOld Branch	refs/heads/e3-base[0m
+[0;32mNew Branch	refs/heads/release-next-probe[0m
+
+[0;37m[0m
+[0;37m[0m
+[0;32mStage processing completed, please review and commit your changes to repository[0m
+[0;37m[0m
+[0;33m Untracked files:[0m
+[0;31m	dist/releases/next/changes[0m
+[0;31m	dist/releases/1.0.5/changes/main/_custom[0m

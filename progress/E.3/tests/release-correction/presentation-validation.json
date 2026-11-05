@@ -1,0 +1,9 @@
+{
+  "slides": 26,
+  "sha256": "7be06e1289b6771235ad1bdca8f1b2a83a786d28984fd42a5e598f6d30c984ba",
+  "package_findings": 0,
+  "visual_review": "new/changed slides inspected individually; unchanged slides scanned; source deck style and closing slide preserved",
+  "model_source": "progress/E.3/model.drawio",
+  "native_model_shapes": true,
+  "durable_authoring_source": "progress/E.3/presentation-handover/release-correction.mjs"
+}

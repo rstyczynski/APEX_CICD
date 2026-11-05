@@ -1,0 +1,18 @@
+{
+  "native_release": "1.0.5",
+  "sqlcl": "25.4.1.022.0618",
+  "fresh_install": false,
+  "fresh_install_limit": "Inherited initial-data SQL permits only E3_TARGET; disposable schema rejected before seed inserts",
+  "legacy_next_upgrade": true,
+  "repeat_deployments": 1,
+  "history_configuration_preserved": true,
+  "archive_sha256": "969c567c26d6b092230db9426c99078a1c91d0f2bf4f75e2478b7b68d2d43fcc",
+  "execution": "local native SQLcl against supported E3_TARGET via temporary proxy; not a GitHub Actions run",
+  "source_sha": "ed732c26a24b56c5f76301c7ec69df9736f36e67",
+  "controller_sha": "5e0ac11fb93955f3806f5b55f917eb0c36196864",
+  "bundle_sha256": "2088384f0d4700ad0d0f84cbded3b64933272218613e8b9f6c338bc2f591ecb1",
+  "native_verify_errors": 0,
+  "native_verify_warnings": 0,
+  "missing_changeset_rejected": true,
+  "temporary_proxy_removed": true
+}

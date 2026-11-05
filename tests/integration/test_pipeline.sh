@@ -45,3 +45,24 @@ test_IT2_verification_blocks_deploy() (
   awk -v expected="$expected_missing" -f examples/git-pipeline/.github/assert-missing-changeset.awk "$scratch/negative.log"
   echo 'PASS legacy reference qualification evidence; no new defect injection, LAB qualification or deployment'
 )
+
+# Evidence reader for the freshly executed local native qualification.
+# It does not claim to dispatch GitHub or repeat target writes.
+test_IT58_native_release_evidence() {
+  local evidence=progress/E.3/tests/release-correction receipt hash expected
+  receipt="$evidence/integration.json"
+  jq -e '.native_release == "1.0.5" and .native_verify_errors == 0 and .native_verify_warnings == 0 and .legacy_next_upgrade and .repeat_deployments == 1 and .history_configuration_preserved and .missing_changeset_rejected and .temporary_proxy_removed' "$receipt" > /dev/null
+  expected=$(jq -er .archive_sha256 "$receipt")
+  hash=$(shasum -a 256 "$evidence/e3-1.0.5.zip" | cut -d ' ' -f1)
+  test "$hash" = "$expected"
+  expected=$(jq -er .bundle_sha256 "$receipt")
+  hash=$(shasum -a 256 examples/git-pipeline/baseline.bundle | cut -d ' ' -f1)
+  test "$hash" = "$expected"
+  grep -Eq 'Errors:[[:space:]]*0([^0-9]|$)' "$evidence/verify.log"
+  grep -q 'Process completed successfully' "$evidence/release.log"
+  grep -q 'PASS native readiness' "$evidence/supported-upgrade-accept.log"
+  grep -q 'PASS native readiness' "$evidence/supported-repeat-accept.log"
+  awk -v expected='dist/releases/1.0.5/changes/e3-initial/e1_dev_c/package_bodies/lab_runtime.sql' \
+    -f examples/git-pipeline/.github/assert-missing-changeset.awk "$evidence/missing-changeset.log"
+  echo 'PASS native release qualification evidence and archive/bundle bindings (local evidence reader)'
+}

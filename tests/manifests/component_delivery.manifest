@@ -10,3 +10,5 @@ integration:test_controls.sh:test_IT7_drift
 smoke:test_pipeline.sh:test_SM1_pipeline_contract
 integration:test_pipeline.sh:test_IT1_manual_release
 integration:test_pipeline.sh:test_IT2_verification_blocks_deploy
+smoke:test_pipeline.sh:test_SM58_native_release_boundary
+integration:test_pipeline.sh:test_IT58_native_release_evidence

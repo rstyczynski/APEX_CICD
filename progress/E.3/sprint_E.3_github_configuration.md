@@ -1,5 +1,7 @@
 # E.3 — GitHub configuration and local lab runner
 
+Native release correction — 2026-11-05: Release Please proposes version/changelog only. After merging that proposal, run native project release on main, review/commit its distribution and metadata, then publish the tag before selected-tag deployment. The [current walkthrough step E](sprint_E.3_increment_demo.md#native-release-preparation--oracle-paper-pp2627), [correction record](sprint_E.3_release_correction.md) and [final gap reassessment](sprint_E.3_final_gap_analysis.md) supersede earlier automatic-tag/next-distribution instructions below.
+
 The Product Owner directed removal of native.env-style configuration after
 [the workflow discussion](codex://threads/01a1a231-79e2-7fe0-bf4c-73152c8364d9).
 The subsequent direction is explicit: **use a local runner and provide a runnable

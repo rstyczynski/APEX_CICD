@@ -1,5 +1,7 @@
 # E.3 — Native pipeline operator manual
 
+Native release correction — 2026-11-05: Release Please proposes version/changelog only. After merging that proposal, run native project release on main, review/commit its distribution and metadata, then publish the tag before selected-tag deployment. The [current walkthrough step E](sprint_E.3_increment_demo.md#native-release-preparation--oracle-paper-pp2627), [correction record](sprint_E.3_release_correction.md) and [final gap reassessment](sprint_E.3_final_gap_analysis.md) supersede earlier automatic-tag/next-distribution instructions below.
+
 GitHub Actions owns configuration and setup. Native APEX/SQLcl owns authoring,
 verification, migration and deployment. There is no Python pipeline, source
 adapter, machine environment file or retained private connection-store dependency.

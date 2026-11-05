@@ -1,5 +1,7 @@
 # E.3 — Native pipeline and local runner handover
 
+Current status — reopened on 2026-11-05 for PBI-058 by explicit Product Owner direction. The earlier closure/acceptance below is historical. The [native release correction](sprint_E.3_release_correction.md) and [final gap reassessment](sprint_E.3_final_gap_analysis.md) own current behavior, evidence and remaining limitations. The Oracle lifecycle paper is the authoritative E.3 reference; the missing native release step was not disclosed by the earlier LC-1 assessment.
+
 ## Sprint closure
 
 **Done — 2026-11-05.** The Product Owner accepted the E.3 prototype, lifecycle

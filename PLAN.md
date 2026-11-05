@@ -141,12 +141,23 @@ Backlog Items:
 
 ## Sprint E.3 - Prototype the Git-based development pipeline
 
-Status: Done
+Status: Progress
 Mode: managed
 Test: smoke, integration
 Regression: smoke
 
-On 2026-11-05 the Product Owner accepted LC-1, the mapping of the delivered
+Reopened on 2026-11-05 by explicit Product Owner direction for PBI-058.
+The supplied Oracle APEX lifecycle paper is the authoritative E.3 lifecycle
+reference. Correct native release preparation, revalidate the resulting
+artifacts, revise the final gap assessment and add the supplied draw.io model
+to the handover presentation. The Product Owner directed implementation through
+completion without further approval pauses. Earlier acceptance below is
+historical and does not accept this correction.
+The PBI-058 correction is implemented and locally tested for the supported
+upgrade/repeat path; fresh-host limitations are explicit. The sprint remains
+Progress pending handover/reclosure. See the [correction record](progress/E.3/sprint_E.3_release_correction.md).
+
+On 2026-11-05 the Product Owner previously accepted LC-1, the mapping of the delivered
 native APEX/SQLcl and GitHub journey to the Oracle APEX lifecycle paper.
 The [accepted mapping and gap dispositions](progress/E.3/sprint_E.3_pipeline_scope.md#lc-1--oracle-apex-lifecycle-alignment-validation)
 replace the earlier separate-report acceptance requirement. Remaining
@@ -188,6 +199,7 @@ created by this refinement. E.2 was accepted and closed on 2026-11-03; E.3 activ
 Backlog Items:
 
 * PBI-053. Prove a simple Git-based development-to-release journey
+* PBI-058. Fix E.3 omission of native SQLcl project release
 
 ## Sprint E.4 - Validate Git-based feature-centric development
 

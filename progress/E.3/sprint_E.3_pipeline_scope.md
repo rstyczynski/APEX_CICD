@@ -98,7 +98,11 @@ architecture explanation, reproducible walkthrough and list of remaining risks;
 apply the normal managed design and handover decisions. Do not count E.1/E.2
 historical runs as new E.3 execution.
 
-## LC-1 — Oracle APEX lifecycle alignment validation
+## LC-1 correction — native release omission, 2026-11-05
+
+The Product Owner reopened E.3 and made the supplied Oracle lifecycle paper the authoritative E.3 reference. The earlier accepted mapping below is historical: it omitted the material deviation from paper pp.26–27, where native project release precedes committing, tagging and artifact generation. Calling Release Please a project choice did not disclose that missing native step. PBI-058 corrects the implementation and the assessment; [the correction record](sprint_E.3_release_correction.md) owns new validation evidence and the [final gap reassessment](sprint_E.3_final_gap_analysis.md) owns current lifecycle coverage. Earlier acceptance must not be read as approval of this unreported omission.
+
+## LC-1 — Oracle APEX lifecycle alignment validation (historical)
 
 Status: Accepted by the Product Owner on 2026-11-05.
 

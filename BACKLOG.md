@@ -423,3 +423,11 @@ Let operators and users identify the installed application release from the APEX
 Test: Demonstrate that the APEX display and application metadata identify the selected release after installation, upgrade and repeat deployment and match its source and deployment receipt.
 
 Status: Proposed
+
+### PBI-058. Fix E.3 omission of native SQLcl project release
+
+Correct the E.3 release journey, which packages the staged distribution without native SQLcl project release freezing. Use project release to establish a versioned native distribution before artifact generation, while keeping GitHub versioning consistent with the native release identity. The Product Owner identified this omission as a defect on 2026-11-05; preserve historical E.3 evidence and qualify the corrected release artifacts with existing data retained.
+
+Test: Demonstrate native project release freezing before artifact generation, matching Git and native release versions, and successful installation, upgrade and repeat deployment of the resulting artifact with preserved existing data and traceable evidence.
+
+Status: Done

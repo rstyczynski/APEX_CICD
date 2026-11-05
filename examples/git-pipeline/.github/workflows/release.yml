@@ -43,6 +43,9 @@ jobs:
           git merge-base --is-ancestor HEAD origin/main
           test "$(cat version.txt)" = "${VERSION_TAG#v}"
           gh release view "$VERSION_TAG" --json isDraft,tagName | jq -e --arg tag "$VERSION_TAG" '.isDraft == false and .tagName == $tag'
+          # Reject legacy/unfrozen tags before any target operation.
+          . ../controller/.github/assert-native-release.sh
+          assert_native_release "${VERSION_TAG#v}"
           baseline=$(jq -er .baseline_sha pipeline.json)
           [[ "$baseline" =~ ^[0-9a-f]{40}$ ]]
           git branch -f e3-base "$baseline"

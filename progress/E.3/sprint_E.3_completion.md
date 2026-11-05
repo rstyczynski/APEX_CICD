@@ -1,5 +1,7 @@
 # E.3 — RUP cycle delivery report
 
+Current status — reopened on 2026-11-05 for PBI-058 by explicit Product Owner direction. The earlier closure/acceptance below is historical. The [native release correction](sprint_E.3_release_correction.md) and [final gap reassessment](sprint_E.3_final_gap_analysis.md) own current behavior, evidence and remaining limitations. The Oracle lifecycle paper is the authoritative E.3 reference; the missing native release step was not disclosed by the earlier LC-1 assessment.
+
 Configuration update: the [GitHub-owned setup](sprint_E.3_github_configuration.md) supersedes every retained-local-file/tool-path assumption below. Earlier run results remain historical evidence for their original revisions.
 
 Current correction — 2026-11-03: the Product Owner required native APEX/SQLcl
@@ -76,3 +78,7 @@ existing backlog. Repository release 1.0.1 does not yet stamp APEX's display
 footer (1.0.0). Bot-generated release PR checks are manually dispatched in this
 small GITHUB_TOKEN profile. A proposed 1.0.2 remains unmerged and undeployed.
 No additional backlog item or next sprint activation is invented by this report.
+
+## PBI-058 correction completion — 2026-11-05
+
+Setup/analysis and design/test specification were updated against the authoritative paper, including the explicit reopening/implementation direction. Native release preparation and publication ordering are implemented; the local seed bundle preserves the frozen source and prior history. The 26-slide handover includes the supplied model and current gap assessment. Native release/verify/package and supported-target upgrade/repeat/session checks passed. A1 smoke 2/2, A3 local evidence reader 1/1 and B1 smoke regression 3/3 passed; the review-fix suite passed 9 cases. Fresh disposable-schema installation failed the inherited guard and remains disclosed, not accepted as passed. PBI-058 is Done for the supported correction; E.3 remains Progress pending Product Owner review/reclosure. No remote push or new hosted run was performed.

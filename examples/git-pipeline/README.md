@@ -23,10 +23,13 @@ Developer: Working Copy → compare/merge to agreed Main → `project export` �
 review/commit source → `project stage` → `project verify` → review/commit dist →
 manual PR. Exactly one patch/minor/major label matches its Conventional Commit
 title. Squash merge preserves that classification. Release Please prepares
-version.txt, CHANGELOG.md and matching GitHub Release notes/tag.
+version.txt and CHANGELOG.md in a proposal PR; automatic tag/publication is disabled.
+After that PR merges, run native `project release` on main, review/commit its
+metadata and numbered distribution, then tag/publish that accepted commit.
+See walkthrough step E for the complete native sequence.
 
 Deployer: explicitly select a published version tag in the manual release
-workflow. Its visible steps resolve the source, verify, package one native ZIP,
+workflow. Its visible steps reject unfrozen/mismatched source, verify, package one native ZIP,
 record private business fields, use native APEX availability, deploy with
 PROJECT, compare fields and publish. A failed required step stops later steps.
 An APEX import can restore source availability; the workflow reapplies restriction

@@ -31,10 +31,11 @@
 | Sprint E.2 | Done | PBI-051.2 | Done |
 | Sprint E.2 | Done | PBI-051.3 | Done |
 | Sprint E.2 | Done | PBI-051.4 | Done |
-| Sprint E.3 | Done | PBI-053 | Done |
-| Sprint E.3 | Done | PBI-053.1 | Done |
-| Sprint E.3 | Done | PBI-053.2 | Done |
-| Sprint E.3 | Done | PBI-053.3 | Done |
+| Sprint E.3 | tested | PBI-053 | Done |
+| Sprint E.3 | tested | PBI-053.1 | Done |
+| Sprint E.3 | tested | PBI-053.2 | Done |
+| Sprint E.3 | tested | PBI-053.3 | Done |
+| Sprint E.3 | tested | PBI-058 | tested |
 | Sprint E.4 | Planned | PBI-019 | Planned |
 | Sprint E.4 | Planned | PBI-020 | Planned |
 | Sprint E.4 | Planned | PBI-042 | Planned |

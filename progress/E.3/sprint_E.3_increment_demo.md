@@ -201,7 +201,7 @@ to distinguish your working lab from the shared seed:
 mkdir -p "$HOME/projects"
 cd "$HOME/projects"
 gh repo clone rstyczynski/APEX_CICD APEX_CICD
-gh repo clone rstyczynski/APEX_CICD_E3 APEX_CICD_E3_LAB
+git clone APEX_CICD/examples/git-pipeline/baseline.bundle APEX_CICD_E3_LAB
 ```
 
 The **parent lab checkout**, `~/projects/APEX_CICD`, contains this walkthrough
@@ -209,8 +209,8 @@ and `scripts/e3-runner.sh`. The **application checkout**,
 `~/projects/APEX_CICD_E3_LAB`, contains the source, native project and workflows.
 Everyone, including the seed owner, uses their own
 `<operator>/APEX_CICD_E3_LAB` GitHub repository for this walkthrough. The public
-`rstyczynski/APEX_CICD_E3` repository supplies the seed only. Cloning downloads
-its history to your computer; the creation step below makes your writable
+The tracked `examples/git-pipeline/baseline.bundle` supplies the corrected native-release seed; the public seed remote remains historical until separately published. Cloning the bundle downloads
+its complete history to your computer; the creation step below makes your writable
 GitHub repository and changes this checkout's origin to it.
 
 On later runs, skip both cloning and repository creation. Reuse your existing
@@ -433,7 +433,11 @@ fi
 seed_tag="v$(cat version.txt)"
 if ! gh release view "$seed_tag" --repo "$e3_repo" > /dev/null 2>&1; then
   seed_notes=$(mktemp)
-  gh release view "$seed_tag" --repo rstyczynski/APEX_CICD_E3 --json body --jq .body > "$seed_notes"
+  awk -v version="${seed_tag#v}" '
+    /^## / { if (found) exit; if (index($0, "[" version "]") || $2 == version) found=1 }
+    found { print }
+  ' CHANGELOG.md > "$seed_notes"
+  test -s "$seed_notes"
   gh release create "$seed_tag" --repo "$e3_repo" --verify-tag --title "$seed_tag" --notes-file "$seed_notes"
   rm -f "$seed_notes"
 fi
@@ -552,7 +556,7 @@ terminal for the remaining commands. Stop here if prerequisites fail; runner
 setup does not provision Oracle/APEX/ORDS. The runner uses their network ports;
 GitHub workflows prepare job-private tools/connections and clean them afterward.
 
-### C. Make a fresh native APEX change — slides 8–9
+### C. Make a fresh native APEX change — slides 11–12
 
 In the signed-in Builder session, choose
 **App Builder → APEX Delivery Laboratory (810003)**. If your session has expired,
@@ -613,7 +617,7 @@ not merged into Main while capturing them. Perform the merge for your own demo.
 **Checkpoint:** Main contains your intended page title; its inherited initialization
 remains blank. Do not insert the retired E1 controller hook.
 
-### D. Capture, commit and stage using native SQLcl — slide 10
+### D. Capture, commit and stage using native SQLcl — slide 13
 
 In the **application terminal**, use the project's recorded SQLcl version to
 select an installed tool. SQLcl PROJECT enforces `.sqlcl.version` from
@@ -829,7 +833,7 @@ If native tools changed additional tracked project metadata, review and include
 that metadata before pushing. Do not edit exported source or archives to make
 verification pass. Finish with a clean working tree.
 
-### E. Open the PR, review and let the workflow version it — slides 12–13
+### E. Open the PR, review and let the workflow version it — slides 15–16
 
 Push the feature branch and explicitly create its PR:
 
@@ -904,18 +908,64 @@ the workflow dispatch branch; the PR number selects the PR being checked.
 
 ![Historical successful manually triggered PR checks run](tests/walkthrough/github/06-release-pr-check-run.jpg)
 
-**⑦ Merge the generated release PR** and wait for **Prepare version and changelog**
-again. In Releases, confirm the generated tag and matching release notes. Record
-that tag for step F. **Do not type a new version or create a tag yourself.**
-No PR merge, release PR merge or tag publication deploys the application.
+**⑦ Merge the generated version/changelog PR.** Release Please now runs with `skip-github-release: true`; this merge does not publish a tag. The old release screenshot is historical and does not demonstrate the corrected native sequence.
 
-![Historical GitHub Release published by github-actions with tag and release notes](tests/walkthrough/github/07-published-release.jpg)
+#### Native release preparation — Oracle paper pp.26–27
 
-**Checkpoint:** the workflow has generated the version and both changelogs.
-For this display-only change, expect the next patch after the current accepted
-release, rather than a hard-coded replay of historical v1.0.4.
+Work in the application terminal on clean main after the milestone and version PR merges. Use the SQLcl 25.4.1.022.0618 / Java 21 setup already checked in step D. Native project metadata must require that release; do not edit the required version to bypass compatibility.
 
-### F. Manually deploy the published tag — slide 15
+**Complete source — `sql/release.sql`:**
+
+```sql
+set echo off verify off define on
+whenever sqlerror exit failure rollback
+whenever oserror exit failure rollback
+project release -version &1
+exit success
+```
+
+The script performs the native release operation on the local Git checkout. `&1` is the validated value from version.txt. It moves the next distribution into the numbered release directory and updates project metadata/changelog references. It does not publish Git commits, tags or GitHub Releases and does not deploy. A reported SQLcl error blocks subsequent steps even if the process exit code is zero.
+
+```bash
+git switch main
+git pull --ff-only
+test -z "$(git status --porcelain)"
+version=$(cat version.txt)
+[[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
+sql -nohistory -noupdates -S -L /nolog @sql/release.sql "$version"
+git diff -- .dbtools/project.config.json dist
+git status --short
+```
+
+Require `lastReleaseVersion` to equal the selected version, the numbered release changelog to exist and native verification to report zero errors/warnings. Review every generated change. Commit native release metadata/distribution before tagging. A failure leaves a local unaccepted change; inspect it rather than rerunning release blindly or modifying old release files.
+
+```bash
+sql -nohistory -noupdates -S -L -name lab-dev-c @sql/verify.sql
+jq -e --arg v "$version" '.lastReleaseVersion == $v' .dbtools/project.config.json
+test -s "dist/releases/$version/release.changelog.xml"
+git add .dbtools/project.config.json dist
+git commit -m "chore: freeze native release $version"
+git push origin main
+```
+
+Publish the tag only after the reviewed native commit is accepted on main. Extract the selected CHANGELOG.md section as release notes, preserving the generated wording. `gh release create` creates the Git tag at the explicit commit and publishes matching notes; it is a separate operator action, not a SQLcl command. Do not reuse or move an old tag. If main requires PRs for this native commit, use a reviewed release-preparation PR, resynchronize main, and tag its accepted commit; this review adaptation retains the paper's commit-before-tag ordering.
+
+```bash
+version_tag="v$version"
+notes_file=$(mktemp "${TMPDIR:-/tmp}/e3-release-notes.XXXXXX")
+awk -v version="$version" '
+  /^## / { if (found) exit; if (index($0, "[" version "]") || $2 == version) found=1 }
+  found { print }
+' CHANGELOG.md > "$notes_file"
+test -s "$notes_file"
+gh release create "$version_tag" --repo "$e3_repo" --target "$(git rev-parse HEAD)" --title "$version_tag" --notes-file "$notes_file"
+rm -f "$notes_file"
+gh release view "$version_tag" --repo "$e3_repo"
+```
+
+This is the corrected operational sequence. The [native correction evidence](sprint_E.3_release_correction.md) distinguishes local validation from historical GitHub runs. No PR merge, native release commit or tag publication deploys the application.
+
+### F. Manually deploy the published tag — slide 18
 
 The deployer opens Actions → **Deploy selected version** → Run workflow, chooses
 **main**, and enters the exact **published tag from step E** as `version_tag`.
@@ -963,7 +1013,7 @@ Next, `sql/package.sql` runs
 `project gen-artifact -name e3 -version &1 -format zip`. `&1` receives the selected
 tag's numeric version. Its `define on` enables this positional substitution;
 the workflow restricts the tag to the expected semantic-version format first.
-The command packages the selected Git state as `artifact/e3-<version>.zip`.
+The workflow first rejects tags without matching native lastReleaseVersion and a committed numbered distribution. The command packages that selected frozen Git state as `artifact/e3-<version>.zip`.
 It does not recapture live DEV or install the archive.
 
 #### SQL introduction: preserve a target baseline and restrict access
@@ -1146,7 +1196,7 @@ and [container jobs](https://docs.github.com/en/actions/how-tos/write-workflows/
 the failed step before continuing; do not claim a successful deployment or
 automatically reset/redeploy the target.
 
-### G. Verify the deployed application in the browser — slides 16–17
+### G. Verify the deployed application in the browser — slides 19–20
 
 Retrieve **only LAB_USER's application password** in the terminal, using the
 same retained lab provisioning record as the earlier credential lookups:
@@ -1461,7 +1511,7 @@ git diff -- dist
 Those files run `project stage -branch-name e3-base` and
 `project verify -cbn e3-base -verbose`. The performed correction reported
 **Errors: 0, Warnings: 0**. Review/commit the native distribution. Capture does
-not transform source; release does not recapture live DEV.
+not transform source; native release preparation does not recapture live DEV.
 
 ### 3. Manual PR and automated release preparation
 
@@ -1571,55 +1621,31 @@ in the temporary checkout. PROJECT must reject it and the private target snapsho
 must remain unchanged; the workflow contains no deployment command. Parent tests
 read fresh GitHub evidence, not a retained local source/data snapshot.
 
-## Slide map and handover boundary
+## Slide map
 
-| Slide | Topic |
-|---|---|
-| 1 | E.3 goal and architecture prototype |
-| 2 | Agenda |
-| 3 | Section 1: Architecture and setup |
-| 4 | Application structure and walkthrough |
-| 5 | E.2 native foundation and GitHub responsibilities |
-| 6 | GitHub configuration and generated job setup |
-| 7 | Section 2: Native authoring and capture |
-| 8 | Retained Working Copy heading change |
-| 9 | Native comparison and Main checkpoint |
-| 10 | Direct SQLcl capture, stage and verify |
-| 11 | Section 3: Review and release preparation |
-| 12 | PR labels and Conventional Commit titles |
-| 13 | Release Please version and both changelogs |
-| 14 | Section 4: Deployment and results |
-| 15 | Manual selected-tag native deployment |
-| 16 | Deployed application and retained history |
-| 17 | Assigned outcomes and next acceptance decision |
-| 18 | Section 5: Oracle lifecycle mapping |
-| 19 | Oracle lifecycle mapping: native authoring, Git capture and review |
-| 20 | Oracle lifecycle mapping: GitHub automation, releases and deployment |
-| 21 | Oracle lifecycle mapping: adaptations, accepted LC-1 and backlog follow-up |
-| 22 | Thank you / Q&A closing |
-
-Slides 19–21 map the demonstrated journey to the foundation
-[Oracle lifecycle paper](../../refs/apex-lifecycle-management-v3.pdf), with
-printed page references on slides and implementation/evidence pointers in
-speaker notes. The Product Owner accepted
-[LC-1 and its gap dispositions](sprint_E.3_pipeline_scope.md#lc-1--oracle-apex-lifecycle-alignment-validation)
-on 2026-11-05. The gaps have backlog owners; full feature-centric and production
-qualification remain outside the demonstrated slice.
-
-PBI-053.1/.2/.3 retain their original criteria and SM-1/IT-1/IT-2 tests.
-Construction completeness, full fencing/drift/identity coverage and general DDL
-recovery remain deferred. The [handover](sprint_E.3_handover.md) records the final
-outcome. The Product Owner accepted the increment and closed E.3 on 2026-11-05; see the
-[closure record](sprint_E.3_handover.md#sprint-closure).
-
-The native correction initially published 1.0.2. Its workflow passed, but the
-browser exposed whitespace left in the initialization field. That version is
-historical failed browser evidence. The final 1.0.3 correction clears the field
-without inserting editor indentation and adds native APEX_SESSION.CREATE_SESSION
-plus DELETE_SESSION before publication. This executes initialization and would
-reject that observed failure; it does not replace real authentication/browser
-validation. See the [correction record](sprint_E.3_native_correction.md).
-
-The final PPTX omits internal implementation-fix history at the Product Owner's
-request. Detailed corrections remain in the engineering records; the 22-slide
-deck presents the delivered pipeline, operator journey, results and next steps.
+1. E.3 Git development pipeline — Architecture prototype
+2. Agenda
+3. SECTION 1
+4. Application structure and walkthrough
+5. Architecture and responsibilities
+6. GitHub configuration and local execution
+7. Lifecycle model — Development to Integration
+8. Native release — reviewed files to versioned ZIP
+9. Target configuration and native deployment
+10. SECTION 2
+11. Working Copy: change one Home heading
+12. Native comparison and Main checkpoint
+13. Native source capture and staging
+14. SECTION 3
+15. PR labels and Conventional Commits
+16. Version proposal and native release
+17. SECTION 4
+18. Manual deployment of the selected tag
+19. Deployed application and retained history
+20. Results and handover boundary
+21. SECTION 5
+22. Oracle lifecycle mapping: authoring
+23. Oracle lifecycle mapping: automation
+24. Oracle lifecycle mapping: scope and gaps
+25. PBI-058 — verification and remaining limits
+26. Thank you

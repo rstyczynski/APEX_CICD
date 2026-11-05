@@ -24,8 +24,9 @@ choices proceed without further questions; actual results remain evidence-based.
 
 Show one Home-heading change from APEX Working Copy to reviewed Git source,
 then a separately initiated release to a lab target. Keep it simple enough
-to follow live. Git main supplies accepted source; integration feeds automated release preparation; merging the generated release
-PR creates the version tag that the deployer explicitly selects. A PR is not a deployment request. Do not implement the former full E.3/E.4 delivery programme.
+to follow live. Git main supplies accepted source; integration feeds an automated version/changelog proposal. After its PR merges,
+native project release prepares a numbered distribution; review/commit that
+change before publishing the version tag the deployer selects. A PR is not a deployment request. Do not implement the former full E.3/E.4 delivery programme.
 
 ### Feasibility Analysis
 
@@ -218,11 +219,13 @@ just a successful process message. Then `project gen-artifact` creates one ZIP
 named with the selected version and run ID. Do not run export/stage against live
 DEV in the release job; do not mutate or commit release source there.
 
-For this prototype, package the reviewed native next distribution. Do not add
-`project release` freezing or release-job tagging/commit-back orchestration.
-Release Please already assigned the Git version tag after release-PR merge;
-the deployment job consumes it without incrementing a version.
-If freezing changes the distribution later, the new bytes need new qualification.
+Native release preparation is mandatory before tagging and packaging, following
+Oracle paper pp.26–27. Release Please proposes version/changelog only. After its
+PR merges, run `project release` on main, review/commit the numbered native
+distribution and metadata, then tag/publish that accepted commit. The deployment
+job rejects an unfrozen/mismatched tag and packages its already committed release;
+it does not freeze or commit source during deployment. The former next-only
+packaging instruction was the PBI-058 defect and is superseded.
 Calculate SHA-256 and record version tag, resolved source SHA, base SHA, tool version, artifact hash,
 run ID and fixed target in a small release receipt. This is traceability, not
 cryptographic attestation. Retain the ZIP, redacted logs and receipt as run
@@ -431,3 +434,23 @@ live ORDS/APEX login. Historical five-schema identity evidence is not re-run
 through retired local configuration. Assigned PBI criteria and test case IDs
 remain unchanged. The [configuration record](sprint_E.3_github_configuration.md)
 and [manual](user_manual.md) own setup details and results.
+
+## PBI-058 — Native release preparation
+
+Status: Authorized by the Product Owner's 2026-11-05 instruction to implement the correction through completion.
+
+This section supersedes the earlier instruction to package next without project release. Paper pp.26–27 is authoritative; the [analysis](sprint_E.3_analysis.md#pbi-058--native-release-correction-2026-11-05) defines the defect and the [correction record](sprint_E.3_release_correction.md) retains evidence.
+
+### Feasibility and sequence
+
+SQLcl 25.4 supports project release -version. GitHub Release Please supports skip-github-release, so version/changelog proposals remain automatic while publication waits for native release preparation. The operator merges the milestone and version PR, synchronizes a clean main, checks the approved toolchain, runs sql/release.sql with version.txt, reviews the versioned distribution and commits it. The operator tags that commit and publishes matching changelog notes. No tag is moved and no historical release is rewritten. The native distribution, version metadata and changelog are committed before artifact generation; a GitHub release alone is insufficient.
+
+sql/release.sql contains only SQLcl setup/error handling and native project release. The version argument must be validated as the selected semantic version before invocation. The deployment workflow validates lastReleaseVersion and the versioned release changelog before SQLcl setup or target writes, then preserves existing verify/package/deploy/preservation checks. The package script does not run project release in a detached checkout. The qualification workflow derives the missing-changeset path from the selected native distribution rather than assuming next forever.
+
+### Testing Strategy
+
+Keep Test: smoke, integration and Regression: smoke. SM-058 verifies workflow syntax, disabled premature publication and fail-closed selection of frozen metadata. IT-058 uses the pinned actual SQLcl to release an isolated clone, commits native output, generates the archive, checks native version paths and installer inclusions, then tests supported target installation/upgrade/repeat with preservation assertions. Evidence must distinguish locally executed native operations from GitHub-hosted runs and historical seed observations. Wrong version, missing distribution and an unfrozen legacy tag must fail before target mutation. No unit suite is required for native commands; the existing offline diagnostic cases remain regression checks.
+
+## PBI-058 Test Specification
+
+SM-058 is implemented in tests/smoke/test_pipeline.sh: valid frozen input passes; unfrozen, mismatched and absent-distribution inputs fail. Existing PR classification and workflow boundaries remain covered by SM-1. IT-058 records actual native release/package/deployment logs in tests/release-correction/ and verifies archive/source identity and unchanged retained business fields. A missing changeset remains a negative native verification case. PBI-058 maps to SM-058 and IT-058; historical E.3 receipts cannot satisfy the new integration gate.

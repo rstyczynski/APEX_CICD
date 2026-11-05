@@ -1,0 +1,253 @@
+
+PL/SQL procedure successfully completed.
+
+[0;32mStarting the migration...[0m
+Installing/updating schemas
+--Starting Liquibase at 2026-11-05T14:59:41.506287 using Java 21.0.12.1 (version 4.33.0 #0 built at 2025-12-09 17:47+0000)
+Running Changeset: e3-initial/e1_dev_c/package_specs/lab_runtime.sql::1793718841627::E1_DEV_C
+Package LAB_RUNTIME compiled
+Running Changeset: e3-initial/e1_dev_c/tables/greeting_history.sql::1793718841671::E1_DEV_C
+Table GREETING_HISTORY created.
+
+
+Table GREETING_HISTORY altered.
+Running Changeset: e3-initial/e1_dev_c/tables/hello_config.sql::1793718841697::E1_DEV_C
+Table HELLO_CONFIG created.
+
+
+Table HELLO_CONFIG altered.
+
+
+Table HELLO_CONFIG altered.
+Running Changeset: e3-initial/e1_dev_c/tables/hello_entries.sql::1793718841735::E1_DEV_C
+Table HELLO_ENTRIES created.
+
+
+Table HELLO_ENTRIES altered.
+
+
+Table HELLO_ENTRIES altered.
+
+
+Table HELLO_ENTRIES altered.
+
+
+Table HELLO_ENTRIES altered.
+Running Changeset: e3-initial/e1_dev_c/tables/lab_components.sql::1793718841805::E1_DEV_C
+Table LAB_COMPONENTS created.
+
+
+Table LAB_COMPONENTS altered.
+
+
+Table LAB_COMPONENTS altered.
+
+
+Table LAB_COMPONENTS altered.
+Running Changeset: e3-initial/e1_dev_c/tables/lab_state.sql::1793718841857::E1_DEV_C
+Table LAB_STATE created.
+
+
+Table LAB_STATE altered.
+
+
+Table LAB_STATE altered.
+Running Changeset: e3-initial/e1_dev_c/tables/world_config.sql::1793718841893::E1_DEV_C
+Table WORLD_CONFIG created.
+
+
+Table WORLD_CONFIG altered.
+
+
+Table WORLD_CONFIG altered.
+Running Changeset: e3-initial/e1_dev_c/tables/world_entries.sql::1793718841930::E1_DEV_C
+Table WORLD_ENTRIES created.
+
+
+Table WORLD_ENTRIES altered.
+
+
+Table WORLD_ENTRIES altered.
+
+
+Table WORLD_ENTRIES altered.
+Running Changeset: e3-initial/e1_dev_c/package_bodies/lab_runtime.sql::1793718841611::E1_DEV_C
+Package Body LAB_RUNTIME compiled
+Running Changeset: e3-initial/e1_dev_c/triggers/greeting_history_immutable.sql::1793718841977::E1_DEV_C
+Trigger GREETING_HISTORY_IMMUTABLE compiled
+
+
+Trigger GREETING_HISTORY_IMMUTABLE altered.
+Running Changeset: e3-initial/e1_dev_c/triggers/greeting_history_insert_guard.sql::1793718842005::E1_DEV_C
+Trigger GREETING_HISTORY_INSERT_GUARD compiled
+
+
+Trigger GREETING_HISTORY_INSERT_GUARD altered.
+Running Changeset: e3-initial/e1_dev_c/triggers/hello_config_guard.sql::1793718842039::E1_DEV_C
+Trigger HELLO_CONFIG_GUARD compiled
+
+
+Trigger HELLO_CONFIG_GUARD altered.
+Running Changeset: e3-initial/e1_dev_c/triggers/hello_config_no_delete.sql::1793718842061::E1_DEV_C
+Trigger HELLO_CONFIG_NO_DELETE compiled
+
+
+Trigger HELLO_CONFIG_NO_DELETE altered.
+Running Changeset: e3-initial/e1_dev_c/triggers/hello_entries_guard.sql::1793718842093::E1_DEV_C
+Trigger HELLO_ENTRIES_GUARD compiled
+
+
+Trigger HELLO_ENTRIES_GUARD altered.
+Running Changeset: e3-initial/e1_dev_c/triggers/hello_entries_no_delete.sql::1793718842117::E1_DEV_C
+Trigger HELLO_ENTRIES_NO_DELETE compiled
+
+
+Trigger HELLO_ENTRIES_NO_DELETE altered.
+Running Changeset: e3-initial/e1_dev_c/triggers/world_config_guard.sql::1793718842141::E1_DEV_C
+Trigger WORLD_CONFIG_GUARD compiled
+
+
+Trigger WORLD_CONFIG_GUARD altered.
+Running Changeset: e3-initial/e1_dev_c/triggers/world_config_no_delete.sql::1793718842163::E1_DEV_C
+Trigger WORLD_CONFIG_NO_DELETE compiled
+
+
+Trigger WORLD_CONFIG_NO_DELETE altered.
+Running Changeset: e3-initial/e1_dev_c/triggers/world_entries_guard.sql::1793718842189::E1_DEV_C
+Trigger WORLD_ENTRIES_GUARD compiled
+
+
+Trigger WORLD_ENTRIES_GUARD altered.
+Running Changeset: e3-initial/e1_dev_c/triggers/world_entries_no_delete.sql::1793718842212::E1_DEV_C
+Trigger WORLD_ENTRIES_NO_DELETE compiled
+
+
+Trigger WORLD_ENTRIES_NO_DELETE altered.
+Running Changeset: e3-initial/e1_dev_c/ref_constraints/hello_config.hello_entries.sql::1793718841640::E1_DEV_C
+Table HELLO_CONFIG altered.
+Running Changeset: e3-initial/e1_dev_c/ref_constraints/world_config.world_entries.sql::1793718841653::E1_DEV_C
+Table WORLD_CONFIG altered.
+Running Changeset: e3-initial/_custom/e3_initial_data.sql::1793718860083::SqlCl
+Migration failed, error reported:
+declare
+*
+ERROR at line 1:
+ORA-20860: Initial release data requires an owned delivery target
+ORA-06512: at line 7
+
+https://docs.oracle.com/error-help/db/ora-20860/
+
+
+More Details :
+https://docs.oracle.com/error-help/db/ora-20860/
+https://docs.oracle.com/error-help/db/ora-06512/
+
+No Rollback for formatted sql change type
+
+
+UPDATE SUMMARY
+Run:                         21
+Previously run:               0
+Filtered out:                 0
+-------------------------------
+Total change sets:           23
+
+ERROR: Exception Details
+ERROR: Exception Primary Class:  DatabaseException
+ERROR: Exception Primary Reason:  Error occurred and continueonerror set to false, stopping execution.
+ERROR: Exception Primary Source:  4.33.0
+Please review automatically generated error log:
+sqlcl-lb-error1793887184789.log
+For additional information run using -debug and/or -log parameters. 
+
+
+An error has occurred: 
+liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset e3-initial/_custom/e3_initial_data.sql::1793718860083::SqlCl:
+     Reason: liquibase.exception.DatabaseException: Error occurred and continueonerror set to false, stopping execution.
+	at liquibase.command.CommandScope.lambda$execute$6(CommandScope.java:310)
+	at liquibase.Scope.child(Scope.java:225)
+	at liquibase.Scope.child(Scope.java:201)
+	at liquibase.command.CommandScope.execute(CommandScope.java:251)
+	at liquibase.Scope.child(Scope.java:225)
+	at liquibase.Scope.child(Scope.java:201)
+	at oracle.dbtools.raptor.liquibase.core.ActiveCommand.runCommand(ActiveCommand.java:439)
+	at oracle.dbtools.raptor.liquibase.core.CommandGenerator.updateCommand(CommandGenerator.java:292)
+	at oracle.dbtools.raptor.scriptrunner.commands.liquibase.LbCommand.handleEvent(LbCommand.java:354)
+	at oracle.dbtools.raptor.newscriptrunner.CommandRegistry.fireListeners(CommandRegistry.java:474)
+	at oracle.dbtools.raptor.newscriptrunner.ScriptRunner.lambda$run$0(ScriptRunner.java:241)
+	at oracle.dbtools.raptor.newscriptrunner.ScriptRunnerContext.runWithStoredContext(ScriptRunnerContext.java:838)
+	at oracle.dbtools.raptor.newscriptrunner.ScriptRunner.run(ScriptRunner.java:124)
+	at oracle.dbtools.raptor.newscriptrunner.ScriptExecutor.run(ScriptExecutor.java:364)
+	at oracle.dbtools.raptor.newscriptrunner.ScriptExecutor.run(ScriptExecutor.java:245)
+	at oracle.dbtools.raptor.newscriptrunner.SQLPLUS.runExecuteFile(SQLPLUS.java:1779)
+	at oracle.dbtools.raptor.newscriptrunner.SQLPLUS.run(SQLPLUS.java:186)
+	at oracle.dbtools.raptor.newscriptrunner.ScriptRunner.runSQLPLUS(ScriptRunner.java:460)
+	at oracle.dbtools.raptor.newscriptrunner.ScriptRunner.lambda$run$0(ScriptRunner.java:281)
+	at oracle.dbtools.raptor.newscriptrunner.ScriptRunnerContext.runWithStoredContext(ScriptRunnerContext.java:838)
+	at oracle.dbtools.raptor.newscriptrunner.ScriptRunner.run(ScriptRunner.java:124)
+	at oracle.dbtools.raptor.newscriptrunner.ScriptExecutor.run(ScriptExecutor.java:364)
+	at oracle.dbtools.raptor.newscriptrunner.ScriptExecutor.run(ScriptExecutor.java:245)
+	at oracle.dbtools.runner.SqlClCommandsRunner.run(SqlClCommandsRunner.java:62)
+	at oracle.dbtools.extension.project.commands.deploy.DeployCommand.run(DeployCommand.java:152)
+	at oracle.dbtools.extension.project.commands.handler.CommandHandler.DeployCommand(CommandHandler.java:149)
+	at oracle.dbtools.extension.project.commands.handler.ProjectCommand.handleEvent(ProjectCommand.java:100)
+	at oracle.dbtools.raptor.newscriptrunner.util.command.ParsedCommandListener.handleEvent(ParsedCommandListener.java:64)
+	at oracle.dbtools.raptor.newscriptrunner.CommandRegistry.fireListeners(CommandRegistry.java:474)
+	at oracle.dbtools.raptor.newscriptrunner.ScriptRunner.lambda$run$0(ScriptRunner.java:241)
+	at oracle.dbtools.raptor.newscriptrunner.ScriptRunnerContext.runWithStoredContext(ScriptRunnerContext.java:838)
+	at oracle.dbtools.raptor.newscriptrunner.ScriptRunner.run(ScriptRunner.java:124)
+	at oracle.dbtools.raptor.newscriptrunner.ScriptExecutor.run(ScriptExecutor.java:364)
+	at oracle.dbtools.raptor.newscriptrunner.ScriptExecutor.run(ScriptExecutor.java:245)
+	at oracle.dbtools.raptor.newscriptrunner.SQLPLUS.runExecuteFile(SQLPLUS.java:1779)
+	at oracle.dbtools.raptor.newscriptrunner.SQLPLUS.run(SQLPLUS.java:186)
+	at oracle.dbtools.raptor.newscriptrunner.ScriptRunner.runSQLPLUS(ScriptRunner.java:460)
+	at oracle.dbtools.raptor.newscriptrunner.ScriptRunner.lambda$run$0(ScriptRunner.java:281)
+	at oracle.dbtools.raptor.newscriptrunner.ScriptRunnerContext.runWithStoredContext(ScriptRunnerContext.java:838)
+	at oracle.dbtools.raptor.newscriptrunner.ScriptRunner.run(ScriptRunner.java:124)
+	at oracle.dbtools.raptor.newscriptrunner.ScriptExecutor.run(ScriptExecutor.java:364)
+	at oracle.dbtools.raptor.newscriptrunner.ScriptExecutor.run(ScriptExecutor.java:245)
+	at oracle.dbtools.raptor.scriptrunner.cmdline.SqlCli.processLine(SqlCli.java:1437)
+	at oracle.dbtools.raptor.scriptrunner.cmdline.SqlCli.runSqlcl(SqlCli.java:1548)
+	at oracle.dbtools.raptor.scriptrunner.cmdline.SqlCli.main(SqlCli.java:331)
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset e3-initial/_custom/e3_initial_data.sql::1793718860083::SqlCl:
+     Reason: liquibase.exception.DatabaseException: Error occurred and continueonerror set to false, stopping execution.
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:155)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$0(AbstractUpdateCommandStep.java:114)
+	at liquibase.Scope.lambda$child$0(Scope.java:216)
+	at liquibase.Scope.child(Scope.java:225)
+	at liquibase.Scope.child(Scope.java:215)
+	at liquibase.Scope.child(Scope.java:194)
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:112)
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:100)
+	at liquibase.command.CommandScope.lambda$execute$6(CommandScope.java:263)
+	... 44 more
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset e3-initial/_custom/e3_initial_data.sql::1793718860083::SqlCl:
+     Reason: liquibase.exception.DatabaseException: Error occurred and continueonerror set to false, stopping execution.
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:873)
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:127)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:71)
+	at liquibase.changelog.ChangeLogIterator.lambda$run$0(ChangeLogIterator.java:133)
+	at liquibase.Scope.lambda$child$0(Scope.java:216)
+	at liquibase.Scope.child(Scope.java:225)
+	at liquibase.Scope.child(Scope.java:215)
+	at liquibase.Scope.child(Scope.java:194)
+	at liquibase.changelog.ChangeLogIterator.lambda$run$1(ChangeLogIterator.java:122)
+	at liquibase.Scope.lambda$child$0(Scope.java:216)
+	at liquibase.Scope.child(Scope.java:225)
+	at liquibase.Scope.child(Scope.java:215)
+	at liquibase.Scope.child(Scope.java:194)
+	at liquibase.Scope.child(Scope.java:282)
+	at liquibase.Scope.child(Scope.java:286)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:91)
+	... 52 more
+Caused by: liquibase.exception.DatabaseException: Error occurred and continueonerror set to false, stopping execution.
+	at oracle.dbtools.raptor.liquibase.executor.jvm.SqlClExecutor.execute(SqlClExecutor.java:206)
+	at liquibase.executor.AbstractExecutor.execute(AbstractExecutor.java:148)
+	at oracle.dbtools.raptor.liquibase.executor.jvm.SqlClExecutor.execute(SqlClExecutor.java:318)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1198)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:816)
+	... 67 more
+
+Error occurred and continueonerror set to false, stopping execution.
+Rollback
+

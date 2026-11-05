@@ -39,3 +39,40 @@ CASES
   rg -q 'project deploy' "$example/sql/deploy.sql"
   echo 'PASS native workflow boundary and 9 PR classification cases'
 }
+
+
+test_SM58_native_release_boundary() {
+  local scratch original=$PWD
+  scratch=$(mktemp -d "${TMPDIR:-/tmp}/apex-native-release.XXXXXX")
+  (
+    set -e
+    . "$original/examples/git-pipeline/.github/assert-native-release.sh"
+    cd "$scratch"
+    git init -q
+    mkdir -p .dbtools dist/releases/1.0.5
+    printf '1.0.5\n' > version.txt
+    printf '{"lastReleaseVersion":""}\n' > .dbtools/project.config.json
+    printf '<databaseChangeLog/>\n' > dist/releases/1.0.5/release.changelog.xml
+    git add .
+    git -c user.name=Test -c user.email=test@example.invalid commit -qm fixture
+    if assert_native_release 1.0.5; then echo 'Unfrozen release accepted'; exit 1; fi
+    printf '{"lastReleaseVersion":"1.0.5"}\n' > .dbtools/project.config.json
+    git add .
+    git -c user.name=Test -c user.email=test@example.invalid commit -qm frozen
+    assert_native_release 1.0.5
+    if assert_native_release 1.0.6; then echo 'Wrong version accepted'; exit 1; fi
+    if assert_native_release '../next'; then echo 'Unsafe version accepted'; exit 1; fi
+    rm dist/releases/1.0.5/release.changelog.xml
+    if assert_native_release 1.0.5; then echo 'Missing distribution accepted'; exit 1; fi
+    git restore .
+    printf 'dirty\n' >> version.txt
+    if assert_native_release 1.0.5; then echo 'Dirty release accepted'; exit 1; fi
+  )
+  local result=$?
+  rm -rf -- "$scratch"
+  ((result == 0)) || return "$result"
+  rg -q 'skip-github-release: true' examples/git-pipeline/.github/workflows/version.yml
+  rg -q 'project release -version &1' examples/git-pipeline/sql/release.sql
+  rg -q 'assert_native_release' examples/git-pipeline/.github/workflows/release.yml
+  echo 'PASS frozen release accepted; unfrozen, mismatched, unsafe, missing and dirty inputs rejected'
+}

@@ -1,0 +1,14 @@
+RUN unit:test_review_fixes.sh:test_external_review_fixes
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 19.836s
+
+OK
+RECONSTRUCTED initial: .local-apex/releases/lab-1.0.0-08a5cf27e8a3.tar SHA256 d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+RECONSTRUCTED patch: .local-apex/releases/lab-1.0.1-0cc6c6802e0e.tar SHA256 80b51f1ed3e371d6c198dc785a7df741fd671d2ab77d8db630f7dd63bd92d583
+PASS release inputs: exact reviewed bytes reconstructed; no Oracle connection or new candidate-test claim.
+RECONSTRUCTED initial: .local-apex/releases/lab-1.0.0-08a5cf27e8a3.tar SHA256 d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+RECONSTRUCTED patch: .local-apex/releases/lab-1.0.1-0cc6c6802e0e.tar SHA256 80b51f1ed3e371d6c198dc785a7df741fd671d2ab77d8db630f7dd63bd92d583
+PASS release inputs: exact reviewed bytes reconstructed; no Oracle connection or new candidate-test claim.
+PASS test_external_review_fixes
+Tests: 1; failed: 0

@@ -1,0 +1,5 @@
+RUN integration:test_pipeline.sh:test_IT58_native_release_evidence
+PASS native missing-changeset diagnostic: dist/releases/1.0.5/changes/e3-initial/e1_dev_c/package_bodies/lab_runtime.sql
+PASS native release qualification evidence and archive/bundle bindings (local evidence reader)
+PASS test_IT58_native_release_evidence
+Tests: 1; failed: 0
