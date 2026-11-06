@@ -29,3 +29,7 @@ The supplied model.drawio is preserved as the editable source. Its general lifec
 ## Completion boundary
 
 The native release omission is implemented and qualified locally for the supported upgrade/repeat path. Source, tests, seed bundle, operating guidance and gap assessment are corrected. The sprint remains reopened pending Product Owner handover/reclosure; prior closure is historical. No new GitHub execution, remote seed publication, clean-host installation or production readiness is claimed.
+
+## Product Owner walkthrough completion — 2026-11-06
+
+The [walkthrough](sprint_E.3_increment_demo.md#repository-roles-before-running-project-commands) now shows actual path-level effects at every native step, with retained heading diffs, stage include relationships, the native release rename and metadata update, all ZIP members and target execution counts. Presentation slides 14–17, 21–22 and 25–27 make those effects visible in the demonstration. The [file-flow evidence](tests/file-flow/provenance.json) binds inspected source/archive bytes; the corrected manual missing-file exercise was freshly verified on v1.0.5 in [its transcript](tests/file-flow/manual-rehearsal.log). Native deployment evidence remains the original 2026-11-05 qualification.

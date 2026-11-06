@@ -12,3 +12,6 @@ progress/E.2/inputs/*.filters whitespace=-blank-at-eol
 progress/E.2/inputs/*.patch whitespace=-blank-at-eol
 # E.3 native SQLcl evidence retains its original formatted output.
 progress/E.3/tests/release-correction/*.log whitespace=-blank-at-eol,-blank-at-eof
+# E.3 file-effect walkthrough preserves exact Git diffs and SQLcl transcripts.
+progress/E.3/tests/file-flow/*.log whitespace=-blank-at-eol,-blank-at-eof
+progress/E.3/tests/file-flow/*.diff whitespace=-blank-at-eol,-blank-at-eof

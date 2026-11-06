@@ -1,0 +1,32 @@
+M	.dbtools/project.config.json
+R100	dist/releases/next/changes/e3-heading/stage.changelog.xml	dist/releases/1.0.5/changes/e3-heading/stage.changelog.xml
+R100	dist/releases/next/changes/e3-initial/_custom/e3_initial_data.sql	dist/releases/1.0.5/changes/e3-initial/_custom/e3_initial_data.sql
+R100	dist/releases/next/changes/e3-initial/e1_dev_c/package_bodies/lab_runtime.sql	dist/releases/1.0.5/changes/e3-initial/e1_dev_c/package_bodies/lab_runtime.sql
+R100	dist/releases/next/changes/e3-initial/e1_dev_c/package_specs/lab_runtime.sql	dist/releases/1.0.5/changes/e3-initial/e1_dev_c/package_specs/lab_runtime.sql
+R100	dist/releases/next/changes/e3-initial/e1_dev_c/ref_constraints/hello_config.hello_entries.sql	dist/releases/1.0.5/changes/e3-initial/e1_dev_c/ref_constraints/hello_config.hello_entries.sql
+R100	dist/releases/next/changes/e3-initial/e1_dev_c/ref_constraints/world_config.world_entries.sql	dist/releases/1.0.5/changes/e3-initial/e1_dev_c/ref_constraints/world_config.world_entries.sql
+R100	dist/releases/next/changes/e3-initial/e1_dev_c/tables/greeting_history.sql	dist/releases/1.0.5/changes/e3-initial/e1_dev_c/tables/greeting_history.sql
+R100	dist/releases/next/changes/e3-initial/e1_dev_c/tables/hello_config.sql	dist/releases/1.0.5/changes/e3-initial/e1_dev_c/tables/hello_config.sql
+R100	dist/releases/next/changes/e3-initial/e1_dev_c/tables/hello_entries.sql	dist/releases/1.0.5/changes/e3-initial/e1_dev_c/tables/hello_entries.sql
+R100	dist/releases/next/changes/e3-initial/e1_dev_c/tables/lab_components.sql	dist/releases/1.0.5/changes/e3-initial/e1_dev_c/tables/lab_components.sql
+R100	dist/releases/next/changes/e3-initial/e1_dev_c/tables/lab_state.sql	dist/releases/1.0.5/changes/e3-initial/e1_dev_c/tables/lab_state.sql
+R100	dist/releases/next/changes/e3-initial/e1_dev_c/tables/world_config.sql	dist/releases/1.0.5/changes/e3-initial/e1_dev_c/tables/world_config.sql
+R100	dist/releases/next/changes/e3-initial/e1_dev_c/tables/world_entries.sql	dist/releases/1.0.5/changes/e3-initial/e1_dev_c/tables/world_entries.sql
+R100	dist/releases/next/changes/e3-initial/e1_dev_c/triggers/greeting_history_immutable.sql	dist/releases/1.0.5/changes/e3-initial/e1_dev_c/triggers/greeting_history_immutable.sql
+R100	dist/releases/next/changes/e3-initial/e1_dev_c/triggers/greeting_history_insert_guard.sql	dist/releases/1.0.5/changes/e3-initial/e1_dev_c/triggers/greeting_history_insert_guard.sql
+R100	dist/releases/next/changes/e3-initial/e1_dev_c/triggers/hello_config_guard.sql	dist/releases/1.0.5/changes/e3-initial/e1_dev_c/triggers/hello_config_guard.sql
+R100	dist/releases/next/changes/e3-initial/e1_dev_c/triggers/hello_config_no_delete.sql	dist/releases/1.0.5/changes/e3-initial/e1_dev_c/triggers/hello_config_no_delete.sql
+R100	dist/releases/next/changes/e3-initial/e1_dev_c/triggers/hello_entries_guard.sql	dist/releases/1.0.5/changes/e3-initial/e1_dev_c/triggers/hello_entries_guard.sql
+R100	dist/releases/next/changes/e3-initial/e1_dev_c/triggers/hello_entries_no_delete.sql	dist/releases/1.0.5/changes/e3-initial/e1_dev_c/triggers/hello_entries_no_delete.sql
+R100	dist/releases/next/changes/e3-initial/e1_dev_c/triggers/world_config_guard.sql	dist/releases/1.0.5/changes/e3-initial/e1_dev_c/triggers/world_config_guard.sql
+R100	dist/releases/next/changes/e3-initial/e1_dev_c/triggers/world_config_no_delete.sql	dist/releases/1.0.5/changes/e3-initial/e1_dev_c/triggers/world_config_no_delete.sql
+R100	dist/releases/next/changes/e3-initial/e1_dev_c/triggers/world_entries_guard.sql	dist/releases/1.0.5/changes/e3-initial/e1_dev_c/triggers/world_entries_guard.sql
+R100	dist/releases/next/changes/e3-initial/e1_dev_c/triggers/world_entries_no_delete.sql	dist/releases/1.0.5/changes/e3-initial/e1_dev_c/triggers/world_entries_no_delete.sql
+R100	dist/releases/next/changes/e3-initial/stage.changelog.xml	dist/releases/1.0.5/changes/e3-initial/stage.changelog.xml
+R100	dist/releases/next/changes/e3-native-only/stage.changelog.xml	dist/releases/1.0.5/changes/e3-native-only/stage.changelog.xml
+R100	dist/releases/next/changes/e3-native-session/stage.changelog.xml	dist/releases/1.0.5/changes/e3-native-session/stage.changelog.xml
+R100	dist/releases/next/changes/e3-runtime-correction/stage.changelog.xml	dist/releases/1.0.5/changes/e3-runtime-correction/stage.changelog.xml
+A	dist/releases/1.0.5/changes/main/stage.changelog.xml
+A	dist/releases/1.0.5/release.changelog.xml
+M	dist/releases/main.changelog.xml
+M	dist/releases/next/release.changelog.xml

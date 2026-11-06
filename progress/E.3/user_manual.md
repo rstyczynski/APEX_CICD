@@ -1,5 +1,7 @@
 # E.3 — Native pipeline operator manual
 
+For the Product Owner demonstration, use the walkthrough's [repository roles](sprint_E.3_increment_demo.md#repository-roles-before-running-project-commands) and visible file-effect checkpoints for [export](sprint_E.3_increment_demo.md#visible-file-effects-of-project-export), [stage](sprint_E.3_increment_demo.md#visible-file-effects-of-project-stage), [verify](sprint_E.3_increment_demo.md#visible-file-effects-of-project-verify), [release](sprint_E.3_increment_demo.md#visible-file-effects-of-project-release), [artifact generation](sprint_E.3_increment_demo.md#visible-file-effects-of-project-gen-artifact) and [deployment](sprint_E.3_increment_demo.md#visible-file-and-target-effects-of-project-deploy). They show actual source paths, native include relationships, the numbered-release rename, ZIP members and target execution outcomes. Commands alone do not satisfy these demonstration checkpoints.
+
 Native release correction — 2026-11-05: Release Please proposes version/changelog only. After merging that proposal, run native project release on main, review/commit its distribution and metadata, then publish the tag before selected-tag deployment. The [current walkthrough step E](sprint_E.3_increment_demo.md#native-release-preparation--oracle-paper-pp2627), [correction record](sprint_E.3_release_correction.md) and [final gap reassessment](sprint_E.3_final_gap_analysis.md) supersede earlier automatic-tag/next-distribution instructions below.
 
 GitHub Actions owns configuration and setup. Native APEX/SQLcl owns authoring,

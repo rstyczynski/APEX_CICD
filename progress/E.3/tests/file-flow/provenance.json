@@ -1,0 +1,8 @@
+{
+  "heading_commit": "568a06d15d706c2f4908efeba2ca6d5928f713aa",
+  "native_freeze_commit": "ed732c26a24b56c5f76301c7ec69df9736f36e67",
+  "artifact_sha256": "969c567c26d6b092230db9426c99078a1c91d0f2bf4f75e2478b7b68d2d43fcc",
+  "archive_files": 37,
+  "all_archive_files_match_committed_dist": true,
+  "observation": "Inspected retained source/history/archive; no fresh export, staging, release or deployment claimed"
+}

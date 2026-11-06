@@ -1,0 +1,9 @@
+{
+  "project": "e3",
+  "sqlcl": {
+    "connectionName": "lab-dev-c",
+    "version": "25.4.1.0",
+    "autoConnect": false
+  },
+  "lastReleaseVersion": ""
+}

@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-06",
+  "slides": 35,
+  "new_file_effect_slides": [
+    14,
+    15,
+    16,
+    17,
+    21,
+    22,
+    25,
+    26,
+    27
+  ],
+  "presentation_sha256": "a071bbb931534dc4abf476bb0afb9fcfc49dc94bd050ec3bb3f39c1bc4cdf3e3",
+  "package_findings": 0,
+  "manual_exercise": "verbatim documented block, local v1.0.5, Errors 0/1/0, no deployment",
+  "visual_review": "new slides individually inspected at full size; unchanged slides scanned; native editable Courier file trees; agenda/dividers/closing preserved",
+  "checks": [
+    "all 37 ZIP members match committed dist",
+    "actual Git heading paths and release renames inspected",
+    "complete SQL snippets match executable scripts",
+    "version-aware exercise selects numbered distribution",
+    "local Markdown targets exist",
+    "git diff whitespace checks passed"
+  ],
+  "documented_exercise_sha256": "93a8365e27113bc821a8410da103bd81824b4b0afde4ad53499cbbe1a5a21387",
+  "final_documented_block_equals_executed_block": true
+}
