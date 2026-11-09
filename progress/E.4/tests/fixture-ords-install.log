@@ -1,0 +1,38 @@
+
+ORDS: Release 25.3 Production on Mon Nov 09 12:15:10 2026
+
+Copyright (c) 2010, 2026, Oracle.
+
+Configuration:
+  /etc/ords/config
+
+Oracle REST Data Services - Non-Interactive Install
+
+Retrieving information.
+The setting named: db.connectionType was set to: basic in configuration: e4a
+The setting named: db.hostname was set to: apex-db in configuration: e4a
+The setting named: db.port was set to: 1521 in configuration: e4a
+The setting named: db.servicename was set to: E4A in configuration: e4a
+The setting named: plsql.gateway.mode was set to: proxied in configuration: e4a
+The setting named: db.username was set to: ORDS_PUBLIC_USER in configuration: e4a
+The setting named: db.password was set to: ****** in configuration: e4a
+The setting named: feature.sdw was set to: false in configuration: e4a
+The global setting named: database.api.enabled was removed from the configuration
+The setting named: restEnabledSql.active was set to: false in configuration: e4a
+The setting named: security.requestValidationFunction was set to: ords_util.authorize_plsql_gateway in configuration: e4a
+2026-11-09T12:15:10.843Z INFO        Created folder /opt/oracle/ords/logs
+2026-11-09T12:15:10.844Z INFO        The log file is defaulted to the current working directory located at /opt/oracle/ords/logs
+2026-11-09T12:15:10.886Z INFO        Installing Oracle REST Data Services version 25.3.0.r2671248 in E4A
+2026-11-09T12:15:12.210Z INFO        ... Verified database prerequisites
+2026-11-09T12:15:12.367Z INFO        ... Created Oracle REST Data Services proxy user
+2026-11-09T12:15:12.582Z INFO        ... Created Oracle REST Data Services schema
+Error executing script: ords_grant_privs.sql Error: ORA-01031: insufficient privileges
+ORA-06512: at line 71
+
+https://docs.oracle.com/error-help/db/ora-01031/
+ Refer to log file /opt/oracle/ords/logs/ords_install_2026-11-09_121510_84454.log for details
+Error, the administrator user: E4_ORDS_INSTALL does not have the privileges to install ORDS.
+You will need to do the following to provide privileges and reinstall ORDS in the database:
+- Ensure that the administrator user: E4_ORDS_INSTALL has the appropriate privileges to install ORDS.
+- To reinstall ORDS in the database, you will need to uninstall ORDS and then install ORDS in the database.
+See Oracle REST Data Services documentation on how to 1) provide privileges to a non-SYS user to install ORDS, and 2) uninstall ORDS from the database and install ORDS again.

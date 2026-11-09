@@ -1,0 +1,2 @@
+36148 73502 Mon Nov  9 13:33:27 2026     /opt/homebrew/bin/bash -c ps -axo pid,ppid,lstart,command | rg 'oracle.dbtools|e4_parallel|apex-e4-private.*/[abc]-operation' | sed -E 's|~/]+/|~/|g' > progress/E.4/tests/parallel-processes.txt
+36150 36148 Mon Nov  9 13:33:27 2026     rg oracle.dbtools|e4_parallel|apex-e4-private.*/[abc]-operation

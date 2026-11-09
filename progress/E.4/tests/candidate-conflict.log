@@ -1,0 +1,9 @@
+Auto-merging dist/releases/apex/f810003/f810003.sql
+CONFLICT (content): Merge conflict in dist/releases/apex/f810003/f810003.sql
+Auto-merging dist/releases/apex/f810003/f810003.xml
+CONFLICT (content): Merge conflict in dist/releases/apex/f810003/f810003.xml
+Auto-merging src/database/e1_dev_c/apex_apps/f810003/f810003.sql
+CONFLICT (content): Merge conflict in src/database/e1_dev_c/apex_apps/f810003/f810003.sql
+Auto-merging src/database/e1_dev_c/apex_apps/f810003/readable/application/f810003.yaml
+CONFLICT (content): Merge conflict in src/database/e1_dev_c/apex_apps/f810003/readable/application/f810003.yaml
+Automatic merge failed; fix conflicts and then commit the result.

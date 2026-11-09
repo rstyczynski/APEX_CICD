@@ -2,7 +2,15 @@
 
 E.3 accepted and closed on 2026-11-09. Historical correction:  [native release implementation and evidence](progress/E.3/sprint_E.3_release_correction.md), [final Oracle lifecycle gap reassessment](progress/E.3/sprint_E.3_final_gap_analysis.md) and [current walkthrough/presentation](progress/E.3/sprint_E.3_increment_demo.md). The paper is E.3's authoritative lifecycle reference. The corrected local seed includes native release preparation before tag/package; historical remote runs remain separately attributed.
 
-E.4 is active for PBI-042/PBI-060: [setup](progress/E.4/sprint_E.4_setup.md) and [proposed design/test specification](progress/E.4/sprint_E.4_design.md). Local Astra review precedes Product Owner design approval; implementation has not started.
+E.4 is active for PBI-042/PBI-060. The prepared-host experiment delivered native
+release 1.0.7 with A/C selected, B retained, actual parallel author processes and
+central DEV synchronization/repeat. Start the [complete walkthrough](progress/E.4/sprint_E.4_increment_demo.md),
+[editable presentation](progress/E.4/sprint_E.4_increment_demo.pptx),
+[manual](progress/E.4/user_manual.md) and [handover](progress/E.4/sprint_E.4_handover.md).
+[Tests](progress/E.4/sprint_E.4_tests.md) distinguish actual runtime evidence from
+read-only assertions and record the approved counter-only checksum recovery.
+Independent Astra handover review and live Product Owner acceptance remain separate;
+[PLAN](PLAN.md) stays Progress.
 
 **From Git to APEX: traceable releases, safe upgrades and protected deployments.**
 
@@ -62,7 +70,7 @@ One repository contains all three components:
 
 A/B/C use **E1_DEV_A/B/C**, applications **810001/810002/810003**. The disposable integration area is **E1_INTEGRATION / 810004**; retained UAT is **E1_UAT / 810005**. These are private logical areas in one Oracle installation, not separate component repositories or isolated database servers. Hello and World both depend on Foundation.
 
-Current A–C scripts replay reviewed sequential Git snapshots. Independent task branches, genuine parallel Hello/World integration and hosted PR/CI execution are proposed extensions, not demonstrated by that replay. Ignored `.local-apex/` contains local tools, credentials, staging, release archives and host evidence; credentials and runtime business data stay outside Git.
+Current A–C scripts replay reviewed sequential Git snapshots. Independent task branches, genuine parallel Hello/World integration and hosted PR/CI execution are proposed extensions, not demonstrated by that replay. Ignored `.local-apex/` is disposable tool/download/staging evidence only, except for the explicitly retained prepared-host e1-secrets.json accommodation in AGENTS.md. New credentials/settings do not belong there; runtime business data stays private.
 
 Workflows must prepare tools and generated files through explicit setup and obtain environment settings and credentials from their configuration platform. **`.local-apex/` is disposable scratch only**, never a new environment-settings or credential store. The sole temporary exception is the Product Owner-approved read-only prepared-host lookup of the existing E.1/E.2 credential record, with the scope/ending trigger in [R1-L1](progress/E.3/sprint_E.3_handover_review-1-decisions.md#r1-l1--product-owner-policy-choice-required). That retained dependency must not be discarded as scratch. E.3 uses GitHub variables/secrets and job-scoped temporary SQLcl connections, as described in the [configuration guide](progress/E.3/sprint_E.3_github_configuration.md). [SRS NFR-4](docs/srs.md#quality-requirements-and-initial-release) and [PBI-054](BACKLOG.md#pbi-054-generate-the-complete-local-environment-from-a-fresh-checkout) retain the broader independent-operator/lab setup proof; a machine-specific environment file is not the required solution.
 
@@ -109,8 +117,7 @@ selects the version tag. A reviewed release PR commits CHANGELOG.md and version
 metadata before the workflow creates the tag and matching GitHub Release notes. Analysis/design will consider selective
 future release automation. The former 15 full-solution assignments return to
 the backlog for Construction or risk-driven later Elaboration; PBI-053 owns
-this bounded prototype. E.4's five assignments remain pending scope refinement
-against E.3 evidence before activation. The [plan](PLAN.md) owns assignments
+this bounded prototype. The former five-item E.4 proposal was superseded by the approved PBI-042/PBI-060 scope. The [plan](PLAN.md) owns assignments
 and status. Earlier native-team/Git-team split records remain planning history;
 their full qualification and comparison gates are not E.3 prototype criteria.
 
@@ -160,7 +167,7 @@ The first remote run failed before deployment and its workflow correction is
 retained. The release/tag is 1.0.4 while APEX's display footer remains 1.0.0;
 automatic display-version stamping was not qualified.
 
-PBI-053 and its three children are Done. E.3 was previously closed on 2026-11-05, then reopened by explicit Product Owner direction for PBI-058. That correction is implemented/tested locally; E.3 awaits handover/reclosure. E.4/E.5 remain Planned. This is an architecture
+PBI-053 and its three children are Done. E.3 was previously closed on 2026-11-05, then reopened by explicit Product Owner direction for PBI-058. The Product Owner accepted the correction and closed E.3 on 2026-11-09. E.4 is active; E.5 remains Planned. This is an architecture
 prototype, with concurrency, full identity preservation, drift/fencing and
 broader recovery still registered for later work.
 
@@ -190,11 +197,11 @@ owns its scope and reconsideration trigger, not a claim of NFR-4 compliance.
 
 [PBI-055](BACKLOG.md#pbi-055-reduce-repeated-pipeline-toolchain-setup) proposes
 reducing repeated Java/SQLcl setup while preserving approved versions, tool
-integrity and private job connections. The [deployment walkthrough](progress/E.3/sprint_E.3_increment_demo.md#f-manually-deploy-the-published-tag--slide-15)
+integrity and private job connections. The [deployment walkthrough](progress/E.3/sprint_E.3_increment_demo.md#f-manually-deploy-the-published-tag--slide-24)
 explains the current setup and candidates for later optimization; this work
 has no sprint assignment yet.
 
-The [accepted E.3 lifecycle mapping and gap dispositions](progress/E.3/sprint_E.3_pipeline_scope.md#lc-1--oracle-apex-lifecycle-alignment-validation)
+The [accepted E.3 lifecycle mapping and gap dispositions](progress/E.3/sprint_E.3_pipeline_scope.md#lc-1--oracle-apex-lifecycle-alignment-validation-historical)
 connect the Oracle paper to existing backlog follow-up and new
 [PBI-056](BACKLOG.md#pbi-056-provide-isolated-apex-environments-for-git-feature-branches)
 for private branch environments and
@@ -215,6 +222,6 @@ The supplied [Oracle APEX lifecycle reference](refs/apex-lifecycle-management-v3
 
 [RUPStrikesBack](https://github.com/rstyczynski/RUPStrikesBack) is an iterative delivery method for collaboration between a Product Owner and AI agents. It combines RUP lifecycle phases with a prioritized backlog, bounded iterations, explicit requirements/design, executable validation and Product Owner review. Each increment connects its implementation, tests and documentation so decisions can be checked against evidence.
 
-This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1, E.1 and E.2 are closed; E.3 is reopened for the implemented/tested PBI-058 native-release correction; E.4/E.5 remain Planned with distinct assigned Elaboration work recorded in the backlog and plan.
+This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1, E.1, E.2 and E.3 are closed. E.4 is active for PBI-042/PBI-060 with native runtime validation complete and handover preparation underway; E.5 remains Planned. PLAN owns the current assignments and lifecycle states.
 
 For external expert review, use the [rup-external-review skill](.agents/skills/rup-external-review/SKILL.md). Codex prepares the prompts and engineering replies; the Product Owner relays them to the expert through the linked round files. Review outcomes and implementation evidence remain distinct from sprint acceptance.

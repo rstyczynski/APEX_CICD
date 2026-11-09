@@ -1,0 +1,13 @@
+{
+  "case": "IT-2",
+  "decision": "REFUSE_STALE_SOURCE",
+  "selected_source": "e0f60ff5efc6905c3b6a4c0e7a7a79a6b0134b0c",
+  "attempted_source": "ed732c26a24b56c5f76301c7ec69df9736f36e67",
+  "attempted_archive_sha256": "969c567c26d6b092230db9426c99078a1c91d0f2bf4f75e2478b7b68d2d43fcc",
+  "live_checksum": "SH256:IJfayHg6qlXi87l+XlQXMKTFBdF5xKJ5d/hyhXhrUWw=",
+  "deploy_invoked": false,
+  "all_business_fields_unchanged": true,
+  "receipt_sha256_before": "f1630b9eafc1b761add6679b50987e37a268f0cdf4f6f5db0037f5cef4130633",
+  "receipt_sha256_after": "f1630b9eafc1b761add6679b50987e37a268f0cdf4f6f5db0037f5cef4130633",
+  "mechanism": "Explicit operator review; not autonomous worker fencing"
+}

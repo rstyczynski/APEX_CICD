@@ -1,0 +1,26 @@
+
+ORDS: Release 25.3 Production on Mon Nov 09 12:16:31 2026
+
+Copyright (c) 2010, 2026, Oracle.
+
+Configuration:
+  /etc/ords/config
+
+Oracle REST Data Services - Non-Interactive Install
+
+Retrieving information.
+2026-11-09T12:16:31.882Z INFO        The log file is defaulted to the current working directory located at /opt/oracle/ords/logs/
+2026-11-09T12:16:31.920Z INFO        Installing Oracle REST Data Services version 25.3.0.r2671248 in E4A
+2026-11-09T12:16:32.911Z INFO        ... Verified database prerequisites
+2026-11-09T12:16:33.056Z INFO        ... Created Oracle REST Data Services proxy user
+2026-11-09T12:16:33.227Z INFO        ... Created Oracle REST Data Services schema
+2026-11-09T12:16:33.416Z INFO        ... Granted privileges to Oracle REST Data Services
+2026-11-09T12:16:34.584Z INFO        ... Created Oracle REST Data Services database objects
+2026-11-09T12:16:40.368Z INFO        Completed installation for Oracle REST Data Services version 25.3.0.r2671248. Elapsed time: 00:00:08.426 
+
+2026-11-09T12:16:40.389Z INFO        Completed configuring PL/SQL gateway user for Oracle REST Data Services version 25.3.0.r2671248. Elapsed time: 00:00:00.21 
+
+2026-11-09T12:16:40.390Z INFO        Log file written to /opt/oracle/ords/logs/ords_install_2026-11-09_121631_88375.log
+2026-11-09T12:16:40.394Z INFO        To run in standalone mode, use the ords serve command:
+2026-11-09T12:16:40.394Z INFO        ords --config /etc/ords/config serve
+2026-11-09T12:16:40.394Z INFO        Visit the ORDS Documentation to access tutorials, developer guides and more to help you get started with the new ORDS Command Line Interface (http://oracle.com/rest).

@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-09",
+  "sha256": "c5d35a89505f5ffd64548e4040711108077ca1b694e318ac3017df026d28f1d9",
+  "slide_count": 41,
+  "editable_text_and_native_bullets": true,
+  "code_font": "Courier",
+  "package_integrity": "pass",
+  "layout_geometry": "pass",
+  "first_party_import": "pass",
+  "visual_inspection": "All 41 slides rendered; every slide inspected full size, changed slides rechecked after embedding images and separating text/code.",
+  "layout_warning_disposition": "Slide 19 caption wraps to two lines visibly within slide; no clipping/overlap in rendered output.",
+  "powerpoint_application_inspected": false
+}

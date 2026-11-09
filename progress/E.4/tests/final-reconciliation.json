@@ -1,0 +1,14 @@
+{
+  "accepted_artifact_sha256": "27541bed6550c9f2dcfb36aeabd5e903bfe09a475fda0b0ec1972aa8ad9a1535",
+  "complete_source_compared": true,
+  "only_differences": [
+    "Exporter E1_DEV_C to E3_TARGET",
+    "Instance 743337902609559 to 1466289714044956",
+    "Generated p_version_scn 6169657 to 6262902"
+  ],
+  "raw_source_sha256": "e951a8425195f66eb6a9c52ce05bfbecf4846e37357ae1daea2a6e1e858f9168",
+  "native_reference_sha256": "9158681669c31ac755dd344eb67d2720d75181ead92f77f1a2c973f79a7c83dc",
+  "target_offset": "10866340965162088",
+  "interpretation": "Native target mapping and APEX version counter; no content or logic differences",
+  "diff": "final-source-reconciliation.diff"
+}

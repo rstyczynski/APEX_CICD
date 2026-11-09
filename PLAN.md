@@ -158,7 +158,7 @@ upgrade/repeat path; fresh-host limitations are explicit. The Product Owner acce
 
 On 2026-11-05 the Product Owner previously accepted LC-1, the mapping of the delivered
 native APEX/SQLcl and GitHub journey to the Oracle APEX lifecycle paper.
-The [accepted mapping and gap dispositions](progress/E.3/sprint_E.3_pipeline_scope.md#lc-1--oracle-apex-lifecycle-alignment-validation)
+The [accepted mapping and gap dispositions](progress/E.3/sprint_E.3_pipeline_scope.md#lc-1--oracle-apex-lifecycle-alignment-validation-historical)
 replace the earlier separate-report acceptance requirement. Remaining
 capabilities are tracked in the backlog, including new PBI-056 and PBI-057;
 these items are not assigned to E.3.
@@ -213,18 +213,19 @@ Test: smoke, integration
 Regression: smoke
 
 Activated by the Product Owner on 2026-11-09 following explicit E.3 acceptance
-and closure. Validate three attributable developer contributions in one native
-SQLcl release and safe synchronization of central APEX development with accepted
-Git source. Remain within APEX/SQLcl and GitHub native capabilities, with bounded
+and closure. Validate three independently staged developer contributions, select
+A/C for one native SQLcl release while preserving B, and safely synchronize central
+APEX development with accepted Git source. Remain within APEX/SQLcl and GitHub native capabilities, with bounded
 Elaboration experiments rather than completion of the delivery product.
-The Product Owner authorized setup and design, followed by local Astra external
-review, then an explicit design approval gate before implementation.
+The Product Owner approved the parallel design and authorized implementation through
+handover preparation, followed by a new dedicated Astra handover review. Live
+Product Owner acceptance and closure remain pending.
 
 This selection supersedes the earlier five-item E.4 scope. PBI-019, PBI-020,
 PBI-017 and PBI-046 return to the unscheduled backlog with unchanged criteria.
 PBI-056 is excluded. Other proposed capabilities remain unscheduled.
 See the [current setup](progress/E.4/sprint_E.4_setup.md) and
-[proposed design and test specification](progress/E.4/sprint_E.4_design.md).
+[accepted design and test specification](progress/E.4/sprint_E.4_design.md).
 
 Backlog Items:
 

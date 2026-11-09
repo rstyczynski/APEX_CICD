@@ -1,0 +1,12 @@
+{
+  "case": "IT-3a",
+  "decision": "REFUSE_INITIAL_BASELINE",
+  "reason": "Unexpected Home p_step_title differs from mapped accepted archive source",
+  "deploy_invoked": false,
+  "trusted_baseline_created": false,
+  "pending_title": "E4 pending pre-baseline edit",
+  "private_diff": "pending-initial.diff",
+  "operator": "single Codex operator role simulation",
+  "authorization": "Product Owner authorized temporary developer and reserved central DEV on 2026-11-09",
+  "all_business_fields_unchanged": true
+}

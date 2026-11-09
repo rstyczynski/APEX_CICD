@@ -1,0 +1,41 @@
+[
+  {
+    "role": "a",
+    "branch": "e4-a",
+    "base": "5a7655ffd3e6be92bcd88e9581612be17dc3059c",
+    "capture_commit": "e14d8b1dcc4a50ebd0a26a3ce298923bb217adc6",
+    "staged_commit": "fdb755155dce91541404af43ecc7e02ff63e9275",
+    "service": "E4A",
+    "start": "2026-11-09T12:35:31.815530+00:00",
+    "finish": "2026-11-09T12:35:57.188684+00:00",
+    "actual_operator": "Codex role simulation",
+    "independent_native_processes": true,
+    "clean": true
+  },
+  {
+    "role": "b",
+    "branch": "e4-b",
+    "base": "5a7655ffd3e6be92bcd88e9581612be17dc3059c",
+    "capture_commit": "39a620024598dbb98538ab68c1b786c840c5ed27",
+    "staged_commit": "ed9fe37bbebe30306ce91e981da9b5565b44c5c5",
+    "service": "E4B",
+    "start": "2026-11-09T12:35:31.815552+00:00",
+    "finish": "2026-11-09T12:35:56.664745+00:00",
+    "actual_operator": "Codex role simulation",
+    "independent_native_processes": true,
+    "clean": true
+  },
+  {
+    "role": "c",
+    "branch": "e4-c",
+    "base": "5a7655ffd3e6be92bcd88e9581612be17dc3059c",
+    "capture_commit": "aaf52fa6fdf1833b7f0cd695b52a66c4666e86bd",
+    "staged_commit": "2c966891b0bfd06fbfeff3f0500501eeb7b69f22",
+    "service": "E4C",
+    "start": "2026-11-09T12:35:31.815187+00:00",
+    "finish": "2026-11-09T12:35:56.656812+00:00",
+    "actual_operator": "Codex role simulation",
+    "independent_native_processes": true,
+    "clean": true
+  }
+]

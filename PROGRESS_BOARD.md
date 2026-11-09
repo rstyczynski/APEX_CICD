@@ -36,8 +36,8 @@
 | Sprint E.3 | Done | PBI-053.2 | Done |
 | Sprint E.3 | Done | PBI-053.3 | Done |
 | Sprint E.3 | Done | PBI-058 | Done |
-| Sprint E.4 | under_design | PBI-042 | under_design |
-| Sprint E.4 | under_design | PBI-060 | under_design |
+| Sprint E.4 | tested | PBI-042 | tested |
+| Sprint E.4 | tested | PBI-060 | tested |
 | Sprint E.5 | Planned | PBI-048 | Planned |
 | Sprint E.5 | Planned | PBI-049 | Planned |
 | Sprint E.5 | Planned | PBI-050 | Planned |

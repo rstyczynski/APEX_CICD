@@ -1,0 +1,57 @@
+SQLcl: Release 25.4.1.0 Production Build: 25.4.1.022.0618
+[0;37mThe current connection E1_DEV_C will be used for all operations[0m
+*** TABLES ***
+E1_DEV_C.GREETING_HISTORY
+E1_DEV_C.HELLO_CONFIG
+E1_DEV_C.HELLO_ENTRIES
+E1_DEV_C.LAB_COMPONENTS
+E1_DEV_C.LAB_STATE
+E1_DEV_C.WORLD_CONFIG
+E1_DEV_C.WORLD_ENTRIES
+*** PACKAGES ***
+E1_DEV_C.LAB_RUNTIME
+*** PACKAGE BODIES ***
+E1_DEV_C.LAB_RUNTIME
+*** TRIGGERS ***
+E1_DEV_C.GREETING_HISTORY_IMMUTABLE
+E1_DEV_C.GREETING_HISTORY_INSERT_GUARD
+E1_DEV_C.HELLO_CONFIG_GUARD
+E1_DEV_C.HELLO_CONFIG_NO_DELETE
+E1_DEV_C.HELLO_ENTRIES_GUARD
+E1_DEV_C.HELLO_ENTRIES_NO_DELETE
+E1_DEV_C.WORLD_CONFIG_GUARD
+E1_DEV_C.WORLD_CONFIG_NO_DELETE
+E1_DEV_C.WORLD_ENTRIES_GUARD
+E1_DEV_C.WORLD_ENTRIES_NO_DELETE
+*** REF_CONSTRAINTS ***
+E1_DEV_C.SYS_C0013239
+E1_DEV_C.SYS_C0013240
+*** APEX_APPLICATIONS ***
+application_id=810003
+[0;32m--------------------------------
+PACKAGE                        1
+PACKAGE BODY                   1
+REF_CONSTRAINT                 2
+TABLE                          7
+TRIGGER                       10
+--------------------------------[0m
+Listed 21 objects
+Elapsed 3 sec
+[0;37mThe current connection E1_DEV_C will be used for all operations[0m
+*** APEX_APPLICATIONS ***
+*** TABLES ***
+*** PACKAGE_SPECS ***
+*** PACKAGE_BODIES ***
+*** TRIGGERS ***
+Exporting Workspace E1_DEV_C - application 810003:APEX Delivery Laboratory
+*** REF_CONSTRAINTS ***
+[0;32m--------------------------------
+APEX_APPLICATION               1
+PACKAGE_BODY                   1
+PACKAGE_SPEC                   1
+REF_CONSTRAINT                 2
+TABLE                          7
+TRIGGER                       10
+--------------------------------[0m
+Exported 22 objects
+Elapsed 5 sec

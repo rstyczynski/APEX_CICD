@@ -66,3 +66,46 @@ test_IT58_native_release_evidence() {
     -f examples/git-pipeline/.github/assert-missing-changeset.awk "$evidence/missing-changeset.log"
   echo 'PASS native release qualification evidence and archive/bundle bindings (local evidence reader)'
 }
+
+test_E4_IT1_parallel_selection_evidence() {
+  local evidence=progress/E.4/tests
+  node - "$evidence" <<'JS'
+const fs=require('fs'),p=process.argv[2],rows=JSON.parse(fs.readFileSync(p+'/parallel-contributions.json'));
+if(rows.length!==3||new Set(rows.map(x=>x.service)).size!==3)throw Error('Independent services missing');
+if(Math.max(...rows.map(x=>Date.parse(x.start)))>=Math.min(...rows.map(x=>Date.parse(x.finish))))throw Error('No overlap');
+if(!rows.every(x=>x.clean&&x.independent_native_processes&&x.actual_operator==='Codex role simulation'))throw Error('Provenance missing');
+const release=JSON.parse(fs.readFileSync(p+'/release-branch.json'));
+if(release.starting_main===release.developer_base||!rows.every(x=>x.base===release.developer_base))throw Error('Baseline scenario missing');
+JS
+  gh api repos/rstyczynski/APEX_CICD_E3_LAB/pulls/9 | jq -e '.merged and .base.ref=="release-e4-candidate"' > /dev/null
+  gh api repos/rstyczynski/APEX_CICD_E3_LAB/pulls/10 | jq -e '.merged and .base.ref=="release-e4-candidate" and .head.sha=="8485f8149f30e2add49b8f5501755b3d80a13842"' > /dev/null
+  gh api repos/rstyczynski/APEX_CICD_E3_LAB/pulls/11 | jq -e '.merged and .base.ref=="main"' > /dev/null
+  gh api repos/rstyczynski/APEX_CICD_E3_LAB/git/ref/heads/e4-b | jq -e '.object.sha=="ed9fe37bbebe30306ce91e981da9b5565b44c5c5"' > /dev/null
+  echo 'PASS E4 actual concurrent-process receipts, admitted PRs and preserved B remote; no replay'
+}
+
+test_E4_IT2_IT3_refusal_evidence() {
+  local evidence=progress/E.4/tests
+  jq -e '.decision=="REFUSE_STALE_SOURCE" and (.selected_source!=.attempted_source) and (.deploy_invoked|not) and .all_business_fields_unchanged and (.receipt_sha256_before==.receipt_sha256_after)' "$evidence/it2-refusal.json" > /dev/null
+  jq -e '.decision=="REFUSE_INITIAL_BASELINE" and (.trusted_baseline_created|not) and (.deploy_invoked|not) and .all_business_fields_unchanged' "$evidence/it3a-refusal.json" > /dev/null
+  jq -e '.decision=="REFUSE_DEPLOY" and (.baseline_checksum!=.live_checksum) and (.deploy_invoked|not) and .pending_title_retained and .all_business_fields_unchanged and .prior_receipt_unchanged and (.original_checksum_restored|not)' "$evidence/it3b-refusal.json" > /dev/null
+  jq -e '.two_equal_reads and .business_fields_preserved and (.recovery_authorization|contains("Approve reviewed counter-only recovery"))' "$evidence/trusted-recovered-baseline.json" > /dev/null
+  echo 'PASS refusal evidence; checksum restoration failed and explicitly approved narrow recovery is retained'
+}
+
+test_E4_IT4_sync_repeat_evidence() {
+  node - <<'JS'
+const fs=require('fs'),dir='progress/E.4/tests/',read=n=>JSON.parse(fs.readFileSync(dir+n));
+const release=read('release-artifact.json'),first=read('sync-receipt.json'),repeat=read('repeat-receipt.json');
+for(const [name,r] of [['sync',first],['repeat',repeat]]){
+ if(r.source_sha!==release.source_sha||r.archive_sha256!==release.archive_sha256||r.status!=='Available'||!r.all_business_fields_preserved||!r.selected_A_C_verified||!r.deferred_B_absent||!r.two_equal_final_reads)throw Error(name+' receipt');
+ const states=read(name+'-lifecycle.json');
+ if(states.map(x=>x.stage).join(',')!=='admission,restricted-before,after-import,restricted-after,published-1,published-2')throw Error('Lifecycle missing');
+ if(states[1].status!=='Restricted Access'||states[3].status!=='Restricted Access'||states[4].status!=='Available'||states[4].checksum!==states[5].checksum||r.checksum!==states[5].checksum)throw Error('Invalid final baseline');
+}
+if(repeat.previous_checksum!==first.checksum)throw Error('Repeat did not admit finalized baseline');
+JS
+  grep -q 'Operation completed successfully' progress/E.4/tests/sync-deploy.log
+  grep -q 'Operation completed successfully' progress/E.4/tests/repeat-deploy.log
+  echo 'PASS E4 synchronization/repeat receipts and status lifecycle; local evidence reader, no deployment replay'
+}

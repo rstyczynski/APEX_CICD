@@ -1,0 +1,4 @@
+smoke:test_pipeline.sh:test_E4_SM1_native_artifact
+integration:test_pipeline.sh:test_E4_IT1_parallel_selection_evidence
+integration:test_pipeline.sh:test_E4_IT2_IT3_refusal_evidence
+integration:test_pipeline.sh:test_E4_IT4_sync_repeat_evidence

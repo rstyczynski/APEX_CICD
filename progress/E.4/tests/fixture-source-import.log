@@ -1,0 +1,217 @@
+SQLcl: Release 25.4.1.0 Production Build: 25.4.1.022.0618
+Name: lab-dev-c
+Connect String: //127.0.0.1:1521/E4A
+User: E1_DEV_C
+Password: ******
+
+Table GREETING_HISTORY created.
+
+
+Table GREETING_HISTORY altered.
+
+
+Table HELLO_CONFIG created.
+
+
+Table HELLO_CONFIG altered.
+
+
+Table HELLO_CONFIG altered.
+
+
+Table HELLO_ENTRIES created.
+
+
+Table HELLO_ENTRIES altered.
+
+
+Table HELLO_ENTRIES altered.
+
+
+Table HELLO_ENTRIES altered.
+
+
+Table HELLO_ENTRIES altered.
+
+
+Table LAB_COMPONENTS created.
+
+
+Table LAB_COMPONENTS altered.
+
+
+Table LAB_COMPONENTS altered.
+
+
+Table LAB_COMPONENTS altered.
+
+
+Table LAB_STATE created.
+
+
+Table LAB_STATE altered.
+
+
+Table LAB_STATE altered.
+
+
+Table WORLD_CONFIG created.
+
+
+Table WORLD_CONFIG altered.
+
+
+Table WORLD_CONFIG altered.
+
+
+Table WORLD_ENTRIES created.
+
+
+Table WORLD_ENTRIES altered.
+
+
+Table WORLD_ENTRIES altered.
+
+
+Table WORLD_ENTRIES altered.
+
+
+Package LAB_RUNTIME compiled
+
+
+Package Body LAB_RUNTIME compiled
+
+
+Trigger GREETING_HISTORY_IMMUTABLE compiled
+
+
+Trigger GREETING_HISTORY_IMMUTABLE altered.
+
+
+Trigger GREETING_HISTORY_INSERT_GUARD compiled
+
+
+Trigger GREETING_HISTORY_INSERT_GUARD altered.
+
+
+Trigger HELLO_CONFIG_GUARD compiled
+
+
+Trigger HELLO_CONFIG_GUARD altered.
+
+
+Trigger HELLO_CONFIG_NO_DELETE compiled
+
+
+Trigger HELLO_CONFIG_NO_DELETE altered.
+
+
+Trigger HELLO_ENTRIES_GUARD compiled
+
+
+Trigger HELLO_ENTRIES_GUARD altered.
+
+
+Trigger HELLO_ENTRIES_NO_DELETE compiled
+
+
+Trigger HELLO_ENTRIES_NO_DELETE altered.
+
+
+Trigger WORLD_CONFIG_GUARD compiled
+
+
+Trigger WORLD_CONFIG_GUARD altered.
+
+
+Trigger WORLD_CONFIG_NO_DELETE compiled
+
+
+Trigger WORLD_CONFIG_NO_DELETE altered.
+
+
+Trigger WORLD_ENTRIES_GUARD compiled
+
+
+Trigger WORLD_ENTRIES_GUARD altered.
+
+
+Trigger WORLD_ENTRIES_NO_DELETE compiled
+
+
+Trigger WORLD_ENTRIES_NO_DELETE altered.
+
+
+Table HELLO_CONFIG altered.
+
+
+Table WORLD_CONFIG altered.
+
+
+PL/SQL procedure successfully completed.
+
+--application/set_environment
+APPLICATION 810003 - APEX Delivery Laboratory
+--application/delete_application
+--application/create_application
+--application/user_interfaces
+--application/shared_components/navigation/lists/navigation_menu
+--application/shared_components/navigation/lists/navigation_bar
+--application/shared_components/navigation/listentry
+--application/shared_components/files/icons_app_icon_144_rounded_png
+--application/shared_components/files/icons_app_icon_32_png
+--application/shared_components/files/icons_app_icon_192_png
+--application/shared_components/files/icons_app_icon_256_rounded_png
+--application/shared_components/files/icons_app_icon_512_png
+--application/plugin_settings
+--application/shared_components/security/authorizations/administration_rights
+--application/shared_components/navigation/navigation_bar
+--application/shared_components/logic/application_settings
+--application/shared_components/navigation/tabs/standard
+--application/shared_components/navigation/tabs/parent
+--application/shared_components/user_interface/lovs/hello_entries_entry_text
+--application/shared_components/user_interface/lovs/world_entries_entry_text
+--application/pages/page_groups
+--application/shared_components/navigation/breadcrumbs/breadcrumb
+--application/shared_components/navigation/breadcrumbentry
+--application/shared_components/user_interface/templates/popuplov
+--application/shared_components/user_interface/themes
+--application/shared_components/user_interface/theme_style
+--application/shared_components/user_interface/theme_files
+--application/shared_components/user_interface/template_opt_groups
+--application/shared_components/user_interface/template_options
+--application/shared_components/globalization/language
+--application/shared_components/logic/build_options
+--application/shared_components/globalization/messages
+--application/shared_components/globalization/dyntranslations
+--application/shared_components/security/authentications/oracle_apex_accounts
+--application/user_interfaces/combined_files
+--application/pages/page_00000
+--application/pages/page_00001
+--application/pages/page_00010
+--application/pages/page_00020
+--application/pages/page_00100
+--application/pages/page_00101
+--application/pages/page_00110
+--application/pages/page_00111
+--application/pages/page_00200
+--application/pages/page_00201
+--application/pages/page_00210
+--application/pages/page_00211
+--application/pages/page_09999
+--application/end_environment
+...done
+
+   [1mAPPLICATION_ID[m [1mAPPLICATION_NAME[m            
+_________________ ___________________________ 
+           810003 APEX Delivery Laboratory    
+
+1 row selected. 
+
+
+   [1mINVALID_OBJECTS[m 
+__________________ 
+                 0 
+
+1 row selected. 
+

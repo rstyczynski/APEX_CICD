@@ -1,0 +1,13 @@
+SQLcl: Release 25.4.1.0 Production Build: 25.4.1.022.0618
+Name: lab-dev-c
+Connect String: //127.0.0.1:1521/E4C
+User: E1_DEV_C
+Password: ******
+
+PL/SQL procedure successfully completed.
+
+
+[1mUSER[m        [1mSERVICE[m    
+___________ __________ 
+E1_DEV_C    e4c        
+

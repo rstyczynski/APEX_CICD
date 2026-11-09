@@ -1,0 +1,20 @@
+
+ORDS: Release 25.3 Production on Mon Nov 09 12:17:59 2026
+
+Copyright (c) 2010, 2026, Oracle.
+
+Configuration:
+  /etc/ords/config
+
+Oracle REST Data Services - Non-Interactive Install
+The setting named: db.connectionType was set to: basic in configuration: e4c
+The setting named: db.hostname was set to: apex-db in configuration: e4c
+The setting named: db.port was set to: 1521 in configuration: e4c
+The setting named: db.servicename was set to: E4C in configuration: e4c
+The setting named: plsql.gateway.mode was set to: proxied in configuration: e4c
+The setting named: db.username was set to: ORDS_PUBLIC_USER in configuration: e4c
+The setting named: db.password was set to: ****** in configuration: e4c
+The setting named: security.requestValidationFunction was set to: ords_util.authorize_plsql_gateway in configuration: e4c
+2026-11-09T12:17:59.831Z INFO        To run in standalone mode, use the ords serve command:
+2026-11-09T12:17:59.832Z INFO        ords --config /etc/ords/config serve
+2026-11-09T12:17:59.832Z INFO        Visit the ORDS Documentation to access tutorials, developer guides and more to help you get started with the new ORDS Command Line Interface (http://oracle.com/rest).

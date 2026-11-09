@@ -1,0 +1,26 @@
+[
+  {
+    "role": "a",
+    "start": "2026-11-09T12:22:00.489697+00:00",
+    "finish": "2026-11-09T12:22:16.097286+00:00",
+    "service": "E4A",
+    "source_clean": true,
+    "source_diff": ""
+  },
+  {
+    "role": "b",
+    "start": "2026-11-09T12:22:00.490055+00:00",
+    "finish": "2026-11-09T12:22:17.019076+00:00",
+    "service": "E4B",
+    "source_clean": true,
+    "source_diff": ""
+  },
+  {
+    "role": "c",
+    "start": "2026-11-09T12:22:00.491520+00:00",
+    "finish": "2026-11-09T12:22:17.031182+00:00",
+    "service": "E4C",
+    "source_clean": true,
+    "source_diff": ""
+  }
+]

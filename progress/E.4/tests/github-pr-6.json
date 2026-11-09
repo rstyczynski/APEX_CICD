@@ -1,0 +1,13 @@
+{
+  "baseRefName": "main",
+  "headRefName": "release-please--branches--main",
+  "headRefOid": "678bef31249410cefca9faffa3b09e7c9e8da1cf",
+  "mergeCommit": {
+    "oid": "b9c491db4f5fcf6e8ed6cd4036ecabcc677f8346"
+  },
+  "mergedAt": "2026-11-09T13:04:07Z",
+  "number": 6,
+  "statusCheckRollup": [],
+  "title": "chore(main): release 1.0.7",
+  "url": "https://github.com/rstyczynski/APEX_CICD_E3_LAB/pull/6"
+}

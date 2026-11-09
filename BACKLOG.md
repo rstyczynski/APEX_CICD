@@ -434,8 +434,8 @@ Status: Done
 
 ### PBI-060. Present multi-developer SQLcl changes in one release
 
-Provide a reproducible walkthrough showing three developers independently staging their changes with SQLcl PROJECT and combining them into one release. Make each contribution, its integration into the upcoming release and its inclusion in the numbered release visible so the team understands the complete collaboration journey. Explain shared changelog conflicts and dependencies between contributions without implying that independently staged changes are automatically compatible.
+Provide a reproducible walkthrough showing three developers independently staging their changes with SQLcl PROJECT and choosing whether to join a later announced release. Make the selected A/C contributions visible in one numbered release and preserve B's deferred work for a later release so the team understands selective collaboration. Explain shared changelog conflicts and dependencies without implying that independently staged changes are automatically compatible.
 
-Test: Demonstrate three attributable developer contributions staged separately, integrated and validated together, and delivered in one numbered native SQLcl release, with the walkthrough explaining changelog coordination and dependency ordering.
+Test: Demonstrate three attributable contributions staged independently in parallel, A/C opting into and being admitted to a later announced release and delivered together in one numbered native SQLcl release, with B excluded and preserved and changelog coordination and dependencies explained.
 
 Status: Proposed

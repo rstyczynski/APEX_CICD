@@ -1,0 +1,2 @@
+smoke:test_pipeline.sh:test_SM1_pipeline_contract
+smoke:test_pipeline.sh:test_SM58_native_release_boundary

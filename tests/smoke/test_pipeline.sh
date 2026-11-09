@@ -76,3 +76,19 @@ test_SM58_native_release_boundary() {
   rg -q 'assert_native_release' examples/git-pipeline/.github/workflows/release.yml
   echo 'PASS frozen release accepted; unfrozen, mismatched, unsafe, missing and dirty inputs rejected'
 }
+
+test_E4_SM1_native_artifact() {
+  local evidence=progress/E.4/tests expected actual
+  expected=$(jq -er .archive_sha256 "$evidence/release-artifact.json")
+  actual=$(shasum -a 256 "$evidence/e3-1.0.7.zip" | cut -d ' ' -f1)
+  test "$actual" = "$expected"
+  unzip -p "$evidence/e3-1.0.7.zip" releases/apex/f810003/f810003.sql |
+    node -e 'let s="";process.stdin.on("data",x=>s+=x);process.stdin.on("end",()=>{for(const x of ["E4 A: Select Hello and World values, then record the greeting.","World entries - selected C","Hello World - Git pipeline no.2"])if(!s.includes(x))throw Error(x);if(s.includes("Hello entries - deferred B"))throw Error("B leaked");})'
+  ! unzip -Z1 "$evidence/e3-1.0.7.zip" | grep -q '/e4-b/'
+  for log in author-a-stage-verify.log author-b-stage-verify.log author-c-stage-verify.log integration-restage-verify.log frozen-native-verify.log; do
+    test -s "$evidence/$log"
+    grep -q '25.4.1.022.0618' "$evidence/$log"
+    grep -Eq 'Errors:[[:space:]]*0([^0-9]|$)' "$evidence/$log"
+  done
+  echo 'PASS E4 archive bytes, selected content and native verification transcripts; evidence reader, no target operation'
+}

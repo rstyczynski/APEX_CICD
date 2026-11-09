@@ -1,0 +1,82 @@
+SQLcl: Release 25.4.1.0 Production Build: 25.4.1.022.0618
+
+PL/SQL procedure successfully completed.
+
+--application/set_environment
+APPLICATION 810003 - APEX Delivery Laboratory
+--application/delete_application
+--application/create_application
+--application/user_interfaces
+--application/shared_components/navigation/lists/navigation_menu
+--application/shared_components/navigation/lists/navigation_bar
+--application/shared_components/navigation/listentry
+--application/shared_components/files/icons_app_icon_144_rounded_png
+--application/shared_components/files/icons_app_icon_32_png
+--application/shared_components/files/icons_app_icon_192_png
+--application/shared_components/files/icons_app_icon_256_rounded_png
+--application/shared_components/files/icons_app_icon_512_png
+--application/plugin_settings
+--application/shared_components/security/authorizations/administration_rights
+--application/shared_components/navigation/navigation_bar
+--application/shared_components/logic/application_settings
+--application/shared_components/navigation/tabs/standard
+--application/shared_components/navigation/tabs/parent
+--application/shared_components/user_interface/lovs/hello_entries_entry_text
+--application/shared_components/user_interface/lovs/world_entries_entry_text
+--application/pages/page_groups
+--application/shared_components/navigation/breadcrumbs/breadcrumb
+--application/shared_components/navigation/breadcrumbentry
+--application/shared_components/user_interface/templates/popuplov
+--application/shared_components/user_interface/themes
+--application/shared_components/user_interface/theme_style
+--application/shared_components/user_interface/theme_files
+--application/shared_components/user_interface/template_opt_groups
+--application/shared_components/user_interface/template_options
+--application/shared_components/globalization/language
+--application/shared_components/logic/build_options
+--application/shared_components/globalization/messages
+--application/shared_components/globalization/dyntranslations
+--application/shared_components/security/authentications/oracle_apex_accounts
+--application/user_interfaces/combined_files
+--application/pages/page_00000
+--application/pages/page_00001
+--application/pages/page_00010
+--application/pages/page_00020
+--application/pages/page_00100
+--application/pages/page_00101
+--application/pages/page_00110
+--application/pages/page_00111
+--application/pages/page_00200
+--application/pages/page_00201
+--application/pages/page_00210
+--application/pages/page_00211
+--application/pages/page_09999
+--application/end_environment
+...done
+
+PL/SQL procedure successfully completed.
+
+--application/set_environment
+APPLICATION 810003 - APEX Delivery Laboratory
+--application/pages/delete_00200
+--application/pages/page_00200
+--application/end_environment
+...done
+[0;37mThe current connection E1_DEV_C will be used for all operations[0m
+*** TABLES ***
+*** TRIGGERS ***
+*** PACKAGE_SPECS ***
+*** PACKAGE_BODIES ***
+*** REF_CONSTRAINTS ***
+*** APEX_APPLICATIONS ***
+Exporting Workspace E1_DEV_C - application 810003:APEX Delivery Laboratory
+[0;32m--------------------------------
+APEX_APPLICATION               1
+PACKAGE_BODY                   1
+PACKAGE_SPEC                   1
+REF_CONSTRAINT                 2
+TABLE                          7
+TRIGGER                       10
+--------------------------------[0m
+Exported 22 objects
+Elapsed 6 sec

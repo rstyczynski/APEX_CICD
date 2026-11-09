@@ -1,0 +1,61 @@
+
+Pluggable database altered.
+
+
+Pluggable database altered.
+
+
+Pluggable database created.
+
+
+Pluggable database created.
+
+
+Pluggable database created.
+
+
+Pluggable database altered.
+
+
+Pluggable database altered.
+
+
+Pluggable database altered.
+
+
+Pluggable database altered.
+
+
+Pluggable database altered.
+
+
+NAME
+--------------------------------------------------------------------------------
+OPEN_MODE
+----------
+PDB$SEED
+READ ONLY
+
+FREEPDB1
+READ WRITE
+
+E4A
+READ WRITE
+
+
+NAME
+--------------------------------------------------------------------------------
+OPEN_MODE
+----------
+E4B
+READ WRITE
+
+E4C
+READ WRITE
+
+E4I
+READ WRITE
+
+
+6 rows selected.
+

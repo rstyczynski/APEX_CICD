@@ -1,0 +1,15 @@
+{
+  "decision": "REFUSE_DEPLOY",
+  "baseline_checksum": "SH256:bFgDnlaG5WOx75ZvhPqeC7NMG+Oxhi20lzreQafET5k=",
+  "live_checksum": "SH256:ThPin5JMR7qCL4bXpv3P/jG1n5o5U/KUdQtisUv6hJU=",
+  "deploy_invoked": false,
+  "pending_title_retained": true,
+  "all_business_fields_unchanged": true,
+  "prior_receipt_unchanged": true,
+  "restored_title": "APEX Delivery Laboratory",
+  "restored_checksum": "SH256:IJfayHg6qlXi87l+XlQXMKTFBdF5xKJ5d/hyhXhrUWw=",
+  "original_checksum_restored": false,
+  "remaining_raw_source_difference": "p_version_scn: 6207684 to 6208968",
+  "recovery_decision": "Product Owner: Approve reviewed counter-only recovery, 2026-11-09",
+  "recovery_receipt": "trusted-recovered-baseline.json"
+}

@@ -1,0 +1,19 @@
+SQLcl: Release 25.4.1.0 Production Build: 25.4.1.022.0618
+[0;37mThe current connection E1_DEV_C will be used for all operations[0m
+*** TABLES ***
+*** APEX_APPLICATIONS ***
+*** TRIGGERS ***
+*** PACKAGE_BODIES ***
+*** PACKAGE_SPECS ***
+Exporting Workspace E1_DEV_C - application 810003:APEX Delivery Laboratory
+*** REF_CONSTRAINTS ***
+[0;32m--------------------------------
+APEX_APPLICATION               1
+PACKAGE_BODY                   1
+PACKAGE_SPEC                   1
+REF_CONSTRAINT                 2
+TABLE                          7
+TRIGGER                       10
+--------------------------------[0m
+Exported 22 objects
+Elapsed 12 sec

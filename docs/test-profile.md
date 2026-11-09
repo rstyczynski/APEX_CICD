@@ -14,7 +14,7 @@ implementation through technical handover. The
 [tests](../progress/E.3/sprint_E.3_tests.md) record real Working Copy/Main capture,
 classified Git PRs, Release Please version/changelog preparation and manually
 selected-tag deployment. PBI-053 is Done; [PLAN](../PLAN.md) owns lifecycle
-status. E.4 requires refinement before activation. The wider E.1 requirements
+status. E.4 is now active for the approved PBI-042/PBI-060 experiment. The wider E.1 requirements
 below retain their baseline meaning. E.3's ordinary Working Copies, sequential
 checkpoint and inherited native APEX approach are approved prototype dispositions,
 not proof that atomic reservations, full fencing/drift/identity coverage or
@@ -305,9 +305,24 @@ wrapped paths, and new/legacy receipt constraints. It does not connect to Oracle
 dispatch qualification or establish a new native runtime success.
 
 
-## E.4 experiment design boundary
+## E.4 qualified experiment boundary
 
-The [E.4 proposed design](../progress/E.4/sprint_E.4_design.md) selects bounded
-PBI-042/PBI-060 experiments for three native staging contributions and safe central
-DEV synchronization. It is awaiting review/approval, not implemented behavior or
-completion of broader product requirements. [PLAN](../PLAN.md) owns assignment.
+The [accepted E.4 design](../progress/E.4/sprint_E.4_design.md) and
+[current evidence](../progress/E.4/sprint_E.4_tests.md) qualify three independent
+native author processes, a later announced release branch, separate A/C opt-in and
+manager admission, B preservation, and supported central DEV synchronization/repeat.
+One Codex operator simulated the roles; no three-human study or production fencing
+is claimed. The native checksum changed after exact title restoration because the
+only remaining full-source difference was p_version_scn; the Product Owner approved
+reviewed counter-only recovery. Status API operations also change fingerprints.
+The [manual](../progress/E.4/user_manual.md) owns the bounded operating procedure;
+[handover](../progress/E.4/sprint_E.4_handover.md) owns review/acceptance. Broader
+product obligations remain unchanged. [PLAN](../PLAN.md) owns assignment and status.
+
+
+E.4 uses the existing runner with `progress/E.4/new_tests.manifest` for A1/A3 and
+`progress/E.4/regression_tests.manifest` for the approved native-pipeline B1 slice.
+The grouped integration assertions validate current runtime receipts and read-only
+GitHub evidence; they do not replay target writes. The actual native/browser cases,
+controlled-restoration correction and exact outcome boundaries are in the linked
+test report. Unit tests and broader E.1 runtime regression are not selected here.

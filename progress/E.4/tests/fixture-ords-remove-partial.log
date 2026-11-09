@@ -1,0 +1,17 @@
+
+ORDS: Release 25.3 Production on Mon Nov 09 12:16:02 2026
+
+Copyright (c) 2010, 2026, Oracle.
+
+Configuration:
+  /etc/ords/config
+
+Oracle REST Data Services - Non-Interactive Uninstall
+Connecting to database user: E4_ORDS_INSTALL url: jdbc:oracle:thin:@//apex-db:1521/E4A
+
+Retrieving information.
+The log file is defaulted to the current working directory located at /opt/oracle/ords/logs/
+Uninstalling Oracle REST Data Services in E4A
+Completed uninstall for Oracle REST Data Services. Elapsed time: 00:00:01.592 
+
+Log file written to /opt/oracle/ords/logs/ords_uninstall_2026-11-09_121602_71013.log

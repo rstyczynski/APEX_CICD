@@ -1,0 +1,38 @@
+{
+  "target": {
+    "service": "FREEPDB1",
+    "schema": "E3_TARGET",
+    "workspace": "E3_TARGET",
+    "application": 810203
+  },
+  "accepted_source": "ed732c26a24b56c5f76301c7ec69df9736f36e67",
+  "accepted_archive_sha256": "969c567c26d6b092230db9426c99078a1c91d0f2bf4f75e2478b7b68d2d43fcc",
+  "status": "Available",
+  "checksum": "SH256:IJfayHg6qlXi87l+XlQXMKTFBdF5xKJ5d/hyhXhrUWw=",
+  "profile_source": "progress/E.4/sql/observe.sql",
+  "profile_sha256": "9445e38016ccebe2d0f9614bac86a13520d5447b92474e89537b19a7e92d5f1b",
+  "two_equal_reads": true,
+  "reconciliation": "initial-reconciliation.diff",
+  "reviewed_differences": [
+    "Exporter comment E1_DEV_C to E3_TARGET matches schema mapping",
+    "Instance ID 743337902609559 to 1466289714044956 matches fresh fixture versus retained APEX instance",
+    "Application p_version_scn 4831292 to 6207684: native import and controlled Page Designer saves advance version counter; no definition difference"
+  ],
+  "raw_reference_sha256": "b6a8ce6ade364280f5a9f6e0d48cd01db370fa186221e54814d4653a2403d7f6",
+  "raw_target_sha256": "d3ad47e1617baa9014b212785adab099bb3a02e9a2f7b5fc446d721bc3a60387",
+  "mapping": {
+    "application": 810203,
+    "alias": "E3-LAB",
+    "offset": 9497622365494819
+  },
+  "operator": "single Codex operator; complete raw source diff reviewed",
+  "previous_checksum": "SH256:bFgDnlaG5WOx75ZvhPqeC7NMG+Oxhi20lzreQafET5k=",
+  "recovery_authorization": "Product Owner: Approve reviewed counter-only recovery, 2026-11-09",
+  "recovery_diff": "postbaseline-restoration.diff",
+  "business_fields_preserved": true,
+  "reviewed_counter_change": {
+    "before": 6207684,
+    "after": 6208968
+  },
+  "recovery_scope": "Only exact controlled property restoration plus reviewed generated counter; unknown differences remain blocked"
+}

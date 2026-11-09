@@ -1,0 +1,38 @@
+[
+  {
+    "stage": "admission",
+    "at": "2026-11-09T14:03:58.644889+00:00",
+    "status": "Available",
+    "checksum": "SH256:MIAsyuvl3FKzoHi2u5VYwnYD4PjEFSWmFNVeaE3OMUg="
+  },
+  {
+    "stage": "restricted-before",
+    "at": "2026-11-09T14:04:12.285887+00:00",
+    "status": "Restricted Access",
+    "checksum": "SH256:E+Zp6C6k52ydu8voaGrrCtZrVsvLsKRnduu9DvjaOrU="
+  },
+  {
+    "stage": "after-import",
+    "at": "2026-11-09T14:04:22.663602+00:00",
+    "status": "Restricted Access",
+    "checksum": "SH256:E+Zp6C6k52ydu8voaGrrCtZrVsvLsKRnduu9DvjaOrU="
+  },
+  {
+    "stage": "restricted-after",
+    "at": "2026-11-09T14:04:31.743933+00:00",
+    "status": "Restricted Access",
+    "checksum": "SH256:T9LrCQJ2oyhxVeU+lL8zr0HWHhVAFR/AzLKa2ednmMs="
+  },
+  {
+    "stage": "published-1",
+    "at": "2026-11-09T14:04:49.484650+00:00",
+    "status": "Available",
+    "checksum": "SH256:lC3Z66l3GpaopFf/fj5VddcsUPaC61O57kzlWFdj6SQ="
+  },
+  {
+    "stage": "published-2",
+    "at": "2026-11-09T14:04:53.970861+00:00",
+    "status": "Available",
+    "checksum": "SH256:lC3Z66l3GpaopFf/fj5VddcsUPaC61O57kzlWFdj6SQ="
+  }
+]

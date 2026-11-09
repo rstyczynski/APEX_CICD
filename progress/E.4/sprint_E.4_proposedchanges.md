@@ -163,3 +163,52 @@ closed E.3 and activated E.4. [PLAN](../../PLAN.md) owns the new assignments;
 [setup](sprint_E.4_setup.md) and [proposed design](sprint_E.4_design.md) own the
 current analysis and experiment. Stop after local Astra design review for
 Product Owner approval; no implementation is authorized yet.
+
+
+## Accepted parallel-scenario correction — 2026-11-09
+
+Status: Accepted
+
+The Product Owner rejected serialized development. All three developers must start
+from the same accepted baseline and work fully independently in parallel, including
+native capture/staging before integration. The [corrected design](sprint_E.4_design.md)
+and [analysis](sprint_E.4_setup.md) replace the serial shared-Main authoring protocol.
+Assignments remain PBI-042/PBI-060; PBI-056 stays excluded. The Product Owner explicitly
+waived another Astra review and will inspect this correction directly before approval.
+
+
+## Accepted release-selection intent — 2026-11-09
+
+Status: Accepted
+
+The Product Owner selects A and C for the current release and postpones B. All
+three still work independently in parallel from S0. The [design](sprint_E.4_design.md)
+uses Git branch/PR inclusion on the approved toolchain: B stays unmerged and retains
+its source/staged work for later integration. The old PBI-060 three-in-one-release
+acceptance wording needs alignment at design approval; no backlog completion is claimed.
+
+
+## Accepted release-announcement and developer-participation flow — 2026-11-09
+
+Status: Accepted
+
+Developers independently work on changes before a release target exists. The
+Release Manager later creates the next candidate branch from then-current accepted
+main and shares its name. Each developer decides whether to submit a PR to that
+release: A/C opt in, B postpones. The manager separately reviews submitted PRs and
+admits only ready, compatible contributions into the release branch. The candidate
+inherits main at its creation and need not reuse the developers' starting commit.
+Later B may opt into another announced release, updating and revalidating against
+that branch. This supersedes the earlier direct-to-main selection description.
+
+The [analysis](sprint_E.4_setup.md#analysis) owns actors, journey and
+[authoritative DevOps references](sprint_E.4_setup.md#authoritative-devops-references-and-project-policy);
+[design](sprint_E.4_design.md) owns GitHub/native operations and tests. References
+support the mechanisms; this exact opt-in policy is the Product Owner's selection,
+not a claim of a mandatory industry standard. Assignments and the pending overall
+design approval remain unchanged; further Astra review is waived.
+
+Navigation note: the original scope above retains its historical PLAN section
+anchor under the append-only proposal rule. The current assignment/status entry is
+[Sprint E.4 in PLAN](../../PLAN.md#sprint-e4---validate-multi-developer-native-release-integration).
+Use the current analysis/design links in this accepted refinement for the operating flow.

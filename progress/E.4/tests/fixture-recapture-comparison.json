@@ -1,0 +1,44 @@
+[
+  {
+    "file": "src/database/e1_dev_c/apex_apps/f810003/f810003.sql",
+    "old_native_hash": "6fcc0096f9871a2c8690caf48f25366758e8dccc",
+    "new_native_hash": "1e66c7dbafcc4a735b6fec0b659b233a25e5080c",
+    "explanation": "Only export comment Instance ID changes from retained instance 1466289714044956 to fresh E4A 743337902609559; generated APEX hash changes accordingly."
+  },
+  {
+    "file": "src/database/e1_dev_c/tables/hello_config.sql",
+    "old_native_hash": "2e80b1df47243f948b84e8f019905ecc6e971293",
+    "new_native_hash": "2e80b1df47243f948b84e8f019905ecc6e971293",
+    "explanation": "SQL text and native hash identical; SXML records formatting of original imported check constraints. HELLO_ENTRIES check list order follows source DDL order."
+  },
+  {
+    "file": "src/database/e1_dev_c/tables/hello_entries.sql",
+    "old_native_hash": "d11d250681e6adb64eb96e3c991f63a09cc958f2",
+    "new_native_hash": "d11d250681e6adb64eb96e3c991f63a09cc958f2",
+    "explanation": "SQL text and native hash identical; SXML records formatting of original imported check constraints. HELLO_ENTRIES check list order follows source DDL order."
+  },
+  {
+    "file": "src/database/e1_dev_c/tables/lab_components.sql",
+    "old_native_hash": "a84799c5c275e62e0cc002726eeac2293d053357",
+    "new_native_hash": "a84799c5c275e62e0cc002726eeac2293d053357",
+    "explanation": "SQL text and native hash identical; SXML records formatting of original imported check constraints. HELLO_ENTRIES check list order follows source DDL order."
+  },
+  {
+    "file": "src/database/e1_dev_c/tables/lab_state.sql",
+    "old_native_hash": "92cb85036293d49cc7fa65eb8b9f1626781b7a81",
+    "new_native_hash": "92cb85036293d49cc7fa65eb8b9f1626781b7a81",
+    "explanation": "SQL text and native hash identical; SXML records formatting of original imported check constraints. HELLO_ENTRIES check list order follows source DDL order."
+  },
+  {
+    "file": "src/database/e1_dev_c/tables/world_config.sql",
+    "old_native_hash": "59bc3628fb5bea53f8ec0c508aa56a7354f770e2",
+    "new_native_hash": "59bc3628fb5bea53f8ec0c508aa56a7354f770e2",
+    "explanation": "SQL text and native hash identical; SXML records formatting of original imported check constraints. HELLO_ENTRIES check list order follows source DDL order."
+  },
+  {
+    "file": "src/database/e1_dev_c/tables/world_entries.sql",
+    "old_native_hash": "11c9252d16cb02f455a2ed0083b0f553b36c023a",
+    "new_native_hash": "11c9252d16cb02f455a2ed0083b0f553b36c023a",
+    "explanation": "SQL text and native hash identical; SXML records formatting of original imported check constraints. HELLO_ENTRIES check list order follows source DDL order."
+  }
+]

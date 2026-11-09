@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-09",
+  "operator": "Codex via native browser UI",
+  "target": "E3_TARGET / 810203",
+  "Home_header": "E4 A: Select Hello and World values, then record the greeting.",
+  "runtime_World_region": "World entries - selected C",
+  "runtime_Hello_region": "Hello entries",
+  "Builder_C_Name": "World entries - selected C",
+  "Builder_Hello_Name": "Hello entries",
+  "business_actions_invoked": false,
+  "footer": "1.0.0",
+  "footer_limit": "Inherited static footer; not release identity",
+  "captures": [
+    "central-final-home-desktop.png",
+    "central-final-c-designer.png",
+    "central-final-b-absent.png"
+  ],
+  "viewport_requested": [
+    1440,
+    1000
+  ]
+}

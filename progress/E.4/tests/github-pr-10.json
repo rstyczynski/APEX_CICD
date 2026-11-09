@@ -1,0 +1,24 @@
+{
+  "baseRefName": "release-e4-candidate",
+  "headRefName": "e4-c",
+  "headRefOid": "8485f8149f30e2add49b8f5501755b3d80a13842",
+  "mergeCommit": {
+    "oid": "6655ebc0fb24eba335f6ff17bdabf2a56d493da0"
+  },
+  "mergedAt": "2026-11-09T13:00:49Z",
+  "number": 10,
+  "statusCheckRollup": [
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-11-09T13:00:30Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/rstyczynski/APEX_CICD_E3_LAB/actions/runs/42621680105/job/129175154433",
+      "name": "check",
+      "startedAt": "2026-11-09T13:00:24Z",
+      "status": "COMPLETED",
+      "workflowName": "PR checks"
+    }
+  ],
+  "title": "fix: clarify the World report label (C)",
+  "url": "https://github.com/rstyczynski/APEX_CICD_E3_LAB/pull/10"
+}
