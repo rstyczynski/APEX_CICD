@@ -1,6 +1,8 @@
 # Oracle APEX CI/CD Laboratory
 
-E.3 reopened correction: [native release implementation and evidence](progress/E.3/sprint_E.3_release_correction.md), [final Oracle lifecycle gap reassessment](progress/E.3/sprint_E.3_final_gap_analysis.md) and [current walkthrough/presentation](progress/E.3/sprint_E.3_increment_demo.md). The paper is E.3's authoritative lifecycle reference. The corrected local seed includes native release preparation before tag/package; historical remote runs remain separately attributed.
+E.3 accepted and closed on 2026-11-09. Historical correction:  [native release implementation and evidence](progress/E.3/sprint_E.3_release_correction.md), [final Oracle lifecycle gap reassessment](progress/E.3/sprint_E.3_final_gap_analysis.md) and [current walkthrough/presentation](progress/E.3/sprint_E.3_increment_demo.md). The paper is E.3's authoritative lifecycle reference. The corrected local seed includes native release preparation before tag/package; historical remote runs remain separately attributed.
+
+E.4 is active for PBI-042/PBI-060: [setup](progress/E.4/sprint_E.4_setup.md) and [proposed design/test specification](progress/E.4/sprint_E.4_design.md). Local Astra review precedes Product Owner design approval; implementation has not started.
 
 **From Git to APEX: traceable releases, safe upgrades and protected deployments.**
 

@@ -303,3 +303,11 @@ It exercises the actual assertions against retained and synthetic diagnostic
 fixtures, including unrelated errors, wrong paths, incomplete output, ANSI and
 wrapped paths, and new/legacy receipt constraints. It does not connect to Oracle,
 dispatch qualification or establish a new native runtime success.
+
+
+## E.4 experiment design boundary
+
+The [E.4 proposed design](../progress/E.4/sprint_E.4_design.md) selects bounded
+PBI-042/PBI-060 experiments for three native staging contributions and safe central
+DEV synchronization. It is awaiting review/approval, not implemented behavior or
+completion of broader product requirements. [PLAN](../PLAN.md) owns assignment.

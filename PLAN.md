@@ -141,7 +141,7 @@ Backlog Items:
 
 ## Sprint E.3 - Prototype the Git-based development pipeline
 
-Status: Progress
+Status: Done
 Mode: managed
 Test: smoke, integration
 Regression: smoke
@@ -154,8 +154,7 @@ to the handover presentation. The Product Owner directed implementation through
 completion without further approval pauses. Earlier acceptance below is
 historical and does not accept this correction.
 The PBI-058 correction is implemented and locally tested for the supported
-upgrade/repeat path; fresh-host limitations are explicit. The sprint remains
-Progress pending handover/reclosure. See the [correction record](progress/E.3/sprint_E.3_release_correction.md).
+upgrade/repeat path; fresh-host limitations are explicit. The Product Owner accepted and closed E.3 on 2026-11-09. See the [correction record](progress/E.3/sprint_E.3_release_correction.md).
 
 On 2026-11-05 the Product Owner previously accepted LC-1, the mapping of the delivered
 native APEX/SQLcl and GitHub journey to the Oracle APEX lifecycle paper.
@@ -201,30 +200,36 @@ Backlog Items:
 * PBI-053. Prove a simple Git-based development-to-release journey
 * PBI-058. Fix E.3 omission of native SQLcl project release
 
-## Sprint E.4 - Validate Git-based feature-centric development
 
-Status: Planned
+On 2026-11-09 the Product Owner explicitly accepted and closed the reopened
+E.3 correction and authorized E.4 activation. Acceptance preserves the
+recorded fresh-install, remote-execution and production-readiness limits.
+
+## Sprint E.4 - Validate multi-developer native release integration
+
+Status: Progress
 Mode: managed
-Test: smoke, unit, integration
-Regression: smoke, unit, integration
+Test: smoke, integration
+Regression: smoke
 
-The earlier [E.4 scope record](progress/E.4/sprint_E.4_proposedchanges.md)
-retains the planned feature-centric exercise and its five assignments below.
-Following the 2026-11-03 [E.3 refinement](progress/E.3/sprint_E.3_pipeline_scope.md),
-E.3 no longer promises the former full native release/test foundation.
-Before E.4 activation, refine its scope from the prototype's actual evidence:
-retain bounded architectural-risk experiments in Elaboration and schedule
-completion work in Construction. The former broad comparison and qualification
-obligations remain backlog requirements, not implied E.3 completion. This
-preparation neither activates E.4 nor approves its earlier implementation scope.
+Activated by the Product Owner on 2026-11-09 following explicit E.3 acceptance
+and closure. Validate three attributable developer contributions in one native
+SQLcl release and safe synchronization of central APEX development with accepted
+Git source. Remain within APEX/SQLcl and GitHub native capabilities, with bounded
+Elaboration experiments rather than completion of the delivery product.
+The Product Owner authorized setup and design, followed by local Astra external
+review, then an explicit design approval gate before implementation.
+
+This selection supersedes the earlier five-item E.4 scope. PBI-019, PBI-020,
+PBI-017 and PBI-046 return to the unscheduled backlog with unchanged criteria.
+PBI-056 is excluded. Other proposed capabilities remain unscheduled.
+See the [current setup](progress/E.4/sprint_E.4_setup.md) and
+[proposed design and test specification](progress/E.4/sprint_E.4_design.md).
 
 Backlog Items:
 
-* PBI-019. Prove parallel component collaboration and integration
-* PBI-020. Complete APEX capture and reconstruction validation
 * PBI-042. Synchronize central development after accepted merges
-* PBI-017. Deliver a repository and pipeline reference guide
-* PBI-046. Compare and independently reproduce the Oracle-style laboratory
+* PBI-060. Present multi-developer SQLcl changes in one release
 
 ## Sprint E.5 - Validate Foundation upgrades and version coexistence
 

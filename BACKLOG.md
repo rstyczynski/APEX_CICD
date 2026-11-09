@@ -431,3 +431,11 @@ Correct the E.3 release journey, which packages the staged distribution without 
 Test: Demonstrate native project release freezing before artifact generation, matching Git and native release versions, and successful installation, upgrade and repeat deployment of the resulting artifact with preserved existing data and traceable evidence.
 
 Status: Done
+
+### PBI-060. Present multi-developer SQLcl changes in one release
+
+Provide a reproducible walkthrough showing three developers independently staging their changes with SQLcl PROJECT and combining them into one release. Make each contribution, its integration into the upcoming release and its inclusion in the numbered release visible so the team understands the complete collaboration journey. Explain shared changelog conflicts and dependencies between contributions without implying that independently staged changes are automatically compatible.
+
+Test: Demonstrate three attributable developer contributions staged separately, integrated and validated together, and delivered in one numbered native SQLcl release, with the walkthrough explaining changelog coordination and dependency ordering.
+
+Status: Proposed

@@ -149,3 +149,17 @@ architecture recommendation. Preserve E.3's own operating guide and evidence.
 Lifecycle Architecture acceptance and sprint closure remain separate Product
 Owner decisions. No duration is inferred from this planned split; estimate
 resources and effort at setup without dropping committed scenarios silently.
+
+
+## Accepted refinement — 2026-11-09
+
+Status: Accepted
+
+The Product Owner selected only PBI-042 and PBI-060, excluded PBI-056, and
+assigned other suggested work to Construction. This supersedes the earlier
+five-item scope and comparison obligations above for E.4, without completing
+or weakening their backlog criteria. The Product Owner explicitly accepted and
+closed E.3 and activated E.4. [PLAN](../../PLAN.md) owns the new assignments;
+[setup](sprint_E.4_setup.md) and [proposed design](sprint_E.4_design.md) own the
+current analysis and experiment. Stop after local Astra design review for
+Product Owner approval; no implementation is authorized yet.

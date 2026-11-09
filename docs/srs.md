@@ -402,3 +402,11 @@ The initial release must satisfy UC-1 through UC-12 and FR-1 through FR-13, incl
 
 
 **R-11 — Incomplete initial capture or developer baseline.** APEX export does not by itself establish a reproducible database/application system. The developer/reviewer must verify required object/static dependencies, consistent source identity, secret handling and a reconstruction from the candidate commit. Elaboration must validate onboarding and the branch-to-developer-area association alongside initial baseline capture, without claiming that a running source application or an export alone is the golden source.
+
+
+## E.4 experiment design boundary
+
+The [E.4 proposed design](../progress/E.4/sprint_E.4_design.md) selects bounded
+PBI-042/PBI-060 experiments for three native staging contributions and safe central
+DEV synchronization. It is awaiting review/approval, not implemented behavior or
+completion of broader product requirements. [PLAN](../PLAN.md) owns assignment.

@@ -331,3 +331,11 @@ The [BUG-6 experiment](../progress/E.1/tests/apex_identity_20261018.txt) verifie
 [BUG-7 evidence](../progress/E.1/tests/recovery_proof_20261018.txt) exercises one integration-only partial state: a successful index changeset followed by deliberate failure. A separate E1_CTRL recovery interface retains failure/repair attempts in the existing target epoch/ownership model. The partial observation covers history-table index identities, migration receipts, the APEX fingerprint and all existing business fields. Operator-approved observation identity and a database-side recheck gate the new immutable repair artifact before DDL. A new changeset completes the addition; original successful/failed histories are not rewritten. The ready gate and successful repair receipt commit together. Wrong targets, changed observations and unrelated artifacts reject; unchanged repeats write nothing.
 
 This is an executable architectural experiment, not a general recovery protocol, arbitrary-state migration engine or completed stale-worker/request-fencing proof. The [I operator chapter](../progress/E.1/cicd-walkthrough.md#i-inspect-and-repair-one-failed-additive-deployment), [selected design](../progress/E.1/sprint_E.1_design.md#bug-7-bounded-repair-experiment) and [review decisions](../progress/E.1/sprint_E.1_review-1-decisions.md) own its usage, limits and selection.
+
+
+## E.4 experiment design boundary
+
+The [E.4 proposed design](../progress/E.4/sprint_E.4_design.md) selects bounded
+PBI-042/PBI-060 experiments for three native staging contributions and safe central
+DEV synchronization. It is awaiting review/approval, not implemented behavior or
+completion of broader product requirements. [PLAN](../PLAN.md) owns assignment.
