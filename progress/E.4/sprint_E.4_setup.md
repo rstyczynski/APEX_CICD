@@ -8,7 +8,7 @@ On 2026-11-09 the Product Owner accepted and closed E.3 and authorized E.4.
 [PLAN](../../PLAN.md) owns assignment/status; [the board](../../PROGRESS_BOARD.md)
 owns execution tracking. Managed mode, Test: smoke, integration; Regression:
 smoke. This is an Elaboration experiment. Setup/design and an external review
-in the existing local Astra chat are authorized; implementation awaits explicit
+in a dedicated local Astra chat for E.4 design review are authorized; implementation awaits explicit
 Product Owner approval after that review. The direct request authorizes local
 reviewer contact in place of the skill's normal user-relay procedure.
 

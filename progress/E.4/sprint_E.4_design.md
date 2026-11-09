@@ -309,7 +309,7 @@ Record any unmet acceptance outcome as open rather than replacing it with a narr
 
 ## Review and approval
 
-The existing local Astra reviewer will inspect this Proposed design and current
+The dedicated local Astra reviewer for E.4 design will inspect this Proposed design and current
 context through the [external review skill](../../.agents/skills/rup-external-review/SKILL.md).
 Original expert text, engineering response and dispositions will be retained under this
 document's review filename base. Correct design defects before requesting approval.

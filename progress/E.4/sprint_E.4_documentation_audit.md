@@ -45,3 +45,11 @@ the review response will identify any further corrections and their checks.
 Design checkpoint checks passed: all local Markdown file targets in PLAN, README
 and E.4 records exist; git diff --check reported no whitespace errors. Anchor
 semantics and native runtime behavior remain subject to review/execution.
+
+
+## Review routing correction
+
+The Product Owner explicitly requires a dedicated local Astra chat for E.4
+design review. The earlier E.3-chat request was cancelled and supplies no E.4
+acceptance evidence. Setup/design now name the dedicated review boundary.
+The original issued prompt is preserved; a clarification supersedes its routing.
