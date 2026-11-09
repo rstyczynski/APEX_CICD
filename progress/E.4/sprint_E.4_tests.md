@@ -36,7 +36,9 @@ runtime evidence. Historical E.3 readers are not substituted for these results.
 
 [Parallel provenance](tests/parallel-contributions.json) records E4A/E4B/E4C,
 separate checkouts/homes, common accepted developer start, original source/stage
-commits and about 25 seconds of overlap. Individual capture/stage process receipts
+commits and 24.84 seconds of overall author-worker overlap, including non-SQLcl
+work. The individual native receipts show 14.757295 seconds of three-way capture
+overlap and 4.155229 seconds of three-way stage/verify overlap. Individual process receipts
 record real PIDs and intervals. The late ps snapshot did not capture those processes
 and is not concurrency proof. Each original source diff contains only its own edit.
 

@@ -74,6 +74,12 @@ const fs=require('fs'),p=process.argv[2],rows=JSON.parse(fs.readFileSync(p+'/par
 if(rows.length!==3||new Set(rows.map(x=>x.service)).size!==3)throw Error('Independent services missing');
 if(Math.max(...rows.map(x=>Date.parse(x.start)))>=Math.min(...rows.map(x=>Date.parse(x.finish))))throw Error('No overlap');
 if(!rows.every(x=>x.clean&&x.independent_native_processes&&x.actual_operator==='Codex role simulation'))throw Error('Provenance missing');
+for(const phase of ['capture','stage-verify']){
+ const native=rows.map(x=>({...JSON.parse(fs.readFileSync(p+'/author-'+x.role+'-'+phase+'.log.process.json')),role:x.role}));
+ if(new Set(native.map(x=>x.pid)).size!==3||!native.every(x=>x.returncode===0&&x.home_alias===x.role))throw Error('Native process provenance missing');
+ if(Math.max(...native.map(x=>Date.parse(x.started)))>=Math.min(...native.map(x=>Date.parse(x.finished))))throw Error('No three-way native '+phase+' overlap');
+}
+
 const release=JSON.parse(fs.readFileSync(p+'/release-branch.json'));
 if(release.starting_main===release.developer_base||!rows.every(x=>x.base===release.developer_base))throw Error('Baseline scenario missing');
 JS

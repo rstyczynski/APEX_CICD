@@ -1,0 +1,4 @@
+RUN smoke:test_pipeline.sh:test_E4_SM1_native_artifact
+PASS E4 archive bytes, selected content and native verification transcripts; evidence reader, no target operation
+PASS test_E4_SM1_native_artifact
+Tests: 1; failed: 0

@@ -182,7 +182,9 @@ The per-author commands used the alias and local e4-base at the recorded start:
 Review and commit generated dist only after zero-error verification: `git diff -- dist`,
 `git add dist`, then `git commit -m "chore: stage native author change"`. In the recorded
 run each passed with one APEX-only no-soft-object ordering warning. Inspect process
-receipts and logs (they establish overlapping native processes, not three humans):
+receipts and logs: the overall worker overlap is 24.84 seconds; individual native
+receipts establish 14.757295 seconds of capture overlap and 4.155229 seconds of
+stage/verify overlap across A/B/C. These are process observations, not three humans:
 
 ```bash
 code "$E4/tests/author-a-stage-verify.log"

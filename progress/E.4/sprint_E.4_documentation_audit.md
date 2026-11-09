@@ -211,3 +211,23 @@ proposed-change link to the retired E.4 PLAN title remains the documented except
 Stale E.3 links in maintained README/PLAN were corrected without editing E.3 artifacts.
 Changed maintained prose/scripts pass whitespace checks; raw native output retains its
 original bytes. Independent Astra handover review is the next gate, not yet a verdict.
+
+
+## Independent review correction R1-L1
+
+The original Astra report is preserved byte-for-byte. It found no high/medium issue
+and one low-severity measurement-label error. Overall author-worker overlap includes
+non-native work; individual native receipts establish 14.757295 seconds of capture
+and 4.155229 seconds of stage/verify overlap. Implementation, tests, walkthrough and
+slide 13 now identify each interval correctly. Historical receipts are untouched.
+The existing evidence reader additionally checks distinct successful native PIDs,
+author/home correspondence and three-way overlap separately for both native phases.
+The derived calculation is retained in tests/native-overlap-calculation.json.
+
+A1/A3/B1 were rerun in order and passed 1/1, 3/3 and 2/2 after this bounded correction.
+The deck was re-exported, package/layout/import checked and rerendered; changed slide
+13 and the closing slide were re-inspected. Displayed SQL remains unchanged and its
+full helper comparison passed earlier. Current Markdown targets/anchors and changed
+prose whitespace were rechecked. No native or target operation was repeated. The
+corrected checkpoint is prepared for focused independent recheck, not claimed as
+independently verified before feedback arrives.

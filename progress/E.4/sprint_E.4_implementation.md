@@ -23,8 +23,11 @@ FREEPDB1 / E3_TARGET / 810203 remains central DEV.
 Oracle Free 23.26.3.0.0 and ORDS 25.3 run in the existing Podman VM (4 virtual CPUs,
 6 GiB). Oracle reported 2 usable CPUs, 1.5 GiB SGA and 2 GiB PGA limit; initial
 volume free space was 17 GB. The [parallel receipt](tests/parallel-contributions.json)
-and individual native process receipts demonstrate approximately 25 seconds of
-actual overlapping capture/stage/verification on three independent services.
+records approximately 24.84 seconds of overlapping overall author workers. The
+individual native process receipts independently establish 14.757295 seconds of
+three-way capture overlap and 4.155229 seconds of three-way stage/verify overlap.
+The broader worker interval includes toolchain checks and Git work; it is not one
+continuous SQLcl process interval.
 This qualifies the fixed experiment, not PBI-056 provisioning or load capacity.
 
 The first PDB administrator syntax was unsupported and failed before creation.

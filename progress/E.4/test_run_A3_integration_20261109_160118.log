@@ -1,0 +1,10 @@
+RUN integration:test_pipeline.sh:test_E4_IT1_parallel_selection_evidence
+PASS E4 actual concurrent-process receipts, admitted PRs and preserved B remote; no replay
+PASS test_E4_IT1_parallel_selection_evidence
+RUN integration:test_pipeline.sh:test_E4_IT2_IT3_refusal_evidence
+PASS refusal evidence; checksum restoration failed and explicitly approved narrow recovery is retained
+PASS test_E4_IT2_IT3_refusal_evidence
+RUN integration:test_pipeline.sh:test_E4_IT4_sync_repeat_evidence
+PASS E4 synchronization/repeat receipts and status lifecycle; local evidence reader, no deployment replay
+PASS test_E4_IT4_sync_repeat_evidence
+Tests: 3; failed: 0

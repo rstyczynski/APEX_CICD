@@ -3,8 +3,9 @@
 ## Decision requested and current state
 
 The prepared-host PBI-042/PBI-060 experiment has completed native runtime validation.
-Sprint E.4 remains **Progress** pending the requested independent Astra review and
-live Product Owner walkthrough/acceptance. This handover does not record a meeting
+Sprint E.4 remains **Progress** pending live Product Owner walkthrough/acceptance.
+The independent Astra review found the package ready with one nonblocking measurement
+label correction; that correction is implemented and awaits focused recheck. This handover does not record a meeting
 or acceptance that has not happened. [The complete walkthrough](sprint_E.4_increment_demo.md)
 is the entry point; [the editable deck](sprint_E.4_increment_demo.pptx) follows its
 41-slide map. [Manual](user_manual.md), [implementation](sprint_E.4_implementation.md)
@@ -74,9 +75,20 @@ access cleanup. See [the document audit](sprint_E.4_documentation_audit.md#hando
 
 ## Independent review
 
-The requested new **E.4 handover review** chat will review this concrete package with
-gpt-6-astra after presentation/document validation. No review verdict is claimed yet.
-The earlier design review is historical and cannot substitute for that new review.
+The dedicated **E.4 handover review** chat (gpt-6-astra) completed an independent
+review of checkpoint e32ae318df3c999712d724f73e1bee0ad2977f98. Its preserved
+[report](sprint_E.4_handover_review-1.md) finds the package ready for live Product
+Owner handover with nonblocking limitations. It independently ran all three gates,
+compared all 44 mapped archive members with frozen distribution, checked GitHub
+provenance and inspected all 41 slide renders.
+
+R1-L1 corrects the measurement label: 24.84 seconds describes overall author workers;
+actual three-way native overlap is 14.757295 seconds for capture and 4.155229 seconds
+for stage/verify. Current prose and slide 13 are corrected; the evidence gate now
+checks individual native process intervals too. Raw receipts remain unchanged.
+Focused independent recheck is pending. The reviewer did not access private business
+snapshots, re-export Oracle or inspect native PowerPoint rendering; these limits
+remain explicit. This review does not record live PO demonstration or acceptance.
 
 ## Limits and unfinished product outcomes
 

@@ -1,6 +1,6 @@
 {
   "date": "2026-11-09",
-  "sha256": "c5d35a89505f5ffd64548e4040711108077ca1b694e318ac3017df026d28f1d9",
+  "sha256": "04269d957cbaed85e1d2da8598b43a7c20bb59f0be16a3fdd1b852638d52be2a",
   "slide_count": 41,
   "editable_text_and_native_bullets": true,
   "code_font": "Courier",
@@ -9,5 +9,6 @@
   "first_party_import": "pass",
   "visual_inspection": "All 41 slides rendered; every slide inspected full size, changed slides rechecked after embedding images and separating text/code.",
   "layout_warning_disposition": "Slide 19 caption wraps to two lines visibly within slide; no clipping/overlap in rendered output.",
-  "powerpoint_application_inspected": false
+  "powerpoint_application_inspected": false,
+  "review_correction": "R1-L1: slide 13 labels worker versus native phase overlap; all slides rerendered, changed slide and closing re-inspected."
 }
