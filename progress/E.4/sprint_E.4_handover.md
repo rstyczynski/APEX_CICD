@@ -4,8 +4,8 @@
 
 The prepared-host PBI-042/PBI-060 experiment has completed native runtime validation.
 Sprint E.4 remains **Progress** pending live Product Owner walkthrough/acceptance.
-The independent Astra review found the package ready with one nonblocking measurement
-label correction; that correction is implemented and awaits focused recheck. This handover does not record a meeting
+The independent Astra review and focused recheck found the package ready for the
+live handover; its sole measurement-label finding is independently verified. This handover does not record a meeting
 or acceptance that has not happened. [The complete walkthrough](sprint_E.4_increment_demo.md)
 is the entry point; [the editable deck](sprint_E.4_increment_demo.pptx) follows its
 41-slide map. [Manual](user_manual.md), [implementation](sprint_E.4_implementation.md)
@@ -86,7 +86,9 @@ R1-L1 corrects the measurement label: 24.84 seconds describes overall author wor
 actual three-way native overlap is 14.757295 seconds for capture and 4.155229 seconds
 for stage/verify. Current prose and slide 13 are corrected; the evidence gate now
 checks individual native process intervals too. Raw receipts remain unchanged.
-Focused independent recheck is pending. The reviewer did not access private business
+The [focused independent recheck](sprint_E.4_handover_review-1-feedback.md) verifies
+R1-L1 at 75e904161b0450684a0fa2c5cf03d19a678e4066. The [review decisions](sprint_E.4_handover_review-1-decisions.md)
+close this review round with no outstanding finding. The reviewer did not access private business
 snapshots, re-export Oracle or inspect native PowerPoint rendering; these limits
 remain explicit. This review does not record live PO demonstration or acceptance.
 

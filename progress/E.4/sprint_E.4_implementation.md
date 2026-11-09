@@ -6,8 +6,8 @@ The [approved handoff](sprint_E.4_implementation_handoff.md) and
 [design](sprint_E.4_design.md) govern PBI-042/PBI-060. This is an Elaboration
 experiment, performed by one Codex operator simulating A/B/C and Release Manager.
 The native work uses three independent databases and concurrent processes; no
-three-person team or simultaneous human editing is claimed. Native validation and required evidence gates are complete; handover
-preparation and independent review are the remaining work. [Setup](sprint_E.4_setup.md) owns
+three-person team or simultaneous human editing is claimed. Native validation, required evidence gates, handover preparation and independent
+review/recheck are complete. Live Product Owner acceptance remains pending. [Setup](sprint_E.4_setup.md) owns
 analysis; [the audit](sprint_E.4_documentation_audit.md) owns reconciliation.
 
 ## Fixed author fixtures and capacity

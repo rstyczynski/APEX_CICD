@@ -14,8 +14,9 @@ reviewed counter-only recovery recorded in [tests](sprint_E.4_tests.md).
 [complete walkthrough](sprint_E.4_increment_demo.md) and [handover](sprint_E.4_handover.md)
 form the concrete delivery package. The temporary central users were removed and
 Available status confirmed. [PLAN](../../PLAN.md) remains Progress. Independent
-Astra handover review found the package ready with a nonblocking overlap-duration
-label correction (R1-L1), now implemented and awaiting focused recheck. Live Product
+Astra handover review found the package ready; its sole overlap-duration label
+correction (R1-L1) is independently verified at 75e9041. [Feedback](sprint_E.4_handover_review-1-feedback.md)
+and [decisions](sprint_E.4_handover_review-1-decisions.md) close the review round. Live Product
 Owner demonstration/acceptance and sprint closure are not inferred from technical success. The wider product requirements,
 production fencing, arbitrary fresh install and PBI-056 remain outside this experiment.
 

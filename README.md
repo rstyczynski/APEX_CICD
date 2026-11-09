@@ -9,8 +9,9 @@ central DEV synchronization/repeat. Start the [complete walkthrough](progress/E.
 [manual](progress/E.4/user_manual.md) and [handover](progress/E.4/sprint_E.4_handover.md).
 [Tests](progress/E.4/sprint_E.4_tests.md) distinguish actual runtime evidence from
 read-only assertions and record the approved counter-only checksum recovery.
-Independent Astra handover review and live Product Owner acceptance remain separate;
-[PLAN](PLAN.md) stays Progress.
+[Independent Astra review/recheck](progress/E.4/sprint_E.4_handover_review-1-feedback.md)
+confirms readiness for live handover with the stated experiment limits. Live Product
+Owner acceptance remains pending; [PLAN](PLAN.md) stays Progress.
 
 **From Git to APEX: traceable releases, safe upgrades and protected deployments.**
 
