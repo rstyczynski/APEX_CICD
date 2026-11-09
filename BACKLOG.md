@@ -432,6 +432,14 @@ Test: Demonstrate native project release freezing before artifact generation, ma
 
 Status: Done
 
+### PBI-059. Require pull requests for target-product release preparation
+
+Require reviewed pull requests for native release-generated distribution and metadata changes in the target product, with no direct changes to the protected main branch. The E.3 prototype follows the Oracle paper's simpler release-on-main example, which the Product Owner permits for the prototype but considers unsuitable for the target product's PR-only policy. Preserve native SQLcl release preparation while ensuring published versions and artifacts identify the accepted post-review revision.
+
+Test: Demonstrate native release changes reviewed and validated through a pull request before merge, blocked direct writes to main, and release tags and artifacts bound to the accepted merged revision.
+
+Status: Proposed
+
 ### PBI-060. Present multi-developer SQLcl changes in one release
 
 Provide a reproducible walkthrough showing three developers independently staging their changes with SQLcl PROJECT and choosing whether to join a later announced release. Make the selected A/C contributions visible in one numbered release and preserve B's deferred work for a later release so the team understands selective collaboration. Explain shared changelog conflicts and dependencies without implying that independently staged changes are automatically compatible.
