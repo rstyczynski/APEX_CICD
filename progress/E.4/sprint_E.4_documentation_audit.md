@@ -66,3 +66,12 @@ IT-3/IT-4 now cover the two issues. Source corrections remain Proposed and requi
 independent textual recheck, then Product Owner approval. Runtime acceptance remains
 pending. Relative file targets, scope/state assertions and git diff --check pass for
 the correction checkpoint; no implementation files were changed.
+
+## Final design-review handoff
+
+Dedicated Astra feedback independently verifies both design-level corrections at
+0ad508b6e872ca500c5ac92c6b60d555fc154cb4 and recommends Product Owner approval.
+Review report/feedback are preserved. Assessment/dispositions link the findings,
+corrections and pending runtime checks. Both PBIs stay under_design; no acceptance
+token is changed. All E.4 Markdown file-target checks and git diff --check pass
+again. This final checkpoint publishes review evidence only, not a completed PBI.
