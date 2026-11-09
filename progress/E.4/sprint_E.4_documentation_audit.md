@@ -53,3 +53,16 @@ The Product Owner explicitly requires a dedicated local Astra chat for E.4
 design review. The earlier E.3-chat request was cancelled and supplies no E.4
 acceptance evidence. Setup/design now name the dedicated review boundary.
 The original issued prompt is preserved; a clarification supersedes its routing.
+
+
+## R1-M1/R1-M2 design corrections
+
+The original dedicated Astra report is preserved without edits. Design corrections
+specify read-only first-run source reconciliation, two-read baseline qualification,
+pre-existing-edit rejection, explicit availability observations across import and
+receipt finalization after restoration. Existing accept.sql/restrict.sql/deploy.sql
+and the retained E.3 receipt were inspected; no runtime execution occurred. Planned
+IT-3/IT-4 now cover the two issues. Source corrections remain Proposed and require
+independent textual recheck, then Product Owner approval. Runtime acceptance remains
+pending. Relative file targets, scope/state assertions and git diff --check pass for
+the correction checkpoint; no implementation files were changed.

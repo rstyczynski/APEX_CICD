@@ -161,15 +161,46 @@ DEV role for this experiment, subject to identity/baseline preflight. Keep retai
 UAT and other applications out of scope. Use the prepared supported upgrade path;
 E.3's ORA-20860 initial-install restriction makes an arbitrary fresh target unsuitable.
 The operator must confirm no other active user or author is changing this target.
-The application remains unavailable during the controlled synchronization interval;
-this is coordination, not multi-worker fencing or an atomic deployment lock.
+Participants remain excluded through an explicit no-user/no-author operating
+interval. Native availability is observed separately: import can restore the
+source AVAILABLE status before restriction is reapplied. This design makes no
+continuous technical-denial, multi-worker fencing or atomic-lock claim.
 
-Before any candidate deployment, retain a private baseline of current target
-metadata checksum, installed source identity, existing history/configuration fields
-and actual application status. Verify baseline identity against the last successful
-receipt; missing or unexplained baseline evidence blocks the run. Capture current
-metadata into a separate diagnostic location for review, never over canonical src.
-Use identical documented checksum options for before/after comparisons.
+### Trusted baseline qualification
+
+Before any candidate installation, identify the last successfully installed accepted
+source/archive from the retained receipt and verify its actual committed archive
+hash. The E.3 receipt has no application checksum/profile: its source identity alone
+cannot attest to today's live metadata. Never promote the first observed checksum
+to authority merely because its source label matches that receipt.
+
+First look for retained trusted checksum evidence bound to that exact target,
+source/archive, options and observed availability. If it is absent, perform a
+read-only first-run reconciliation: capture the current target's full application
+source into private diagnostic output and compare it with the APEX source actually
+installed by the verified accepted archive. Preserve both raw exports, raw diff and
+reviewed difference explanations. Use the same native export profile, including
+original IDs and no export timestamp. Explain each target ID/workspace/schema/alias,
+fixed import offset and known deployment setting difference using the committed
+mapping/installer and actual target identity; record exact fields and values in the
+reconciliation evidence. Do not apply broad text filtering or normalize business
+logic, labels, regions, unknown metadata or all availability differences away.
+Generated ordering/format differences also require an explicit explanation rather
+than an assumed clean result. If equivalent source cannot be established with the
+available exports, or any difference is unexplained, preserve pending work, block
+PBI-042 execution and request a reviewed reconciliation decision. Do not reinstall
+the old archive, reset the target or adopt the current export as accepted source.
+
+Only after all differences are explained and reviewed may the operator bind the
+first trusted baseline to target identity, accepted source/archive hash, exact
+APEX checksum/export options and actual available-state setting. Obtain two
+unchanged CHECKSUM-SH256 reads under coordinated exclusion. Persist that approved
+baseline privately between attempts, with a redacted evidence receipt; subsequent
+admission compares to it and never recaptures current content as authority. Retain
+all current history/configuration fields separately for preservation comparisons.
+Test an unexpected edit already present before baseline qualification: it must stop
+qualification and remain intact. This prevents the later IT-3 fixture from being
+the only pending-work test.
 
 The admission record contains selected accepted Git revision, selected archive hash,
 current central DEV receipt/source, current live checksum, decision and reason.
@@ -191,15 +222,48 @@ Restore only that controlled fixture property after capturing preservation evide
 require the original checksum before resuming. Never reset the application or silently
 adopt unexpected live content as accepted Git source.
 
-Positive case: with current accepted artifact and clean target, explicitly call
-native PROJECT deploy on that archive. Run native readiness/session checks, inspect
-A/B/C's three visible page changes in the browser, and compare all retained baseline
-history/configuration fields. Record the new source/archive/checksum receipt only
-after success, then restore the intended application availability. Reapply the same
-archive once and verify unchanged fields and all three changes. A native failure
-keeps the target unavailable and retains evidence; do not restore readiness or claim
-transactional rollback after committed DDL/import. Recovery requires a separately
-reviewed operator decision.
+### Availability, deployment and receipt lifecycle
+
+Positive case: with current accepted artifact and trusted clean target, retain the
+available-state baseline and enter coordinated participant exclusion. Observe actual
+status/checksum, apply the existing native restriction, then observe status/checksum
+again. Native PROJECT deploy may import AVAILABLE from the artifact; observe actual
+status immediately afterward and reapply restriction before verifier checks. Do not
+claim this prevents requests during import. The coordinated exclusion is the bounded
+operating prerequisite. Keep all nonparticipating users and authors out until the
+operator releases that interval.
+
+Run read-only readiness/session checks while restricted, verify A/B/C's three page
+changes as the permitted verifier and compare every retained history/configuration
+field. The inherited accept.sql combines checks with publication: split those
+responsibilities for the experiment after design approval, using documented APEX
+status APIs, so publication cannot precede preservation/acceptance checks. Adapt its
+hard-coded heading expectation for A's chosen edit; do not run it unchanged and
+expect that it can validate all three contributions.
+
+Once all checks pass, restore the explicitly selected AVAILABLE state. Observe
+actual status and compute the final checksum twice in that state; only then finalize
+the successful source/archive/target/checksum/profile receipt. Release coordinated
+exclusion after receipt validation. Next admission and safe repeat compare against
+this final AVAILABLE-state receipt, never a transient restricted-state checksum.
+
+Rehearsal must measure checksums around restriction, import, renewed restriction
+and restoration. Do not assume status is checksum-neutral: retain each observed
+value and its state. If status changes affect fingerprints, demonstrate that restoring
+the exact known status returns the corresponding expected checksum, with all other
+source differences explained. Unknown differences block publication; no broad
+normalization or silent rebaselining is permitted. The newly accepted source becomes
+the trusted source for the post-success baseline only after its complete source and
+behavior checks, restoration and receipt finalization.
+
+On any native failure, preserve evidence and observe/report the actual application
+status and checksum. Import may already have restored availability; failure does
+not prove restriction persisted. Attempt restriction only through the known supported
+API/connection when available, record whether it succeeded, and keep coordinated
+participants excluded regardless. Do not claim transactional rollback, success receipt
+or readiness. Unavailable access or unexplained partial state blocks further writes
+and requires a separately reviewed operator recovery decision. Repeat the same archive
+only after a successful finalized receipt, with admission/checks/preservation repeated.
 
 ### Integration Notes and Documentation Requirements
 
@@ -284,7 +348,10 @@ This checks operator procedure, not an autonomous stale-worker guard.
 
 ### IT-3 — Unexported work preserved (PBI-042)
 
-Capture baseline, save a controlled central DEV Page Designer label edit, attempt
+First qualify the initial baseline, including an unexpected pre-existing edit that
+must block qualification without deployment or silent adoption. Restore only that
+explicit fixture property and complete the reviewed reconciliation/two-read check.
+Then save a controlled central DEV Page Designer label edit after qualification, attempt
 admission, observe checksum mismatch and refuse deployment. Pass requires that the
 edit still exists, diagnostic source is retained privately, and business fields and
 prior receipt are unchanged. Restore the exact fixture edit explicitly, then require
@@ -295,7 +362,10 @@ baseline checksum equality before the positive case. Unknown differences stay bl
 Admit the current accepted numbered artifact on the clean supported target, deploy it,
 verify readiness/session and inspect all three page changes. Compare every baseline
 history/configuration field, record actual source/hash/target/tool identities, then repeat
-the same archive and the checks. Pass requires visible combined intent and preserved
+the same archive and the checks. Observe actual status/checksum at each restriction,
+import and restoration transition. Finalize the checksum receipt only in the restored
+AVAILABLE state; subsequent repeat must use that trusted receipt without rebaselining.
+Failure instructions observe actual state and retain coordinated exclusion. Pass requires visible combined intent and preserved
 fields after both installs. App version-footer stamping, arbitrary initial install,
 saved-report reconstruction and general DDL recovery are not claimed.
 
@@ -312,7 +382,9 @@ Record any unmet acceptance outcome as open rather than replacing it with a narr
 The dedicated local Astra reviewer for E.4 design will inspect this Proposed design and current
 context through the [external review skill](../../.agents/skills/rup-external-review/SKILL.md).
 Original expert text, engineering response and dispositions will be retained under this
-document's review filename base. Correct design defects before requesting approval.
+document's review filename base. The [original report](sprint_E.4_design_review-1.md) identifies R1-M1/R1-M2;
+this revision specifies trusted baseline qualification and the actual availability/receipt
+lifecycle in response. Corrections require dedicated reviewer recheck before approval.
 Expert validation is independent advice; only the Product Owner may accept this design.
 No implementation, workflow dispatch, source export/stage or target mutation is authorized
 until that approval. The only current deliverable is the reviewed experiment design.
