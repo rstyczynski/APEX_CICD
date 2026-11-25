@@ -1,0 +1,15 @@
+COMMAND: git diff --check
+EXIT: 0
+
+COMMAND: python3 /private/tmp/e13-audit-links.py
+{
+  "scope": "E.13 top-level Markdown; maintained README/SRS/architecture/test-profile; E.13 backlog traceability links",
+  "checked": 468,
+  "anchors_checked": 79,
+  "traceability_links": 10,
+  "errors": [],
+  "limitations": "External URLs and non-Markdown fragments not checked."
+}
+EXIT: 0
+
+PASS all 248 tested source hashes still match; PLAN E.13 Done/YOLO and both board rows Done inspected; E.14 Planned unchanged.

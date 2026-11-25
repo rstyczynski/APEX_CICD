@@ -1,6 +1,6 @@
 # E.13 documentation
 
-The [walkthrough](sprint_E.13_increment_demo.md) is the complete explained journey; the [manual](user_manual.md) owns prerequisites/recovery and the [handover](sprint_E.13_handover.md) records actual developer operation. [The audit](sprint_E.13_documentation_audit.md) reconciles those records, root requirements/design/test profile, implementation, gate evidence and progress board. [Requirement evidence](sprint_E.13_remaining_work.md) remains the delivery checklist. Product readiness is distinct from this bounded Elaboration experiment. All six gates and the documentation/handover audit pass. Technical documentation acceptance uses explicit YOLO delegation. Local completion commits and recorded lifecycle closure remain finalization actions.
+The [walkthrough](sprint_E.13_increment_demo.md) is the complete explained journey; the [manual](user_manual.md) owns prerequisites/recovery and the [handover](sprint_E.13_handover.md) records actual developer operation. [The audit](sprint_E.13_documentation_audit.md) reconciles those records, root requirements/design/test profile, implementation, gate evidence and progress board. [Requirement evidence](sprint_E.13_remaining_work.md) remains the delivery checklist. Product readiness is distinct from this bounded Elaboration experiment. All six gates and the documentation/handover audit pass. Technical documentation acceptance uses explicit YOLO delegation. Local completion commit `f5bc924` and [recorded closure](sprint_E.13_closure.md) complete finalization.
 
 ## Retrospective
 

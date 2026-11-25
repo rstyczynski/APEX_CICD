@@ -400,7 +400,7 @@ Backlog Items:
 
 ## Sprint E.13 - Validate the breaking Foundation transition and recovery
 
-Status: Progress
+Status: Done
 Mode: YOLO
 Test: smoke, unit, integration
 Regression: smoke, unit, integration

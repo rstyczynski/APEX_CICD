@@ -22,7 +22,7 @@ Preservation, interruption and legacy return: the failure and return assertions 
 
 All six gates pass with no retries: new 1/1/1, full 12/13/22; [test report](sprint_E.13_tests.md) and [gate receipt](tests/final-gates.json) distinguish each proof. The full run used unchanged source and real Oracle/native/HTTP behavior where selected; historical hosted-evidence readers remain explicitly identified.
 
-P8 documentation reconciliation and P9 actual developer demonstration, complete explained walkthrough/manual, canonical presentation pair, rendered visual inspection and package validation are recorded in [audit](sprint_E.13_documentation_audit.md), [handover](sprint_E.13_handover.md) and [presentation](sprint_E.13_increment_demo.pptx). Technical review is accepted through explicit YOLO delegation; Product Owner reactions are not invented. Local completion commit and recorded lifecycle closure are the remaining finalization actions at this checkpoint.
+P8 documentation reconciliation and P9 actual developer demonstration, complete explained walkthrough/manual, canonical presentation pair, rendered visual inspection and package validation are recorded in [audit](sprint_E.13_documentation_audit.md), [handover](sprint_E.13_handover.md) and [presentation](sprint_E.13_increment_demo.pptx). Technical review is accepted through explicit YOLO delegation; Product Owner reactions are not invented. Local completion commit `f5bc924` exists; [recorded closure](sprint_E.13_closure.md) completes lifecycle finalization.
 
 ## Implementation choices and unverified product behavior
 
