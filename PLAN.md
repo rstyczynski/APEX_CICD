@@ -372,7 +372,7 @@ Backlog Items:
 
 ## Sprint E.11 - Validate reproducible delivery and measured feedback
 
-Status: Progress
+Status: Done
 Mode: YOLO
 Test: smoke, unit, integration
 Regression: smoke, unit

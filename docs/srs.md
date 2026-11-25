@@ -456,3 +456,5 @@ The [E.10 design](../progress/E.10/sprint_E.10_design.md), [verification](../pro
 ## E.11 reproducibility experiment
 
 The [E.11 walkthrough](../progress/E.11/sprint_E.11_increment_demo.md) describes the selected clean-source container execution slice and pinned-tool cache measurements. [Verification](../progress/E.11/sprint_E.11_tests.md) distinguishes real container observations from synthetic integrity checks. [Handover](../progress/E.11/sprint_E.11_handover.md) records successful technical second-operator execution and its explicit nested-runtime limits. This experiment does not change the SRS product acceptance requirements, qualify fresh-host APEX/SQLcl delivery or establish hosted pipeline controls. PLAN owns assignment/status; the E.11 design owns this bounded experiment.
+
+E.11 is closed after verified technical second-operator reproduction; see [closure](../progress/E.11/sprint_E.11_handover.md#sprint-closure). This accepts the bounded experiment, including its explicit nested-runtime limits, rather than full product deployment readiness.

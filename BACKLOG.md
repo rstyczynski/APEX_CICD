@@ -566,7 +566,7 @@ Measure whether reusable pinned tools and optional dependency caches improve fee
 
 Test: Demonstrate cold and warm measurements with sample counts and median/p95 phase times, wrong-version and corrupt-cache rejection, clean-cache success, and a justified runner/cache choice with proposed experimental budgets.
 
-Status: Proposed
+Status: Done
 
 ### PBI-076. Validate test selection and execution cadence
 
@@ -590,7 +590,7 @@ Determine which hidden host assumptions prevent a second operator from reproduci
 
 Test: Demonstrate the selected source-to-result journey from a clean checkout with declared inputs, or reproduce and explain the blocker with a bounded remedy and an explicit unsupported-path decision.
 
-Status: Proposed
+Status: Done
 
 ### PBI-079. Validate transaction and competing-request behavior
 

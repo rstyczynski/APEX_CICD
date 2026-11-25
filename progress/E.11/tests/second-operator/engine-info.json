@@ -94,13 +94,13 @@
     },
     "graphDriverName": "vfs",
     "graphOptions": {
-      
+
     },
     "graphRoot": "/var/lib/containers/storage",
     "graphRootAllocated": 31516721152,
     "graphRootUsed": 20827463680,
     "graphStatus": {
-      
+
     },
     "imageCopyTmpDir": "/var/tmp",
     "imageStore": {

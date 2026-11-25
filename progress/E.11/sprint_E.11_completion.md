@@ -1,3 +1,7 @@
+# E.11 completion report
+
+Current status: Done. PBI-075 and PBI-078 are Done. The original partial/resume reports below are historical and superseded by the final closure record at the end.
+
 # E.11 resumable delivery report
 
 Sprint E.11 | YOLO | PLAN Progress | board implemented_partially.
@@ -19,3 +23,12 @@ A separately attributable operator must execute the documented journey using fre
 ## Resume outcome — 2026-11-25
 
 Verified existing source and receipts rather than relying on completion claims. Fresh A1/A2/A3/B1/B2 all pass; see appended verification and resume gate logs. The second operator/new private access criterion and dependent final review/closure remain open after the renewed blocker audit. No other sprint activated, no remote writes performed, and no lifecycle state advanced. The next local documentation commit preserves this verification without declaring completion.
+
+
+## Final closure — technical operator reproduced
+
+Implementation completion commit e93051c delivers real second-operator execution using a distinct authenticated technical account, newly issued private client access, clean selected-source checkout and independent nested engine storage. Six actual candidate runs and unauthenticated-access rejection passed; the clean source bundle, exact source hashes, pinned image, observed tool identities and cleanup receipt are retained. No original credentials or business data were copied. This is a technical operator orchestrated by the same assistant on the same kernel, not a different human or full new-host APEX/SQLcl reproduction. Nested CPU/memory/PID enforcement is explicitly unsupported.
+
+Latest required gates pass: A1 1/1, A2 1/1, A3 2/2, full B1 9/9 and B2 8/8. No failure was waived or mandatory suite skipped. Failed cgroup/logging attempts were diagnosed and corrected; earlier raw observations remain labelled history. The source-snapshot-retention live repeat also passed. Presentation, walkthrough, manual, requirement checklist, documentation audit and reciprocal shared guidance are reconciled. The developer demonstrated real technical-operator execution live; delegated YOLO review accepts the bounded result without inventing Product Owner reactions.
+
+All mandatory outcomes are evidenced and no external blocker remains. PLAN E.11, assigned backlog definitions and board rows are Done under the original explicit closure authorization. No next sprint was activated and no remote push/API publication occurred. The following local documentation/lifecycle commit records closure.
