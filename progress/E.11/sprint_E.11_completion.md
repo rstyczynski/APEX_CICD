@@ -15,3 +15,7 @@ New smoke 1/1, unit 1/1, integration 1/1; full regression smoke 9/9, unit 8/8 ru
 5866c23 contains implementation, tests, benchmark, presentation and audit for the PBI-075 increment plus shared reproducibility work. The following documentation commit preserves the live receipt, final anchor/log reconciliation and this truthful partial report. No push or equivalent API publication occurred. No other sprint was activated.
 
 A separately attributable operator must execute the documented journey using freshly supplied private service access and return nonsecret source/tool/result evidence, or the Product Owner must explicitly decide the supported-path disposition permitted by PBI-078. Assess that evidence, complete final review, rerun affected checks if behavior changes and only then use the canonical sprint-close procedure. No routine confirmation or generic approval is requested; the outstanding dependency is actual missing operator/access evidence.
+
+## Resume outcome — 2026-11-25
+
+Verified existing source and receipts rather than relying on completion claims. Fresh A1/A2/A3/B1/B2 all pass; see appended verification and resume gate logs. The second operator/new private access criterion and dependent final review/closure remain open after the renewed blocker audit. No other sprint activated, no remote writes performed, and no lifecycle state advanced. The next local documentation commit preserves this verification without declaring completion.

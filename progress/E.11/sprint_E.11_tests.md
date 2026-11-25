@@ -31,3 +31,17 @@ PLAN's separately attributable second operator with newly supplied private servi
 ## Artifacts
 
 [test_run_A1_smoke_20261125_193917.log](test_run_A1_smoke_20261125_193917.log), [test_run_A2_unit_20261125_193918.log](test_run_A2_unit_20261125_193918.log), [test_run_A3_integration_20261125_193751.log](test_run_A3_integration_20261125_193751.log), [test_run_B1_smoke_20261125_193920.log](test_run_B1_smoke_20261125_193920.log), [test_run_B2_unit_20261125_193926.log](test_run_B2_unit_20261125_193926.log), [benchmark.json](tests/benchmark.json), [red.log](tests/red.log), [presentation validation](tests/presentation-validation.json). tests/initial_probe.* and tests/controller_run.* are diagnostic intermediate executions, excluded from final acceptance. All gate logs above were captured on 2026-11-25; their filenames record UTC completion timestamps.
+
+## Resume verification — 2026-11-25
+
+At source e528e42, reran A1/A2/A3 and full B1/B2 in order. All passed: 1/1, 1/1, 1/1, 9/9 and 8/8 runner entries respectively. Exact commands were `bash tests/run.sh --smoke --new-only progress/E.11/new_tests.manifest`, the same with `--unit` and `--integration`, followed by `bash tests/run.sh --smoke` and `bash tests/run.sh --unit`. Integration again performed six real executions, three empty-cache downloads, three warm hits, integrity rejection and cleanup. This proves repeatability on the prepared service, not second-operator access. Preserved the historical benchmark and prior tracked regression outputs after the run; the new gate logs retain the observed fresh results. Slide measurements remain the original baseline.
+
+[test_run_A1_smoke_resume_20261125_194958.log](test_run_A1_smoke_resume_20261125_194958.log)
+
+[test_run_A2_unit_resume_20261125_194958.log](test_run_A2_unit_resume_20261125_194958.log)
+
+[test_run_A3_integration_resume_20261125_194958.log](test_run_A3_integration_resume_20261125_194958.log)
+
+[test_run_B1_smoke_resume_20261125_194958.log](test_run_B1_smoke_resume_20261125_194958.log)
+
+[test_run_B2_unit_resume_20261125_194958.log](test_run_B2_unit_resume_20261125_194958.log)
