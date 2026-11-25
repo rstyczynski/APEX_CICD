@@ -1,0 +1,3 @@
+smoke:test_reproducibility.sh:test_reproducibility_smoke
+unit:test_reproducibility.sh:test_reproducibility_policy
+integration:test_reproducibility.sh:test_reproducibility_lab

@@ -380,3 +380,8 @@ The [E.9 implementation](../progress/E.9/sprint_E.9_implementation.md) and [veri
 ## E.10 isolated execution experiment
 
 The [E.10 design](../progress/E.10/sprint_E.10_design.md), [verification](../progress/E.10/sprint_E.10_tests.md) and [walkthrough](../progress/E.10/sprint_E.10_increment_demo.md) describe the local rootless-container experiment for PBI-072/073/074. Requirements remain owned by the SRS/backlog, architecture by this project's architecture document and operating steps by the walkthrough. This bounded result does not qualify production credentials, Oracle area isolation or hosted GitHub controls.
+
+
+## E.11 reproducibility experiment
+
+The [E.11 walkthrough](../progress/E.11/sprint_E.11_increment_demo.md) describes the selected clean-source container execution slice and pinned-tool cache measurements. [Verification](../progress/E.11/sprint_E.11_tests.md) distinguishes real container observations from synthetic integrity checks. [Handover](../progress/E.11/sprint_E.11_handover.md) records pending second-operator evidence; E.11 remains Progress. This experiment does not change the SRS product acceptance requirements, qualify fresh-host APEX/SQLcl delivery or establish hosted pipeline controls. PLAN owns assignment/status; the E.11 design owns this bounded experiment.

@@ -1,0 +1,7 @@
+RUN unit:test_reproducibility.sh:test_reproducibility_policy
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/test_reproducibility.py", line 4, in <module>
+    from reproducible_delivery import validate, summary
+ModuleNotFoundError: No module named 'reproducible_delivery'
+FAIL test_reproducibility_policy
+Tests: 1; failed: 1

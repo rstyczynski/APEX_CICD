@@ -1,0 +1,3 @@
+RUN smoke:test_reproducibility.sh:test_reproducibility_smoke
+PASS test_reproducibility_smoke
+Tests: 1; failed: 0

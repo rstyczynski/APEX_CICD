@@ -1,0 +1,4 @@
+RUN unit:test_reproducibility.sh:test_reproducibility_policy
+PASS wrong version, corrupt cache, valid cache and nearest-rank statistics
+PASS test_reproducibility_policy
+Tests: 1; failed: 0

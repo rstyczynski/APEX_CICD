@@ -263,3 +263,8 @@ The [E.9 walkthrough](progress/E.9/sprint_E.9_increment_demo.md) and [handover](
 ### Sprint E.10 — Isolated candidate execution
 
 The [complete walkthrough and slide map](progress/E.10/sprint_E.10_increment_demo.md), [editable deck](progress/E.10/sprint_E.10_increment_demo.pptx), [manual](progress/E.10/user_manual.md), [verification](progress/E.10/sprint_E.10_tests.md) and [handover](progress/E.10/sprint_E.10_handover.md) document the real-container laboratory for [PBI-072](BACKLOG.md#pbi-072-validate-separation-of-proposed-code-and-privileged-validation), [PBI-073](BACKLOG.md#pbi-073-validate-concurrent-pr-isolation-and-superseded-run-cancellation) and [PBI-074](BACKLOG.md#pbi-074-validate-bounded-waits-and-cleanup-after-interrupted-testing). PLAN owns lifecycle status; this is not production sandbox qualification.
+
+
+## E.11 reproducibility experiment
+
+The [E.11 walkthrough](progress/E.11/sprint_E.11_increment_demo.md) describes the selected clean-source container execution slice and pinned-tool cache measurements. [Verification](progress/E.11/sprint_E.11_tests.md) distinguishes real container observations from synthetic integrity checks. [Handover](progress/E.11/sprint_E.11_handover.md) records pending second-operator evidence; E.11 remains Progress. This experiment does not change the SRS product acceptance requirements, qualify fresh-host APEX/SQLcl delivery or establish hosted pipeline controls. PLAN owns assignment/status; the E.11 design owns this bounded experiment.

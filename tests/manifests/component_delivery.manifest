@@ -31,3 +31,6 @@ integration:test_review.sh:test_review_service
 smoke:test_execution.sh:test_execution_smoke
 unit:test_execution.sh:test_execution_policy
 integration:test_execution.sh:test_execution_lab
+smoke:test_reproducibility.sh:test_reproducibility_smoke
+unit:test_reproducibility.sh:test_reproducibility_policy
+integration:test_reproducibility.sh:test_reproducibility_lab

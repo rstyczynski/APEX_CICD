@@ -372,8 +372,8 @@ Backlog Items:
 
 ## Sprint E.11 - Validate reproducible delivery and measured feedback
 
-Status: Planned
-Mode: managed
+Status: Progress
+Mode: YOLO
 Test: smoke, unit, integration
 Regression: smoke, unit
 
