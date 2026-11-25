@@ -356,3 +356,7 @@ The [E.6 test report](../progress/E.6/sprint_E.6_tests.md) records A1/A2/A3 and 
 ## E.8 candidate experiment
 
 [The E.8 design](../progress/E.8/sprint_E.8_design.md) selects A1/A2/A3 with `progress/E.8/new_tests.manifest` and full B1/B2 smoke/unit regression. [Walkthrough](../progress/E.8/sprint_E.8_increment_demo.md) and [test report](../progress/E.8/sprint_E.8_tests.md) distinguish synthetic aggregation tests from fresh Oracle candidate execution. Each cadence tests a locally merged proposed candidate, not a published remote PR status. Trusted policy selects the complete single-behavior inventory; missing or unsuccessful mandatory evidence rejects success.
+
+## E.9 review and merge verification
+
+The [E.9 implementation](../progress/E.9/sprint_E.9_implementation.md) and [verification](../progress/E.9/sprint_E.9_tests.md) record the bounded local capability service, report freshness and protected integration experiment. This document retains its existing requirements/design/test authority; the experiment does not assert GitHub or production identity/isolation qualification. See the [walkthrough](../progress/E.9/sprint_E.9_increment_demo.md) for reproducible operation.

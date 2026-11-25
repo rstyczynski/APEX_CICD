@@ -1,0 +1,33 @@
+RUN unit:test_greeting.sh:test_UT1_composition
+
+PASS UT-1: defaults, trim, Unicode, prefixes, explicit selections, invalid/default deactivation rejection and 261-character boundary. Fixtures rolled back.
+
+
+PASS test_UT1_composition
+RUN unit:test_greeting.sh:test_UT2_history
+
+PASS UT-2: changed settings affect new greetings; all original snapshot fields preserved; update/delete denied. Fixtures rolled back.
+
+
+PASS test_UT2_history
+RUN unit:test_backend.sh:test_UT1_backend_runtime
+PASS real utPLSQL suite
+PASS test_UT1_backend_runtime
+RUN unit:test_contracts.sh:test_UT1_component_contracts
+PASS 3 real utPLSQL consumers
+PASS test_UT1_component_contracts
+RUN unit:test_candidate.sh:test_candidate_policy
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK
+PASS test_candidate_policy
+RUN unit:test_review.sh:test_review_policy
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+PASS test_review_policy
+Tests: 6; failed: 0

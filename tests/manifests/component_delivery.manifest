@@ -27,3 +27,4 @@ integration:test_candidate.sh:test_candidate_lab
 smoke:test_review.sh:test_review_smoke
 unit:test_review.sh:test_review_policy
 integration:test_review.sh:test_review_lab
+integration:test_review.sh:test_review_service

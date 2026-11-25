@@ -1,15 +1,15 @@
 {
   "schemaVersion": "presentation-finalization.v1",
-  "finalSha256": "b84da4fe523a51b57c8ceaef7e4387cf4c35e1ab02917de3ca8c94ca7f1cdabf",
-  "byteCount": 49022,
+  "finalSha256": "5f73d52e094705e5df3d2a942b42aa0e69170f9b3e31c086d0a0637729cfe99e",
+  "byteCount": 62278,
   "packageIntegrity": {
     "chart_count": 0,
     "claim_boundary": "Structural package checks only; no slide text, notes, formulas, chart values, or native PowerPoint execution were inspected.",
     "finding_count": 0,
     "findings": [],
-    "notes_parts_skipped": 12,
-    "relationship_part_count": 34,
-    "slide_count": 12,
+    "notes_parts_skipped": 17,
+    "relationship_part_count": 44,
+    "slide_count": 17,
     "status": "pass",
     "exitCode": 0,
     "findingCount": 0,
@@ -19,20 +19,20 @@
     "finding_count": 0,
     "findings": [],
     "font_policy": {
-      "checked_text_script_count": 66,
+      "checked_text_script_count": 71,
       "native_font_rendering_verified": false,
       "observed_font_families": [
         "Arial",
         "Courier"
       ],
       "observed_font_use_counts": {
-        "Arial": 61,
-        "Courier": 5
+        "Arial": 62,
+        "Courier": 9
       },
       "passed": true,
       "performed": true
     },
-    "slide_count": 12,
+    "slide_count": 17,
     "slide_size_in": [
       13.3333,
       7.5
@@ -42,15 +42,15 @@
     "exitCode": 0,
     "findingCount": 0,
     "fontPolicy": {
-      "checked_text_script_count": 66,
+      "checked_text_script_count": 71,
       "native_font_rendering_verified": false,
       "observed_font_families": [
         "Arial",
         "Courier"
       ],
       "observed_font_use_counts": {
-        "Arial": 61,
-        "Courier": 5
+        "Arial": 62,
+        "Courier": 9
       },
       "passed": true,
       "performed": true
@@ -65,15 +65,15 @@
     "scriptFonts": {},
     "referenceSha256": null,
     "referenceFontsVerifiedInEncodedText": false,
-    "checked_text_script_count": 66,
+    "checked_text_script_count": 71,
     "native_font_rendering_verified": false,
     "observed_font_families": [
       "Arial",
       "Courier"
     ],
     "observed_font_use_counts": {
-      "Arial": 61,
-      "Courier": 5
+      "Arial": 62,
+      "Courier": 9
     },
     "passed": true,
     "performed": true
@@ -81,8 +81,8 @@
   "firstPartyImport": {
     "performed": true,
     "passed": true,
-    "slideCount": 12,
-    "sha256": "b84da4fe523a51b57c8ceaef7e4387cf4c35e1ab02917de3ca8c94ca7f1cdabf",
+    "slideCount": 17,
+    "sha256": "5f73d52e094705e5df3d2a942b42aa0e69170f9b3e31c086d0a0637729cfe99e",
     "runtimeNodeModules": "/Users/rstyczynski/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules",
     "nodeExecutable": "/Users/rstyczynski/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node"
   },
@@ -98,7 +98,7 @@
     "passed": true,
     "schema_version": "presentation-native-table-arithmetic.v1",
     "skipped_tables": [],
-    "slide_count": 12,
+    "slide_count": 17,
     "warning_count": 0,
     "warnings": []
   },
@@ -110,15 +110,15 @@
     "native_chart_count": 0,
     "native_powerpoint_verified": false,
     "passed": true,
-    "presentation_sha256": "b84da4fe523a51b57c8ceaef7e4387cf4c35e1ab02917de3ca8c94ca7f1cdabf",
+    "presentation_sha256": "5f73d52e094705e5df3d2a942b42aa0e69170f9b3e31c086d0a0637729cfe99e",
     "schema_version": "presentation-native-chart-titles.v1",
-    "slide_count": 12,
+    "slide_count": 17,
     "source_text_emitted": false,
     "unresolved_linked_title_count": 0
   },
   "sourceDerivedPolicyFlags": [
     "--expected-slide-count",
-    "12",
+    "17",
     "--validate-heading-fit",
     "--cover-role",
     "none",

@@ -1,39 +1,45 @@
-# E.9 partial handover — closure withheld
+# E.9 handover
 
-[Walkthrough](sprint_E.9_increment_demo.md), [manual](user_manual.md),
-[implementation](sprint_E.9_implementation.md) and [tests](sprint_E.9_tests.md)
-own operation, mechanism and evidence. [PLAN](../../PLAN.md) owns lifecycle.
+[Walkthrough and editable presentation](sprint_E.9_increment_demo.md) own the
+complete journey. [Manual](user_manual.md), [implementation](sprint_E.9_implementation.md),
+[tests](sprint_E.9_tests.md) and [audit](sprint_E.9_documentation_audit.md) own
+operating steps, mechanisms, evidence and reconciliation.
 
-The developer executed and rehearsed the local Git journey with real diff,
-one passing greeting assertion, retained serial Codex review, hashed report and
-local merge. Synthetic policy challenges passed. Full selected regression passed.
-The twelve-slide presentation was rendered and inspected as a montage for text
-fit and readability; package checks are retained separately. No human reaction,
-independent approval or completed live hosted demonstration is claimed.
+## Demonstrated increment
 
-## Exact remaining boundary
+The developer operated the actual local artifact in this session: context driver
+then authenticated HTTP/Git service. Visible output showed initial unrun tests,
+refreshed passing assertion, preserved annotation, corrected security claim,
+native pre-receive refusal, ordinary controlled merge and reasoned administrator
+bypass. The actual merged greeting assertion passed. Live transcript is retained
+in tests/live-context.json and tests/live-service.log; preflight/rehearsal is
+retained in tests/service-rehearsal.log. Negative HTTP and concurrent operations
+are inspectable in tests/service/results.json and events.json.
 
-Read-only GitHub inspection confirms authenticated administration of the existing
-product repository (tests/github-readonly-access.json). This is not an access
-failure. No disposable hosted candidate or protected branch was created. A
-hosted positive and negative exercise requires remote candidate refs/commits;
-the Product Owner explicitly prohibited remote pushes. No production repository
-protection was changed as a substitute. Permission to publish a bounded disposable
-candidate, or an externally prepared candidate/server with suitable principals,
-is needed before that experiment can proceed.
+The Product Owner explicitly directed continuation through Done and delegated
+YOLO implementation, demonstration, audit and closure. Under that authority the
+developer/documentor self-review accepts the bounded E.9 outcomes after selected
+gates and final material checks pass. No human satisfaction, questions or
+independent human approval are invented. The separate approver capability tests
+the selected policy behavior; it is not a substitute human endorsement.
 
-The local controller alternative was implemented and tested. It demonstrates
-rejection of supplied values, not authenticated users. Its second read detects
-the exercised publication race, but leaves the interval after that read open.
-Read-only APIs, retained logs and synthetic publishers cannot prove actual
-write refusal or close that interval. A separately authenticated local Git
-service would require its own configured principals and enforced integration
-boundary; no such service is available here. Implementing more pure policy
-checks cannot establish that external enforcement.
+## Assessment
 
-PBI-068 has useful initial/refreshed context evidence; PBI-069 has local policy
-and real review evidence; PBI-070 has local invalidation evidence; PBI-071 has
-local combined decisions. End-to-end acceptance of all four remains pending
-server enforcement and repeat demonstration. No acceptance criterion was changed.
-No next sprint was activated, no remote push occurred, and E.9 remains Progress.
-The local commit preserves partial work and does not signify completion.
+PBI-068 meets every context criterion; PBI-069 meets real-report/policy submission
+criteria; PBI-070 meets immutable revision, invalidation and concurrent freshness
+criteria; PBI-071 meets ordinary integration refusal, publisher, conversation,
+direct-write, approval and exception criteria. The test report maps each
+criterion to actual evidence. Merge queue is not selected. Production identity,
+TLS, GitHub branch-rule equivalence, hostile-host isolation and crash recovery
+are not claimed. No acceptance criterion was weakened or moved out of E.9.
+
+The earlier pure-library attempt and its failures are preserved in Git commit
+3f3b2f0, historical logs and the current implementation/presentation explanation.
+The unsupported hosted-only blocker was resolved by implementing the local
+service alternative. No external repository was published; the native receive
+experiment addressed only a temporary local filesystem repository.
+
+## Closure control
+
+Record Done only after the final audit, link/package checks and local delivery
+commit pass. No next sprint activation and no remote push are authorized.

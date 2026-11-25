@@ -29,3 +29,12 @@ merge queue is not selected. No SQLcl processing is needed for this controller.
 
 [Design](sprint_E.9_design.md) owns interfaces and tests. Token telemetry is not
 available per phase; no measurements are invented.
+
+## Resumed contract
+
+The original hosted-only assumption is superseded by the resumption design.
+A real authenticated local service is an available alternative within the
+no-remote-publication boundary. Developer, agent, authenticated publisher,
+integrator, approver and administrator are explicit roles; the trusted local
+host owns the service. Run the complete selected gates again after this change.
+The service demonstrates repository controls without claiming GitHub parity.

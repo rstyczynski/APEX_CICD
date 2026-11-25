@@ -372,3 +372,7 @@ The [E.6 design](../progress/E.6/sprint_E.6_design.md), [contracts](component-co
 ## E.7 qualified experiment
 
 [The E.7 walkthrough and deck](../progress/E.7/sprint_E.7_increment_demo.md) explain the bounded fresh-target upgrade/state/identity experiment; [its test report](../progress/E.7/sprint_E.7_tests.md) records passing A1/A2/A3 and full smoke/unit regression, HTTP stage checks and native Chrome visibility. [Implementation boundaries](../progress/E.7/sprint_E.7_implementation.md#finalization-and-qualified-boundaries) and [handover](../progress/E.7/sprint_E.7_handover.md) distinguish completed Elaboration criteria from production obligations. This experiment uses verified explicit SQL bundles; native SQLcl PROJECT production deployment requirements remain unchanged.
+
+## E.9 ordinary integration experiment
+
+The [E.9 implementation](../progress/E.9/sprint_E.9_implementation.md) and [verification](../progress/E.9/sprint_E.9_tests.md) record the bounded local capability service, report freshness and protected integration experiment. This document retains its existing requirements/design/test authority; the experiment does not assert GitHub or production identity/isolation qualification. See the [walkthrough](../progress/E.9/sprint_E.9_increment_demo.md) for reproducible operation.

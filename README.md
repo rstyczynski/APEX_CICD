@@ -256,6 +256,6 @@ The [complete E.7 walkthrough and presentation](progress/E.7/sprint_E.7_incremen
 
 The [E.8 walkthrough and presentation](progress/E.8/sprint_E.8_increment_demo.md) explain trusted suite selection, real local Git merge execution, three Oracle test cadences and fail-closed reporting. [Operating reference](progress/E.8/user_manual.md), [design](progress/E.8/sprint_E.8_design.md) and [test report](progress/E.8/sprint_E.8_tests.md) define its bounded Elaboration scope; GitHub publication and production isolation remain outside this experiment.
 
-### Sprint E.9 — review and merge experiment in progress
+### Sprint E.9 — current review and controlled merge
 
-The [E.9 walkthrough](progress/E.9/sprint_E.9_increment_demo.md) and [handover](progress/E.9/sprint_E.9_handover.md) expose the passing local policy prototype and unfinished authenticated server enforcement. E.9 remains active; no production merge protection is claimed.
+The [E.9 walkthrough](progress/E.9/sprint_E.9_increment_demo.md) and [handover](progress/E.9/sprint_E.9_handover.md) demonstrate accurate context, real Codex review, authenticated local publishers, report freshness and protected ordinary integration. The bounded experiment includes refusal/race cases and a recorded exception; it does not claim GitHub or production isolation qualification.

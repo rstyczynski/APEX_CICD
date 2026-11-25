@@ -1,25 +1,29 @@
-# E.9 demonstration walkthrough
+# E.9 increment walkthrough
 
-E.9 promised current AI Review evidence alongside Testing and controlled ordinary
-integration. This delivered prototype demonstrates the local policy portion;
-server enforcement remains unfinished. [Manual](user_manual.md) owns operation,
-[implementation](sprint_E.9_implementation.md) owns limitations and
-[handover](sprint_E.9_handover.md) owns the decision. The presentation pair is
+Goal: take accurate change context and a real agent report to current Review
+and Testing evidence and controlled ordinary integration. The supported journey
+uses an authenticated local disposable repository service. No external repository
+is published. [Manual](user_manual.md) owns operation, [design](sprint_E.9_design.md)
+owns policy, [implementation](sprint_E.9_implementation.md) owns mechanisms,
+[tests](sprint_E.9_tests.md) owns evidence and [handover](sprint_E.9_handover.md)
+owns acceptance. The matching editable deck is
 [sprint_E.9_increment_demo.pptx](sprint_E.9_increment_demo.pptx).
 
-## 1. Starting state and scope — slides 1–4
+## 1. Scope and architecture — slides 1–4
 
-Use this clone with Git and Python 3. No database or SQLcl processing occurs.
-The actors are developer, Codex reviewer, trusted controller and integrator.
-The report lives outside proposed source. Publisher and identity inputs are
-synthetic trusted-caller values; no hosted authentication is implied.
+Start in this clone with Python 3, Git supporting merge-tree --write-tree and the
+VS Code `code` command. Developer, Codex agent, authenticated Testing/Review
+publishers, integrator, separate approver and administrator are distinct roles.
+The Python service owns current refs, evidence and policy. Git owns actual
+objects and compare-and-swap. No database or SQLcl operation is performed here.
+Host administrator privileges are outside this bounded ordinary-caller test.
 
-## 2. Run the real local journey — slides 5–6
+## 2. Initial context and scope change — slides 5–7
 
-The driver explained in the [manual](user_manual.md) makes two real source
-revisions, runs one greeting assertion and retains a Git bundle. It refreshes
-summaries without losing the annotation and removes an unsupported success
-claim. This exercises PBI-068 and the bounded portions of 069–071.
+The context driver explained in the [manual](user_manual.md#context-and-pure-policy-checks)
+creates a real change from name to name.strip(), then expands scope with one
+assertion. It retains actual diffs and summaries, the developer annotation and
+honest test states. This is PBI-068; the matching slides show the actual change.
 
 ```bash
 cd "$(git rev-parse --show-toplevel)"
@@ -30,43 +34,76 @@ code progress/E.9/tests/summary-initial.md
 code progress/E.9/tests/summary-refreshed.md
 ```
 
-Expect name.strip() plus one assertion in the refreshed diff; the first summary
-states tests were not run, the second states the exact passing assertion. Both
-retain the developer annotation. The corrected claim is visible in the second.
+Expect the Hello prefix preserved, whitespace removed and one assertion added.
+The first summary says tests unrun; the second names the executed assertion and
+explicitly removes an unsupported all-security-tests-passed claim. Both retain
+“Developer: keep the Hello prefix; whitespace normalization only.” Blank input
+remains a limitation. The assertion checks Hello World from spaced World input.
 
-## 3. Inspect accepted evidence and merge — slides 7–8
+## 3. Real review and service journey — slides 8–10
+
+The agent report is Codex's retained actual serial review of those source diffs,
+not generated synthetic findings. Replays reuse it only for identical source
+content. Security, correctness and testing assessments and the minor blank-name
+finding are inspectable before submission. The service driver, explained in the
+[manual](user_manual.md#run-the-service-experiment), runs the full HTTP/Git journey.
+It generates temporary scoped capabilities, retains immutable-content report
+revisions outside proposed source, executes the assertion, publishes authenticated
+Testing/Review and integrates under one lock. This exercises PBI-069–071.
 
 ```bash
 code progress/E.9/tests/agent-review-template.json
-code progress/E.9/tests/reports
-code progress/E.9/tests/journey.json
+python3 tests/review_service_lab.py
+code progress/E.9/tests/service/receipt.json
+code progress/E.9/tests/service/results.json
+code progress/E.9/tests/service/events.json
 ```
 
-Inspect the security/correctness/testing assessments, minor blank-name finding,
-base/head/policy and hashed report revision. Expect decision.allowed true and a
-merge SHA. Independent approval is injected true, not a human approval. The real
-agent report is Codex's retained serial review; repeated driver runs reuse its
-content for identical source, rather than invoke a new reviewer.
+Expect PASS and an ordinary merge whose parents are the accepted base/head.
+The actual merged greeting is executed and must produce Hello World. Receipt
+identifies exact base/head/policy/report hash; retrieve its matching JSON from
+the same service evidence directory. The service verifies accepted report bytes
+remain retrievable after logical deletion. Independent approval is a distinct
+credential role exercised by the laboratory, with no invented human reaction.
 
-## 4. Challenge failures and limits — slides 9–10
+## 4. Refusals, races and recovery — slides 11–14
 
-The unit script invokes three groups that mutate report policy, freshness and
-merge evidence. Inputs are synthetic to isolate rejection decisions. It rejects
-missing assessments, unauthorized values, unknown severity, unresolved blockers,
-unsupported dismissals, changed base/head/policy/report, withdrawal/deletion,
-a publication race, wrong publishers and missing/nonpassing checks. Bypass is
-recorded separately when the injected administrator identity requests it.
+The same service run exercises invalid credentials, role spoofing, missing
+assessments, unknown severities, unresolved blockers and acknowledgement-only
+dismissal without altering reviewed source. Head/base/policy changes, report
+editing, withdrawal and deletion revoke Review. Four concurrent HTTP events
+interrupt publication; each prevents stale success. A report edit arriving inside
+the integration interval waits on the merge lock, then rejects against its new
+base. A change arriving first blocks integration. Native local receive-pack is
+refused by a real hook. Publisher corruption tests are explicitly server-state
+fault injection, supplementing actual unauthorized endpoint refusals.
+
+```bash
+code progress/E.9/tests/service/direct-write.log
+code progress/E.9/tests/service/results.json
+code progress/E.9/tests/service/events.json
+```
+
+Look for 403 role refusals, 409 policy/freshness failures, native hook refusal,
+ordinary merge and a reasoned administrator bypass. Missing independent approval,
+unresolved conversation and nonpassing/missing/stale evidence prevent ordinary
+integration. Fix unexpected errors and rerun; no failing mandatory check is
+waived. A bypass is an explicit separate event, not ordinary Review success.
+
+The pure-policy unit runner explained in the manual supplies isolated synthetic
+negative cases. It prints three passing groups and is distinct from HTTP tests.
 
 ```bash
 python3 tests/test_review.py
 ```
 
-Expect three passing groups. These tests cannot prevent a local user running
-Git directly or a change occurring after the final publication read. E.9 cannot
-close until an authenticated server boundary is implemented and verified.
+## 5. Results and limits — slides 15–17
 
-## 5. Decision — slides 11–12
-
-All four assigned PBIs remain unfinished as end-to-end outcomes. No later sprint
-is activated. No remote push occurred. The local prototype is useful evidence,
-but its passing tests do not discharge the missing repository controls.
+PBI-068 delivers context refresh/correction; PBI-069 delivers real review and
+policy rejection; PBI-070 delivers revocation and concurrent freshness;
+PBI-071 delivers authenticated combined checks, direct-write refusal and
+recorded exception/approval behavior. Each maps to the accepted criteria in the
+[test report](sprint_E.9_tests.md). Merge queue is not selected. GitHub portability,
+production identity, hostile-host isolation and crash recovery are not claimed;
+E.10 and later planned work remain unactivated. No new root backlog item is
+introduced. The earlier pure-library failure and repair remain explicit.
