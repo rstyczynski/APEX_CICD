@@ -25,3 +25,7 @@ The developer operated the real native Chrome authentication/page journey; obser
 The repository’s existing scoped raw-evidence whitespace policy is extended only to the E.6 native APEX export and Oracle/SQLcl/regression transcripts. Raw bytes are retained while authored code/narrative remain under normal whitespace checks. E.5 artifact changes must be absent. The final delivery receipt records link/anchor, hash, syntax and runtime cleanup checks; the completion report records the scoped commit in the final documentation checkpoint.
 
 The final smoke additionally rejects both a source-version mismatch and an unqualified SQLcl build. Native re-packaging after that guard preserves the original archive SHA-256; the separate page/archive assertion passes again. All 13 documented code viewer invocations returned success. Regression leaves completed E.5 artifacts unchanged.
+
+## Durable completion marker
+
+Local commit `1fd7eac81d0e643c1e1d31e82d0d778c608a9ffd` contains the coherent E.6 implementation, selected gate evidence, whole-application archive, handover and closure. Post-commit hash checks confirm the native archive, component declarations and presentation. Its scope excludes unrelated .codex-cli changes and all completed E.5 artifacts. This final checkpoint changes references only; no executable behavior or measurements change.

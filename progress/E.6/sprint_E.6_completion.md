@@ -16,4 +16,4 @@ No required E.6 implementation or selected verification remains. Production hard
 
 ## Local commits
 
-The scoped completion commit is recorded by the final documentation checkpoint after the implementation/evidence commit. No remote push is performed.
+The scoped implementation/evidence/closure commit is `1fd7eac81d0e643c1e1d31e82d0d778c608a9ffd` (`feat: deliver E6 secure contracts and transaction experiments`). This final documentation checkpoint records the durable marker. No remote push is performed.
