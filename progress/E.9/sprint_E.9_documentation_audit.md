@@ -81,3 +81,18 @@ recheck passed. Presentation bytes match the passed receipt, raw refusal bytes
 remain recoverable and source bundle verifies. All E.9 PLAN/board states now
 read Done, completion/handover agree, and later entries remain Planned. Delivery
 commit is 543f128. No assigned approval or implementation dependency remains.
+
+## Repeated-request reconciliation
+
+The checkout already contained closure dce97ef; the valid lifecycle has no Done
+to Progress restart. Preserve that closure and verify it. All selected gates
+passed again, including both integration journeys and real Oracle unit regression.
+Fresh logs are linked from the test record. Reconcile PBI-068–071 backlog statuses
+from Proposed to Done to match accepted delivery, PLAN and the board; criteria,
+priority and scope are unchanged. Regression-generated E.5/E.6 historical logs
+were restored byte-for-byte from HEAD; E.9 retains fresh regression output.
+The shared SRS, architecture, test profile, README, setup, design, implementation,
+manual and handover remain consistent with the same verified implementation.
+No code or presentation changes are required. Documentation summary supplies
+the canonical wrap-up summary missing from the original closure. Final link,
+presentation hash, bundle and whitespace checks are recorded with that summary.

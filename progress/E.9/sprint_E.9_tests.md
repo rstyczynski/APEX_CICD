@@ -95,3 +95,19 @@ tests/service/direct-write.raw.gz and normalizing trailing padding in its readab
 log. Raw bytes remain recoverable; no refusal text or outcome changed. See
 [final service recheck](tests/service-final-recheck.log). This is an evidence-format
 repair after the full selected gate run, with the affected integration rerun.
+
+## Closure reverification
+
+A repeated request found E.9 already closed in local commit dce97ef. All five
+selected gates were executed again successfully; no lifecycle restart was needed.
+Fresh artifacts (all PASS):
+
+[A1_smoke](test_run_A1_smoke_20261125_reverification.log)
+
+[A2_unit](test_run_A2_unit_20261125_reverification.log)
+
+[A3_integration](test_run_A3_integration_20261125_reverification.log)
+
+[B1_smoke](test_run_B1_smoke_20261125_reverification.log)
+
+[B2_unit](test_run_B2_unit_20261125_reverification.log)

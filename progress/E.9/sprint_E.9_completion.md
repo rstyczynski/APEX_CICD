@@ -53,3 +53,11 @@ item or next sprint activation is implied. All later planned work stays Planned.
 PLAN E.9 and all four E.9 board rows are Done. All later sprints remain Planned.
 The final evidence-writer integration recheck passed. No assigned work remains
 and no remote push occurred. The closure commit follows delivery 543f128.
+
+## Reverification of the existing closure
+
+The repeated execution request found closure commit dce97ef already present.
+All five selected gates passed again. Backlog status reconciliation and the
+[documentation summary](sprint_E.9_documentation.md) complete the follow-up audit.
+The original activation and Done closure remain recorded; no restart or next
+sprint activation was performed.

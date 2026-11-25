@@ -1,0 +1,3 @@
+RUN smoke:test_review.sh:test_review_smoke
+PASS test_review_smoke
+Tests: 1; failed: 0

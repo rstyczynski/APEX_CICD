@@ -510,7 +510,7 @@ Evaluate whether the developer agent can produce useful pull-request context gro
 
 Test: Demonstrate initial and refreshed summaries checked against the real diff, retained developer annotations, explicit test states and limitations, and correction of a deliberately unsupported claim.
 
-Status: Proposed
+Status: Done
 
 ### PBI-069. Prototype validation of developer-supplied AI review evidence
 
@@ -518,7 +518,7 @@ Validate the smallest review-evidence process that accepts the developer choice 
 
 Test: Demonstrate a real agent report accepted for the declared revision and rejection of missing assessments, unauthorized submission, unknown severity, unresolved blockers and acknowledgement-only dismissal without changing the reviewed source.
 
-Status: Proposed
+Status: Done
 
 ### PBI-070. Validate review freshness through source and report changes
 
@@ -526,7 +526,7 @@ Determine whether review authorization remains bound to the exact source, base, 
 
 Test: Demonstrate invalidation after head or base changes, report editing, withdrawal or deletion and a change during publication, with retrievable accepted evidence and no stale Review success authorizing the changed candidate.
 
-Status: Proposed
+Status: Done
 
 ### PBI-071. Validate combined merge controls and their trust boundaries
 
@@ -534,7 +534,7 @@ Evaluate whether Testing and Review together control ordinary integration for th
 
 Test: Demonstrate ordinary merge refusal for missing, stale or nonpassing evidence, wrong publishers, unresolved conversations and unauthorized direct writes, plus recorded bypass and independent-approval behavior where selected.
 
-Status: Proposed
+Status: Done
 
 ### PBI-072. Validate separation of proposed code and privileged validation
 

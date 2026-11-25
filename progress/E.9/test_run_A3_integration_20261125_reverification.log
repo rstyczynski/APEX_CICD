@@ -1,0 +1,61 @@
+RUN integration:test_review.sh:test_review_lab
+{
+  "candidate": {
+    "base": "511665c54485cb87ea4e63e0b35d0f6b2f1f5506",
+    "head": "ffba7b9080cd5743723046655b27b4c874c9d0ee",
+    "policy": "d373669aafba5391765e9e5acee27410fecbbc20174c08013830bf4d631336ce"
+  },
+  "receipt": {
+    "candidate": {
+      "base": "511665c54485cb87ea4e63e0b35d0f6b2f1f5506",
+      "head": "ffba7b9080cd5743723046655b27b4c874c9d0ee",
+      "policy": "d373669aafba5391765e9e5acee27410fecbbc20174c08013830bf4d631336ce"
+    },
+    "report": "b7b3696af063a925d62ce387fabb47c8d936d0b0c5d4f73daf0400febcc3a407",
+    "submitter": "developer"
+  },
+  "decision": {
+    "allowed": true,
+    "bypass": null,
+    "candidate": {
+      "base": "511665c54485cb87ea4e63e0b35d0f6b2f1f5506",
+      "head": "ffba7b9080cd5743723046655b27b4c874c9d0ee",
+      "policy": "d373669aafba5391765e9e5acee27410fecbbc20174c08013830bf4d631336ce"
+    }
+  },
+  "merge": "1d0597be73cecbd4f3ee6f37f70c34752f16754c",
+  "diff": "diff --git a/greeting.py b/greeting.py\nindex 34c5777..13cbcee 100644\n--- a/greeting.py\n+++ b/greeting.py\n@@ -1,2 +1,2 @@\n def greet(name):\n-    return \"Hello \" + name\n+    return \"Hello \" + name.strip()\ndiff --git a/test_greeting.py b/test_greeting.py\nnew file mode 100644\nindex 0000000..a71ec1e\n--- /dev/null\n+++ b/test_greeting.py\n@@ -0,0 +1,2 @@\n+from greeting import greet\n+assert greet(\" World \")==\"Hello World\"",
+  "scope": "local trusted controller; no GitHub enforcement",
+  "assertion": "PASS"
+}
+PASS test_review_lab
+RUN integration:test_review.sh:test_review_service
+{
+  "status": "PASS",
+  "observations": 174,
+  "ordinary_merge": {
+    "event": "merge",
+    "actor": "integrator",
+    "candidate": {
+      "base": "428320adc154567051f1daa028240c0d365f1d66",
+      "head": "3731f95077626822c4755e401ef0e308f7618651",
+      "policy": "1ea8570f3e3dc8b4b98023e9765cfa3ad6d7b13cb4b5a5181402e37b97a70981"
+    },
+    "commit": "295998291ad0aa3cf88d64f0b320a90bc63146b6",
+    "reason": null
+  },
+  "bypass": {
+    "event": "bypass",
+    "actor": "administrator",
+    "candidate": {
+      "base": "295998291ad0aa3cf88d64f0b320a90bc63146b6",
+      "head": "3731f95077626822c4755e401ef0e308f7618651",
+      "policy": "1ea8570f3e3dc8b4b98023e9765cfa3ad6d7b13cb4b5a5181402e37b97a70981"
+    },
+    "commit": "3e3b1d472cd66eafed9f9d199bb27f15d48a02fe",
+    "reason": "E9 authorized exception experiment"
+  },
+  "scope": "real loopback capabilities, serialized service, native local Git receive hook; trusted host"
+}
+PASS test_review_service
+Tests: 2; failed: 0
