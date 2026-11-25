@@ -1,0 +1,3 @@
+RUN smoke:test_foundation.sh:test_foundation_smoke
+PASS test_foundation_smoke
+Tests: 1; failed: 0

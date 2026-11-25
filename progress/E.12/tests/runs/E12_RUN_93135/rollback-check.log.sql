@@ -1,0 +1,2 @@
+declare s varchar2(100); begin select message into s from e12_app.next_history where id=1; if s<>'retained' then raise_application_error(-20014,'interruption rollback failed'); end if; dbms_output.put_line('INTERRUPTION_ROLLBACK_CONFIRMED'); end;
+/

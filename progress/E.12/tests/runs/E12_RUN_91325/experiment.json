@@ -1,0 +1,15 @@
+{
+  "driver_sha256": "c3c05a5937245aaeda6cda528e1caede7de4ab929a7eb5ed69700807e9c3cdd4",
+  "recorded_utc": "2026-11-25T20:31:48.920829+00:00",
+  "legacy_writes": 240,
+  "legacy_errors": 0,
+  "cutover_equal": true,
+  "capture_operations": [
+    "I",
+    "U",
+    "D"
+  ],
+  "interrupted_transaction_rolled_back": true,
+  "schema": "E12_RUN_91325",
+  "limits": "Finite PL/SQL workload, no APEX browser or production deployment claim"
+}

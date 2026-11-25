@@ -14,7 +14,7 @@ done
 [[ -n "$suite" && -f "$manifest" ]] || { echo 'Specify a suite and an existing manifest.' >&2; exit 2; }
 count=0
 failed=0
-while IFS=: read -r level script function; do
+while IFS=: read -r level script function || [[ -n "$level$script$function" ]]; do
   [[ "$level" == "$suite" ]] || continue
   [[ "$script" =~ ^test_[a-z_]+\.sh$ && "$function" =~ ^test_[A-Za-z0-9_]+$ ]] || { echo 'Invalid manifest entry' >&2; exit 2; }
   count=$((count+1))

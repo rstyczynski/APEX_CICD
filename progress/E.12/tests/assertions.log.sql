@@ -1,6 +1,12 @@
 declare n number; s varchar2(100); begin
 select count(*) into n from e12_app.history where id between 1001 and 1120 or id between 2001 and 2120;
 if n<>240 then raise_application_error(-20004,'traffic lost'); end if;
+select count(*) into n from e12_app.next_history where id=1 and message='newer accepted';
+if n<>1 then raise_application_error(-20011,'target newer value lost'); end if;
+select count(*) into n from e12_app.next_history where id=2;
+if n<>0 then raise_application_error(-20012,'deleted ID resurrected'); end if;
+select count(*) into n from e12_app.next_history where id=3 and message='concurrent insert' and language='pl';
+if n<>1 then raise_application_error(-20013,'insert lost'); end if;
 select message into s from e12_app.history where id=1; if s<>'newer accepted' then raise_application_error(-20005,'overwritten'); end if;
 select count(distinct op) into n from e12_app.change_log where actor='E12_CONCURRENT'; if n<>3 then raise_application_error(-20006,'missing attribution'); end if;
 select count(*) into n from e12_app.settings where k='language' and v='en'; if n<>1 then raise_application_error(-20007,'settings lost'); end if;

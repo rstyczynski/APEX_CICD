@@ -13,3 +13,9 @@ The journal records committed insert/update/delete with a client identifier in t
 ## Decisions and limitations
 
 YOLO self-approved isolated prototype and new optional entry point instead of replacement of the active legacy package. Separate transactions replaced long PL/SQL loops to permit DDL interleaving. Per-process schema names avoid concurrent reset collisions. SQLPlus SET directives are separate to preserve output evidence. No remote write occurred. No simulator establishes any database outcome; synthetic unit cases only validate the equality assertion. Test results and unresolved regressions belong to the [test record](sprint_E.12_tests.md).
+
+## Resume: explicit recovery evidence
+
+The driver now prints the deliberate interruption marker and subprocess exit code, verifies the rolled-back target value before concurrent changes, and independently checks the target's newer value, deleted ID and inserted ID after catch-up. Each successful run records its source SHA-256, UTC receipt time and unique schema, then retains that run's own SQL and logs under tests/runs/<schema>/. These assertions strengthen evidence for the existing acceptance criteria; they introduce no additional acceptance conditions. The walkthrough includes the recovery transaction, version SQL and generated consumer SQL shape.
+
+A full-regression observation exposed a shared runner defect: an unterminated final manifest line was skipped by Bash read, omitting the Foundation integration entry from the full suite. The loop now processes a nonempty final record even when read returns EOF. A deliberately unterminated manifest exercises the actual real Oracle entry; its output is tests/resume-unterminated-manifest.log. This fold-in corrects selection rather than removing or weakening a test. The previous full result remains 16/20 with four failures; it is not relabeled a complete passing gate.

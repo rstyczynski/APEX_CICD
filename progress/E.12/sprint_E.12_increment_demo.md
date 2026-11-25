@@ -65,6 +65,12 @@ commit;
 declare n number; s varchar2(100); begin
 select count(*) into n from e12_app.history where id between 1001 and 1120 or id between 2001 and 2120;
 if n<>240 then raise_application_error(-20004,'traffic lost'); end if;
+select count(*) into n from e12_app.next_history where id=1 and message='newer accepted';
+if n<>1 then raise_application_error(-20011,'target newer value lost'); end if;
+select count(*) into n from e12_app.next_history where id=2;
+if n<>0 then raise_application_error(-20012,'deleted ID resurrected'); end if;
+select count(*) into n from e12_app.next_history where id=3 and message='concurrent insert' and language='pl';
+if n<>1 then raise_application_error(-20013,'insert lost'); end if;
 select message into s from e12_app.history where id=1; if s<>'newer accepted' then raise_application_error(-20005,'overwritten'); end if;
 select count(distinct op) into n from e12_app.change_log where actor='E12_CONCURRENT'; if n<>3 then raise_application_error(-20006,'missing attribution'); end if;
 select count(*) into n from e12_app.settings where k='language' and v='en'; if n<>1 then raise_application_error(-20007,'settings lost'); end if;
@@ -73,6 +79,7 @@ e12_app.hello(3001); e12_app.world(3002);
 select count(*) into n from dba_objects where owner='E12_APP' and status<>'VALID'; if n<>0 then raise_application_error(-20009,'invalid objects'); end if;
 dbms_output.put_line('ASSERTIONS_PASS'); end;
 /
+
 ```
 
 ```sql
@@ -146,3 +153,40 @@ Expected: PASS for 240 accepted unchanged-consumer writes; ASSERTIONS_PASS; CUTO
 interruption.log records the deliberate rollback exit, followed by concurrent.log and catchup.log. It interrupts one migration transaction after the first backfill is committed; it does not kill the Oracle service. The early attempts exposed hidden SQLPlus output and dependencies held by a long loop. Separate SQLPlus settings and separately committed client calls corrected those test defects. Shared schema resets collided with another execution; fixtures now use unique names. Historical failures remain failures.
 
 Unsupported language raises an Oracle application error. Unknown infrastructure errors fail the run. No browser behavior, production deployment, E.13 bridge or E.14 component windows are established. Review the [current tests](sprint_E.12_tests.md) and [handover](sprint_E.12_handover.md) before deciding completion.
+
+## Recovery transaction and generated consumer SQL
+
+The interruption is a real separate SQLPlus process. It changes the already backfilled row without committing, prints the interruption marker, then exits with failure and rollback. The driver records the nonzero process exit; catch-up assertions subsequently require the newer accepted value, absent deleted ID and inserted ID in the target.
+
+```sql
+update e12_app.next_history set message='stale' where id=1;
+prompt INTERRUPTING_UNCOMMITTED_MIGRATION_WITH_ROLLBACK
+exit failure rollback
+```
+
+The version stamp follows successful additive expansion:
+
+```sql
+update e12_app.component_version set version='1.1.0';
+commit;
+```
+
+Each generated Hello call has this form, for identifiers 1001 through 1120. World substitutes world and identifiers 2001 through 2120. Each call is a separate transaction and emits its own server timestamp; the pause runs after commit.
+
+```sql
+begin e12_app.hello(1001); commit; dbms_output.put_line('hello:1:'||to_char(systimestamp,'HH24:MI:SS.FF')); end;
+/
+begin dbms_session.sleep(.1); end;
+/
+```
+
+A successful run now retains a copy of its SQL, logs and receipt in tests/runs/<schema>/ and records the driver SHA-256 in experiment.json. This binds subsequent inspection to a particular executable source and prevents a later run from erasing that evidence. It does not establish any missing regression or browser requirement.
+
+After the failed migration subprocess exits, the driver verifies rollback before accepting concurrent mutations:
+
+```sql
+declare s varchar2(100); begin select message into s from e12_app.next_history where id=1; if s<>'retained' then raise_application_error(-20014,'interruption rollback failed'); end if; dbms_output.put_line('INTERRUPTION_ROLLBACK_CONFIRMED'); end;
+/
+```
+
+Slide 11 now states both assigned PBI outcomes as verified experiments with acceptance pending, and identifies the unchanged planned E.13/E.14 follow-up items. Slides 5–7 separate Courier commands from Arial explanation. These presentation corrections do not close the regression findings.

@@ -1,0 +1,1 @@
+RUN integration:test_foundation.sh:test_foundation_live

@@ -1,5 +1,6 @@
 """Bounded real Oracle compatible expansion and interrupted catch-up experiment."""
-import concurrent.futures,json,re,subprocess,time,sys,os
+import concurrent.futures,json,re,subprocess,time,sys,os,hashlib,shutil
+from datetime import datetime,timezone
 SCHEMA="E12_RUN_"+str(os.getpid())
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
@@ -93,8 +94,9 @@ begin if p_language='pl' then return 'Witaj '||p_name; elsif p_language='en' the
 ''','expand-backfill.log')
         sql("update e12_app.component_version set version='1.1.0';\ncommit;",'version.log')
         # Separate migration connection terminates with uncommitted stale update.
-        r=subprocess.run(BASE,input=PREFIX+"update "+SCHEMA+".next_history set message='stale' where id=1;\nexit failure rollback\n",text=True,capture_output=True,timeout=30)
-        (OUT/'interruption.log').write_text(r.stdout+r.stderr);assert r.returncode!=0
+        r=subprocess.run(BASE,input=PREFIX+"update "+SCHEMA+".next_history set message='stale' where id=1;\nprompt INTERRUPTING_UNCOMMITTED_MIGRATION_WITH_ROLLBACK\nexit failure rollback\n",text=True,capture_output=True,timeout=30)
+        (OUT/'interruption.log').write_text(r.stdout+r.stderr+f'\nPROCESS_EXIT={r.returncode}\n');assert r.returncode!=0
+        sql("declare s varchar2(100); begin select message into s from e12_app.next_history where id=1; if s<>'retained' then raise_application_error(-20014,'interruption rollback failed'); end if; dbms_output.put_line('INTERRUPTION_ROLLBACK_CONFIRMED'); end;\n/",'rollback-check.log')
         sql("""begin dbms_session.set_identifier('E12_CONCURRENT'); end;
 /
 insert into e12_app.history(id,message,language) values(3,'concurrent insert','pl');
@@ -120,6 +122,12 @@ commit;
     result=sql('''declare n number; s varchar2(100); begin
 select count(*) into n from e12_app.history where id between 1001 and 1120 or id between 2001 and 2120;
 if n<>240 then raise_application_error(-20004,'traffic lost'); end if;
+select count(*) into n from e12_app.next_history where id=1 and message='newer accepted';
+if n<>1 then raise_application_error(-20011,'target newer value lost'); end if;
+select count(*) into n from e12_app.next_history where id=2;
+if n<>0 then raise_application_error(-20012,'deleted ID resurrected'); end if;
+select count(*) into n from e12_app.next_history where id=3 and message='concurrent insert' and language='pl';
+if n<>1 then raise_application_error(-20013,'insert lost'); end if;
 select message into s from e12_app.history where id=1; if s<>'newer accepted' then raise_application_error(-20005,'overwritten'); end if;
 select count(distinct op) into n from e12_app.change_log where actor='E12_CONCURRENT'; if n<>3 then raise_application_error(-20006,'missing attribution'); end if;
 select count(*) into n from e12_app.settings where k='language' and v='en'; if n<>1 then raise_application_error(-20007,'settings lost'); end if;
@@ -137,7 +145,14 @@ dbms_output.put_line('ASSERTIONS_PASS'); end;
     except RuntimeError as exc:
         assert 'ORA-20002' in str(exc)
     else:raise AssertionError('Unsupported language accepted')
-    (OUT/'experiment.json').write_text(json.dumps({'legacy_writes':240,'legacy_errors':0,'cutover_equal':True,'capture_operations':['I','U','D'],'interrupted_transaction_rolled_back':True,'schema':SCHEMA,'limits':'Finite PL/SQL workload, no APEX browser or production deployment claim'},indent=2))
+    (OUT/'experiment.json').write_text(json.dumps({'driver_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'recorded_utc':datetime.now(timezone.utc).isoformat(),'legacy_writes':240,'legacy_errors':0,'cutover_equal':True,'capture_operations':['I','U','D'],'interrupted_transaction_rolled_back':True,'schema':SCHEMA,'limits':'Finite PL/SQL workload, no APEX browser or production deployment claim'},indent=2))
+    snapshot=OUT/'runs'/SCHEMA
+    snapshot.mkdir(parents=True,exist_ok=False)
+    names=['inventory.log','baseline.log','legacy-before.log','hello.log','world.log','expand-backfill.log','version.log','interruption.log','rollback-check.log','concurrent.log','catchup.log','assertions.log','legacy-after.log','unsupported-language.log','experiment.json']
+    for name in names:
+        shutil.copy2(OUT/name,snapshot/name)
+        generated=OUT/(name+'.sql')
+        if generated.exists():shutil.copy2(generated,snapshot/generated.name)
     print('PASS real Oracle expansion, 240 unchanged consumer transactions, interrupted migration and exact locked cutover')
 if __name__=='__main__':
     {'unit':unit,'integration':integration}[sys.argv[1]]()

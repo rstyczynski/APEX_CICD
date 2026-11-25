@@ -40,3 +40,13 @@ The [walkthrough](sprint_E.12_increment_demo.md) explains the SQL and exact runn
 
 
 Final full integration gate: [B3](test_run_B3_integration_20261125_202621.log). Both full runs observed the same failures. Historical tracked test outputs changed by regression were copied under tests/regression-generated/ and restored to their Git baseline, preserving other sprint evidence.
+
+## Resume verification
+
+The strengthened real Oracle experiment passed with explicit INTERRUPTING_UNCOMMITTED_MIGRATION_WITH_ROLLBACK, nonzero process exit, INTERRUPTION_ROLLBACK_CONFIRMED and target-side newer-value/deletion/insertion assertions. The receipt records the executing driver hash and retained schema. tests/runs/ contains separate successful-run SQL/log snapshots. tests/resume-recovery-verification.log records the strengthened direct run; tests/resume-foundation-integration.log records the earlier runner invocation. New smoke/unit and full smoke/unit passed in tests/resume-smoke.log, tests/resume-unit.log, tests/resume-regression-smoke.log and tests/resume-regression-unit.log. Full integration rerun output is tests/resume-full-integration.log; inspect its final summary before claiming a final count.
+
+The disposable Q reconstruction is a fixture repair attempt, not a passing IT-1: tests/resume-q-status.log and tests/resume-q-reconstruction.log preserve supported operations and native SQLcl build 25.3.0.274.1210 from the historical custom release controller's approved pin. Its final state is restricted verification at epoch 1. UAT was inspected without resetting its retained business data. Assembly authentication diagnosis succeeded, but the expected message was still absent. The remaining-requirement audit records supported repairs still to implement.
+
+Presentation validation is in tests/resume-presentation-validation.json. tests/resume-slide-6.png and tests/resume-slide-11.png record the changed views inspected at presentation size. This does not imply native PowerPoint inspection or completed handover.
+
+The full rerun completed at 16/20, exit 1, with IT-4 assembly, IT-1 full release, IT-2 patch and IT-7 drift failing. A subsequent runner audit found the final unterminated Foundation manifest record had been skipped. tests/run.sh now executes it at EOF; tests/resume-unterminated-manifest.log validates real execution with an intentionally unterminated single-entry manifest. The corrected full gate remains pending, and the previous 20-entry result must not be described as covering all 21 current integration entries.

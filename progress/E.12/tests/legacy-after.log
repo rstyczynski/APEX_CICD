@@ -1,4 +1,4 @@
-2026-11-25 20:24:51.713940000
+2026-11-25 20:37:36.379127000
 package 	      foundation as
 function greet(p_name varchar2) return varchar2;
 procedure save(p_id number,p_name varchar2);
@@ -7,17 +7,17 @@ package body		   foundation as
 function greet(p_name varchar2) return varchar2 is begin return 'Hello '||p_name
 ; end;
 
-procedure save(p_id number,p_name varchar2) is begin insert into E12_RUN_89176.h
+procedure save(p_id number,p_name varchar2) is begin insert into E12_RUN_96263.h
 istory(id,message) values(p_id,greet(p_name)); end;
 
 end;
-procedure		hello(p_id number) as n number; begin E12_RUN_89176.foun
-dation.save(p_id,'Hello'); select count(*) into n from E12_RUN_89176.history whe
+procedure		hello(p_id number) as n number; begin E12_RUN_96263.foun
+dation.save(p_id,'Hello'); select count(*) into n from E12_RUN_96263.history whe
 re id=p_id; if n<>1 then raise_application_error(-20001,'missing Hello'); end if
 ; end;
 
-procedure		world(p_id number) as n number; begin E12_RUN_89176.foun
-dation.save(p_id,'World'); select count(*) into n from E12_RUN_89176.history whe
+procedure		world(p_id number) as n number; begin E12_RUN_96263.foun
+dation.save(p_id,'World'); select count(*) into n from E12_RUN_96263.history whe
 re id=p_id; if n<>1 then raise_application_error(-20001,'missing World'); end if
 ; end;
 
