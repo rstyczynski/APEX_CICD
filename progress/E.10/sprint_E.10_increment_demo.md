@@ -44,7 +44,7 @@ Expect PASS lines identifying concurrency, bounded failure, privilege denial and
 Inspect the current recorded gate output and requirement-specific interpretation. Re-running the driver creates fresh ephemeral resources and does not overwrite the recorded logs.
 
 ```bash
-code progress/E.10/test_run_A3_integration_20261125.log
+code progress/E.10/test_run_A3_integration_20261125_192849.log
 code progress/E.10/sprint_E.10_tests.md
 ```
 

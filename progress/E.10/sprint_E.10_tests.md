@@ -29,4 +29,4 @@ bash tests/run.sh --unit
 
 ## Artifacts
 
-[A1](test_run_A1_smoke_20261125.log), [A2](test_run_A2_unit_20261125.log), [A3](test_run_A3_integration_20261125.log), [B1](test_run_B1_smoke_20261125.log), [B2](test_run_B2_unit_20261125.log), [initial red](tests/red-unit.log), [pinned pull](tests/pinned-pull.log), [presentation finalization](tests/presentation-finalization.log). The filenames identify this execution date; no earlier sprint pass is reused as fresh evidence.
+[A1](test_run_A1_smoke_20261125_192728.log), [A2](test_run_A2_unit_20261125_192728.log), [A3](test_run_A3_integration_20261125_192849.log), [B1](test_run_B1_smoke_20261125_192812.log), [B2](test_run_B2_unit_20261125_192818.log), [initial red](tests/red-unit.log), [pinned pull](tests/pinned-pull.log), [presentation finalization](tests/presentation-finalization.log). The filenames identify this execution date; no earlier sprint pass is reused as fresh evidence.

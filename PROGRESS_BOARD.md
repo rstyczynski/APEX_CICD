@@ -55,9 +55,9 @@
 | Sprint E.9 | Done | PBI-069 | Done |
 | Sprint E.9 | Done | PBI-070 | Done |
 | Sprint E.9 | Done | PBI-071 | Done |
-| Sprint E.10 | tested | PBI-072 | tested |
-| Sprint E.10 | tested | PBI-073 | tested |
-| Sprint E.10 | tested | PBI-074 | tested |
+| Sprint E.10 | Done | PBI-072 | Done |
+| Sprint E.10 | Done | PBI-073 | Done |
+| Sprint E.10 | Done | PBI-074 | Done |
 | Sprint E.11 | Planned | PBI-075 | Planned |
 | Sprint E.11 | Planned | PBI-078 | Planned |
 | Sprint E.12 | Planned | PBI-048 | Planned |
