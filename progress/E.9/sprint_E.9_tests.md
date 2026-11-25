@@ -87,3 +87,11 @@ outside this bounded experiment; they are not inferred from local checks.
 [native refusal](tests/service/direct-write.log), [source bundle](tests/service/candidate.bundle),
 [presentation validation](tests/presentation-validation.json) and
 [presentation montage](tests/presentation-montage.png).
+
+## Final evidence-writer recheck
+
+The service driver passed again after preserving native Git receive output in
+tests/service/direct-write.raw.gz and normalizing trailing padding in its readable
+log. Raw bytes remain recoverable; no refusal text or outcome changed. See
+[final service recheck](tests/service-final-recheck.log). This is an evidence-format
+repair after the full selected gate run, with the affected integration rerun.

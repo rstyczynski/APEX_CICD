@@ -341,7 +341,7 @@ Backlog Items:
 
 ## Sprint E.9 - Validate AI review and ordinary merge decisions
 
-Status: Progress
+Status: Done
 Mode: YOLO
 Test: smoke, unit, integration
 Regression: smoke, unit

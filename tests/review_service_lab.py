@@ -1,6 +1,7 @@
 """Live loopback API and native local Git receive experiment, no remote publication."""
 import concurrent.futures
 import copy
+import gzip
 import json
 import os
 import subprocess
@@ -155,7 +156,9 @@ with tempfile.TemporaryDirectory(prefix='e9-authenticated-') as temp:
         # Native receive-pack, not a mocked direct-write verdict. Local filesystem only.
         direct = subprocess.run(['git', '-C', str(work), 'send-pack', str(service.repo),
                                  'feature:refs/heads/main'], text=True, capture_output=True)
-        (OUT / 'direct-write.log').write_text(direct.stdout + direct.stderr)
+        raw_receive = direct.stdout + direct.stderr
+        (OUT / 'direct-write.raw.gz').write_bytes(gzip.compress(raw_receive.encode(), mtime=0))
+        (OUT / 'direct-write.log').write_text('\n'.join(line.rstrip() for line in raw_receive.splitlines()) + '\n')
         assert direct.returncode != 0 and 'pre-receive hook declined' in direct.stderr
         assert git(service.repo, 'rev-parse', 'main') == base
         observations.append({'case': 'native unauthorized direct write', 'exit': direct.returncode, 'ref_unchanged': True})

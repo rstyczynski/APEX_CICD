@@ -64,3 +64,20 @@ verification, material approval or documentation dependency remains for E.9.
 The final closure increment must record delivery commit, change only E.9
 PLAN/board lifecycle fields, reconcile handover/completion and verify links/diff
 again. This audit authorizes the local completed-delivery commit, not a push.
+
+## Pre-closure correction
+
+Delivery commit 543f128 contains the verified behavior. Its staged whitespace
+check exposed trailing native Git receive padding, but the commit was mistakenly
+allowed to proceed. The evidence writer now retains exact bytes in compressed
+direct-write.raw.gz and emits a whitespace-clean readable transcript. The affected
+service integration rerun passes; git diff --check passes before closure. This
+repairs the artifact and preserves the original output without waiving the check.
+
+## Closure reconciliation
+
+Final selected logs are verified nonempty and passing; final affected service
+recheck passed. Presentation bytes match the passed receipt, raw refusal bytes
+remain recoverable and source bundle verifies. All E.9 PLAN/board states now
+read Done, completion/handover agree, and later entries remain Planned. Delivery
+commit is 543f128. No assigned approval or implementation dependency remains.

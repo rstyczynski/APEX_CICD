@@ -1,6 +1,6 @@
 # RUP cycle — E.9 completion report
 
-Sprint E.9 | YOLO | implemented and tested; closure follows final audit.
+Sprint E.9 | YOLO | Done after verified delivery, demonstration and final audit.
 
 ## Phases executed
 
@@ -35,7 +35,7 @@ local link/anchor checks, native Git bundle verification and diff checks pass.
 
 ## Commits and changes
 
-3f3b2f0 preserved the earlier partial experiment. The completed delivery commit
+3f3b2f0 preserved the earlier partial experiment. Completed delivery commit 543f128
 contains the local authenticated service, both integration drivers, manifests,
 updated smoke wrapper, full E.9 evidence/materials, connected product documents
 and traceability. The subsequent closure commit records its hash and Done states.
@@ -47,3 +47,9 @@ No assigned criterion is deferred. Production identity/TLS, hostile-host isolati
 GitHub-specific portability and crash recovery are explicit experiment limits,
 not claims of production readiness. Merge queue is unselected. No new root backlog
 item or next sprint activation is implied. All later planned work stays Planned.
+
+## Closure
+
+PLAN E.9 and all four E.9 board rows are Done. All later sprints remain Planned.
+The final evidence-writer integration recheck passed. No assigned work remains
+and no remote push occurred. The closure commit follows delivery 543f128.

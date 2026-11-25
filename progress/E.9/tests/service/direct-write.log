@@ -1,3 +1,3 @@
-remote: DENIED: protected refs require authenticated service integration        
-To /var/folders/rt/g188dkwx2rl25f2xnjnqv8hr0000gn/T/e9-authenticated-hnt0ks4b/source.git
+remote: DENIED: protected refs require authenticated service integration
+To /var/folders/rt/g188dkwx2rl25f2xnjnqv8hr0000gn/T/e9-authenticated-4t9zzite/source.git
  ! [remote rejected] feature -> main (pre-receive hook declined)

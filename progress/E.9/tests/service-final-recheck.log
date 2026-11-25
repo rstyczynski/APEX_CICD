@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "observations": 174,
+  "ordinary_merge": {
+    "event": "merge",
+    "actor": "integrator",
+    "candidate": {
+      "base": "8c34e62fa45dfac137e162197edef1c7bace7b6e",
+      "head": "41836e9cc7ee197c10298717a5747a6b9ade3041",
+      "policy": "1ea8570f3e3dc8b4b98023e9765cfa3ad6d7b13cb4b5a5181402e37b97a70981"
+    },
+    "commit": "650eed4b1bf63e24815abbd34a81a4fb4ee776f4",
+    "reason": null
+  },
+  "bypass": {
+    "event": "bypass",
+    "actor": "administrator",
+    "candidate": {
+      "base": "650eed4b1bf63e24815abbd34a81a4fb4ee776f4",
+      "head": "41836e9cc7ee197c10298717a5747a6b9ade3041",
+      "policy": "1ea8570f3e3dc8b4b98023e9765cfa3ad6d7b13cb4b5a5181402e37b97a70981"
+    },
+    "commit": "b9c57b3319968e1f3256d6b380087e452406cccd",
+    "reason": "E9 authorized exception experiment"
+  },
+  "scope": "real loopback capabilities, serialized service, native local Git receive hook; trusted host"
+}

@@ -51,10 +51,10 @@
 | Sprint E.8 | Done | PBI-066 | Done |
 | Sprint E.8 | Done | PBI-067 | Done |
 | Sprint E.8 | Done | PBI-076 | Done |
-| Sprint E.9 | implemented | PBI-068 | tested |
-| Sprint E.9 | implemented | PBI-069 | tested |
-| Sprint E.9 | implemented | PBI-070 | tested |
-| Sprint E.9 | implemented | PBI-071 | tested |
+| Sprint E.9 | Done | PBI-068 | Done |
+| Sprint E.9 | Done | PBI-069 | Done |
+| Sprint E.9 | Done | PBI-070 | Done |
+| Sprint E.9 | Done | PBI-071 | Done |
 | Sprint E.10 | Planned | PBI-072 | Planned |
 | Sprint E.10 | Planned | PBI-073 | Planned |
 | Sprint E.10 | Planned | PBI-074 | Planned |
