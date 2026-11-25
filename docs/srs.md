@@ -1,5 +1,17 @@
 # Software Requirements Specification
 
+## Laboratory validation planning — 2026-11-25
+
+The [validation programme](validation-programme.md) maps laboratory design questions to
+grouped capability-focused Elaboration experiments. [PLAN](../PLAN.md) owns
+E.5–E.14 assignments; Foundation compatibility, breaking coexistence and component
+windows belong to E.12, E.13 and E.14, with catch-up and bridge risks validated
+inside their related capabilities.
+This is planning authority, not a claim that new requirements, mechanisms,
+commands or test results have been accepted. Reconcile this document during
+the relevant managed design and retain the existing evidence boundaries.
+
+
 E.3 reopened — 2026-11-05: [PBI-058 native release correction](../progress/E.3/sprint_E.3_release_correction.md) implements the paper's native release/commit/tag/package sequence and updates the [final gap reassessment](../progress/E.3/sprint_E.3_final_gap_analysis.md). The paper is the authoritative E.3 lifecycle reference. Prior closure and v1.0.4 observations below are historical; corrected local upgrade/repeat evidence does not claim a new GitHub run or clean-host installation.
 
 E.3 correction: [native APEX/SQLcl with GitHub Actions control](../progress/E.3/sprint_E.3_native_correction.md) supersedes the earlier Python wrapper and recurring source adapter.
@@ -44,7 +56,7 @@ bounded ordinary Working Copy authoring in owned disposable resources. The
 [gap-analysis draft](../progress/E.2/oracle-gap-analysis.md) proposes future
 policy/technology dispositions; it does not itself change the requirements below.
 
-The [E.5 upgrade scope](../progress/E.5/sprint_E.5_proposedchanges.md) records
+The [original Foundation upgrade scope](../progress/E.5/sprint_E.5_proposedchanges.md) records
 the planned compatible and breaking Foundation transitions, initial data
 migration, legacy-write propagation and separate consumer maintenance windows.
 Its managed refinement must reconcile the availability requirement with the

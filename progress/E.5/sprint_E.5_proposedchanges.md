@@ -1,5 +1,19 @@
 # E.5 Foundation upgrades and version coexistence
 
+## Scheduling superseded — 2026-11-25
+
+This retained pre-sprint record describes the original combined Foundation
+scenario; its E.5 assignment and “final currently planned” statements below
+are historical. The Product Owner requested smaller Elaboration increments.
+[PLAN](../../PLAN.md) now assigns PBI-048 to E.12, PBI-049 to E.13 and PBI-050
+to E.14 without changing their criteria. Catch-up and bridge experiments are
+grouped within the compatible and breaking transition capabilities. The [validation programme](../../docs/validation-programme.md)
+owns the current dependency and laboratory validation scope. E.5 now combines the package boundary, utPLSQL
+regression and independent fixtures into one testable-backend capability. No Foundation implementation or sprint activation
+is authorized by this scheduling note; the scenario and unresolved decisions
+below remain inputs for the later managed designs.
+
+
 ## Decision, status and authoritative documents
 
 On 2026-10-19 the Product Owner deferred the Foundation upgrade scenarios
@@ -9,7 +23,7 @@ and E.4 retain their planned technology evaluations. E.5 is Planned in managed
 mode and requires an accepted, stabilized technology/toolchain before execution.
 This is a pre-sprint scope record, not an implementation approval or test result.
 
-The [Sprint Plan](../../PLAN.md#sprint-e5---validate-foundation-upgrades-and-version-coexistence)
+The [Sprint Plan](../../PLAN.md)
 owns assignments and lifecycle status. The [Product Backlog](../../BACKLOG.md)
 owns PBI-048–050 definitions, and the [progress board](../../PROGRESS_BOARD.md)
 tracks their Planned rows. The [SRS](../../docs/srs.md) owns requirements,

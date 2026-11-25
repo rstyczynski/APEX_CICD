@@ -1,10 +1,5 @@
 # Oracle APEX CI/CD Laboratory Roadmap
 
-E.4 and PBI-042/PBI-060 are Done following explicit Product Owner acceptance
-and closure on 2026-11-25. The [closure handover](progress/E.4/sprint_E.4_handover.md#sprint-closure--2026-11-25)
-records the decision, native validation, independent review and experiment limits.
-No subsequent sprint is activated.
-
 ## Basis and decision status
 
 The Product Owner accepted this roadmap and the next-sprint proposal on
@@ -55,7 +50,7 @@ approving an executable iteration.
 
 E.1, formerly labeled Sprint 2, concluded in managed mode on 2026-10-18 with
 the demonstrated A–I prototype and recorded remaining work. PBI-018–035 made
-the follow-up visible at closure; E.2–E.5 are now scheduled below. The original objective
+the follow-up visible at closure; the expanded Elaboration sequence is scheduled below. The original objective
 for PBI-011 through PBI-016 follows below as planning context. Use a thin Hello/World slice to validate source export,
 database evolution, packaging, target deployment, and an observable behavior
 change. Reuse existing assets where the accepted design supports them.
@@ -78,7 +73,7 @@ exercises, the [walkthrough](progress/E.2/cicd-walkthrough.md) and
 and Git coexist in the demonstrated path. Toolchain qualification, component
 compatibility, drift protection and reviewed recovery remain explicit follow-up.
 Closure accepts the assessment, not production readiness. No next sprint starts
-automatically. Complex Foundation upgrades remain E.5 after stabilization.
+automatically. Complex Foundation upgrades now follow the smaller validation increments described below.
 
 ## Elaboration E.3 — Simple Git-based pipeline prototype
 
@@ -103,26 +98,107 @@ when a specific architectural risk requires it. The former exhaustive paper
 coverage and comparative programme remains prior planning context, not this
 prototype's exit gate. Verify sources for the actual Oracle operations used.
 
-## Elaboration E.4 — Refine from prototype evidence
+## Elaboration E.4 — Native integration experiment
 
-E.4 remains Planned with its existing five backlog assignments in the
-[plan](PLAN.md). Its [earlier scope](progress/E.4/sprint_E.4_proposedchanges.md)
-assumed the full native release/test foundation formerly assigned to E.3.
-Refine that scope before activation using E.3 findings; keep only justified
-architecture experiments in Elaboration and schedule completion in Construction.
-The preparation of E.3 does not approve a full E.4 implementation or schedule
-new Construction iterations.
+E.4 and PBI-042/PBI-060 are Done following explicit Product Owner acceptance
+and closure on 2026-11-25. The [closure handover](progress/E.4/sprint_E.4_handover.md#sprint-closure--2026-11-25)
+records the decision, native validation, independent review and experiment limits.
+No subsequent sprint is activated.
 
-## Elaboration E.5 — Foundation upgrades on the stabilized toolchain
+## Elaboration E.5 — Testable backend behind APEX pages
 
-E.5 is the final currently planned Elaboration step, in managed mode with
-PBI-048–050. The [E.5 upgrade scope](progress/E.5/sprint_E.5_proposedchanges.md)
-retains compatible and breaking API/schema evolution, initial data migration,
-legacy-write propagation and separate consumer maintenance windows. Entry
-requires an accepted, reproducible, stabilized technology/toolchain informed
-by E.2 findings and applicable E.3/E.4 evidence. Resolve blockers or refine the
-plan before implementation; the scheduling alone does not establish Lifecycle
-Architecture acceptance or make a particular toolchain the final choice.
+Planned. Backlog: PBI-061, PBI-040, PBI-062.
+
+Extract one greeting rule into a package API while preserving page feedback.
+Demonstrate direct backend enforcement, a regression detected by utPLSQL,
+useful coverage and repeatable fixtures with explicit cleanup boundaries.
+
+## Elaboration E.6 — Secure contracts and transactions
+
+Planned. Backlog: PBI-063, PBI-052, PBI-064, PBI-079.
+
+Validate the component contract under allowed and denied identity/country
+contexts, compatible and breaking changes, and competing requests. Establish
+version classifications and transaction responsibility through consumer tests,
+retaining whole-application deployment.
+
+## Elaboration E.7 — Upgrades and traceable releases
+
+Planned. Backlog: PBI-065, PBI-077, PBI-057.
+
+Upgrade one supported previous release while preserving synthetic data.
+Verify actual database state and connect source, contracts, migrations and
+test evidence to the release displayed in APEX. Demonstrate rejection of
+incorrect deployed state and substituted artifacts.
+
+## Elaboration E.8 — Complete PR candidate testing
+
+Planned. Backlog: PBI-066, PBI-067, PBI-076.
+
+Test one integrated PR candidate from suite selection through deployment and
+reporting. Exercise PR, scheduled and prerelease applicability. Demonstrate
+that missing, empty, skipped or failed mandatory validation prevents Testing
+success and that cheap failures stop expensive dependent work.
+
+## Elaboration E.9 — AI review and merge decisions
+
+Planned. Backlog: PBI-068, PBI-069, PBI-070, PBI-071.
+
+Demonstrate the developer journey from an accurate PR summary and real agent
+review to a current Review result and controlled merge alongside Testing.
+Exercise report changes, revision races, blocking findings, stale evidence
+and publisher controls in a disposable repository.
+
+## Elaboration E.10 — Isolated execution and interrupted cleanup
+
+Planned. Backlog: PBI-072, PBI-073, PBI-074.
+
+Run two candidate streams with separate data, credentials and validator
+authority. Supersede or interrupt one without harming the other. Challenge
+privilege boundaries, retry limits and cleanup, including forced termination
+and scoped orphan recovery.
+
+## Elaboration E.11 — Reproducible delivery and feedback latency
+
+Planned. Backlog: PBI-075, PBI-078.
+
+Have a second operator reproduce the supported journey with fresh private
+inputs and pinned tools. Compare cold and warm feedback for the same workload,
+test tool/cache integrity and expose hidden host dependencies before
+recommending setup or concurrency changes.
+
+## Elaboration E.12 — Compatible Foundation upgrade and catch-up
+
+Planned. Backlog: PBI-048, PBI-081.
+
+Demonstrate the compatible language extension while unchanged consumers
+continue operating. Preserve retained data through upgrade and recovery,
+then validate live backfill/catch-up without losing or overwriting concurrent
+changes. This establishes the data boundary for the breaking transition.
+
+## Elaboration E.13 — Breaking Foundation transition and recovery
+
+Planned. Backlog: PBI-082, PBI-049.
+
+Validate bridge consistency and recovery before moving one consumer to
+Foundation 2.0 while the other remains on 1.x. Exercise partial dual writes,
+shared-data visibility and return to legacy operation before demonstrating
+supported retirement.
+
+## Elaboration E.14 — Component windows and architecture assessment
+
+Planned. Backlog: PBI-050, PBI-080.
+
+Demonstrate separate Hello and World migration windows and interrupted-component
+recovery using the qualified mixed-version fixtures. Review the accumulated
+evidence and remaining risks to recommend Construction or further Elaboration;
+the Product Owner makes the architecture milestone decision separately.
+
+The [plan](PLAN.md) owns assignments and activation; the
+[validation programme](docs/validation-programme.md) explains dependencies and
+evidence boundaries. The [original Foundation scope](progress/E.5/sprint_E.5_proposedchanges.md)
+remains input for E.12–E.14. These are Elaboration experiments; production
+completion belongs to Construction.
 
 ## Construction — Complete the reusable example
 

@@ -1,5 +1,17 @@
 # Project test profile
 
+## Laboratory validation planning — 2026-11-25
+
+The [validation programme](validation-programme.md) maps laboratory design questions to
+grouped capability-focused Elaboration experiments. [PLAN](../PLAN.md) owns
+E.5–E.14 assignments; Foundation compatibility, breaking coexistence and component
+windows belong to E.12, E.13 and E.14, with catch-up and bridge risks validated
+inside their related capabilities.
+This is planning authority, not a claim that new requirements, mechanisms,
+commands or test results have been accepted. Reconcile this document during
+the relevant managed design and retain the existing evidence boundaries.
+
+
 E.3 reopened — 2026-11-05: [PBI-058 native release correction](../progress/E.3/sprint_E.3_release_correction.md) implements the paper's native release/commit/tag/package sequence and updates the [final gap reassessment](../progress/E.3/sprint_E.3_final_gap_analysis.md). The paper is the authoritative E.3 lifecycle reference. Prior closure and v1.0.4 observations below are historical; corrected local upgrade/repeat evidence does not claim a new GitHub run or clean-host installation.
 
 Current E.3 setup: [GitHub environment configuration and ephemeral native connections](../progress/E.3/sprint_E.3_github_configuration.md). GitHub jobs require no machine environment file or .local-apex settings. The temporary prepared-host interactive credential lookup is the explicit [R1-L1 deferral](../progress/E.3/sprint_E.3_handover_review-1-decisions.md#r1-l1--product-owner-policy-choice-required), not production NFR-4 compliance; that record remains a retained dependency until replaced.
@@ -44,11 +56,11 @@ retained failures. The Product Owner accepted the
 E.2 closes with its Test: none / Regression: none experiment profile; no
 new suite or production-release pass is implied.
 
-The [E.5 upgrade scope](../progress/E.5/sprint_E.5_proposedchanges.md) requires
+The [original Foundation upgrade scope](../progress/E.5/sprint_E.5_proposedchanges.md) requires
 compatible and breaking Foundation upgrade evidence, migration catch-up,
 continuous unaffected-consumer traffic, dual-write failure/recovery checks and
 separate component maintenance windows. Exact commands and measurable limits
-must be approved during E.5 design on the stabilized toolchain; existing E.1 checks do not establish these
+must be approved during the assigned E.12–E.14 designs on the qualified toolchain; existing E.1 checks do not establish these
 new acceptance outcomes.
 
 

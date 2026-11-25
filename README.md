@@ -24,6 +24,18 @@ An executable delivery example for Oracle APEX and Oracle Database. A small Foun
 
 The prototype runs on one Podman host using supported Oracle automation interfaces and small Bash/Python scripts. The source is public at [rstyczynski/APEX_CICD](https://github.com/rstyczynski/APEX_CICD). Hosted CI automation and production operation remain future work.
 
+## Laboratory design validation — planned Elaboration
+
+The [validation programme](docs/validation-programme.md) plans ten capability-focused
+sprints, E.5–E.14, against the proposed laboratory design. Group package APIs,
+utPLSQL and fixtures into a testable-backend increment, then validate secure
+contracts, traceable upgrades, candidate testing, AI review and merge controls,
+isolated execution and reproducible delivery. The Foundation transition sprints
+include their related catch-up and bridge experiments. E.x validates ideas;
+production completion belongs to future C.n iterations. All future sprints
+remain Planned; E.4 is Done. [PLAN](PLAN.md) owns
+assignments and the [roadmap](ROADMAP.md) explains the lifecycle.
+
 ## What works today
 
 The assisted A–H walkthrough and native review-correction experiments demonstrate:
@@ -143,7 +155,7 @@ but unexercised in E.2. Retained F artifacts still have their verification limit
 and a separate clean 25.4.1 comparison does not certify them. Identity and
 protection qualification remain backlog work. E.1 evidence is unchanged.
 [PBI-052](BACKLOG.md#pbi-052-define-semantic-versioning-rules-for-component-contracts)
-retains component-contract/SemVer follow-up. Complex Foundation upgrades stay E.5.
+retains component-contract/SemVer follow-up. Complex Foundation upgrades now follow the [small validation increments](docs/validation-programme.md).
 
 ### Sprint E.3 — Git pipeline architecture prototype
 
@@ -169,7 +181,7 @@ The first remote run failed before deployment and its workflow correction is
 retained. The release/tag is 1.0.4 while APEX's display footer remains 1.0.0;
 automatic display-version stamping was not qualified.
 
-PBI-053 and its three children are Done. E.3 was previously closed on 2026-11-05, then reopened by explicit Product Owner direction for PBI-058. The Product Owner accepted the correction and closed E.3 on 2026-11-09. E.4 is Done; E.5 remains Planned. This is an architecture
+PBI-053 and its three children are Done. E.3 was previously closed on 2026-11-05, then reopened by explicit Product Owner direction for PBI-058. The Product Owner accepted the correction and closed E.3 on 2026-11-09. E.4 is Done; E.5–E.14 are Planned under the [validation programme](docs/validation-programme.md). This is an architecture
 prototype, with concurrency, full identity preservation, drift/fencing and
 broader recovery still registered for later work.
 
@@ -224,6 +236,6 @@ The supplied [Oracle APEX lifecycle reference](refs/apex-lifecycle-management-v3
 
 [RUPStrikesBack](https://github.com/rstyczynski/RUPStrikesBack) is an iterative delivery method for collaboration between a Product Owner and AI agents. It combines RUP lifecycle phases with a prioritized backlog, bounded iterations, explicit requirements/design, executable validation and Product Owner review. Each increment connects its implementation, tests and documentation so decisions can be checked against evidence.
 
-This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1, E.1, E.2 and E.3 are closed. E.4 is Done for PBI-042/PBI-060 following explicit Product Owner closure on 2026-11-25; E.5 remains Planned. PLAN owns the current assignments and lifecycle states.
+This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1, E.1, E.2 and E.3 are closed. E.4 is Done for PBI-042/PBI-060 following explicit Product Owner closure on 2026-11-25; E.5–E.14 are Planned under the [validation programme](docs/validation-programme.md). PLAN owns the current assignments and lifecycle states.
 
 For external expert review, use the [rup-external-review skill](.agents/skills/rup-external-review/SKILL.md). Codex prepares the prompts and engineering replies; the Product Owner relays them to the expert through the linked round files. Review outcomes and implementation evidence remain distinct from sprint acceptance.

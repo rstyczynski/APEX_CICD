@@ -27,6 +27,35 @@ Sprint 0 keeps its original identifier. I.1 was activated and later explicitly c
 See the [Sprint 0 handover](progress/sprint_0/sprint_0_handover.md) for outcomes,
 review evidence, and the next-session prompt.
 
+## Laboratory validation planning — 2026-11-25
+
+By Product Owner direction, E.x remains RUP Elaboration: experiments validate
+or disprove architectural ideas, while production completion belongs to later
+C.n Construction iterations. Following the Product Owner’s refinement, related
+experiments are grouped into ten capability-focused sprints, E.5–E.14. The
+previous 24-entry proposal was unstarted and is replaced, with all 28 PBI
+assignments and their acceptance criteria retained. Backlog granularity does
+not determine sprint granularity: each sprint delivers one coherent capability
+demonstration with its related positive and failure scenarios.
+
+The [validation programme](docs/validation-programme.md) owns questions, traceability
+and dependencies. This plan owns assignments and lifecycle states; the
+[backlog](BACKLOG.md) owns criteria and the [board](PROGRESS_BOARD.md) owns
+execution tracking. E.4 was accepted and closed on 2026-11-25.
+All future sprints remain Planned and managed; scheduling neither activates
+them nor approves implementation design.
+
+PBI-048 now belongs to E.12, PBI-049 to E.13 and PBI-050 to E.14. Catch-up and
+bridge experiments are grouped with the compatible and breaking transitions
+respectively. The original Foundation scope remains retained as input; its old
+combined E.5 assignment is historical. No existing criterion is weakened.
+
+Refine exact scenarios and test/regression commands at activation, keeping
+experiments bounded around the shared greeting journey. Reproducible negative
+findings inform design decisions; failed mandatory checks do not become passes.
+The order can change when evidence justifies it, and the final planned sprint
+does not guarantee Construction readiness. No calendar duration is assumed.
+
 ## Sprint 0 - Vision and initial plan
 
 Status: Done
@@ -234,23 +263,150 @@ Backlog Items:
 * PBI-042. Synchronize central development after accepted merges
 * PBI-060. Present multi-developer SQLcl changes in one release
 
-## Sprint E.5 - Validate Foundation upgrades and version coexistence
+## Sprint E.5 - Validate a testable backend behind APEX pages
+
+Status: Planned
+Mode: managed
+Test: smoke, unit, integration
+Regression: smoke
+
+Demonstrate one greeting rule from its APEX page through a package operation to repeatable utPLSQL tests and useful coverage. Show preserved page feedback, direct invalid-input rejection, a detected regression and independent fixtures, including one cleanup boundary beyond rollback.
+
+Backlog Items:
+
+* PBI-061. Validate extraction of one page rule into a package API
+* PBI-040. Measure PL/SQL regression coverage with utPLSQL
+* PBI-062. Validate independent and repeatable backend fixtures
+
+## Sprint E.6 - Validate secure component contracts and transaction behavior
+
+Status: Planned
+Mode: managed
+Test: smoke, unit, integration
+Regression: smoke, unit
+
+Demonstrate a documented component contract used under allowed and denied identity/country contexts, compatible and breaking changes, and competing requests. Establish version classifications and transaction responsibility through observable consumer behavior while retaining whole-application deployment.
+
+Backlog Items:
+
+* PBI-063. Validate APEX session and country authorization test boundaries
+* PBI-052. Define semantic versioning rules for component contracts
+* PBI-064. Validate executable compatibility of component contracts
+* PBI-079. Validate transaction and competing-request behavior
+
+## Sprint E.7 - Validate upgrades and traceable application releases
+
+Status: Planned
+Mode: managed
+Test: smoke, unit, integration
+Regression: smoke, unit
+
+Demonstrate one supported previous-release upgrade with preserved synthetic data, verified database state and a traceable release visible in APEX. Show wrong deployed state and substituted artifacts being rejected; connect source, component contracts, migrations and test evidence to the installed result.
+
+Backlog Items:
+
+* PBI-065. Validate deployed database state after a representative upgrade
+* PBI-077. Validate release identity across artifacts and evidence
+* PBI-057. Show the deployed release identity in APEX
+
+## Sprint E.8 - Validate complete PR candidate testing
+
+Status: Planned
+Mode: managed
+Test: smoke, unit, integration
+Regression: smoke, unit
+
+Demonstrate one integrated PR candidate from trusted suite selection through deployment, tests and reporting, with PR, scheduled and prerelease applicability. Show cheap failure stopping dependent work and missing, empty, skipped or failed mandatory validation preventing Testing success.
+
+Backlog Items:
+
+* PBI-066. Prototype testing of the integrated pull-request candidate
+* PBI-067. Validate fail-closed test-plan and result aggregation
+* PBI-076. Validate test selection and execution cadence
+
+## Sprint E.9 - Validate AI review and ordinary merge decisions
+
+Status: Planned
+Mode: managed
+Test: smoke, unit, integration
+Regression: smoke, unit
+
+Demonstrate a developer journey from an accurate PR summary and real agent review to a current Review result and a controlled merge alongside Testing. Exercise report changes and revision races, rejected blockers and stale evidence, expected publishers and selected repository controls in a disposable repository.
+
+Backlog Items:
+
+* PBI-068. Validate agent-generated pull-request context against the diff
+* PBI-069. Prototype validation of developer-supplied AI review evidence
+* PBI-070. Validate review freshness through source and report changes
+* PBI-071. Validate combined merge controls and their trust boundaries
+
+## Sprint E.10 - Validate secure isolated execution and interrupted cleanup
+
+Status: Planned
+Mode: managed
+Test: smoke, unit, integration
+Regression: smoke, unit
+
+Demonstrate two candidate streams with separated data, credentials and validator authority, then supersede or interrupt one without harming the other. Challenge the trust boundaries, retry/time limits and scoped cleanup, including one forced-termination orphan; mandatory failures remain visible.
+
+Backlog Items:
+
+* PBI-072. Validate separation of proposed code and privileged validation
+* PBI-073. Validate concurrent PR isolation and superseded-run cancellation
+* PBI-074. Validate bounded waits and cleanup after interrupted testing
+
+## Sprint E.11 - Validate reproducible delivery and measured feedback
+
+Status: Planned
+Mode: managed
+Test: smoke, unit, integration
+Regression: smoke, unit
+
+Have a second operator reproduce the selected supported delivery journey with fresh private inputs and pinned tools. Compare cold and warm feedback for that same workload, challenge tool/cache integrity and expose hidden host dependencies before recommending setup or concurrency changes.
+
+Backlog Items:
+
+* PBI-075. Compare reproducible runner setup and feedback latency
+* PBI-078. Reproduce one validated delivery slice without retained host state
+
+## Sprint E.12 - Validate a compatible Foundation upgrade with live data
 
 Status: Planned
 Mode: managed
 Test: smoke, unit, integration
 Regression: smoke, unit, integration
 
-The final currently planned Elaboration step implements the compatible and
-breaking Foundation upgrade scenarios on an accepted, stabilized technology/
-toolchain informed by E.2 analysis and the applicable E.3/E.4 evidence. Verify
-API/schema evolution, data preservation, version coexistence and independent
-consumer maintenance windows. The [E.5 scope record](progress/E.5/sprint_E.5_proposedchanges.md)
-retains the agreed migration sequence and defines the toolchain entry gate;
-unresolved blockers require plan refinement before implementation.
+Demonstrate the compatible language extension with unchanged consumers, retained data and interrupted-upgrade recovery. In the same bounded evolution journey, validate live backfill/catch-up and concurrent change preservation as the prerequisite for the later compatibility bridge.
 
 Backlog Items:
 
 * PBI-048. Prove an available compatible Foundation extension
+* PBI-081. Validate migration catch-up while legacy writes continue
+
+## Sprint E.13 - Validate the breaking Foundation transition and recovery
+
+Status: Planned
+Mode: managed
+Test: smoke, unit, integration
+Regression: smoke, unit, integration
+
+Demonstrate the compatibility bridge and one consumer moving to Foundation 2.0 while the other remains on 1.x. Challenge partial dual writes, shared-data visibility and return to legacy operation before demonstrating supported retirement; a failed bridge hypothesis must be resolved before dependent migration.
+
+Backlog Items:
+
+* PBI-082. Validate dual-write failure and mixed-version data visibility
 * PBI-049. Prove an available breaking Foundation transition
+
+## Sprint E.14 - Validate component windows and assess the architecture
+
+Status: Planned
+Mode: managed
+Test: smoke, unit, integration
+Regression: smoke, unit, integration
+
+Demonstrate separate Hello and World migration windows and interrupted-component recovery using the qualified mixed-version fixtures. Review the accumulated evidence and remaining risks in the same handover to propose Construction or further Elaboration; Lifecycle Architecture acceptance remains a separate Product Owner decision.
+
+Backlog Items:
+
 * PBI-050. Prove an in-place Foundation upgrade with component windows
+* PBI-080. Assess validation evidence and the Construction entry decision

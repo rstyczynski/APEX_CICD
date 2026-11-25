@@ -1,5 +1,17 @@
 # Candidate architecture
 
+## Laboratory validation planning — 2026-11-25
+
+The [validation programme](validation-programme.md) maps laboratory design questions to
+grouped capability-focused Elaboration experiments. [PLAN](../PLAN.md) owns
+E.5–E.14 assignments; Foundation compatibility, breaking coexistence and component
+windows belong to E.12, E.13 and E.14, with catch-up and bridge risks validated
+inside their related capabilities.
+This is planning authority, not a claim that new requirements, mechanisms,
+commands or test results have been accepted. Reconcile this document during
+the relevant managed design and retain the existing evidence boundaries.
+
+
 E.3 reopened — 2026-11-05: [PBI-058 native release correction](../progress/E.3/sprint_E.3_release_correction.md) implements the paper's native release/commit/tag/package sequence and updates the [final gap reassessment](../progress/E.3/sprint_E.3_final_gap_analysis.md). The paper is the authoritative E.3 lifecycle reference. Prior closure and v1.0.4 observations below are historical; corrected local upgrade/repeat evidence does not claim a new GitHub run or clean-host installation.
 
 Current E.3 setup: [GitHub environment configuration and ephemeral native connections](../progress/E.3/sprint_E.3_github_configuration.md). No machine environment file or .local-apex settings are required; scratch is temporary only.
@@ -54,13 +66,13 @@ on 2026-11-03. Coexistence is an accepted direction for further validation.
 Verification, identity and protection limits remain; closure does not accept
 a production architecture or remove the existing requirement baseline.
 
-The [E.5 upgrade scope](../progress/E.5/sprint_E.5_proposedchanges.md) records
+The [original Foundation upgrade scope](../progress/E.5/sprint_E.5_proposedchanges.md) records
 the planned Foundation API/schema coexistence scenario. Initial data migration
 and legacy writes to both schema representations are agreed scenario inputs;
 transaction mechanics, shared-data visibility, version binding and recovery
 remain design decisions. The application-wide maintenance approach below must
 be refined before claiming independent consumer maintenance and availability.
-E.5 follows acceptance of the stabilized technology/toolchain.
+The Foundation experiments now occupy E.12–E.14 after the smaller validations and qualification of the selected toolchain.
 
 
 

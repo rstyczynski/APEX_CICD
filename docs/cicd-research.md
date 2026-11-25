@@ -1,5 +1,17 @@
 # APEX CI/CD approach and infrastructure procedure assessment
 
+## Laboratory validation planning — 2026-11-25
+
+The [validation programme](validation-programme.md) maps laboratory design questions to
+grouped capability-focused Elaboration experiments. [PLAN](../PLAN.md) owns
+E.5–E.14 assignments; Foundation compatibility, breaking coexistence and component
+windows belong to E.12, E.13 and E.14, with catch-up and bridge risks validated
+inside their related capabilities.
+This is planning authority, not a claim that new requirements, mechanisms,
+commands or test results have been accepted. Reconcile this document during
+the relevant managed design and retain the existing evidence boundaries.
+
+
 Current E.3 setup: [GitHub environment configuration and ephemeral native connections](../progress/E.3/sprint_E.3_github_configuration.md). No machine environment file or .local-apex settings are required; scratch is temporary only.
 
 E.3 correction: [native APEX/SQLcl with GitHub Actions control](../progress/E.3/sprint_E.3_native_correction.md) supersedes the earlier Python wrapper and recurring source adapter.
@@ -27,7 +39,7 @@ reassess the current E.1 technology and the earlier recommendations below
 against the supplied Oracle lifecycle paper. Required focused exercises and
 the walkthrough must support gap/blocker findings and proposed backlog and
 roadmap changes. E.2 does not assume a native replacement is already validated;
-complex upgrades are deferred to the [E.5 scope](../progress/E.5/sprint_E.5_proposedchanges.md)
+complex upgrades are deferred to the [original Foundation scope](../progress/E.5/sprint_E.5_proposedchanges.md)
 after the technology/toolchain is stabilized.
 
 

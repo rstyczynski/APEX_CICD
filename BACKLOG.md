@@ -447,3 +447,179 @@ Provide a reproducible walkthrough showing three developers independently stagin
 Test: Demonstrate three attributable contributions staged independently in parallel, A/C opting into and being admitted to a later announced release and delivered together in one numbered native SQLcl release, with B excluded and preserved and changelog coordination and dependencies explained.
 
 Status: Done
+
+### PBI-061. Validate extraction of one page rule into a package API
+
+Validate whether one existing greeting rule can be shared by its page and backend callers without changing accepted behavior. Keep the experiment limited to one operation, including its item-specific feedback and required data constraints.
+
+Test: Demonstrate equivalent before/after page outcomes, direct rejection of invalid API input without unintended writes, and manual verification of the selected page mapping.
+
+Status: Proposed
+
+### PBI-062. Validate independent and repeatable backend fixtures
+
+Establish which fixture and cleanup approaches keep a small backend suite independent of execution order and retained laboratory data. Include ordinary rollback and one committed or structural side effect so the limits of automatic rollback are observable.
+
+Test: Demonstrate repeat and reordered runs with controlled time and locale, unchanged unrelated records, explicit cleanup of the selected nonrollback effect, and exclusion of test-only objects from release contents.
+
+Status: Proposed
+
+### PBI-063. Validate APEX session and country authorization test boundaries
+
+Determine how session-dependent backend behavior can be tested with declared identity and country context while ordinary rules remain session-independent. Use synthetic country permissions and retain separate manual checks for authentication and page submission.
+
+Test: Demonstrate allowed and denied country access, rejected cross-country writes, failed initialization propagation, session cleanup, and a recorded manual authentication/page check distinct from session creation.
+
+Status: Proposed
+
+### PBI-064. Validate executable compatibility of component contracts
+
+Validate whether documented component contracts and consumer tests distinguish compatible fixes and additions from breaking behavior. Keep one whole-application deployment while separating component contract versions from migration and application release identities.
+
+Test: Demonstrate passing existing consumers for a compatible change and detected incompatible results, errors, transaction behavior or calls, with justified version classifications and a callable deprecated interface.
+
+Status: Proposed
+
+### PBI-065. Validate deployed database state after a representative upgrade
+
+Determine whether a small set of explicit database-state assertions detects a wrong deployment even when migration history appears complete. Rehearse one supported previous-release upgrade with synthetic retained data and post-upgrade behavior checks.
+
+Test: Demonstrate detection of selected wrong column, constraint, grant, invalid-object and reference-data states, plus preservation and passing contracts after the supported upgrade.
+
+Status: Proposed
+
+### PBI-066. Prototype testing of the integrated pull-request candidate
+
+Validate an end-to-end test path for the code proposed for integration rather than relying on layout checks or retained release evidence. Keep the experiment to one candidate and one laboratory target with attributable preparation, deployment and backend results.
+
+Test: Demonstrate a passing integrated candidate and injected migration, compilation, state and assertion failures that prevent Testing success, with cheap checks stopping expensive dependent work.
+
+Status: Proposed
+
+### PBI-067. Validate fail-closed test-plan and result aggregation
+
+Determine whether an explicit required plan prevents missing work from appearing successful. Keep applicability and evidence decisions outside the authority of the candidate being tested, including controlled handling of disabled or flaky mandatory coverage.
+
+Test: Demonstrate rejection of empty mandatory suites, absent reports, unknown policy, weakened candidate policy and skipped, neutral, cancelled or failed mandatory work while preserving the original failure through reporting.
+
+Status: Proposed
+
+### PBI-068. Validate agent-generated pull-request context against the diff
+
+Evaluate whether the developer agent can produce useful pull-request context grounded in the actual proposed change and available evidence. Include a scope change and developer annotations so unsupported success claims and lost context are visible.
+
+Test: Demonstrate initial and refreshed summaries checked against the real diff, retained developer annotations, explicit test states and limitations, and correction of a deliberately unsupported claim.
+
+Status: Proposed
+
+### PBI-069. Prototype validation of developer-supplied AI review evidence
+
+Validate the smallest review-evidence process that accepts the developer choice of agent while checking completion against an agreed policy. Keep reports outside the source branch and distinguish validated process evidence from independent approval or proof that all defects were found.
+
+Test: Demonstrate a real agent report accepted for the declared revision and rejection of missing assessments, unauthorized submission, unknown severity, unresolved blockers and acknowledgement-only dismissal without changing the reviewed source.
+
+Status: Proposed
+
+### PBI-070. Validate review freshness through source and report changes
+
+Determine whether review authorization remains bound to the exact source, base, policy and immutable report revision as events arrive. Exercise a bounded set of concurrent changes rather than assuming that successful validation remains current.
+
+Test: Demonstrate invalidation after head or base changes, report editing, withdrawal or deletion and a change during publication, with retrievable accepted evidence and no stale Review success authorizing the changed candidate.
+
+Status: Proposed
+
+### PBI-071. Validate combined merge controls and their trust boundaries
+
+Evaluate whether Testing and Review together control ordinary integration for the current candidate in a disposable repository. Include authorized exceptions and conditional merge-queue behavior without treating configured branch rules as proof that mandatory work ran.
+
+Test: Demonstrate ordinary merge refusal for missing, stale or nonpassing evidence, wrong publishers, unresolved conversations and unauthorized direct writes, plus recorded bypass and independent-approval behavior where selected.
+
+Status: Proposed
+
+### PBI-072. Validate separation of proposed code and privileged validation
+
+Test whether candidate execution, review publication and release authority can be separated with a minimal laboratory permission set. Use synthetic secret markers and adversarial input to expose leaks or unintended command execution without accessing production.
+
+Test: Demonstrate denied privileged access from an untrusted candidate, inert review command text, protected validator-policy changes, and no marker in retained logs, reports or caches.
+
+Status: Proposed
+
+### PBI-073. Validate concurrent PR isolation and superseded-run cancellation
+
+Determine whether two candidate streams can test concurrently without sharing mutable fixtures or overwriting each other’s authoritative results. Include duplicate events, a superseded candidate and an independent release stream.
+
+Test: Demonstrate isolated data and external effects, cancellation of obsolete work only for its own PR, deduplicated authoritative results, a permitted deliberate retry and refusal of stale completion.
+
+Status: Proposed
+
+### PBI-074. Validate bounded waits and cleanup after interrupted testing
+
+Evaluate how a small test run terminates and reclaims its resources when services hang or execution is interrupted. Distinguish transient infrastructure retries from assertion failures and make cleanup failure and orphan recovery visible.
+
+Test: Demonstrate finite failure for unavailable services, bounded transient retries, no assertion retry-until-green, and scoped reclamation after success, failure, timeout, cancellation and forced termination without removing another run’s resources.
+
+Status: Proposed
+
+### PBI-075. Compare reproducible runner setup and feedback latency
+
+Measure whether reusable pinned tools and optional dependency caches improve feedback for a representative laboratory workload. Compare the single-runner baseline with an additional worker only when measured savings and fixture isolation justify it, retaining the same mandatory validation.
+
+Test: Demonstrate cold and warm measurements with sample counts and median/p95 phase times, wrong-version and corrupt-cache rejection, clean-cache success, and a justified runner/cache choice with proposed experimental budgets.
+
+Status: Proposed
+
+### PBI-076. Validate test selection and execution cadence
+
+Determine whether a small trusted behavior inventory selects the necessary suites for pull requests, broader scheduled checks and release candidates. Expose unknown impact and changed migration or contract scope rather than silently omitting required checks.
+
+Test: Demonstrate attributable PR, scheduled and prerelease executions, fallback for unknown impact, mandatory migration/contract inclusion and visible rejection or governed follow-up for disabled critical coverage.
+
+Status: Proposed
+
+### PBI-077. Validate release identity across artifacts and evidence
+
+Validate a single trace from an application release to exact source, component contracts, migrations, configuration and test evidence. Keep released contents immutable and verify actual target state rather than inferring it from recorded versions.
+
+Test: Demonstrate reconstruction of one release’s identities and evidence, rejected artifact or report substitution, explicit missing-evidence failure, and safe repeat of the supported deployment.
+
+Status: Proposed
+
+### PBI-078. Reproduce one validated delivery slice without retained host state
+
+Determine which hidden host assumptions prevent a second operator from reproducing one selected laboratory journey. Limit the experiment to that slice with newly supplied private access and no copied credentials or retained business data.
+
+Test: Demonstrate the selected source-to-result journey from a clean checkout with declared inputs, or reproduce and explain the blocker with a bounded remedy and an explicit unsupported-path decision.
+
+Status: Proposed
+
+### PBI-079. Validate transaction and competing-request behavior
+
+Evaluate one component operation under competing sessions and partial failure against its documented transaction ownership. Make duplicate-request handling, committed side effects and rollback boundaries observable without claiming general concurrency safety.
+
+Test: Demonstrate the selected interleavings, a rejected or safely handled duplicate request, preserved invariants and no unintended partial business change under the declared transaction contract.
+
+Status: Proposed
+
+### PBI-080. Assess validation evidence and the Construction entry decision
+
+Synthesize the experiments into an evidence-backed recommendation for the reusable APEX delivery product. Identify accepted decisions, disproved assumptions, untested cases and prioritized production work without treating completed experiments as production acceptance.
+
+Test: Review traceable results for each targeted design risk, explicit remaining blockers and conditional cases, and a proposed Construction sequence with a separate Product Owner Lifecycle Architecture decision.
+
+Status: Proposed
+
+### PBI-081. Validate migration catch-up while legacy writes continue
+
+Isolate the risk of losing or overwriting live changes while preparing a new Foundation data representation. Keep existing consumers on the legacy contract during a bounded backfill and catch-up experiment with interrupted execution.
+
+Test: Demonstrate attributable concurrent insert, update and delete capture, restart without newer-data overwrite, preserved identifiers and no missing or duplicated accepted changes at the selected cutover boundary.
+
+Status: Proposed
+
+### PBI-082. Validate dual-write failure and mixed-version data visibility
+
+Determine whether the proposed compatibility bridge preserves consistent shared data when legacy and new consumers write through different contracts. Exercise a failure between corresponding writes and return to legacy operation after new-contract writes before attempting full consumer migration.
+
+Test: Demonstrate either the declared consistency and recovery outcomes or a reproducible counterexample, including partial-write failure, old/new read visibility and the supported limits on return to legacy operation.
+
+Status: Proposed

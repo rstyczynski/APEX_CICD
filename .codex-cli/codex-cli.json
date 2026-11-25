@@ -1,0 +1,7 @@
+{
+  "threadId": "01a213b1-0c2e-7072-935a-9aeca1652a46",
+  "model": "gpt-6.1-sol",
+  "transport": "broker",
+  "brokerInstanceId": "b3f5314abb160026a96c7d095d4c8f1d",
+  "lastPrompt": "go\n\nFor script integration, your final assistant message must contain exactly one JSON object and no Markdown or other text:\n{\"goal_achieved\":boolean,\"agentic_exit_code\":integer,\"summary\":\"short result\",\"reason\":\"why the goal was or was not achieved\"}\nSet goal_achieved to true only when the requested task is fully complete and no required work remains. Requested edits must be applied, and requested checks or tests must be completed unless the user explicitly allowed them to be skipped. Set it to false when work is partial, blocked, denied, impossible, materially uncertain, or missing required verification. Use agentic_exit_code 0 as the default when goal_achieved is true and 1 as the default when it is false. When the user's prompt explicitly assigns a code to an observed result, use that code even when the task was completed: codes 1-12 and 14-15 may accompany either goal_achieved value. Code 0 requires goal_achieved true. Never use code 13."
+}
