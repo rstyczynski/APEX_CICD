@@ -1,0 +1,7 @@
+RUN unit:test_candidate.sh:test_candidate_policy
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/test_candidate.py", line 3, in <module>
+    from candidate_testing import plan,aggregate,POLICY_HASH
+ModuleNotFoundError: No module named 'candidate_testing'
+FAIL test_candidate_policy
+Tests: 1; failed: 1
