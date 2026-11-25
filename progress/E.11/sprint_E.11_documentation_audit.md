@@ -15,3 +15,8 @@ Rendered fourteen editable presentation slides; inspected all previews and reche
 ## Disposition
 
 PBI-075 measurement/integrity/decision increment is complete within the selected slice, with full test evidence. Shared checkout/manual/presentation work is attributed to that increment without declaring PBI-078 accepted. The remaining independently attributable operator run/access and P9 review/closure are explicit in the unfinished-requirement audit. These are unresolved acceptance dependencies, not waived tests or a completed sprint. Commit only scoped E.11/shared documentation and implementation; preserve unrelated .codex-cli changes and do not push. A subsequent record will identify the local completion marker.
+
+
+## Handover increment re-audit
+
+Local implementation completion marker: 5866c23. Executed the documented live CLI command from that revision; six real samples and all assertions passed. Receipt is separate from the benchmark baseline so slide measurements remain reproducible. New section anchors were checked against target headings; gate logs now carry actual UTC completion timestamps and report references were reconciled. Presentation content remains unchanged and its prior render/package checks apply. Final git diff --check and link-target validation passed before this handover evidence commit. No unrelated files are staged. Independent-operator/access and final review/closure remain pending; all currently executable independent activities are complete.
