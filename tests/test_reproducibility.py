@@ -12,3 +12,10 @@ with tempfile.TemporaryDirectory() as d:
   else:raise AssertionError('invalid tool accepted')
  assert summary([3,1,2])=={'n':3,'median':2,'p95':3}
 print('PASS wrong version, corrupt cache, valid cache and nearest-rank statistics')
+from reproducible_delivery import connection_prefix
+assert connection_prefix()==['podman','--connection','apex-cicd']
+assert connection_prefix('second-operator')==['podman','--connection','second-operator']
+try:connection_prefix('')
+except ValueError:pass
+else:raise AssertionError('empty connection accepted')
+print('PASS default and explicit connection selection')

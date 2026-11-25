@@ -1,7 +1,7 @@
 {
   "schemaVersion": "presentation-finalization.v1",
-  "finalSha256": "25179f78c251ab80ccc9c3d718194c7bba891ceafde36446f8e25e197ce7f391",
-  "byteCount": 54268,
+  "finalSha256": "87e1e7b0ed686f9f94df5f2442374523a512c425a5706eab50ec08db63340d81",
+  "byteCount": 54629,
   "packageIntegrity": {
     "chart_count": 0,
     "claim_boundary": "Structural package checks only; no slide text, notes, formulas, chart values, or native PowerPoint execution were inspected.",
@@ -19,15 +19,15 @@
     "finding_count": 0,
     "findings": [],
     "font_policy": {
-      "checked_text_script_count": 63,
+      "checked_text_script_count": 65,
       "native_font_rendering_verified": false,
       "observed_font_families": [
         "Arial",
         "Courier"
       ],
       "observed_font_use_counts": {
-        "Arial": 54,
-        "Courier": 9
+        "Arial": 53,
+        "Courier": 12
       },
       "passed": true,
       "performed": true
@@ -42,15 +42,15 @@
     "exitCode": 0,
     "findingCount": 0,
     "fontPolicy": {
-      "checked_text_script_count": 63,
+      "checked_text_script_count": 65,
       "native_font_rendering_verified": false,
       "observed_font_families": [
         "Arial",
         "Courier"
       ],
       "observed_font_use_counts": {
-        "Arial": 54,
-        "Courier": 9
+        "Arial": 53,
+        "Courier": 12
       },
       "passed": true,
       "performed": true
@@ -65,15 +65,15 @@
     "scriptFonts": {},
     "referenceSha256": null,
     "referenceFontsVerifiedInEncodedText": false,
-    "checked_text_script_count": 63,
+    "checked_text_script_count": 65,
     "native_font_rendering_verified": false,
     "observed_font_families": [
       "Arial",
       "Courier"
     ],
     "observed_font_use_counts": {
-      "Arial": 54,
-      "Courier": 9
+      "Arial": 53,
+      "Courier": 12
     },
     "passed": true,
     "performed": true
@@ -82,7 +82,7 @@
     "performed": true,
     "passed": true,
     "slideCount": 14,
-    "sha256": "25179f78c251ab80ccc9c3d718194c7bba891ceafde36446f8e25e197ce7f391",
+    "sha256": "87e1e7b0ed686f9f94df5f2442374523a512c425a5706eab50ec08db63340d81",
     "runtimeNodeModules": "/Users/rstyczynski/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules",
     "nodeExecutable": "/Users/rstyczynski/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node"
   },
@@ -110,7 +110,7 @@
     "native_chart_count": 0,
     "native_powerpoint_verified": false,
     "passed": true,
-    "presentation_sha256": "25179f78c251ab80ccc9c3d718194c7bba891ceafde36446f8e25e197ce7f391",
+    "presentation_sha256": "87e1e7b0ed686f9f94df5f2442374523a512c425a5706eab50ec08db63340d81",
     "schema_version": "presentation-native-chart-titles.v1",
     "slide_count": 14,
     "source_text_emitted": false,

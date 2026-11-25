@@ -1,0 +1,9 @@
+Command '['podman', '--connection', 'apex-cicd', 'exec', '--user', '1000:1000', 'e11-second-operator-8f450791c9', 'env', '-i', 'HOME=/home/podman', 'PATH=/usr/bin:/bin', 'LANG=C.UTF-8', 'python3', '/home/podman/source/scripts/reproducible_delivery.py', '--connection', 'second-operator', '--output', '/home/podman/result.json']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/home/podman/source/scripts/reproducible_delivery.py", line 107, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);p.add_argument('--connection',default='apex-cicd');args=p.parse_args();run(args.output,args.connection)
+                                                                                                                                                          ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/podman/source/scripts/reproducible_delivery.py", line 70, in run
+    assert 'BusyBox v1.37.0' in result.stdout,result.stdout
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

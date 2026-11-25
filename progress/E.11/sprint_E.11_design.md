@@ -40,3 +40,18 @@ RH.1 patch P8/P9 and canonical documentor: reconciled audit, local commits, runn
 ## Verification disposition
 
 R75.1–R75.3: final benchmark receipt and test report establish all selected measurements, real cache reuse/rejection and the single-worker decision. No conditional second-worker experiment is claimed. R78.1: automated clean-source execution passes, but separate operator/access remains pending under RP.1; see the blocker audit. RQ.1: A1/A2/A3 and B1/B2 pass, with exact counts in tests. RH.1: presentation, walkthrough, reconciliation and local increment commit are prepared; live P9 review and closure remain pending. This disposition supersedes the planning-time “pending” labels above without rewriting their original specification.
+
+## Technical second-operator experiment — authorized follow-up
+
+The Product Owner now explicitly requests technical execution of the second-operator reproduction using available means. Test a separately authenticated service principal in a disposable nested Podman environment: fresh client certificate, isolated home/source checkout, independent runtime storage, no mounted host credentials/socket and newly generated candidate inputs. This is a technical operator, not another human. A successful real run and rejected unauthenticated access can establish the selected technical journey without relaxing PLAN; otherwise retain exact failures and continue supported remedies. VM account provisioning via SSH was rejected by the execution interface twice and is not pursued. The alternative container environment does not modify host accounts or mount the host filesystem.
+
+The driver will accept an explicitly selected named connection and pass it to the clean controller; default behavior remains apex-cicd. UT-2 verifies connection selection and default. IT-2 must demonstrate all six samples in the second principal context, rejected access without its fresh certificate, empty initial runtime storage and clean source/input provenance. Existing integrity, cache and full regression criteria remain unchanged. Additional root privileges, if needed for nesting, are limited to the outer rootless container's user namespace and documented as a trusted provisioning mechanism, not a candidate privilege grant.
+
+
+## Final requirement-to-evidence disposition
+
+R75.1: original final benchmark gives three observations per mode, all phase medians/nearest-rank 95th percentiles, real cold transfer and warm reuse. R75.2: UT-1 plus real integrity challenges reject wrong release/corrupt bytes and prove empty-cache success. R75.3: recorded single-worker/verified-archive choice and proposed budgets; no conditional worker expansion is needed or claimed.
+
+R78.1/RP.1: second-operator receipt, source bundle and six real candidate runs demonstrate a distinct authenticated technical account, fresh private access, clean selected-source checkout and declared pinned tools. No credentials or business data were copied from the original operator. Same orchestrating assistant/kernel is explicit. Newly documented nested resource-limit restrictions do not weaken mandatory candidate/source/cache/privacy assertions; limit enforcement was an implementation mechanism, not an assigned acceptance criterion.
+
+RQ.1: latest five operator gates pass, A3 now includes primary and second-operator cases. UT-2 validates explicit/default connection selection. RH.1: live technical run, updated fourteen-slide presentation, walkthrough/manual and reconciled audit delivered; delegated YOLO review applies without fabricating a human reaction. The closure record owns final lifecycle transition after the completion commit.

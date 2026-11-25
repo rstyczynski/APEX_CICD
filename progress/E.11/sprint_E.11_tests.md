@@ -45,3 +45,17 @@ At source e528e42, reran A1/A2/A3 and full B1/B2 in order. All passed: 1/1, 1/1,
 [test_run_B1_smoke_resume_20261125_194958.log](test_run_B1_smoke_resume_20261125_194958.log)
 
 [test_run_B2_unit_resume_20261125_194958.log](test_run_B2_unit_resume_20261125_194958.log)
+
+
+## Technical-operator completion gates
+
+Latest A1 1/1, A2 1/1, A3 2/2 (primary and real technical second operator), full B1 9/9 and B2 8/8 passed. Exact commands remain the standard manifest-filtered new gates and unfiltered regressions. Logs: [A1](test_run_A1_smoke_operator_20261125_200144.log), [A2](test_run_A2_unit_operator_20261125_200144.log), [A3](test_run_A3_integration_operator_20261125_200144.log), [B1](test_run_B1_smoke_operator_20261125_200144.log), [B2](test_run_B2_unit_operator_20261125_200144.log). New connection selection first failed as specified; [red evidence](tests/connection-red.log). The final live repeat additionally retained the exact selected-source Git bundle, without changing workload assertions.
+
+The [second-operator receipt](tests/second-operator/receipt.json) records uid, fresh certificate fingerprint, source hashes/snapshot, pinned image and cleanup. [Execution log](tests/second-operator/execution.log) records all six sample successes. [Unauthenticated rejection](tests/second-operator/denied-without-certificate.log) proves the endpoint requires newly supplied client access; it does not prove general network security. [Engine information](tests/second-operator/engine-info.json) records actual nested runtime configuration. [Source bundle](tests/second-operator/source.bundle) retains the exact clean selected-source snapshot.
+
+Historical failed attempts are preserved in tests/second-operator/cgroup-failure.log, empty-log-failure.log and failure-before-diagnostic-fix.log. Synthetic candidate tokens in failure diagnostics are redacted; no TLS private material is retained. The final successful receipt supersedes intermediate failure.log. The cgroup failure specifically showed missing memory.max; supported nested mode disables cgroups. CPU/memory/PID enforcement is not qualified. Empty remote logs were repaired by explicit k8s-file logging in the shared controller; all prior smoke/unit regression passed with that change. Host provisioning SSH requests were rejected before execution; no host-account mutation occurred.
+
+The second-operator timing receipt is a separate environment measurement and is not substituted for baseline slides or treated as an isolated caching speedup across different runtimes. Full APEX/SQLcl/new-kernel/human-operator reproduction remains outside this selected slice. All assigned mandatory criteria are now evidenced within the stated scope.
+
+
+Baseline preservation: tests/benchmark.json is restored to its original 5866c23 measured bytes, which own the slide comparison. tests/benchmark-resume-baseline.json preserves the subsequent resume snapshot. The latest primary A3 execution receipt is tests/primary-operator-rerun.json; the technical operator has its separate receipt. No measurements were recalculated or substituted across runtime contexts.

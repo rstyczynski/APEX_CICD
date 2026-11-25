@@ -59,3 +59,31 @@ Compare actual phase statistics in the receipt. Cold means an empty experiment d
 ## 5. Return independent evidence — slides 13–14
 
 The second operator should record their identity/context, source revision, newly supplied access method without secret values, exact command, receipt and observed limits. Do not send passwords, keys or private business data. The plan says second operator; it does not explicitly require a human or a different physical host. A repeated execution controlled by this same implementor with retained service access does not establish that separate context. Independent execution and its assessment remain pending; no Product Owner reaction is inferred. See the [blocker audit](sprint_E.11_blockers.md).
+
+## 6. Reproduce as the technical second operator — revised slides 11–14
+
+### What the provisioning script does
+
+The Product Owner explicitly requested technical execution of the second-operator requirement. The [provisioner](../../scripts/reproduce_second_operator.py) creates a disposable rootless outer container from the recorded immutable Podman image digest. Its privileged flag supplies nesting permissions within the existing rootless VM user namespace; it mounts no host path or runtime socket. This is trusted laboratory provisioning, not privilege granted to a candidate. Python, Git, curl and the nested engine are supplied by that pinned image; host prerequisites additionally include OpenSSL and access to the existing apex-cicd provisioning connection.
+
+The script generates a fresh one-day CA and separate server/client keys in an OS temporary directory. Only the new server/client material enters the operator container; the CA signing key stays in the temporary provisioning directory. The server's private directory is root-only. The operator is uid 1000 with a separate HOME, environment cleared with env -i, its own connection configuration and newly issued client certificate. It must be denied without that certificate and must see an initially empty engine/image store. This is actual mutual TLS authentication, not an invented role name.
+
+The provisioner exports only the two selected Python source files, records their SHA-256 and the original repository base revision, creates a self-contained Git source snapshot/bundle and has the operator clone it cleanly. This deliberately omits the original checkout's private configuration, original Git object database, business data and retained credentials. The source snapshot includes the small current connection/logging adapters; its content hashes identify the tested bytes even before their completion commit. It is a clean checkout of the selected slice, not a complete application checkout or APEX installation.
+
+The operator runs the same six-sample workload with --connection second-operator. The new driver option defaults to apex-cicd for existing users. The source controller explicitly selects k8s-file logging so output can be inspected without a journald service. The nested engine uses vfs storage and cgroups disabled because its environment cannot expose the memory.max control file. Candidate shell, network denial, read-only root, capability removal, private tmpfs, integrity and cleanup assertions remain identical. CPU/memory/PID limit enforcement is explicitly unsupported in this nested path and is not a PBI-078 acceptance claim. Neither a different human nor a different kernel is claimed.
+
+The source of this supported approach is [Red Hat's Podman nesting guidance](https://www.redhat.com/en/blog/podman-inside-container); [Podman's service reference](https://docs.podman.io/en/stable/markdown/podman-system-service.1.html) defines client-certificate authentication. The experiment itself, rather than those references, establishes the recorded result.
+
+### Execute and inspect
+
+The command creates a uniquely named container, provisions the technical account, performs all six runs, retrieves only nonsecret receipts and removes the entire container/private tmpfs in finally. It never prunes the service or touches the retained database. A nonzero result is failure; exact sanitized diagnostics are retained in the second-operator evidence directory. This operator experiment was executed live and through the A3 gate.
+
+```bash
+python3 -u scripts/reproduce_second_operator.py
+code progress/E.11/tests/second-operator/receipt.json
+code progress/E.11/tests/second-operator/benchmark.json
+```
+
+Expected: distinct uid/new mTLS access/unauthenticated rejection/empty-engine/clean-source PASS, six sample PASS lines and a final scoped-cleanup PASS. receipt.json identifies the account, certificate fingerprint, exact selected-source hashes, source snapshot, pinned image, command, empty before/after stores and cleanup verification. The benchmark contains real measurements on this new operator runtime. Do not interpret its timings as an isolated performance improvement over the prepared-host baseline: the runtime, storage driver and cgroup support differ.
+
+The first SSH-based VM-account approach was denied and was abandoned. Initial nested tests exposed missing stdin attachment during credential transfer, unavailable memory cgroups and remote logging defaults. These were diagnosed and repaired; earlier sanitized failures remain evidence. The supported nested path succeeds without changing host accounts or relying on copied private access. No Product Owner satisfaction or independent human review is inferred.

@@ -1,0 +1,22 @@
+RUN integration:test_reproducibility.sh:test_reproducibility_lab
+PASS sample 1 cold: 4038406 downloaded bytes
+PASS sample 1 warm: 0 downloaded bytes
+PASS sample 2 cold: 4038406 downloaded bytes
+PASS sample 2 warm: 0 downloaded bytes
+PASS sample 3 cold: 4038406 downloaded bytes
+PASS sample 3 warm: 0 downloaded bytes
+PASS clean checkout, six candidate runs, integrity rejection, scoped cleanup and marker scan
+PASS test_reproducibility_lab
+RUN integration:test_reproducibility.sh:test_second_operator_lab
+PASS distinct uid=1000, new mTLS access, unauthenticated rejection, empty independent engine and clean selected-source checkout
+PASS sample 1 cold: 4038406 downloaded bytes
+PASS sample 1 warm: 0 downloaded bytes
+PASS sample 2 cold: 4038406 downloaded bytes
+PASS sample 2 warm: 0 downloaded bytes
+PASS sample 3 cold: 4038406 downloaded bytes
+PASS sample 3 warm: 0 downloaded bytes
+PASS clean checkout, six candidate runs, integrity rejection, scoped cleanup and marker scan
+
+PASS scoped operator environment and fresh access removed
+PASS test_second_operator_lab
+Tests: 2; failed: 0

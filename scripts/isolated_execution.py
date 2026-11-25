@@ -55,7 +55,7 @@ class Containers:
 
     def start(self, script, credential='synthetic-candidate'):
         name = 'e10-' + secrets.token_hex(10)
-        self.cli('run', '-d', '--name', name, '--label', 'e10.session=' + self.session,
+        self.cli('run', '-d', '--log-driver=k8s-file', '--name', name, '--label', 'e10.session=' + self.session,
                  '--network=none', '--read-only', '--cap-drop=ALL',
                  '--security-opt=no-new-privileges', '--user=65534:65534',
                  '--pids-limit=32', '--memory=32m', '--cpus=0.25',

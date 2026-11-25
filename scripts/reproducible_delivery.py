@@ -12,7 +12,12 @@ def summary(values):
  return dict(n=len(values),median=statistics.median(values),p95=sorted(values)[math.ceil(.95*len(values))-1])
 def command(args,**kw):
  return subprocess.run(args,check=True,capture_output=True,timeout=90,**kw)
-def run(output):
+def connection_prefix(connection='apex-cicd'):
+ if not connection:raise ValueError('empty connection')
+ return ['podman','--connection',connection]
+def run(output,connection='apex-cicd'):
+ global PREFIX
+ PREFIX=connection_prefix(connection)
  root=Path(__file__).resolve().parents[1]
  revision=command(['git','-C',str(root),'rev-parse','HEAD'],text=True).stdout.strip()
  rows=[];markers=[]
@@ -55,7 +60,11 @@ def run(output):
  '''
      started=time.monotonic()
      client=controller.Containers(image)
-     name=client.start(script,token)
+     client.prefix=PREFIX.copy()
+     try:name=client.start(script,token)
+     except subprocess.CalledProcessError as failure:
+      if '--name' in failure.cmd:name=failure.cmd[failure.cmd.index('--name')+1]
+      raise RuntimeError(str(failure.stderr).replace(token,'[REDACTED]')) from None
      assert int(client.cli('wait',name).stdout.strip())==0
      result=client.cli('logs',name)
      assert 'BusyBox v1.37.0' in result.stdout,result.stdout
@@ -95,4 +104,4 @@ def run(output):
   output.parent.mkdir(parents=True,exist_ok=True);output.write_text(encoded)
  print('PASS clean checkout, six candidate runs, integrity rejection, scoped cleanup and marker scan')
 if __name__=='__main__':
- p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);args=p.parse_args();run(args.output)
+ p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);p.add_argument('--connection',default='apex-cicd');args=p.parse_args();run(args.output,args.connection)

@@ -1,0 +1,7 @@
+PASS sample 1 cold: 4038406 downloaded bytes
+PASS sample 1 warm: 0 downloaded bytes
+PASS sample 2 cold: 4038406 downloaded bytes
+PASS sample 2 warm: 0 downloaded bytes
+PASS sample 3 cold: 4038406 downloaded bytes
+PASS sample 3 warm: 0 downloaded bytes
+PASS clean checkout, six candidate runs, integrity rejection, scoped cleanup and marker scan

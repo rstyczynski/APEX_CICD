@@ -1,0 +1,27 @@
+Command '['podman', '--connection', 'apex-cicd', 'exec', '--user', '1000:1000', 'e11-second-operator-b25721f1cb', 'env', '-i', 'HOME=/home/podman', 'PATH=/usr/bin:/bin', 'LANG=C.UTF-8', 'python3', '/home/podman/source/scripts/reproducible_delivery.py', '--connection', 'second-operator', '--output', '/home/podman/result.json']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/home/podman/source/scripts/reproducible_delivery.py", line 64, in run
+    name=client.start(script,token)
+  File "/tmp/e11-delivery-9477ul8x/source/scripts/isolated_execution.py", line 58, in start
+  File "/tmp/e11-delivery-9477ul8x/source/scripts/isolated_execution.py", line 53, in cli
+  File "/usr/lib64/python3.15/subprocess.py", line 692, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command ['podman', '--connection', 'second-operator', 'run', '-d', '--name', 'e10-496968dfee027d8b9166', '--label', 'e10.session=08a763f5c6acd1dfc81ce4a3', '--network=none', '--read-only', '--cap-drop=ALL', '--security-opt=no-new-privileges', '--user=65534:65534', '--pids-limit=32', '--memory=32m', '--cpus=0.25', '--tmpfs=/work:rw,noexec,nosuid,size=1m,mode=1777', '--env', 'CANDIDATE_CREDENTIAL=[REDACTED]', 'sha256:ca3d0c90e34508454e3da644198eecc133024ef973178d2a35872d2e4a2e1ce7', '/bin/sh', '-c', 'set -eu\n test ! -e /run/podman/podman.sock\n test ! -e /var/run/docker.sock\n test -z "${VALIDATOR_TOKEN:-}"\n if touch /forbidden 2>/dev/null; then exit 20; fi\n printf \'%s\' "$CANDIDATE_CREDENTIAL" > /work/private\n test "$(cat /work/private)" = "$CANDIDATE_CREDENTIAL"\n /bin/busybox | head -1\n echo \'PASS isolated candidate and fresh private input\'\n '] returned non-zero exit status 127.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/podman/source/scripts/reproducible_delivery.py", line 104, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);p.add_argument('--connection',default='apex-cicd');args=p.parse_args();run(args.output,args.connection)
+                                                                                                                                                          ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/podman/source/scripts/reproducible_delivery.py", line 75, in run
+    if image:command(PREFIX+['rmi',image])
+             ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/podman/source/scripts/reproducible_delivery.py", line 14, in command
+    return subprocess.run(args,check=True,capture_output=True,timeout=90,**kw)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib64/python3.15/subprocess.py", line 692, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command ['podman', '--connection', 'second-operator', 'rmi', 'sha256:ca3d0c90e34508454e3da644198eecc133024ef973178d2a35872d2e4a2e1ce7'] returned non-zero exit status 2.

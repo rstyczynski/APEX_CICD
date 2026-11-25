@@ -1,0 +1,8 @@
+RUN unit:test_reproducibility.sh:test_reproducibility_policy
+PASS wrong version, corrupt cache, valid cache and nearest-rank statistics
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/test_reproducibility.py", line 15, in <module>
+    from reproducible_delivery import connection_prefix
+ImportError: cannot import name 'connection_prefix' from 'reproducible_delivery' (/Users/rstyczynski/projects/APEX_CICD/scripts/reproducible_delivery.py)
+FAIL test_reproducibility_policy
+Tests: 1; failed: 1
