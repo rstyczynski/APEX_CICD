@@ -28,3 +28,6 @@ smoke:test_review.sh:test_review_smoke
 unit:test_review.sh:test_review_policy
 integration:test_review.sh:test_review_lab
 integration:test_review.sh:test_review_service
+smoke:test_execution.sh:test_execution_smoke
+unit:test_execution.sh:test_execution_policy
+integration:test_execution.sh:test_execution_lab

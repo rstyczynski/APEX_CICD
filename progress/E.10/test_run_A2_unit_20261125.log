@@ -1,0 +1,8 @@
+RUN unit:test_execution.sh:test_execution_policy
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+OK
+PASS test_execution_policy
+Tests: 1; failed: 0

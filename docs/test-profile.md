@@ -360,3 +360,7 @@ The [E.6 test report](../progress/E.6/sprint_E.6_tests.md) records A1/A2/A3 and 
 ## E.9 review and merge verification
 
 The [E.9 implementation](../progress/E.9/sprint_E.9_implementation.md) and [verification](../progress/E.9/sprint_E.9_tests.md) record the bounded local capability service, report freshness and protected integration experiment. This document retains its existing requirements/design/test authority; the experiment does not assert GitHub or production identity/isolation qualification. See the [walkthrough](../progress/E.9/sprint_E.9_increment_demo.md) for reproducible operation.
+
+## E.10 isolated execution experiment
+
+The [E.10 design](../progress/E.10/sprint_E.10_design.md), [verification](../progress/E.10/sprint_E.10_tests.md) and [walkthrough](../progress/E.10/sprint_E.10_increment_demo.md) describe the local rootless-container experiment for PBI-072/073/074. Requirements remain owned by the SRS/backlog, architecture by this project's architecture document and operating steps by the walkthrough. This bounded result does not qualify production credentials, Oracle area isolation or hosted GitHub controls.

@@ -259,3 +259,7 @@ The [E.8 walkthrough and presentation](progress/E.8/sprint_E.8_increment_demo.md
 ### Sprint E.9 — current review and controlled merge (Done)
 
 The [E.9 walkthrough](progress/E.9/sprint_E.9_increment_demo.md) and [handover](progress/E.9/sprint_E.9_handover.md) demonstrate accurate context, real Codex review, authenticated local publishers, report freshness and protected ordinary integration. The bounded experiment includes refusal/race cases and a recorded exception; it does not claim GitHub or production isolation qualification.
+
+### Sprint E.10 — Isolated candidate execution
+
+The [complete walkthrough and slide map](progress/E.10/sprint_E.10_increment_demo.md), [editable deck](progress/E.10/sprint_E.10_increment_demo.pptx), [manual](progress/E.10/user_manual.md), [verification](progress/E.10/sprint_E.10_tests.md) and [handover](progress/E.10/sprint_E.10_handover.md) document the real-container laboratory for [PBI-072](BACKLOG.md#pbi-072-validate-separation-of-proposed-code-and-privileged-validation), [PBI-073](BACKLOG.md#pbi-073-validate-concurrent-pr-isolation-and-superseded-run-cancellation) and [PBI-074](BACKLOG.md#pbi-074-validate-bounded-waits-and-cleanup-after-interrupted-testing). PLAN owns lifecycle status; this is not production sandbox qualification.

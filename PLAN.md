@@ -357,8 +357,8 @@ Backlog Items:
 
 ## Sprint E.10 - Validate secure isolated execution and interrupted cleanup
 
-Status: Planned
-Mode: managed
+Status: Progress
+Mode: YOLO
 Test: smoke, unit, integration
 Regression: smoke, unit
 

@@ -1,0 +1,9 @@
+RUN integration:test_execution.sh:test_execution_lab
+PASS concurrent private data/credentials, own-PR cancellation, independent release, deduplication, stale refusal and deliberate retry
+PASS success/assertion failure/timeout cleanup; assertion failure remains nonzero
+PASS unavailable service fails after exactly three bounded transport attempts
+PASS privileged access denied, policy preserved, review inert, no markers in retained output/reports/cache (no cache mounted)
+PASS SIGKILL orphan observed/reaped, foreign resources preserved, cleanup failure visible and recovered
+IMAGE docker.io/library/alpine@sha256:49340b346798875b5592e5d420241f2f9cfba5f47e62ebb1446a1b34734e898f
+PASS test_execution_lab
+Tests: 1; failed: 0
