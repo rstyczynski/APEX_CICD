@@ -284,4 +284,4 @@ The [E.13 walkthrough](progress/E.13/sprint_E.13_increment_demo.md) owns operati
 
 E.13 closure: all six gates pass (new 1/1/1, full 12/13/22), local completion commit `f5bc924` exists and [closure is recorded](progress/E.13/sprint_E.13_closure.md). The [handover](progress/E.13/sprint_E.13_handover.md) records actual Oracle demonstration and delegated technical acceptance.
 
-Remote publication is pending a Product Owner decision after the permission tool rejected the push; the [E.13 publication audit](progress/E.13/sprint_E.13_publication_boundary.md) distinguishes verified local closure from this remaining method step.
+The Product Owner clarified that actual project progress is published to APEX_CICD (origin); APEX_CICD_E.13 is reserved for sprint experiments. The [E.13 publication audit](progress/E.13/sprint_E.13_publication_boundary.md) records the corrected destination and historical rejected attempt.

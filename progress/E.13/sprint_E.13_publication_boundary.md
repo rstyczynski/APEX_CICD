@@ -1,17 +1,15 @@
-# E.13 publication authorization boundary
+# E.13 publication destination correction
 
-## Exact unmet method step and authority
+## Product Owner direction
 
-The bounded acceptance outcomes, all six gates, documentation/demo/presentation audits, local implementation commit f5bc924 and local closure commit ec4e6bf are verified. PLAN and the board already record the authorized local closure. The remaining method step is remote publication: [canonical Git rule 3](../../RUPStrikesBack/rules/generic/GIT_RULES.md) requires pushing after commits, and the manager includes push in its phase operations. The local patch separately requires explicit remote authorization. The Product Owner's current permission-tool rejection must be respected; technical completion cannot imply permission to bypass it.
+The Product Owner clarified: APEX_CICD_E.13 is only for experiments in this sprint; actual progress must go to APEX_CICD. This supersedes the earlier interpretation that the sprint-specific experiment repository was the delivery destination. Publish committed project progress to the existing [APEX_CICD origin](https://github.com/rstyczynski/APEX_CICD), main branch. Keep [APEX_CICD_E.13](https://github.com/rstyczynski/APEX_CICD_E.13) reserved for experiments.
 
-## Attempt and observed failure
+## Historical rejected attempt
 
-Requested command: `git push https://github.com/rstyczynski/APEX_CICD_E.13.git HEAD:main` through exec_command with require_escalated. The tool refused process creation: `CreateProcess { message: "Rejected(\"rejected by user\")" }`. No push process ran and no publication success is claimed. A subsequent read-only `gh repo view rstyczynski/APEX_CICD_E.13 --json name,url,isPrivate,defaultBranchRef` confirmed the requested private repository exists with an empty default branch. Former repositories/origin were not modified.
+After local closure commit ec4e6bf, the requested command was `git push https://github.com/rstyczynski/APEX_CICD_E.13.git HEAD:main`. The permission tool refused process creation with `Rejected("rejected by user")`. No push process ran. Read-only inspection confirmed the private experiment repository had no default branch. No retry to that destination is authorized by the corrected direction.
 
-## Supported alternatives audited
+## Corrected publication scope
 
-Retrying Git push requires renewed permission. Publishing identical commits through gh/API, another client or browser would perform the same rejected action and cannot be used to circumvent rejection. A different destination would violate the sprint-specific repository constraint and would not resolve the publication authorization conflict. A local bundle or bare repository preserves local work but does not satisfy the canonical remote push; the source and evidence already exist in durable local commits. Treating an empty remote as published, or simulation as a real push, would be false.
+Publish the committed project history, including implementation f5bc924, closure ec4e6bf, historical boundary record 87d6e33 and this documentation correction, to origin/main. The origin also lacks earlier local E.5–E.12 progress; normal fast-forward publication includes that history. Leave unrelated uncommitted .codex-cli changes outside the commit. Preserve both configured remotes and use no force push.
 
-## Specific external decision needed
-
-A single clarification asks the Product Owner either to accept local-only delivery as an explicit exception to the canonical push rule or approve retrying publication to APEX_CICD_E.13. No permission is inferred from silence. No implementation, test, documentation or convenience-tool problem remains. Local Done lifecycle records are retained truthfully as recorded closure; no undefined Done-to-Progress transition is invented. Overall method completion remains pending this publication decision, and no final COMPLETE claim is made while it is unresolved.
+The [closure](sprint_E.13_closure.md), [handover](sprint_E.13_handover.md), [requirement checklist](sprint_E.13_remaining_work.md) and [documentation audit](sprint_E.13_documentation_audit.md) carry this correction. Technical acceptance and local lifecycle closure are unchanged. Remote publication is verified by comparing origin/main with the resulting local commit after push.

@@ -1,6 +1,6 @@
 # E.13 sprint closure
 
-Closed on 2026-11-25 22:19 UTC under the Product Owner's explicit resume/activation, end-to-end YOLO, local commit and sprint-specific remote authorization. [PLAN](../../PLAN.md#sprint-e13---validate-the-breaking-foundation-transition-and-recovery) and [progress board](../../PROGRESS_BOARD.md) record Done for E.13 and both assigned outcomes. E.14 remains Planned.
+Closed on 2026-11-25 22:19 UTC under the Product Owner's explicit resume/activation, end-to-end YOLO, local commit authorization; publication destination was subsequently clarified below. [PLAN](../../PLAN.md#sprint-e13---validate-the-breaking-foundation-transition-and-recovery) and [progress board](../../PROGRESS_BOARD.md) record Done for E.13 and both assigned outcomes. E.14 remains Planned.
 
 ## Verified outcomes and durable completion
 
@@ -12,8 +12,6 @@ The [handover](sprint_E.13_handover.md) records actual developer operation and d
 
 This is an isolated real Oracle architectural experiment. It does not declare production readiness, actual native release rollout, production caller/session/job fencing, APEX UI rollout, crash recovery or E.14 component maintenance windows qualified. The original compatible/catch-up evidence remains E.12's responsibility. The numbered contract bindings are laboratory interfaces, not republished production artifacts. A recorded test-first chronology deviation is disclosed and supported by a later real defect-sensitivity check; no acceptance criterion was waived. Prior sprint evidence is unchanged; fresh historical regression outputs are retained under E.13 with a relocation inventory.
 
-The sprint-specific private repository is [APEX_CICD_E.13](https://github.com/rstyczynski/APEX_CICD_E.13). Publication of the committed closure state follows this record; no push to a former sprint repository or rewrite of origin is authorized or performed. This closure record and lifecycle fields are preserved together in the dedicated local closure commit after the final closure audit.
+## Corrected publication destination
 
-## Post-closure publication decision pending
-
-After local closure commit ec4e6bf, the permission tool rejected the push to the created private APEX_CICD_E.13 repository. [Publication boundary audit](sprint_E.13_publication_boundary.md) records the exact remaining canonical step, failed command/tool error, alternatives and required Product Owner decision. Technical acceptance and local closure evidence remain valid; overall method completion awaits either authorized publication or an explicit local-only exception. No retry or substitute publication is performed without that decision.
+The Product Owner clarified that [APEX_CICD_E.13](https://github.com/rstyczynski/APEX_CICD_E.13) is reserved for sprint experiments. Actual project progress belongs in [APEX_CICD](https://github.com/rstyczynski/APEX_CICD), the existing origin. The [publication boundary record](sprint_E.13_publication_boundary.md) preserves the rejected attempt and the superseding direction. Publication now targets origin/main; no experiment-repository push or remote rewrite is required.
