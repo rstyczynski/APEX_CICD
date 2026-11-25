@@ -207,7 +207,7 @@ recorded fresh-install, remote-execution and production-readiness limits.
 
 ## Sprint E.4 - Validate multi-developer native release integration
 
-Status: Progress
+Status: Done
 Mode: managed
 Test: smoke, integration
 Regression: smoke
@@ -218,8 +218,10 @@ A/C for one native SQLcl release while preserving B, and safely synchronize cent
 APEX development with accepted Git source. Remain within APEX/SQLcl and GitHub native capabilities, with bounded
 Elaboration experiments rather than completion of the delivery product.
 The Product Owner approved the parallel design and authorized implementation through
-handover preparation, followed by a new dedicated Astra handover review. Live
-Product Owner acceptance and closure remain pending.
+handover preparation, followed by a new dedicated Astra handover review. The Product Owner accepted the delivered experiment and documentation and
+explicitly directed closure on 2026-11-25. See the
+[closure decision](progress/E.4/sprint_E.4_handover.md#sprint-closure--2026-11-25).
+No subsequent sprint is activated.
 
 This selection supersedes the earlier five-item E.4 scope. PBI-019, PBI-020,
 PBI-017 and PBI-046 return to the unscheduled backlog with unchanged criteria.

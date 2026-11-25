@@ -14,7 +14,9 @@ implementation through technical handover. The
 [tests](../progress/E.3/sprint_E.3_tests.md) record real Working Copy/Main capture,
 classified Git PRs, Release Please version/changelog preparation and manually
 selected-tag deployment. PBI-053 is Done; [PLAN](../PLAN.md) owns lifecycle
-status. E.4 is now active for the approved PBI-042/PBI-060 experiment. The wider E.1 requirements
+status. E.4 and PBI-042/PBI-060 were accepted and closed on 2026-11-25;
+[the handover](../progress/E.4/sprint_E.4_handover.md#sprint-closure--2026-11-25)
+records the bounded experiment and closure decision. The wider E.1 requirements
 below retain their baseline meaning. E.3's ordinary Working Copies, sequential
 checkpoint and inherited native APEX approach are approved prototype dispositions,
 not proof that atomic reservations, full fencing/drift/identity coverage or

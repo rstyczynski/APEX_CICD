@@ -2,7 +2,7 @@
 
 E.3 accepted and closed on 2026-11-09. Historical correction:  [native release implementation and evidence](progress/E.3/sprint_E.3_release_correction.md), [final Oracle lifecycle gap reassessment](progress/E.3/sprint_E.3_final_gap_analysis.md) and [current walkthrough/presentation](progress/E.3/sprint_E.3_increment_demo.md). The paper is E.3's authoritative lifecycle reference. The corrected local seed includes native release preparation before tag/package; historical remote runs remain separately attributed.
 
-E.4 is active for PBI-042/PBI-060. The prepared-host experiment delivered native
+E.4 was accepted and closed on 2026-11-25; PBI-042/PBI-060 are Done. The prepared-host experiment delivered native
 release 1.0.7 with A/C selected, B retained, actual parallel author processes and
 central DEV synchronization/repeat. Start the [complete walkthrough](progress/E.4/sprint_E.4_increment_demo.md),
 [editable presentation](progress/E.4/sprint_E.4_increment_demo.pptx),
@@ -10,8 +10,9 @@ central DEV synchronization/repeat. Start the [complete walkthrough](progress/E.
 [Tests](progress/E.4/sprint_E.4_tests.md) distinguish actual runtime evidence from
 read-only assertions and record the approved counter-only checksum recovery.
 [Independent Astra review/recheck](progress/E.4/sprint_E.4_handover_review-1-feedback.md)
-confirms readiness for live handover with the stated experiment limits. Live Product
-Owner acceptance remains pending; [PLAN](PLAN.md) stays Progress.
+confirms the delivered package with its stated experiment limits. The Product Owner
+explicitly directed closure; [the decision](progress/E.4/sprint_E.4_handover.md#sprint-closure--2026-11-25)
+and [PLAN](PLAN.md) record completion.
 
 **From Git to APEX: traceable releases, safe upgrades and protected deployments.**
 
@@ -168,7 +169,7 @@ The first remote run failed before deployment and its workflow correction is
 retained. The release/tag is 1.0.4 while APEX's display footer remains 1.0.0;
 automatic display-version stamping was not qualified.
 
-PBI-053 and its three children are Done. E.3 was previously closed on 2026-11-05, then reopened by explicit Product Owner direction for PBI-058. The Product Owner accepted the correction and closed E.3 on 2026-11-09. E.4 is active; E.5 remains Planned. This is an architecture
+PBI-053 and its three children are Done. E.3 was previously closed on 2026-11-05, then reopened by explicit Product Owner direction for PBI-058. The Product Owner accepted the correction and closed E.3 on 2026-11-09. E.4 is Done; E.5 remains Planned. This is an architecture
 prototype, with concurrency, full identity preservation, drift/fencing and
 broader recovery still registered for later work.
 
@@ -223,6 +224,6 @@ The supplied [Oracle APEX lifecycle reference](refs/apex-lifecycle-management-v3
 
 [RUPStrikesBack](https://github.com/rstyczynski/RUPStrikesBack) is an iterative delivery method for collaboration between a Product Owner and AI agents. It combines RUP lifecycle phases with a prioritized backlog, bounded iterations, explicit requirements/design, executable validation and Product Owner review. Each increment connects its implementation, tests and documentation so decisions can be checked against evidence.
 
-This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1, E.1, E.2 and E.3 are closed. E.4 is active for PBI-042/PBI-060 with native runtime validation complete and handover preparation underway; E.5 remains Planned. PLAN owns the current assignments and lifecycle states.
+This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1, E.1, E.2 and E.3 are closed. E.4 is Done for PBI-042/PBI-060 following explicit Product Owner closure on 2026-11-25; E.5 remains Planned. PLAN owns the current assignments and lifecycle states.
 
 For external expert review, use the [rup-external-review skill](.agents/skills/rup-external-review/SKILL.md). Codex prepares the prompts and engineering replies; the Product Owner relays them to the expert through the linked round files. Review outcomes and implementation evidence remain distinct from sprint acceptance.

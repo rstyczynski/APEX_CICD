@@ -1,5 +1,10 @@
 # Oracle APEX CI/CD Laboratory Roadmap
 
+E.4 and PBI-042/PBI-060 are Done following explicit Product Owner acceptance
+and closure on 2026-11-25. The [closure handover](progress/E.4/sprint_E.4_handover.md#sprint-closure--2026-11-25)
+records the decision, native validation, independent review and experiment limits.
+No subsequent sprint is activated.
+
 ## Basis and decision status
 
 The Product Owner accepted this roadmap and the next-sprint proposal on

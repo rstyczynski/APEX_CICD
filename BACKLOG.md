@@ -302,7 +302,7 @@ Keep the central development application aligned with the accepted source revisi
 
 Test: Demonstrate an accepted merge reflected in central development and a blocked stale or unsafe refresh with pending work preserved.
 
-Status: Proposed
+Status: Done
 
 ### PBI-043. Operate the Oracle lifecycle automation pipelines
 
@@ -446,4 +446,4 @@ Provide a reproducible walkthrough showing three developers independently stagin
 
 Test: Demonstrate three attributable contributions staged independently in parallel, A/C opting into and being admitted to a later announced release and delivered together in one numbered native SQLcl release, with B excluded and preserved and changelog coordination and dependencies explained.
 
-Status: Proposed
+Status: Done

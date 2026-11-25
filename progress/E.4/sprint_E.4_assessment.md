@@ -1,6 +1,6 @@
 # E.4 — Handover readiness assessment
 
-## Current outcome
+## Current outcome — accepted and closed 2026-11-25
 
 2026-11-09. The approved PBI-042/PBI-060 experiment has current native, GitHub and
 browser evidence. Three independent author processes overlapped; later announced
@@ -13,11 +13,12 @@ reviewed counter-only recovery recorded in [tests](sprint_E.4_tests.md).
 [Implementation](sprint_E.4_implementation.md), [the manual](user_manual.md),
 [complete walkthrough](sprint_E.4_increment_demo.md) and [handover](sprint_E.4_handover.md)
 form the concrete delivery package. The temporary central users were removed and
-Available status confirmed. [PLAN](../../PLAN.md) remains Progress. Independent
+Available status confirmed. [PLAN](../../PLAN.md) records Done following explicit Product Owner closure on
+2026-11-25; [the handover](sprint_E.4_handover.md#sprint-closure--2026-11-25) records acceptance. Independent
 Astra handover review found the package ready; its sole overlap-duration label
 correction (R1-L1) is independently verified at 75e9041. [Feedback](sprint_E.4_handover_review-1-feedback.md)
-and [decisions](sprint_E.4_handover_review-1-decisions.md) close the review round. Live Product
-Owner demonstration/acceptance and sprint closure are not inferred from technical success. The wider product requirements,
+and [decisions](sprint_E.4_handover_review-1-decisions.md) close the review round. Acceptance and closure follow the explicit Product Owner instruction, not an
+inference from technical success; no new live demonstration is claimed. The wider product requirements,
 production fencing, arbitrary fresh install and PBI-056 remain outside this experiment.
 
 ## Historical design assessment (superseded status)

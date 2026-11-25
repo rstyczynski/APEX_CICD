@@ -104,5 +104,5 @@ raw business snapshots and private connection stores must not enter Git or slide
 This is a single-operator Elaboration experiment on a retained supported upgrade
 path. There is no production fencing, automated admission service, broad schema
 fingerprint, arbitrary fresh-install support or PBI-056 provisioning. The runtime
-footer is static 1.0.0; release identity is the tag/source/archive receipt. Live
-Product Owner acceptance remains pending, and Sprint E.4 remains Progress.
+footer is static 1.0.0; release identity is the tag/source/archive receipt. The Product Owner explicitly accepted the delivered experiment and closed E.4
+on 2026-11-25; see [the closure decision](sprint_E.4_handover.md#sprint-closure--2026-11-25).

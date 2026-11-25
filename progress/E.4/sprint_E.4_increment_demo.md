@@ -18,8 +18,9 @@ blindly over that state. The numbered stages below provide a runnable inspection
 route through the completed journey. Each native operation is also shown with its
 complete helper SQL and the prerequisites for a newly authorized replay. The
 original native sequence was executed on 2026-11-09; it is not a new live replay
-merely because these evidence checks pass. A live Product Owner demonstration and
-acceptance are still required.
+merely because these evidence checks pass. The Product Owner subsequently accepted the delivered package and explicitly
+directed closure on 2026-11-25. See [the closure decision](sprint_E.4_handover.md#sprint-closure--2026-11-25);
+no new live demonstration is claimed.
 
 One Codex operator simulated A/B/C and the Release Manager. Page Designer edits
 were made separately; independent native capture/stage processes genuinely overlapped.
@@ -671,8 +672,8 @@ passed only the explicitly approved reviewed recovery procedure. Broader schema
 fingerprinting, production races/fencing, general fresh installation, clean-host
 reproduction and automatic release admission remain outside this prototype.
 
-The independent Astra handover review must be read before acceptance. During the
-live meeting, the Product Owner inspects the branch/PR journey, native artifact,
-refusals, actual status transitions, final browser result and B continuation; then
-accepts the handover or requests corrections. Passing gates and a rehearsal do not
-constitute that decision or close Sprint E.4.
+The independent Astra handover review closed with no outstanding finding. The
+Product Owner explicitly accepted the delivered experiment and documentation and
+directed closure on 2026-11-25. [The handover](sprint_E.4_handover.md#sprint-closure--2026-11-25)
+records that decision and distinguishes it from the earlier runtime validation
+and rehearsal. The deck remains the reviewed 2026-11-09 presentation snapshot.

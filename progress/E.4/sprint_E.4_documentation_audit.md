@@ -1,7 +1,7 @@
 # E.4 — Documentation audit
 
 Earlier entries below are revision-specific snapshots. The current working-draft
-check is [Handover preparation checkpoint](#handover-preparation-checkpoint).
+check is [Sprint closure — 2026-11-25](#sprint-closure--2026-11-25).
 
 ## Scope and decision
 
@@ -249,3 +249,45 @@ release hashes, and checks scoped whitespace/staging. No product behavior or rev
 presentation bytes changed, so no redundant Oracle or gate rerun was performed.
 Unrelated PBI-059/E.3/editor changes are still excluded. The requested new reviewer
 chat is 01a1c0cf-7bd4-71e0-a11e-8b03c029253a; no other chat was contacted.
+
+
+## Sprint closure — 2026-11-25
+
+The Product Owner's explicit instruction “finalize amd mark done” accepts the
+prepared package and directs closure, superseding the pending live walkthrough
+for this closure. The [handover](sprint_E.4_handover.md#sprint-closure--2026-11-25)
+records that decision without inventing a demonstration. PLAN and both assigned
+PBI rows move to Done; PBI-042/PBI-060 are Done in the backlog with unchanged
+criteria. No future sprint is activated.
+
+Reviewed the SRS, architecture, test profile, setup, accepted design,
+implementation, tests, README, plan and progress board against the accepted
+experiment and closed review. Reconciled current closure descriptions in the
+manual, walkthrough, assessment and documentation summary. Earlier audit and
+expert-review snapshots remain historical. The reviewed presentation bytes,
+release archive, runtime evidence and executable helpers are unchanged.
+
+Reused gates: 2026-11-09 A1 smoke 1/1, A3 integration 3/3 and B1 regression
+smoke 2/2 at timestamp 20261109_160118; the independent focused recheck at
+75e9041 also passed 3/3 integration. These evidence-reader results apply because
+no behavior or evidence changed. No Oracle, browser, native pipeline or GitHub
+operation was repeated for this documentation-only closure.
+
+Closure checks: current local Markdown targets/anchors and both PBI traceability
+directories, retained gate logs, presentation SHA-256 and 41-slide count, release
+archive SHA-256, PLAN required fields/assignment/status consistency, unchanged
+acceptance criteria, scoped whitespace and staged-change isolation. The existing
+obsolete PLAN anchor in append-only proposedchanges remains the historical
+exception. Verification results are recorded below before commit.
+
+The implementation/review package was committed at 045f672; this increment
+commits closure only. Pre-existing planning, E.3 and editor changes remain
+outside the closure commit. No remote push is authorized.
+
+Closure verification passed: 373 current Markdown file/anchor references and all
+20 PBI traceability symlinks resolve; no current-link exception was needed in the
+checked documents. Retained A1/A3/B1 logs show 1/1, 3/3 and 2/2 with zero failures.
+The archive and PPTX match the recorded SHA-256 values; the PPTX has 41 slides.
+Sprint fields, E.4 assignments/Done states, unchanged PBI criteria and Planned
+future sprint states pass. Working-tree whitespace checks pass. The staged
+closure patch is reviewed separately from pre-existing working changes.

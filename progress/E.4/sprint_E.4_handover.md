@@ -3,10 +3,10 @@
 ## Decision requested and current state
 
 The prepared-host PBI-042/PBI-060 experiment has completed native runtime validation.
-Sprint E.4 remains **Progress** pending live Product Owner walkthrough/acceptance.
+Sprint E.4 and PBI-042/PBI-060 are **Done** following the Product Owner’s
+explicit acceptance and closure instruction on 2026-11-25. See [Sprint closure](#sprint-closure--2026-11-25).
 The independent Astra review and focused recheck found the package ready for the
-live handover; its sole measurement-label finding is independently verified. This handover does not record a meeting
-or acceptance that has not happened. [The complete walkthrough](sprint_E.4_increment_demo.md)
+live handover; its sole measurement-label finding is independently verified. No new live demonstration or meeting is claimed by the closure decision. [The complete walkthrough](sprint_E.4_increment_demo.md)
 is the entry point; [the editable deck](sprint_E.4_increment_demo.pptx) follows its
 41-slide map. [Manual](user_manual.md), [implementation](sprint_E.4_implementation.md)
 and [test report](sprint_E.4_tests.md) explain operation, evidence and limits.
@@ -107,9 +107,26 @@ PBI-059 changes are included in E.4 completion claims.
 
 ## Live Product Owner walkthrough and acceptance
 
-Still required: walk through the independent author evidence, later announcement,
-A/C opt-in and admission, conflict resolution, numbered native artifact, refusals,
-status/checksum lifecycle, final browser result and B continuation using the paired
-walkthrough/deck. Record the actual meeting, observations, questions and decision
-here. The Product Owner may accept handover, request corrections or direct new scope.
-Do not close E.4 until the explicit acceptance/closure procedure is completed.
+The previously requested live walkthrough remained unrecorded before the explicit
+closure direction below. The walkthrough and deck remain available for inspection.
+
+## Sprint closure — 2026-11-25
+
+After reviewing the readiness summary, the Product Owner explicitly instructed:
+“finalize amd mark done.” This accepts the delivered PBI-042/PBI-060 experiment
+and documentation and directs E.4 closure. This explicit direction supersedes
+the previously pending live walkthrough requirement for this closure; no new
+live demonstration, meeting or target operation is claimed on 2026-11-25.
+
+PBI-060 is Done: three independently staged contributions, A/C selection and
+numbered native release 1.0.7, with B preserved and deferred. PBI-042 is Done:
+central synchronization and safe repeat, stale/pending-work refusals and retained
+business data, including the explicitly approved counter-only recovery correction.
+The accepted evidence and independent review retain their prepared-host,
+single-operator and production-readiness limitations.
+
+[PLAN](../../PLAN.md), [backlog](../../BACKLOG.md) and
+[board](../../PROGRESS_BOARD.md) record Done. No subsequent sprint is activated.
+The native observations and browser checks remain dated 2026-11-09; the
+[closure audit](sprint_E.4_documentation_audit.md#sprint-closure--2026-11-25)
+records the documentation checks for this status-only increment.

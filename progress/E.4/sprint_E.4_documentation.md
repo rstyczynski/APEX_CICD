@@ -3,8 +3,10 @@
 The approved PBI-042/PBI-060 experiment is implemented and tested. Its concrete
 [handover](sprint_E.4_handover.md), [walkthrough](sprint_E.4_increment_demo.md),
 [editable presentation](sprint_E.4_increment_demo.pptx) and [manual](user_manual.md)
-are ready for live Product Owner review. PLAN remains Progress; no meeting or
-acceptance is fabricated.
+were accepted by explicit Product Owner closure direction on 2026-11-25.
+PLAN, the board and PBI-042/PBI-060 record Done. The
+[closure decision](sprint_E.4_handover.md#sprint-closure--2026-11-25)
+does not claim a new live demonstration or meeting.
 
 [The audit](sprint_E.4_documentation_audit.md#final-handover-package-and-review-closure)
 records document reconciliation, current link checks, complete SQL/helper equality,
