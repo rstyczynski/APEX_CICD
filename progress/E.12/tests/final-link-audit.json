@@ -1,8 +1,8 @@
 {
   "scope": "E.12 top-level Markdown; maintained README/SRS/architecture/test-profile; E.12 backlog traceability links",
-  "checked": 818,
-  "anchors_checked": 77,
-  "traceability_links": 30,
+  "checked": 831,
+  "anchors_checked": 79,
+  "traceability_links": 32,
   "errors": [],
   "limitations": "External URLs and non-Markdown fragments not checked."
 }

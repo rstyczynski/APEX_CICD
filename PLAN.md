@@ -386,7 +386,7 @@ Backlog Items:
 
 ## Sprint E.12 - Validate a compatible Foundation upgrade with live data
 
-Status: Progress
+Status: Done
 Mode: YOLO
 Test: smoke, unit, integration
 Regression: smoke, unit, integration

@@ -32,7 +32,7 @@ utPLSQL and fixtures into a testable-backend increment, then validate secure
 contracts, traceable upgrades, candidate testing, AI review and merge controls,
 isolated execution and reproducible delivery. The Foundation transition sprints
 include their related catch-up and bridge experiments. E.x validates ideas;
-production completion belongs to future C.n iterations. E.5–E.11 have completed their bounded experiments; E.12 is being verified. E.13/E.14 remain Planned. [PLAN](PLAN.md) owns
+production completion belongs to future C.n iterations. E.5–E.12 have completed their bounded experiments. E.13/E.14 remain Planned. [PLAN](PLAN.md) owns
 assignments and the [roadmap](ROADMAP.md) explains the lifecycle.
 
 ## What works today
@@ -274,3 +274,5 @@ E.11 is closed after verified technical second-operator reproduction; see [closu
 ### Sprint E.12 — Compatible Foundation extension and live catch-up
 
 The [E.12 walkthrough](progress/E.12/sprint_E.12_increment_demo.md) owns operating steps for the isolated compatible-language and interrupted catch-up experiment. The real Oracle experiment verifies unchanged consumer reads/writes, optional language, retained history/configuration, interrupted recovery and exact source/target equality at the selected cutover. Its [design](progress/E.12/sprint_E.12_design.md) records mechanism choices; its [tests](progress/E.12/sprint_E.12_tests.md) distinguish executed gates from unverified production behavior. The [checklist](progress/E.12/sprint_E.12_remaining_work.md) and [handover](progress/E.12/sprint_E.12_handover.md) record acceptance and closure evidence. BACKLOG and PLAN retain requirement and lifecycle authority. This prototype does not replace the application-wide maintenance policy or qualify a production toolchain upgrade.
+
+E.12 is closed after six passing gates (new 2/4/1, regression 11/12/21), delegated technical handover and a passing documentation audit. [Closure](progress/E.12/sprint_E.12_closure.md) records the local completion marker and remaining prototype limits. E.13/E.14 remain Planned.

@@ -1,6 +1,6 @@
 {
-  "scope": "E.12 Markdown and maintained README/SRS/architecture/test-profile local links and Markdown heading anchors",
-  "checked": 429,
+  "scope": "Current E.12 Markdown plus README/SRS/architecture/test-profile local links/Markdown anchors",
+  "checked": 818,
   "errors": [],
-  "limitations": "External URLs and non-Markdown fragments not verified."
+  "limitations": "External URLs and non-Markdown fragments not checked."
 }

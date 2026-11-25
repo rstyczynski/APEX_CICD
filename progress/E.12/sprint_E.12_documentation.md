@@ -2,7 +2,7 @@
 
 The [audit](sprint_E.12_documentation_audit.md) reconciles the maintained SRS, architecture, test profile, setup/design/test specification, implementation, tests, README and progress board against the latest instruction and actual behavior. The [walkthrough](sprint_E.12_increment_demo.md) shows all constant SQL calls before execution, prerequisites, verified database commands, optional unverified editor shortcuts, expected results and failure/recovery limits. The [manual](user_manual.md) explains fixture ownership, private-state/toolchain boundaries and safe reproduction. The final fourteen-slide [presentation](sprint_E.12_increment_demo.pptx) passed package/layout/font/bullet/import checks and rendered visual inspection. [Handover](sprint_E.12_handover.md) records the real demonstration and delegated technical review without inventing Product Owner reactions.
 
-Documentation acceptance is complete under delegated YOLO review: all six gates, current source/evidence binding, link/anchor checks and git diff --check pass. The audit records the checked artifacts and remaining local commit/closure steps. The governing instruction prohibits all remote pushes and equivalent ref/commit publication. No such publication is part of this delivery.
+Documentation acceptance is complete under delegated YOLO review: all six gates, current source/evidence binding, link/anchor checks and git diff --check pass. The audit records the checked artifacts; local completion commit a397416 and [recorded closure](sprint_E.12_closure.md) complete wrap-up. The governing instruction prohibits all remote pushes and equivalent ref/commit publication. No such publication is part of this delivery.
 
 ## YOLO mode decisions
 
