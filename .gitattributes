@@ -15,3 +15,8 @@ progress/E.3/tests/release-correction/*.log whitespace=-blank-at-eol,-blank-at-e
 # E.3 file-effect walkthrough preserves exact Git diffs and SQLcl transcripts.
 progress/E.3/tests/file-flow/*.log whitespace=-blank-at-eol,-blank-at-eof
 progress/E.3/tests/file-flow/*.diff whitespace=-blank-at-eol,-blank-at-eof
+# E.5 preserves native exports, their full walkthrough listings and SQLcl evidence.
+examples/testable-backend/apex/*.sql whitespace=-blank-at-eol
+progress/E.5/fixtures/native-baseline/** whitespace=-blank-at-eol
+progress/E.5/tests/*.log whitespace=-blank-at-eol,-blank-at-eof
+progress/E.5/sprint_E.5_increment_demo.md whitespace=-blank-at-eol

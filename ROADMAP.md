@@ -107,7 +107,7 @@ No subsequent sprint is activated.
 
 ## Elaboration E.5 — Testable backend behind APEX pages
 
-Planned. Backlog: PBI-061, PBI-040, PBI-062.
+Done in authorized YOLO mode on 2026-11-25. Backlog: PBI-061, PBI-040, PBI-062. The [E.5 handover](progress/E.5/sprint_E.5_handover.md) records the bounded page/API, regression/coverage and fixture evidence.
 
 Extract one greeting rule into a package API while preserving page feedback.
 Demonstrate direct backend enforcement, a regression detected by utPLSQL,

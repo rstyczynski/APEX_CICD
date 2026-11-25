@@ -1,0 +1,16 @@
+select * from table(e5_ut.ut.run('E5_TEST:backend'))
+                    *
+ERROR at line 1:
+ORA-20204: No suite packages found for path E5_TEST:backend.
+ORA-06512: at "E5_UT.UT_RUNNER", line 151
+ORA-06512: at "E5_UT.UT_SUITE_MANAGER", line 343
+ORA-06512: at "E5_UT.UT_SUITE_MANAGER", line 343
+ORA-06512: at "E5_UT.UT_SUITE_MANAGER", line 367
+ORA-06512: at "E5_UT.UT_SUITE_MANAGER", line 455
+ORA-06512: at "E5_UT.UT_SUITE_MANAGER", line 551
+ORA-06512: at "E5_UT.UT_RUNNER", line 139
+ORA-06512: at "E5_UT.UT", line 143
+ORA-06512: at "E5_UT.UT", line 456
+ORA-06512: at line 1
+
+

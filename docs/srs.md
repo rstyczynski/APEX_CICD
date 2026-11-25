@@ -431,3 +431,7 @@ reviewed counter-only recovery. Status API operations also change fingerprints.
 The [manual](../progress/E.4/user_manual.md) owns the bounded operating procedure;
 [handover](../progress/E.4/sprint_E.4_handover.md) owns review/acceptance. Broader
 product obligations remain unchanged. [PLAN](../PLAN.md) owns assignment and status.
+
+## E.5 backend validation evidence
+
+The [E.5 walkthrough](../progress/E.5/sprint_E.5_increment_demo.md) and [executed tests](../progress/E.5/sprint_E.5_tests.md) provide bounded Elaboration evidence for one Hello-entry page/API rule, real backend regression/coverage and independent fixtures. This SRS remains the production requirements authority; the experiment does not complete the broader authorization, concurrency or onboarding obligations.

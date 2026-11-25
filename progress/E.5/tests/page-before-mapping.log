@@ -1,0 +1,10 @@
+
+Session altered.
+
+select application_id,page_id,item_name,item_is_required,display_as from apex_application_page_items where application_id=810503 and page_id=101
+                                        *
+ERROR at line 1:
+ORA-00904: "ITEM_IS_REQUIRED": invalid identifier
+Help: https://docs.oracle.com/error-help/db/ora-00904/
+
+

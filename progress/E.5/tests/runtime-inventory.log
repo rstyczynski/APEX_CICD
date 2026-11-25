@@ -1,0 +1,40 @@
+
+Session altered.
+
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+
+E5_TEST
+HELLO_ENTRY_API 														 PACKAGE		 VALID
+
+E5_TEST
+HELLO_ENTRY_API 														 PACKAGE BODY		 VALID
+
+E5_TEST
+TEST_HELLO_ENTRY_API														 PACKAGE		 VALID
+
+E5_TEST
+TEST_HELLO_ENTRY_API														 PACKAGE BODY		 VALID
+
+
+E5_TEST 															 NONE
+E5_UT																 NONE
+
+			   0
+
+
+Revoke succeeded.
+
+
+Revoke succeeded.
+
+
+Revoke succeeded.
+
+
+Revoke succeeded.
+
+
+Revoke succeeded.
+

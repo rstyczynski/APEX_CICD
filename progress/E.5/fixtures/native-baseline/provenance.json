@@ -1,0 +1,6 @@
+{
+  "repository": "https://github.com/rstyczynski/APEX_CICD_E3_LAB.git",
+  "commit": "e0f60ff5efc6905c3b6a4c0e7a7a79a6b0134b0c",
+  "source": "src/database/e1_dev_c",
+  "purpose": "retained native baseline for disposable E5_PAGE experiment; never a new settings or credential authority"
+}

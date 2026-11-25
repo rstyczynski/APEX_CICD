@@ -1,0 +1,13 @@
+
+Session altered.
+
+
+User created.
+
+grant create session, create sequence, create procedure, create type, create table, create view, create synonym, create context to E5_UT
+                                                                                                                 *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege
+Help: https://docs.oracle.com/error-help/db/ora-00990/
+
+

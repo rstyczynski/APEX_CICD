@@ -1,0 +1,4 @@
+RUN smoke:test_backend.sh:test_SM1_backend_source
+PASS backend source boundaries; runtime/page evidence is checked separately
+PASS test_SM1_backend_source
+Tests: 1; failed: 0

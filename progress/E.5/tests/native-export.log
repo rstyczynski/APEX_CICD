@@ -1,0 +1,20 @@
+[0;33mWARN: In project.config.json, sqlcl.connectionName is not set.
+Please update project.config.json or use PROJECT CONFIG SET[0m
+*** TABLES ***
+*** TRIGGERS ***
+*** PACKAGE_SPECS ***
+*** PACKAGE_BODIES ***
+*** REF_CONSTRAINTS ***
+*** APEX_APPLICATIONS ***
+Exporting Workspace E5_PAGE - application 810503:APEX Delivery Laboratory
+[0;32m--------------------------------
+APEX_APPLICATION               1
+PACKAGE_BODY                   2
+PACKAGE_SPEC                   2
+REF_CONSTRAINT                 2
+TABLE                          7
+TRIGGER                       10
+--------------------------------[0m
+Exported 24 objects
+Elapsed 7 sec
+E5_NATIVE_COMPLETE

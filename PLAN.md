@@ -265,10 +265,14 @@ Backlog Items:
 
 ## Sprint E.5 - Validate a testable backend behind APEX pages
 
-Status: Planned
-Mode: managed
+Status: Done
+Mode: YOLO
 Test: smoke, unit, integration
 Regression: smoke
+
+Activated on 2026-11-25 by the Product Owner’s explicit implementation request and subsequent “go”; YOLO mode is authorized.
+
+Completed in the authorized YOLO mode on 2026-11-25 after passing A1/A2/A3/B1 gates, the developer-operated live page comparison and documentation/presentation review. See the [handover](progress/E.5/sprint_E.5_handover.md) for the bounded results and limits. No later sprint is activated.
 
 Demonstrate one greeting rule from its APEX page through a package operation to repeatable utPLSQL tests and useful coverage. Show preserved page feedback, direct invalid-input rejection, a detected regression and independent fixtures, including one cleanup boundary beyond rollback.
 

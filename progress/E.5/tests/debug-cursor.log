@@ -1,0 +1,6 @@
+ResultSet #1
+ERROR:
+OCI-22303: type "E5_UT"."UT_ANNOTATED_OBJECT" not found
+Help: https://docs.oracle.com/error-help/db/oci-22303/
+
+

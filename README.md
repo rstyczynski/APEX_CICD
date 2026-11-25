@@ -181,7 +181,7 @@ The first remote run failed before deployment and its workflow correction is
 retained. The release/tag is 1.0.4 while APEX's display footer remains 1.0.0;
 automatic display-version stamping was not qualified.
 
-PBI-053 and its three children are Done. E.3 was previously closed on 2026-11-05, then reopened by explicit Product Owner direction for PBI-058. The Product Owner accepted the correction and closed E.3 on 2026-11-09. E.4 is Done; E.5–E.14 are Planned under the [validation programme](docs/validation-programme.md). This is an architecture
+PBI-053 and its three children are Done. E.3 was previously closed on 2026-11-05, then reopened by explicit Product Owner direction for PBI-058. The Product Owner accepted the correction and closed E.3 on 2026-11-09. E.4 is Done; E.5 is Done for its bounded YOLO backend experiment and E.6–E.14 are Planned under the [validation programme](docs/validation-programme.md). This is an architecture
 prototype, with concurrency, full identity preservation, drift/fencing and
 broader recovery still registered for later work.
 
@@ -236,6 +236,10 @@ The supplied [Oracle APEX lifecycle reference](refs/apex-lifecycle-management-v3
 
 [RUPStrikesBack](https://github.com/rstyczynski/RUPStrikesBack) is an iterative delivery method for collaboration between a Product Owner and AI agents. It combines RUP lifecycle phases with a prioritized backlog, bounded iterations, explicit requirements/design, executable validation and Product Owner review. Each increment connects its implementation, tests and documentation so decisions can be checked against evidence.
 
-This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1, E.1, E.2 and E.3 are closed. E.4 is Done for PBI-042/PBI-060 following explicit Product Owner closure on 2026-11-25; E.5–E.14 are Planned under the [validation programme](docs/validation-programme.md). PLAN owns the current assignments and lifecycle states.
+This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1, E.1, E.2 and E.3 are closed. E.4 is Done for PBI-042/PBI-060 following explicit Product Owner closure on 2026-11-25; E.5 is Done for its bounded YOLO backend experiment and E.6–E.14 are Planned under the [validation programme](docs/validation-programme.md). PLAN owns the current assignments and lifecycle states.
 
 For external expert review, use the [rup-external-review skill](.agents/skills/rup-external-review/SKILL.md). Codex prepares the prompts and engineering replies; the Product Owner relays them to the expert through the linked round files. Review outcomes and implementation evidence remain distinct from sprint acceptance.
+
+### Sprint E.5 — Testable backend experiment
+
+The [complete E.5 walkthrough and slide deck](progress/E.5/sprint_E.5_increment_demo.md) demonstrate preserved Hello-entry page feedback through a shared package API, real utPLSQL regression detection and measured coverage, repeatable fixtures and native release exclusion of test objects. [Verification](progress/E.5/sprint_E.5_tests.md) records passing gates; [handover](progress/E.5/sprint_E.5_handover.md) records the live comparison and prototype limits. [The manual](progress/E.5/user_manual.md) owns operating steps and recovery.

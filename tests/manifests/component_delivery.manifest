@@ -12,3 +12,7 @@ integration:test_pipeline.sh:test_IT1_manual_release
 integration:test_pipeline.sh:test_IT2_verification_blocks_deploy
 smoke:test_pipeline.sh:test_SM58_native_release_boundary
 integration:test_pipeline.sh:test_IT58_native_release_evidence
+smoke:test_backend.sh:test_SM1_backend_source
+unit:test_backend.sh:test_UT1_backend_runtime
+integration:test_backend.sh:test_IT1_backend_runtime
+integration:test_backend.sh:test_IT4_backend_page_and_release

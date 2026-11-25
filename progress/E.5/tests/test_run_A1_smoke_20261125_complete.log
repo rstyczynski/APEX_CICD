@@ -1,0 +1,4 @@
+RUN smoke:test_backend.sh:test_SM1_backend_source
+PASS provisional backend source boundaries; no runtime equivalence claim
+PASS test_SM1_backend_source
+Tests: 1; failed: 0

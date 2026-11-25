@@ -1,0 +1,4 @@
+smoke:test_backend.sh:test_SM1_backend_source
+unit:test_backend.sh:test_UT1_backend_runtime
+integration:test_backend.sh:test_IT1_backend_runtime
+integration:test_backend.sh:test_IT4_backend_page_and_release

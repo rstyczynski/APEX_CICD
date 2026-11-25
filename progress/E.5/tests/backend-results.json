@@ -1,0 +1,16 @@
+{
+  "coverage_before": {
+    "covered": 9,
+    "executable": 11
+  },
+  "coverage_after": {
+    "covered": 11,
+    "executable": 11
+  },
+  "repeat_reorder": "passed",
+  "unrelated_rows": "unchanged",
+  "structural_cleanup": "passed",
+  "mutation": "detected and restored",
+  "page": "pending",
+  "fixture": "isolated E5_TEST table, not full application triggers"
+}

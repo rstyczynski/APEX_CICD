@@ -1,0 +1,5 @@
+SQLcl: Release 25.4.1.0 Production Build: 25.4.1.022.0618
+BLOCKED VM: krunkit exit code 2; compatible-helper start rejected by approval review
+PENDING all smoke/unit/integration runtime gates and smoke regression
+PASS source inspection: validation precedes DML; no transaction control; test files outside example release source
+PASS new sprint document relative-file links (rerun after creating this log)

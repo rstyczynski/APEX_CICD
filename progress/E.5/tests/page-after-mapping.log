@@ -1,0 +1,14 @@
+
+Session altered.
+
+
+PL/SQL procedure successfully completed.
+
+	810503	      101 Hello entry API validation																													  P101_ENTRY_TEXT																														  FUNC_BODY_RETURNING_ERR_TEXT
+
+	810503	      101 Create Hello entry through API																												  PL/SQL anonymous block																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																	   Request Is Contained within Expression 1																											   CREATE
+	810503	      101 Initialize form Hello entry																													  Form - Initialization
+	810503	      101 Process form Hello entry																													  Form - Automatic Row Processing (DML) 																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																															   Request Is Contained within Expression 1																											   SAVE,DELETE
+	810503	      101 Close Dialog																															  Close popup window																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																		   Request Is Contained within Expression 1																											   CREATE,SAVE,DELETE
+
+E5_ADMIN_COMPLETE

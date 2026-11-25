@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-25",
+  "operator": "Codex via native Chrome accessibility controls",
+  "application": 810503,
+  "workspace": "E5_PAGE",
+  "page": 101,
+  "baseline": {"empty_input":"one error; Entry Text must have some value.; notification and adjacent to Entry Text", "valid_input":"  E5 before  ", "visible_saved_value":"E5 before", "dialog_closed":true},
+  "package_backed": {"empty_input":"one error; Entry Text must have some value.; notification and adjacent to Entry Text", "valid_input":"  E5 after  ", "visible_saved_value":"E5 after", "dialog_closed":true},
+  "comparison":"equivalent required-field feedback, trimming and successful dialog/list outcome",
+  "inspection":"native validation maps to P101_ENTRY_TEXT; API process limited to CREATE; native DML limited to SAVE,DELETE",
+  "session_recovery":"native import invalidated the earlier session; reloaded and signed in before after-case",
+  "limits":"bounded CREATE journey; no independent human acceptance or broad UI regression inferred"
+}

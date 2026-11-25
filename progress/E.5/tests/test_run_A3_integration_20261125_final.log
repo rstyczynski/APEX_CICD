@@ -1,0 +1,5 @@
+RUN integration:test_backend.sh:test_IT1_backend_runtime
+PASS real utPLSQL suite
+PASS runtime isolation, structural cleanup, mutation detection and coverage improvement
+PASS test_IT1_backend_runtime
+Tests: 1; failed: 0

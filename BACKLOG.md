@@ -286,7 +286,7 @@ Make business-logic regression results and measured code coverage available for 
 
 Test: Demonstrate a detected regression, archived test and coverage reports with an explicit denominator, and improved coverage after adding a missing test.
 
-Status: Proposed
+Status: Done
 
 ### PBI-041. Demonstrate Oracle-recommended application quality audits
 
@@ -454,7 +454,7 @@ Validate whether one existing greeting rule can be shared by its page and backen
 
 Test: Demonstrate equivalent before/after page outcomes, direct rejection of invalid API input without unintended writes, and manual verification of the selected page mapping.
 
-Status: Proposed
+Status: Done
 
 ### PBI-062. Validate independent and repeatable backend fixtures
 
@@ -462,7 +462,7 @@ Establish which fixture and cleanup approaches keep a small backend suite indepe
 
 Test: Demonstrate repeat and reordered runs with controlled time and locale, unchanged unrelated records, explicit cleanup of the selected nonrollback effect, and exclusion of test-only objects from release contents.
 
-Status: Proposed
+Status: Done
 
 ### PBI-063. Validate APEX session and country authorization test boundaries
 

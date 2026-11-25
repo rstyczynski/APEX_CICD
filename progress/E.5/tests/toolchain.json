@@ -1,0 +1,17 @@
+{
+  "sqlcl_release": "25.4.1.0",
+  "sqlcl_build": "25.4.1.022.0618",
+  "utplsql_release": "v.3.2.3",
+  "utplsql_url": "https://github.com/utPLSQL/utPLSQL/releases/download/v.3.2.3/utPLSQL.zip",
+  "utplsql_sha256": "6e650fc497bce02ae611e185e66c72204f0b984a024a41733b5452e7fb6db47a",
+  "utplsql_checksum_verified": true,
+  "execution_client": "container sqlplus with OS-authenticated bootstrap and temporary in-memory E5_TEST password",
+  "test_account_final_state": "NO AUTHENTICATION",
+  "database_service": "FREEPDB1",
+  "test_owner": "E5_TEST",
+  "framework_owner": "E5_UT",
+  "public_grants_added": false,
+  "application_page_installed": true,
+  "page_schema": "E5_PAGE",
+  "database_test_accounts_final_state": "E5_UT, E5_TEST and E5_PAGE: NO AUTHENTICATION"
+}

@@ -17,6 +17,8 @@ orientation. The [laboratory SRS](srs.md), [architecture](architecture.md) and
 
 ### E.5 — Validate a testable backend behind APEX pages
 
+Completed as a bounded YOLO experiment; [the handover](../progress/E.5/sprint_E.5_handover.md) and [tests](../progress/E.5/sprint_E.5_tests.md) own its actual results and limits. PLAN remains the lifecycle authority.
+
 Demonstrate one greeting rule from its APEX page through a package operation to repeatable utPLSQL tests and useful coverage. Show preserved page feedback, direct invalid-input rejection, a detected regression and independent fixtures, including one cleanup boundary beyond rollback.
 
 Backlog outcomes: PBI-061, PBI-040, PBI-062.

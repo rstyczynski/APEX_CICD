@@ -1,0 +1,14 @@
+{
+  "archive": "e5-backend-1.0.0.zip",
+  "sha256": "04cd78d3f4818a4f4555eb639748e06ef498e239c9cd7b3c3bb5d545efe21110",
+  "entries": 33,
+  "schemas": [
+    "E5_PAGE"
+  ],
+  "excluded_test_owners": [
+    "E5_TEST",
+    "E5_UT"
+  ],
+  "sqlcl": "SQLcl: Release 25.4.1.0 Production Build: 25.4.1.022.0618",
+  "source_commit": "0c9e98f21e7b176d4eee8d00ff7461febaf4ce23"
+}

@@ -360,3 +360,7 @@ reviewed counter-only recovery. Status API operations also change fingerprints.
 The [manual](../progress/E.4/user_manual.md) owns the bounded operating procedure;
 [handover](../progress/E.4/sprint_E.4_handover.md) owns review/acceptance. Broader
 product obligations remain unchanged. [PLAN](../PLAN.md) owns assignment and status.
+
+## E.5 package boundary experiment
+
+The [E.5 design](../progress/E.5/sprint_E.5_design.md), [walkthrough](../progress/E.5/sprint_E.5_increment_demo.md) and [test evidence](../progress/E.5/sprint_E.5_tests.md) qualify a caller-transaction-owned Hello-entry package behind the native CREATE page, separate test schemas and actual native release exclusion. The prepared-host helpers and isolated fixtures are Elaboration assets. Native table/readiness constraints and the approved SQLcl release/build remain authoritative; no generalized production test framework, new-host, authorization or concurrency capability is inferred.

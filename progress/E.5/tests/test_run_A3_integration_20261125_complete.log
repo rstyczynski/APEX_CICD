@@ -1,0 +1,14 @@
+RUN integration:test_backend.sh:test_IT1_backend_runtime
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/backend_runner.py", line 94, in <module>
+    {'unit':unit,'integration':integration}[sys.argv[1]]()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/backend_runner.py", line 78, in integration
+    assert improved['executable']==baseline['executable'] and improved['covered']>baseline['covered'], (baseline,improved)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ({'covered': 10, 'executable': 11}, {'covered': 10, 'executable': 11})
+FAIL test_IT1_backend_runtime
+RUN integration:test_backend.sh:test_IT4_backend_page_and_release
+PASS live page mapping, invalid API rejection and native artifact exclusion; browser observations separately recorded
+PASS test_IT4_backend_page_and_release
+Tests: 2; failed: 1

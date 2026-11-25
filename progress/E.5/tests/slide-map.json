@@ -1,0 +1,97 @@
+[
+  {
+    "slide": 1,
+    "title": "E.5: a testable backend behind APEX",
+    "source": "progress/E.5/sprint_E.5_handover.md"
+  },
+  {
+    "slide": 2,
+    "title": "Agenda",
+    "source": "progress/E.5/sprint_E.5_increment_demo.md"
+  },
+  {
+    "slide": 3,
+    "title": "Scope and architecture",
+    "source": "progress/E.5/sprint_E.5_design.md"
+  },
+  {
+    "slide": 4,
+    "title": "Page, package and constraints",
+    "source": "progress/E.5/sprint_E.5_design.md"
+  },
+  {
+    "slide": 5,
+    "title": "The complete user journey",
+    "source": "progress/E.5/tests/browser-observations.json"
+  },
+  {
+    "slide": 6,
+    "title": "Before: native entry creation",
+    "source": "progress/E.5/tests/browser-observations.json"
+  },
+  {
+    "slide": 7,
+    "title": "Extract the operation, retain the mapping",
+    "source": "examples/testable-backend/sql/hello_entry_api.sql"
+  },
+  {
+    "slide": 8,
+    "title": "After: the same visible outcome",
+    "source": "progress/E.5/tests/browser-observations.json"
+  },
+  {
+    "slide": 9,
+    "title": "Backend experiments and evidence",
+    "source": "progress/E.5/sprint_E.5_tests.md"
+  },
+  {
+    "slide": 10,
+    "title": "Five tests; independent repeat and reorder",
+    "source": "progress/E.5/tests/utplsql-full.log"
+  },
+  {
+    "slide": 11,
+    "title": "Add the missing boundary tests",
+    "source": "progress/E.5/tests/coverage-before.xml; progress/E.5/tests/coverage-after.xml"
+  },
+  {
+    "slide": 12,
+    "title": "Detect a regression; restore the original",
+    "source": "progress/E.5/tests/mutation-detected.log"
+  },
+  {
+    "slide": 13,
+    "title": "Rollback has a structural boundary",
+    "source": "progress/E.5/tests/structural-cleanup.log"
+  },
+  {
+    "slide": 14,
+    "title": "Release boundary and lessons",
+    "source": "progress/E.5/tests/native-release.json"
+  },
+  {
+    "slide": 15,
+    "title": "Native artifact excludes test-only objects",
+    "source": "progress/E.5/tests/native-release.json"
+  },
+  {
+    "slide": 16,
+    "title": "A suite-discovery failure exposed a source defect",
+    "source": "progress/E.5/tests/suite-fixed-annotation-spacing.log"
+  },
+  {
+    "slide": 17,
+    "title": "Startup and packaging failures were corrected",
+    "source": "progress/E.5/sprint_E.5_implementation.md"
+  },
+  {
+    "slide": 18,
+    "title": "Conclusions and next decisions",
+    "source": "progress/E.5/sprint_E.5_handover.md"
+  },
+  {
+    "slide": 19,
+    "title": "Thank you — questions and inspection",
+    "source": "progress/E.5/sprint_E.5_increment_demo.md"
+  }
+]
