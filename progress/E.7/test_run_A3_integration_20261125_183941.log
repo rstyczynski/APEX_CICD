@@ -1,0 +1,4 @@
+RUN integration:test_release_validation.sh:test_IT1_release_upgrade
+PASS upgrade, preservation, contracts, five wrong states, repeat and APEX metadata
+PASS test_IT1_release_upgrade
+Tests: 1; failed: 0

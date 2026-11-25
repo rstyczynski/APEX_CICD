@@ -1,13 +1,17 @@
-# E.7 — Handover status
+# E.7 — Handover and closure
 
-[The walkthrough](sprint_E.7_increment_demo.md) is the demonstration entry point. [The manual](user_manual.md), [implementation](sprint_E.7_implementation.md), [tests](sprint_E.7_tests.md), [design](sprint_E.7_design.md) and [audit](sprint_E.7_documentation_audit.md) distinguish tested outcomes from acceptance.
+[The complete walkthrough and 17-slide deck](sprint_E.7_increment_demo.md) are the demonstration entry point. [Manual](user_manual.md), [implementation](sprint_E.7_implementation.md), [tests](sprint_E.7_tests.md), [design](sprint_E.7_design.md) and [audit](sprint_E.7_documentation_audit.md) own operating instructions, mechanisms, evidence, scope and reconciliation.
 
-## Demonstration and actual observation
+## Actual demonstration and acceptance
 
-On 2026-11-25 Codex executed the real Oracle upgrade/fault/repeat experiment and displayed app 810703 in native Chrome. The browser-tab service reported unavailable, but native application controls provided the accessibility tree and screenshot. The release region and footer both displayed 1.1.0. The five fault logs and restored state demonstrate the limitation of trusting migration history. Full smoke/unit regression passed. The Product Owner delegated autonomous work; no independent reaction, questions or satisfaction is invented.
+The Product Owner explicitly delegated YOLO implementation, demonstration, audits and closure, then instructed “finalize sprint.” The developer self-reviewed the final bounded Elaboration outcomes under that authority. No independent human satisfaction, review or reaction is invented. Earlier partial-work acceptance was withheld; the finalization below supersedes that checkpoint.
 
-## Remaining closure gates
+The final rehearsal created E7R_55D00B and app 817817 from a verified baseline, preserved synthetic greeting 7 through upgrade/repeat, detected and restored five specific wrong states, and checked the exact release/source display through real HTTP. Native Chrome then showed Application release 1.1.0, Source b2e8b9b15916783278727188f51601cdc3adb743 and Greeting contract 1.1.0; footer 1.1.0. The visible source and receipts reconcile to the committed local release inputs. The six integrity cases reject changed/missing evidence and artifacts. A1/A2/A3 and full B1/B2 passed. The 17-slide deck was rendered and every slide inspected; package/layout checks passed.
 
-E.7 remains Progress. The prototype has not yet demonstrated a selected accepted Git release across source, artifact and installed metadata; it records a base commit and working source snapshot. Initial database baseline setup still precedes bundle verification. The production native SQLcl PROJECT upgrade path is not validated by this fixture. Acceptance of the three PBIs is therefore withheld.
+PBI-065 is accepted for the selected wrong states, preserved synthetic data and supported additive upgrade. PBI-077 is accepted for exact committed local source, immutable verified contents, linked contracts/configuration/evidence, rejection cases and safe repeat. PBI-057 is accepted for baseline/upgrade/repeat APEX metadata and rendered release identity, with separate native Chrome inspection. This completes the assigned Elaboration experiments, not the production product.
 
-The mandatory PPTX presentation pair is also unfinished. The available presentation skill requires load_workspace_dependencies for its supported local runtime; that tool is absent from the enabled tool inventory. No substitute package was installed and no unrendered deck is claimed. A rendered and visually checked deck and a complete release journey are needed before the documentation/handover gate and closure. This is an incomplete sprint, not a successful sprint with waived checks. No remote push or later sprint activation occurred.
+## Limits and closure decision
+
+The release path is a small explicit SQL-bundle experiment. Native SQLcl PROJECT production deployment, signed publisher authentication, independent human acceptance, ordinary consumer password authentication, new-host reproduction, broad concurrency and interrupted-run cleanup are outside this increment. Previous E.5/E.6 evidence is unchanged. The missing presentation loader was a discoverability issue: the installed bundled artifact-tool runtime was located and used without installing a substitute. No handover artifact remains blocked by it.
+
+E.7 is closed Done in the delegated YOLO mode. No later sprint is activated and no remote push is authorized or performed.

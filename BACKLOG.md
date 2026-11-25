@@ -422,7 +422,7 @@ Let operators and users identify the installed application release from the APEX
 
 Test: Demonstrate that the APEX display and application metadata identify the selected release after installation, upgrade and repeat deployment and match its source and deployment receipt.
 
-Status: Proposed
+Status: Done
 
 ### PBI-058. Fix E.3 omission of native SQLcl project release
 
@@ -486,7 +486,7 @@ Determine whether a small set of explicit database-state assertions detects a wr
 
 Test: Demonstrate detection of selected wrong column, constraint, grant, invalid-object and reference-data states, plus preservation and passing contracts after the supported upgrade.
 
-Status: Proposed
+Status: Done
 
 ### PBI-066. Prototype testing of the integrated pull-request candidate
 
@@ -582,7 +582,7 @@ Validate a single trace from an application release to exact source, component c
 
 Test: Demonstrate reconstruction of one release’s identities and evidence, rejected artifact or report substitution, explicit missing-evidence failure, and safe repeat of the supported deployment.
 
-Status: Proposed
+Status: Done
 
 ### PBI-078. Reproduce one validated delivery slice without retained host state
 

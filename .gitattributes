@@ -24,3 +24,7 @@ progress/E.5/sprint_E.5_increment_demo.md whitespace=-blank-at-eol
 examples/secure-backend/apex/*.sql whitespace=-blank-at-eol
 progress/E.6/tests/*.log whitespace=-blank-at-eol,-blank-at-eof
 progress/E.6/tests/regression-backend/*.log whitespace=-blank-at-eol,-blank-at-eof
+
+# Preserve raw E.7 Oracle/HTTP evidence whitespace; source checks remain strict.
+progress/E.7/tests/*.log whitespace=-blank-at-eol,-blank-at-eof
+progress/E.7/tests/*.html whitespace=-blank-at-eol,-blank-at-eof

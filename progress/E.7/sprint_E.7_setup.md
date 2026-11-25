@@ -11,3 +11,7 @@ The release engineer installs a known previous laboratory release, retains synth
 ## YOLO decisions
 
 Use a new isolated E7_APP schema/workspace and app 810703 on the prepared database, avoiding E.5/E.6 mutations. Use small explicit immutable SQL migration bundles for this state/identity experiment; this does not qualify a replacement for SQLcl PROJECT production packaging. Qualify the approved SQLcl release/build before any deployment. Keep component contract identity independent of application release. No later sprint is activated.
+
+## Finalization baseline
+
+The completed run uses the design's finalization correction: fresh E7R/E7C targets, clean committed release inputs and verification before any target creation. The earlier E7_APP experiment remains historical. [Handover](sprint_E.7_handover.md) records exact source/target and delegated acceptance; no scope or acceptance criterion was removed.
