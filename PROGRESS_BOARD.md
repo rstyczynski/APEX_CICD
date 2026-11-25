@@ -48,9 +48,9 @@
 | Sprint E.7 | Done | PBI-065 | Done |
 | Sprint E.7 | Done | PBI-077 | Done |
 | Sprint E.7 | Done | PBI-057 | Done |
-| Sprint E.8 | Planned | PBI-066 | Planned |
-| Sprint E.8 | Planned | PBI-067 | Planned |
-| Sprint E.8 | Planned | PBI-076 | Planned |
+| Sprint E.8 | under_analysis | PBI-066 | analysed |
+| Sprint E.8 | under_analysis | PBI-067 | analysed |
+| Sprint E.8 | under_analysis | PBI-076 | analysed |
 | Sprint E.9 | Planned | PBI-068 | Planned |
 | Sprint E.9 | Planned | PBI-069 | Planned |
 | Sprint E.9 | Planned | PBI-070 | Planned |

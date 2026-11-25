@@ -324,8 +324,8 @@ Backlog Items:
 
 ## Sprint E.8 - Validate complete PR candidate testing
 
-Status: Planned
-Mode: managed
+Status: Progress
+Mode: YOLO
 Test: smoke, unit, integration
 Regression: smoke, unit
 
