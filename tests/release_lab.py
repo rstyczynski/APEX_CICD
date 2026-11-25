@@ -19,14 +19,6 @@ def run():
  env=os.environ.copy();env['JAVA_HOME']=str(ROOT/'.local-apex/tools/jdk-21.0.12.1+1/Contents/Home')
  tool=subprocess.check_output([str(ROOT/'.local-apex/tools/sqlcl-25.4.1.022.0618/sqlcl/bin/sql'),'-version'],env=env,text=True)
  qualified_toolchain('25.4.1.0',tool);(OUT/'sqlcl-qualified.log').write_text(tool)
- # Refuse unrelated pre-existing owners. Rehearsal is resumable only with our exact marker.
- existing=sql("select 'OWNER:'||count(*) from dba_users where username='E7_APP';",'preflight.log')
- if 'OWNER:0' in existing:
-  sql("create user E7_APP no authentication default tablespace users quota 50m on users;\ngrant create session,create table,create procedure to E7_APP;\ncreate user E7_CONSUMER no authentication;\nbegin apex_instance_admin.add_workspace(p_workspace=>'E7_APP',p_primary_schema=>'E7_APP'); end;\n/",'setup.log')
-  sql((ROOT/'examples/release-validation/sql/baseline.sql').read_text()+"\ninsert into e7_app.greetings values(7,'E7 retained synthetic greeting');\ncommit;",'baseline.log')
- else:
-  sql("merge into e7_app.greetings d using(select 7 id, 'E7 retained synthetic greeting' message from dual) s on(d.id=s.id) when not matched then insert(id,message) values(s.id,s.message);\ncommit;",'resume-seed.log')
-  out=sql("select 'MARKER:'||message from e7_app.greetings where id=7;",'owner-marker.log');assert 'MARKER:E7 retained synthetic greeting' in out
  source=(ROOT/'examples/secure-backend/apex/f810603.sql').read_text()
  source=source.replace('E6 Secure Greeting Laboratory','E7 Release Laboratory').replace("p_alias=>", "p_alias=>",1)
  source=source.replace("p_flow_version=>'1.0.0'","p_flow_version=>'@RELEASE@'")
@@ -44,12 +36,20 @@ end;
  # Public release information; other pages remain unused fixture material.
  prefix="begin apex_application_install.set_workspace('E7_APP'); apex_application_install.set_application_id(810703); apex_application_install.generate_offset; apex_application_install.set_schema('E7_APP'); apex_application_install.set_application_alias('E7-RELEASE'); end;\n/\n"
  commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+ tracked=['tests/release_lab.py','scripts/release_validation.py','examples/release-validation/sql/baseline.sql','examples/release-validation/sql/upgrade.sql','examples/release-validation/sql/assert_state.sql','examples/secure-backend/apex/f810603.sql','examples/secure-backend/contracts.json']
+ for path in tracked:
+  assert (ROOT/path).read_bytes()==subprocess.check_output(['git','show',commit+':'+path]),'Uncommitted release source: '+path
+ import secrets
+ suffix=secrets.token_hex(3).upper();owner='E7R_'+suffix;consumer='E7C_'+suffix;app_id=817000+secrets.randbelow(900)
+ def mapped(text):return text.replace('e7_app',owner.lower()).replace('E7_APP',owner).replace('e7_consumer',consumer.lower()).replace('E7_CONSUMER',consumer).replace('810703',str(app_id))
+ assert 'APP:0' in sql("select 'APP:'||count(*) from apex_applications where application_id="+str(app_id)+';','fresh-app-preflight.log')
  contracts=(ROOT/'examples/secure-backend/contracts.json').read_bytes()
  receipts=[]
  for index,release in enumerate(['1.0.0','1.1.0','1.1.0']):
   app=source.replace('@RELEASE@',release)
+  app=app.replace('Application release '+release+' | Greeting contract 1.1.0','Application release '+release+' | Source '+commit+' | Greeting contract 1.1.0')
   migration=(ROOT/'examples/release-validation/sql'/('baseline.sql' if index==0 else 'upgrade.sql')).read_bytes()
-  files={'migration.sql':migration,'application.sql':(prefix+app).encode(),'contracts.json':contracts,'configuration.json':json.dumps({'schema':'E7_APP','app_id':810703,'sqlcl':'25.4.1.0','build':'25.4.1.022.0618'}).encode(),'evidence.txt':(ROOT/'progress/E.7/tests/unit-integrity.log').read_bytes()}
+  files={'migration.sql':mapped(migration.decode()).encode(),'application.sql':mapped(prefix+app).encode(),'contracts.json':contracts,'configuration.json':json.dumps({'schema':owner,'app_id':app_id,'sqlcl':'25.4.1.0','build':'25.4.1.022.0618'}).encode(),'evidence.txt':(ROOT/'progress/E.7/tests/unit-integrity.log').read_bytes()}
   files['source/release_lab.py']=Path(__file__).read_bytes()
   files['source/release_validation.py']=(ROOT/'scripts/release_validation.py').read_bytes()
   archive,pin=build(files,commit,release,json.loads(contracts));name='release-'+release+'-'+pin[:16]+'.zip'
@@ -61,22 +61,27 @@ end;
   else:
    name=receipts[-1]['archive'];archive=(OUT/name).read_bytes();pin=(OUT/(name+'.sha256')).read_text().strip()
   manifest=verify(archive,pin)
+  assert manifest['source']==commit and manifest['release']==release
+  if index==0:
+   sql(mapped("create user E7_APP no authentication default tablespace users quota 50m on users;\ngrant create session,create table,create procedure to E7_APP;\ncreate user E7_CONSUMER no authentication;\nbegin apex_instance_admin.add_workspace(p_workspace=>'E7_APP',p_primary_schema=>'E7_APP'); end;\n/"),'fresh-setup.log')
   import zipfile,io
   with zipfile.ZipFile(io.BytesIO(archive)) as verified:
    migration=verified.read('migration.sql');application=verified.read('application.sql').decode()
-  if index:sql(migration.decode(),'upgrade-'+str(index)+'.log')
+  sql(migration.decode(),'migration-'+str(index)+'.log')
+  if index==0:sql(mapped("insert into e7_app.greetings values(7,'E7 retained synthetic greeting');\ncommit;"),'fresh-seed.log')
   sql(application,'apex-'+str(index)+'.log')
-  observed=sql("select 'VERSION:'||version from apex_applications where application_id=810703;\nselect 'PRESERVED:'||message from e7_app.greetings where id=7;",'observed-'+str(index)+'.log')
+  observed=sql(mapped("select 'VERSION:'||version from apex_applications where application_id=810703;\nselect 'PRESERVED:'||message from e7_app.greetings where id=7;"),'observed-'+str(index)+'.log')
   assert 'VERSION:'+release in observed and 'PRESERVED:E7 retained synthetic greeting' in observed,observed
   import urllib.request
-  html=urllib.request.urlopen('http://127.0.0.1:8080/ords/f?p=810703:1',timeout=30).read().decode()
+  html=urllib.request.urlopen('http://127.0.0.1:8080/ords/f?p='+str(app_id)+':1',timeout=30).read().decode()
   (OUT/('rendered-'+str(index)+'.html')).write_text(html)
-  assert 'Application release '+release+' | Greeting contract 1.1.0' in html,'Rendered release mismatch'
-  if index:sql((ROOT/'examples/release-validation/sql/assert_state.sql').read_text(),'state-'+str(index)+'.log')
-  receipts.append({'release':release,'archive':name,'source_base_commit':commit,'manifest_sha256':pin,'archive_sha256':digest(archive),'preserved':True,'metadata':release,'repeat':index==2})
- checks=(ROOT/'examples/release-validation/sql/assert_state.sql').read_text()
+  assert 'Application release '+release+' | Source '+commit+' | Greeting contract 1.1.0' in html,'Rendered release mismatch'
+  if index:sql(mapped((ROOT/'examples/release-validation/sql/assert_state.sql').read_text()),'state-'+str(index)+'.log')
+  receipts.append({'release':release,'archive':name,'source_base_commit':commit,'manifest_sha256':pin,'archive_sha256':digest(archive),'preserved':True,'metadata':release,'app_id':app_id,'schema':owner,'repeat':index==2})
+ checks=mapped((ROOT/'examples/release-validation/sql/assert_state.sql').read_text())
  faults=[('COLUMN',"alter table e7_app.greetings modify language_code varchar2(3);","alter table e7_app.greetings modify language_code varchar2(2);"),('CONSTRAINT','alter table e7_app.greetings disable constraint e7_language_ck;','alter table e7_app.greetings enable validate constraint e7_language_ck;'),('GRANT','revoke execute on e7_app.greeting_api from e7_consumer;','grant execute on e7_app.greeting_api to e7_consumer;'),('INVALID_OBJECT','create or replace procedure e7_app.invalid_probe as begin nonexistent_call; end;\n/','drop procedure e7_app.invalid_probe;'),('REFERENCE',"update e7_app.release_reference set value='wrong' where code='LANGUAGE';\ncommit;","update e7_app.release_reference set value='en' where code='LANGUAGE';\ncommit;")]
  for label,inject,restore in faults:
+  inject=mapped(inject);restore=mapped(restore)
   try:
    # Invalid compilation deliberately emits a warning; retain it and require our state error next.
    if label=='INVALID_OBJECT':

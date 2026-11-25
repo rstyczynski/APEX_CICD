@@ -25,3 +25,7 @@ SM-1 verifies required sources and syntax. UT-1 challenges digest, archive/repor
 ## Test Specification
 
 SM-1 maps to all assigned items. UT-1 maps to PBI-077 and explicitly tests archive/report substitution and absent evidence. IT-1 maps to PBI-065/057/077; passing requires the retained row, all five negative assertions, restored state, safe repeat and actual metadata for all three installs. Browser release visibility is separately recorded; automated metadata alone is insufficient.
+
+## Finalization correction
+
+The finalization run uses a fresh generated E7R schema, E7C consumer and unused application ID per execution. It verifies the baseline bundle before creating owners/workspace or applying any migration. Every release source input must exactly match HEAD; deployment receipts and the visible APEX region expose that exact local Git release revision. Local acceptance is delegated in YOLO mode; remote publication remains unauthorized. These explicit SQL bundles qualify only the accepted bounded Elaboration upgrade, not the production native PROJECT controller. Fresh targets prevent a repeat rehearsal from masquerading as a previous-state upgrade. The prior 810703 experiment is retained untouched.
