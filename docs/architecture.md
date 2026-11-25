@@ -364,3 +364,7 @@ product obligations remain unchanged. [PLAN](../PLAN.md) owns assignment and sta
 ## E.5 package boundary experiment
 
 The [E.5 design](../progress/E.5/sprint_E.5_design.md), [walkthrough](../progress/E.5/sprint_E.5_increment_demo.md) and [test evidence](../progress/E.5/sprint_E.5_tests.md) qualify a caller-transaction-owned Hello-entry package behind the native CREATE page, separate test schemas and actual native release exclusion. The prepared-host helpers and isolated fixtures are Elaboration assets. Native table/readiness constraints and the approved SQLcl release/build remain authoritative; no generalized production test framework, new-host, authorization or concurrency capability is inferred.
+
+## E.6 component and transaction boundary
+
+The [E.6 design](../progress/E.6/sprint_E.6_design.md), [contracts](component-contracts.md) and [walkthrough](../progress/E.6/sprint_E.6_increment_demo.md) document the pure renderer, native session/page context adapter, per-call country checks, operation savepoint and caller-owned commit. Tests observe real unique-key waits and selected commit/rollback outcomes. Reviewed JSON dependency declarations are validated by the native builder, while SQLcl retains one whole-application/schema deployment unit. No generalized dependency resolver, concurrency service, new-host or populated-upgrade proof is claimed.

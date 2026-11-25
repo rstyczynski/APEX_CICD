@@ -1,0 +1,102 @@
+[
+  {
+    "slide": 1,
+    "title": "E.6: secure component contracts",
+    "source": "progress/E.6/sprint_E.6_handover.md"
+  },
+  {
+    "slide": 2,
+    "title": "Agenda",
+    "source": "progress/E.6/sprint_E.6_increment_demo.md"
+  },
+  {
+    "slide": 3,
+    "title": "Architecture and trust boundary",
+    "source": "progress/E.6/sprint_E.6_design.md"
+  },
+  {
+    "slide": 4,
+    "title": "Each component has an explicit responsibility",
+    "source": "progress/E.6/sprint_E.6_design.md"
+  },
+  {
+    "slide": 5,
+    "title": "The real page journey",
+    "source": "progress/E.6/tests/browser-observations.json"
+  },
+  {
+    "slide": 6,
+    "title": "Password authentication is a separate check",
+    "source": "progress/E.6/tests/browser-observations.json"
+  },
+  {
+    "slide": 7,
+    "title": "Allowed country: save one request",
+    "source": "progress/E.6/tests/page-business-check.log"
+  },
+  {
+    "slide": 8,
+    "title": "Denied country: preserve the business state",
+    "source": "progress/E.6/tests/browser-observations.json"
+  },
+  {
+    "slide": 9,
+    "title": "Compatibility is observable behavior",
+    "source": "progress/E.6/tests/compat-restored-consumers.log"
+  },
+  {
+    "slide": 10,
+    "title": "Keep existing consumers working",
+    "source": "progress/E.6/tests/compat-1.0.log; progress/E.6/tests/compat-1.0.1.log; progress/E.6/tests/compat-1.1.log"
+  },
+  {
+    "slide": 11,
+    "title": "A minor addition; a detected major break",
+    "source": "progress/E.6/tests/compatible-additions.log; progress/E.6/tests/incompatible-detected.log"
+  },
+  {
+    "slide": 12,
+    "title": "Classify interfaces, shared LOVs and retained data",
+    "source": "docs/component-contracts.md"
+  },
+  {
+    "slide": 13,
+    "title": "Transaction experiments",
+    "source": "progress/E.6/tests/transaction-results.json"
+  },
+  {
+    "slide": 14,
+    "title": "One operation; caller-owned transaction",
+    "source": "progress/E.6/tests/partial-failure.log"
+  },
+  {
+    "slide": 15,
+    "title": "Observe two real competing connections",
+    "source": "progress/E.6/tests/transaction-results.json"
+  },
+  {
+    "slide": 16,
+    "title": "Native session setup and cleanup",
+    "source": "progress/E.6/tests/sessions.log"
+  },
+  {
+    "slide": 17,
+    "title": "Still one whole-application release",
+    "source": "progress/E.6/tests/native-release.json"
+  },
+  {
+    "slide": 18,
+    "title": "Observed setup failure and its correction",
+    "source": "progress/E.6/sprint_E.6_implementation.md"
+  },
+  {
+    "slide": 19,
+    "title": "Delivered outcomes and limits",
+    "source": "progress/E.6/sprint_E.6_handover.md"
+  },
+  {
+    "slide": 20,
+    "title": "Thank you — inspect the evidence",
+    "source": "progress/E.6/sprint_E.6_increment_demo.md"
+  }
+]

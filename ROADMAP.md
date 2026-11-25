@@ -115,7 +115,7 @@ useful coverage and repeatable fixtures with explicit cleanup boundaries.
 
 ## Elaboration E.6 — Secure contracts and transactions
 
-Planned. Backlog: PBI-063, PBI-052, PBI-064, PBI-079.
+Done in explicitly delegated YOLO mode on 2026-11-25. Backlog: PBI-063, PBI-052, PBI-064, PBI-079. [The E.6 handover](progress/E.6/sprint_E.6_handover.md) records the bounded contracts/context/transaction evidence.
 
 Validate the component contract under allowed and denied identity/country
 contexts, compatible and breaking changes, and competing requests. Establish

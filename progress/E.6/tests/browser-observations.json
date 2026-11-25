@@ -1,0 +1,16 @@
+{
+ "date":"2026-11-25",
+ "operator":"Codex via native Chrome accessibility controls",
+ "application":810603,
+ "workspace":"E6_APP",
+ "wrong_password_rejected":true,
+ "wrong_password_message":"Invalid Login Credentials",
+ "valid_login":"ALICE authenticated with native APEX Accounts password; distinct from CREATE_SESSION",
+ "allowed_page_submit":true,
+ "allowed_input":{"country":"PL","key":"BROWSER-ALLOW-1","text":"World"},
+ "allowed_message":"Greeting request saved.",
+ "denied_country_submit":true,
+ "denied_input":{"country":"DE","key":"BROWSER-DENIED-1"},
+ "denied_message":"ORA-20402: Country access denied.",
+ "limits":"Synthetic users, country permissions and one developer-operated page journey; no independent human acceptance inferred"
+}

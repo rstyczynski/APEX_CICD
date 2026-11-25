@@ -1,0 +1,4 @@
+RUN unit:test_contracts.sh:test_UT1_component_contracts
+PASS 3 real utPLSQL consumers
+PASS test_UT1_component_contracts
+Tests: 1; failed: 0

@@ -1,0 +1,20 @@
+[0;33mWARN: In project.config.json, sqlcl.connectionName is not set.
+Please update project.config.json or use PROJECT CONFIG SET[0m
+*** PACKAGE_SPECS ***
+*** PACKAGE_BODIES ***
+*** TABLES ***
+*** OBJECT_GRANTS ***
+*** REF_CONSTRAINTS ***
+*** APEX_APPLICATIONS ***
+Exporting Workspace E6_APP - application 810603:E6 Secure Greeting Laboratory
+[0;32m-------------------------------
+APEX_APPLICATION              1
+GRANT                         2
+PACKAGE_BODY                  2
+PACKAGE_SPEC                  2
+REF_CONSTRAINT                1
+TABLE                         3
+-------------------------------[0m
+Exported 11 objects
+Elapsed 6 sec
+E6_NATIVE_COMPLETE

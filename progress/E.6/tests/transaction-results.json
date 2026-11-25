@@ -1,0 +1,22 @@
+{
+  "races": [
+    {
+      "first": "commit",
+      "observed_wait": true,
+      "second_code": -20403,
+      "request_rows": 1,
+      "audit_rows": 1
+    },
+    {
+      "first": "rollback",
+      "observed_wait": true,
+      "second_code": 0,
+      "request_rows": 1,
+      "audit_rows": 1
+    }
+  ],
+  "partial_failure": "rolled back only the operation",
+  "caller_rollback": "passed",
+  "unrelated_business_rows": "unchanged",
+  "session_creation_is_authentication": false
+}

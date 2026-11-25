@@ -1,0 +1,22 @@
+{
+  "A1_smoke": {
+    "returncode": 0,
+    "log": "test_run_A1_smoke_20261125_181426.log"
+  },
+  "A2_unit": {
+    "returncode": 0,
+    "log": "test_run_A2_unit_20261125_180641.log"
+  },
+  "A3_integration": {
+    "returncode": 0,
+    "log": "test_run_A3_integration_20261125_180929.log"
+  },
+  "B1_smoke": {
+    "returncode": 0,
+    "log": "test_run_B1_smoke_20261125_180641.log"
+  },
+  "B2_unit": {
+    "returncode": 0,
+    "log": "test_run_B2_unit_20261125_180641.log"
+  }
+}

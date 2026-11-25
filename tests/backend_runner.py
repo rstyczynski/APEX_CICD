@@ -5,11 +5,12 @@ import json
 import re
 import subprocess
 import sys
+import os
 import secrets
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'progress/E.5/tests'
+OUT = Path(os.environ.get('APEX_TEST_EVIDENCE_DIR', str(ROOT / 'progress/E.5/tests')))
 API = ROOT / 'examples/testable-backend/sql/hello_entry_api.sql'
 
 def sql(body, name):
@@ -40,7 +41,7 @@ alter session set time_zone='+00:00';
         cleanup = subprocess.run(['podman', '--connection', 'apex-cicd', 'exec', '-i', '--user', 'oracle', 'apex-db', 'bash', '-lc', 'sqlplus -s / as sysdba'], input="whenever sqlerror exit failure\nalter session set container=FREEPDB1;\nalter user E5_TEST no authentication;\nexit\n",capture_output=True,text=True,timeout=30)
     assert cleanup.returncode==0 and not re.search(r"ORA-|SP2-", cleanup.stdout+cleanup.stderr), "Test account cleanup failed"
     output = (result.stdout + result.stderr).replace(password, "[REDACTED]")
-    OUT.mkdir(exist_ok=True)
+    OUT.mkdir(parents=True,exist_ok=True)
     (OUT / name).write_text(output)
     if result.returncode or re.search(r'(?m)^\s*(ORA-|PLS-|SP2-|Warning:)', output) or 'E5_COMPLETE' not in output:
         raise RuntimeError(output[-3000:])

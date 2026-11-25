@@ -1,0 +1,11 @@
+{
+  "sqlcl_release": "25.4.1.0",
+  "sqlcl_build": "25.4.1.022.0618",
+  "utplsql_release": "3.2.3",
+  "utplsql_zip_sha256": "6e650fc497bce02ae611e185e66c72204f0b984a024a41733b5452e7fb6db47a",
+  "database_service": "FREEPDB1",
+  "page_schema": "E6_APP",
+  "test_schema": "E6_TEST",
+  "public_grants_added": false,
+  "deployment_claim": "whole-application native packaging only; no target deployment"
+}

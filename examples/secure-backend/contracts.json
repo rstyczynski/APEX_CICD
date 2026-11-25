@@ -1,0 +1,24 @@
+{
+  "application_release": "1.0.0",
+  "migration_identity": "E6_SCHEMA_001",
+  "deployment_unit": "whole application plus selected E6_APP schema source",
+  "components": {
+    "Greeting": {
+      "version": "1.1.0",
+      "requires": {"CountryPolicy": ">=1.0.0 <2.0.0"},
+      "legacy": "hello(p_name): callable/deprecated throughout 1.x",
+      "render": "render(p_text,p_suffix default null): Hello plus trimmed text; -20410 invalid input",
+      "structured": "render_v2(p_text) adds an opt-in JSON response; legacy text is unchanged"
+    },
+    "CountryPolicy": {
+      "version": "1.0.0",
+      "codes": ["PL","DE"],
+      "policy": "explicit user grant AND matching P1_COUNTRY on every request"
+    },
+    "Request": {
+      "version": "1.0.0",
+      "requires": {"Greeting": ">=1.1.0 <2.0.0", "CountryPolicy": ">=1.0.0 <2.0.0"},
+      "transaction": "caller commit; operation savepoint; duplicate -20403; no partial request/audit write"
+    }
+  }
+}

@@ -382,7 +382,7 @@ Define the observable interfaces and compatibility promises of APEX and database
 
 Test: Review representative APEX and database changes, including shared LOV changes, and demonstrate justified major, minor and patch classifications against explicit component contracts and consumer compatibility expectations.
 
-Status: Proposed
+Status: Done
 
 ### PBI-053. Prove a simple Git-based development-to-release journey
 
@@ -470,7 +470,7 @@ Determine how session-dependent backend behavior can be tested with declared ide
 
 Test: Demonstrate allowed and denied country access, rejected cross-country writes, failed initialization propagation, session cleanup, and a recorded manual authentication/page check distinct from session creation.
 
-Status: Proposed
+Status: Done
 
 ### PBI-064. Validate executable compatibility of component contracts
 
@@ -478,7 +478,7 @@ Validate whether documented component contracts and consumer tests distinguish c
 
 Test: Demonstrate passing existing consumers for a compatible change and detected incompatible results, errors, transaction behavior or calls, with justified version classifications and a callable deprecated interface.
 
-Status: Proposed
+Status: Done
 
 ### PBI-065. Validate deployed database state after a representative upgrade
 
@@ -598,7 +598,7 @@ Evaluate one component operation under competing sessions and partial failure ag
 
 Test: Demonstrate the selected interleavings, a rejected or safely handled duplicate request, preserved invariants and no unintended partial business change under the declared transaction contract.
 
-Status: Proposed
+Status: Done
 
 ### PBI-080. Assess validation evidence and the Construction entry decision
 

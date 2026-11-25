@@ -344,3 +344,7 @@ test report. Unit tests and broader E.1 runtime regression are not selected here
 ## E.5 qualified backend experiment
 
 The [E.5 walkthrough](../progress/E.5/sprint_E.5_increment_demo.md) explains the complete manual journey and the [test report](../progress/E.5/sprint_E.5_tests.md) records passing A1/A2/A3/B1 gates. Use the existing runner with `--new-only progress/E.5/new_tests.manifest` for smoke, unit and integration; ordinary `--smoke` is the selected regression suite. Five real utPLSQL cases, repeat/reorder preservation, controlled timestamp/locale, explicit DDL cleanup, native release exclusion and separate live browser comparison qualify the bounded CREATE experiment. Coverage counts describe the retained measured run; condition-line attribution can vary. This is not broad application/security/concurrency or fresh-host qualification.
+
+## E.6 selected verification
+
+The [E.6 test report](../progress/E.6/sprint_E.6_tests.md) records A1/A2/A3 and B1/B2 results. Use `progress/E.6/new_tests.manifest` with the existing smoke/unit/integration runner. The activation explicitly selects `--component secure_backend` for smoke/unit regression: all current pipeline/platform smoke, prior backend unit and new contract cases, with new evidence redirected into E.6. Native session setup is tested separately from actual browser password authentication/page submission. [The walkthrough](../progress/E.6/sprint_E.6_increment_demo.md) gives full SQL, commands, prerequisites and expected outcomes before invocation.

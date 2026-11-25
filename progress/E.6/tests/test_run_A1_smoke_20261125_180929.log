@@ -1,0 +1,4 @@
+RUN smoke:test_contracts.sh:test_SM1_contract_sources
+PASS explicit version/dependency declarations and caller-owned transaction boundary
+PASS test_SM1_contract_sources
+Tests: 1; failed: 0

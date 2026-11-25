@@ -1,0 +1,15 @@
+RUN integration:test_contracts.sh:test_IT1_compatibility
+PASS 3 real utPLSQL consumers
+PASS 3 real utPLSQL consumers
+PASS 3 real utPLSQL consumers
+PASS incompatible result detected
+PASS 3 real utPLSQL consumers
+PASS baseline/patch/minor consumers, additions, detected break and restoration
+PASS test_IT1_compatibility
+RUN integration:test_contracts.sh:test_IT2_sessions_transactions
+PASS native contexts, propagated init failure, caller rollback, partial failure and both controlled unique-key races
+PASS test_IT2_sessions_transactions
+RUN integration:test_contracts.sh:test_IT4_page_release
+PASS separate browser evidence, live business invariants and native whole-application artifact
+PASS test_IT4_page_release
+Tests: 3; failed: 0

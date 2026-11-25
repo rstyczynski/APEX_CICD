@@ -1,0 +1,5 @@
+smoke:test_contracts.sh:test_SM1_contract_sources
+unit:test_contracts.sh:test_UT1_component_contracts
+integration:test_contracts.sh:test_IT1_compatibility
+integration:test_contracts.sh:test_IT2_sessions_transactions
+integration:test_contracts.sh:test_IT4_page_release

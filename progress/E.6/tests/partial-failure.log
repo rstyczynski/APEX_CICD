@@ -1,0 +1,2 @@
+E6_PARTIAL_PASS: second-write error propagated, caller marker preserved until explicit rollback
+E6_COMPLETE

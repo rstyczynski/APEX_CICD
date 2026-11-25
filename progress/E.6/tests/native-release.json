@@ -1,0 +1,20 @@
+{
+  "archive": "e6-backend-1.0.0.zip",
+  "sha256": "7d6564f2274cbaf15174eda12dcb16056c5ef3d79303158c9070ce0d85bb37f2",
+  "entries": 20,
+  "schemas": [
+    "E6_APP"
+  ],
+  "excluded_test_owners": [
+    "E6_TEST",
+    "E5_UT"
+  ],
+  "sqlcl": "SQLcl: Release 25.4.1.0 Production Build: 25.4.1.022.0618",
+  "source_commit": "5390878d58e36054ba9cd3da88016e2243dfbd44",
+  "component_versions": {
+    "Greeting": "1.1.0",
+    "CountryPolicy": "1.0.0",
+    "Request": "1.0.0"
+  },
+  "component_declarations_sha256": "2420d599b0bedf0066e9a9f30994f42a32efd72a786596ffce1465d0340a7669"
+}

@@ -41,10 +41,10 @@
 | Sprint E.5 | Done | PBI-061 | Done |
 | Sprint E.5 | Done | PBI-040 | Done |
 | Sprint E.5 | Done | PBI-062 | Done |
-| Sprint E.6 | Planned | PBI-063 | Planned |
-| Sprint E.6 | Planned | PBI-052 | Planned |
-| Sprint E.6 | Planned | PBI-064 | Planned |
-| Sprint E.6 | Planned | PBI-079 | Planned |
+| Sprint E.6 | Done | PBI-063 | Done |
+| Sprint E.6 | Done | PBI-052 | Done |
+| Sprint E.6 | Done | PBI-064 | Done |
+| Sprint E.6 | Done | PBI-079 | Done |
 | Sprint E.7 | Planned | PBI-065 | Planned |
 | Sprint E.7 | Planned | PBI-077 | Planned |
 | Sprint E.7 | Planned | PBI-057 | Planned |

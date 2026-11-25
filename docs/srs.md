@@ -435,3 +435,7 @@ product obligations remain unchanged. [PLAN](../PLAN.md) owns assignment and sta
 ## E.5 backend validation evidence
 
 The [E.5 walkthrough](../progress/E.5/sprint_E.5_increment_demo.md) and [executed tests](../progress/E.5/sprint_E.5_tests.md) provide bounded Elaboration evidence for one Hello-entry page/API rule, real backend regression/coverage and independent fixtures. This SRS remains the production requirements authority; the experiment does not complete the broader authorization, concurrency or onboarding obligations.
+
+## E.6 secure-contract evidence
+
+The [E.6 walkthrough](../progress/E.6/sprint_E.6_increment_demo.md) and [tests](../progress/E.6/sprint_E.6_tests.md) provide bounded context/compatibility/transaction evidence. [Component contracts](component-contracts.md) own explicit version promises; this SRS remains the requirements authority. The synthetic permissions, trusted schemas and two selected interleavings do not complete general production authorization/concurrency or upgrade obligations.

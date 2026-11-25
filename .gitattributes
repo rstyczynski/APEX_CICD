@@ -20,3 +20,7 @@ examples/testable-backend/apex/*.sql whitespace=-blank-at-eol
 progress/E.5/fixtures/native-baseline/** whitespace=-blank-at-eol
 progress/E.5/tests/*.log whitespace=-blank-at-eol,-blank-at-eof
 progress/E.5/sprint_E.5_increment_demo.md whitespace=-blank-at-eol
+# E.6 preserves native APEX export bytes and verbatim Oracle/SQLcl transcripts.
+examples/secure-backend/apex/*.sql whitespace=-blank-at-eol
+progress/E.6/tests/*.log whitespace=-blank-at-eol,-blank-at-eof
+progress/E.6/tests/regression-backend/*.log whitespace=-blank-at-eol,-blank-at-eof

@@ -1,0 +1,3 @@
+INIT_FAILURE:ORA-20987: APEX - Error processing database session setup code. - Contact your application administrator.
+E6_SESSION_PASS: allowed ALICE/PL and BOB/DE; mismatch and denied writes rejected; initialization failure propagated; sessions deleted
+E6_COMPLETE
