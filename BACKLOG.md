@@ -494,7 +494,7 @@ Validate an end-to-end test path for the code proposed for integration rather th
 
 Test: Demonstrate a passing integrated candidate and injected migration, compilation, state and assertion failures that prevent Testing success, with cheap checks stopping expensive dependent work.
 
-Status: Proposed
+Status: Done
 
 ### PBI-067. Validate fail-closed test-plan and result aggregation
 
@@ -502,7 +502,7 @@ Determine whether an explicit required plan prevents missing work from appearing
 
 Test: Demonstrate rejection of empty mandatory suites, absent reports, unknown policy, weakened candidate policy and skipped, neutral, cancelled or failed mandatory work while preserving the original failure through reporting.
 
-Status: Proposed
+Status: Done
 
 ### PBI-068. Validate agent-generated pull-request context against the diff
 
@@ -574,7 +574,7 @@ Determine whether a small trusted behavior inventory selects the necessary suite
 
 Test: Demonstrate attributable PR, scheduled and prerelease executions, fallback for unknown impact, mandatory migration/contract inclusion and visible rejection or governed follow-up for disabled critical coverage.
 
-Status: Proposed
+Status: Done
 
 ### PBI-077. Validate release identity across artifacts and evidence
 

@@ -324,10 +324,12 @@ Backlog Items:
 
 ## Sprint E.8 - Validate complete PR candidate testing
 
-Status: Progress
+Status: Done
 Mode: YOLO
 Test: smoke, unit, integration
 Regression: smoke, unit
+
+Activated and completed on 2026-11-25 under explicit Product Owner YOLO delegation. All selected gates, real merged-candidate cadence/fault experiments, demonstration, presentation and documentation audit passed. See [handover and closure](progress/E.8/sprint_E.8_handover.md). No later sprint is activated.
 
 Demonstrate one integrated PR candidate from trusted suite selection through deployment, tests and reporting, with PR, scheduled and prerelease applicability. Show cheap failure stopping dependent work and missing, empty, skipped or failed mandatory validation preventing Testing success.
 
