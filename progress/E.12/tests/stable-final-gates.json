@@ -1,0 +1,75 @@
+[
+  {
+    "gate": "A1_smoke",
+    "command": [
+      "bash",
+      "tests/run.sh",
+      "--smoke",
+      "--new-only",
+      "progress/E.12/new_tests.manifest"
+    ],
+    "exit": 0,
+    "log": "progress/E.12/test_run_A1_smoke_20261125_213608.log",
+    "summary": "Tests: 2; failed: 0"
+  },
+  {
+    "gate": "A2_unit",
+    "command": [
+      "bash",
+      "tests/run.sh",
+      "--unit",
+      "--new-only",
+      "progress/E.12/new_tests.manifest"
+    ],
+    "exit": 0,
+    "log": "progress/E.12/test_run_A2_unit_20261125_213456.log",
+    "summary": "Tests: 4; failed: 0"
+  },
+  {
+    "gate": "A3_integration",
+    "command": [
+      "bash",
+      "tests/run.sh",
+      "--integration",
+      "--new-only",
+      "progress/E.12/new_tests.manifest"
+    ],
+    "exit": 0,
+    "log": "progress/E.12/test_run_A3_integration_20261125_213457.log",
+    "summary": "Tests: 1; failed: 0"
+  },
+  {
+    "gate": "B1_smoke",
+    "command": [
+      "bash",
+      "tests/run.sh",
+      "--smoke"
+    ],
+    "exit": 0,
+    "log": "progress/E.12/test_run_B1_smoke_20261125_213608.log",
+    "summary": "Tests: 11; failed: 0"
+  },
+  {
+    "gate": "B2_unit",
+    "command": [
+      "bash",
+      "tests/run.sh",
+      "--unit"
+    ],
+    "exit": 0,
+    "log": "progress/E.12/test_run_B2_unit_20261125_213514.log",
+    "summary": "Tests: 12; failed: 0"
+  },
+  {
+    "gate": "B3_integration",
+    "command": [
+      "bash",
+      "tests/run.sh",
+      "--integration"
+    ],
+    "working_directory": "/private/tmp/e12-final-qualified",
+    "exit": 0,
+    "log": "progress/E.12/test_run_B3_integration_20261125_213552.log",
+    "summary": "Tests: 21; failed: 0"
+  }
+]

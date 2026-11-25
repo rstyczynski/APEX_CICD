@@ -1,0 +1,10 @@
+{
+  "source_files": 247,
+  "canonical_equals_frozen_before_and_after": true,
+  "all_gate_exits": 0,
+  "integration_entries": 21,
+  "worker_exited": true,
+  "fixture_lock_released": true,
+  "source_selection": "frozen-source-selection.json",
+  "gate_receipt": "stable-final-gates.json"
+}

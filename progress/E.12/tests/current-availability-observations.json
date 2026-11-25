@@ -1,0 +1,38 @@
+{
+  "schema": "E12_RUN_49496",
+  "driver_sha256": "7d7ef025e820e90efc774ac2084b3ee457ac199f04b41441d5d3fb4e2c2aa366",
+  "observations": {
+    "hello": {
+      "calls": 120,
+      "span_seconds": 12.914557,
+      "maximum_completion_gap_seconds": 0.140077,
+      "events_within_stream": [
+        "expand-backfill",
+        "version",
+        "rollback-check",
+        "concurrent",
+        "catchup"
+      ]
+    },
+    "world": {
+      "calls": 120,
+      "span_seconds": 12.936997,
+      "maximum_completion_gap_seconds": 0.147542,
+      "events_within_stream": [
+        "expand-backfill",
+        "version",
+        "rollback-check",
+        "concurrent",
+        "catchup"
+      ]
+    }
+  },
+  "events_seconds_since_midnight": {
+    "expand-backfill": "77699.212577000",
+    "version": "77699.432419000",
+    "rollback-check": "77699.734221000",
+    "concurrent": "77699.884689000",
+    "catchup": "77701.075241000"
+  },
+  "scope": "Actual latest A3 server completion timestamps; completion gaps include pauses/client work, not pure request latency; 180-second whole-stream subprocess budget is not a production SLA."
+}

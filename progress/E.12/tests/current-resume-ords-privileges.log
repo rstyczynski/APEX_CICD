@@ -1,0 +1,354 @@
+
+Session altered.
+
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+old   1: grant alter any table			 to ^ADMINUSER
+new   1: grant alter any table			 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant alter user			 to ^ADMINUSER with admin option
+new   1: grant alter user			 to E12_ADMIN with admin option
+
+Grant succeeded.
+
+old   1: grant comment any table		 to ^ADMINUSER
+new   1: grant comment any table		 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant create any context		 to ^ADMINUSER
+new   1: grant create any context		 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant create any index 		 to ^ADMINUSER
+new   1: grant create any index 		 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant create any job			 to ^ADMINUSER
+new   1: grant create any job			 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant create any procedure		 to ^ADMINUSER
+new   1: grant create any procedure		 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant create any sequence		 to ^ADMINUSER
+new   1: grant create any sequence		 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant create any synonym		 to ^ADMINUSER
+new   1: grant create any synonym		 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant create any table 		 to ^ADMINUSER
+new   1: grant create any table 		 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant create any trigger		 to ^ADMINUSER with admin option
+new   1: grant create any trigger		 to E12_ADMIN with admin option
+
+Grant succeeded.
+
+old   1: grant create any type			 to ^ADMINUSER
+new   1: grant create any type			 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant create any view			 to ^ADMINUSER
+new   1: grant create any view			 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant create job			 to ^ADMINUSER with admin option
+new   1: grant create job			 to E12_ADMIN with admin option
+
+Grant succeeded.
+
+old   1: grant create public synonym		 to ^ADMINUSER with admin option
+new   1: grant create public synonym		 to E12_ADMIN with admin option
+
+Grant succeeded.
+
+old   1: grant create role			 to ^ADMINUSER
+new   1: grant create role			 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant create session			 to ^ADMINUSER with admin option
+new   1: grant create session			 to E12_ADMIN with admin option
+
+Grant succeeded.
+
+old   1: grant create synonym			 to ^ADMINUSER with admin option
+new   1: grant create synonym			 to E12_ADMIN with admin option
+
+Grant succeeded.
+
+old   1: grant create user			 to ^ADMINUSER
+new   1: grant create user			 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant create view			 to ^ADMINUSER with admin option
+new   1: grant create view			 to E12_ADMIN with admin option
+
+Grant succeeded.
+
+old   1: grant delete any table 		 to ^ADMINUSER
+new   1: grant delete any table 		 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant drop any context 		 to ^ADMINUSER
+new   1: grant drop any context 		 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant drop any index			 to ^ADMINUSER
+new   1: grant drop any index			 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant drop any role			 to ^ADMINUSER
+new   1: grant drop any role			 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant drop any table			 to ^ADMINUSER
+new   1: grant drop any table			 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant drop any type			 to ^ADMINUSER
+new   1: grant drop any type			 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant drop any synonym 		 to ^ADMINUSER
+new   1: grant drop any synonym 		 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant drop public synonym		 to ^ADMINUSER with admin option
+new   1: grant drop public synonym		 to E12_ADMIN with admin option
+
+Grant succeeded.
+
+old   1: grant drop user			 to ^ADMINUSER
+new   1: grant drop user			 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant execute any procedure		 to ^ADMINUSER
+new   1: grant execute any procedure		 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant execute any type 		 to ^ADMINUSER
+new   1: grant execute any type 		 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant grant any object privilege	 to ^ADMINUSER
+new   1: grant grant any object privilege	 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant insert any table 		 to ^ADMINUSER
+new   1: grant insert any table 		 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant select any table 		 to ^ADMINUSER
+new   1: grant select any table 		 to E12_ADMIN
+
+Grant succeeded.
+
+old   1: grant update any table 		 to ^ADMINUSER
+new   1: grant update any table 		 to E12_ADMIN
+
+Grant succeeded.
+
+old   2:   c_grant_set_con constant varchar2(255)  := 'grant set container to ' || dbms_assert.enquote_name('^ADMINUSER')
+new   2:   c_grant_set_con constant varchar2(255)  := 'grant set container to ' || dbms_assert.enquote_name('E12_ADMIN')
+grant set container to "E12_ADMIN" with admin option
+
+PL/SQL procedure successfully completed.
+
+old   1: grant execute on sys.dbms_assert	 to ^ADMINUSER with grant option
+new   1: grant execute on sys.dbms_assert	 to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant execute on sys.dbms_crypto	 to ^ADMINUSER with grant option
+new   1: grant execute on sys.dbms_crypto	 to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant execute on sys.dbms_lob		 to ^ADMINUSER with grant option
+new   1: grant execute on sys.dbms_lob		 to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant execute on sys.dbms_metadata	 to ^ADMINUSER with grant option
+new   1: grant execute on sys.dbms_metadata	 to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant execute on sys.dbms_network_acl_admin to ^ADMINUSER with grant option
+new   1: grant execute on sys.dbms_network_acl_admin to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant execute on sys.dbms_output	 to ^ADMINUSER with grant option
+new   1: grant execute on sys.dbms_output	 to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant execute on sys.dbms_scheduler	 to ^ADMINUSER with grant option
+new   1: grant execute on sys.dbms_scheduler	 to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant execute on sys.dbms_session	 to ^ADMINUSER with grant option
+new   1: grant execute on sys.dbms_session	 to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant execute on sys.dbms_utility	 to ^ADMINUSER with grant option
+new   1: grant execute on sys.dbms_utility	 to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant execute on sys.dbms_sql		 to ^ADMINUSER with grant option
+new   1: grant execute on sys.dbms_sql		 to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant execute on sys.default_job_class  to ^ADMINUSER with grant option
+new   1: grant execute on sys.default_job_class  to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant execute on sys.htp		 to ^ADMINUSER with grant option
+new   1: grant execute on sys.htp		 to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant execute on sys.owa		 to ^ADMINUSER with grant option
+new   1: grant execute on sys.owa		 to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant execute on sys.wpiutl		 to ^ADMINUSER with grant option
+new   1: grant execute on sys.wpiutl		 to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant execute on sys.wpg_docload	 to ^ADMINUSER with grant option
+new   1: grant execute on sys.wpg_docload	 to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant execute on sys.utl_smtp		 to ^ADMINUSER with grant option
+new   1: grant execute on sys.utl_smtp		 to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant execute on sys.owa_util		 to ^ADMINUSER with grant option
+new   1: grant execute on sys.owa_util		 to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant select on sys.user_cons_columns	 to ^ADMINUSER with grant option
+new   1: grant select on sys.user_cons_columns	 to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant select on sys.user_constraints	 to ^ADMINUSER with grant option
+new   1: grant select on sys.user_constraints	 to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant select on sys.user_objects	 to ^ADMINUSER with grant option
+new   1: grant select on sys.user_objects	 to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant select on sys.user_procedures	 to ^ADMINUSER with grant option
+new   1: grant select on sys.user_procedures	 to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant select on sys.user_tab_columns	 to ^ADMINUSER with grant option
+new   1: grant select on sys.user_tab_columns	 to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant select on sys.user_tables	 to ^ADMINUSER with grant option
+new   1: grant select on sys.user_tables	 to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old   1: grant select on sys.user_views 	 to ^ADMINUSER with grant option
+new   1: grant select on sys.user_views 	 to E12_ADMIN with grant option
+
+Grant succeeded.
+
+old  69:     c_user_grant    constant varchar2(255) := ' to ' || sys.dbms_assert.enquote_name('^ADMINUSER');
+new  69:     c_user_grant    constant varchar2(255) := ' to ' || sys.dbms_assert.enquote_name('E12_ADMIN');
+grant read on sys.CDB_SERVICES to "E12_ADMIN"
+grant read on sys.CDB_TABLESPACES to "E12_ADMIN"
+grant read on sys.DBA_APPLICATIONS to "E12_ADMIN"
+grant read on sys.DBA_ROLES to "E12_ADMIN"
+grant read on sys.DBA_SYNONYMS to "E12_ADMIN"
+grant read on sys.DBA_TABLESPACES to "E12_ADMIN"
+grant read on sys.DBA_TAB_COLS to "E12_ADMIN"
+grant read on sys.DBA_TAB_PRIVS to "E12_ADMIN"
+grant read on sys.DBA_TEMP_FILES to "E12_ADMIN"
+grant read on sys.PROXY_USERS to "E12_ADMIN"
+grant read on sys.V_$CONTAINERS to "E12_ADMIN"
+grant read on sys.V_$DATABASE to "E12_ADMIN"
+grant read on sys.V_$LISTENER_NETWORK to "E12_ADMIN"
+grant read on sys.DBA_NETWORK_ACL_PRIVILEGES to "E12_ADMIN" with grant option
+grant read on sys.DBA_NETWORK_ACLS to "E12_ADMIN" with grant option
+grant read on sys.DBA_OBJECTS to "E12_ADMIN" with grant option
+grant read on sys.DBA_REGISTRY to "E12_ADMIN" with grant option
+grant read on sys.DBA_ROLE_PRIVS to "E12_ADMIN" with grant option
+grant read on sys.DBA_TAB_COLUMNS to "E12_ADMIN" with grant option
+grant read on sys.DBA_USERS to "E12_ADMIN" with grant option
+grant read on sys.SESSION_PRIVS to "E12_ADMIN" with grant option
+grant read on sys.V_$PARAMETER to "E12_ADMIN" with grant option
+
+PL/SQL procedure successfully completed.
+
+old  14:     sys.dbms_output.put_line('grant execute on SYS.WWV_FLOW_VAL_LIB to ^ADMINUSER with grant option;');
+new  14:     sys.dbms_output.put_line('grant execute on SYS.WWV_FLOW_VAL_LIB to E12_ADMIN with grant option;');
+old  15:     execute immediate 'grant execute on SYS.WWV_FLOW_VAL_LIB to ^ADMINUSER with grant option';
+new  15:     execute immediate 'grant execute on SYS.WWV_FLOW_VAL_LIB to E12_ADMIN with grant option';
+grant execute on SYS.WWV_FLOW_VAL_LIB to E12_ADMIN with grant option;
+
+PL/SQL procedure successfully completed.
+
+old   4:   c_to_user	  constant varchar2(400) := ' to ' || dbms_assert.enquote_name('^ADMINUSER') || ' with grant option';
+new   4:   c_to_user	  constant varchar2(400) := ' to ' || dbms_assert.enquote_name('E12_ADMIN') || ' with grant option';
+grant select on APEX_240200.WWV_FLOW_RT$MODULES to "E12_ADMIN" with grant option
+grant select on APEX_240200.WWV_FLOW_POOL_CONFIG to "E12_ADMIN" with grant
+option
+
+PL/SQL procedure successfully completed.
+
+E12_ORDS_INSTALLER_PRIVILEGES_COMPLETE

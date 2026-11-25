@@ -1,0 +1,7 @@
+2026-11-25 21:35:11.753059000
+select E12_RUN_49496.greet_language('Jan','xx') from dual
+       *
+ERROR at line 1:
+ORA-20002: unsupported language
+ORA-06512: at "E12_RUN_49496.GREET_LANGUAGE", line 2
+ORA-06512: at line 1

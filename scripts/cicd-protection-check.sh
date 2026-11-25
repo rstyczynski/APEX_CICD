@@ -47,7 +47,7 @@ main() {
   ROOT="$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --show-toplevel)"
   cd "$ROOT"
   protection_options "$@" || return $?
-  archive="$(cat .local-apex/releases/patch-selected.txt)"
+  archive="$(cat "${APEX_CICD_PATCH_SELECTION:-.local-apex/releases/patch-selected.txt}")"
   umask 077
   work="$(mktemp -d .local-apex/releases/protection-$kind.XXXXXX)"
   printf '%s\n' 'set serveroutput on' 'begin E1_CTRL.e1_release.show_status; end;' '/' > "$work/status.sql"
@@ -82,7 +82,7 @@ main() {
     fi
   fi
   echo "PASS $kind protection: target definitions, versions, entries, configuration, history and release records unchanged. Evidence: $work"
-  echo 'Open http://127.0.0.1:8080/ords/f?p=810005:1 as LAB_USER to see the retained application.'
+  echo "Open ${APEX_CICD_HTTP_BASE:-http://127.0.0.1:8080/ords/}f?p=810005:1 as LAB_USER to see this selected application."
 }
 
 if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then main "$@"; fi

@@ -1,0 +1,299 @@
+{
+  "target": "integration_test",
+  "tables": {
+    "history": {
+      "6": {
+        "GREETING_ID": 6,
+        "HELLO_ENTRY_ID": 4,
+        "WORLD_ENTRY_ID": 4,
+        "HELLO_TEXT": "Hello",
+        "WORLD_TEXT": "World",
+        "HELLO_PREFIX": null,
+        "WORLD_PREFIX": null,
+        "GREETING_TEXT": "Hello World",
+        "CREATED_AT": "2026-11-25T21:25:25.565794Z",
+        "ACTOR": "VERIFIER"
+      },
+      "7": {
+        "GREETING_ID": 7,
+        "HELLO_ENTRY_ID": 4,
+        "WORLD_ENTRY_ID": 4,
+        "HELLO_TEXT": "Hello",
+        "WORLD_TEXT": "World",
+        "HELLO_PREFIX": null,
+        "WORLD_PREFIX": null,
+        "GREETING_TEXT": "Hello World",
+        "CREATED_AT": "2026-11-25T21:25:29.336216Z",
+        "ACTOR": "VERIFIER"
+      },
+      "8": {
+        "GREETING_ID": 8,
+        "HELLO_ENTRY_ID": 4,
+        "WORLD_ENTRY_ID": 4,
+        "HELLO_TEXT": "Hello",
+        "WORLD_TEXT": "World",
+        "HELLO_PREFIX": null,
+        "WORLD_PREFIX": null,
+        "GREETING_TEXT": "Hello World",
+        "CREATED_AT": "2026-11-25T21:25:51.104282Z",
+        "ACTOR": "E1_INTEGRATION"
+      },
+      "9": {
+        "GREETING_ID": 9,
+        "HELLO_ENTRY_ID": 4,
+        "WORLD_ENTRY_ID": 4,
+        "HELLO_TEXT": "Hello",
+        "WORLD_TEXT": "World",
+        "HELLO_PREFIX": null,
+        "WORLD_PREFIX": null,
+        "GREETING_TEXT": "Hello World",
+        "CREATED_AT": "2026-11-25T21:25:51.104759Z",
+        "ACTOR": "E1_INTEGRATION"
+      },
+      "10": {
+        "GREETING_ID": 10,
+        "HELLO_ENTRY_ID": 4,
+        "WORLD_ENTRY_ID": 4,
+        "HELLO_TEXT": "Hello",
+        "WORLD_TEXT": "World",
+        "HELLO_PREFIX": null,
+        "WORLD_PREFIX": null,
+        "GREETING_TEXT": "Hello World",
+        "CREATED_AT": "2026-11-25T21:25:51.105122Z",
+        "ACTOR": "E1_INTEGRATION"
+      },
+      "11": {
+        "GREETING_ID": 11,
+        "HELLO_ENTRY_ID": 4,
+        "WORLD_ENTRY_ID": 4,
+        "HELLO_TEXT": "Hello",
+        "WORLD_TEXT": "World",
+        "HELLO_PREFIX": null,
+        "WORLD_PREFIX": null,
+        "GREETING_TEXT": "Hello World",
+        "CREATED_AT": "2026-11-25T21:25:51.105450Z",
+        "ACTOR": "E1_INTEGRATION"
+      },
+      "12": {
+        "GREETING_ID": 12,
+        "HELLO_ENTRY_ID": 4,
+        "WORLD_ENTRY_ID": 4,
+        "HELLO_TEXT": "Hello",
+        "WORLD_TEXT": "World",
+        "HELLO_PREFIX": null,
+        "WORLD_PREFIX": null,
+        "GREETING_TEXT": "Hello World",
+        "CREATED_AT": "2026-11-25T21:25:51.105721Z",
+        "ACTOR": "E1_INTEGRATION"
+      },
+      "13": {
+        "GREETING_ID": 13,
+        "HELLO_ENTRY_ID": 4,
+        "WORLD_ENTRY_ID": 4,
+        "HELLO_TEXT": "Hello",
+        "WORLD_TEXT": "World",
+        "HELLO_PREFIX": null,
+        "WORLD_PREFIX": null,
+        "GREETING_TEXT": "Hello World",
+        "CREATED_AT": "2026-11-25T21:25:51.105908Z",
+        "ACTOR": "E1_INTEGRATION"
+      },
+      "14": {
+        "GREETING_ID": 14,
+        "HELLO_ENTRY_ID": 4,
+        "WORLD_ENTRY_ID": 4,
+        "HELLO_TEXT": "Hello",
+        "WORLD_TEXT": "World",
+        "HELLO_PREFIX": null,
+        "WORLD_PREFIX": null,
+        "GREETING_TEXT": "Hello World",
+        "CREATED_AT": "2026-11-25T21:25:51.106093Z",
+        "ACTOR": "E1_INTEGRATION"
+      },
+      "15": {
+        "GREETING_ID": 15,
+        "HELLO_ENTRY_ID": 4,
+        "WORLD_ENTRY_ID": 4,
+        "HELLO_TEXT": "Hello",
+        "WORLD_TEXT": "World",
+        "HELLO_PREFIX": null,
+        "WORLD_PREFIX": null,
+        "GREETING_TEXT": "Hello World",
+        "CREATED_AT": "2026-11-25T21:25:51.106262Z",
+        "ACTOR": "E1_INTEGRATION"
+      },
+      "16": {
+        "GREETING_ID": 16,
+        "HELLO_ENTRY_ID": 4,
+        "WORLD_ENTRY_ID": 4,
+        "HELLO_TEXT": "Hello",
+        "WORLD_TEXT": "World",
+        "HELLO_PREFIX": null,
+        "WORLD_PREFIX": null,
+        "GREETING_TEXT": "Hello World",
+        "CREATED_AT": "2026-11-25T21:25:51.106456Z",
+        "ACTOR": "E1_INTEGRATION"
+      },
+      "17": {
+        "GREETING_ID": 17,
+        "HELLO_ENTRY_ID": 4,
+        "WORLD_ENTRY_ID": 4,
+        "HELLO_TEXT": "Hello",
+        "WORLD_TEXT": "World",
+        "HELLO_PREFIX": null,
+        "WORLD_PREFIX": null,
+        "GREETING_TEXT": "Hello World",
+        "CREATED_AT": "2026-11-25T21:25:51.106649Z",
+        "ACTOR": "E1_INTEGRATION"
+      },
+      "18": {
+        "GREETING_ID": 18,
+        "HELLO_ENTRY_ID": 4,
+        "WORLD_ENTRY_ID": 4,
+        "HELLO_TEXT": "Hello",
+        "WORLD_TEXT": "World",
+        "HELLO_PREFIX": null,
+        "WORLD_PREFIX": null,
+        "GREETING_TEXT": "Hello World",
+        "CREATED_AT": "2026-11-25T21:25:51.107073Z",
+        "ACTOR": "E1_INTEGRATION"
+      },
+      "19": {
+        "GREETING_ID": 19,
+        "HELLO_ENTRY_ID": 4,
+        "WORLD_ENTRY_ID": 4,
+        "HELLO_TEXT": "Hello",
+        "WORLD_TEXT": "World",
+        "HELLO_PREFIX": null,
+        "WORLD_PREFIX": null,
+        "GREETING_TEXT": "Hello World",
+        "CREATED_AT": "2026-11-25T21:25:51.107172Z",
+        "ACTOR": "E1_INTEGRATION"
+      },
+      "20": {
+        "GREETING_ID": 20,
+        "HELLO_ENTRY_ID": 4,
+        "WORLD_ENTRY_ID": 4,
+        "HELLO_TEXT": "Hello",
+        "WORLD_TEXT": "World",
+        "HELLO_PREFIX": null,
+        "WORLD_PREFIX": null,
+        "GREETING_TEXT": "Hello World",
+        "CREATED_AT": "2026-11-25T21:25:51.107249Z",
+        "ACTOR": "E1_INTEGRATION"
+      },
+      "21": {
+        "GREETING_ID": 21,
+        "HELLO_ENTRY_ID": 4,
+        "WORLD_ENTRY_ID": 4,
+        "HELLO_TEXT": "Hello",
+        "WORLD_TEXT": "World",
+        "HELLO_PREFIX": null,
+        "WORLD_PREFIX": null,
+        "GREETING_TEXT": "Hello World",
+        "CREATED_AT": "2026-11-25T21:25:51.107313Z",
+        "ACTOR": "E1_INTEGRATION"
+      },
+      "22": {
+        "GREETING_ID": 22,
+        "HELLO_ENTRY_ID": 4,
+        "WORLD_ENTRY_ID": 4,
+        "HELLO_TEXT": "Hello",
+        "WORLD_TEXT": "World",
+        "HELLO_PREFIX": null,
+        "WORLD_PREFIX": null,
+        "GREETING_TEXT": "Hello World",
+        "CREATED_AT": "2026-11-25T21:25:51.107835Z",
+        "ACTOR": "E1_INTEGRATION"
+      },
+      "23": {
+        "GREETING_ID": 23,
+        "HELLO_ENTRY_ID": 4,
+        "WORLD_ENTRY_ID": 4,
+        "HELLO_TEXT": "Hello",
+        "WORLD_TEXT": "World",
+        "HELLO_PREFIX": null,
+        "WORLD_PREFIX": null,
+        "GREETING_TEXT": "Hello World",
+        "CREATED_AT": "2026-11-25T21:25:51.107902Z",
+        "ACTOR": "E1_INTEGRATION"
+      },
+      "24": {
+        "GREETING_ID": 24,
+        "HELLO_ENTRY_ID": 4,
+        "WORLD_ENTRY_ID": 4,
+        "HELLO_TEXT": "Hello",
+        "WORLD_TEXT": "World",
+        "HELLO_PREFIX": null,
+        "WORLD_PREFIX": null,
+        "GREETING_TEXT": "Hello World",
+        "CREATED_AT": "2026-11-25T21:25:51.107973Z",
+        "ACTOR": "E1_INTEGRATION"
+      },
+      "25": {
+        "GREETING_ID": 25,
+        "HELLO_ENTRY_ID": 4,
+        "WORLD_ENTRY_ID": 4,
+        "HELLO_TEXT": "Hello",
+        "WORLD_TEXT": "World",
+        "HELLO_PREFIX": null,
+        "WORLD_PREFIX": null,
+        "GREETING_TEXT": "Hello World",
+        "CREATED_AT": "2026-11-25T21:25:51.108173Z",
+        "ACTOR": "E1_INTEGRATION"
+      },
+      "26": {
+        "GREETING_ID": 26,
+        "HELLO_ENTRY_ID": 4,
+        "WORLD_ENTRY_ID": 4,
+        "HELLO_TEXT": "Hello",
+        "WORLD_TEXT": "World",
+        "HELLO_PREFIX": null,
+        "WORLD_PREFIX": null,
+        "GREETING_TEXT": "Hello World",
+        "CREATED_AT": "2026-11-25T21:25:51.108237Z",
+        "ACTOR": "E1_INTEGRATION"
+      },
+      "27": {
+        "GREETING_ID": 27,
+        "HELLO_ENTRY_ID": 4,
+        "WORLD_ENTRY_ID": 4,
+        "HELLO_TEXT": "Hello",
+        "WORLD_TEXT": "World",
+        "HELLO_PREFIX": null,
+        "WORLD_PREFIX": null,
+        "GREETING_TEXT": "Hello World",
+        "CREATED_AT": "2026-11-25T21:25:51.108294Z",
+        "ACTOR": "E1_INTEGRATION"
+      }
+    },
+    "hello": {
+      "4": {
+        "ENTRY_ID": 4,
+        "ENTRY_TEXT": "Hello",
+        "ACTIVE": "Y"
+      }
+    },
+    "world": {
+      "4": {
+        "ENTRY_ID": 4,
+        "ENTRY_TEXT": "World",
+        "ACTIVE": "Y"
+      }
+    },
+    "hello_config": {
+      "1": {
+        "CONFIG_ID": 1,
+        "PREFIX": null,
+        "DEFAULT_ENTRY_ID": 4
+      }
+    },
+    "world_config": {
+      "1": {
+        "CONFIG_ID": 1,
+        "PREFIX": null,
+        "DEFAULT_ENTRY_ID": 4
+      }
+    }
+  }
+}

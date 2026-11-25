@@ -1,0 +1,15 @@
+lab-dev
+
+Foundation verified; Hello/World absent; application remains in maintenance.
+
+PASS Foundation contract: compiled; incomplete runtime blocked; history empty.
+
+lab-dev
+
+Exporting Workspace E1_DEV_A - application 810001:APEX Delivery Laboratory
+File progress/E.12/tests/legacy-regression/run-20261125T214617-99453/export-a/f810001/install.sql created
+
+lab-dev
+
+Exporting Workspace E1_DEV_A - application 810001:APEX Delivery Laboratory
+File progress/E.12/tests/legacy-regression/run-20261125T214617-99453/export-b/f810001/install.sql created

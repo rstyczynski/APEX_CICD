@@ -3,5 +3,5 @@
 APEX_CICD_ROOT="$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --show-toplevel)"
 export JAVA_HOME="$APEX_CICD_ROOT/.local-apex/tools/jdk-21.0.12.1+1/Contents/Home"
 export PATH="$APEX_CICD_ROOT/.local-apex/tools/sqlcl/bin:$PATH"
-export APEX_CICD_CONNECTIONS="$APEX_CICD_ROOT/.local-apex/tools/sqlcl-home"
+export APEX_CICD_CONNECTIONS="${APEX_CICD_CONNECTIONS:-$HOME}"
 unset APEX_CICD_ROOT

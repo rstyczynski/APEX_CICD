@@ -1,4 +1,9 @@
 declare n number; s varchar2(100); begin
+select count(*) into n from e12_app.history h join e12_app.next_history t on t.id=h.id where h.id=0 and h.message='retained historical greeting' and t.message=h.message and h.language is null and t.language is null;
+if n<>1 then raise_application_error(-20015,'original historical row changed'); end if;
+select count(*) into n from e12_app.component_version where version='1.1.0';
+if n<>1 then raise_application_error(-20016,'wrong component version'); end if;
+dbms_output.put_line('RETAINED_HISTORY_PASS');
 select count(*) into n from e12_app.history where id between 1001 and 1120 or id between 2001 and 2120;
 if n<>240 then raise_application_error(-20004,'traffic lost'); end if;
 select count(*) into n from e12_app.next_history where id=1 and message='newer accepted';

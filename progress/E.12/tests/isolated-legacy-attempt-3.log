@@ -1,0 +1,254 @@
+Provisioned control identity only: E1_CTRL
+
+
+No errors.
+No errors.
+No errors.
+No errors.
+
+
+Provisioned ONLY lab-dev: E1_DEV_A / E1_DEV_A
+Granted only this area its delivery interfaces; other areas unchanged.
+
+Provisioned ONLY lab-dev-b: E1_DEV_B / E1_DEV_B
+Granted only this area its delivery interfaces; other areas unchanged.
+
+Provisioned ONLY lab-dev-c: E1_DEV_C / E1_DEV_C
+Granted only this area its delivery interfaces; other areas unchanged.
+
+Provisioned ONLY integration_test: E1_INTEGRATION / E1_INTEGRATION
+Granted only this area its delivery interfaces; other areas unchanged.
+
+Provisioned ONLY user_acceptance_test: E1_UAT / E1_UAT
+Granted only this area its delivery interfaces; other areas unchanged.
+
+
+--Starting Liquibase at 2026-11-25T21:47:30.303530 using Java 21.0.12.1 (version 4.30.0 #0 built at 2025-04-01 10:24+0000)
+Running Changeset: db/changelog.xml::001-foundation::apex-lab
+
+Running Changeset: db/changelog.xml::002-foundation-runtime::apex-lab
+
+
+UPDATE SUMMARY
+Run:                          2
+Previously run:               0
+Filtered out:                 0
+-------------------------------
+Total change sets:            2
+
+Liquibase: Update has been successful. Rows affected: 2
+
+
+Operation completed successfully.
+
+--install
+--application/set_environment
+API Last Extended:20241130
+Your Current Version:20241130
+This import is compatible with version: 20241130
+COMPATIBLE (You should be able to run this import without issues.)
+ID offset during import: 2938167775249973
+New ID offset for application: 0
+
+--application/delete_application
+--application/create_application
+--application/user_interfaces
+--application/shared_components/navigation/lists/navigation_menu
+--application/shared_components/navigation/lists/navigation_bar
+--application/shared_components/navigation/listentry
+--application/shared_components/files/icons_app_icon_144_rounded_png
+--application/shared_components/files/icons_app_icon_32_png
+--application/shared_components/files/icons_app_icon_192_png
+--application/shared_components/files/icons_app_icon_256_rounded_png
+--application/shared_components/files/icons_app_icon_512_png
+--application/plugin_settings
+--application/shared_components/security/authorizations/administration_rights
+--application/shared_components/navigation/navigation_bar
+--application/shared_components/logic/application_settings
+--application/shared_components/navigation/tabs/standard
+--application/shared_components/navigation/tabs/parent
+--application/pages/page_groups
+--application/shared_components/navigation/breadcrumbs/breadcrumb
+--application/shared_components/navigation/breadcrumbentry
+--application/shared_components/user_interface/templates/popuplov
+--application/shared_components/user_interface/themes
+--application/shared_components/user_interface/theme_style
+--application/shared_components/user_interface/theme_files
+--application/shared_components/user_interface/template_opt_groups
+--application/shared_components/user_interface/template_options
+--application/shared_components/globalization/language
+--application/shared_components/logic/build_options
+--application/shared_components/globalization/messages
+--application/shared_components/globalization/dyntranslations
+--application/shared_components/security/authentications/oracle_apex_accounts
+--application/user_interfaces/combined_files
+--application/pages/page_00000
+--application/pages/page_00001
+--application/pages/page_00010
+--application/pages/page_09999
+--application/end_environment
+... elapsed: 1.18 sec
+
+...done
+
+PL/SQL procedure successfully completed.
+
+
+e12-reg-3f43936c15fa
+
+INFO : Running Oracle REST Data Services CLI command.
+2026-11-25T20:47:49Z INFO   ORDS has not detected the option '--config' and this will be set up to the default directory.
+
+ORDS: Release 25.3 Production on Wed Nov 25 20:47:50 2026
+
+Copyright (c) 2010, 2026, Oracle.
+
+Configuration:
+  /etc/ords/config
+
+The global setting named: standalone.static.path was set to: /opt/oracle/apex/images
+
+7cd6b27af200ec3795cfdb7f3cc3ebcfaaa36664cdf80b715a84ebcceacea252
+
+RUN integration:test_development.sh:test_IT11_isolation
+OPERATION identity: lab-dev as E1_DEV_A
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_A","E12REG"
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_A","E1_DEV_A"
+declare n number;
+*
+ERROR at line 1:
+ORA-20010: Wrong effective target
+ORA-06512: at line 4
+
+https://docs.oracle.com/error-help/db/ora-20010/
+Command '['/opt/homebrew/opt/python@3.14/bin/python3.14', '/Users/rstyczynski/projects/APEX_CICD/scripts/cicd-isolation.py', 'identity', 'lab-dev']' returned non-zero exit status 1.
+FAIL test_IT11_isolation
+RUN integration:test_development.sh:test_IT4_assembly
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_release.py", line 137, in <module>
+    if __name__=='__main__':{'release':release,'result':result,'assembly':assembly}[sys.argv[1]]()
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_release.py", line 133, in assembly
+    page=browser(810001,'LAB_USER','CREATE_GREETING')
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_release.py", line 41, in browser
+    response=post(op,page,'LOGIN',[('P9999_USERNAME',user),('P9999_PASSWORD',secrets()[user]),('P9999_REMEMBER','N')])
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_release.py", line 35, in post
+    fields={k:byname(k) for k in ['p_flow_id','p_flow_step_id','p_instance','p_page_submission_id']}
+              ~~~~~~^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_release.py", line 30, in byname
+    def byname(k):return html.unescape(re.search(r'name="'+k+r'" value="([^"]*)"',page)[1])
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+FAIL test_IT4_assembly
+RUN integration:test_release.sh:test_IT1_release
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_release.py", line 137, in <module>
+    if __name__=='__main__':{'release':release,'result':result,'assembly':assembly}[sys.argv[1]]()
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_release.py", line 103, in release
+    assert 'ORA-20614' in rejected,'Missing qualification did not cause its specific rejection'
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Missing qualification did not cause its specific rejection
+FAIL test_IT1_release
+RUN integration:test_release.sh:test_IT2_patch
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_release.py", line 137, in <module>
+    if __name__=='__main__':{'release':release,'result':result,'assembly':assembly}[sys.argv[1]]()
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_release.py", line 126, in result
+    command('bash','scripts/cicd-patch-result.sh','integration_test');command('bash','scripts/cicd-patch-result.sh','user_acceptance_test')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_release.py", line 18, in command
+    if (r.returncode==0)!=(expected==0):raise RuntimeError(out[-2200:])
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: E=
+CONFIG=
+FINGERPRINT=
+
+
+VERIFIED SHA256 4ba3abb8709f256c7a47e3e9294d3e7303f742145a95cb58d808ca6c6bcf7200
+SOURCE ee8f1af8e35f81bb3b75051243df2ab9c6e4c0e5
+CONFIGURATION 37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+PASS explicit component dependencies and supported version triple
+TARGET: integration_test / application 810004; OPERATION: result; START: 1.0.0; EPOCH: 0
+PATCH SHA256: 4ba3abb8709f256c7a47e3e9294d3e7303f742145a95cb58d808ca6c6bcf7200; BASE SHA256: d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+TRANSCRIPT: .local-apex/releases/runs/integration_test-patch-result.XvFvlx/operation.log
+whenever oserror exit failure rollback
+whenever sqlerror exit failure rollback
+set serveroutput on define on verify off
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-patch-result.XvFvlx/payload/deploy/operator/identity.sql" E1_INTEGRATION E1_INTEGRATION
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-patch-result.XvFvlx/payload/deploy/checks/release_environment.sql"
+begin E1_CTRL.e1_release.show_status; end;
+/
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-patch-result.XvFvlx/payload/deploy/operator/fingerprint.sql" 810004
+begin dbms_output.put_line('PATCH_OPERATION_COMPLETE'); end;
+/
+exit success
+
+
+SQLcl: Release 25.3 Production on Wed Nov 25 21:48:15 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"CONNECTED_SCHEMA","PDB"
+"E1_INTEGRATION","E12REG"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_INTEGRATION","E1_INTEGRATION"
+
+Rollback
+declare n number;
+*
+ERROR at line 1:
+ORA-20010: Wrong target schema or PDB
+ORA-06512: at line 4
+
+https://docs.oracle.com/error-help/db/ora-20010/
+
+
+More Details :
+https://docs.oracle.com/error-help/db/ora-20010/
+https://docs.oracle.com/error-help/db/ora-06512/
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+ERROR: patch operation failed; ownership/partial state retained. No automatic reset or success publication.
+
+FAIL test_IT2_patch
+RUN integration:test_controls.sh:test_SM2_compatibility
+Error starting at line : 3 File @ /Users/rstyczynski/projects/APEX_CICD/tests/sql/protection_snapshot.sql
+In command -
+select json_object(*) as history_row from greeting_history order by greeting_id
+Error at Command Line : 3 Column : 43 File @ /Users/rstyczynski/projects/APEX_CICD/tests/sql/protection_snapshot.sql
+Error report -
+SQL Error: ORA-00942: table or view "E1_UAT"."GREETING_HISTORY" does not exist
+
+https://docs.oracle.com/error-help/db/ora-00942/00942. 00000 -  "table or view%s does not exist"
+*Cause:    The specified table or view did not exist, or a synonym
+           pointed to a table or view that did not exist.
+           To find existing user tables and views, query the
+           ALL_TABLES and ALL_VIEWS data dictionary views. Certain
+           privileges may be required to access the table. If an
+           application returned this message, then the table that the
+           application tried to access did not exist in the database, or
+           the application did not have access to it.
+*Action:   Check each of the following
+           - The spelling of the table or view name is correct.
+           - The referenced table or view name does exist.
+           - The synonym points to an existing table or view.
+
+More Details :
+https://docs.oracle.com/error-help/db/ora-00942/
+Rollback
+FAIL test_SM2_compatibility
+RUN integration:test_controls.sh:test_IT7_drift
+PASS IT-7 SQL boundary: stored diagnostics readable, real Oracle exceptions fail.
+ERROR: Ready retained TEST required
+FAIL test_IT7_drift
+Tests: 6; failed: 6

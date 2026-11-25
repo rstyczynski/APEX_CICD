@@ -1,0 +1,5 @@
+# E.12 regression boundary verification
+
+This supplements the [accepted design](sprint_E.12_design.md) and [test report](sprint_E.12_tests.md). The isolated real-regression harness introduces private state/profile/service/admin routing in scripts/apex_sql.py. These are implementation choices needed to run PLAN's full regression without changing retained UAT. They do not replace any real integration criterion.
+
+YOLO-approved UT-REG-1 verifies that an explicitly supplied temporary credential/profile/service context is used, configuration bytes remain unchanged, generated SQL files are removed on success/failure, invalid administrator identity fails before execution and subprocess failures remain nonzero with secret values redacted. Mocking only the external SQLcl process establishes routing and cleanup semantics, not Oracle/APEX or deployment correctness. Target: tests/unit/test_regression_boundary.py through test_regression_boundary.sh. The current suite has nine mocked cases. It additionally refuses checkout-local profiles/state writers and verifies the approved direct-author fallback uses a disposable native home. Real integration is a separate gate.

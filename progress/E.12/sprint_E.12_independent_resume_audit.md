@@ -1,5 +1,9 @@
 # E.12 independent resume audit — 2026-11-25 20:24 UTC
 
+Historical continuation/coordination evidence. The current [test result](sprint_E.12_tests.md), [requirement checklist](sprint_E.12_remaining_work.md) and [P8 audit](sprint_E.12_documentation_audit.md) supersede its pending gate/ownership observations. This record is not an active lock or sprint closure.
+
+> Superseded ownership notice (2026-11-25T20:27:42.087328+00:00): the concurrent-worker observations below are historical, not an active claim or lock. The Product Owner requested stale-session cleanup. No writer is reserved by this record; one backend thread still reports active and interruption permission was denied. See [current coordination state](sprint_E.12_coordination_cleanup.md). Preserve the unfinished implementation and failed-regression evidence.
+
 This is a read-only assessment of shared implementation and evidence, plus independently executed pure checks. It does not accept another execution's claims, replace its test report or authorize closure. [PLAN](../../PLAN.md) still selects E.12 Progress / YOLO and full smoke, unit and integration regression. [Design](sprint_E.12_design.md) owns experimental choices; [backlog](../../BACKLOG.md) owns acceptance. See the earlier [coordination snapshot](sprint_E.12_resume_coordination.md).
 
 ## Requirement-to-evidence checklist

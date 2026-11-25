@@ -1,0 +1,26 @@
+[
+  {
+    "gate": "A2_unit",
+    "command": [
+      "bash",
+      "tests/run.sh",
+      "--unit",
+      "--new-only",
+      "progress/E.12/new_tests.manifest"
+    ],
+    "exit": 0,
+    "summary": "Tests: 4; failed: 0",
+    "log": "progress/E.12/test_run_A2_unit_20261125_212159.log"
+  },
+  {
+    "gate": "B2_unit",
+    "command": [
+      "bash",
+      "tests/run.sh",
+      "--unit"
+    ],
+    "exit": 0,
+    "summary": "Tests: 12; failed: 0",
+    "log": "progress/E.12/test_run_B2_unit_20261125_212159.log"
+  }
+]

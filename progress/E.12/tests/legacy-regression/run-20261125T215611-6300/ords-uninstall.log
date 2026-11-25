@@ -1,0 +1,18 @@
+INFO : Running Oracle REST Data Services CLI command.
+2026-11-25T20:57:28Z INFO   ORDS has not detected the option '--config' and this will be set up to the default directory.
+
+ORDS: Release 25.3 Production on Wed Nov 25 20:57:29 2026
+
+Copyright (c) 2010, 2026, Oracle.
+
+Configuration:
+  /etc/ords/config
+
+Oracle REST Data Services - Non-Interactive Uninstall
+Connecting to database user: E12_ADMIN url: jdbc:oracle:thin:@//e12-regression-db:1521/FREEPDB1
+
+Retrieving information.
+Created folder /opt/oracle/ords/logs
+The log file is defaulted to the current working directory located at /opt/oracle/ords/logs
+Uninstalling Oracle REST Data Services in FREEPDB1
+/usr/bin/docker-entrypoint.sh: line 539:     2 Killed                  ${ORDS_HOME}/bin/ords ${CLI_CMD}

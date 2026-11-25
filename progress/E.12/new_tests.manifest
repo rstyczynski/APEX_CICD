@@ -1,3 +1,7 @@
 smoke:test_foundation.sh:test_foundation_smoke
 unit:test_foundation.sh:test_foundation_unit
 integration:test_foundation.sh:test_foundation_live
+smoke:test_platform.sh:test_e12_regression_source
+unit:test_runner.sh:test_runner_final_record
+unit:test_regression_boundary.sh:test_regression_private_boundary
+unit:test_runner.sh:test_private_sql_binding

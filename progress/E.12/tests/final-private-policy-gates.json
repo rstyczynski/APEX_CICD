@@ -1,0 +1,50 @@
+[
+  {
+    "gate": "A1_smoke",
+    "log": "progress/E.12/test_run_A1_smoke_20261125_213117.log",
+    "command": [
+      "bash",
+      "tests/run.sh",
+      "--smoke",
+      "--new-only",
+      "progress/E.12/new_tests.manifest"
+    ],
+    "exit": 0,
+    "summary": "Tests: 2; failed: 0"
+  },
+  {
+    "gate": "A2_unit",
+    "log": "progress/E.12/test_run_A2_unit_20261125_213117.log",
+    "command": [
+      "bash",
+      "tests/run.sh",
+      "--unit",
+      "--new-only",
+      "progress/E.12/new_tests.manifest"
+    ],
+    "exit": 0,
+    "summary": "Tests: 4; failed: 0"
+  },
+  {
+    "gate": "B1_smoke",
+    "log": "progress/E.12/test_run_B1_smoke_20261125_213118.log",
+    "command": [
+      "bash",
+      "tests/run.sh",
+      "--smoke"
+    ],
+    "exit": 0,
+    "summary": "Tests: 11; failed: 0"
+  },
+  {
+    "gate": "B2_unit",
+    "log": "progress/E.12/test_run_B2_unit_20261125_213120.log",
+    "command": [
+      "bash",
+      "tests/run.sh",
+      "--unit"
+    ],
+    "exit": 0,
+    "summary": "Tests: 12; failed: 0"
+  }
+]

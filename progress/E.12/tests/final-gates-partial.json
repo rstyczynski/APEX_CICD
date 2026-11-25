@@ -1,0 +1,32 @@
+[
+  {
+    "gate": "A1_smoke",
+    "exit": 0,
+    "log": "progress/E.12/test_run_A1_smoke_20261125_210736.log",
+    "summary": "Tests: 2; failed: 0"
+  },
+  {
+    "gate": "A2_unit",
+    "exit": 0,
+    "log": "progress/E.12/test_run_A2_unit_20261125_210736.log",
+    "summary": "Tests: 4; failed: 0"
+  },
+  {
+    "gate": "A3_integration",
+    "exit": 0,
+    "log": "progress/E.12/test_run_A3_integration_20261125_210737.log",
+    "summary": "Tests: 1; failed: 0"
+  },
+  {
+    "gate": "B1_smoke",
+    "exit": 0,
+    "log": "progress/E.12/test_run_B1_smoke_20261125_210751.log",
+    "summary": "Tests: 11; failed: 0"
+  },
+  {
+    "gate": "B2_unit",
+    "exit": 0,
+    "log": "progress/E.12/test_run_B2_unit_20261125_210755.log",
+    "summary": "Tests: 12; failed: 0"
+  }
+]

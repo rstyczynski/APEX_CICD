@@ -4,7 +4,7 @@
 
 Prove the compatible language extension and interrupted catch-up with real writes. [Backlog](../../BACKLOG.md) PBI-048 and PBI-081 own acceptance, [design](sprint_E.12_design.md) owns the bounded experiment, and [test record](sprint_E.12_tests.md) owns results. [Manual](user_manual.md) owns operating prerequisites. The [deck](sprint_E.12_increment_demo.pptx) accompanies this complete sequence.
 
-## 1. Establish the environment (slide 5)
+## 1. Establish the environment (slide 6)
 
 Use the prepared local Podman service, running apex-db Oracle container, Python 3 and Git. OS authentication requires permission to execute SQLPlus as oracle. VS Code's code command must be on PATH to open files. No database passwords are required. Each run creates its own E12_RUN schema and retains it for inspection; it does not reset an existing application. It consumes small USERS tablespace space. This is a database experiment; browser steps and SQLcl PROJECT packaging do not apply. No project metadata or approved SQLcl version is modified.
 
@@ -15,7 +15,7 @@ podman --connection apex-cicd version
 
 Expected: client and server version details, with no connection failure.
 
-## 2. Understand the experiment before running (slide 6)
+## 2. Understand the experiment before running (slide 7)
 
 The Python driver invokes SQLPlus over podman exec with strict Oracle error detection, completion markers and bounded subprocess timeouts. The baseline creates history/settings, the legacy Foundation specification/body and unchanged Hello/World procedures. Two separate clients perform 120 individual committed calls each with pauses between calls. The upgrade adds nullable language storage, a journal trigger and a separate optional-language function, preserving the legacy package. A first backfill commits. A separate migration transaction deliberately exits with rollback. Attributable legacy insert/update/delete operations commit while consumers continue. Catch-up takes a short shared source lock, merges current source and removes target rows deleted at source, then compares both complete sets before committing. The lock can delay writers; no maximum latency guarantee is claimed. This is a reconciliation experiment, not a dual-write bridge or production migration controller.
 
@@ -42,6 +42,7 @@ insert into e12_app.fixture_owner values('APEX_CICD_E12');
 create table e12_app.history(id number primary key, message varchar2(100));
 create table e12_app.settings(k varchar2(20) primary key,v varchar2(20));
 insert into e12_app.settings values('language','en');
+insert into e12_app.history values(0,'retained historical greeting');
 insert into e12_app.history values(1,'retained');
 insert into e12_app.history values(2,'delete me');
 create or replace package e12_app.foundation as
@@ -63,6 +64,11 @@ commit;
 
 ```sql
 declare n number; s varchar2(100); begin
+select count(*) into n from e12_app.history h join e12_app.next_history t on t.id=h.id where h.id=0 and h.message='retained historical greeting' and t.message=h.message and h.language is null and t.language is null;
+if n<>1 then raise_application_error(-20015,'original historical row changed'); end if;
+select count(*) into n from e12_app.component_version where version='1.1.0';
+if n<>1 then raise_application_error(-20016,'wrong component version'); end if;
+dbms_output.put_line('RETAINED_HISTORY_PASS');
 select count(*) into n from e12_app.history where id between 1001 and 1120 or id between 2001 and 2120;
 if n<>240 then raise_application_error(-20004,'traffic lost'); end if;
 select count(*) into n from e12_app.next_history where id=1 and message='newer accepted';
@@ -131,32 +137,9 @@ end;
 commit;
 ```
 
-## 3. Run and inspect the actual journey (slides 6–9)
-
-The invocation runs the explained sequence against the real database. It is safe to repeat with a new schema, subject to available database space.
-
-```bash
-python3 tests/foundation_lab.py integration
-code progress/E.12/tests/experiment.json
-code progress/E.12/tests/hello.log
-code progress/E.12/tests/world.log
-code progress/E.12/tests/expand-backfill.log
-code progress/E.12/tests/concurrent.log
-code progress/E.12/tests/catchup.log
-code progress/E.12/tests/assertions.log
-```
-
-Expected: PASS for 240 accepted unchanged-consumer writes; ASSERTIONS_PASS; CUTOVER_EQUAL; exact schema identity in experiment.json. Inspect both clients' timestamps against expansion and catch-up times. Read the source/target assertions: they establish equality at the locked boundary, not automatic replication of later writes. The retained original ID 1 has the intentionally updated value newer accepted; ID 2 is intentionally deleted; ID 3 is the attributed insertion. Language checks require Hello Jan for omitted language and Witaj Jan for Polish. The setting language=en survives.
-
-## 4. Inspect failure and recovery (slides 10–12)
-
-interruption.log records the deliberate rollback exit, followed by concurrent.log and catchup.log. It interrupts one migration transaction after the first backfill is committed; it does not kill the Oracle service. The early attempts exposed hidden SQLPlus output and dependencies held by a long loop. Separate SQLPlus settings and separately committed client calls corrected those test defects. Shared schema resets collided with another execution; fixtures now use unique names. Historical failures remain failures.
-
-Unsupported language raises an Oracle application error. Unknown infrastructure errors fail the run. No browser behavior, production deployment, E.13 bridge or E.14 component windows are established. Review the [current tests](sprint_E.12_tests.md) and [handover](sprint_E.12_handover.md) before deciding completion.
-
 ## Recovery transaction and generated consumer SQL
 
-The interruption is a real separate SQLPlus process. It changes the already backfilled row without committing, prints the interruption marker, then exits with failure and rollback. The driver records the nonzero process exit; catch-up assertions subsequently require the newer accepted value, absent deleted ID and inserted ID in the target.
+These SQL listings are driver inputs, not sequential shell commands. In particular, exit failure rollback below terminates only the deliberately interrupted child SQLPlus session; do not enter it in your shell. The interruption is a real separate SQLPlus process. It changes the already backfilled row without committing, prints the interruption marker, then exits with failure and rollback. The driver records the nonzero process exit; catch-up assertions subsequently require the newer accepted value, absent deleted ID and inserted ID in the target.
 
 ```sql
 update e12_app.next_history set message='stale' where id=1;
@@ -189,4 +172,62 @@ declare s varchar2(100); begin select message into s from e12_app.next_history w
 /
 ```
 
-Slide 11 now states both assigned PBI outcomes as verified experiments with acceptance pending, and identifies the unchanged planned E.13/E.14 follow-up items. Slides 5–7 separate Courier commands from Arial explanation. These presentation corrections do not close the regression findings.
+Slide 13 states both assigned PBI outcomes as verified real Oracle experiments and identifies the unchanged Planned E.13/E.14 follow-up items. Slides 6–8 separate Courier commands from Arial explanation. The test record and requirement checklist separately own the final regression and lifecycle outcome.
+
+
+The original historical row with ID 0 is never mutated. RETAINED_HISTORY_PASS verifies its identifier, full original message and null language in both source and migrated representation after upgrade/recovery. IDs 1 and 2 are separate explicitly accepted update/delete challenges; they are not the preservation sentinel. The component-version assertion separately requires exactly one 1.1.0 record. These checks address PBI-048's existing preservation requirement rather than adding a new acceptance condition.
+
+
+## Observation SQL and child-session completion
+
+Inventory checks the unique run schema before setup. The legacy source query runs before and after the change and its results must be byte-identical. The unsupported-language query must fail specifically with ORA-20002; other errors do not satisfy that check. These are separate driver calls, not one sequential SQL script.
+
+```sql
+select count(*) from dba_users where username='E12_APP';
+```
+
+```sql
+select text from dba_source where owner='E12_APP' and name in ('FOUNDATION','HELLO','WORLD') order by name,type,line;
+```
+
+```sql
+select e12_app.greet_language('Jan','xx') from dual;
+```
+
+Each ordinary child session wraps its operation with a server timestamp and, after its body, the completion marker and SQLPlus exit below. The failure child deliberately uses its own exit failure rollback instead. These SQLPlus inputs do not exit the operator's shell.
+
+```sql
+begin dbms_output.put_line(to_char(systimestamp,'YYYY-MM-DD HH24:MI:SS.FF')); end;
+/
+-- The selected operation body is inserted here by the driver.
+prompt E12_COMPLETE
+exit
+```
+
+## 3. Run and inspect the actual journey (slides 7–10)
+
+The invocation runs the explained sequence against the real database. It is safe to repeat with a new schema, subject to available database space.
+
+```bash
+python3 tests/foundation_lab.py integration
+```
+
+The following optional editor shortcuts follow the saved VS Code preference. The code executable is present, but editor launch permission was rejected in this continuation, so GUI opening is unverified. The result files were independently read successfully through the terminal; the experiment also prints its completion result. These shortcuts are not steps in the database experiment.
+
+```bash
+code progress/E.12/tests/experiment.json
+code progress/E.12/tests/hello.log
+code progress/E.12/tests/world.log
+code progress/E.12/tests/expand-backfill.log
+code progress/E.12/tests/concurrent.log
+code progress/E.12/tests/catchup.log
+code progress/E.12/tests/assertions.log
+```
+
+Expected: PASS for 240 accepted unchanged-consumer writes; ASSERTIONS_PASS; CUTOVER_EQUAL; exact schema identity in experiment.json. Inspect both clients' timestamps against expansion and catch-up times. Read the source/target assertions: they establish equality at the locked boundary, not automatic replication of later writes. The retained original ID 1 has the intentionally updated value newer accepted; ID 2 is intentionally deleted; ID 3 is the attributed insertion. Language checks require Hello Jan for omitted language and Witaj Jan for Polish. The setting language=en survives.
+
+## 4. Inspect failure and recovery (slides 11–14)
+
+interruption.log records the deliberate rollback exit, followed by concurrent.log and catchup.log. It interrupts one migration transaction after the first backfill is committed; it does not kill the Oracle service. The early attempts exposed hidden SQLPlus output and dependencies held by a long loop. Separate SQLPlus settings and separately committed client calls corrected those test defects. Shared schema resets collided with another execution; fixtures now use unique names. Historical failures remain failures.
+
+Unsupported language raises an Oracle application error. Unknown infrastructure errors fail the run. No browser behavior, production deployment, E.13 bridge or E.14 component windows are established. Review the [current tests](sprint_E.12_tests.md) and [handover](sprint_E.12_handover.md) before deciding completion.

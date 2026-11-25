@@ -12,6 +12,9 @@ while (($#)); do
   esac
 done
 [[ -n "$suite" && -f "$manifest" ]] || { echo 'Specify a suite and an existing manifest.' >&2; exit 2; }
+if [[ "$suite" == integration && "${APEX_CICD_ISOLATED_E1:-}" != 1 ]] && rg -q '^integration:test_(development|release|controls)\.sh:' "$manifest"; then
+  exec python3 tests/legacy_regression.py --integration --new-only "$manifest"
+fi
 count=0
 failed=0
 while IFS=: read -r level script function || [[ -n "$level$script$function" ]]; do
@@ -19,7 +22,7 @@ while IFS=: read -r level script function || [[ -n "$level$script$function" ]]; 
   [[ "$script" =~ ^test_[a-z_]+\.sh$ && "$function" =~ ^test_[A-Za-z0-9_]+$ ]] || { echo 'Invalid manifest entry' >&2; exit 2; }
   count=$((count+1))
   echo "RUN $level:$script:$function"
-  ( set -e; source "tests/$level/$script"; "$function" )
+  ( set -e; source "tests/$level/$script"; "$function" ) </dev/null
   result=$?
   if ((result==0)); then
     echo "PASS $function"

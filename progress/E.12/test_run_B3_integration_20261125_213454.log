@@ -1,0 +1,36 @@
+COMMAND: bash tests/run.sh --integration
+Reusing owned regression database; private inputs will be replaced
+Provisioned control identity only: E1_CTRL
+
+
+No errors.
+No errors.
+No errors.
+No errors.
+
+
+Provisioned ONLY lab-dev: E1_DEV_A / E1_DEV_A
+Granted only this area its delivery interfaces; other areas unchanged.
+
+Provisioned ONLY lab-dev-b: E1_DEV_B / E1_DEV_B
+Granted only this area its delivery interfaces; other areas unchanged.
+
+Provisioned ONLY lab-dev-c: E1_DEV_C / E1_DEV_C
+Granted only this area its delivery interfaces; other areas unchanged.
+
+Provisioned ONLY integration_test: E1_INTEGRATION / E1_INTEGRATION
+
+
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_regression.py", line 123, in <module>
+    import fcntl
+
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_regression.py", line 67, in suite
+    command(sys.executable,'scripts/cicd-platform.py','provision',target)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_regression.py", line 63, in command
+    if r.returncode:raise RuntimeError('Regression setup command failed: '+str(args))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Regression setup command failed: ('/opt/homebrew/opt/python@3.14/bin/python3.14', 'scripts/cicd-platform.py', 'provision', 'integration_test')
+
+PROCESS_EXIT=1

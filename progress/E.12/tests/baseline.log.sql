@@ -6,6 +6,7 @@ insert into e12_app.fixture_owner values('APEX_CICD_E12');
 create table e12_app.history(id number primary key, message varchar2(100));
 create table e12_app.settings(k varchar2(20) primary key,v varchar2(20));
 insert into e12_app.settings values('language','en');
+insert into e12_app.history values(0,'retained historical greeting');
 insert into e12_app.history values(1,'retained');
 insert into e12_app.history values(2,'delete me');
 create or replace package e12_app.foundation as

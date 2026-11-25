@@ -47,6 +47,7 @@ insert into e12_app.fixture_owner values('APEX_CICD_E12');
 create table e12_app.history(id number primary key, message varchar2(100));
 create table e12_app.settings(k varchar2(20) primary key,v varchar2(20));
 insert into e12_app.settings values('language','en');
+insert into e12_app.history values(0,'retained historical greeting');
 insert into e12_app.history values(1,'retained');
 insert into e12_app.history values(2,'delete me');
 create or replace package e12_app.foundation as
@@ -120,6 +121,11 @@ commit;
 ''','catchup.log')
         assert 'hello:120' in hello.result();assert 'world:120' in world.result()
     result=sql('''declare n number; s varchar2(100); begin
+select count(*) into n from e12_app.history h join e12_app.next_history t on t.id=h.id where h.id=0 and h.message='retained historical greeting' and t.message=h.message and h.language is null and t.language is null;
+if n<>1 then raise_application_error(-20015,'original historical row changed'); end if;
+select count(*) into n from e12_app.component_version where version='1.1.0';
+if n<>1 then raise_application_error(-20016,'wrong component version'); end if;
+dbms_output.put_line('RETAINED_HISTORY_PASS');
 select count(*) into n from e12_app.history where id between 1001 and 1120 or id between 2001 and 2120;
 if n<>240 then raise_application_error(-20004,'traffic lost'); end if;
 select count(*) into n from e12_app.next_history where id=1 and message='newer accepted';
@@ -145,7 +151,7 @@ dbms_output.put_line('ASSERTIONS_PASS'); end;
     except RuntimeError as exc:
         assert 'ORA-20002' in str(exc)
     else:raise AssertionError('Unsupported language accepted')
-    (OUT/'experiment.json').write_text(json.dumps({'driver_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'recorded_utc':datetime.now(timezone.utc).isoformat(),'legacy_writes':240,'legacy_errors':0,'cutover_equal':True,'capture_operations':['I','U','D'],'interrupted_transaction_rolled_back':True,'schema':SCHEMA,'limits':'Finite PL/SQL workload, no APEX browser or production deployment claim'},indent=2))
+    (OUT/'experiment.json').write_text(json.dumps({'driver_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'recorded_utc':datetime.now(timezone.utc).isoformat(),'retained_history_ids':[0],'legacy_writes':240,'legacy_errors':0,'cutover_equal':True,'capture_operations':['I','U','D'],'interrupted_transaction_rolled_back':True,'schema':SCHEMA,'limits':'Finite PL/SQL workload, no APEX browser or production deployment claim'},indent=2))
     snapshot=OUT/'runs'/SCHEMA
     snapshot.mkdir(parents=True,exist_ok=False)
     names=['inventory.log','baseline.log','legacy-before.log','hello.log','world.log','expand-backfill.log','version.log','interruption.log','rollback-check.log','concurrent.log','catchup.log','assertions.log','legacy-after.log','unsupported-language.log','experiment.json']

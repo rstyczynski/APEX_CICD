@@ -1,0 +1,6 @@
+RUN smoke:test_foundation.sh:test_foundation_smoke
+PASS test_foundation_smoke
+RUN smoke:test_platform.sh:test_e12_regression_source
+PASS isolated regression source parses
+PASS test_e12_regression_source
+Tests: 2; failed: 0

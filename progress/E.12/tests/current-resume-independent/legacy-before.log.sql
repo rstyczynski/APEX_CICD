@@ -1,0 +1,1 @@
+select text from dba_source where owner='E12_APP' and name in ('FOUNDATION','HELLO','WORLD') order by name,type,line;

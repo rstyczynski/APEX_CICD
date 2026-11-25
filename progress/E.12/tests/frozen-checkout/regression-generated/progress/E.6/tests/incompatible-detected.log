@@ -1,0 +1,20 @@
+contracts
+  Stable greeting consumers
+    Existing named call preserves its result [.025 sec] (FAILED - 1)
+    Deprecated consumer remains callable [.001 sec] (FAILED - 2)
+    Invalid input preserves its documented error [.001 sec]
+
+Failures:
+
+  1) existing_consumer
+      Actual: 'BREAKING RESULT' (varchar2) was expected to equal: 'Hello World' (varchar2)
+      at "E6_TEST.TEST_CONTRACT.EXISTING_CONSUMER", line 4 ut.expect(e6_app.greeting_contract.render(p_text=>'World')).to_equal('Hello World');
+
+  2) legacy_consumer
+      Actual: 'BREAKING RESULT' (varchar2) was expected to equal: 'Hello World' (varchar2)
+      at "E6_TEST.TEST_CONTRACT.LEGACY_CONSUMER", line 8 ut.expect(e6_app.greeting_contract.hello(p_name=>'World')).to_equal('Hello World');
+
+Finished in .029179 seconds
+3 tests, 2 failed, 0 errored, 0 disabled, 0 warning(s)
+
+E6_COMPLETE

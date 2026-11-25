@@ -1,0 +1,4 @@
+RUN integration:test_foundation.sh:test_foundation_live
+PASS real Oracle expansion, 240 unchanged consumer transactions, interrupted migration and exact locked cutover
+PASS test_foundation_live
+Tests: 1; failed: 0

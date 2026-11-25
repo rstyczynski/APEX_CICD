@@ -1,0 +1,5 @@
+COMMAND: isolated copy of current tests/run.sh --unit; first case drains stdin, second must still run
+RUN unit:test_probe.sh:test_sink
+PASS test_sink
+Tests: 1; failed: 0
+EXIT 0

@@ -1,0 +1,16 @@
+COMMAND: hold native flock in parent; invoke regression worker
+EXPECTED: fail before fixture preparation
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_regression.py", line 128, in <module>
+    try:fcntl.flock(fixture_lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+BlockingIOError: [Errno 35] Resource temporarily unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_regression.py", line 129, in <module>
+    except BlockingIOError:raise RuntimeError('E.12 regression fixture is owned by another active worker; retry after that worker exits')
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: E.12 regression fixture is owned by another active worker; retry after that worker exits
+PASS active ownership refused; releasing parent lock

@@ -1,0 +1,5 @@
+{
+  "constant_sql_calls_checked": 12,
+  "missing_before_invocation": [],
+  "limits": "Dynamic traffic pattern, unique-schema substitution and wrapper protocol separately described and inspected; not a SQL execution test."
+}

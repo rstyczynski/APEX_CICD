@@ -1,0 +1,9 @@
+{
+  "command": [
+    "bash",
+    "tests/run.sh",
+    "--integration"
+  ],
+  "log": "progress/E.12/test_run_B3_integration_20261125_213454.log",
+  "exit": 1
+}

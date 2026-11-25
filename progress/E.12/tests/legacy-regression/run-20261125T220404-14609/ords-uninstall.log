@@ -1,0 +1,21 @@
+INFO : Running Oracle REST Data Services CLI command.
+2026-11-25T21:05:28Z INFO   ORDS has not detected the option '--config' and this will be set up to the default directory.
+
+ORDS: Release 25.3 Production on Wed Nov 25 21:05:29 2026
+
+Copyright (c) 2010, 2026, Oracle.
+
+Configuration:
+  /etc/ords/config
+
+Oracle REST Data Services - Non-Interactive Uninstall
+Connecting to database user: E12_ADMIN url: jdbc:oracle:thin:@//e12-regression-db:1521/FREEPDB1
+
+Retrieving information.
+Created folder /opt/oracle/ords/logs
+The log file is defaulted to the current working directory located at /opt/oracle/ords/logs
+Uninstalling Oracle REST Data Services in FREEPDB1
+Completed uninstall for Oracle REST Data Services. Elapsed time: 00:00:03.279
+
+Log file written to /opt/oracle/ords/logs/ords_uninstall_2026-11-25_210530_54917.log
+Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx256m

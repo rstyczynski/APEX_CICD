@@ -13,3 +13,14 @@ test_SM1_platform() (
   if grep -q 'Error processing database session setup code' "$scratch/login.html"; then return 1; fi
   echo 'PASS live ORDS and database-backed APEX login; configuration read from GitHub environment'
 )
+
+test_e12_regression_source() {
+  python3 - <<'PY'
+import ast
+from pathlib import Path
+for name in ['tests/legacy_database.py','tests/legacy_regression.py','tests/legacy_release.py','scripts/apex_sql.py','scripts/cicd-drift-demo.py']:
+ ast.parse(Path(name).read_text(),filename=name)
+print('PASS isolated regression source parses')
+PY
+  bash -n tests/run.sh scripts/cicd-env.sh
+}

@@ -1,0 +1,8 @@
+{
+  "pdb": "FREEPDB1",
+  "service": "127.0.0.1:1551/FREEPDB1",
+  "sqlcl_build": "25.3.0.274.1210",
+  "logical_configuration_sha256": "37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0",
+  "credential_lifecycle": "fresh OS-private temporary directory, deleted at suite exit",
+  "retained_uat_touched": false
+}

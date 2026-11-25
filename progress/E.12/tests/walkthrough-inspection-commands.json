@@ -1,0 +1,68 @@
+{
+  "verified_terminal_reads": [
+    {
+      "command": [
+        "cat",
+        "progress/E.12/tests/experiment.json"
+      ],
+      "exit": 0,
+      "output_bytes": 472,
+      "sha256": "9af8425af08d348e493b4d576fd794a6857ce89bdeb8924f5278aebf4b3d1a16"
+    },
+    {
+      "command": [
+        "cat",
+        "progress/E.12/tests/hello.log"
+      ],
+      "exit": 0,
+      "output_bytes": 3425,
+      "sha256": "354538659eb6e0406a30a9095817b95699ad59d3c9184f24d74385bcc493c270"
+    },
+    {
+      "command": [
+        "cat",
+        "progress/E.12/tests/world.log"
+      ],
+      "exit": 0,
+      "output_bytes": 3425,
+      "sha256": "2e54cfc0d9dc53fd755ee1dff9530a21d4ce1f7e7d8df41378e54166dae71dad"
+    },
+    {
+      "command": [
+        "cat",
+        "progress/E.12/tests/expand-backfill.log"
+      ],
+      "exit": 0,
+      "output_bytes": 43,
+      "sha256": "143f84426f71df8a7a5fd61c75f38b9f29eb3fc6735c7857a4b6911501fa65fe"
+    },
+    {
+      "command": [
+        "cat",
+        "progress/E.12/tests/concurrent.log"
+      ],
+      "exit": 0,
+      "output_bytes": 43,
+      "sha256": "17a0201d924313d43a125134dfee6119c2d8c85dc8a8b7abcde39e105d1840b1"
+    },
+    {
+      "command": [
+        "cat",
+        "progress/E.12/tests/catchup.log"
+      ],
+      "exit": 0,
+      "output_bytes": 57,
+      "sha256": "d32947a8d955ab61a18d2f5c6c2377e85d507c449d541e1d0f601f3763b57699"
+    },
+    {
+      "command": [
+        "cat",
+        "progress/E.12/tests/assertions.log"
+      ],
+      "exit": 0,
+      "output_bytes": 81,
+      "sha256": "f1d83e153f15414964a42dee97eee56be2117348003019c0979cae11d76db630"
+    }
+  ],
+  "editor_shortcuts": "code executable found on PATH; launch request rejected by user; GUI opening unverified; optional inspection convenience"
+}

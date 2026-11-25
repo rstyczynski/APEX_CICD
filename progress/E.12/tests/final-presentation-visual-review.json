@@ -1,0 +1,29 @@
+{
+  "slide_count": 14,
+  "visually_inspected": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "changed_slides_rechecked": [
+    8,
+    10,
+    13,
+    14
+  ],
+  "findings": [],
+  "native_powerpoint_viewing": "unverified; computer-use access denied",
+  "sha256": "75c5dc4c77636c7b396ce27690a86cb7176db2aefd18b8ac2bf056217ae34fcb",
+  "previous_candidate_archive": "progress/E.12/tests/presentation-pre-final-review.zip"
+}

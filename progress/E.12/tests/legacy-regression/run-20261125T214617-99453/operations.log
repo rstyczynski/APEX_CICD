@@ -1,0 +1,130 @@
+COMMAND ('/opt/homebrew/opt/python@3.14/bin/python3.14', 'scripts/cicd-artifact.py', 'inspect', '/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/lab-1.0.0-08a5cf27e8a3.tar')
+VERIFIED SHA256 d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+SOURCE 08a5cf27e8a31ff7b77b6fd694f673847726eda1
+CONFIGURATION 37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+
+EXIT 0
+COMMAND ('/opt/homebrew/opt/python@3.14/bin/python3.14', 'scripts/cicd-artifact.py', 'inspect', '/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/lab-1.0.1-ee8f1af8e35f.tar')
+VERIFIED SHA256 4ba3abb8709f256c7a47e3e9294d3e7303f742145a95cb58d808ca6c6bcf7200
+SOURCE ee8f1af8e35f81bb3b75051243df2ab9c6e4c0e5
+CONFIGURATION 37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+
+EXIT 0
+COMMAND ('/opt/homebrew/opt/python@3.14/bin/python3.14', 'scripts/cicd-artifact.py', 'inspect', '/var/folders/rt/g188dkwx2rl25f2xnjnqv8hr0000gn/T/tmpzug0exs5/changed.tar.gz')
+ERROR: Artifact SHA-256 mismatch
+
+EXIT 1
+COMMAND ('bash', 'scripts/cicd-release-step.sh', '/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/lab-1.0.0-08a5cf27e8a3.tar', 'user_acceptance_test', 'admit', '0')
+VERIFIED SHA256 d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+SOURCE 08a5cf27e8a31ff7b77b6fd694f673847726eda1
+CONFIGURATION 37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+TARGET: user_acceptance_test / E1_UAT / application 810005; OPERATION: admit; EPOCH: 0
+ARCHIVE SHA256: d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+SOURCE COMMIT: 08a5cf27e8a31ff7b77b6fd694f673847726eda1
+PRIVATE TRANSCRIPT: .local-apex/releases/runs/user_acceptance_test-admit.2pR5qh/operation.log
+SQLcl operation (archive paths):
+whenever oserror exit failure rollback
+whenever sqlerror exit failure rollback
+set serveroutput on
+set define on verify off
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/user_acceptance_test-admit.2pR5qh/payload/deploy/operator/identity.sql" E1_UAT E1_UAT
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/user_acceptance_test-admit.2pR5qh/payload/deploy/checks/release_environment.sql"
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/user_acceptance_test-admit.2pR5qh/payload/deploy/operator/begin_initial.sql" 0 d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45 08a5cf27e8a31ff7b77b6fd694f673847726eda1 37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+begin dbms_output.put_line('RELEASE_OPERATION_COMPLETE'); end;
+/
+exit success
+
+
+SQLcl: Release 25.3 Production on Wed Nov 25 21:48:10 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"CONNECTED_SCHEMA","PDB"
+"E1_UAT","E12REG"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_UAT","E1_UAT"
+
+Rollback
+declare n number;
+*
+ERROR at line 1:
+ORA-20010: Wrong target schema or PDB
+ORA-06512: at line 4
+
+https://docs.oracle.com/error-help/db/ora-20010/
+
+
+More Details :
+https://docs.oracle.com/error-help/db/ora-20010/
+https://docs.oracle.com/error-help/db/ora-06512/
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+ERROR: admit failed; target ownership/partial state is retained for inspection. No automatic reset or success publication.
+
+EXIT 1
+COMMAND ('bash', 'scripts/cicd-patch-result.sh', 'integration_test')
+
+TARGET=E1_INTEGRATION APP=810004 EPOCH=0 PHASE=new
+ARTIFACT=
+SOURCE=
+CONFIG=
+FINGERPRINT=
+
+
+VERIFIED SHA256 4ba3abb8709f256c7a47e3e9294d3e7303f742145a95cb58d808ca6c6bcf7200
+SOURCE ee8f1af8e35f81bb3b75051243df2ab9c6e4c0e5
+CONFIGURATION 37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+PASS explicit component dependencies and supported version triple
+TARGET: integration_test / application 810004; OPERATION: result; START: 1.0.0; EPOCH: 0
+PATCH SHA256: 4ba3abb8709f256c7a47e3e9294d3e7303f742145a95cb58d808ca6c6bcf7200; BASE SHA256: d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+TRANSCRIPT: .local-apex/releases/runs/integration_test-patch-result.XvFvlx/operation.log
+whenever oserror exit failure rollback
+whenever sqlerror exit failure rollback
+set serveroutput on define on verify off
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-patch-result.XvFvlx/payload/deploy/operator/identity.sql" E1_INTEGRATION E1_INTEGRATION
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-patch-result.XvFvlx/payload/deploy/checks/release_environment.sql"
+begin E1_CTRL.e1_release.show_status; end;
+/
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-patch-result.XvFvlx/payload/deploy/operator/fingerprint.sql" 810004
+begin dbms_output.put_line('PATCH_OPERATION_COMPLETE'); end;
+/
+exit success
+
+
+SQLcl: Release 25.3 Production on Wed Nov 25 21:48:15 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"CONNECTED_SCHEMA","PDB"
+"E1_INTEGRATION","E12REG"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_INTEGRATION","E1_INTEGRATION"
+
+Rollback
+declare n number;
+*
+ERROR at line 1:
+ORA-20010: Wrong target schema or PDB
+ORA-06512: at line 4
+
+https://docs.oracle.com/error-help/db/ora-20010/
+
+
+More Details :
+https://docs.oracle.com/error-help/db/ora-20010/
+https://docs.oracle.com/error-help/db/ora-06512/
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+ERROR: patch operation failed; ownership/partial state retained. No automatic reset or success publication.
+
+EXIT 1

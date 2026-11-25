@@ -5,7 +5,7 @@ ROOT="$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --show-toplevel)"
 cd "$ROOT"
 [ "$#" -eq 1 ] || exit 2
 target="$(python3 "$ROOT/scripts/cicd_environments.py" "$1")"; case "$target" in integration_test|user_acceptance_test) ;; *) exit 2 ;; esac
-archive="$(cat .local-apex/releases/patch-selected.txt)"
+archive="$(cat "${APEX_CICD_PATCH_SELECTION:-.local-apex/releases/patch-selected.txt}")"
 umask 077
 work="$(mktemp -d .local-apex/releases/patch-result.XXXXXX)"
 printf '%s\n' 'set serveroutput on' 'begin E1_CTRL.e1_release.show_status; end;' '/' > "$work/status.sql"

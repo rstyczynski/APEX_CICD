@@ -1,0 +1,19 @@
+declare n number; begin
+*
+ERROR at line 1:
+ORA-00959: tablespace 'USERS' does not exist
+ORA-06512: at line 4
+
+https://docs.oracle.com/error-help/db/ora-00959/
+
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_regression.py", line 80, in <module>
+    raise SystemExit(suite(sys.argv[1:]))
+                     ~~~~~^^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_regression.py", line 43, in suite
+    command(sys.executable,'scripts/cicd-platform.py','control-identity')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_regression.py", line 42, in command
+    if r.returncode:raise RuntimeError('Regression setup command failed: '+str(args))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Regression setup command failed: ('/opt/homebrew/opt/python@3.14/bin/python3.14', 'scripts/cicd-platform.py', 'control-identity')

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Controlled TEST-only page drift fixture and explicit restoration, not release repair."""
-import hashlib,json,re,subprocess,sys,tempfile
+import hashlib,json,re,subprocess,sys,tempfile,os
 from pathlib import Path
 from apex_sql import ROOT,run
 
-STORE=ROOT/'.local-apex/releases'
+STORE=Path(os.environ.get('APEX_CICD_REGRESSION_EVIDENCE',str(ROOT/'.local-apex/releases')))
 POINTER=STORE/'drift-active.json'
 TARGET='user_acceptance_test'
 APP=810005
@@ -59,7 +59,7 @@ def main(action):
         baseline=work/f'f{APP}'
         source=(baseline/'application/create_application.sql').read_text()
         offset=re.search(r'p_default_id_offset=>(\d+)',source).group(1)
-        journal={'phase':'prepared','work':str(work.relative_to(ROOT)),'epoch':epoch,'state':state,'before':before,'offset':offset}
+        journal={'phase':'prepared','work':str(work),'epoch':epoch,'state':state,'before':before,'offset':offset}
         POINTER.write_text(json.dumps(journal,indent=2)+'\n')
         (work/'inject.log').write_text(import_fixture(fixture,offset))
         changed=fingerprint()
@@ -68,7 +68,7 @@ def main(action):
         journal.update(phase='changed',changed=changed)
         POINTER.write_text(json.dumps(journal,indent=2)+'\n')
         print('DIRECT PAGE CHANGE INSTALLED: version and release receipt unchanged; live fingerprint differs.')
-        print('Open http://127.0.0.1:8080/ords/f?p=810005:1 to see DIRECT CHANGE - deployment must stop.')
+        print('Open '+os.environ.get('APEX_CICD_HTTP_BASE','http://127.0.0.1:8080/ords/')+'f?p=810005:1 to see DIRECT CHANGE - deployment must stop.')
         print('Next: bash scripts/cicd-protection-check.sh drift; restoration is a separate explicit operation.')
     elif action=='restore':
         journal=json.loads(POINTER.read_text());work=ROOT/journal['work']

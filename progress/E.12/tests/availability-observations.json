@@ -1,0 +1,19 @@
+{
+  "schema": "E12_RUN_49496",
+  "driver_sha256": "7d7ef025e820e90efc774ac2084b3ee457ac199f04b41441d5d3fb4e2c2aa366",
+  "recorded_utc": "2026-11-25T21:35:11.657990+00:00",
+  "hello": {
+    "successful_calls": 120,
+    "max_completion_gap_seconds": 0.1400770000036573,
+    "span_seconds": 12.914556999996421,
+    "gap_includes_deliberate_sleep_seconds": 0.1
+  },
+  "world": {
+    "successful_calls": 120,
+    "max_completion_gap_seconds": 0.14754199999151751,
+    "span_seconds": 12.936996999997064,
+    "gap_includes_deliberate_sleep_seconds": 0.1
+  },
+  "proof_boundary": "Server completion gaps include deliberate sleep and intervening client/server work; they are not a production latency SLA or a direct lock-duration measurement.",
+  "existing_process_deadline_seconds": 180
+}

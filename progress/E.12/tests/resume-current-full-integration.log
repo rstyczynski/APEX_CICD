@@ -1,0 +1,21 @@
+Provisioned control identity only: E1_CTRL
+
+
+No errors.
+No errors.
+No errors.
+No errors.
+
+
+
+
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_regression.py", line 80, in <module>
+    else:raise RuntimeError('Isolated ORDS did not become ready')
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_regression.py", line 46, in suite
+    for value in values.values():out=out.replace(value,'[REDACTED]')
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_regression.py", line 42, in command
+    from apex_sql import run
+                     ^^^^^^^
+RuntimeError: Regression setup command failed: ('/opt/homebrew/opt/python@3.14/bin/python3.14', 'scripts/cicd-platform.py', 'provision', 'lab-dev')

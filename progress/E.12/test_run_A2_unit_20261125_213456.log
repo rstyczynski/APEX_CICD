@@ -1,0 +1,18 @@
+COMMAND: bash tests/run.sh --unit --new-only progress/E.12/new_tests.manifest
+RUN unit:test_foundation.sh:test_foundation_unit
+PASS equality rejects stale, missing and duplicate rows; synthetic assertion checks only
+PASS test_foundation_unit
+RUN unit:test_runner.sh:test_runner_final_record
+PASS actual runner final record with/without newline and manifest protected from stdin-draining child
+PASS test_runner_final_record
+RUN unit:test_regression_boundary.sh:test_regression_private_boundary
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.044s
+
+OK
+PASS test_regression_private_boundary
+RUN unit:test_runner.sh:test_private_sql_binding
+PASS invalid descriptors rejected before credential access; private profile keeps pinned tool path
+PASS test_private_sql_binding
+Tests: 4; failed: 0

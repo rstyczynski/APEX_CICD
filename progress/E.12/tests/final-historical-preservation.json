@@ -1,0 +1,25 @@
+{
+  "archive": "progress/E.12/tests/current-resume-historical-generated.zip",
+  "sha256": "04a93534a22bc1530c7b4f4c168c0e672392cf87acc2c638f950e34748741ee0",
+  "restored_tracked_paths": [],
+  "removed_new_generated_paths_after_archiving": [],
+  "preserved_initial_untracked_paths": [
+    "progress/E.9/tests/reports/1adb2c61ee2afa9f52f3f2de668e6645abc0e73b24cccc1cde1f1c23c6be1cac.json",
+    "progress/E.9/tests/reports/c02daa483128c456a10bdd65f38b1d93c2f26aa568ce8a73ed40013e89eb2cc5.json",
+    "progress/E.9/tests/reports/ed350a984a8d99c97a9f5670b6aabbc21250c6c678d37d56d0cf3dee1ff31eb1.json",
+    "progress/E.9/tests/service/200992b4c281ab093cd5ce3a4f519425f6595881a2fa0f514641f80410c16135.json",
+    "progress/E.9/tests/service/3495fe85229f9bd7353e6d9fb7a0f6c1eb1b8280ae0f71770737d05641c7107c.json",
+    "progress/E.9/tests/service/3e1de39268fd94dee86507dc7e9512280e16f4314abd3fc874c527bc86675d96.json",
+    "progress/E.9/tests/service/5b25c2cf3eb98d82868db4d086e45d459ff0128e245ad30ed7b20af4e5e52a05.json",
+    "progress/E.9/tests/service/5b2a0510459a45077873084934172281b23bf95970d58bfac22fcaa6c5f77369.json",
+    "progress/E.9/tests/service/65db0f4d6f2717c0feb04b619d376d4d888dd642b057c1604de2b5cd07dd00af.json",
+    "progress/E.9/tests/service/6cdbd357dca97b9ce17396aec91e395e8147df845195474ee6ab5d2f88a3b735.json",
+    "progress/E.9/tests/service/9b405a1927b8c44838fa36bc1daa1b1bcae4620deaa3b4113b46367c6607611b.json",
+    "progress/E.9/tests/service/d46c2e2426db84d417538903d137afa8c96f41ec63965d1803bd231d6396a6d7.json",
+    "progress/E.9/tests/service/dcb710aa16c257e6730f0613346f4f2d2eb8debedbaf9df00fd6d3cb5223fe7f.json",
+    "progress/E.9/tests/service/e5e84a52879c39bff3ec204748694f0ca8ca47f030e8c703d7bcb602fce788a1.json",
+    "progress/E.9/tests/service/f0a1d900c9ccf489f21b1f5efc6e31e374f11b6a8c4d47ae4cce695f99625690.json"
+  ],
+  "archive_members": 65,
+  "observation": "Historical outputs had already been archived/restored by the concurrent continuation; this independent check found no remaining tracked historical output modifications. Initial untracked files are preserved."
+}

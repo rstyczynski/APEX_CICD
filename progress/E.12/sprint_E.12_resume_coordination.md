@@ -1,5 +1,9 @@
 # E.12 resume coordination and verification snapshot
 
+Historical continuation/coordination evidence. The current [test result](sprint_E.12_tests.md), [requirement checklist](sprint_E.12_remaining_work.md) and [P8 audit](sprint_E.12_documentation_audit.md) supersede its pending gate/ownership observations. This record is not an active lock or sprint closure.
+
+> Superseded ownership notice (2026-11-25T20:27:42.087328+00:00): the concurrent-worker observations below are historical, not an active claim or lock. The Product Owner requested stale-session cleanup. No writer is reserved by this record; one backend thread still reports active and interruption permission was denied. See [current coordination state](sprint_E.12_coordination_cleanup.md). Preserve the unfinished implementation and failed-regression evidence.
+
 This record belongs to the resume session that observed concurrent edits on 2026-11-25. It does not supersede another session's work or authorize closure.
 
 ## Evidence
@@ -29,3 +33,7 @@ Next action: establish one E.12 writer, reconcile its current source and evidenc
 Snapshot driver SHA-256: `03d69dfb51b0584e96d1930c0ab7bbfcd8bd149d53fd589b064bd638643beaa0`.
 
 The independently started full integration regression finished with `Tests: 20; failed: 4` (exit 1). Its four failures are recorded above. Smoke and unit full regressions passed. Later execution/isolation, reproducibility and fresh technical-operator checks completed successfully, without repairing the four failures. Another complete gate process was observed concurrently (PID 82904 starting its own tests/run.sh sequence); this establishes the coordination conflict independently of modification timestamps. Stable-source verification, corrections, final demonstration/audit, local completion commits and closure remain outstanding. No remote writes were performed by this session.
+
+## Frozen final regression continuation — 21:35 UTC
+
+The 21:17:59 full run passed 20 executed cases but failed source stability while private-state guards were edited concurrently. The Foundation case was separately skipped by a reproduced child-stdin consumption defect, now repaired with /dev/null and an actual-runner regression case. A frozen checkout will verify the final full 21-entry integration suite. Its run temporarily owns the labelled e12-regression-db fixture; do not reset or run a second native legacy fixture suite concurrently. This is fixture coordination, not a blanket source-edit or sprint-status lock. Root changes remain subject to final source-hash convergence before completion. No failed run is an accepted gate.

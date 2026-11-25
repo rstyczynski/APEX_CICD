@@ -1,0 +1,24 @@
+2026-11-25 20:51:40.045656000
+package 	     foundation as
+function greet(p_name varchar2) return varchar2;
+procedure save(p_id number,p_name varchar2);
+end;
+package body		  foundation as
+function greet(p_name varchar2) return varchar2 is begin return 'Hello '||p_name
+; end;
+
+procedure save(p_id number,p_name varchar2) is begin insert into E12_RUN_3568.hi
+story(id,message) values(p_id,greet(p_name)); end;
+
+end;
+procedure	       hello(p_id number) as n number; begin E12_RUN_3568.founda
+tion.save(p_id,'Hello'); select count(*) into n from E12_RUN_3568.history where
+id=p_id; if n<>1 then raise_application_error(-20001,'missing Hello'); end if; e
+nd;
+
+procedure	       world(p_id number) as n number; begin E12_RUN_3568.founda
+tion.save(p_id,'World'); select count(*) into n from E12_RUN_3568.history where
+id=p_id; if n<>1 then raise_application_error(-20001,'missing World'); end if; e
+nd;
+
+E12_COMPLETE

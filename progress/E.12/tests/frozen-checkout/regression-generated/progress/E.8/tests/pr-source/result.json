@@ -1,0 +1,36 @@
+{
+  "success": false,
+  "first_failure": "source",
+  "failures": [
+    "source",
+    "migration",
+    "compilation",
+    "state",
+    "backend"
+  ],
+  "identity": {
+    "merge": "fcc1a5dcd329233fdcd5a7b4034bfc707aa979bd",
+    "tree": "1ce0061dd41ee56b998ac0c8e4114247a99fdb53",
+    "cadence": "pr",
+    "policy": "7cc3a6e096d0208b9083ef856179e28582aeede951a8f1f763039ee3d9a026d8"
+  },
+  "reports": {
+    "source": {
+      "merge": "fcc1a5dcd329233fdcd5a7b4034bfc707aa979bd",
+      "tree": "1ce0061dd41ee56b998ac0c8e4114247a99fdb53",
+      "cadence": "pr",
+      "policy": "7cc3a6e096d0208b9083ef856179e28582aeede951a8f1f763039ee3d9a026d8",
+      "status": "failure",
+      "count": 1
+    }
+  },
+  "base": "ddc9dbcb057a02fb3d30e7427d1a5b55af95351c",
+  "head": "1f98bdfc20a021b566e43b605cf3a90f05012721",
+  "ancestor": "c2412e9a24b019ad975492d0ce519d94aad9bfb3",
+  "stages": [
+    "source"
+  ],
+  "fault": "source",
+  "elapsed_seconds": 0.028,
+  "schema": "E8_E8EED06309"
+}

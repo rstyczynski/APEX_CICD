@@ -1,0 +1,19 @@
+{
+  "sha256": "75c5dc4c77636c7b396ce27690a86cb7176db2aefd18b8ac2bf056217ae34fcb",
+  "slide_count": 14,
+  "package_and_layout_findings": 0,
+  "validated_import": true,
+  "current_render_differences_from_previously_reviewed_candidate": [
+    8,
+    10,
+    13
+  ],
+  "changed_slides_independently_visually_inspected": [
+    8,
+    10,
+    13,
+    14
+  ],
+  "remaining_slides": "identical PNG bytes to the fourteen-slide candidate already inspected in this continuation",
+  "native_viewer": "not visually verified; CLI editor request returned exit 0, separate parallel review recorded its denied requests"
+}

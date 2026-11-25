@@ -1,0 +1,609 @@
+COMMAND: bash tests/run.sh --integration
+WORKDIR: /private/tmp/e12-final-qualified
+SOURCE: progress/E.12/tests/frozen-source-selection.json
+Reusing owned regression database; private inputs will be replaced
+Provisioned control identity only: E1_CTRL
+
+
+No errors.
+No errors.
+No errors.
+No errors.
+
+
+Provisioned ONLY lab-dev: E1_DEV_A / E1_DEV_A
+Granted only this area its delivery interfaces; other areas unchanged.
+
+Provisioned ONLY lab-dev-b: E1_DEV_B / E1_DEV_B
+Granted only this area its delivery interfaces; other areas unchanged.
+
+Provisioned ONLY lab-dev-c: E1_DEV_C / E1_DEV_C
+Granted only this area its delivery interfaces; other areas unchanged.
+
+Provisioned ONLY integration_test: E1_INTEGRATION / E1_INTEGRATION
+Granted only this area its delivery interfaces; other areas unchanged.
+
+Provisioned ONLY user_acceptance_test: E1_UAT / E1_UAT
+Granted only this area its delivery interfaces; other areas unchanged.
+
+
+--Starting Liquibase at 2026-11-25T22:37:12.879183 using Java 21.0.12.1 (version 4.30.0 #0 built at 2025-04-01 10:24+0000)
+Running Changeset: db/changelog.xml::001-foundation::apex-lab
+
+Running Changeset: db/changelog.xml::002-foundation-runtime::apex-lab
+
+
+UPDATE SUMMARY
+Run:                          2
+Previously run:               0
+Filtered out:                 0
+-------------------------------
+Total change sets:            2
+
+Liquibase: Update has been successful. Rows affected: 2
+
+
+Operation completed successfully.
+
+--install
+--application/set_environment
+API Last Extended:20241130
+Your Current Version:20241130
+This import is compatible with version: 20241130
+COMPATIBLE (You should be able to run this import without issues.)
+ID offset during import: 14206380614548245
+New ID offset for application: 0
+
+--application/delete_application
+--application/create_application
+--application/user_interfaces
+--application/shared_components/navigation/lists/navigation_menu
+--application/shared_components/navigation/lists/navigation_bar
+--application/shared_components/navigation/listentry
+--application/shared_components/files/icons_app_icon_144_rounded_png
+--application/shared_components/files/icons_app_icon_32_png
+--application/shared_components/files/icons_app_icon_192_png
+--application/shared_components/files/icons_app_icon_256_rounded_png
+--application/shared_components/files/icons_app_icon_512_png
+--application/plugin_settings
+--application/shared_components/security/authorizations/administration_rights
+--application/shared_components/navigation/navigation_bar
+--application/shared_components/logic/application_settings
+--application/shared_components/navigation/tabs/standard
+--application/shared_components/navigation/tabs/parent
+--application/pages/page_groups
+--application/shared_components/navigation/breadcrumbs/breadcrumb
+--application/shared_components/navigation/breadcrumbentry
+--application/shared_components/user_interface/templates/popuplov
+--application/shared_components/user_interface/themes
+--application/shared_components/user_interface/theme_style
+--application/shared_components/user_interface/theme_files
+--application/shared_components/user_interface/template_opt_groups
+--application/shared_components/user_interface/template_options
+--application/shared_components/globalization/language
+--application/shared_components/logic/build_options
+--application/shared_components/globalization/messages
+--application/shared_components/globalization/dyntranslations
+--application/shared_components/security/authentications/oracle_apex_accounts
+--application/user_interfaces/combined_files
+--application/pages/page_00000
+--application/pages/page_00001
+--application/pages/page_00010
+--application/pages/page_09999
+--application/end_environment
+... elapsed: 1.38 sec
+
+...done
+
+PL/SQL procedure successfully completed.
+
+
+e12-reg-4de5ca56d52a
+
+INFO : Running Oracle REST Data Services CLI command.
+2026-11-25T21:37:44Z INFO   ORDS has not detected the option '--config' and this will be set up to the default directory.
+
+ORDS: Release 25.3 Production on Wed Nov 25 21:37:45 2026
+
+Copyright (c) 2010, 2026, Oracle.
+
+Configuration:
+  /etc/ords/config
+
+The global setting named: standalone.static.path was set to: /opt/oracle/apex/images
+Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx256m
+
+dcefee13d6166ee38b4baedb4588a8a8708d245bb69a41d17b6a97462eadff14
+
+RUN integration:test_development.sh:test_IT11_isolation
+OPERATION identity: lab-dev as E1_DEV_A
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_A","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_A","E1_DEV_A"
+PASS identity: lab-dev
+OPERATION identity: lab-dev-b as E1_DEV_B
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_B","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_B","E1_DEV_B"
+PASS identity: lab-dev-b
+OPERATION identity: lab-dev-c as E1_DEV_C
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_C","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_C","E1_DEV_C"
+PASS identity: lab-dev-c
+OPERATION identity: integration_test as E1_INTEGRATION
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_INTEGRATION","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_INTEGRATION","E1_INTEGRATION"
+PASS identity: integration_test
+OPERATION identity: user_acceptance_test as E1_UAT
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_UAT","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_UAT","E1_UAT"
+PASS identity: user_acceptance_test
+OPERATION create-probe: lab-dev as E1_DEV_A
+SQL file: deploy/checks/create_probe.sql
+Created E1_PRIVATE_PROBE in current schema.
+PASS create-probe: lab-dev
+OPERATION create-probe: lab-dev-b as E1_DEV_B
+SQL file: deploy/checks/create_probe.sql
+Created E1_PRIVATE_PROBE in current schema.
+PASS create-probe: lab-dev-b
+OPERATION create-probe: lab-dev-c as E1_DEV_C
+SQL file: deploy/checks/create_probe.sql
+Created E1_PRIVATE_PROBE in current schema.
+PASS create-probe: lab-dev-c
+OPERATION create-probe: integration_test as E1_INTEGRATION
+SQL file: deploy/checks/create_probe.sql
+Created E1_PRIVATE_PROBE in current schema.
+PASS create-probe: integration_test
+OPERATION create-probe: user_acceptance_test as E1_UAT
+SQL file: deploy/checks/create_probe.sql
+Created E1_PRIVATE_PROBE in current schema.
+PASS create-probe: user_acceptance_test
+OPERATION deny-read: lab-dev as E1_DEV_A
+SQL SELECT COUNT(*) FROM E1_DEV_B.E1_PRIVATE_PROBE;
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_B"."E1_PRIVATE_PROBE" does not exist
+PASS deny-read: lab-dev
+OPERATION deny-write: lab-dev as E1_DEV_A
+SQL INSERT INTO E1_DEV_B.E1_PRIVATE_PROBE VALUES (1);
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_B"."E1_PRIVATE_PROBE" does not exist
+PASS deny-write: lab-dev
+OPERATION deny-read: lab-dev-b as E1_DEV_B
+SQL SELECT COUNT(*) FROM E1_DEV_C.E1_PRIVATE_PROBE;
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_C"."E1_PRIVATE_PROBE" does not exist
+PASS deny-read: lab-dev-b
+OPERATION deny-write: lab-dev-b as E1_DEV_B
+SQL INSERT INTO E1_DEV_C.E1_PRIVATE_PROBE VALUES (1);
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_C"."E1_PRIVATE_PROBE" does not exist
+PASS deny-write: lab-dev-b
+OPERATION deny-read: lab-dev-c as E1_DEV_C
+SQL SELECT COUNT(*) FROM E1_INTEGRATION.E1_PRIVATE_PROBE;
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_INTEGRATION"."E1_PRIVATE_PROBE" does not exist
+PASS deny-read: lab-dev-c
+OPERATION deny-write: lab-dev-c as E1_DEV_C
+SQL INSERT INTO E1_INTEGRATION.E1_PRIVATE_PROBE VALUES (1);
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_INTEGRATION"."E1_PRIVATE_PROBE" does not exist
+PASS deny-write: lab-dev-c
+OPERATION deny-read: integration_test as E1_INTEGRATION
+SQL SELECT COUNT(*) FROM E1_UAT.E1_PRIVATE_PROBE;
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_UAT"."E1_PRIVATE_PROBE" does not exist
+PASS deny-read: integration_test
+OPERATION deny-write: integration_test as E1_INTEGRATION
+SQL INSERT INTO E1_UAT.E1_PRIVATE_PROBE VALUES (1);
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_UAT"."E1_PRIVATE_PROBE" does not exist
+PASS deny-write: integration_test
+OPERATION deny-read: user_acceptance_test as E1_UAT
+SQL SELECT COUNT(*) FROM E1_DEV_A.E1_PRIVATE_PROBE;
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_A"."E1_PRIVATE_PROBE" does not exist
+PASS deny-read: user_acceptance_test
+OPERATION deny-write: user_acceptance_test as E1_UAT
+SQL INSERT INTO E1_DEV_A.E1_PRIVATE_PROBE VALUES (1);
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_A"."E1_PRIVATE_PROBE" does not exist
+PASS deny-write: user_acceptance_test
+Provisioned ONLY integration_test: E1_INTEGRATION / E1_INTEGRATION
+Granted only this area its delivery interfaces; other areas unchanged.
+Disposable integration_test area recreated; other areas retained.
+PASS: Oracle failure propagates as failure.
+PASS: committed TEST marker survived integration_test-area recreation.
+PASS test_IT11_isolation
+RUN integration:test_development.sh:test_IT4_assembly
+PASS incomplete assembly metadata, native contract rejection and native HTTP unavailability
+PASS test_IT4_assembly
+RUN integration:test_release.sh:test_IT1_release
+BUILT accepted-PR source archive /private/tmp/e12-final-qualified/progress/E.12/tests/legacy-regression/run-20261125T223552-50884/lab-1.0.1-0cc6c6802e0e.tar SHA256 be354b79689454afad74835218684cdca6bb43e9ba356515d8f3d8de5aa74017
+PASS actual authenticated HTTP greeting integration_test
+PASS actual authenticated HTTP greeting user_acceptance_test
+PASS actual authenticated HTTP greeting integration_test
+PASS actual authenticated HTTP greeting integration_test
+PASS actual authenticated HTTP greeting integration_test
+PASS actual authenticated HTTP greeting user_acceptance_test
+PASS native export stability, archive identity, fresh reconstruction, both patch starts, HTTP greetings and preserved UAT upgrade
+PASS test_IT1_release
+RUN integration:test_release.sh:test_IT2_patch
+PASS identical patch receipts, repeat no-op and complete preserved fields
+PASS test_IT2_patch
+RUN integration:test_controls.sh:test_SM2_compatibility
+VERIFIED SHA256 be354b79689454afad74835218684cdca6bb43e9ba356515d8f3d8de5aa74017
+SOURCE 0cc6c6802e0ed9bd5286529a6e0216f35f811505
+CONFIGURATION 37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+REJECTED INCOMPATIBLE: Hello requires Foundation 1.0.0; proposed Foundation 2.0.0
+DETECTED INCOMPATIBILITY: deployment rejected before maintenance, migration or import.
+PASS compatibility protection: target definitions, versions, entries, configuration, history and release records unchanged. Evidence: .local-apex/releases/protection-compatibility.8grTLJ
+Open http://127.0.0.1:36473/ords/f?p=810005:1 as LAB_USER to see this selected application.
+PASS test_SM2_compatibility
+RUN integration:test_controls.sh:test_IT7_drift
+PASS IT-7 SQL boundary: stored diagnostics readable, real Oracle exceptions fail.
+VERIFIED SHA256 be354b79689454afad74835218684cdca6bb43e9ba356515d8f3d8de5aa74017
+SOURCE 0cc6c6802e0ed9bd5286529a6e0216f35f811505
+CONFIGURATION 37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+PASS explicit component dependencies and supported version triple
+TARGET: user_acceptance_test / application 810005; OPERATION: result; START: 1.0.0; EPOCH: 2
+PATCH SHA256: be354b79689454afad74835218684cdca6bb43e9ba356515d8f3d8de5aa74017; BASE SHA256: d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+TRANSCRIPT: .local-apex/releases/runs/user_acceptance_test-patch-result.GwfSGz/operation.log
+whenever oserror exit failure rollback
+whenever sqlerror exit failure rollback
+set serveroutput on define on verify off
+@"/private/tmp/e12-final-qualified/.local-apex/releases/runs/user_acceptance_test-patch-result.GwfSGz/payload/deploy/operator/identity.sql" E1_UAT E1_UAT
+@"/private/tmp/e12-final-qualified/.local-apex/releases/runs/user_acceptance_test-patch-result.GwfSGz/payload/deploy/checks/release_environment.sql"
+begin E1_CTRL.e1_release.show_status; end;
+/
+@"/private/tmp/e12-final-qualified/.local-apex/releases/runs/user_acceptance_test-patch-result.GwfSGz/payload/deploy/operator/fingerprint.sql" 810005
+begin dbms_output.put_line('PATCH_OPERATION_COMPLETE'); end;
+/
+exit success
+
+
+SQLcl: Release 25.3 Production on Wed Nov 25 22:47:19 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"CONNECTED_SCHEMA","PDB"
+"E1_UAT","FREEPDB1"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_UAT","E1_UAT"
+
+Target identity verified.
+
+
+PL/SQL procedure successfully completed.
+
+PASS pinned Database 23.26.3.0.0 / APEX 24.2.0 environment.
+
+
+PL/SQL procedure successfully completed.
+
+TARGET=E1_UAT APP=810005 EPOCH=2 PHASE=ready
+ARTIFACT=be354b79689454afad74835218684cdca6bb43e9ba356515d8f3d8de5aa74017
+SOURCE=0cc6c6802e0ed9bd5286529a6e0216f35f811505
+CONFIG=37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+FINGERPRINT=SH256:QquAzV4K7399scNvz3kkL7IpLLWinZT1lw16eAGnAgA=
+
+
+PL/SQL procedure successfully completed.
+
+SH256:QquAzV4K7399scNvz3kkL7IpLLWinZT1lw16eAGnAgA=
+
+
+PL/SQL procedure successfully completed.
+
+PATCH_OPERATION_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+PASS patch release integrity: Foundation/World 1.0.0, Hello 1.0.1, migrations and pages.
+
+
+ALREADY DELIVERED: patch versions and live APEX fingerprint match; no writes.
+SQLcl: capture the current TEST application, without business data, for exact restoration.
+SQLcl: map existing TEST application/offset, execute native fixture install.sql unchanged.
+DIRECT PAGE CHANGE INSTALLED: version and release receipt unchanged; live fingerprint differs.
+Open http://127.0.0.1:36473/ords/f?p=810005:1 to see DIRECT CHANGE - deployment must stop.
+Next: bash scripts/cicd-protection-check.sh drift; restoration is a separate explicit operation.
+VERIFIED SHA256 be354b79689454afad74835218684cdca6bb43e9ba356515d8f3d8de5aa74017
+SOURCE 0cc6c6802e0ed9bd5286529a6e0216f35f811505
+CONFIGURATION 37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+PASS explicit component dependencies and supported version triple
+TARGET: user_acceptance_test / application 810005; OPERATION: preflight; START: 1.0.0; EPOCH: 2
+PATCH SHA256: be354b79689454afad74835218684cdca6bb43e9ba356515d8f3d8de5aa74017; BASE SHA256: d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+TRANSCRIPT: .local-apex/releases/runs/user_acceptance_test-patch-preflight.8fQiWO/operation.log
+whenever oserror exit failure rollback
+whenever sqlerror exit failure rollback
+set serveroutput on define on verify off
+@"/private/tmp/e12-final-qualified/.local-apex/releases/runs/user_acceptance_test-patch-preflight.8fQiWO/payload/deploy/operator/identity.sql" E1_UAT E1_UAT
+@"/private/tmp/e12-final-qualified/.local-apex/releases/runs/user_acceptance_test-patch-preflight.8fQiWO/payload/deploy/checks/release_environment.sql"
+begin E1_CTRL.e1_release.show_status; end;
+/
+@"/private/tmp/e12-final-qualified/.local-apex/releases/runs/user_acceptance_test-patch-preflight.8fQiWO/payload/deploy/operator/fingerprint.sql" 810005
+begin dbms_output.put_line('PATCH_OPERATION_COMPLETE'); end;
+/
+exit success
+
+
+SQLcl: Release 25.3 Production on Wed Nov 25 22:47:50 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"CONNECTED_SCHEMA","PDB"
+"E1_UAT","FREEPDB1"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_UAT","E1_UAT"
+
+Target identity verified.
+
+
+PL/SQL procedure successfully completed.
+
+PASS pinned Database 23.26.3.0.0 / APEX 24.2.0 environment.
+
+
+PL/SQL procedure successfully completed.
+
+TARGET=E1_UAT APP=810005 EPOCH=2 PHASE=ready
+ARTIFACT=be354b79689454afad74835218684cdca6bb43e9ba356515d8f3d8de5aa74017
+SOURCE=0cc6c6802e0ed9bd5286529a6e0216f35f811505
+CONFIG=37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+FINGERPRINT=SH256:QquAzV4K7399scNvz3kkL7IpLLWinZT1lw16eAGnAgA=
+
+
+PL/SQL procedure successfully completed.
+
+SH256:Ud5nRAKBKzM9e629fWO4LzFHEqgSzG8a4Jue3ZQLu3Q=
+
+
+PL/SQL procedure successfully completed.
+
+PATCH_OPERATION_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+REJECTED DRIFT: live APEX fingerprint differs from the successful receipt. No maintenance, migration or import.
+DETECTED DRIFT: deployment rejected before maintenance, migration or import.
+PASS drift protection: target definitions, versions, entries, configuration, history and release records unchanged. Evidence: .local-apex/releases/protection-drift.R4sygB
+Open http://127.0.0.1:36473/ords/f?p=810005:1 as LAB_USER to see this selected application.
+SQLcl: map existing TEST application/offset, execute native fixture install.sql unchanged.
+RESTORED exact pre-demonstration APEX definition; original receipt/fingerprint, settings and history preserved.
+
+TARGET=E1_UAT APP=810005 EPOCH=2 PHASE=ready
+ARTIFACT=be354b79689454afad74835218684cdca6bb43e9ba356515d8f3d8de5aa74017
+SOURCE=0cc6c6802e0ed9bd5286529a6e0216f35f811505
+CONFIG=37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+FINGERPRINT=SH256:QquAzV4K7399scNvz3kkL7IpLLWinZT1lw16eAGnAgA=
+
+
+VERIFIED SHA256 be354b79689454afad74835218684cdca6bb43e9ba356515d8f3d8de5aa74017
+SOURCE 0cc6c6802e0ed9bd5286529a6e0216f35f811505
+CONFIGURATION 37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+PASS explicit component dependencies and supported version triple
+TARGET: user_acceptance_test / application 810005; OPERATION: result; START: 1.0.0; EPOCH: 2
+PATCH SHA256: be354b79689454afad74835218684cdca6bb43e9ba356515d8f3d8de5aa74017; BASE SHA256: d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+TRANSCRIPT: .local-apex/releases/runs/user_acceptance_test-patch-result.gxs9Yw/operation.log
+whenever oserror exit failure rollback
+whenever sqlerror exit failure rollback
+set serveroutput on define on verify off
+@"/private/tmp/e12-final-qualified/.local-apex/releases/runs/user_acceptance_test-patch-result.gxs9Yw/payload/deploy/operator/identity.sql" E1_UAT E1_UAT
+@"/private/tmp/e12-final-qualified/.local-apex/releases/runs/user_acceptance_test-patch-result.gxs9Yw/payload/deploy/checks/release_environment.sql"
+begin E1_CTRL.e1_release.show_status; end;
+/
+@"/private/tmp/e12-final-qualified/.local-apex/releases/runs/user_acceptance_test-patch-result.gxs9Yw/payload/deploy/operator/fingerprint.sql" 810005
+begin dbms_output.put_line('PATCH_OPERATION_COMPLETE'); end;
+/
+exit success
+
+
+SQLcl: Release 25.3 Production on Wed Nov 25 22:48:17 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"CONNECTED_SCHEMA","PDB"
+"E1_UAT","FREEPDB1"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_UAT","E1_UAT"
+
+Target identity verified.
+
+
+PL/SQL procedure successfully completed.
+
+PASS pinned Database 23.26.3.0.0 / APEX 24.2.0 environment.
+
+
+PL/SQL procedure successfully completed.
+
+TARGET=E1_UAT APP=810005 EPOCH=2 PHASE=ready
+ARTIFACT=be354b79689454afad74835218684cdca6bb43e9ba356515d8f3d8de5aa74017
+SOURCE=0cc6c6802e0ed9bd5286529a6e0216f35f811505
+CONFIG=37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+FINGERPRINT=SH256:QquAzV4K7399scNvz3kkL7IpLLWinZT1lw16eAGnAgA=
+
+
+PL/SQL procedure successfully completed.
+
+SH256:QquAzV4K7399scNvz3kkL7IpLLWinZT1lw16eAGnAgA=
+
+
+PL/SQL procedure successfully completed.
+
+PATCH_OPERATION_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+PASS patch release integrity: Foundation/World 1.0.0, Hello 1.0.1, migrations and pages.
+
+
+ALREADY DELIVERED: patch versions and live APEX fingerprint match; no writes.
+PASS test_IT7_drift
+RUN integration:test_pipeline.sh:test_IT1_manual_release
+PASS reference seed evidence: recorded tag/archive, changelogs, preservation and cleanup; not a new LAB deployment
+PASS test_IT1_manual_release
+RUN integration:test_pipeline.sh:test_IT2_verification_blocks_deploy
+PASS native missing-changeset diagnostic: dist/releases/next/changes/e3-initial/e1_dev_c/package_bodies/lab_runtime.sql
+PASS legacy reference qualification evidence; no new defect injection, LAB qualification or deployment
+PASS test_IT2_verification_blocks_deploy
+RUN integration:test_pipeline.sh:test_IT58_native_release_evidence
+PASS native missing-changeset diagnostic: dist/releases/1.0.5/changes/e3-initial/e1_dev_c/package_bodies/lab_runtime.sql
+PASS native release qualification evidence and archive/bundle bindings (local evidence reader)
+PASS test_IT58_native_release_evidence
+RUN integration:test_backend.sh:test_IT1_backend_runtime
+PASS real utPLSQL suite
+PASS runtime isolation, structural cleanup, mutation detection and coverage improvement
+PASS test_IT1_backend_runtime
+RUN integration:test_backend.sh:test_IT4_backend_page_and_release
+PASS live page mapping, invalid API rejection and native artifact exclusion; browser observations separately recorded
+PASS test_IT4_backend_page_and_release
+RUN integration:test_contracts.sh:test_IT1_compatibility
+PASS 3 real utPLSQL consumers
+PASS 3 real utPLSQL consumers
+PASS 3 real utPLSQL consumers
+PASS incompatible result detected
+PASS 3 real utPLSQL consumers
+PASS baseline/patch/minor consumers, additions, detected break and restoration
+PASS test_IT1_compatibility
+RUN integration:test_contracts.sh:test_IT2_sessions_transactions
+PASS native contexts, propagated init failure, caller rollback, partial failure and both controlled unique-key races
+PASS test_IT2_sessions_transactions
+RUN integration:test_contracts.sh:test_IT4_page_release
+PASS separate browser evidence, live business invariants and native whole-application artifact
+PASS test_IT4_page_release
+RUN integration:test_candidate.sh:test_candidate_lab
+PASS three real integrated candidate cadences and five fail-closed fault paths; scoped cleanup complete
+PASS test_candidate_lab
+RUN integration:test_review.sh:test_review_lab
+{
+  "candidate": {
+    "base": "cf154bd33e32553afc9928c0b1d14dad3d85c463",
+    "head": "36fb3d82bc96bb69fede75b16d68ebf943bfd42c",
+    "policy": "d373669aafba5391765e9e5acee27410fecbbc20174c08013830bf4d631336ce"
+  },
+  "receipt": {
+    "candidate": {
+      "base": "cf154bd33e32553afc9928c0b1d14dad3d85c463",
+      "head": "36fb3d82bc96bb69fede75b16d68ebf943bfd42c",
+      "policy": "d373669aafba5391765e9e5acee27410fecbbc20174c08013830bf4d631336ce"
+    },
+    "report": "138ebcef42a6a9a16b7c1b49e20deae29dbd9bd5e9e5b30f64828fe403314bde",
+    "submitter": "developer"
+  },
+  "decision": {
+    "allowed": true,
+    "bypass": null,
+    "candidate": {
+      "base": "cf154bd33e32553afc9928c0b1d14dad3d85c463",
+      "head": "36fb3d82bc96bb69fede75b16d68ebf943bfd42c",
+      "policy": "d373669aafba5391765e9e5acee27410fecbbc20174c08013830bf4d631336ce"
+    }
+  },
+  "merge": "fd7aadf4533e32490a672e3b7ded3c9afb3c37c5",
+  "diff": "diff --git a/greeting.py b/greeting.py\nindex 34c5777..13cbcee 100644\n--- a/greeting.py\n+++ b/greeting.py\n@@ -1,2 +1,2 @@\n def greet(name):\n-    return \"Hello \" + name\n+    return \"Hello \" + name.strip()\ndiff --git a/test_greeting.py b/test_greeting.py\nnew file mode 100644\nindex 0000000..a71ec1e\n--- /dev/null\n+++ b/test_greeting.py\n@@ -0,0 +1,2 @@\n+from greeting import greet\n+assert greet(\" World \")==\"Hello World\"",
+  "scope": "local trusted controller; no GitHub enforcement",
+  "assertion": "PASS"
+}
+PASS test_review_lab
+RUN integration:test_review.sh:test_review_service
+{
+  "status": "PASS",
+  "observations": 174,
+  "ordinary_merge": {
+    "event": "merge",
+    "actor": "integrator",
+    "candidate": {
+      "base": "f9c6f996a6ce1d2a7a9e6678bb2ba331cc012b38",
+      "head": "8ab6903047e8c14dfa97b8a0cbbdbe175b8ff37a",
+      "policy": "1ea8570f3e3dc8b4b98023e9765cfa3ad6d7b13cb4b5a5181402e37b97a70981"
+    },
+    "commit": "aefcfd9b1c1f106f8fc1a01da3427bd8817960be",
+    "reason": null
+  },
+  "bypass": {
+    "event": "bypass",
+    "actor": "administrator",
+    "candidate": {
+      "base": "aefcfd9b1c1f106f8fc1a01da3427bd8817960be",
+      "head": "8ab6903047e8c14dfa97b8a0cbbdbe175b8ff37a",
+      "policy": "1ea8570f3e3dc8b4b98023e9765cfa3ad6d7b13cb4b5a5181402e37b97a70981"
+    },
+    "commit": "99fb47ede1ea37b550d426671d7948e279e1ce3e",
+    "reason": "E9 authorized exception experiment"
+  },
+  "scope": "real loopback capabilities, serialized service, native local Git receive hook; trusted host"
+}
+PASS test_review_service
+RUN integration:test_execution.sh:test_execution_lab
+PASS concurrent private data/credentials, own-PR cancellation, independent release, deduplication, stale refusal and deliberate retry
+PASS success/assertion failure/timeout cleanup; assertion failure remains nonzero
+PASS unavailable service fails after exactly three bounded transport attempts
+PASS privileged access denied, policy preserved, review inert, no markers in retained output/reports/cache (no cache mounted)
+PASS SIGKILL orphan observed/reaped, foreign resources preserved, cleanup failure visible and recovered
+IMAGE docker.io/library/alpine@sha256:49340b346798875b5592e5d420241f2f9cfba5f47e62ebb1446a1b34734e898f
+PASS test_execution_lab
+RUN integration:test_reproducibility.sh:test_reproducibility_lab
+PASS sample 1 cold: 4038406 downloaded bytes
+PASS sample 1 warm: 0 downloaded bytes
+PASS sample 2 cold: 4038406 downloaded bytes
+PASS sample 2 warm: 0 downloaded bytes
+PASS sample 3 cold: 4038406 downloaded bytes
+PASS sample 3 warm: 0 downloaded bytes
+PASS clean checkout, six candidate runs, integrity rejection, scoped cleanup and marker scan
+PASS test_reproducibility_lab
+RUN integration:test_reproducibility.sh:test_second_operator_lab
+PASS distinct uid=1000, new mTLS access, unauthenticated rejection, empty independent engine and clean selected-source checkout
+PASS sample 1 cold: 4038406 downloaded bytes
+PASS sample 1 warm: 0 downloaded bytes
+PASS sample 2 cold: 4038406 downloaded bytes
+PASS sample 2 warm: 0 downloaded bytes
+PASS sample 3 cold: 4038406 downloaded bytes
+PASS sample 3 warm: 0 downloaded bytes
+PASS clean checkout, six candidate runs, integrity rejection, scoped cleanup and marker scan
+
+PASS scoped operator environment and fresh access removed
+PASS test_second_operator_lab
+RUN integration:test_foundation.sh:test_foundation_live
+PASS real Oracle expansion, 240 unchanged consumer transactions, interrupted migration and exact locked cutover
+PASS test_foundation_live
+Tests: 21; failed: 0

@@ -24,7 +24,7 @@ An executable delivery example for Oracle APEX and Oracle Database. A small Foun
 
 The prototype runs on one Podman host using supported Oracle automation interfaces and small Bash/Python scripts. The source is public at [rstyczynski/APEX_CICD](https://github.com/rstyczynski/APEX_CICD). Hosted CI automation and production operation remain future work.
 
-## Laboratory design validation — planned Elaboration
+## Laboratory design validation — Elaboration
 
 The [validation programme](docs/validation-programme.md) plans ten capability-focused
 sprints, E.5–E.14, against the proposed laboratory design. Group package APIs,
@@ -32,8 +32,7 @@ utPLSQL and fixtures into a testable-backend increment, then validate secure
 contracts, traceable upgrades, candidate testing, AI review and merge controls,
 isolated execution and reproducible delivery. The Foundation transition sprints
 include their related catch-up and bridge experiments. E.x validates ideas;
-production completion belongs to future C.n iterations. All future sprints
-remain Planned; E.4 is Done. [PLAN](PLAN.md) owns
+production completion belongs to future C.n iterations. E.5–E.11 have completed their bounded experiments; E.12 is being verified. E.13/E.14 remain Planned. [PLAN](PLAN.md) owns
 assignments and the [roadmap](ROADMAP.md) explains the lifecycle.
 
 ## What works today
@@ -272,6 +271,6 @@ The [E.11 walkthrough](progress/E.11/sprint_E.11_increment_demo.md) describes th
 E.11 is closed after verified technical second-operator reproduction; see [closure](progress/E.11/sprint_E.11_handover.md#sprint-closure). This accepts the bounded experiment, including its explicit nested-runtime limits, rather than full product deployment readiness.
 
 
-## E.12 compatible Foundation experiment
+### Sprint E.12 — Compatible Foundation extension and live catch-up
 
-The [E.12 walkthrough](progress/E.12/sprint_E.12_increment_demo.md) owns operating steps for the isolated compatible-language and interrupted catch-up experiment. Its [design](progress/E.12/sprint_E.12_design.md) records mechanism choices and requirement evidence; its [tests](progress/E.12/sprint_E.12_tests.md) distinguishes real Oracle results from unverified production behavior. BACKLOG and PLAN retain requirement and lifecycle authority. This prototype does not replace the application-wide maintenance policy or qualify a production toolchain upgrade.
+The [E.12 walkthrough](progress/E.12/sprint_E.12_increment_demo.md) owns operating steps for the isolated compatible-language and interrupted catch-up experiment. The real Oracle experiment verifies unchanged consumer reads/writes, optional language, retained history/configuration, interrupted recovery and exact source/target equality at the selected cutover. Its [design](progress/E.12/sprint_E.12_design.md) records mechanism choices; its [tests](progress/E.12/sprint_E.12_tests.md) distinguish executed gates from unverified production behavior. The [checklist](progress/E.12/sprint_E.12_remaining_work.md) and [handover](progress/E.12/sprint_E.12_handover.md) record acceptance and closure evidence. BACKLOG and PLAN retain requirement and lifecycle authority. This prototype does not replace the application-wide maintenance policy or qualify a production toolchain upgrade.

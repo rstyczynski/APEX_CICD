@@ -1,0 +1,11 @@
+{
+  "executable_files": 247,
+  "before_after_canonical_equal": true,
+  "full_integration_exit": 0,
+  "full_integration_selected": 21,
+  "retained_credential_record_digest_and_mtime_unchanged": true,
+  "temporary_ords_containers_remaining": [],
+  "private_input_directories_remaining": 0,
+  "owned_database_cache": "e12-regression-db remains available; separate labelled fixture, not retained application UAT",
+  "source_snapshot": "progress/E.12/tests/frozen-checkout/legacy-regression/run-20261125T223552-50884/source-snapshot-sha256.json"
+}

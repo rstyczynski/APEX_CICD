@@ -1,0 +1,62 @@
+VERIFIED SHA256 d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+SOURCE 08a5cf27e8a31ff7b77b6fd694f673847726eda1
+CONFIGURATION 37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+TARGET: integration_test / E1_INTEGRATION / application 810004; OPERATION: status; EPOCH: 0
+ARCHIVE SHA256: d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+SOURCE COMMIT: 08a5cf27e8a31ff7b77b6fd694f673847726eda1
+PRIVATE TRANSCRIPT: .local-apex/releases/runs/integration_test-status.0JR55H/operation.log
+SQLcl operation (archive paths):
+whenever oserror exit failure rollback
+whenever sqlerror exit failure rollback
+set serveroutput on
+set define on verify off
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-status.0JR55H/payload/deploy/operator/identity.sql" E1_INTEGRATION E1_INTEGRATION
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-status.0JR55H/payload/deploy/checks/release_environment.sql"
+begin E1_CTRL.e1_release.show_status; end;
+/
+begin dbms_output.put_line('RELEASE_OPERATION_COMPLETE'); end;
+/
+exit success
+
+
+SQLcl: Release 25.3 Production on Wed Nov 25 21:35:34 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"CONNECTED_SCHEMA","PDB"
+"E1_INTEGRATION","FREEPDB1"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_INTEGRATION","E1_INTEGRATION"
+
+Target identity verified.
+
+
+PL/SQL procedure successfully completed.
+
+PASS pinned Database 23.26.3.0.0 / APEX 24.2.0 environment.
+
+
+PL/SQL procedure successfully completed.
+
+TARGET=E1_INTEGRATION APP=810004 EPOCH=0 PHASE=new
+ARTIFACT=
+SOURCE=
+CONFIG=
+FINGERPRINT=
+
+
+PL/SQL procedure successfully completed.
+
+RELEASE_OPERATION_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: integration_test status completed using verified archive bytes.

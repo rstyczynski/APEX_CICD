@@ -1,18 +1,8 @@
 test_IT1_release() {
-  # Full IT-1 includes additive upgrade and reconstruction beyond the initial subcase.
-  echo 'IT-1 full upgrade/reconstruction acceptance pending; initial result uses initial_release.manifest' >&2
-  return 1
+  python3 tests/legacy_release.py release
 }
 test_IT2_patch() {
-  local archive
-  archive="$(cat .local-apex/releases/patch-selected.txt)"
-  bash scripts/cicd-patch-result.sh integration_test
-  bash scripts/cicd-patch-result.sh user_acceptance_test
-  python3 scripts/cicd-preservation.py compare integration_test .local-apex/releases/integration_test-initial-preservation.json
-  python3 scripts/cicd-preservation.py compare user_acceptance_test .local-apex/releases/test-initial-preservation.json
-  python3 scripts/apex_sql.py user_acceptance_test tests/sql/hello_patch.sql
-  python3 scripts/apex_sql.py lab-control tests/sql/patch_receipts.sql
-  echo 'PASS IT-2: same patch qualified fresh/from initial, promoted, repeat checked without writes; retained fields and behavior verified.'
+  python3 tests/legacy_release.py result
 }
 
 # Bounded IT-1 initial-install evidence; full upgrade/reconstruction remains pending above.

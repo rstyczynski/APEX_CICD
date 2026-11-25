@@ -1,0 +1,519 @@
+VERIFIED SHA256 d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+SOURCE 08a5cf27e8a31ff7b77b6fd694f673847726eda1
+CONFIGURATION 37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+TARGET: integration_test / E1_INTEGRATION / application 810004; OPERATION: admit; EPOCH: 0
+ARCHIVE SHA256: d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+SOURCE COMMIT: 08a5cf27e8a31ff7b77b6fd694f673847726eda1
+PRIVATE TRANSCRIPT: .local-apex/releases/runs/integration_test-admit.AuZcrV/operation.log
+SQLcl operation (archive paths):
+whenever oserror exit failure rollback
+whenever sqlerror exit failure rollback
+set serveroutput on
+set define on verify off
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-admit.AuZcrV/payload/deploy/operator/identity.sql" E1_INTEGRATION E1_INTEGRATION
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-admit.AuZcrV/payload/deploy/checks/release_environment.sql"
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-admit.AuZcrV/payload/deploy/operator/begin_initial.sql" 0 d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45 08a5cf27e8a31ff7b77b6fd694f673847726eda1 37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+begin dbms_output.put_line('RELEASE_OPERATION_COMPLETE'); end;
+/
+exit success
+
+
+SQLcl: Release 25.3 Production on Wed Nov 25 21:35:45 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"CONNECTED_SCHEMA","PDB"
+"E1_INTEGRATION","FREEPDB1"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_INTEGRATION","E1_INTEGRATION"
+
+Target identity verified.
+
+
+PL/SQL procedure successfully completed.
+
+PASS pinned Database 23.26.3.0.0 / APEX 24.2.0 environment.
+
+
+PL/SQL procedure successfully completed.
+
+PASS empty initial target; isolation probe is retained.
+
+
+PL/SQL procedure successfully completed.
+
+ADMITTED INITIAL ATTEMPT epoch 1; durable ownership survives disconnects and DDL commits.
+
+
+PL/SQL procedure successfully completed.
+
+RELEASE_OPERATION_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: integration_test admit completed using verified archive bytes.
+VERIFIED SHA256 d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+SOURCE 08a5cf27e8a31ff7b77b6fd694f673847726eda1
+CONFIGURATION 37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+TARGET: integration_test / E1_INTEGRATION / application 810004; OPERATION: migrate; EPOCH: 1
+ARCHIVE SHA256: d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+SOURCE COMMIT: 08a5cf27e8a31ff7b77b6fd694f673847726eda1
+PRIVATE TRANSCRIPT: .local-apex/releases/runs/integration_test-migrate.W9abKh/operation.log
+SQLcl operation (archive paths):
+whenever oserror exit failure rollback
+whenever sqlerror exit failure rollback
+set serveroutput on
+set define on verify off
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-migrate.W9abKh/payload/deploy/operator/identity.sql" E1_INTEGRATION E1_INTEGRATION
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-migrate.W9abKh/payload/deploy/checks/release_environment.sql"
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-migrate.W9abKh/payload/deploy/operator/assert_release.sql" 1 d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+cd "/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-migrate.W9abKh/payload"
+lb validate -changelog-file db/changelog.xml
+lb update -changelog-file db/changelog.xml
+lb status -changelog-file db/changelog.xml
+begin dbms_output.put_line('RELEASE_OPERATION_COMPLETE'); end;
+/
+exit success
+
+
+SQLcl: Release 25.3 Production on Wed Nov 25 21:35:50 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"CONNECTED_SCHEMA","PDB"
+"E1_INTEGRATION","FREEPDB1"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_INTEGRATION","E1_INTEGRATION"
+
+Target identity verified.
+
+
+PL/SQL procedure successfully completed.
+
+PASS pinned Database 23.26.3.0.0 / APEX 24.2.0 environment.
+
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+--Starting Liquibase at 2026-11-25T21:35:51.636138 using Java 21.0.12.1 (version 4.30.0 #0 built at 2025-04-01 10:24+0000)
+No validation errors found.
+
+
+Operation completed successfully.
+
+--Starting Liquibase at 2026-11-25T21:35:53.064889 using Java 21.0.12.1 (version 4.30.0 #0 built at 2025-04-01 10:24+0000)
+Running Changeset: db/changelog.xml::001-foundation::apex-lab
+Table LAB_COMPONENTS created.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+Table GREETING_HISTORY created.
+
+
+Table LAB_STATE created.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+
+
+1 row inserted.
+Running Changeset: db/changelog.xml::002-foundation-runtime::apex-lab
+Package LAB_RUNTIME compiled
+
+No errors.
+
+Package Body LAB_RUNTIME compiled
+
+No errors.
+
+Trigger GREETING_HISTORY_IMMUTABLE compiled
+
+No errors.
+
+Trigger GREETING_HISTORY_INSERT_GUARD compiled
+
+No errors.
+Running Changeset: db/changelog.xml::003-hello::apex-lab
+Table HELLO_ENTRIES created.
+
+
+Table HELLO_CONFIG created.
+
+
+1 row inserted.
+
+
+Trigger HELLO_ENTRIES_GUARD compiled
+
+No errors.
+
+Trigger HELLO_ENTRIES_NO_DELETE compiled
+
+No errors.
+
+Trigger HELLO_CONFIG_GUARD compiled
+
+No errors.
+
+Trigger HELLO_CONFIG_NO_DELETE compiled
+
+No errors.
+
+1 row updated.
+
+
+1 row updated.
+Running Changeset: db/changelog.xml::004-world::apex-lab
+Table WORLD_ENTRIES created.
+
+
+Table WORLD_CONFIG created.
+
+
+1 row inserted.
+
+
+Trigger WORLD_ENTRIES_GUARD compiled
+
+No errors.
+
+Trigger WORLD_ENTRIES_NO_DELETE compiled
+
+No errors.
+
+Trigger WORLD_CONFIG_GUARD compiled
+
+No errors.
+
+Trigger WORLD_CONFIG_NO_DELETE compiled
+
+No errors.
+
+1 row updated.
+
+
+1 row updated.
+
+UPDATE SUMMARY
+Run:                          4
+Previously run:               0
+Filtered out:                 0
+-------------------------------
+Total change sets:            4
+
+Liquibase: Update has been successful. Rows affected: 4
+
+
+Operation completed successfully.
+
+--Starting Liquibase at 2026-11-25T21:35:54.263544 using Java 21.0.12.1 (version 4.30.0 #0 built at 2025-04-01 10:24+0000)
+E1_INTEGRATION@jdbc:oracle:thin:@//127.0.0.1:1521/FREEPDB1 is up to date
+
+
+Operation completed successfully.
+
+RELEASE_OPERATION_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: integration_test migrate completed using verified archive bytes.
+VERIFIED SHA256 d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+SOURCE 08a5cf27e8a31ff7b77b6fd694f673847726eda1
+CONFIGURATION 37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+TARGET: integration_test / E1_INTEGRATION / application 810004; OPERATION: import; EPOCH: 1
+ARCHIVE SHA256: d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+SOURCE COMMIT: 08a5cf27e8a31ff7b77b6fd694f673847726eda1
+PRIVATE TRANSCRIPT: .local-apex/releases/runs/integration_test-import.Jk0DiM/operation.log
+SQLcl operation (archive paths):
+whenever oserror exit failure rollback
+whenever sqlerror exit failure rollback
+set serveroutput on
+set define on verify off
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-import.Jk0DiM/payload/deploy/operator/identity.sql" E1_INTEGRATION E1_INTEGRATION
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-import.Jk0DiM/payload/deploy/checks/release_environment.sql"
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-import.Jk0DiM/payload/deploy/operator/assert_release.sql" 1 d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-import.Jk0DiM/payload/deploy/operator/import.sql" E1_INTEGRATION 810004 E1_INTEGRATION APEX-DELIVERY-LABORATORY-Q "/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-import.Jk0DiM/payload/apex/f810001"
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-import.Jk0DiM/payload/deploy/checks/initial_import_blocked.sql" 810004
+begin dbms_output.put_line('RELEASE_OPERATION_COMPLETE'); end;
+/
+exit success
+
+
+SQLcl: Release 25.3 Production on Wed Nov 25 21:35:57 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"CONNECTED_SCHEMA","PDB"
+"E1_INTEGRATION","FREEPDB1"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_INTEGRATION","E1_INTEGRATION"
+
+Target identity verified.
+
+
+PL/SQL procedure successfully completed.
+
+PASS pinned Database 23.26.3.0.0 / APEX 24.2.0 environment.
+
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+--install
+--application/set_environment
+API Last Extended:20241130
+Your Current Version:20241130
+This import is compatible with version: 20241130
+COMPATIBLE (You should be able to run this import without issues.)
+ID offset during import: 14466251459180531
+New ID offset for application: 0
+
+--application/delete_application
+--application/create_application
+--application/user_interfaces
+--application/shared_components/navigation/lists/navigation_menu
+--application/shared_components/navigation/lists/navigation_bar
+--application/shared_components/navigation/listentry
+--application/shared_components/files/icons_app_icon_144_rounded_png
+--application/shared_components/files/icons_app_icon_32_png
+--application/shared_components/files/icons_app_icon_192_png
+--application/shared_components/files/icons_app_icon_256_rounded_png
+--application/shared_components/files/icons_app_icon_512_png
+--application/plugin_settings
+--application/shared_components/security/authorizations/administration_rights
+--application/shared_components/navigation/navigation_bar
+--application/shared_components/logic/application_settings
+--application/shared_components/navigation/tabs/standard
+--application/shared_components/navigation/tabs/parent
+--application/shared_components/user_interface/lovs/hello_entries_entry_text
+--application/shared_components/user_interface/lovs/world_entries_entry_text
+--application/pages/page_groups
+--application/shared_components/navigation/breadcrumbs/breadcrumb
+--application/shared_components/navigation/breadcrumbentry
+--application/shared_components/user_interface/templates/popuplov
+--application/shared_components/user_interface/themes
+--application/shared_components/user_interface/theme_style
+--application/shared_components/user_interface/theme_files
+--application/shared_components/user_interface/template_opt_groups
+--application/shared_components/user_interface/template_options
+--application/shared_components/globalization/language
+--application/shared_components/logic/build_options
+--application/shared_components/globalization/messages
+--application/shared_components/globalization/dyntranslations
+--application/shared_components/security/authentications/oracle_apex_accounts
+--application/user_interfaces/combined_files
+--application/pages/page_00000
+--application/pages/page_00001
+--application/pages/page_00010
+--application/pages/page_00020
+--application/pages/page_00100
+--application/pages/page_00101
+--application/pages/page_00110
+--application/pages/page_00111
+--application/pages/page_00200
+--application/pages/page_00201
+--application/pages/page_00210
+--application/pages/page_00211
+--application/pages/page_09999
+--application/end_environment
+... elapsed: 1.1 sec
+
+...done
+PASS imported source is unavailable and root remains in maintenance.
+
+
+PL/SQL procedure successfully completed.
+
+RELEASE_OPERATION_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: integration_test import completed using verified archive bytes.
+VERIFIED SHA256 d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+SOURCE 08a5cf27e8a31ff7b77b6fd694f673847726eda1
+CONFIGURATION 37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+TARGET: integration_test / E1_INTEGRATION / application 810004; OPERATION: units; EPOCH: 1
+ARCHIVE SHA256: d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+SOURCE COMMIT: 08a5cf27e8a31ff7b77b6fd694f673847726eda1
+PRIVATE TRANSCRIPT: .local-apex/releases/runs/integration_test-units.9P9etm/operation.log
+SQLcl operation (archive paths):
+whenever oserror exit failure rollback
+whenever sqlerror exit failure rollback
+set serveroutput on
+set define on verify off
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-units.9P9etm/payload/deploy/operator/identity.sql" E1_INTEGRATION E1_INTEGRATION
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-units.9P9etm/payload/deploy/checks/release_environment.sql"
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-units.9P9etm/payload/deploy/operator/assert_release.sql" 1 d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-units.9P9etm/payload/deploy/checks/release_integrity.sql" 810004
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-units.9P9etm/payload/tests/sql/composition.sql"
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-units.9P9etm/payload/tests/sql/history.sql"
+begin dbms_output.put_line('RELEASE_OPERATION_COMPLETE'); end;
+/
+exit success
+
+
+SQLcl: Release 25.3 Production on Wed Nov 25 21:36:03 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"CONNECTED_SCHEMA","PDB"
+"E1_INTEGRATION","FREEPDB1"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_INTEGRATION","E1_INTEGRATION"
+
+Target identity verified.
+
+
+PL/SQL procedure successfully completed.
+
+PASS pinned Database 23.26.3.0.0 / APEX 24.2.0 environment.
+
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+PASS initial release integrity: complete 1.0.0, migrations and pages.
+
+
+PL/SQL procedure successfully completed.
+
+PASS UT-1: defaults, trim, Unicode, prefixes, explicit selections, invalid/default deactivation rejection and 261-character boundary. Fixtures rolled back.
+
+
+PL/SQL procedure successfully completed.
+
+PASS UT-2: changed settings affect new greetings; all original snapshot fields preserved; update/delete denied. Fixtures rolled back.
+
+
+PL/SQL procedure successfully completed.
+
+RELEASE_OPERATION_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: integration_test units completed using verified archive bytes.
+VERIFIED SHA256 d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+SOURCE 08a5cf27e8a31ff7b77b6fd694f673847726eda1
+CONFIGURATION 37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+TARGET: integration_test / E1_INTEGRATION / application 810004; OPERATION: verify; EPOCH: 1
+ARCHIVE SHA256: d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+SOURCE COMMIT: 08a5cf27e8a31ff7b77b6fd694f673847726eda1
+PRIVATE TRANSCRIPT: .local-apex/releases/runs/integration_test-verify.yRtjIl/operation.log
+SQLcl operation (archive paths):
+whenever oserror exit failure rollback
+whenever sqlerror exit failure rollback
+set serveroutput on
+set define on verify off
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-verify.yRtjIl/payload/deploy/operator/identity.sql" E1_INTEGRATION E1_INTEGRATION
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-verify.yRtjIl/payload/deploy/checks/release_environment.sql"
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-verify.yRtjIl/payload/deploy/operator/assert_release.sql" 1 d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-verify.yRtjIl/payload/deploy/operator/verify_initial.sql" 1 810004 d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+begin dbms_output.put_line('RELEASE_OPERATION_COMPLETE'); end;
+/
+exit success
+
+
+SQLcl: Release 25.3 Production on Wed Nov 25 21:36:07 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"CONNECTED_SCHEMA","PDB"
+"E1_INTEGRATION","FREEPDB1"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_INTEGRATION","E1_INTEGRATION"
+
+Target identity verified.
+
+
+PL/SQL procedure successfully completed.
+
+PASS pinned Database 23.26.3.0.0 / APEX 24.2.0 environment.
+
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+PASS initial release integrity: complete 1.0.0, migrations and pages.
+
+
+PL/SQL procedure successfully completed.
+
+VERIFICATION ENABLED: VERIFIER only; ordinary accounts blocked.
+
+
+PL/SQL procedure successfully completed.
+
+RELEASE_OPERATION_COMPLETE
+
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+OK: integration_test verify completed using verified archive bytes.

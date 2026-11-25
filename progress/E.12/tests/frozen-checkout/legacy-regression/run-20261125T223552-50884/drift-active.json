@@ -1,0 +1,9 @@
+{
+  "phase": "restored",
+  "work": "/private/tmp/e12-final-qualified/progress/E.12/tests/legacy-regression/run-20261125T223552-50884/drift-demo.p23zm1an",
+  "epoch": "2",
+  "state": "\nTARGET=E1_UAT APP=810005 EPOCH=2 PHASE=ready\nARTIFACT=be354b79689454afad74835218684cdca6bb43e9ba356515d8f3d8de5aa74017\nSOURCE=0cc6c6802e0ed9bd5286529a6e0216f35f811505\nCONFIG=37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0\nFINGERPRINT=SH256:QquAzV4K7399scNvz3kkL7IpLLWinZT1lw16eAGnAgA=\n\n",
+  "before": "SH256:QquAzV4K7399scNvz3kkL7IpLLWinZT1lw16eAGnAgA=",
+  "offset": "14603167781570252",
+  "changed": "SH256:Ud5nRAKBKzM9e629fWO4LzFHEqgSzG8a4Jue3ZQLu3Q="
+}

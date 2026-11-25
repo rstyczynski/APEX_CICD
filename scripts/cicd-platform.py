@@ -15,7 +15,13 @@ import re
 CONFIG = load(ROOT / 'config/areas.json')
 
 
+def require_private_state():
+    if LOCAL.resolve().is_relative_to(ROOT.resolve()):
+        raise ValueError('Mutable environment inputs require private state outside the checkout')
+
+
 def owned_inventory():
+    require_private_state()
     users = [CONFIG['control_schema']] + [a['schema'] for a in CONFIG['areas'].values()]
     receipt = LOCAL / 'e1-owned.json'
     if receipt.exists():
@@ -37,6 +43,7 @@ def owned_inventory():
 
 
 def credentials(keys):
+    require_private_state()
     path = LOCAL / 'e1-secrets.json'
     private = json.loads(path.read_text()) if path.exists() else {}
     for key in keys:

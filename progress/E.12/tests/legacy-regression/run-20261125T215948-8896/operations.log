@@ -1,0 +1,92 @@
+COMMAND ('gh', 'api', 'repos/rstyczynski/APEX_CICD/pulls/1', '--jq', '{number,merged,merged_at,merge_commit_sha,html_url}')
+{"html_url":"https://github.com/rstyczynski/APEX_CICD/pull/1","merge_commit_sha":"faf31992c824e72ef8b3ea8d00e11f59ee011e5b","merged":true,"merged_at":"2026-10-22T08:40:13Z","number":1}
+
+EXIT 0
+COMMAND ('git', 'merge-base', '--is-ancestor', '0cc6c6802e0ed9bd5286529a6e0216f35f811505', 'faf31992c824e72ef8b3ea8d00e11f59ee011e5b')
+
+EXIT 0
+COMMAND ('bash', 'scripts/cicd-patch-result.sh', 'integration_test')
+
+TARGET=E1_INTEGRATION APP=810004 EPOCH=0 PHASE=new
+ARTIFACT=
+SOURCE=
+CONFIG=
+FINGERPRINT=
+
+
+VERIFIED SHA256 80b51f1ed3e371d6c198dc785a7df741fd671d2ab77d8db630f7dd63bd92d583
+SOURCE 0cc6c6802e0ed9bd5286529a6e0216f35f811505
+CONFIGURATION 37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+PASS explicit component dependencies and supported version triple
+TARGET: integration_test / application 810004; OPERATION: result; START: 1.0.0; EPOCH: 0
+PATCH SHA256: 80b51f1ed3e371d6c198dc785a7df741fd671d2ab77d8db630f7dd63bd92d583; BASE SHA256: d99fe83ec3d149739a12ec0cf2f01081ae027d1ec015e16d5a971ff3c602ab45
+TRANSCRIPT: .local-apex/releases/runs/integration_test-patch-result.KaRrp6/operation.log
+whenever oserror exit failure rollback
+whenever sqlerror exit failure rollback
+set serveroutput on define on verify off
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-patch-result.KaRrp6/payload/deploy/operator/identity.sql" E1_INTEGRATION E1_INTEGRATION
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-patch-result.KaRrp6/payload/deploy/checks/release_environment.sql"
+begin E1_CTRL.e1_release.show_status; end;
+/
+@"/Users/rstyczynski/projects/APEX_CICD/.local-apex/releases/runs/integration_test-patch-result.KaRrp6/payload/deploy/operator/fingerprint.sql" 810004
+begin dbms_output.put_line('PATCH_OPERATION_COMPLETE'); end;
+/
+exit success
+
+
+SQLcl: Release 25.3 Production on Wed Nov 25 22:03:05 2026
+
+Copyright (c) 1982, 2026, Oracle.  All rights reserved.
+
+Connected to:
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+"CONNECTED_SCHEMA","PDB"
+"E1_INTEGRATION","FREEPDB1"
+
+"WORKSPACE_NAME","SCHEMA"
+"E1_INTEGRATION","E1_INTEGRATION"
+
+Target identity verified.
+
+
+PL/SQL procedure successfully completed.
+
+PASS pinned Database 23.26.3.0.0 / APEX 24.2.0 environment.
+
+
+PL/SQL procedure successfully completed.
+
+TARGET=E1_INTEGRATION APP=810004 EPOCH=0 PHASE=new
+ARTIFACT=
+SOURCE=
+CONFIG=
+FINGERPRINT=
+
+
+PL/SQL procedure successfully completed.
+
+Rollback
+declare f apex_t_export_files;
+*
+ERROR at line 1:
+ORA-20987: APEX - Application 810004 not found logged in as database user E1_INTEGRATION. - Contact your application administrator.
+ORA-06512: at "APEX_240200.WWV_FLOW_EXPORT_API", line 203
+ORA-06512: at "APEX_240200.WWV_FLOW_ERROR", line 1150
+ORA-06512: at "APEX_240200.WWV_FLOW_ERROR", line 1608
+ORA-06512: at "APEX_240200.WWV_FLOW_EXPORT_INT", line 59
+ORA-06512: at "APEX_240200.WWV_FLOW_EXPORT_API", line 75
+ORA-06512: at line 3
+
+https://docs.oracle.com/error-help/db/ora-20987/
+
+
+More Details :
+https://docs.oracle.com/error-help/db/ora-20987/
+https://docs.oracle.com/error-help/db/ora-06512/
+Disconnected from Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+ERROR: patch operation failed; ownership/partial state retained. No automatic reset or success publication.
+
+EXIT 1
