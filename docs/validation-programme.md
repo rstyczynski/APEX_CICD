@@ -45,6 +45,8 @@ Backlog outcomes: PBI-066, PBI-067, PBI-076.
 
 ### E.9 — Validate AI review and ordinary merge decisions
 
+The [active experiment](../progress/E.9/sprint_E.9_handover.md) records passing local tests and pending server authentication/atomic integration. This is not completed repository protection.
+
 Demonstrate a developer journey from an accurate PR summary and real agent review to a current Review result and a controlled merge alongside Testing. Exercise report changes and revision races, rejected blockers and stale evidence, expected publishers and selected repository controls in a disposable repository.
 
 Backlog outcomes: PBI-068, PBI-069, PBI-070, PBI-071.

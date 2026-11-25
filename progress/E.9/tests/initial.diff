@@ -1,0 +1,8 @@
+diff --git a/greeting.py b/greeting.py
+index 34c5777..13cbcee 100644
+--- a/greeting.py
++++ b/greeting.py
+@@ -1,2 +1,2 @@
+ def greet(name):
+-    return "Hello " + name
++    return "Hello " + name.strip()

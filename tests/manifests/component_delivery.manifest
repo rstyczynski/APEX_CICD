@@ -24,3 +24,6 @@ integration:test_contracts.sh:test_IT4_page_release
 smoke:test_candidate.sh:test_candidate_smoke
 unit:test_candidate.sh:test_candidate_policy
 integration:test_candidate.sh:test_candidate_lab
+smoke:test_review.sh:test_review_smoke
+unit:test_review.sh:test_review_policy
+integration:test_review.sh:test_review_lab

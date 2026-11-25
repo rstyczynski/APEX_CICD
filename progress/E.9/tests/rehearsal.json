@@ -1,0 +1,29 @@
+{
+  "candidate": {
+    "base": "bc6a79bba825c699329614f903b7ea62cdb9c6d5",
+    "head": "b5d180f0606849e5c26ce5f6a40065054a8fa863",
+    "policy": "d373669aafba5391765e9e5acee27410fecbbc20174c08013830bf4d631336ce"
+  },
+  "receipt": {
+    "candidate": {
+      "base": "bc6a79bba825c699329614f903b7ea62cdb9c6d5",
+      "head": "b5d180f0606849e5c26ce5f6a40065054a8fa863",
+      "policy": "d373669aafba5391765e9e5acee27410fecbbc20174c08013830bf4d631336ce"
+    },
+    "report": "36fd3438f1be79e4199c070fe8641c5538702ebcec1154d28d4414d5e5a293bf",
+    "submitter": "developer"
+  },
+  "decision": {
+    "allowed": true,
+    "bypass": null,
+    "candidate": {
+      "base": "bc6a79bba825c699329614f903b7ea62cdb9c6d5",
+      "head": "b5d180f0606849e5c26ce5f6a40065054a8fa863",
+      "policy": "d373669aafba5391765e9e5acee27410fecbbc20174c08013830bf4d631336ce"
+    }
+  },
+  "merge": "20a38208d5ae74ae27e98189fda20a55da4c8ea6",
+  "diff": "diff --git a/greeting.py b/greeting.py\nindex 34c5777..13cbcee 100644\n--- a/greeting.py\n+++ b/greeting.py\n@@ -1,2 +1,2 @@\n def greet(name):\n-    return \"Hello \" + name\n+    return \"Hello \" + name.strip()\ndiff --git a/test_greeting.py b/test_greeting.py\nnew file mode 100644\nindex 0000000..a71ec1e\n--- /dev/null\n+++ b/test_greeting.py\n@@ -0,0 +1,2 @@\n+from greeting import greet\n+assert greet(\" World \")==\"Hello World\"",
+  "scope": "local trusted controller; no GitHub enforcement",
+  "assertion": "PASS"
+}
