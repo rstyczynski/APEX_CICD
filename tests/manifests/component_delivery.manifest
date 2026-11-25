@@ -35,3 +35,6 @@ smoke:test_reproducibility.sh:test_reproducibility_smoke
 unit:test_reproducibility.sh:test_reproducibility_policy
 integration:test_reproducibility.sh:test_reproducibility_lab
 integration:test_reproducibility.sh:test_second_operator_lab
+smoke:test_foundation.sh:test_foundation_smoke
+unit:test_foundation.sh:test_foundation_unit
+integration:test_foundation.sh:test_foundation_live

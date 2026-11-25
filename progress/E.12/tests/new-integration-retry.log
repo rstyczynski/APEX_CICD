@@ -1,0 +1,24 @@
+RUN integration:test_foundation.sh:test_foundation_live
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/foundation_lab.py", line 124, in <module>
+    ''','assertions.log')
+        ^^^^^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/foundation_lab.py", line 109, in integration
+    end;
+
+    ...<9 lines>...
+    select count(*) into n from e12_app.settings where k='language' and v='en'; if n<>1 then raise_application_error(-20007,'settings lost'); end if;
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/foundation_lab.py", line 20, in sql
+    out=r.stdout+r.stderr;OUT.mkdir(parents=True,exist_ok=True);(OUT/name).write_text(out)
+
+RuntimeError: declare n number; s varchar2(100); begin
+*
+ERROR at line 1:
+ORA-20009: invalid objects
+ORA-06512: at line 8
+
+
+
+FAIL test_foundation_live
+Tests: 1; failed: 1

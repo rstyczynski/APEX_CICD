@@ -1,0 +1,11 @@
+COMMAND: bash tests/run.sh --integration --new-only progress/E.12/new_tests.manifest
+RUN integration:test_foundation.sh:test_foundation_live
+FAIL test_foundation_live
+Tests: 1; failed: 1
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/foundation_lab.py", line 119, in <module>
+    assert 'ASSERTIONS_PASS' in result
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/foundation_lab.py", line 103, in integration
+    end;
+
+AssertionError

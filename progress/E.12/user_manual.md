@@ -1,0 +1,5 @@
+# E.12 operator reference
+
+The [complete walkthrough](sprint_E.12_increment_demo.md) explains the exact SQL before its invocation and maps the [deck](sprint_E.12_increment_demo.pptx). Use it in execution order. [Design](sprint_E.12_design.md) owns experimental choices; [tests](sprint_E.12_tests.md) owns verified outcomes. Prerequisites are the prepared Oracle Podman service, Python 3, Git and code on PATH. No new host reproduction is implied.
+
+Supported tasks are compatible schema expansion, unchanged PL/SQL consumer traffic, optional-language evaluation, interrupted backfill and locked-boundary catch-up. Each run retains an isolated schema named in experiment.json. Recovery is a fresh isolated run; inspect retained SQL/logs first. Do not drop a schema solely because its name begins with E12. Fixture cleanup needs the ownership marker and confirmation that no client uses it. This iteration does not change retained application schemas, credentials or SQLcl PROJECT metadata. A finite traffic sample cannot prove universal availability or a production latency target.

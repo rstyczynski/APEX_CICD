@@ -1,0 +1,33 @@
+COMMAND: bash tests/run.sh --integration --new-only progress/E.12/new_tests.manifest
+RUN integration:test_foundation.sh:test_foundation_live
+FAIL test_foundation_live
+Tests: 1; failed: 1
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/foundation_lab.py", line 123, in <module>
+    {'unit':unit,'integration':integration}[sys.argv[1]]()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/foundation_lab.py", line 107, in integration
+    assert 'hello:120' in hello.result();assert 'world:120' in world.result()
+                          ~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/concurrent/futures/_base.py", line 454, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/concurrent/futures/_base.py", line 396, in __get_result
+    raise self._exception
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/concurrent/futures/thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/concurrent/futures/thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/foundation_lab.py", line 62, in traffic
+    return sql(f'''begin for i in 1..120 loop e12_app.{label}({offset}+i); commit; dbms_session.sleep(.1); end loop; dbms_output.put_line('{label}:120'); end;\n/''',label+'.log')
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/foundation_lab.py", line 19, in sql
+    if r.returncode or re.search(r'(?m)^\s*(ORA-|PLS-|SP2-|Warning:)',out) or 'E12_COMPLETE' not in out:raise RuntimeError(out[-2500:])
+                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: begin for i in 1..120 loop e12_app.hello(1000+i); commit; dbms_session.sleep(.1); end loop; dbms_output.put_line('hello:120'); end;
+*
+ERROR at line 1:
+ORA-00942: table or view "E12_APP"."HISTORY" does not exist
+ORA-06512: at "E12_APP.FOUNDATION", line 3
+ORA-06512: at "E12_APP.HELLO", line 1
+ORA-06512: at line 1
+Help: https://docs.oracle.com/error-help/db/ora-00942/

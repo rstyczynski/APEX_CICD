@@ -1,0 +1,20 @@
+{
+  "operator": "uid=1000(podman) gid=1000(podman) groups=1000(podman)",
+  "client_certificate_sha256": "sha256 Fingerprint=A0:C2:86:15:93:56:85:EC:F2:D1:B4:AC:11:34:15:10:C2:52:D3:2F:46:11:88:DD:EA:51:50:2E:24:C0:60:7F",
+  "source_sha256": {
+    "isolated_execution.py": "defda5eebaefa2ce95a351901072e72cb4c83c7e74ae757add2f4eea0935ed33",
+    "reproducible_delivery.py": "4981e97cfb0552487724c19c5c7f4030b560ea4c078eeef03c890fd36d7296b9"
+  },
+  "source_base_revision": "974fa90b976633039b8d2a5665126ae3a44c2cd3",
+  "selected_source_snapshot": "26aae3bb94d0f0bea24e90827d06609fff6e5e23",
+  "image": "quay.io/podman/stable@sha256:4a53c9400861c466b5c0f8e36eadd93cb644c8234ec4507bc9d40924e34a45ff",
+  "authentication": "fresh ephemeral CA/server/client keys; absent-client TLS handshake rejected",
+  "isolation": "no host mounts or runtime socket; distinct HOME, uid, source repo, engine and image store",
+  "command": "python3 /home/podman/source/scripts/reproducible_delivery.py --connection second-operator --output /home/podman/result.json",
+  "empty_before": true,
+  "empty_after": true,
+  "private_access_removed_on_cleanup": "outer container and tmpfs must be removed by provisioning controller",
+  "resource_limit_boundary": "Nested runtime cgroups disabled: requested CPU/memory/PID limits are not qualified; candidate shell, credential and filesystem checks unchanged",
+  "scope": "technical second operator only; no claim of another human, host or full APEX/SQLcl delivery",
+  "cleanup_verified": true
+}

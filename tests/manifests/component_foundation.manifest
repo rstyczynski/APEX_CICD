@@ -1,0 +1,3 @@
+smoke:test_foundation.sh:test_foundation_smoke
+unit:test_foundation.sh:test_foundation_unit
+integration:test_foundation.sh:test_foundation_live

@@ -60,8 +60,8 @@
 | Sprint E.10 | Done | PBI-074 | Done |
 | Sprint E.11 | Done | PBI-075 | Done |
 | Sprint E.11 | Done | PBI-078 | Done |
-| Sprint E.12 | Planned | PBI-048 | Planned |
-| Sprint E.12 | Planned | PBI-081 | Planned |
+| Sprint E.12 | under_construction | PBI-048 | under_construction |
+| Sprint E.12 | under_construction | PBI-081 | under_construction |
 | Sprint E.13 | Planned | PBI-082 | Planned |
 | Sprint E.13 | Planned | PBI-049 | Planned |
 | Sprint E.14 | Planned | PBI-050 | Planned |

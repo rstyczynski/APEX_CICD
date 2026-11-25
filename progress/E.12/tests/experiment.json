@@ -1,0 +1,13 @@
+{
+  "legacy_writes": 240,
+  "legacy_errors": 0,
+  "cutover_equal": true,
+  "capture_operations": [
+    "I",
+    "U",
+    "D"
+  ],
+  "interrupted_transaction_rolled_back": true,
+  "schema": "E12_RUN_89176",
+  "limits": "Finite PL/SQL workload, no APEX browser or production deployment claim"
+}

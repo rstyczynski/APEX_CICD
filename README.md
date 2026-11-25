@@ -270,3 +270,8 @@ The [complete walkthrough and slide map](progress/E.10/sprint_E.10_increment_dem
 The [E.11 walkthrough](progress/E.11/sprint_E.11_increment_demo.md) describes the selected clean-source container execution slice and pinned-tool cache measurements. [Verification](progress/E.11/sprint_E.11_tests.md) distinguishes real container observations from synthetic integrity checks. [Handover](progress/E.11/sprint_E.11_handover.md) records successful technical second-operator execution and its explicit nested-runtime limits. This experiment does not change the SRS product acceptance requirements, qualify fresh-host APEX/SQLcl delivery or establish hosted pipeline controls. PLAN owns assignment/status; the E.11 design owns this bounded experiment.
 
 E.11 is closed after verified technical second-operator reproduction; see [closure](progress/E.11/sprint_E.11_handover.md#sprint-closure). This accepts the bounded experiment, including its explicit nested-runtime limits, rather than full product deployment readiness.
+
+
+## E.12 compatible Foundation experiment
+
+The [E.12 walkthrough](progress/E.12/sprint_E.12_increment_demo.md) owns operating steps for the isolated compatible-language and interrupted catch-up experiment. Its [design](progress/E.12/sprint_E.12_design.md) records mechanism choices and requirement evidence; its [tests](progress/E.12/sprint_E.12_tests.md) distinguishes real Oracle results from unverified production behavior. BACKLOG and PLAN retain requirement and lifecycle authority. This prototype does not replace the application-wide maintenance policy or qualify a production toolchain upgrade.
