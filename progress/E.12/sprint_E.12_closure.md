@@ -2,7 +2,7 @@
 
 ## Decision and authority
 
-Closed on 2026-11-25 under the Product Owner's explicit authorization to complete E.12 in YOLO mode, including local commits and closure. The user explicitly overrides personal PLAN editing. Canonical sprint close follows verified quality gates and documentation acceptance. PLAN records E.12 Done / YOLO; both assigned progress-board rows are Done. E.13/E.14 remain Planned. No other sprint is activated, and no remote push or equivalent ref/commit publication is performed.
+Closed on 2026-11-25 under the Product Owner's explicit authorization to complete E.12 in YOLO mode, including local commits and closure. The user explicitly overrides personal PLAN editing. Canonical sprint close follows verified quality gates and documentation acceptance. PLAN records E.12 Done / YOLO; both assigned progress-board rows and BACKLOG status fields are Done. Definitions, test criteria, ordering and sprint assignments are unchanged. E.13/E.14 remain Planned. No other sprint is activated, and no remote push or equivalent ref/commit publication is performed.
 
 The completed-increment local commit is a3974163ee0928fd25cd1fd14c08c26d96cb3c5a. It contains the shared implementation, native regression repairs, tests, full evidence, reconciled documentation and passing P8 audit for both assigned PBIs. This closure increment records the subsequent lifecycle transition and wraps up that durable marker.
 

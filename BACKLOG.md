@@ -350,7 +350,7 @@ Extend Foundation from 1.0.0 to 1.1.0 with optional greeting-language support wh
 
 Test: Demonstrate continuous successful legacy reads and writes during upgrade and recovery, correct optional-language behavior after upgrade, and preserved history and configuration.
 
-Status: Proposed
+Status: Done
 
 ### PBI-049. Prove an available breaking Foundation transition
 
@@ -614,7 +614,7 @@ Isolate the risk of losing or overwriting live changes while preparing a new Fou
 
 Test: Demonstrate attributable concurrent insert, update and delete capture, restart without newer-data overwrite, preserved identifiers and no missing or duplicated accepted changes at the selected cutover boundary.
 
-Status: Proposed
+Status: Done
 
 ### PBI-082. Validate dual-write failure and mixed-version data visibility
 

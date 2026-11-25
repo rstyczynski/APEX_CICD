@@ -14,7 +14,7 @@ PLAN's six gates are VERIFIED: A1 2/2, A2 4/4 registered entries, A3 1/1, B1 11/
 
 Patch P9 is VERIFIED: a fresh developer-led real journey and strengthened preservation inspection are recorded in [handover](sprint_E.12_handover.md). The complete walkthrough, manual and fourteen-slide presentation are synchronized. Package/layout/font/bullet/import checks and visual inspection pass. Technical acceptance uses explicit YOLO delegation; no Product Owner reaction is invented. Native PowerPoint and optional editor opening remain explicitly unverified after permission denial; terminal reads and rendered review provide the supported inspection path.
 
-Patch P8 and canonical closure: all implementation and quality outcomes are verified; the documentation audit is VERIFIED with passing links/anchors, source binding, presentation/source checks and git diff --check. The completed-increment local marker is a397416; [recorded closure](sprint_E.12_closure.md) follows it. Both board rows and PLAN E.12 are Done after verified gates, local completion commit and canonical close. E.13/E.14 remain Planned. The governing instruction prohibits remote publication; historical PR metadata is read-only provenance. No remote publication is required for assigned acceptance.
+Patch P8 and canonical closure are VERIFIED: source, tests, maintained documentation and presentation are reconciled; local completion commit a3974163ee0928fd25cd1fd14c08c26d96cb3c5a exists and matches all 247 tested source hashes. All six gates and mechanical audits pass. PLAN E.12, both assigned PBI statuses and board rows are Done; [handover closure](sprint_E.12_handover.md#sprint-closure) records the disposition. No mandatory E.12 work remains. E.13/E.14 remain Planned. No remote write was performed.
 
 ## Mandatory environment and evidence controls
 
@@ -29,3 +29,7 @@ The retained native UAT has a different migration lineage from the historical E.
 Read-only GitHub inspection located actual merged [PR #1](https://github.com/rstyczynski/APEX_CICD/pull/1). Corrected source 0cc6c6802e0ed9bd5286529a6e0216f35f811505 is an ancestor of its merge. Its accepted manifest declares the exact initial dependency digest used by the replay. The regression freshly validates that source in DEV_C, builds a new archive from its Git blobs and the real validation log, then qualifies/promotes those bytes locally. This replays an actual existing accepted source; it does not simulate a new hosted PR or rely on permission inferred from silence. The earlier PR-context question is resolved by this verified repository evidence.
 
 All mandatory E.12 outcomes are verified. P8/P9 pass, local completion commit a397416 exists, and [closure](sprint_E.12_closure.md) is recorded. No E.12 requirement or external blocker remains.
+
+## Closure evidence
+
+The durable completed-increment marker is a3974163ee0928fd25cd1fd14c08c26d96cb3c5a. [Committed-source verification](tests/committed-source-verification.json) binds it to the frozen 247-file source and [the six passing gate exits](tests/stable-final-gates.json). [The audit](sprint_E.12_documentation_audit.md) and [handover closure](sprint_E.12_handover.md#sprint-closure) record the completed workflow. Unverified production/fresh-host/native-viewer capabilities remain explicit experiment limits, not unperformed E.12 acceptance criteria.
