@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<coverage version="1">
+<file path="package body e5_test.hello_entry_api">
+<lineToCover lineNumber="4" covered="true"/>
+<lineToCover lineNumber="5" covered="true"/>
+<lineToCover lineNumber="6" covered="true"/>
+<lineToCover lineNumber="7" covered="false"/>
+<lineToCover lineNumber="9" covered="true"/>
+<lineToCover lineNumber="14" covered="true"/>
+<lineToCover lineNumber="15" covered="true"/>
+<lineToCover lineNumber="16" covered="true"/>
+<lineToCover lineNumber="18" covered="false"/>
+<lineToCover lineNumber="19" covered="false"/>
+<lineToCover lineNumber="21" covered="true"/>
+</file>
+</coverage>
+E5_COMPLETE

@@ -1,0 +1,7 @@
+# E.13 documentation
+
+The [walkthrough](sprint_E.13_increment_demo.md) is the complete explained journey; the [manual](user_manual.md) owns prerequisites/recovery and the [handover](sprint_E.13_handover.md) records actual developer operation. [The audit](sprint_E.13_documentation_audit.md) reconciles those records, root requirements/design/test profile, implementation, gate evidence and progress board. [Requirement evidence](sprint_E.13_remaining_work.md) remains the delivery checklist. Product readiness is distinct from this bounded Elaboration experiment. All six gates and the documentation/handover audit pass. Technical documentation acceptance uses explicit YOLO delegation. Local completion commits and recorded lifecycle closure remain finalization actions.
+
+## Retrospective
+
+A shared transaction with an operation savepoint is sufficient for this same-database bridge topology, including callers that catch an exception and commit. The deliberate mutation demonstrates why the savepoint matters. Keeping canonical rendered text supports legacy reads/return after structured writes. The controlled route registry establishes a laboratory retirement condition; production caller/session/job fencing and actual component windows remain separate work. Future regressions should direct generated outputs into the active sprint rather than writing prior sprint evidence paths.

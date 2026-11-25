@@ -380,3 +380,8 @@ The [E.12 walkthrough](../progress/E.12/sprint_E.12_increment_demo.md) owns oper
 ### E.12 full-regression isolation
 
 The unscoped integration runner selects the E.1 development/release/control cases through [the isolated fixture wrapper](../tests/legacy_regression.py). Its separate database container with its own FREEPDB1 preserves the current retained native UAT lineage while replaying the historical custom-controller profile on real Oracle/APEX/ORDS. Native profiles and fresh private inputs are temporary; the runtime binding and logical configuration hash are separately recorded. [The E.12 operator reference](../progress/E.12/user_manual.md#full-historical-regression-environment) owns prerequisites and scope; [the test record](../progress/E.12/sprint_E.12_tests.md) owns measured results and any unverified requirement. The corrected runner includes the final manifest record even without a trailing newline. This change neither reduces selected regression levels nor treats an archived candidate as a newly created hosted PR.
+
+
+## E.13 Foundation bridge experiment
+
+The [E.13 walkthrough](../progress/E.13/sprint_E.13_increment_demo.md) owns operating steps and the [design](../progress/E.13/sprint_E.13_design.md) owns the transactional bridge mechanism. [Verification](../progress/E.13/sprint_E.13_tests.md) and the [requirement checklist](../progress/E.13/sprint_E.13_remaining_work.md) record real Oracle outcomes, six passing gates and the lifecycle evidence. BACKLOG and PLAN retain acceptance and lifecycle authority. This isolated prototype does not qualify production rollout, caller discovery or E.14 component maintenance windows.

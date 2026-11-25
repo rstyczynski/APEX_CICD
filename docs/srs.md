@@ -463,3 +463,8 @@ E.11 is closed after verified technical second-operator reproduction; see [closu
 ## E.12 compatible Foundation experiment
 
 The [E.12 walkthrough](../progress/E.12/sprint_E.12_increment_demo.md) owns operating steps for the isolated compatible-language and interrupted catch-up experiment. Its [design](../progress/E.12/sprint_E.12_design.md) records mechanism choices and requirement evidence; its [tests](../progress/E.12/sprint_E.12_tests.md) distinguishes real Oracle results from unverified production behavior. BACKLOG and PLAN retain requirement and lifecycle authority. This prototype does not replace the application-wide maintenance policy or qualify a production toolchain upgrade.
+
+
+## E.13 Foundation bridge experiment
+
+The [E.13 walkthrough](../progress/E.13/sprint_E.13_increment_demo.md) owns operating steps and the [design](../progress/E.13/sprint_E.13_design.md) owns the transactional bridge mechanism. [Verification](../progress/E.13/sprint_E.13_tests.md) and the [requirement checklist](../progress/E.13/sprint_E.13_remaining_work.md) record real Oracle outcomes, six passing gates and the lifecycle evidence. BACKLOG and PLAN retain acceptance and lifecycle authority. This isolated prototype does not qualify production rollout, caller discovery or E.14 component maintenance windows.

@@ -1,0 +1,3 @@
+smoke:test_foundation.sh:test_bridge_smoke
+unit:test_foundation.sh:test_bridge_unit
+integration:test_foundation.sh:test_bridge_live

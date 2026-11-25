@@ -1,0 +1,19 @@
+COMMAND: git diff --check
+EXIT: 0
+
+COMMAND: git diff --cached --check
+EXIT: 0
+
+COMMAND: bash -n tests/smoke/test_foundation.sh tests/unit/test_foundation.sh tests/integration/test_foundation.sh
+EXIT: 0
+
+COMMAND: python3 /private/tmp/e13-audit-links.py
+{
+  "scope": "E.13 top-level Markdown; maintained README/SRS/architecture/test-profile; E.13 backlog traceability links",
+  "checked": 454,
+  "anchors_checked": 78,
+  "traceability_links": 10,
+  "errors": [],
+  "limitations": "External URLs and non-Markdown fragments not checked."
+}
+EXIT: 0

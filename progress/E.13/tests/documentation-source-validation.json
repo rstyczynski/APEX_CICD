@@ -1,0 +1,8 @@
+{
+  "complete_constant_sql_blocks": 4,
+  "all_present_in_walkthrough": true,
+  "copyable_shell_blocks": 3,
+  "all_match_successful_executions": true,
+  "operator_shell_exit_commands": 0,
+  "presentation_sha256": "24b802a4e404f278ef6e8565ef279baf733d91c7eab6b8acb4fa627cf920d4cf"
+}

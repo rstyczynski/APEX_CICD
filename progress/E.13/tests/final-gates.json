@@ -1,0 +1,39 @@
+{
+  "gates": [
+    {
+      "log": "progress/E.13/tests/test_run_A1_smoke_20261125_220026.log",
+      "registered_entries": 1,
+      "failed": 0
+    },
+    {
+      "log": "progress/E.13/tests/test_run_A2_unit_20261125_220026.log",
+      "registered_entries": 1,
+      "failed": 0
+    },
+    {
+      "log": "progress/E.13/tests/test_run_A3_integration_20261125_220026.log",
+      "registered_entries": 1,
+      "failed": 0
+    },
+    {
+      "log": "progress/E.13/tests/test_run_B1_smoke_20261125_220033.log",
+      "registered_entries": 12,
+      "failed": 0
+    },
+    {
+      "log": "progress/E.13/tests/test_run_B2_unit_20261125_220037.log",
+      "registered_entries": 13,
+      "failed": 0
+    },
+    {
+      "log": "progress/E.13/tests/test_run_B3_integration_20261125_220045.log",
+      "registered_entries": 22,
+      "failed": 0
+    }
+  ],
+  "stable_source_files": 248,
+  "before_after_equal": true,
+  "current_source_equal": true,
+  "historical_evidence_restored": 59,
+  "relocated_new_outputs": 119
+}

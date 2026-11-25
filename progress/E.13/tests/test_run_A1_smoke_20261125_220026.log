@@ -1,0 +1,4 @@
+COMMAND: bash tests/run.sh --smoke --new-only progress/E.13/new_tests.manifest
+RUN smoke:test_foundation.sh:test_bridge_smoke
+PASS test_bridge_smoke
+Tests: 1; failed: 0

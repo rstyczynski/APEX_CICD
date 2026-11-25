@@ -1,0 +1,7 @@
+{
+  "schema": "E13_RUN_91650",
+  "driver_sha256": "e10312f46226b8d56fcdb9f586eb611a2f6f988c7663466cba4cfc0d6469fa74",
+  "mixed_writes": 160,
+  "errors": 0,
+  "limits": "isolated PL/SQL finite experiment; no production or APEX rollout"
+}

@@ -1,0 +1,35 @@
+TEST-ONLY MUTATION: omit rollback to bridge_call in an in-memory copy; repository source unchanged
+Traceback (most recent call last):
+  File "<string>", line 6, in <module>
+    exec(compile(s,str(p),'exec'),{'__name__':'__main__','__file__':str(p)})
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/foundation_bridge.py", line 140, in <module>
+    {'unit':unit,'integration':integration}[sys.argv[1]]()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/foundation_bridge.py", line 82, in integration
+        sql('''begin
+        ~~~^^^^^^^^^
+    begin e12_app.bridge.template_write(99,'greeting',sys.odcivarchar2list('Failure'),true); raise_application_error(-20120,'failure not injected');
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+    commit;
+    ^^^^^^^
+    ''','failure-recovery.log')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/foundation_bridge.py", line 16, in sql
+    return db.sql(source,name)
+           ~~~~~~^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/foundation_lab.py", line 24, in sql
+    if r.returncode or re.search(r'(?m)^\s*(ORA-|PLS-|SP2-|Warning:)',out) or 'E12_COMPLETE' not in out:raise RuntimeError(out[-2500:])
+                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: 2026-11-25 22:03:54.770449000
+declare n number; begin select count(*) into n from E13_RUN_96059.history where id=99; if n<>0 then raise_application_error(-20121,'partial history'); end if;
+*
+ERROR at line 1:
+ORA-20121: partial history
+ORA-06512: at line 1
+
+
+
+
+PROCESS_EXIT=1

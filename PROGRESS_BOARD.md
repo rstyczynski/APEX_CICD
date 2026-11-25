@@ -62,7 +62,7 @@
 | Sprint E.11 | Done | PBI-078 | Done |
 | Sprint E.12 | Done | PBI-048 | Done |
 | Sprint E.12 | Done | PBI-081 | Done |
-| Sprint E.13 | Planned | PBI-082 | Planned |
-| Sprint E.13 | Planned | PBI-049 | Planned |
+| Sprint E.13 | implemented | PBI-082 | tested |
+| Sprint E.13 | implemented | PBI-049 | tested |
 | Sprint E.14 | Planned | PBI-050 | Planned |
 | Sprint E.14 | Planned | PBI-080 | Planned |

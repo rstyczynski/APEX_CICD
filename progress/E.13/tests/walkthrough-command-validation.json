@@ -1,0 +1,17 @@
+[
+  {
+    "stage": 1,
+    "command": "cd \"$(git rev-parse --show-toplevel)\"\npodman --connection apex-cicd ps\n",
+    "exit_code": 0
+  },
+  {
+    "stage": 2,
+    "command": "python3 tests/foundation_bridge.py integration\n",
+    "exit_code": 0
+  },
+  {
+    "stage": 3,
+    "command": "python3 - <<'INSPECT'\nfrom pathlib import Path\nruns=sorted(Path('progress/E.13/tests').glob('run_*'),key=lambda p:p.stat().st_mtime)\nruns=[p for p in runs if (p/'receipt.json').exists()]\np=runs[-1]\nfor name in ['failure-recovery.log','interruption.log','interruption-check.log','hello.log','world.log','assertions.log','receipt.json']:\n    print('\\n'+name+'\\n'+(p/name).read_text())\nINSPECT\n",
+    "exit_code": 0
+  }
+]

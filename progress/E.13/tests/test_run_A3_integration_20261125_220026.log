@@ -1,0 +1,5 @@
+COMMAND: bash tests/run.sh --integration --new-only progress/E.13/new_tests.manifest
+RUN integration:test_foundation.sh:test_bridge_live
+PASS real Oracle bridge failure recovery, mixed traffic, legacy return and retirement /Users/rstyczynski/projects/APEX_CICD/progress/E.13/tests/run_92209
+PASS test_bridge_live
+Tests: 1; failed: 0

@@ -1,0 +1,5 @@
+COMMAND: bash tests/run.sh --unit --new-only progress/E.13/new_tests.manifest
+RUN unit:test_foundation.sh:test_bridge_unit
+PASS equality rejects stale, missing and duplicate rows; synthetic assertion checks only
+PASS test_bridge_unit
+Tests: 1; failed: 0

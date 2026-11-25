@@ -1,0 +1,126 @@
+progress/E.13/tests/regression-generated/progress/E.11/tests/second-operator/engine-info.json:97: trailing whitespace.
++      
+progress/E.13/tests/regression-generated/progress/E.11/tests/second-operator/engine-info.json:103: trailing whitespace.
++      
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/drift-demo.ywn_5ght/capture.log:4: new blank line at EOF.
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/drift-demo.ywn_5ght/f810005/application/shared_components/navigation/breadcrumbentry.sql:4: trailing whitespace.
++--     BREADCRUMB ENTRY: 
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/drift-demo.ywn_5ght/f810005/application/shared_components/navigation/listentry.sql:4: trailing whitespace.
++--     LIST ENTRY: 
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/drift-demo.ywn_5ght/inject.log:70: new blank line at EOF.
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/drift-demo.ywn_5ght/restore.log:70: new blank line at EOF.
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-1.html:14: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-1.html:17: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-1.html:18: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-1.html:20: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-1.html:34: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-1.html:41: trailing whitespace.
++      
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-1.html:179: trailing whitespace.
++            
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-1.html:204: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-2.html:14: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-2.html:17: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-2.html:18: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-2.html:20: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-2.html:34: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-2.html:41: trailing whitespace.
++      
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-2.html:179: trailing whitespace.
++            
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-2.html:204: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-3.html:14: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-3.html:17: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-3.html:18: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-3.html:20: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-3.html:34: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-3.html:41: trailing whitespace.
++      
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-3.html:179: trailing whitespace.
++            
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-3.html:204: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-4.html:14: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-4.html:17: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-4.html:18: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-4.html:20: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-4.html:34: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-4.html:41: trailing whitespace.
++      
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-4.html:179: trailing whitespace.
++            
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-integration_test-4.html:204: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-user_acceptance_test-1.html:14: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-user_acceptance_test-1.html:17: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-user_acceptance_test-1.html:18: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-user_acceptance_test-1.html:20: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-user_acceptance_test-1.html:34: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-user_acceptance_test-1.html:41: trailing whitespace.
++      
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-user_acceptance_test-1.html:179: trailing whitespace.
++            
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-user_acceptance_test-1.html:204: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-user_acceptance_test-2.html:14: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-user_acceptance_test-2.html:17: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-user_acceptance_test-2.html:18: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-user_acceptance_test-2.html:20: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-user_acceptance_test-2.html:34: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-user_acceptance_test-2.html:41: trailing whitespace.
++      
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-user_acceptance_test-2.html:179: trailing whitespace.
++            
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/http-user_acceptance_test-2.html:204: trailing whitespace.
++  
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/ords-install.log:31: trailing whitespace.
++2026-11-25T22:02:38.819Z INFO        Completed installation for Oracle REST Data Services version 25.3.0.r2671248. Elapsed time: 00:00:17.82 
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/ords-install.log:33: trailing whitespace.
++2026-11-25T22:02:38.958Z INFO        Completed configuring PL/SQL gateway user for Oracle REST Data Services version 25.3.0.r2671248. Elapsed time: 00:00:00.135 
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/ords-uninstall.log:18: trailing whitespace.
++Completed uninstall for Oracle REST Data Services. Elapsed time: 00:00:04.11 
+progress/E.13/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T230045-92924/runtime.log:277: new blank line at EOF.
+progress/E.13/tests/regression-generated/progress/E.12/tests/runs/E12_RUN_13795/unsupported-language.log:8: new blank line at EOF.
+progress/E.13/tests/regression-generated/progress/E.12/tests/unsupported-language.log:8: new blank line at EOF.
+progress/E.13/tests/regression-generated/progress/E.8/tests/pr-backend/backend-failure.log:9: new blank line at EOF.
+progress/E.13/tests/regression-generated/progress/E.8/tests/pr-backend/backend.log:9: new blank line at EOF.
+progress/E.13/tests/regression-generated/progress/E.8/tests/pr-migration/migration-failure.log:21: new blank line at EOF.
+progress/E.13/tests/regression-generated/progress/E.8/tests/pr-migration/migration.log:21: new blank line at EOF.
+progress/E.13/tests/regression-generated/progress/E.8/tests/pr-state/state-failure.log:9: new blank line at EOF.
+progress/E.13/tests/regression-generated/progress/E.8/tests/pr-state/state.log:9: new blank line at EOF.
+progress/E.13/tests/run_96059/failure-recovery.log:7: new blank line at EOF.
+progress/E.13/tests/sqlplus-version.log:5: new blank line at EOF.
+
+PROCESS_EXIT=2

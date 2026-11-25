@@ -1,0 +1,8 @@
+2026-11-25 22:03:54.770449000
+declare n number; begin select count(*) into n from E13_RUN_96059.history where id=99; if n<>0 then raise_application_error(-20121,'partial history'); end if;
+*
+ERROR at line 1:
+ORA-20121: partial history
+ORA-06512: at line 1
+
+

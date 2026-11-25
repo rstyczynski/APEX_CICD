@@ -1,0 +1,25 @@
+{
+  "run": "progress/E.13/tests/run_94961",
+  "streams": {
+    "hello": {
+      "calls": 80,
+      "first": "22:02:56.563236000",
+      "last": "22:03:01.348877000",
+      "span_seconds": 4.785640999994939,
+      "largest_completion_gap_seconds": 0.09409600000071805,
+      "start_seconds": 79376.563236,
+      "end_seconds": 79381.348877
+    },
+    "world": {
+      "calls": 80,
+      "first": "22:02:56.563225000",
+      "last": "22:03:01.349084000",
+      "span_seconds": 4.78585899999598,
+      "largest_completion_gap_seconds": 0.0941129999991972,
+      "start_seconds": 79376.563225,
+      "end_seconds": 79381.349084
+    }
+  },
+  "overlap_seconds": 4.785640999994939,
+  "limits": "Finite sample; gaps include deliberate 0.05-second pacing and client/server work; not pure query latency"
+}

@@ -1,0 +1,11 @@
+# E.13 operator reference
+
+Use the complete explained SQL and ordered commands in the [walkthrough](sprint_E.13_increment_demo.md); [design](sprint_E.13_design.md) defines supported behavior. Requirements belong to [BACKLOG](../../BACKLOG.md); [test record](sprint_E.13_tests.md) distinguishes assertions from product qualification. This reference supports the isolated bridge experiment only.
+
+Prepare Python 3, Podman apex-cicd connection and the retained apex-db FREEPDB1. The driver authenticates through container-local Oracle OS administration, creates a unique E13_RUN schema and writes evidence only to progress/E.13/tests/run_<pid>. The default host Podman connection is stale; select apex-cicd explicitly. Do not recreate the VM, reset retained application areas, move credentials or initialize scratch configuration.
+
+The bridge supports legacy arbitrary text and a new greeting template with exactly one structured name. Both write rendered text and companion details transactionally. Hello/World routing changes independently. A pre-retirement return preserves new rendered messages. Retirement checks the fixture registry, disables old writes and keeps new consumers operating. Registry truth depends on the experiment's controlled callers; this is not production caller inventory enforcement.
+
+If the prepared connection fails, inspect Podman connection inventory and named container status before choosing recovery. If SQL fails, inspect the exact saved SQL/log, correct the cause, rerun the driver in a new schema and retain failed evidence. Uncommitted interrupted writes roll back; committed greeting history remains. Cleanup is optional and not part of tests: retain unique schemas until evidence review; drop only a verified run-owned E13_RUN schema through an administrator when explicitly required. No general cleanup script is supplied.
+
+The experiment does not implement production deployment, production credentials, APEX screens, crash recovery or separate component maintenance windows. The current [checklist](sprint_E.13_remaining_work.md), [handover](sprint_E.13_handover.md) and [presentation](sprint_E.13_increment_demo.pptx) own delivery status and inspection guidance.

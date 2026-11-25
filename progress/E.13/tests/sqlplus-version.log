@@ -1,0 +1,5 @@
+COMMAND: podman --connection apex-cicd exec --user oracle apex-db bash -lc sqlplus -v
+
+SQL*Plus: Release 23.26.3.0.0 - Production
+Version 23.26.3.0.0
+

@@ -28,3 +28,6 @@ progress/E.6/tests/regression-backend/*.log whitespace=-blank-at-eol,-blank-at-e
 # Preserve raw E.7 Oracle/HTTP evidence whitespace; source checks remain strict.
 progress/E.7/tests/*.log whitespace=-blank-at-eol,-blank-at-eof
 progress/E.7/tests/*.html whitespace=-blank-at-eol,-blank-at-eof
+
+# E.13 preserves verbatim Oracle/HTTP/native exports and relocated regression evidence.
+progress/E.13/tests/** whitespace=-blank-at-eol,-blank-at-eof
