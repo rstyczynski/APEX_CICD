@@ -121,3 +121,11 @@ The final gates are [A1](tests/test_run_A1_smoke_20261125_complete.log), [A2](te
 [utplsql-install-retry.log](tests/utplsql-install-retry.log)
 
 [utplsql-install.log](tests/utplsql-install.log)
+
+## Final delivery receipts
+
+[delivery-validation.log](tests/delivery-validation.log)
+
+[final-runtime-state.log](tests/final-runtime-state.log)
+
+The backend-only JSON summary’s page field reflects that helper’s scope; the separate passing IT4 gate and browser observation record own completed page verification. It is not an outstanding sprint task. [Baseline byte checksums](tests/baseline-source-checksums.json) match the recorded native Git source.

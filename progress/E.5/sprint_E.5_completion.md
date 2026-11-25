@@ -20,4 +20,4 @@ There is no remaining E.5 implementation or required verification task. Producti
 
 ## Local commits
 
-The scoped completion commit is recorded in the post-commit receipt added by the final documentation checkpoint. No remote push is authorized.
+The scoped implementation, evidence, handover and closure commit is `404d1125c26d995977da8d8a0b996076e37e4d36` (`feat: deliver E5 testable backend experiment`). A final documentation checkpoint records this durable marker. No remote push is authorized.

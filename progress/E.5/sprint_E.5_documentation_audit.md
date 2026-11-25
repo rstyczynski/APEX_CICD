@@ -25,3 +25,7 @@ A developer-operated live Chrome demonstration was performed and actual observat
 ## Final staged-source checks
 
 The first staged diff check found trailing whitespace in verbatim native exports, their complete SQL walkthrough listings and SQLcl transcripts. Following the repository's existing .gitattributes policy for earlier native evidence, E.5 now has narrow whitespace attributes for those generated artifacts. Their original bytes remain intact; all 22 baseline SQL files still match the recorded source commit. Authored source and narrative outside those explicit raw-artifact paths retain ordinary whitespace checks. The staged diff check is rerun after this correction. Final runtime inventory, deck/archive hashes and delivery-validation.log support closure. The dedicated completion report identifies the local commit at the final documentation checkpoint.
+
+## Durable completion marker
+
+Local commit `404d1125c26d995977da8d8a0b996076e37e4d36` contains the complete scoped E.5 increment and closure. Its file set excludes unrelated .codex-cli runtime changes. Post-commit inspection confirms the native ZIP and final PPTX are tracked, their recorded hashes match, and no later sprint was activated. This final documentation-only checkpoint records the marker and links the last delivery receipts; it changes no executable behavior or measurements. No database rerun is needed for these reference-only edits.
