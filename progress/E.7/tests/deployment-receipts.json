@@ -1,0 +1,42 @@
+{
+  "deployments": [
+    {
+      "release": "1.0.0",
+      "archive": "release-1.0.0-b6c87fc1da3aa8ed.zip",
+      "source_base_commit": "83b1353e2e4df349181cce90f45744a2feb17275",
+      "manifest_sha256": "b6c87fc1da3aa8edcd468423984219fdbc1e4cc543279f0ee24d239065b65eb3",
+      "archive_sha256": "8e3bdbce97a2ab0a4073f9352b1ab204c46244c3321dbd21415c48ffadb2dd7d",
+      "preserved": true,
+      "metadata": "1.0.0",
+      "repeat": false
+    },
+    {
+      "release": "1.1.0",
+      "archive": "release-1.1.0-1b6261587efc1844.zip",
+      "source_base_commit": "83b1353e2e4df349181cce90f45744a2feb17275",
+      "manifest_sha256": "1b6261587efc18447b664c9b7e0e7104fad363712498bf20581a06c136b5a2f3",
+      "archive_sha256": "5c1cbeeecca527572e0b74e0d93916c3676a49ecd4a218c476bbe650844f6f26",
+      "preserved": true,
+      "metadata": "1.1.0",
+      "repeat": false
+    },
+    {
+      "release": "1.1.0",
+      "archive": "release-1.1.0-1b6261587efc1844.zip",
+      "source_base_commit": "83b1353e2e4df349181cce90f45744a2feb17275",
+      "manifest_sha256": "1b6261587efc18447b664c9b7e0e7104fad363712498bf20581a06c136b5a2f3",
+      "archive_sha256": "5c1cbeeecca527572e0b74e0d93916c3676a49ecd4a218c476bbe650844f6f26",
+      "preserved": true,
+      "metadata": "1.1.0",
+      "repeat": true
+    }
+  ],
+  "detected_states": [
+    "COLUMN",
+    "CONSTRAINT",
+    "GRANT",
+    "INVALID_OBJECT",
+    "REFERENCE"
+  ],
+  "sqlcl": "SQLcl: Release 25.4.1.0 Production Build: 25.4.1.022.0618"
+}

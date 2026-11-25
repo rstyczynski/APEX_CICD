@@ -439,3 +439,7 @@ The [E.5 walkthrough](../progress/E.5/sprint_E.5_increment_demo.md) and [execute
 ## E.6 secure-contract evidence
 
 The [E.6 walkthrough](../progress/E.6/sprint_E.6_increment_demo.md) and [tests](../progress/E.6/sprint_E.6_tests.md) provide bounded context/compatibility/transaction evidence. [Component contracts](component-contracts.md) own explicit version promises; this SRS remains the requirements authority. The synthetic permissions, trusted schemas and two selected interleavings do not complete general production authorization/concurrency or upgrade obligations.
+
+## E.7 experiment in progress
+
+[The E.7 walkthrough](../progress/E.7/sprint_E.7_increment_demo.md) provides the bounded upgrade/state/identity experiment; [its test report](../progress/E.7/sprint_E.7_tests.md) records passing automated gates and browser visibility. [Implementation gaps](../progress/E.7/sprint_E.7_implementation.md#remaining-implementation-gaps) and [handover](../progress/E.7/sprint_E.7_handover.md) prevent sprint acceptance. This experiment uses explicit SQL bundles, not a qualified replacement for native SQLcl PROJECT deployment. Requirements and production obligations remain unchanged.

@@ -1,0 +1,8 @@
+declare n number;
+*
+ERROR at line 1:
+ORA-20701: STATE:GRANT
+ORA-06512: at line 2
+ORA-06512: at line 9
+
+

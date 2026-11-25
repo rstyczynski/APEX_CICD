@@ -1,0 +1,3 @@
+RUN smoke:test_release_validation.sh:test_SM1_release_sources
+PASS test_SM1_release_sources
+Tests: 1; failed: 0

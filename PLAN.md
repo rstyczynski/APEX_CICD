@@ -305,10 +305,12 @@ Backlog Items:
 
 ## Sprint E.7 - Validate upgrades and traceable application releases
 
-Status: Planned
-Mode: managed
+Status: Progress
+Mode: YOLO
 Test: smoke, unit, integration
 Regression: smoke, unit
+
+Activated on 2026-11-25 by explicit Product Owner authorization to edit the activation fields and execute through closure in YOLO mode.
 
 Demonstrate one supported previous-release upgrade with preserved synthetic data, verified database state and a traceable release visible in APEX. Show wrong deployed state and substituted artifacts being rejected; connect source, component contracts, migrations and test evidence to the installed result.
 

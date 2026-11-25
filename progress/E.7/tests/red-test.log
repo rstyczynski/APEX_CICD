@@ -1,0 +1,4 @@
+RUN unit:test_release_validation.sh:test_UT1_release_integrity
+/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/rstyczynski/projects/APEX_CICD/tests/test_release_integrity.py': [Errno 2] No such file or directory
+FAIL test_UT1_release_integrity
+Tests: 1; failed: 1

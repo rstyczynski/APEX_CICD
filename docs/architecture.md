@@ -368,3 +368,7 @@ The [E.5 design](../progress/E.5/sprint_E.5_design.md), [walkthrough](../progres
 ## E.6 component and transaction boundary
 
 The [E.6 design](../progress/E.6/sprint_E.6_design.md), [contracts](component-contracts.md) and [walkthrough](../progress/E.6/sprint_E.6_increment_demo.md) document the pure renderer, native session/page context adapter, per-call country checks, operation savepoint and caller-owned commit. Tests observe real unique-key waits and selected commit/rollback outcomes. Reviewed JSON dependency declarations are validated by the native builder, while SQLcl retains one whole-application/schema deployment unit. No generalized dependency resolver, concurrency service, new-host or populated-upgrade proof is claimed.
+
+## E.7 experiment in progress
+
+[The E.7 walkthrough](../progress/E.7/sprint_E.7_increment_demo.md) provides the bounded upgrade/state/identity experiment; [its test report](../progress/E.7/sprint_E.7_tests.md) records passing automated gates and browser visibility. [Implementation gaps](../progress/E.7/sprint_E.7_implementation.md#remaining-implementation-gaps) and [handover](../progress/E.7/sprint_E.7_handover.md) prevent sprint acceptance. This experiment uses explicit SQL bundles, not a qualified replacement for native SQLcl PROJECT deployment. Requirements and production obligations remain unchanged.

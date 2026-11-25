@@ -1,0 +1,7 @@
+insert into e7_app.greetings values(7,'E7 retained synthetic greeting'); commit
+                                                                         *
+ERROR at line 1:
+ORA-03405: End of query reached; no additional text should follow.
+Help: https://docs.oracle.com/error-help/db/ora-03405/
+
+

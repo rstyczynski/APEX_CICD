@@ -1,0 +1,8 @@
+RUN unit:test_release_validation.sh:test_UT1_release_integrity
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.018s
+
+OK
+PASS test_UT1_release_integrity
+Tests: 1; failed: 0

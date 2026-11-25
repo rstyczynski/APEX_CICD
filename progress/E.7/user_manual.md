@@ -1,0 +1,7 @@
+# E.7 — Laboratory operating reference
+
+Use [the complete walkthrough](sprint_E.7_increment_demo.md) for ordered commands, complete SQL, prerequisites and expected results. [Implementation](sprint_E.7_implementation.md) identifies supported behavior and gaps; [tests](sprint_E.7_tests.md) records evidence. Requirements and operating boundaries remain in [the SRS](../../docs/srs.md) and [architecture](../../docs/architecture.md).
+
+Only the prepared host and isolated E7 owners/application are supported. The prototype demonstrates small SQL migrations, SHA-256 integrity, state assertions, retained synthetic data and public APEX release metadata. It is not a general release controller. No passwords are needed or retained for the trusted local SYSDBA test connection. Preserve the synthetic marker row, release archives and their digest pins. Do not use these scripts against production or other schemas.
+
+If a fault test fails, inspect its injection/detection/restoration logs and final-state.log before rerunning. The assertion lists the category. The runner attempts the matching restoration in finally; it does not promise recovery after process termination. Never delete another sprint's owners or retained credentials. A partial first setup needs inspection rather than unconditional schema deletion. Live migration concurrency, publisher authentication, ordinary-user grant execution and new-host reproduction remain unqualified.

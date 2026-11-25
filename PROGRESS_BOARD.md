@@ -45,9 +45,9 @@
 | Sprint E.6 | Done | PBI-052 | Done |
 | Sprint E.6 | Done | PBI-064 | Done |
 | Sprint E.6 | Done | PBI-079 | Done |
-| Sprint E.7 | Planned | PBI-065 | Planned |
-| Sprint E.7 | Planned | PBI-077 | Planned |
-| Sprint E.7 | Planned | PBI-057 | Planned |
+| Sprint E.7 | implemented_partially | PBI-065 | under_construction |
+| Sprint E.7 | implemented_partially | PBI-077 | under_construction |
+| Sprint E.7 | implemented_partially | PBI-057 | under_construction |
 | Sprint E.8 | Planned | PBI-066 | Planned |
 | Sprint E.8 | Planned | PBI-067 | Planned |
 | Sprint E.8 | Planned | PBI-076 | Planned |

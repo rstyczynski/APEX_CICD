@@ -1,0 +1,9 @@
+# E.7 — Documentation audit
+
+Status: partial checkpoint; completion audit not passed.
+
+The [SRS](../../docs/srs.md) acceptance requirements were compared with [setup](sprint_E.7_setup.md), [design](sprint_E.7_design.md), [implementation](sprint_E.7_implementation.md) and [tests](sprint_E.7_tests.md). The core state/identity assertions have evidence, but release provenance and the initial verification boundary remain incomplete. Requirements were not weakened. [Architecture](../../docs/architecture.md) continues to require SQLcl PROJECT; the explicit SQL prototype is labelled separately. [Test profile](../../docs/test-profile.md) and [README](../../README.md) link the bounded evidence without claiming production delivery. [The board](../../PROGRESS_BOARD.md) retains incomplete statuses and [PLAN](../../PLAN.md) remains Progress.
+
+The walkthrough's Python experiment and offline test commands ran successfully. Complete SQL listings were generated directly from the executable inputs. Browser visibility was checked through native Chrome; HTTP stage checks are separately recorded. Historical E.5/E.6 evidence was restored byte-for-byte after preserving fresh regression logs under E.7. The PPTX gate remains incomplete because the mandated presentation runtime loader is unavailable. This audit does not authorize a PBI completion commit or sprint closure. A partial-work checkpoint preserves the tested assets and open gaps.
+
+Checkpoint verification: Python compilation passed for the integrity module and both Python tests; git diff --check passed; every relative link in current sprint Markdown resolves; all three displayed SQL listings match executable files byte-for-byte. A1/A2/A3 passed after the final code changes; the full B1/B2 results apply to unchanged shared implementation. No completed PBI is asserted. The partial checkpoint deliberately retains the unmet design and handover gates rather than closing the sprint.

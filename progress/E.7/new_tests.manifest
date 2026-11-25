@@ -1,0 +1,3 @@
+smoke:test_release_validation.sh:test_SM1_release_sources
+unit:test_release_validation.sh:test_UT1_release_integrity
+integration:test_release_validation.sh:test_IT1_release_upgrade

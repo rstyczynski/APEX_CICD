@@ -348,3 +348,7 @@ The [E.5 walkthrough](../progress/E.5/sprint_E.5_increment_demo.md) explains the
 ## E.6 selected verification
 
 The [E.6 test report](../progress/E.6/sprint_E.6_tests.md) records A1/A2/A3 and B1/B2 results. Use `progress/E.6/new_tests.manifest` with the existing smoke/unit/integration runner. The activation explicitly selects `--component secure_backend` for smoke/unit regression: all current pipeline/platform smoke, prior backend unit and new contract cases, with new evidence redirected into E.6. Native session setup is tested separately from actual browser password authentication/page submission. [The walkthrough](../progress/E.6/sprint_E.6_increment_demo.md) gives full SQL, commands, prerequisites and expected outcomes before invocation.
+
+## E.7 experiment in progress
+
+[The E.7 walkthrough](../progress/E.7/sprint_E.7_increment_demo.md) provides the bounded upgrade/state/identity experiment; [its test report](../progress/E.7/sprint_E.7_tests.md) records passing automated gates and browser visibility. [Implementation gaps](../progress/E.7/sprint_E.7_implementation.md#remaining-implementation-gaps) and [handover](../progress/E.7/sprint_E.7_handover.md) prevent sprint acceptance. This experiment uses explicit SQL bundles, not a qualified replacement for native SQLcl PROJECT deployment. Requirements and production obligations remain unchanged.
