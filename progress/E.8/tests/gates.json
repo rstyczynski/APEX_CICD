@@ -1,0 +1,27 @@
+[
+  {
+    "gate": "A1_smoke",
+    "code": 0,
+    "log": "progress/E.8/test_run_A1_smoke_20261125_185905.log"
+  },
+  {
+    "gate": "A2_unit",
+    "code": 0,
+    "log": "progress/E.8/test_run_A2_unit_20261125_185905.log"
+  },
+  {
+    "gate": "A3_integration",
+    "code": 0,
+    "log": "progress/E.8/test_run_A3_integration_20261125_185905.log"
+  },
+  {
+    "gate": "B1_smoke",
+    "code": 0,
+    "log": "progress/E.8/test_run_B1_smoke_20261125_185914.log"
+  },
+  {
+    "gate": "B2_unit",
+    "code": 0,
+    "log": "progress/E.8/test_run_B2_unit_20261125_185917.log"
+  }
+]

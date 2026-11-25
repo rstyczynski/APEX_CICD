@@ -352,3 +352,7 @@ The [E.6 test report](../progress/E.6/sprint_E.6_tests.md) records A1/A2/A3 and 
 ## E.7 qualified experiment
 
 [The E.7 walkthrough and deck](../progress/E.7/sprint_E.7_increment_demo.md) explain the bounded fresh-target upgrade/state/identity experiment; [its test report](../progress/E.7/sprint_E.7_tests.md) records passing A1/A2/A3 and full smoke/unit regression, HTTP stage checks and native Chrome visibility. [Implementation boundaries](../progress/E.7/sprint_E.7_implementation.md#finalization-and-qualified-boundaries) and [handover](../progress/E.7/sprint_E.7_handover.md) distinguish completed Elaboration criteria from production obligations. This experiment uses verified explicit SQL bundles; native SQLcl PROJECT production deployment requirements remain unchanged.
+
+## E.8 candidate experiment
+
+[The E.8 design](../progress/E.8/sprint_E.8_design.md) selects A1/A2/A3 with `progress/E.8/new_tests.manifest` and full B1/B2 smoke/unit regression. [Walkthrough](../progress/E.8/sprint_E.8_increment_demo.md) and [test report](../progress/E.8/sprint_E.8_tests.md) distinguish synthetic aggregation tests from fresh Oracle candidate execution. Each cadence tests a locally merged proposed candidate, not a published remote PR status. Trusted policy selects the complete single-behavior inventory; missing or unsuccessful mandatory evidence rejects success.

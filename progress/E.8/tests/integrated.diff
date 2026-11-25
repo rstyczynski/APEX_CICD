@@ -1,0 +1,9 @@
+diff --git a/migration.sql b/migration.sql
+index d3b634d..a96f17f 100644
+--- a/migration.sql
++++ b/migration.sql
+@@ -1,3 +1,4 @@
+ create table @OWNER@.greetings(id number primary key,message varchar2(100));
+ insert into @OWNER@.greetings values(1,'Hello World');
+ commit;
++alter table @OWNER@.greetings add language_code varchar2(2) default 'en' not null;

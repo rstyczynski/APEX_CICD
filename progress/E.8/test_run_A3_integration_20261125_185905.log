@@ -1,0 +1,4 @@
+RUN integration:test_candidate.sh:test_candidate_lab
+PASS three real integrated candidate cadences and five fail-closed fault paths; scoped cleanup complete
+PASS test_candidate_lab
+Tests: 1; failed: 0

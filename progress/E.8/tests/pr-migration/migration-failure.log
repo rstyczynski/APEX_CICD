@@ -1,0 +1,22 @@
+
+Session altered.
+
+
+Table created.
+
+
+1 row created.
+
+
+Commit complete.
+
+
+Table altered.
+
+alter table E8_E34B7CE1C5.missing_table add broken number
+*
+ERROR at line 1:
+ORA-00942: table or view "E8_E34B7CE1C5"."MISSING_TABLE" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+
+

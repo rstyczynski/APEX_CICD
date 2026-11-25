@@ -1,0 +1,10 @@
+contracts
+  Stable greeting consumers
+    Existing named call preserves its result [.001 sec]
+    Deprecated consumer remains callable [0 sec]
+    Invalid input preserves its documented error [.001 sec]
+
+Finished in .003316 seconds
+3 tests, 0 failed, 0 errored, 0 disabled, 0 warning(s)
+
+E6_COMPLETE

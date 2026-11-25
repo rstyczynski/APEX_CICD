@@ -1,0 +1,1097 @@
+[
+  {
+    "document": "progress/E.8/sprint_E.8_handover.md",
+    "target": "sprint_E.8_increment_demo.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_handover.md",
+    "target": "user_manual.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_handover.md",
+    "target": "sprint_E.8_design.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_handover.md",
+    "target": "sprint_E.8_implementation.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_handover.md",
+    "target": "sprint_E.8_tests.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_handover.md",
+    "target": "sprint_E.8_documentation_audit.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_tests.md",
+    "target": "sprint_E.8_design.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_tests.md",
+    "target": "sprint_E.8_increment_demo.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_tests.md",
+    "target": "test_run_A1_smoke_20261125_185755.log",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_tests.md",
+    "target": "test_run_A1_smoke_20261125_185905.log",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_tests.md",
+    "target": "test_run_A2_unit_20261125_185755.log",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_tests.md",
+    "target": "test_run_A2_unit_20261125_185905.log",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_tests.md",
+    "target": "test_run_A3_integration_20261125_185755.log",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_tests.md",
+    "target": "test_run_A3_integration_20261125_185905.log",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_tests.md",
+    "target": "test_run_B1_smoke_20261125_185805.log",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_tests.md",
+    "target": "test_run_B1_smoke_20261125_185914.log",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_tests.md",
+    "target": "test_run_B2_unit_20261125_185807.log",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_tests.md",
+    "target": "test_run_B2_unit_20261125_185917.log",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_tests.md",
+    "target": "tests/gates.json",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_tests.md",
+    "target": "tests/executions.json",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_tests.md",
+    "target": "tests/candidate.bundle",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_tests.md",
+    "target": "tests/integrated.diff",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_tests.md",
+    "target": "tests/regression-backend.log",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_tests.md",
+    "target": "tests/regression-contracts.log",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_increment_demo.md",
+    "target": "../../PLAN.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_increment_demo.md",
+    "target": "../../BACKLOG.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_increment_demo.md",
+    "target": "user_manual.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_increment_demo.md",
+    "target": "sprint_E.8_handover.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_increment_demo.md",
+    "target": "sprint_E.8_increment_demo.pptx",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_increment_demo.md",
+    "target": "sprint_E.8_tests.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_increment_demo.md",
+    "target": "sprint_E.8_handover.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_setup.md",
+    "target": "../../PLAN.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_setup.md",
+    "target": "../../BACKLOG.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_setup.md",
+    "target": "../../docs/test-profile.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_setup.md",
+    "target": "../E.7/sprint_E.7_handover.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/user_manual.md",
+    "target": "sprint_E.8_increment_demo.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/user_manual.md",
+    "target": "sprint_E.8_design.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/user_manual.md",
+    "target": "sprint_E.8_implementation.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/user_manual.md",
+    "target": "sprint_E.8_tests.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_implementation.md",
+    "target": "sprint_E.8_design.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_implementation.md",
+    "target": "user_manual.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_implementation.md",
+    "target": "sprint_E.8_tests.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_documentation_audit.md",
+    "target": "sprint_E.8_handover.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_documentation_audit.md",
+    "target": "sprint_E.8_increment_demo.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_documentation_audit.md",
+    "target": "sprint_E.8_tests.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_design.md",
+    "target": "sprint_E.8_setup.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_design.md",
+    "target": "../../BACKLOG.md",
+    "exists": true
+  },
+  {
+    "document": "progress/E.8/sprint_E.8_design.md",
+    "target": "sprint_E.8_implementation.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.3/sprint_E.3_release_correction.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.3/sprint_E.3_final_gap_analysis.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.3/sprint_E.3_increment_demo.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.4/sprint_E.4_increment_demo.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.4/sprint_E.4_increment_demo.pptx",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.4/user_manual.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.4/sprint_E.4_handover.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.4/sprint_E.4_tests.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.4/sprint_E.4_handover_review-1-feedback.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.4/sprint_E.4_handover.md#sprint-closure--2026-11-25",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "PLAN.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.2/sprint_E.2_inception.md#optional-tool-compatibility-hypotheses",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/validation-programme.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "PLAN.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "ROADMAP.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.1/cicd-walkthrough.md#i-inspect-and-repair-one-failed-additive-deployment",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.1/sprint_E.1_handover.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.1/sprint_E.1_tests.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.1/sprint_E.1_assessment.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.1/sprint_E.1_increment_demo.pptx",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.1/model.drawio",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.1/sprint_E.1_increment_demo.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.1/cicd-walkthrough.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.1/user_manual.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.1/repo_layout.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "BACKLOG.md#pbi-017-deliver-a-repository-and-pipeline-reference-guide",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.1/repo_layout.md#merging-apex-export-files",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "apex/f810001/",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "db/changes/",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "db/changelog.xml",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "release/",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "deploy/",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "config/areas.json",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "scripts/",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "tests/",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.1/",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.3/sprint_E.3_handover_review-1-decisions.md#r1-l1--product-owner-policy-choice-required",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.3/sprint_E.3_github_configuration.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/srs.md#quality-requirements-and-initial-release",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "BACKLOG.md#pbi-054-generate-the-complete-local-environment-from-a-fresh-checkout",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.1/cicd-walkthrough.md#prerequisites-and-infrastructure-precheck",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/deploy.md#fresh-walkthrough-infrastructure-sequence",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.1/sprint_E.1_review-1.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.1/sprint_E.1_review-1-response.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.1/cicd-walkthrough.md#prepare-reviewed-release-inputs",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.1/tests/clean_checkout_20261018.txt",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.1/sprint_E.1_assessment.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.1/repo_layout.md#future-pipeline-automation",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "BACKLOG.md#pbi-018-prove-atomic-task-reservations-under-contention",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.1/sprint_E.1_assessment.md#open-work-backlog-coverage",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.3/sprint_E.3_pipeline_scope.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "PLAN.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.2/sprint_E.2_assessment.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.2/sprint_E.2_handover.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.2/oracle-gap-analysis.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.2/cicd-walkthrough.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.2/sprint_E.2_product_owner_handover.pptx",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "BACKLOG.md#pbi-052-define-semantic-versioning-rules-for-component-contracts",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/validation-programme.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.3/sprint_E.3_increment_demo.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.3/sprint_E.3_increment_demo.pptx",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.3/user_manual.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.3/sprint_E.3_handover.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.3/sprint_E.3_implementation.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.3/sprint_E.3_tests.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/validation-programme.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.3/sprint_E.3_assessment.md#external-technical-review-conclusion",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.3/sprint_E.3_handover.md#sprint-closure",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.3/sprint_E.3_native_correction.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "scripts/e3-runner.sh",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.3/sprint_E.3_github_configuration.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.3/sprint_E.3_handover_review-1-decisions.md#r1-l1--product-owner-policy-choice-required",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "BACKLOG.md#pbi-055-reduce-repeated-pipeline-toolchain-setup",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.3/sprint_E.3_increment_demo.md#f-manually-deploy-the-published-tag--slide-24",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.3/sprint_E.3_pipeline_scope.md#lc-1--oracle-apex-lifecycle-alignment-validation-historical",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "BACKLOG.md#pbi-056-provide-isolated-apex-environments-for-git-feature-branches",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "BACKLOG.md#pbi-057-show-the-deployed-release-identity-in-apex",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/srs.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/architecture.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/test-profile.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "ROADMAP.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "refs/apex-lifecycle-management-v3.pdf",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "RUPStrikesBack/",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "RUP_patch.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "AGENTS.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "BACKLOG.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "PLAN.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "PROGRESS_BOARD.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/validation-programme.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": ".agents/skills/rup-external-review/SKILL.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.5/sprint_E.5_increment_demo.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.5/sprint_E.5_tests.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.5/sprint_E.5_handover.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.5/user_manual.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.6/sprint_E.6_increment_demo.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/component-contracts.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.6/sprint_E.6_tests.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.6/sprint_E.6_handover.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.6/user_manual.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.7/sprint_E.7_increment_demo.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.7/user_manual.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.7/sprint_E.7_tests.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.7/sprint_E.7_handover.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.8/sprint_E.8_increment_demo.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.8/user_manual.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.8/sprint_E.8_design.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "progress/E.8/sprint_E.8_tests.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "validation-programme.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../PLAN.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.3/sprint_E.3_release_correction.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.3/sprint_E.3_final_gap_analysis.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.3/sprint_E.3_github_configuration.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.3/sprint_E.3_handover_review-1-decisions.md#r1-l1--product-owner-policy-choice-required",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.3/sprint_E.3_native_correction.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.3/sprint_E.3_design.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.3/sprint_E.3_increment_demo.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.3/sprint_E.3_implementation.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.3/sprint_E.3_tests.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../PLAN.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.4/sprint_E.4_handover.md#sprint-closure--2026-11-25",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.3/sprint_E.3_handover.md#sprint-closure",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.2/sprint_E.2_proposedchanges.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.2/sprint_E.2_design.md#testing-strategy",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.2/sprint_E.2_tests.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.2/sprint_E.2_increment_demo.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.2/sprint_E.2_handover.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.5/sprint_E.5_proposedchanges.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.1/tests/handover_checks_20261018.txt",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.1/sprint_E.1_increment_demo.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.1/sprint_E.1_assessment.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.1/repo_layout.md#pipeline-paths-and-release-identities",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.1/sprint_E.1_review-1-decisions.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.1/sprint_E.1_bugs.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.1/cicd-walkthrough.md#prepare-reviewed-release-inputs",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "srs.md#quality-requirements-and-initial-release",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.3/tests/native-sqlcl-version-compatibility.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "deploy.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../config/areas.json",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "deploy.md#fresh-walkthrough-infrastructure-sequence",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.1/cicd-walkthrough.md#c-deliver-world-and-complete-the-assembly",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.1/sprint_E.1_tests.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.1/cicd-walkthrough.md#resume-e-at-its-restricted-verification-checkpoint",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.1/user_manual.md#resume-initial-uat-verification",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.1/cicd-walkthrough.md#resume-e-after-publication-prepare-upgrade-examples",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.1/user_manual.md#resume-uat-upgrade-example-preparation",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.1/cicd-walkthrough.md#h1-change-a-page-in-app-builder",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.1/user_manual.md#manual-page-designer-drift-demonstration",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.1/cicd-walkthrough.md#h-reject-deployment-over-unexpected-live-change",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.1/user_manual.md#one-drift-check-three-demonstrations",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.1/cicd-walkthrough.md#h1-change-a-page-in-app-builder",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.1/user_manual.md#inspect-manual-drift-before-deciding-restoration",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.1/tests/recovery_proof_20261018.txt",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "deploy.md#independent-checkout-rehearsal-while-retaining-the-current-lab",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.3/sprint_E.3_design.md#test-specification",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.4/sprint_E.4_design.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.4/sprint_E.4_tests.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.4/user_manual.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.4/sprint_E.4_handover.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../PLAN.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.5/sprint_E.5_increment_demo.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.5/sprint_E.5_tests.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.6/sprint_E.6_tests.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.6/sprint_E.6_increment_demo.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.7/sprint_E.7_increment_demo.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.7/sprint_E.7_tests.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.7/sprint_E.7_implementation.md#finalization-and-qualified-boundaries",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.7/sprint_E.7_handover.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.8/sprint_E.8_design.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.8/sprint_E.8_increment_demo.md",
+    "exists": true
+  },
+  {
+    "document": "docs/test-profile.md",
+    "target": "../progress/E.8/sprint_E.8_tests.md",
+    "exists": true
+  }
+]

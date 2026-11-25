@@ -251,3 +251,7 @@ The [complete E.6 walkthrough and slide deck](progress/E.6/sprint_E.6_increment_
 ### Sprint E.7 — Upgrade and release identity experiment
 
 The [complete E.7 walkthrough and presentation](progress/E.7/sprint_E.7_increment_demo.md) and [manual](progress/E.7/user_manual.md) explain the isolated Oracle upgrade/state/integrity experiment. [Tests](progress/E.7/sprint_E.7_tests.md) record passing A1/A2/A3/B1/B2 gates, fresh-target upgrade/repeat and native Chrome release/source visibility. [Handover](progress/E.7/sprint_E.7_handover.md) records delegated YOLO acceptance and production boundaries. E.7 and PBI-065/PBI-077/PBI-057 are Done; E.8 remains Planned.
+
+### Sprint E.8 — Integrated candidate testing
+
+The [E.8 walkthrough and presentation](progress/E.8/sprint_E.8_increment_demo.md) explain trusted suite selection, real local Git merge execution, three Oracle test cadences and fail-closed reporting. [Operating reference](progress/E.8/user_manual.md), [design](progress/E.8/sprint_E.8_design.md) and [test report](progress/E.8/sprint_E.8_tests.md) define its bounded Elaboration scope; GitHub publication and production isolation remain outside this experiment.
