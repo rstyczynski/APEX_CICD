@@ -3,12 +3,14 @@
 
 sprint=""
 extra_prompt=""
+continue_dir=""
 
 usage() {
     cat <<'USAGE'
-Usage: sprint-finalize.sh --sprint ID [--extra-prompt TEXT]
+Usage: sprint-finalize.sh --sprint ID [--continue RUN_DIR] [--extra-prompt TEXT]
 
   --sprint ID          Sprint to complete (required).
+  --continue RUN_DIR   Resume the saved chat in a previous run's printed log directory.
   --extra-prompt TEXT  Additional instructions for this sprint; may be repeated.
   -h, --help          Show this help.
 USAGE
@@ -16,13 +18,14 @@ USAGE
 
 while [ "$#" -gt 0 ]; do
     case "$1" in
-        --sprint|--extra-prompt)
+        --sprint|--extra-prompt|--continue)
             if [ "$#" -lt 2 ] || [ -z "$2" ]; then
                 printf 'Option %s requires a nonempty value.\n' "$1" >&2
                 exit 2
             fi
             case "$1" in
                 --sprint) sprint="$2" ;;
+                --continue) continue_dir="$2" ;;
                 --extra-prompt)
                     if [ -n "$extra_prompt" ]; then
                         extra_prompt+=$'\n\n'
@@ -50,6 +53,10 @@ if [ -z "$sprint" ]; then
     exit 2
 fi
 
+# Resolve a supplied relative run directory before switching to the checkout.
+if [ -n "$continue_dir" ]; then
+    continue_dir=$(cd "$continue_dir" && pwd) || exit 2
+fi
 project_root=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd) || exit 1
 cd "$project_root" || exit 1
 
@@ -66,6 +73,21 @@ master_template=$(cat "$master_file") || exit 1
 retry_template=$(cat "$retry_file") || exit 1
 prompt=${master_template//'${sprint}'/"$sprint"}
 
+if [ -n "$continue_dir" ]; then
+    for saved_file in thread.json sprint.txt prompt.txt; do
+        if [ ! -r "$continue_dir/$saved_file" ] || [ ! -s "$continue_dir/$saved_file" ]; then
+            printf 'Cannot continue: missing or empty %s/%s\n' "$continue_dir" "$saved_file" >&2
+            exit 2
+        fi
+    done
+    saved_sprint=$(cat "$continue_dir/sprint.txt") || exit 1
+    if [ "$saved_sprint" != "$sprint" ]; then
+        printf 'Cannot continue Sprint %s from Sprint %s state.\n' "$sprint" "$saved_sprint" >&2
+        exit 2
+    fi
+    prompt=$(cat "$continue_dir/prompt.txt") || exit 1
+fi
+
 if [ -n "$extra_prompt" ]; then
     prompt+="
 
@@ -80,21 +102,45 @@ for command_name in codex-cli tee awk; do
     fi
 done
 
-# release codex threads / chat session
-codex-cli --broker stop
-
-run_dir=$(mktemp -d "${TMPDIR:-/tmp}/sprint-finalize.XXXXXX") || exit 1
+if [ -n "$continue_dir" ]; then
+    run_dir="$continue_dir"
+    log_dir=$(mktemp -d "$run_dir/continue.XXXXXX") || exit 1
+else
+    run_dir=$(mktemp -d "${TMPDIR:-/tmp}/sprint-finalize.XXXXXX") || exit 1
+    log_dir="$run_dir"
+fi
 state_file="$run_dir/thread.json"
+printf '%s\n' "$sprint" > "$run_dir/sprint.txt" || exit 1
+printf '%s\n' "$prompt" > "$run_dir/prompt.txt" || exit 1
 max_attempts=10
 
 next_prompt="$prompt"
 new_chat=(--new)
+if [ -n "$continue_dir" ]; then
+    new_chat=()
+    next_prompt=${retry_template//'${sprint}'/"$sprint"}
+    next_prompt=${next_prompt//'${rc}'/'interrupted run'}
+    next_prompt=${next_prompt//'${prompt}'/"$prompt"}
+fi
 
-printf 'Logs: %s\n' "$run_dir" >&2
+print_resume() {
+    printf '\nResume with: bash %q --sprint %q --continue %q\n' \
+        "$project_root/bin/sprint-finalize.sh" "$sprint" "$run_dir" >&2
+}
+trap 'print_resume; exit 130' INT
+trap 'print_resume; exit 143' TERM
+
+printf 'Logs: %s\n' "$log_dir" >&2
+print_resume
+
+# Release the broker session only for a new chat; continuation uses saved state.
+if [ -z "$continue_dir" ]; then
+    codex-cli --broker stop
+fi
 
 for ((attempt = 1; attempt <= max_attempts; attempt++)); do
-    output_file="$run_dir/attempt-$attempt.txt"
-    answer_file="$run_dir/attempt-$attempt-last-answer.txt"
+    output_file="$log_dir/attempt-$attempt.txt"
+    answer_file="$log_dir/attempt-$attempt-last-answer.txt"
 
     printf '\nAttempt %s/%s\n\n' "$attempt" "$max_attempts" >&2
 
@@ -180,6 +226,7 @@ for ((attempt = 1; attempt <= max_attempts; attempt++)); do
     case "$rc" in
         130|143)
             printf '\nInterrupted. Logs: %s\n' "$run_dir" >&2
+            print_resume
             exit "$rc"
             ;;
     esac

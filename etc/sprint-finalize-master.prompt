@@ -24,7 +24,13 @@ and what remains unverified.
 
 Capture screenshots during major UI interactions as they occur, including key starting
 states, significant user actions and their visible outcomes, and relevant error or
-recovery states. Save legible screenshots in progress/${sprint}/screenshots/ with
+recovery states. Capture the target application window or browser viewport directly,
+rather than the entire monitor or desktop. Frame the relevant application content so
+text, controls and results remain readable in the HTML gallery and handover slides.
+When only monitor capture is available, crop to the application window before using
+the image as evidence; preserve the context needed to understand the interaction.
+Inspect each capture at its intended display size and recapture or reframe it if the
+content is unreadable. Save legible screenshots in progress/${sprint}/screenshots/ with
 descriptive filenames. Keep an evidence index linking each screenshot to the
 interaction, applicable requirement or acceptance criterion, observed result and
 relevant test or execution record. Exclude credentials, tokens and sensitive data from

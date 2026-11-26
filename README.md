@@ -107,11 +107,25 @@ and retry instructions in [etc/sprint-finalize-retry.prompt](etc/sprint-finalize
 Both are plain text: `${sprint}` is replaced with the selected ID; the retry
 template also supports `${rc}` (previous exit status) and `${prompt}` (the full
 original prompt, including extra instructions). Template text is never executed.
-The script always runs from this checkout, stops the existing CLI broker, then
-starts a new chat and resumes its saved state for up to ten attempts. Output and
+The script always runs from this checkout. A new run stops the existing CLI broker,
+then starts a new chat and resumes its saved state for up to ten attempts. Output and
 chat state are retained in a printed temporary directory. Exit status is zero
 only when the CLI succeeds and the marked final answer ends with
 `Sprint status: COMPLETE`; interruption and exhausted attempts return nonzero.
+
+After Ctrl-C, fix the problem and use the printed resume command:
+
+```bash
+bash bin/sprint-finalize.sh --sprint E.17 --continue /path/to/sprint-finalize.XXXXXX \
+  --extra-prompt "The environment error is fixed; retry the failed check."
+```
+
+Pass the original run directory to `--continue`. It reuses the saved thread and
+original instructions, appends any new extra instructions, and retains earlier
+logs. Each continuation gets a separate log subdirectory and up to ten attempts.
+The directory must contain `thread.json`, `sprint.txt` and `prompt.txt` for the
+selected sprint; retain it until the work is complete. Runs created before this
+resume feature lack the required metadata and cannot use this option.
 
 Running it submits the included Product Owner authorization to activate/resume
 the selected sprint in YOLO mode, accept CLI approvals, create sprint companion

@@ -24,12 +24,15 @@ with capture.open("a") as output:
     output.write(json.dumps({"args": args, "cwd": os.getcwd()}) + "\n")
 Path(args[args.index("--state") + 1]).write_text("saved state")
 mode = os.environ["MOCK_MODE"]
+if mode == "signal":
+    import signal
+    os.kill(os.getppid(), signal.SIGINT)
 complete = mode == "retry" and bool(previous)
 print("Sprint status: COMPLETE")  # An interim status must never suffice.
 if mode != "unmarked":
     print("Sprint result:")
     print("Sprint status: COMPLETE" if complete or mode == "error" else "Sprint status: INCOMPLETE")
-sys.exit(130 if mode == "interrupt" else 7 if mode == "error" else 0)
+sys.exit(130 if mode in ("interrupt", "signal") else 7 if mode == "error" else 0)
 '''
 
 
@@ -84,14 +87,63 @@ class SprintFinalizeTest(unittest.TestCase):
                 self.assertEqual(len(calls), 10)
 
     def test_interruption_is_not_retried(self):
-        result, calls = self.run_launcher("interrupt", "--sprint", "E.18")
-        self.assertEqual(result.returncode, 130)
-        self.assertEqual(len(calls), 1)
+        for mode in ("interrupt", "signal"):
+            with self.subTest(mode=mode):
+                result, calls = self.run_launcher(mode, "--sprint", "E.18")
+                self.assertEqual(result.returncode, 130)
+                self.assertEqual(len(calls), 1)
+                self.assertIn("Resume with:", result.stderr)
+
+    def test_continue_after_interruption_preserves_thread_prompt_and_logs(self):
+        with tempfile.TemporaryDirectory(prefix="test-sprint-resume-") as directory:
+            root = Path(directory)
+            cli = root / "codex-cli"
+            cli.write_text(MOCK)
+            cli.chmod(0o755)
+            capture = root / "calls.jsonl"
+            env = dict(os.environ, PATH=directory + os.pathsep + os.environ["PATH"],
+                       CAPTURE=str(capture), MOCK_MODE="signal", TMPDIR=directory)
+
+            def invoke(*args):
+                return subprocess.run(["bash", str(SCRIPT), "--sprint", "E.18", *args],
+                                      cwd=directory, env=env, capture_output=True,
+                                      text=True, timeout=30)
+
+            result = invoke("--extra-prompt", "Preserve original instructions.")
+            self.assertEqual(result.returncode, 130, result.stderr)
+            first = json.loads(capture.read_text().splitlines()[0])["args"]
+            state = first[first.index("--state") + 1]
+            run_dir = Path(state).parent
+            log = (run_dir / "attempt-1.txt").read_bytes()
+            env["MOCK_MODE"] = "retry"
+            result = invoke("--continue", str(run_dir), "--extra-prompt", "Error fixed.")
+            self.assertEqual(result.returncode, 0, result.stderr)
+            calls = [json.loads(line)["args"] for line in capture.read_text().splitlines()]
+            self.assertEqual(len(calls), 2)
+            resumed = calls[1]
+            self.assertNotIn("--new", resumed)
+            self.assertEqual(resumed[resumed.index("--state") + 1], state)
+            prompt = resumed[resumed.index("--prompt") + 1]
+            self.assertIn("Continue and finalize Sprint E.18", prompt)
+            self.assertIn("Preserve original instructions.", prompt)
+            self.assertIn("Error fixed.", prompt)
+            self.assertEqual((run_dir / "attempt-1.txt").read_bytes(), log)
+            self.assertEqual(len(list(run_dir.glob("continue.*/attempt-1.txt"))), 1)
+
+            result = invoke("--continue", str(run_dir), "--sprint", "E.19")
+            self.assertEqual(result.returncode, 2)
+            self.assertIn("Cannot continue Sprint E.19", result.stderr)
+            (run_dir / "thread.json").unlink()
+            result = invoke("--continue", str(run_dir))
+            self.assertEqual(result.returncode, 2)
+            self.assertIn("thread.json", result.stderr)
+            self.assertEqual(len(capture.read_text().splitlines()), 2)
 
     def test_help_and_invalid_arguments_never_launch(self):
         for args, expected in (([], 2), (["--help"], 0), (["--sprint"], 2),
                                (["--extra-prompt", "Check compatibility."], 2),
                                (["--extra-prompt"], 2), (["--unknown"], 2),
+                               (["--continue"], 2),
                                (["--sprint", ""], 2)):
             with self.subTest(args=args):
                 result, calls = self.run_launcher("retry", *args)
