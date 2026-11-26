@@ -1,0 +1,6 @@
+remote: Bypassed rule violations for refs/heads/main:
+remote:
+remote: - Required status check "TrustedOracle" is expected.
+remote:
+To https://github.com/rstyczynski/APEX_CICD_E.15-candidates.git
+   cda16b7..22e5544  main -> main

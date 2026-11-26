@@ -1,0 +1,346 @@
+{
+  "a": {
+    "total_count": 2,
+    "jobs": [
+      {
+        "id": 139793206972,
+        "run_id": 45786123022,
+        "workflow_name": "Oracle companion-0a2872bda11b4d7ac08f45ac",
+        "head_branch": "main",
+        "run_url": "https://api.github.com/repos/rstyczynski/APEX_CICD_E.15/actions/runs/45786123022",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOV8nRVM8AAAAgjFMOvA",
+        "head_sha": "f98403720cd8c6fa49cba9a019590c08767db648",
+        "url": "https://api.github.com/repos/rstyczynski/APEX_CICD_E.15/actions/jobs/139793206972",
+        "html_url": "https://github.com/rstyczynski/APEX_CICD_E.15/actions/runs/45786123022/job/139793206972",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "created_at": "2026-11-26T08:47:19Z",
+        "started_at": "2026-11-26T08:47:21Z",
+        "completed_at": "2026-11-26T08:48:59Z",
+        "name": "Oracle candidate",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-11-26T08:47:22Z",
+            "completed_at": "2026-11-26T08:47:22Z"
+          },
+          {
+            "name": "Initialize containers",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-11-26T08:47:22Z",
+            "completed_at": "2026-11-26T08:48:30Z"
+          },
+          {
+            "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-11-26T08:48:30Z",
+            "completed_at": "2026-11-26T08:48:31Z"
+          },
+          {
+            "name": "Initialize private sentinel",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4,
+            "started_at": "2026-11-26T08:48:31Z",
+            "completed_at": "2026-11-26T08:48:31Z"
+          },
+          {
+            "name": "Challenge publication authority",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5,
+            "started_at": "2026-11-26T08:48:31Z",
+            "completed_at": "2026-11-26T08:48:31Z"
+          },
+          {
+            "name": "Bind companion candidate as data",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6,
+            "started_at": "2026-11-26T08:48:31Z",
+            "completed_at": "2026-11-26T08:48:32Z"
+          },
+          {
+            "name": "Obtain candidate SQL as data",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 7,
+            "started_at": "2026-11-26T08:48:32Z",
+            "completed_at": "2026-11-26T08:48:32Z"
+          },
+          {
+            "name": "Verify trusted Review matches candidate bytes",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8,
+            "started_at": "2026-11-26T08:48:32Z",
+            "completed_at": "2026-11-26T08:48:33Z"
+          },
+          {
+            "name": "Install Oracle driver",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9,
+            "started_at": "2026-11-26T08:48:33Z",
+            "completed_at": "2026-11-26T08:48:34Z"
+          },
+          {
+            "name": "Execute bounded application-user SQL",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10,
+            "started_at": "2026-11-26T08:48:34Z",
+            "completed_at": "2026-11-26T08:48:34Z"
+          },
+          {
+            "name": "Inspection interval",
+            "status": "completed",
+            "conclusion": "cancelled",
+            "number": 11,
+            "started_at": "2026-11-26T08:48:34Z",
+            "completed_at": "2026-11-26T08:48:57Z"
+          },
+          {
+            "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 21,
+            "started_at": "2026-11-26T08:48:57Z",
+            "completed_at": "2026-11-26T08:48:57Z"
+          },
+          {
+            "name": "Stop containers",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 22,
+            "started_at": "2026-11-26T08:48:57Z",
+            "completed_at": "2026-11-26T08:48:58Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 23,
+            "started_at": "2026-11-26T08:48:58Z",
+            "completed_at": "2026-11-26T08:48:58Z"
+          }
+        ],
+        "check_run_url": "https://api.github.com/repos/rstyczynski/APEX_CICD_E.15/check-runs/139793206972",
+        "labels": [
+          "ubuntu-24.04"
+        ],
+        "runner_id": 1000014295,
+        "runner_name": "GitHub Actions 1000014295",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+      },
+      {
+        "id": 139794015558,
+        "run_id": 45786123022,
+        "workflow_name": "Oracle companion-0a2872bda11b4d7ac08f45ac",
+        "head_branch": "main",
+        "run_url": "https://api.github.com/repos/rstyczynski/APEX_CICD_E.15/actions/runs/45786123022",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOV8nRVM8AAAAgjF9lRg",
+        "head_sha": "f98403720cd8c6fa49cba9a019590c08767db648",
+        "url": "https://api.github.com/repos/rstyczynski/APEX_CICD_E.15/actions/jobs/139794015558",
+        "html_url": "https://github.com/rstyczynski/APEX_CICD_E.15/actions/runs/45786123022/job/139794015558",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "created_at": "2026-11-26T08:49:00Z",
+        "started_at": "2026-11-26T08:49:00Z",
+        "completed_at": "2026-11-26T08:48:59Z",
+        "name": "Trusted publisher",
+        "steps": [],
+        "check_run_url": "https://api.github.com/repos/rstyczynski/APEX_CICD_E.15/check-runs/139794015558",
+        "labels": [
+          "ubuntu-24.04"
+        ],
+        "runner_id": null,
+        "runner_name": null,
+        "runner_group_id": null,
+        "runner_group_name": null
+      }
+    ]
+  },
+  "b": {
+    "total_count": 2,
+    "jobs": [
+      {
+        "id": 139793216204,
+        "run_id": 45786126623,
+        "workflow_name": "Oracle companion-797cdd06c9b4758f71bc140d",
+        "head_branch": "main",
+        "run_url": "https://api.github.com/repos/rstyczynski/APEX_CICD_E.15/actions/runs/45786126623",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOV8nRVM8AAAAgjFMyzA",
+        "head_sha": "f98403720cd8c6fa49cba9a019590c08767db648",
+        "url": "https://api.github.com/repos/rstyczynski/APEX_CICD_E.15/actions/jobs/139793216204",
+        "html_url": "https://github.com/rstyczynski/APEX_CICD_E.15/actions/runs/45786126623/job/139793216204",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-11-26T08:47:20Z",
+        "started_at": "2026-11-26T08:47:22Z",
+        "completed_at": "2026-11-26T08:49:40Z",
+        "name": "Oracle candidate",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-11-26T08:47:23Z",
+            "completed_at": "2026-11-26T08:47:25Z"
+          },
+          {
+            "name": "Initialize containers",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-11-26T08:47:25Z",
+            "completed_at": "2026-11-26T08:48:27Z"
+          },
+          {
+            "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-11-26T08:48:27Z",
+            "completed_at": "2026-11-26T08:48:31Z"
+          },
+          {
+            "name": "Initialize private sentinel",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4,
+            "started_at": "2026-11-26T08:48:31Z",
+            "completed_at": "2026-11-26T08:48:32Z"
+          },
+          {
+            "name": "Challenge publication authority",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5,
+            "started_at": "2026-11-26T08:48:32Z",
+            "completed_at": "2026-11-26T08:48:34Z"
+          },
+          {
+            "name": "Bind companion candidate as data",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6,
+            "started_at": "2026-11-26T08:48:34Z",
+            "completed_at": "2026-11-26T08:48:34Z"
+          },
+          {
+            "name": "Obtain candidate SQL as data",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 7,
+            "started_at": "2026-11-26T08:48:34Z",
+            "completed_at": "2026-11-26T08:48:34Z"
+          },
+          {
+            "name": "Verify trusted Review matches candidate bytes",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8,
+            "started_at": "2026-11-26T08:48:34Z",
+            "completed_at": "2026-11-26T08:48:35Z"
+          },
+          {
+            "name": "Install Oracle driver",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9,
+            "started_at": "2026-11-26T08:48:35Z",
+            "completed_at": "2026-11-26T08:48:38Z"
+          },
+          {
+            "name": "Execute bounded application-user SQL",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10,
+            "started_at": "2026-11-26T08:48:38Z",
+            "completed_at": "2026-11-26T08:48:39Z"
+          },
+          {
+            "name": "Inspection interval",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11,
+            "started_at": "2026-11-26T08:48:39Z",
+            "completed_at": "2026-11-26T08:49:39Z"
+          },
+          {
+            "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 21,
+            "started_at": "2026-11-26T08:49:39Z",
+            "completed_at": "2026-11-26T08:49:39Z"
+          },
+          {
+            "name": "Stop containers",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 22,
+            "started_at": "2026-11-26T08:49:39Z",
+            "completed_at": "2026-11-26T08:49:39Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 23,
+            "started_at": "2026-11-26T08:49:39Z",
+            "completed_at": "2026-11-26T08:49:39Z"
+          }
+        ],
+        "check_run_url": "https://api.github.com/repos/rstyczynski/APEX_CICD_E.15/check-runs/139793216204",
+        "labels": [
+          "ubuntu-24.04"
+        ],
+        "runner_id": 1000014296,
+        "runner_name": "GitHub Actions 1000014296",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+      },
+      {
+        "id": 139794337870,
+        "run_id": 45786126623,
+        "workflow_name": "Oracle companion-797cdd06c9b4758f71bc140d",
+        "head_branch": "main",
+        "run_url": "https://api.github.com/repos/rstyczynski/APEX_CICD_E.15/actions/runs/45786126623",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOV8nRVM8AAAAgjGRQTg",
+        "head_sha": "f98403720cd8c6fa49cba9a019590c08767db648",
+        "url": "https://api.github.com/repos/rstyczynski/APEX_CICD_E.15/actions/jobs/139794337870",
+        "html_url": "https://github.com/rstyczynski/APEX_CICD_E.15/actions/runs/45786126623/job/139794337870",
+        "status": "completed",
+        "conclusion": "skipped",
+        "created_at": "2026-11-26T08:49:41Z",
+        "started_at": "2026-11-26T08:49:41Z",
+        "completed_at": "2026-11-26T08:49:40Z",
+        "name": "Trusted publisher",
+        "steps": [],
+        "check_run_url": "https://api.github.com/repos/rstyczynski/APEX_CICD_E.15/check-runs/139794337870",
+        "labels": [
+          "ubuntu-24.04"
+        ],
+        "runner_id": null,
+        "runner_name": null,
+        "runner_group_id": null,
+        "runner_group_name": null
+      }
+    ]
+  }
+}

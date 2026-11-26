@@ -1,22 +1,25 @@
-# E.15 sanitized Oracle candidate experiment
+# E.15 trusted Oracle validator
 
-The trusted pull_request_target workflow selects base-owned validation code and
-retrieves only candidate.sql from the immutable event head. Oracle executes the
-SQL as a disposable application user. No retained laboratory credentials or
-production application source are included.
+Candidate SQL and ordinary pull requests live in
+rstyczynski/APEX_CICD_E.15-candidates with GitHub Actions disabled. Only the
+trusted operator has target-repository write access in this bounded experiment.
+Candidate source is data; it receives no trusted operator credential.
 
-PR 4 completed real Oracle Testing, byte-bound Review, separate code-owner
-approval and ordinary protected merge at 8ee003ad9f45ae62d5fe0d1a0bb389e311c1b27a.
-Native protection is enabled, including administrator enforcement, strict
-Integrated checking, code-owner approval and stale-review dismissal.
+This repository supplies the trusted Oracle workflow, exact-byte Review report
+and Python/GitHub CLI controller. The controller checks current candidate
+head/base, trusted policy commit, report identity, correlated real run and
+actual job provenance before publishing TrustedOracle or requesting ordinary
+protected merge. Pending, cancelled, failed or stale evidence cannot pass.
 
-The integrated isolation criterion remains unresolved. A candidate-owned
-workflow requesting write permissions cancelled another run in this repository.
-Code-owner approval protects merge authority but does not prevent that API
-interference. The positive merge is not full E.15 acceptance. A proposed
-separate candidate authority boundary still requires authorization and real
-validation. Do not merge the negative fixtures or declare the sprint complete.
+The original same-repository design allowed workflow check spoofing and
+cross-run cancellation. The companion boundary replaced that design. Actual
+stale base/head/report and peer-evidence refusals, live Oracle cleanup with an
+unaffected peer, recovery and ordinary protected merge are recorded in the
+APEX_CICD progress repository. A harmless disabled companion dispatch remains
+zero-job metadata; it allocated no runtime and is not an Oracle resource leak.
 
-The APEX_CICD progress repository owns the requirement checklist, exact logs,
-regression results, operating walkthrough and lifecycle state. This README is
-an orientation, not a replacement for that evidence.
+Use `python3 controller.py --help` for the validate/publish/merge interface.
+The optional --pause creates a bounded inspection interval for the live cleanup
+exercise. The published walkthrough in APEX_CICD owns complete staged inputs,
+operating steps, verification limits and sprint lifecycle status. This is an
+Elaboration experiment, not production multi-user IAM or native release delivery.

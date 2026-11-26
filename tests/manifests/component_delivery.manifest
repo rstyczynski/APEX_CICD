@@ -52,3 +52,4 @@ integration:test_foundation.sh:test_windows_integration
 smoke:test_hosted.sh:test_hosted_source
 unit:test_hosted.sh:test_hosted_input
 integration:test_hosted.sh:test_hosted_oracle
+unit:test_hosted.sh:test_hosted_receipt

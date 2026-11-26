@@ -1,0 +1,192 @@
+E.15 final pre-completion audit 2026-11-26T10:13:26.984953+00:00
+
+All six gate log hashes and zero-failure counts verified.
+
+253 frozen regression sources and four qualified component files match.
+
+Final 25-slide presentation hash and retained package/import checks match.
+
+$ gh api repos/rstyczynski/APEX_CICD_E.15-candidates/actions/permissions --jq .enabled
+false
+
+$ gh api repos/rstyczynski/APEX_CICD_E.15-candidates/branches/main/protection --jq .enforce_admins.enabled and .required_status_checks.strict
+true
+
+Only E.15/PBI-083 transition to Done; E.16–E.18 remain Planned; no next sprint activated.
+
+$ python3 /tmp/e15-doc-check.py
+Checked 176 local links/anchors; errors 0
+
+$ git diff --check
+
+$ git fetch origin main
+From https://github.com/rstyczynski/APEX_CICD
+ * branch            main       -> FETCH_HEAD
+
+$ git merge-base --is-ancestor origin/main HEAD
+
+$ git status --porcelain
+M  BACKLOG.md
+M  PLAN.md
+M  PROGRESS_BOARD.md
+M  README.md
+M  docs/architecture.md
+M  docs/srs.md
+M  docs/test-profile.md
+M  progress/E.15/new_tests.manifest
+M  progress/E.15/sprint_E.15_blockers.md
+A  progress/E.15/sprint_E.15_bugs.md
+M  progress/E.15/sprint_E.15_checklist.md
+A  progress/E.15/sprint_E.15_closure.md
+A  progress/E.15/sprint_E.15_delivery_report.md
+M  progress/E.15/sprint_E.15_design.md
+M  progress/E.15/sprint_E.15_documentation.md
+MM progress/E.15/sprint_E.15_documentation_audit.md
+M  progress/E.15/sprint_E.15_handover.md
+M  progress/E.15/sprint_E.15_implementation.md
+M  progress/E.15/sprint_E.15_increment_demo.md
+M  progress/E.15/sprint_E.15_increment_demo.pptx
+A  progress/E.15/sprint_E.15_publication.md
+M  progress/E.15/sprint_E.15_scope_audit.md
+M  progress/E.15/sprint_E.15_setup.md
+M  progress/E.15/sprint_E.15_tests.md
+A  progress/E.15/test_run_A1_smoke_20261126_085433.log
+A  progress/E.15/test_run_A2_unit_20261126_085433.log
+A  progress/E.15/test_run_A3_integration_20261126_085607.log
+A  progress/E.15/test_run_B1_smoke_20261126_090232.log
+A  progress/E.15/test_run_B2_unit_20261126_090241.log
+A  progress/E.15/test_run_B3_integration_20261126_085730.log
+A  progress/E.15/tests/all-workflow-syntax.log
+A  progress/E.15/tests/candidate-journey.bundle
+AM progress/E.15/tests/clean-validator-clone.log
+A  progress/E.15/tests/companion-accepted-controller.log
+A  progress/E.15/tests/companion-accepted-receipt.json
+A  progress/E.15/tests/companion-accepted-receipt.log
+A  progress/E.15/tests/companion-active-cancel-controller.log
+A  progress/E.15/tests/companion-active-cancel-observed.json
+A  progress/E.15/tests/companion-active-cancel-receipt.json
+A  progress/E.15/tests/companion-authority-dispatch.txt
+A  progress/E.15/tests/companion-base-maintenance.log
+A  progress/E.15/tests/companion-cancelled-cleanup.log
+A  progress/E.15/tests/companion-cancelled-merge-refusal.txt
+A  progress/E.15/tests/companion-cancelled-run.json
+A  progress/E.15/tests/companion-cancelled-status.json
+A  progress/E.15/tests/companion-cleanup-both-live.json
+A  progress/E.15/tests/companion-cleanup-final-a-controller.log
+A  progress/E.15/tests/companion-cleanup-final-a.json
+A  progress/E.15/tests/companion-cleanup-final-b-controller.log
+A  progress/E.15/tests/companion-cleanup-final-b.json
+A  progress/E.15/tests/companion-cleanup-final-b.log
+A  progress/E.15/tests/companion-cleanup-final-results.json
+A  progress/E.15/tests/companion-cleanup-peer-controller.log
+A  progress/E.15/tests/companion-cleanup-peer-receipt.json
+A  progress/E.15/tests/companion-cleanup-peer-receipt.log
+A  progress/E.15/tests/companion-cross-candidate-receipt.json
+A  progress/E.15/tests/companion-cross-evidence-merge-refusal.txt
+A  progress/E.15/tests/companion-cross-evidence-refusal.txt
+A  progress/E.15/tests/companion-disabled-observation-later.json
+A  progress/E.15/tests/companion-disabled-observation.json
+A  progress/E.15/tests/companion-disabled-peer-complete.json
+A  progress/E.15/tests/companion-disabled-record-cleanup.txt
+A  progress/E.15/tests/companion-disabled-terminal.json
+A  progress/E.15/tests/companion-disabled-through-peer.json
+A  progress/E.15/tests/companion-dispatch-refusal.txt
+A  progress/E.15/tests/companion-final-actions.json
+A  progress/E.15/tests/companion-final-protection.json
+A  progress/E.15/tests/companion-first-controller.log
+A  progress/E.15/tests/companion-first-receipt.json
+A  progress/E.15/tests/companion-force-cancel.txt
+A  progress/E.15/tests/companion-independent-controller.log
+A  progress/E.15/tests/companion-independent-receipt.json
+A  progress/E.15/tests/companion-independent-receipt.log
+A  progress/E.15/tests/companion-live-cancel-merge-refusal.txt
+A  progress/E.15/tests/companion-live-oracle-cleanup.log
+A  progress/E.15/tests/companion-ordinary-merge.json
+A  progress/E.15/tests/companion-peer-current-controller.log
+A  progress/E.15/tests/companion-peer-current-receipt.json
+A  progress/E.15/tests/companion-peer-current-receipt.log
+A  progress/E.15/tests/companion-prs-before-rehearsal.json
+A  progress/E.15/tests/companion-publication-authority.json
+A  progress/E.15/tests/companion-publication-authority.log
+A  progress/E.15/tests/companion-queued-cleanup.txt
+A  progress/E.15/tests/companion-run-count.txt
+A  progress/E.15/tests/companion-stale-base-controller.txt
+A  progress/E.15/tests/companion-stale-base-merge.txt
+A  progress/E.15/tests/companion-stale-base-state.json
+A  progress/E.15/tests/companion-stale-head-controller.txt
+A  progress/E.15/tests/companion-stale-head-merge.txt
+A  progress/E.15/tests/companion-stale-report-controller.txt
+A  progress/E.15/tests/companion-stale-report-merge.txt
+A  progress/E.15/tests/companion-writer-identities.json
+A  progress/E.15/tests/controller-help.txt
+M  progress/E.15/tests/document-links.log
+M  progress/E.15/tests/fork-self-attempt.txt
+A  progress/E.15/tests/historical-regression-evidence.tar.gz
+A  progress/E.15/tests/historical-regression-inventory.json
+A  progress/E.15/tests/live-companion-controller.log
+A  progress/E.15/tests/live-companion-diff.patch
+A  progress/E.15/tests/live-companion-merge.json
+A  progress/E.15/tests/live-companion-receipt.json
+A  progress/E.15/tests/live-companion-receipt.log
+A  progress/E.15/tests/new-integration-qualified.log
+A  progress/E.15/tests/new-integration-retry.log
+A  progress/E.15/tests/new-smoke-current.log
+A  progress/E.15/tests/new-smoke-qualified.log
+A  progress/E.15/tests/new-unit-current.log
+A  progress/E.15/tests/new-unit-qualified.log
+M  progress/E.15/tests/presentation-contact.png
+M  progress/E.15/tests/presentation-validation.json
+A  progress/E.15/tests/presentation-visual-review.json
+A  progress/E.15/tests/qualified-component-source.json
+A  progress/E.15/tests/qualified-core-source-diff.log
+A  progress/E.15/tests/qualified-source-verification.json
+A  progress/E.15/tests/qualified-validator.bundle
+A  progress/E.15/tests/quality-gates.json
+A  progress/E.15/tests/raw/all-workflow-syntax.log.gz
+A  progress/E.15/tests/raw/companion-base-maintenance.log.gz
+A  progress/E.15/tests/raw/companion-cancelled-cleanup.log.gz
+A  progress/E.15/tests/raw/companion-live-oracle-cleanup.log.gz
+A  progress/E.15/tests/raw/companion-publication-authority.log.gz
+A  progress/E.15/tests/raw/fork-self-attempt.txt.gz
+A  progress/E.15/tests/raw/new-integration-qualified.log.gz
+A  progress/E.15/tests/raw/new-smoke-qualified.log.gz
+A  progress/E.15/tests/raw/new-unit-qualified.log.gz
+A  progress/E.15/tests/raw/qualified-core-source-diff.log.gz
+A  progress/E.15/tests/raw/regression-integration-qualified.log.gz
+A  progress/E.15/tests/raw/regression-smoke-qualified.log.gz
+A  progress/E.15/tests/raw/regression-unit-qualified.log.gz
+A  progress/E.15/tests/raw/rehearsal-baseline-preparation.log.gz
+M  progress/E.15/tests/regression-integration-final.log
+A  progress/E.15/tests/regression-integration-qualified.log
+A  progress/E.15/tests/regression-smoke-current.log
+A  progress/E.15/tests/regression-smoke-qualified.log
+A  progress/E.15/tests/regression-unit-current.log
+A  progress/E.15/tests/regression-unit-qualified.log
+A  progress/E.15/tests/rehearsal-baseline-preparation.log
+A  progress/E.15/tests/walkthrough-shell-syntax.log
+M  progress/E.15/user_manual.md
+A  progress/backlog/PBI-083/sprint_E.15_blockers.md
+A  progress/backlog/PBI-083/sprint_E.15_bugs.md
+A  progress/backlog/PBI-083/sprint_E.15_closure.md
+A  progress/backlog/PBI-083/sprint_E.15_delivery_report.md
+A  progress/backlog/PBI-083/sprint_E.15_documentation_audit.md
+A  progress/backlog/PBI-083/sprint_E.15_handover.md
+A  progress/backlog/PBI-083/sprint_E.15_increment_demo.md
+A  progress/backlog/PBI-083/sprint_E.15_publication.md
+A  progress/backlog/PBI-083/sprint_E.15_scope_audit.md
+A  progress/backlog/PBI-083/user_manual.md
+A  sprint-work/E.15/.github/workflows/authority.yml
+M  sprint-work/E.15/.github/workflows/testing.yml
+M  sprint-work/E.15/README.md
+A  sprint-work/E.15/controller.py
+M  tests/hosted_oracle.py
+M  tests/manifests/component_delivery.manifest
+M  tests/smoke/test_hosted.sh
+M  tests/unit/test_hosted.sh
+?? progress/E.15/tests/raw/clean-validator-clone.log.gz
+
+$ git add -- BACKLOG.md PLAN.md PROGRESS_BOARD.md README.md docs/srs.md docs/architecture.md docs/test-profile.md progress/E.15 progress/backlog/PBI-083 sprint-work/E.15 tests/hosted_oracle.py tests/smoke/test_hosted.sh tests/unit/test_hosted.sh tests/integration/test_hosted.sh tests/manifests/component_delivery.manifest
+
+$ git diff --cached --check
+
+All required pre-completion checks above passed. No test sources changed after the qualified run.

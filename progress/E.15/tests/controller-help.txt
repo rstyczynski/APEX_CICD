@@ -1,0 +1,10 @@
+usage: controller.py [-h] [--pause] {validate,publish,merge} pr receipt
+
+positional arguments:
+  {validate,publish,merge}
+  pr
+  receipt
+
+options:
+  -h, --help            show this help message and exit
+  --pause

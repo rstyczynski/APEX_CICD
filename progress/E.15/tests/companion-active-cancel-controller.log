@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/sprint-work/E.15/controller.py", line 90, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/Users/rstyczynski/projects/APEX_CICD/sprint-work/E.15/controller.py", line 83, in main
+    if args.action=='validate':validate(args.pr,args.receipt,args.pause);return
+                               ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/sprint-work/E.15/controller.py", line 69, in validate
+    log=validate_receipt(receipt)
+  File "/Users/rstyczynski/projects/APEX_CICD/sprint-work/E.15/controller.py", line 41, in validate_receipt
+    assert run['status']=='completed' and run['conclusion']=='success', 'mandatory run not successful'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: mandatory run not successful

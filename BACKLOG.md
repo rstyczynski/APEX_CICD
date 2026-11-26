@@ -630,7 +630,7 @@ Validate the combined candidate-testing, review and isolated-execution journey o
 
 Test: Demonstrate an accepted candidate reaching ordinary merge, with stale evidence, unauthorized publication, cross-candidate access and interrupted cleanup unable to authorize an invalid merge or damage another run.
 
-Status: Proposed
+Status: Done
 
 ### PBI-084. Validate provenance through native Oracle release delivery
 

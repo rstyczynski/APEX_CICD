@@ -1,0 +1,45 @@
+﻿2026-11-26T09:00:31.8182245Z Current runner version: '2.338.2'
+2026-11-26T09:00:31.8206399Z ##[group]Runner Image Provisioner
+2026-11-26T09:00:31.8207174Z Hosted Compute Agent
+2026-11-26T09:00:31.8207685Z Version: 20261111.635
+2026-11-26T09:00:31.8208266Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-26T09:00:31.8208915Z Build Date: 2026-11-11T01:49:01Z
+2026-11-26T09:00:31.8209480Z Worker ID: {dbb618e9-b896-473b-9a31-08431e96a67e}
+2026-11-26T09:00:31.8210095Z Region: eastus2
+2026-11-26T09:00:31.8210642Z Cloud: Azure
+2026-11-26T09:00:31.8211225Z ##[endgroup]
+2026-11-26T09:00:31.8212492Z ##[group]Operating System
+2026-11-26T09:00:31.8213030Z Ubuntu
+2026-11-26T09:00:31.8213464Z 24.04.5
+2026-11-26T09:00:31.8213983Z LTS
+2026-11-26T09:00:31.8214452Z ##[endgroup]
+2026-11-26T09:00:31.8214936Z ##[group]Runner Image
+2026-11-26T09:00:31.8215460Z Image: ubuntu-24.04
+2026-11-26T09:00:31.8216131Z Version: 20261116.376.1
+2026-11-26T09:00:31.8217245Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261116.376/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-26T09:00:31.8218541Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261116.376
+2026-11-26T09:00:31.8219350Z ##[endgroup]
+2026-11-26T09:00:31.8220312Z ##[group]GITHUB_TOKEN Permissions
+2026-11-26T09:00:31.8222659Z Contents: read
+2026-11-26T09:00:31.8223239Z Metadata: read
+2026-11-26T09:00:31.8223815Z ##[endgroup]
+2026-11-26T09:00:31.8225956Z Secret source: Actions
+2026-11-26T09:00:31.8226805Z Cache mode: write
+2026-11-26T09:00:31.8227648Z Prepare workflow directory
+2026-11-26T09:00:31.8504570Z Prepare all required actions
+2026-11-26T09:00:31.8590970Z Complete job name: authority
+2026-11-26T09:00:31.9519813Z ##[group]Run SOURCE_HEAD=$(gh api repos/rstyczynski/APEX_CICD_E.15-candidates/commits/main --jq .sha)
+2026-11-26T09:00:31.9521169Z [36;1mSOURCE_HEAD=$(gh api repos/rstyczynski/APEX_CICD_E.15-candidates/commits/main --jq .sha)[0m
+2026-11-26T09:00:31.9522660Z [36;1mif gh api --method POST "repos/rstyczynski/APEX_CICD_E.15-candidates/statuses/$SOURCE_HEAD" -f context=UnauthorizedProbe -f state=success > authority.log 2>&1; then[0m
+2026-11-26T09:00:31.9524141Z [36;1m  echo 'Unexpected cross-repository publication authority'; exit 1[0m
+2026-11-26T09:00:31.9524865Z [36;1mfi[0m
+2026-11-26T09:00:31.9525442Z [36;1mcat authority.log[0m
+2026-11-26T09:00:31.9526137Z [36;1mgrep -q 'HTTP 403' authority.log[0m
+2026-11-26T09:00:31.9526956Z [36;1mecho 'PASS unprivileged hosted token cannot publish companion evidence'[0m
+2026-11-26T09:00:31.9741136Z shell: /usr/bin/bash -e {0}
+2026-11-26T09:00:31.9742064Z env:
+2026-11-26T09:00:31.9745621Z   GH_TOKEN: ***
+2026-11-26T09:00:31.9746307Z ##[endgroup]
+2026-11-26T09:00:32.8385260Z {"message":"Resource not accessible by integration","documentation_url":"https://docs.github.com/rest/commits/statuses#create-a-commit-status","status":"403"}gh: Resource not accessible by integration (HTTP 403)
+2026-11-26T09:00:32.8388589Z PASS unprivileged hosted token cannot publish companion evidence
+2026-11-26T09:00:32.8547475Z Cleaning up orphan processes

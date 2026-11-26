@@ -1,0 +1,7 @@
+RUN unit:test_hosted.sh:test_hosted_input
+PASS bounded SQL input contract; no Oracle execution claimed
+PASS test_hosted_input
+RUN unit:test_hosted.sh:test_hosted_receipt
+PASS receipt binding contract only; actual GitHub/Oracle evidence is separate
+PASS test_hosted_receipt
+Tests: 2; failed: 0

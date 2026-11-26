@@ -1,0 +1,12 @@
+{
+  "qualified_commit": "f98403720cd8c6fa49cba9a019590c08767db648",
+  "later_core_byte_identical": true,
+  "sha256": {
+    "controller.py": "c863c10fb977729fd2f0a722431c0ea0538dae48cf1e41fae44dc09640384f18",
+    "validate.py": "06ec35ee23669929df35476d83b717f2ade39b82ff4443607b2f2e3af7507b33",
+    "review.json": "057d4a77aa26468039197bd0a46c0b97573e243cd2a36628589ab7e6ba43d2a3",
+    ".github/workflows/testing.yml": "6748c3642d5455f7b13aa4f2d8059484889bed82af2bba7418b1a46838770a54"
+  },
+  "authority_probe_commit": "3f76037",
+  "authority_run": 45787993514
+}

@@ -1,6 +1,6 @@
 # Oracle APEX CI/CD Laboratory
 
-**E.15 is active.** The [walkthrough and presentation](progress/E.15/sprint_E.15_increment_demo.md) show the real hosted Oracle candidate and ordinary protected merge. The [acceptance checklist](progress/E.15/sprint_E.15_checklist.md) and [remaining-requirement audit](progress/E.15/sprint_E.15_blockers.md) keep the unresolved cross-run authority failure visible. The sprint remains open.
+**Sprint E.15 is closed.** The [walkthrough and presentation](progress/E.15/sprint_E.15_increment_demo.md) demonstrate real hosted Oracle validation and ordinary protected merge. The [acceptance checklist](progress/E.15/sprint_E.15_checklist.md) and [closure record](progress/E.15/sprint_E.15_closure.md) trace the verified outcomes and configured trust-boundary limits.
 
 E.3 accepted and closed on 2026-11-09. Historical correction:  [native release implementation and evidence](progress/E.3/sprint_E.3_release_correction.md), [final Oracle lifecycle gap reassessment](progress/E.3/sprint_E.3_final_gap_analysis.md) and [current walkthrough/presentation](progress/E.3/sprint_E.3_increment_demo.md). The paper is E.3's authoritative lifecycle reference. The corrected local seed includes native release preparation before tag/package; historical remote runs remain separately attributed.
 
@@ -24,7 +24,7 @@ E.2 evaluates optional tool compatibility against this aim in its
 
 An executable delivery example for Oracle APEX and Oracle Database. A small Foundation/Hello/World application makes the important operations visible: capture source, review it in Git, build one release, validate it in integration testing, promote the same artifact to UAT and preserve application data through an upgrade.
 
-The prototype runs on one Podman host using supported Oracle automation interfaces and small Bash/Python scripts. The source is public at [rstyczynski/APEX_CICD](https://github.com/rstyczynski/APEX_CICD). E.15 adds a bounded hosted GitHub/Oracle experiment; complete hosted trust-boundary acceptance and production operation remain unfinished.
+The prototype runs on one Podman host using supported Oracle automation interfaces and small Bash/Python scripts. The source is public at [rstyczynski/APEX_CICD](https://github.com/rstyczynski/APEX_CICD). E.15 adds a bounded hosted GitHub/Oracle experiment; its assigned hosted experiment is verified; production qualification remains future work.
 
 ## Laboratory design validation — Elaboration
 
@@ -299,6 +299,10 @@ E.14 is closed and its progress is published to origin/main. The [closure record
 
 E.14 is Done for PBI-050 and PBI-080 following explicit Product Owner finalization on 2026-11-26. All six gates pass (new 1/1/1; regression 13/14/23, with one recovered infrastructure retry). The [closure record](progress/E.14/sprint_E.14_closure.md) records completed phases and remaining production/milestone boundaries.
 
-## E.15 hosted validation in progress
+## Recent Updates
 
-The [E.15 checklist](progress/E.15/sprint_E.15_checklist.md) tracks PBI-083 acceptance, and the [draft walkthrough](progress/E.15/sprint_E.15_increment_demo.md) explains the current hosted Oracle experiment and its limits. A real Oracle candidate completed ordinary protected merge; a cross-candidate cancellation defect remains unresolved, so overall sprint acceptance remains open. This work does not change production requirements or qualify native SQLcl release delivery.
+### Sprint E.15 — Integrated GitHub and Oracle execution
+
+PBI-083 is Done. Candidate Actions is disabled in the authorized companion repository; trusted validation executes immutable SQL against real Oracle and binds Review and Testing to current provenance before ordinary merge. Stale evidence, unauthorized publication, substituted peer evidence and interrupted cleanup were challenged with actual native and Oracle observations. All six gates passed: 1/1, 2/2, 1/1 new-code tests and 14/14, 16/16, 24/24 full regression tests.
+
+The [walkthrough](progress/E.15/sprint_E.15_increment_demo.md), [implementation](progress/E.15/sprint_E.15_implementation.md), [tests](progress/E.15/sprint_E.15_tests.md), [design](progress/E.15/sprint_E.15_design.md) and [closure](progress/E.15/sprint_E.15_closure.md) preserve the demonstrated behavior, earlier failures and explicit limits. Native SQLcl release delivery, independent-host reproduction and capacity work remain assigned to E.16–E.18; no later sprint is activated.

@@ -14,8 +14,11 @@ while time.monotonic()<deadline:
   r=matches[0];print(r['html_url'],r['head_sha'],r['conclusion'],flush=True)
   assert r['conclusion']=='success',r['conclusion']
   jobs=json.loads(gh('api',r['jobs_url']))['jobs']
-  assert len(jobs)==1 and jobs[0]['conclusion']=='success'
-  log=gh('api',f'repos/{repo}/actions/jobs/{jobs[0]["id"]}/logs')
+  oracle=[j for j in jobs if j['name']=='Oracle candidate']
+  assert len(oracle)==1 and oracle[0]['conclusion']=='success'
+  assert all(j['name'] in ('Oracle candidate','Trusted publisher') for j in jobs)
+  assert all(j['conclusion'] in ('success','skipped') for j in jobs)
+  log=gh('api',f'repos/{repo}/actions/jobs/{oracle[0]["id"]}/logs')
   assert 'PASS real Oracle greeting' in log and 'HTTP 403' in log and 'Table created.' in log
   print('PASS new hosted Oracle run; real sentinel denial and publication HTTP 403',flush=True)
   break

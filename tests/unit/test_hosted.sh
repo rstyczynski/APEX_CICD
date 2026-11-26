@@ -20,3 +20,22 @@ with tempfile.TemporaryDirectory() as td:
 print('PASS bounded SQL input contract; no Oracle execution claimed')
 PY
 }
+
+test_hosted_receipt() {
+  python3 - <<'PYCODE'
+import importlib.util
+spec=importlib.util.spec_from_file_location('controller','sprint-work/E.15/controller.py')
+m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+identity=dict(pr=1,head='a'*40,base='b'*40,trusted='c'*40,report_sha256='d'*64)
+m.plan=lambda pr: identity.copy()
+def unexpected(path):
+ raise AssertionError('unbound receipt reached remote run lookup')
+m.api=unexpected
+for field in ('head','base','trusted','report_sha256'):
+ receipt={**identity,'correlation':'different','run_id':1};receipt[field]='wrong'
+ try:m.validate_receipt(receipt)
+ except AssertionError as e:assert str(e)=='stale provenance', str(e)
+ else:raise AssertionError('changed receipt accepted: '+field)
+print('PASS receipt binding contract only; actual GitHub/Oracle evidence is separate')
+PYCODE
+}

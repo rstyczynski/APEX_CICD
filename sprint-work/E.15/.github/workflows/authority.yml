@@ -1,0 +1,20 @@
+name: Companion publication authority check
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  authority:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - name: Read-only validation token cannot publish companion status
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          SOURCE_HEAD=$(gh api repos/rstyczynski/APEX_CICD_E.15-candidates/commits/main --jq .sha)
+          if gh api --method POST "repos/rstyczynski/APEX_CICD_E.15-candidates/statuses/$SOURCE_HEAD" -f context=UnauthorizedProbe -f state=success > authority.log 2>&1; then
+            echo 'Unexpected cross-repository publication authority'; exit 1
+          fi
+          cat authority.log
+          grep -q 'HTTP 403' authority.log
+          echo 'PASS unprivileged hosted token cannot publish companion evidence'

@@ -1,0 +1,3 @@
+RUN smoke:test_hosted.sh:test_hosted_source
+PASS test_hosted_source
+Tests: 1; failed: 0

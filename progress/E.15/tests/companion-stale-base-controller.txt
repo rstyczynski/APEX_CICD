@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/sprint-work/E.15/controller.py", line 89, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/Users/rstyczynski/projects/APEX_CICD/sprint-work/E.15/controller.py", line 84, in main
+    validate_receipt(receipt)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/sprint-work/E.15/controller.py", line 38, in validate_receipt
+    assert plan(receipt['pr'])=={k:receipt[k] for k in ('pr','head','base','trusted','report_sha256')}, 'stale provenance'
+           ~~~~^^^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/sprint-work/E.15/controller.py", line 24, in plan
+    assert base==api(f'repos/{SOURCE}/commits/main')['sha'], 'stale source base'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: stale source base

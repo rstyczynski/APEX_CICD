@@ -1,5 +1,7 @@
 # E.15 setup
 
+This setup snapshot records activation-time observations. Its initial private-plan limitation and earlier scope question were resolved; the current [checklist](sprint_E.15_checklist.md), [implementation](sprint_E.15_implementation.md) and [closure](sprint_E.15_closure.md) own the final disposition.
+
 ## Contract
 
 The Product Owner explicitly authorizes activation, YOLO execution, temporary GitHub repository operations and final origin publication. [PLAN](../../PLAN.md#sprint-e15---validate-integrated-github-and-oracle-execution) assigns PBI-083 alone. The inherited uncommitted E.15–E.18 scheduling edits are preserved; only E.15 is activated. The previous [scope audit](sprint_E.15_scope_audit.md) is historical: its missing-assignment finding is superseded by the present plan.

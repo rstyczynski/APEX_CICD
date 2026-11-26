@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/sprint-work/E.15/controller.py", line 90, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/Users/rstyczynski/projects/APEX_CICD/sprint-work/E.15/controller.py", line 85, in main
+    validate_receipt(receipt)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/sprint-work/E.15/controller.py", line 49, in validate_receipt
+    assert marker in log, 'missing actual execution evidence: '+marker
+           ^^^^^^^^^^^^^
+AssertionError: missing actual execution evidence: 02cd2ae3e1ef52f867120d8dbd2e871bd612a1d8

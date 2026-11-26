@@ -1,5 +1,7 @@
 # E.15 scope prerequisite audit
 
+Historical intake snapshot, superseded by [the current setup](sprint_E.15_setup.md) and [verified checklist](sprint_E.15_checklist.md). The missing-assignment observation below is not a current blocker.
+
 This is an intake evidence record, not an activated sprint, accepted design,
 completion record or replacement for a Product Owner assignment.
 

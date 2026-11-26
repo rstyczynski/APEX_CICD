@@ -1,0 +1,6 @@
+RUN integration:test_hosted.sh:test_hosted_oracle
+DISPATCH e15-47a35c1622e22655d11c2b86
+https://github.com/rstyczynski/APEX_CICD_E.15/actions/runs/45784745386 37acfbc706e3cee4b92ccb905fc8897ed3c042ad success
+PASS new hosted Oracle run; real sentinel denial and publication HTTP 403
+PASS test_hosted_oracle
+Tests: 1; failed: 0

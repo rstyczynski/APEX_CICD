@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/sprint-work/E.15/controller.py", line 89, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/Users/rstyczynski/projects/APEX_CICD/sprint-work/E.15/controller.py", line 82, in main
+    if args.action=='validate':validate(args.pr,args.receipt);return
+                               ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/sprint-work/E.15/controller.py", line 55, in validate
+    receipt=plan(pr);receipt['correlation']='companion-'+secrets.token_hex(12)
+  File "/Users/rstyczynski/projects/APEX_CICD/sprint-work/E.15/controller.py", line 33, in plan
+    assert review['decision']=='accept' and review['sql_sha256']==hashlib.sha256(sql.encode()).hexdigest(), 'stale Review'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: stale Review
