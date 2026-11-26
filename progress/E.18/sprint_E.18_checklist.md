@@ -4,7 +4,7 @@
 
 [PBI-086](../../BACKLOG.md#pbi-086-measure-complete-pipeline-feedback-and-runner-capacity) owns acceptance. [PLAN](../../PLAN.md#sprint-e18---measure-complete-pipeline-feedback-and-runner-capacity) assigns this single item and requires smoke, unit and integration at both new-code and full-regression levels. [SRS](../../docs/srs.md#actors) owns actors/boundary; [architecture](../../docs/architecture.md#native-technology-responsibilities) owns native responsibilities. [README](../../README.md) provides project orientation.
 
-The eight-sample measurement experiment is verified. All six gates pass; final handover material review and closure remain in progress. No external blocker is claimed. [Report](capacity_report.md), [verification](sprint_E.18_tests.md), [implementation](sprint_E.18_implementation.md) and [handover](sprint_E.18_handover.md) own their respective detailed records.
+The eight-sample measurement experiment is verified. All six gates, final handover review and P8 audit pass; closure is recorded after qualified increment b454fc5. No external blocker is claimed. [Report](capacity_report.md), [verification](sprint_E.18_tests.md), [implementation](sprint_E.18_implementation.md) and [handover](sprint_E.18_handover.md) own their respective detailed records.
 
 ## Mandatory acceptance
 
@@ -21,7 +21,7 @@ Authority: the Product Owner execution request, [RUP manager](../../RUPStrikesBa
 - [x] D18-2 — Actual live pipeline demonstration. Run 45848145737 at separate screenshot revision 920b1c4 passes both replicas. [Verification](tests/live-demo-verification.log) checks real native archives, retained data, five backend cases, blank login capture, actual authentication and cleanup. The developer opened the running workflow and refreshed its successful outcome. No manual Product Owner login or reaction is inferred.
 - [x] D18-3 — Complete walkthrough/manual, inspected PPTX pair and technical handover review. All 25 slides and revisions are visually inspected; native PowerPoint edit/resize/save/reopen and numeric preservation checks pass. Documentation and metadata are reconciled in the P8 audit.
 - [x] D18-4 — Legible contemporaneous captures and offline gallery with working thumbnails, previous/next, full images and evidence links. [Gallery](screenshots/index.html) and [complete capture index](screenshots/evidence-index.md) preserve admitted views and explicitly excluded quality attempts. Actual browser navigation passes for thumbnail/next/previous/full image; final reload, sixteen-scenario overview, boundary wraparound and evidence links also pass in native Chrome.
-- [ ] D18-5 — Recorded closure after every required outcome is verified, local commits and final origin push. PLAN remains Progress and the PBI remains tested until the outstanding quality/handover work is complete.
+- [x] D18-5 — Recorded closure after every required outcome is verified, local commits and final origin push. The canonical close procedure records PLAN E.18 Done/YOLO and board E.18/PBI-086 Done after b454fc5. The scoped closure commit and authorized origin push finish the delivery transaction.
 
 ## Implementation choices and measurement limits
 
