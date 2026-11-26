@@ -1,0 +1,9 @@
+Filesystem              1B-blocks        Used   Available Use% Mounted on
+tmpfs                  1646432256     1163264  1645268992   1% /run
+efivarfs                   131072        3671      122281   3% /sys/firmware/efi/efivars
+/dev/mapper/cow-root 154894188544 60028956672 94848454656  39% /
+tmpfs                  8232153088       86016  8232067072   1% /dev/shm
+tmpfs                     5242880           0     5242880   0% /run/lock
+/dev/nvme0n1p16         923156480   119603200   738910208  14% /boot
+/dev/nvme0n1p15         109395456     6399488   102995968   6% /boot/efi
+tmpfs                  1646428160       12288  1646415872   1% /run/user/1001

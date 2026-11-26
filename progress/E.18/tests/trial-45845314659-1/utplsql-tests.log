@@ -1,0 +1,19 @@
+
+Session altered.
+
+
+Package created.
+
+
+Package body created.
+
+BEGIN ut3.ut.run('UT3.TEST_CAPACITY'); END;
+
+*
+ERROR at line 1:
+ORA-06598: insufficient INHERIT PRIVILEGES privilege
+ORA-06512: at "UT3.UT", line 1
+ORA-06512: at line 1
+Help: https://docs.oracle.com/error-help/db/ora-06598/
+
+

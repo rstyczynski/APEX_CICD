@@ -1,0 +1,4 @@
+RUN smoke:test_pipeline_capacity.sh:test_pipeline_capacity_source
+PASS every named E17 native validation step retained
+PASS test_pipeline_capacity_source
+Tests: 1; failed: 0

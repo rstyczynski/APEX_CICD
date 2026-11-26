@@ -10,4 +10,4 @@ The Product Owner explicitly authorizes activation, YOLO execution, companion re
 
 ## Decisions
 
-Use an Elaboration executable measurement prototype, retaining all E.17 native checks. Use two replicas per serial/concurrent trial and explicitly describe small-sample percentile limits. Cold means dependency cache disabled; warm means a verified cache hit, not a reused database. Database state remains job-private. No ten-minute process cutoff supersedes the user instruction to persist.
+Use an Elaboration executable measurement prototype, retaining all E.17 native checks. Use two replicas per serial/concurrent trial and explicitly describe small-sample percentile limits. Cold means a unique empty per-run dependency-cache key; warm means a verified cache hit, not a reused database. Database state remains job-private. No ten-minute process cutoff supersedes the user instruction to persist.

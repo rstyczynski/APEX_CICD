@@ -1,0 +1,8 @@
+Name: native-author
+Connect String: //127.0.0.1:1521/FREEPDB1
+User: AUTHOR16
+Password: ******
+Name: native-target
+Connect String: //127.0.0.1:1522/FREEPDB1
+User: AUTHOR16
+Password: ******

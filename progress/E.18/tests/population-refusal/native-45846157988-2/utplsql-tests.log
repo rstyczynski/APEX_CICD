@@ -1,0 +1,24 @@
+
+Package created.
+
+
+Package body created.
+
+
+Package created.
+
+
+Package body created.
+
+backend
+Hello entry API
+Trims valid text [.047 sec]
+Rejects blank input without writes [.005 sec]
+Accepts exactly one hundred characters [.002 sec]
+Rejects one hundred and one characters without writes [.002 sec]
+Rejects invalid active flag without writes [.002 sec]
+Finished in .064053 seconds
+5 tests, 0 failed, 0 errored, 0 disabled, 0 warning(s)
+
+PL/SQL procedure successfully completed.
+

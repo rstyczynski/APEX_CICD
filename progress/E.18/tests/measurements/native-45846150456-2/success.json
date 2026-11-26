@@ -1,0 +1,13 @@
+{
+  "native_install": true,
+  "native_upgrade": true,
+  "native_repeat": true,
+  "preserved": true,
+  "negatives": [
+    "artifact",
+    "source",
+    "tool",
+    "substituted-bytes"
+  ],
+  "source": "ab3b67a80c9de82cbbe269f984ae705f8c380c1d"
+}

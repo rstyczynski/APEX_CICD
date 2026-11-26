@@ -1,0 +1,4 @@
+container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e: Pulling from database/ords
+Digest: sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+Status: Image is up to date for container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e

@@ -102,25 +102,29 @@ jobs:
           SQL
       - name: Execute actual utPLSQL regression
         run: |
-          docker exec -i e17-author sqlplus -s / as sysdba <<'SQL' > result/utplsql-tests.log
+          for file in backend-bootstrap.sql backend-api.sql backend-tests.sql; do
+            docker cp "$file" "e17-author:/tmp/$file"
+          done
+          docker exec -i e17-author sqlplus -s / as sysdba <<SQL > result/backend-bootstrap.log
           whenever sqlerror exit failure
+          set echo off verify off
           alter session set container=FREEPDB1;
+          @/tmp/backend-bootstrap.sql
+          alter user e5_test identified by "${NATIVE_PASSWORD}";
+          exit
+          SQL
+          docker exec -i e17-author sqlplus -s /nolog <<SQL > result/utplsql-tests.log
+          whenever sqlerror exit failure
+          set echo off verify off
+          connect e5_test/${NATIVE_PASSWORD}@//localhost:1521/FREEPDB1
           set serveroutput on
-          create or replace package ut3.test_capacity as
-            --%suite(Capacity fixture)
-            --%test(Oracle arithmetic)
-            procedure arithmetic;
-          end;
-          /
-          create or replace package body ut3.test_capacity as
-            procedure arithmetic is begin ut3.ut.expect(1+1).to_equal(2); end;
-          end;
-          /
-          exec ut3.ut.run('UT3.TEST_CAPACITY');
+          @/tmp/backend-api.sql
+          @/tmp/backend-tests.sql
+          exec ut3.ut.run('E5_TEST.TEST_HELLO_ENTRY_API');
           exit
           SQL
           cat result/utplsql-tests.log
-          grep -E '1 tests, 0 failed' result/utplsql-tests.log
+          grep -E '5 tests, 0 failed, 0 errored' result/utplsql-tests.log
       - name: Acquire checksum pinned APEX
         run: python3 provision_host.py apex-download
       - name: Install APEX natively

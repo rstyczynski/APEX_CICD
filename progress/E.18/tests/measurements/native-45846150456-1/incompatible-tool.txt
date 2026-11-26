@@ -1,0 +1,2 @@
+
+SQLcl: Release 25.3.0.0 Production Build: 25.3.0.274.1210

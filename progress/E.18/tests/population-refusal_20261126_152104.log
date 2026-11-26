@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/pipeline_capacity.py", line 61, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/pipeline_capacity.py", line 54, in main
+    samples+=summarize(run,jobs,root)
+             ~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/pipeline_capacity.py", line 19, in summarize
+    if (measurement['CACHE_MODE']=='warm')!=hit:raise ValueError('cache condition not established')
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: cache condition not established
