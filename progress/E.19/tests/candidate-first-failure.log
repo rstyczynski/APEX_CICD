@@ -1,0 +1,10 @@
+Oracle candidate	Bind companion candidate as data	﻿2026-11-26T18:24:07.0128169Z ##[group]Run case "$PR" in *[!0-9]*|'') echo 'Invalid PR number'; exit 1;; esac
+Oracle candidate	Bind companion candidate as data	2026-11-26T18:24:07.0128668Z ^[[36;1mcase "$PR" in *[!0-9]*|'') echo 'Invalid PR number'; exit 1;; esac^[[0m
+Oracle candidate	Bind companion candidate as data	2026-11-26T18:24:07.0129141Z ^[[36;1mgh api "repos/rstyczynski/APEX_CICD_E.19/pulls/$PR" > candidate-event.json^[[0m
+Oracle candidate	Bind companion candidate as data	2026-11-26T18:24:07.0155065Z shell: /usr/bin/bash -e {0}
+Oracle candidate	Bind companion candidate as data	2026-11-26T18:24:07.0155389Z env:
+Oracle candidate	Bind companion candidate as data	2026-11-26T18:24:07.0157735Z   GH_TOKEN: ***
+Oracle candidate	Bind companion candidate as data	2026-11-26T18:24:07.0158025Z   PR: 1
+Oracle candidate	Bind companion candidate as data	2026-11-26T18:24:07.0158386Z ##[endgroup]
+Oracle candidate	Bind companion candidate as data	2026-11-26T18:24:07.3472564Z gh: Resource not accessible by integration (HTTP 403)
+Oracle candidate	Bind companion candidate as data	2026-11-26T18:24:07.3498853Z ##[error]Process completed with exit code 1.

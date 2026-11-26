@@ -1,0 +1,2 @@
+PASS actual historical baseline rejects mismatch normally but accepts it under Python -O; replacement JavaScript action rejects the same bytes with explicit artifact mismatch. No target operation performed.
+Check rejected: artifact mismatch

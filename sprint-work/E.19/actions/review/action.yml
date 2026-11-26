@@ -1,0 +1,18 @@
+name: Validate review
+description: Reject invalid trusted review evidence
+inputs:
+  changed:
+    description: Required changed evidence file
+    required: true
+  report:
+    description: Required report evidence file
+    required: true
+  sql:
+    description: Required sql evidence file
+    required: true
+outputs:
+  validated:
+    description: True only after successful validation
+runs:
+  using: node24
+  main: index.cjs

@@ -19,3 +19,7 @@ SM-19: metadata and Node source load. UT-19: positive and negative contracts for
 ## Decision
 
 YOLO design self-approval applies to this initial slice. Broader inventory can refine migration before implementation of additional actions. Neither fixture tests nor three pure checks alone establish parent acceptance.
+
+## Continuation design refinement
+
+Self-approved in YOLO: qualify the three reusable native-delivery support checks against the complete retained E.18 native lifecycle. Translate disposable platform provisioning into small JavaScript per-operation glue to permit a Python-free qualification workflow; preserve each native SQLcl step visibly in Actions. Provisioning is not packaged as a lifecycle action. Resource sampling and historical candidate controller experiments are outside migrated support checks and retained unchanged. Test every refusal through native action entrypoints in real hosted jobs, and compare baseline helpers separately on identical fixture bytes on the same runner. Include real SQLcl version output and native generated archives in acceptance. No OCI operation is selected; APEX downloads use Oracle's public software distribution, not OCI Object Storage API.

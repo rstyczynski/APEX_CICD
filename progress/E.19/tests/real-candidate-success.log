@@ -1,0 +1,443 @@
+Oracle candidate	Set up job	﻿2026-11-26T18:25:01.3744058Z Current runner version: '2.338.2'
+Oracle candidate	Set up job	2026-11-26T18:25:01.3776178Z ##[group]Runner Image Provisioner
+Oracle candidate	Set up job	2026-11-26T18:25:01.3777332Z Hosted Compute Agent
+Oracle candidate	Set up job	2026-11-26T18:25:01.3778134Z Version: 20261111.635
+Oracle candidate	Set up job	2026-11-26T18:25:01.3778910Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+Oracle candidate	Set up job	2026-11-26T18:25:01.3780468Z Build Date: 2026-11-11T01:49:01Z
+Oracle candidate	Set up job	2026-11-26T18:25:01.3781535Z Worker ID: {e638cada-1ead-47d7-9777-5cfaf48f7f5f}
+Oracle candidate	Set up job	2026-11-26T18:25:01.3782539Z Region: westus2
+Oracle candidate	Set up job	2026-11-26T18:25:01.3783292Z Cloud: Azure
+Oracle candidate	Set up job	2026-11-26T18:25:01.3783945Z ##[endgroup]
+Oracle candidate	Set up job	2026-11-26T18:25:01.3785713Z ##[group]Operating System
+Oracle candidate	Set up job	2026-11-26T18:25:01.3786514Z Ubuntu
+Oracle candidate	Set up job	2026-11-26T18:25:01.3787146Z 24.04.5
+Oracle candidate	Set up job	2026-11-26T18:25:01.3787917Z LTS
+Oracle candidate	Set up job	2026-11-26T18:25:01.3788541Z ##[endgroup]
+Oracle candidate	Set up job	2026-11-26T18:25:01.3789362Z ##[group]Runner Image
+Oracle candidate	Set up job	2026-11-26T18:25:01.3790113Z Image: ubuntu-24.04
+Oracle candidate	Set up job	2026-11-26T18:25:01.3790792Z Version: 20261122.23.1
+Oracle candidate	Set up job	2026-11-26T18:25:01.3792515Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261122.23/images/ubuntu/Ubuntu2404-Readme.md
+Oracle candidate	Set up job	2026-11-26T18:25:01.3794888Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261122.23
+Oracle candidate	Set up job	2026-11-26T18:25:01.3796141Z ##[endgroup]
+Oracle candidate	Set up job	2026-11-26T18:25:01.3797708Z ##[group]GITHUB_TOKEN Permissions
+Oracle candidate	Set up job	2026-11-26T18:25:01.3800022Z Contents: read
+Oracle candidate	Set up job	2026-11-26T18:25:01.3800737Z Metadata: read
+Oracle candidate	Set up job	2026-11-26T18:25:01.3801810Z PullRequests: read
+Oracle candidate	Set up job	2026-11-26T18:25:01.3802502Z ##[endgroup]
+Oracle candidate	Set up job	2026-11-26T18:25:01.3805087Z Secret source: Actions
+Oracle candidate	Set up job	2026-11-26T18:25:01.3806307Z Cache mode: write
+Oracle candidate	Set up job	2026-11-26T18:25:01.3807227Z Prepare workflow directory
+Oracle candidate	Set up job	2026-11-26T18:25:01.4442663Z Prepare all required actions
+Oracle candidate	Set up job	2026-11-26T18:25:01.4482478Z Getting action download info
+Oracle candidate	Set up job	2026-11-26T18:25:01.7695032Z Download action repository 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+Oracle candidate	Set up job	2026-11-26T18:25:02.0497555Z Complete job name: Oracle candidate
+Oracle candidate	Initialize containers	﻿2026-11-26T18:25:02.1007294Z ##[group]Checking docker version
+Oracle candidate	Initialize containers	2026-11-26T18:25:02.1017535Z ##[command]/usr/bin/docker version --format '{{.Server.APIVersion}}'
+Oracle candidate	Initialize containers	2026-11-26T18:25:04.3012347Z '1.48'
+Oracle candidate	Initialize containers	2026-11-26T18:25:04.3037553Z Docker daemon API version: '1.48'
+Oracle candidate	Initialize containers	2026-11-26T18:25:04.3038001Z ##[command]/usr/bin/docker version --format '{{.Client.APIVersion}}'
+Oracle candidate	Initialize containers	2026-11-26T18:25:04.3204777Z '1.48'
+Oracle candidate	Initialize containers	2026-11-26T18:25:04.3218499Z Docker client API version: '1.48'
+Oracle candidate	Initialize containers	2026-11-26T18:25:04.3222838Z ##[endgroup]
+Oracle candidate	Initialize containers	2026-11-26T18:25:04.3224999Z ##[group]Clean up resources from previous jobs
+Oracle candidate	Initialize containers	2026-11-26T18:25:04.3229155Z ##[command]/usr/bin/docker ps --all --quiet --no-trunc --filter "label=7477d4"
+Oracle candidate	Initialize containers	2026-11-26T18:25:04.3455529Z ##[command]/usr/bin/docker network prune --force --filter "label=7477d4"
+Oracle candidate	Initialize containers	2026-11-26T18:25:04.3587408Z ##[endgroup]
+Oracle candidate	Initialize containers	2026-11-26T18:25:04.3587728Z ##[group]Create local container network
+Oracle candidate	Initialize containers	2026-11-26T18:25:04.3595195Z ##[command]/usr/bin/docker network create --label 7477d4 github_network_18d13f9f86ca4953aef089e3a3243c50
+Oracle candidate	Initialize containers	2026-11-26T18:25:04.4427273Z 1c999774d5b23a0568b85eef01d2bf78594f18ad16f934c980f7022ce6de140b
+Oracle candidate	Initialize containers	2026-11-26T18:25:04.4443074Z ##[endgroup]
+Oracle candidate	Initialize containers	2026-11-26T18:25:04.4463394Z ##[group]Starting oracle service container
+Oracle candidate	Initialize containers	2026-11-26T18:25:04.4481157Z ##[command]/usr/bin/docker pull gvenzl/oracle-free@sha256:cebd977833411a42170777d8e9ccf616a028a2bb137ae96498354ab6c7510268
+Oracle candidate	Initialize containers	2026-11-26T18:25:05.3249649Z docker.io/gvenzl/oracle-free@sha256:cebd977833411a42170777d8e9ccf616a028a2bb137ae96498354ab6c7510268: Pulling from gvenzl/oracle-free
+Oracle candidate	Initialize containers	2026-11-26T18:25:05.5907696Z eaecd8d13da8: Pulling fs layer
+Oracle candidate	Initialize containers	2026-11-26T18:25:05.5916151Z f842d7e2461c: Pulling fs layer
+Oracle candidate	Initialize containers	2026-11-26T18:25:05.5917081Z 088b7bd13b0f: Pulling fs layer
+Oracle candidate	Initialize containers	2026-11-26T18:25:05.5917668Z 966289cf0bb9: Pulling fs layer
+Oracle candidate	Initialize containers	2026-11-26T18:25:05.5918282Z 184507b91329: Pulling fs layer
+Oracle candidate	Initialize containers	2026-11-26T18:25:05.5918772Z 25d62a8e8759: Pulling fs layer
+Oracle candidate	Initialize containers	2026-11-26T18:25:05.5919237Z 755cc3e4a003: Pulling fs layer
+Oracle candidate	Initialize containers	2026-11-26T18:25:05.5919716Z 97c17f9f68d1: Pulling fs layer
+Oracle candidate	Initialize containers	2026-11-26T18:25:05.5920170Z 33058011a10f: Pulling fs layer
+Oracle candidate	Initialize containers	2026-11-26T18:25:05.5920672Z 25d62a8e8759: Waiting
+Oracle candidate	Initialize containers	2026-11-26T18:25:05.5921769Z 755cc3e4a003: Waiting
+Oracle candidate	Initialize containers	2026-11-26T18:25:05.5922322Z 97c17f9f68d1: Waiting
+Oracle candidate	Initialize containers	2026-11-26T18:25:05.5922775Z 33058011a10f: Waiting
+Oracle candidate	Initialize containers	2026-11-26T18:25:05.5923328Z 966289cf0bb9: Waiting
+Oracle candidate	Initialize containers	2026-11-26T18:25:05.5923806Z 184507b91329: Waiting
+Oracle candidate	Initialize containers	2026-11-26T18:25:06.1722385Z f842d7e2461c: Verifying Checksum
+Oracle candidate	Initialize containers	2026-11-26T18:25:06.1754908Z f842d7e2461c: Download complete
+Oracle candidate	Initialize containers	2026-11-26T18:25:06.1973140Z eaecd8d13da8: Verifying Checksum
+Oracle candidate	Initialize containers	2026-11-26T18:25:06.1974922Z eaecd8d13da8: Download complete
+Oracle candidate	Initialize containers	2026-11-26T18:25:06.6150923Z 088b7bd13b0f: Verifying Checksum
+Oracle candidate	Initialize containers	2026-11-26T18:25:06.6151654Z 088b7bd13b0f: Download complete
+Oracle candidate	Initialize containers	2026-11-26T18:25:06.7970971Z 184507b91329: Verifying Checksum
+Oracle candidate	Initialize containers	2026-11-26T18:25:06.7972451Z 184507b91329: Download complete
+Oracle candidate	Initialize containers	2026-11-26T18:25:07.2942136Z 966289cf0bb9: Verifying Checksum
+Oracle candidate	Initialize containers	2026-11-26T18:25:07.2964709Z 966289cf0bb9: Download complete
+Oracle candidate	Initialize containers	2026-11-26T18:25:07.8986452Z 25d62a8e8759: Verifying Checksum
+Oracle candidate	Initialize containers	2026-11-26T18:25:07.9010826Z 25d62a8e8759: Download complete
+Oracle candidate	Initialize containers	2026-11-26T18:25:07.9053977Z 755cc3e4a003: Verifying Checksum
+Oracle candidate	Initialize containers	2026-11-26T18:25:07.9071452Z 755cc3e4a003: Download complete
+Oracle candidate	Initialize containers	2026-11-26T18:25:07.9892609Z 97c17f9f68d1: Verifying Checksum
+Oracle candidate	Initialize containers	2026-11-26T18:25:07.9893074Z 97c17f9f68d1: Download complete
+Oracle candidate	Initialize containers	2026-11-26T18:25:08.9648265Z 33058011a10f: Verifying Checksum
+Oracle candidate	Initialize containers	2026-11-26T18:25:08.9648738Z 33058011a10f: Download complete
+Oracle candidate	Initialize containers	2026-11-26T18:25:10.1920450Z eaecd8d13da8: Pull complete
+Oracle candidate	Initialize containers	2026-11-26T18:25:24.5159638Z f842d7e2461c: Pull complete
+Oracle candidate	Initialize containers	2026-11-26T18:25:32.9017249Z 088b7bd13b0f: Pull complete
+Oracle candidate	Initialize containers	2026-11-26T18:25:35.9443138Z 966289cf0bb9: Pull complete
+Oracle candidate	Initialize containers	2026-11-26T18:25:42.7785432Z 184507b91329: Pull complete
+Oracle candidate	Initialize containers	2026-11-26T18:25:44.3396505Z 25d62a8e8759: Pull complete
+Oracle candidate	Initialize containers	2026-11-26T18:26:02.0236182Z 755cc3e4a003: Pull complete
+Oracle candidate	Initialize containers	2026-11-26T18:26:04.5414524Z 97c17f9f68d1: Pull complete
+Oracle candidate	Initialize containers	2026-11-26T18:26:10.5462029Z 33058011a10f: Pull complete
+Oracle candidate	Initialize containers	2026-11-26T18:26:12.2901208Z Digest: sha256:cebd977833411a42170777d8e9ccf616a028a2bb137ae96498354ab6c7510268
+Oracle candidate	Initialize containers	2026-11-26T18:26:12.5391234Z Status: Downloaded newer image for gvenzl/oracle-free@sha256:cebd977833411a42170777d8e9ccf616a028a2bb137ae96498354ab6c7510268
+Oracle candidate	Initialize containers	2026-11-26T18:26:12.7882227Z docker.io/gvenzl/oracle-free@sha256:cebd977833411a42170777d8e9ccf616a028a2bb137ae96498354ab6c7510268
+Oracle candidate	Initialize containers	2026-11-26T18:26:12.7933797Z ##[command]/usr/bin/docker create --name 65e9485e01da4ef7a9b2e715e966cc9c_gvenzloraclefreesha256cebd977833411a42170777d8e9ccf616a028a2bb137ae96498354ab6c7510268_fd00b1 --label 7477d4 --network github_network_18d13f9f86ca4953aef089e3a3243c50 --network-alias oracle -p 127.0.0.1:1521:1521 --health-cmd healthcheck.sh --health-interval 10s --health-timeout 5s --health-retries 40 -e "ORACLE_RANDOM_PASSWORD=yes" -e "APP_USER=candidate" -e "APP_USER_PASSWORD=Disposable_Candidate_15" -e GITHUB_ACTIONS=true -e CI=true gvenzl/oracle-free@sha256:cebd977833411a42170777d8e9ccf616a028a2bb137ae96498354ab6c7510268
+Oracle candidate	Initialize containers	2026-11-26T18:26:20.1381966Z 676dac7bd27d4f84c5bdba0a4bb15e15aa96f21c260f1262a07039d588f62169
+Oracle candidate	Initialize containers	2026-11-26T18:26:20.1408551Z ##[command]/usr/bin/docker start 676dac7bd27d4f84c5bdba0a4bb15e15aa96f21c260f1262a07039d588f62169
+Oracle candidate	Initialize containers	2026-11-26T18:26:21.4898407Z 676dac7bd27d4f84c5bdba0a4bb15e15aa96f21c260f1262a07039d588f62169
+Oracle candidate	Initialize containers	2026-11-26T18:26:21.4927876Z ##[command]/usr/bin/docker ps --all --filter id=676dac7bd27d4f84c5bdba0a4bb15e15aa96f21c260f1262a07039d588f62169 --filter status=running --no-trunc --format "{{.ID}} {{.Status}}"
+Oracle candidate	Initialize containers	2026-11-26T18:26:21.5156085Z 676dac7bd27d4f84c5bdba0a4bb15e15aa96f21c260f1262a07039d588f62169 Up 1 second (health: starting)
+Oracle candidate	Initialize containers	2026-11-26T18:26:21.5187010Z ##[command]/usr/bin/docker port 676dac7bd27d4f84c5bdba0a4bb15e15aa96f21c260f1262a07039d588f62169
+Oracle candidate	Initialize containers	2026-11-26T18:26:21.5442332Z 1521/tcp -> 127.0.0.1:1521
+Oracle candidate	Initialize containers	2026-11-26T18:26:21.5487764Z ##[endgroup]
+Oracle candidate	Initialize containers	2026-11-26T18:26:21.5495798Z ##[group]Waiting for all services to be ready
+Oracle candidate	Initialize containers	2026-11-26T18:26:21.5507942Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 676dac7bd27d4f84c5bdba0a4bb15e15aa96f21c260f1262a07039d588f62169
+Oracle candidate	Initialize containers	2026-11-26T18:26:21.5644532Z starting
+Oracle candidate	Initialize containers	2026-11-26T18:26:21.5667770Z oracle service is starting, waiting 2 seconds before checking again.
+Oracle candidate	Initialize containers	2026-11-26T18:26:23.5666218Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 676dac7bd27d4f84c5bdba0a4bb15e15aa96f21c260f1262a07039d588f62169
+Oracle candidate	Initialize containers	2026-11-26T18:26:23.5968538Z starting
+Oracle candidate	Initialize containers	2026-11-26T18:26:23.6016571Z oracle service is starting, waiting 3 seconds before checking again.
+Oracle candidate	Initialize containers	2026-11-26T18:26:27.2999383Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 676dac7bd27d4f84c5bdba0a4bb15e15aa96f21c260f1262a07039d588f62169
+Oracle candidate	Initialize containers	2026-11-26T18:26:27.9274129Z starting
+Oracle candidate	Initialize containers	2026-11-26T18:26:27.9281223Z oracle service is starting, waiting 6 seconds before checking again.
+Oracle candidate	Initialize containers	2026-11-26T18:26:34.7767442Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 676dac7bd27d4f84c5bdba0a4bb15e15aa96f21c260f1262a07039d588f62169
+Oracle candidate	Initialize containers	2026-11-26T18:26:34.7913005Z starting
+Oracle candidate	Initialize containers	2026-11-26T18:26:34.7929273Z oracle service is starting, waiting 17 seconds before checking again.
+Oracle candidate	Initialize containers	2026-11-26T18:26:52.5706110Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 676dac7bd27d4f84c5bdba0a4bb15e15aa96f21c260f1262a07039d588f62169
+Oracle candidate	Initialize containers	2026-11-26T18:26:52.5838456Z starting
+Oracle candidate	Initialize containers	2026-11-26T18:26:52.5852137Z oracle service is starting, waiting 32 seconds before checking again.
+Oracle candidate	Initialize containers	2026-11-26T18:27:24.5851602Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 676dac7bd27d4f84c5bdba0a4bb15e15aa96f21c260f1262a07039d588f62169
+Oracle candidate	Initialize containers	2026-11-26T18:27:24.6035501Z healthy
+Oracle candidate	Initialize containers	2026-11-26T18:27:24.6055779Z oracle service is healthy.
+Oracle candidate	Initialize containers	2026-11-26T18:27:24.6058522Z ##[endgroup]
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	﻿2026-11-26T18:27:24.8482322Z ##[group]Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:24.8482936Z with:
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:24.8483146Z   ref: 860eb1fdea5dc619f2e62af7d545aa959c6323f9
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:24.8483402Z   persist-credentials: false
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:24.8483654Z   repository: rstyczynski/APEX_CICD_E.19
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:24.8485746Z   token: ***
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:24.8485928Z   ssh-strict: true
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:24.8486100Z   ssh-user: git
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:24.8486280Z   clean: true
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:24.8486461Z   sparse-checkout-cone-mode: true
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:24.8486678Z   fetch-depth: 1
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:24.8486849Z   fetch-tags: false
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:24.8487023Z   show-progress: true
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:24.8487195Z   lfs: false
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:24.8487351Z   submodules: false
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:24.8487528Z   set-safe-directory: true
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:24.8487863Z ##[endgroup]
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:25.9974321Z Syncing repository: rstyczynski/APEX_CICD_E.19
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0046316Z ##[group]Getting Git version info
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0047086Z Working directory is '/home/runner/work/APEX_CICD_E.19/APEX_CICD_E.19'
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0048255Z [command]/usr/bin/git version
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0208737Z git version 2.56.1
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0212200Z ##[endgroup]
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0235337Z Temporarily overriding HOME='/home/runner/work/_temp/7a638c52-1926-4c5e-845b-7c875deda2d1' before making global git config changes
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0238688Z Adding repository directory to the temporary git global config as a safe directory
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0240080Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/APEX_CICD_E.19/APEX_CICD_E.19
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0348475Z Deleting the contents of '/home/runner/work/APEX_CICD_E.19/APEX_CICD_E.19'
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0349968Z ##[group]Initializing the repository
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0392346Z [command]/usr/bin/git init /home/runner/work/APEX_CICD_E.19/APEX_CICD_E.19
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0507641Z hint: Using 'master' as the name for the initial branch. This default branch name
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0508480Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0509474Z hint: to use in all of your new repositories, which will suppress this warning,
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0510811Z hint: call:
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0511153Z hint:
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0512026Z hint: 	git config --global init.defaultBranch <name>
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0540141Z hint:
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0540981Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0542292Z hint: 'development'. The just-created branch can be renamed via this command:
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0542934Z hint:
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0543641Z hint: 	git branch -m <name>
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0544171Z hint:
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0545008Z hint: Disable this message with "git config set advice.defaultBranchName false"
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0545971Z Initialized empty Git repository in /home/runner/work/APEX_CICD_E.19/APEX_CICD_E.19/.git/
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0548511Z [command]/usr/bin/git remote add origin https://github.com/rstyczynski/APEX_CICD_E.19
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0749721Z ##[endgroup]
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0750640Z ##[group]Disabling automatic garbage collection
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.0751976Z [command]/usr/bin/git config --local gc.auto 0
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.1012141Z ##[endgroup]
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.1078873Z ##[group]Setting up auth
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.1079638Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.1095676Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.1426169Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.1472392Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.1708363Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.1839031Z ##[endgroup]
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.1839807Z ##[group]Fetching the repository
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.1842717Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 860eb1fdea5dc619f2e62af7d545aa959c6323f9
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6333948Z From https://github.com/rstyczynski/APEX_CICD_E.19
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6335051Z  * branch            860eb1fdea5dc619f2e62af7d545aa959c6323f9 -> FETCH_HEAD
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6338370Z ##[endgroup]
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6339432Z ##[group]Determining the checkout info
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6340068Z ##[endgroup]
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6340525Z [command]/usr/bin/git sparse-checkout disable
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6396452Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6437000Z ##[group]Checking out the ref
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6443073Z [command]/usr/bin/git checkout --progress --force 860eb1fdea5dc619f2e62af7d545aa959c6323f9
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6538301Z Note: switching to '860eb1fdea5dc619f2e62af7d545aa959c6323f9'.
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6551815Z 
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6568968Z You are in 'detached HEAD' state. You can look around, make experimental
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6569923Z changes and commit them, and you can discard any commits you make in this
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6570638Z state without impacting any branches by switching back to a branch.
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6571146Z 
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6571766Z If you want to create a new branch to retain commits you create, you may
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6572427Z do so (now or later) by using -c with the switch command. Example:
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6572854Z 
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6573103Z   git switch -c <new-branch-name>
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6573433Z 
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6573677Z Or undo this operation with:
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6573954Z 
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6574192Z   git switch -
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6574430Z 
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6574761Z Turn off this advice by setting config variable advice.detachedHead to false
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6575223Z 
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6575641Z HEAD is now at 860eb1f fix: grant candidate metadata lookup its required read permission
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6577553Z ##[endgroup]
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6638630Z [command]/usr/bin/git log -1 --format=%H
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6722363Z 860eb1fdea5dc619f2e62af7d545aa959c6323f9
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6739993Z ##[group]Removing auth
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6740809Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.6804055Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.7136466Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.7192452Z http.https://github.com/.extraheader
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.7206684Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.7268976Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Oracle candidate	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:26.7637911Z ##[endgroup]
+Oracle candidate	Initialize private sentinel	﻿2026-11-26T18:27:26.7962500Z ##[group]Run docker exec -i "$ORACLE_CONTAINER" sqlplus -s / as sysdba <<'SQL'
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:26.7963007Z ^[[36;1mdocker exec -i "$ORACLE_CONTAINER" sqlplus -s / as sysdba <<'SQL'^[[0m
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:26.7963332Z ^[[36;1mwhenever sqlerror exit failure^[[0m
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:26.7963583Z ^[[36;1malter session set container=FREEPDB1;^[[0m
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:26.7963874Z ^[[36;1mcreate table system.e15_private (value varchar2(80));^[[0m
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:26.7964209Z ^[[36;1minsert into system.e15_private values ('private sentinel');^[[0m
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:26.7964479Z ^[[36;1mcommit;^[[0m
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:26.7964637Z ^[[36;1mSQL^[[0m
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:26.8038163Z shell: /usr/bin/bash -e {0}
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:26.8038507Z env:
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:26.8038950Z   ORACLE_CONTAINER: 676dac7bd27d4f84c5bdba0a4bb15e15aa96f21c260f1262a07039d588f62169
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:26.8039537Z ##[endgroup]
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:26.9301649Z 
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:26.9302541Z Session altered.
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:26.9302904Z 
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:26.9972427Z 
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:26.9973344Z Table created.
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:26.9973756Z 
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:27.0022630Z 
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:27.0023441Z 1 row created.
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:27.0023954Z 
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:27.0128215Z 
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:27.0133563Z Commit complete.
+Oracle candidate	Initialize private sentinel	2026-11-26T18:27:27.0134030Z 
+Oracle candidate	Challenge publication authority	﻿2026-11-26T18:27:27.0387915Z ##[group]Run if gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" -f state=success -f context=Unauthorized > publication.log 2>&1; then
+Oracle candidate	Challenge publication authority	2026-11-26T18:27:27.0388807Z ^[[36;1mif gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" -f state=success -f context=Unauthorized > publication.log 2>&1; then^[[0m
+Oracle candidate	Challenge publication authority	2026-11-26T18:27:27.0389353Z ^[[36;1m  echo 'Unexpected publication authority'; exit 1^[[0m
+Oracle candidate	Challenge publication authority	2026-11-26T18:27:27.0389602Z ^[[36;1mfi^[[0m
+Oracle candidate	Challenge publication authority	2026-11-26T18:27:27.0389790Z ^[[36;1mcat publication.log^[[0m
+Oracle candidate	Challenge publication authority	2026-11-26T18:27:27.0390004Z ^[[36;1mgrep -q 'HTTP 403' publication.log^[[0m
+Oracle candidate	Challenge publication authority	2026-11-26T18:27:27.0440730Z shell: /usr/bin/bash -e {0}
+Oracle candidate	Challenge publication authority	2026-11-26T18:27:27.0441058Z env:
+Oracle candidate	Challenge publication authority	2026-11-26T18:27:27.0444758Z   GH_TOKEN: ***
+Oracle candidate	Challenge publication authority	2026-11-26T18:27:27.0445020Z ##[endgroup]
+Oracle candidate	Challenge publication authority	2026-11-26T18:27:30.4793697Z {"message":"Resource not accessible by integration","documentation_url":"https://docs.github.com/rest/commits/statuses#create-a-commit-status","status":"403"}gh: Resource not accessible by integration (HTTP 403)
+Oracle candidate	Bind companion candidate as data	﻿2026-11-26T18:27:30.4876089Z ##[group]Run case "$PR" in *[!0-9]*|'') echo 'Invalid PR number'; exit 1;; esac
+Oracle candidate	Bind companion candidate as data	2026-11-26T18:27:30.4876539Z ^[[36;1mcase "$PR" in *[!0-9]*|'') echo 'Invalid PR number'; exit 1;; esac^[[0m
+Oracle candidate	Bind companion candidate as data	2026-11-26T18:27:30.4876933Z ^[[36;1mgh api "repos/rstyczynski/APEX_CICD_E.19/pulls/$PR" > candidate-event.json^[[0m
+Oracle candidate	Bind companion candidate as data	2026-11-26T18:27:30.4916022Z shell: /usr/bin/bash -e {0}
+Oracle candidate	Bind companion candidate as data	2026-11-26T18:27:30.4916262Z env:
+Oracle candidate	Bind companion candidate as data	2026-11-26T18:27:30.4918207Z   GH_TOKEN: ***
+Oracle candidate	Bind companion candidate as data	2026-11-26T18:27:30.4918533Z   PR: 1
+Oracle candidate	Bind companion candidate as data	2026-11-26T18:27:30.4918693Z ##[endgroup]
+Oracle candidate	Catalogued companion candidate identity	﻿2026-11-26T18:27:30.8346332Z ##[group]Run ./actions/candidate
+Oracle candidate	Catalogued companion candidate identity	2026-11-26T18:27:30.8346699Z with:
+Oracle candidate	Catalogued companion candidate identity	2026-11-26T18:27:30.8346960Z   event: candidate-event.json
+Oracle candidate	Catalogued companion candidate identity	2026-11-26T18:27:30.8347279Z ##[endgroup]
+Oracle candidate	Catalogued companion candidate identity	2026-11-26T18:27:30.8653824Z PASS candidate
+Oracle candidate	Bind validated candidate fields	﻿2026-11-26T18:27:30.8735382Z ##[group]Run jq -r '"E15_SOURCE_HEAD=" + .head.sha, "E15_SOURCE_BASE=" + .base.sha' candidate-event.json >> "$GITHUB_ENV"
+Oracle candidate	Bind validated candidate fields	2026-11-26T18:27:30.8736023Z ^[[36;1mjq -r '"E15_SOURCE_HEAD=" + .head.sha, "E15_SOURCE_BASE=" + .base.sha' candidate-event.json >> "$GITHUB_ENV"^[[0m
+Oracle candidate	Bind validated candidate fields	2026-11-26T18:27:30.8736483Z ^[[36;1mSOURCE_HEAD=$(jq -r .head.sha candidate-event.json)^[[0m
+Oracle candidate	Bind validated candidate fields	2026-11-26T18:27:30.8737040Z ^[[36;1mgh api "repos/rstyczynski/APEX_CICD_E.19/contents/candidate.sql?ref=$SOURCE_HEAD" -H 'Accept: application/vnd.github.raw+json' > candidate.sql^[[0m
+Oracle candidate	Bind validated candidate fields	2026-11-26T18:27:30.8775685Z shell: /usr/bin/bash -e {0}
+Oracle candidate	Bind validated candidate fields	2026-11-26T18:27:30.8775915Z env:
+Oracle candidate	Bind validated candidate fields	2026-11-26T18:27:30.8777930Z   GH_TOKEN: ***
+Oracle candidate	Bind validated candidate fields	2026-11-26T18:27:30.8778138Z ##[endgroup]
+Oracle candidate	Verify trusted Review matches candidate bytes	﻿2026-11-26T18:27:31.1292818Z ##[group]Run gh api "repos/$SOURCE_REPO/compare/$BASE...$HEAD" --jq '[.files[].filename]' > changed.json
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T18:27:31.1293369Z ^[[36;1mgh api "repos/$SOURCE_REPO/compare/$BASE...$HEAD" --jq '[.files[].filename]' > changed.json^[[0m
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T18:27:31.1330213Z shell: /usr/bin/bash -e {0}
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T18:27:31.1330447Z env:
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T18:27:31.1330655Z   E15_SOURCE_HEAD: a36b58c1a87946372c97e8fcb07e2601dd645311
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T18:27:31.1330949Z   E15_SOURCE_BASE: 66bb55aa8304769c481b368c96a821e0cf3fb58d
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T18:27:31.1333299Z   GH_TOKEN: ***
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T18:27:31.1333502Z   SOURCE_REPO: rstyczynski/APEX_CICD_E.19
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T18:27:31.1333751Z   BASE: 66bb55aa8304769c481b368c96a821e0cf3fb58d
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T18:27:31.1334003Z   HEAD: a36b58c1a87946372c97e8fcb07e2601dd645311
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T18:27:31.1334214Z ##[endgroup]
+Oracle candidate	Catalogued trusted Review binding	﻿2026-11-26T18:27:31.5389470Z ##[group]Run ./actions/review
+Oracle candidate	Catalogued trusted Review binding	2026-11-26T18:27:31.5389703Z with:
+Oracle candidate	Catalogued trusted Review binding	2026-11-26T18:27:31.5389874Z   changed: changed.json
+Oracle candidate	Catalogued trusted Review binding	2026-11-26T18:27:31.5390075Z   report: review.json
+Oracle candidate	Catalogued trusted Review binding	2026-11-26T18:27:31.5390249Z   sql: candidate.sql
+Oracle candidate	Catalogued trusted Review binding	2026-11-26T18:27:31.5390412Z env:
+Oracle candidate	Catalogued trusted Review binding	2026-11-26T18:27:31.5390609Z   E15_SOURCE_HEAD: a36b58c1a87946372c97e8fcb07e2601dd645311
+Oracle candidate	Catalogued trusted Review binding	2026-11-26T18:27:31.5390898Z   E15_SOURCE_BASE: 66bb55aa8304769c481b368c96a821e0cf3fb58d
+Oracle candidate	Catalogued trusted Review binding	2026-11-26T18:27:31.5391132Z ##[endgroup]
+Oracle candidate	Catalogued trusted Review binding	2026-11-26T18:27:31.5787182Z PASS review
+Oracle candidate	Install Oracle driver	﻿2026-11-26T18:27:31.5862469Z ##[group]Run python3 -m pip install oracledb==3.4.1
+Oracle candidate	Install Oracle driver	2026-11-26T18:27:31.5862796Z ^[[36;1mpython3 -m pip install oracledb==3.4.1^[[0m
+Oracle candidate	Install Oracle driver	2026-11-26T18:27:31.5900647Z shell: /usr/bin/bash -e {0}
+Oracle candidate	Install Oracle driver	2026-11-26T18:27:31.5900872Z env:
+Oracle candidate	Install Oracle driver	2026-11-26T18:27:31.5901088Z   E15_SOURCE_HEAD: a36b58c1a87946372c97e8fcb07e2601dd645311
+Oracle candidate	Install Oracle driver	2026-11-26T18:27:31.5901621Z   E15_SOURCE_BASE: 66bb55aa8304769c481b368c96a821e0cf3fb58d
+Oracle candidate	Install Oracle driver	2026-11-26T18:27:31.5901864Z ##[endgroup]
+Oracle candidate	Install Oracle driver	2026-11-26T18:27:33.4869483Z Defaulting to user installation because normal site-packages is not writeable
+Oracle candidate	Install Oracle driver	2026-11-26T18:27:34.9202707Z Collecting oracledb==3.4.1
+Oracle candidate	Install Oracle driver	2026-11-26T18:27:34.9608086Z   Downloading oracledb-3.4.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (7.7 kB)
+Oracle candidate	Install Oracle driver	2026-11-26T18:27:34.9700944Z Requirement already satisfied: cryptography>=3.2.1 in /usr/lib/python3/dist-packages (from oracledb==3.4.1) (41.0.7)
+Oracle candidate	Install Oracle driver	2026-11-26T18:27:34.9936470Z Collecting typing_extensions>=4.14.0 (from oracledb==3.4.1)
+Oracle candidate	Install Oracle driver	2026-11-26T18:27:35.0003098Z   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Oracle candidate	Install Oracle driver	2026-11-26T18:27:35.0229268Z Downloading oracledb-3.4.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (2.4 MB)
+Oracle candidate	Install Oracle driver	2026-11-26T18:27:35.3689073Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.4/2.4 MB 7.0 MB/s eta 0:00:00
+Oracle candidate	Install Oracle driver	2026-11-26T18:27:35.3760900Z Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Oracle candidate	Install Oracle driver	2026-11-26T18:27:35.3796882Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 19.4 MB/s eta 0:00:00
+Oracle candidate	Install Oracle driver	2026-11-26T18:27:35.6300623Z Installing collected packages: typing_extensions, oracledb
+Oracle candidate	Install Oracle driver	2026-11-26T18:27:35.7394774Z Successfully installed oracledb-3.4.1 typing_extensions-4.16.0
+Oracle candidate	Execute bounded application-user SQL	﻿2026-11-26T18:27:35.8291743Z ##[group]Run python3 validate.py
+Oracle candidate	Execute bounded application-user SQL	2026-11-26T18:27:35.8292042Z ^[[36;1mpython3 validate.py^[[0m
+Oracle candidate	Execute bounded application-user SQL	2026-11-26T18:27:35.8329526Z shell: /usr/bin/bash -e {0}
+Oracle candidate	Execute bounded application-user SQL	2026-11-26T18:27:35.8329750Z env:
+Oracle candidate	Execute bounded application-user SQL	2026-11-26T18:27:35.8329965Z   E15_SOURCE_HEAD: a36b58c1a87946372c97e8fcb07e2601dd645311
+Oracle candidate	Execute bounded application-user SQL	2026-11-26T18:27:35.8330274Z   E15_SOURCE_BASE: 66bb55aa8304769c481b368c96a821e0cf3fb58d
+Oracle candidate	Execute bounded application-user SQL	2026-11-26T18:27:35.8330540Z   CANDIDATE_PASSWORD: Disposable_Candidate_15
+Oracle candidate	Execute bounded application-user SQL	2026-11-26T18:27:35.8330773Z ##[endgroup]
+Oracle candidate	Execute bounded application-user SQL	2026-11-26T18:27:36.5643862Z PASS real Oracle greeting, schema identity and private-table refusal
+Oracle candidate	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	﻿2026-11-26T18:27:36.5956383Z Post job cleanup.
+Oracle candidate	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:36.6808785Z [command]/usr/bin/git version
+Oracle candidate	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:36.6869489Z git version 2.56.1
+Oracle candidate	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:36.6986387Z Temporarily overriding HOME='/home/runner/work/_temp/abbca904-b325-4a55-91f3-27dd3010ee48' before making global git config changes
+Oracle candidate	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:36.6987579Z Adding repository directory to the temporary git global config as a safe directory
+Oracle candidate	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:36.6988648Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/APEX_CICD_E.19/APEX_CICD_E.19
+Oracle candidate	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:36.7052133Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Oracle candidate	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:36.7102715Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Oracle candidate	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:36.7450121Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Oracle candidate	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:27:36.7538947Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Oracle candidate	Stop containers	﻿2026-11-26T18:27:36.8235926Z Print service container logs: 65e9485e01da4ef7a9b2e715e966cc9c_gvenzloraclefreesha256cebd977833411a42170777d8e9ccf616a028a2bb137ae96498354ab6c7510268_fd00b1
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8240374Z ##[command]/usr/bin/docker logs --details 676dac7bd27d4f84c5bdba0a4bb15e15aa96f21c260f1262a07039d588f62169
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8391105Z  CONTAINER: starting up...
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8392557Z  CONTAINER: first database startup, initializing...
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8407880Z  CONTAINER: starting up Oracle Database...
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8408306Z  
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8408724Z  LSNRCTL for Linux: Version 23.26.4.0.0 - Production on 26-NOV-2026 18:26:21
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8409130Z  
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8409471Z  Copyright (c) 1991, 2026, Oracle.  All rights reserved.
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8409833Z  
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8410201Z  Starting /opt/oracle/product/26ai/dbhomeFree/bin/tnslsnr: please wait...
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8410660Z  
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8410944Z  TNSLSNR for Linux: Version 23.26.4.0.0 - Production
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8411832Z  System parameter file is /opt/oracle/product/26ai/dbhomeFree/network/admin/listener.ora
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8412537Z  Log messages written to /opt/oracle/diag/tnslsnr/676dac7bd27d/listener/alert/log.xml
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8413164Z  Listening on: (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC_FOR_FREE)))
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8413774Z  Listening on: (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=676dac7bd27d)(PORT=1521)))
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8414239Z  
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8414587Z  Connecting to (DESCRIPTION=(ADDRESS=(PROTOCOL=IPC)(KEY=EXTPROC_FOR_FREE)))
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8415044Z  STATUS of the LISTENER
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8415304Z  ------------------------
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8415567Z  Alias                     LISTENER
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8415947Z  Version                   TNSLSNR for Linux: Version 23.26.4.0.0 - Production
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8416345Z  Start Date                26-NOV-2026 18:26:21
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8416680Z  Uptime                    0 days 0 hr. 0 min. 0 sec
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8417006Z  Trace Level               off
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8417548Z  Security                  ON: Local OS Authentication
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8417903Z  SNMP                      OFF
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8418176Z  Default Service           FREE
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8418663Z  Listener Parameter File   /opt/oracle/product/26ai/dbhomeFree/network/admin/listener.ora
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8419267Z  Listener Log File         /opt/oracle/diag/tnslsnr/676dac7bd27d/listener/alert/log.xml
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8419770Z  Listening Endpoints Summary...
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8420150Z    (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC_FOR_FREE)))
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8420774Z    (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=676dac7bd27d)(PORT=1521)))
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8421205Z  The listener supports no services
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8421764Z  The command completed successfully
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8421999Z  ORACLE instance started.
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8422187Z  
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8422352Z  Total System Global Area 1603452272 bytes
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8422602Z  Fixed Size		    5086576 bytes
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8422805Z  Variable Size		  620756992 bytes
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8423016Z  Database Buffers	  973078528 bytes
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8423231Z  Redo Buffers		    4530176 bytes
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8423429Z  Database mounted.
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8423592Z  Database opened.
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8423752Z  
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8423902Z  ORACLE DATABASE VERSION
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8424158Z  ------------------------------------------------------------------------------------
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8433933Z  Oracle AI Database 26ai Free Release 23.26.4.0.0 - Develop, Learn, and Run for Free
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8434437Z  Version 23.26.4.0.0
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8434658Z  
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8434840Z  
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8435025Z  
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8435208Z  CONTAINER: Resetting SYS and SYSTEM passwords.
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8435460Z  
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8435605Z  User altered.
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8435761Z  
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8435893Z  
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8436307Z  User altered.
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8436465Z  
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8436621Z  ############################################
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8436856Z  ORACLE PASSWORD FOR SYS AND SYSTEM: MzAyZTlm
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8437084Z  ############################################
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8437340Z  CONTAINER: Creating app user for default pluggable database.
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8437599Z  
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8437832Z  Session altered.
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8438042Z  
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8438174Z  
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8438306Z  User created.
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8438457Z  
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8438584Z  
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8438718Z  Grant succeeded.
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8438869Z  
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8439079Z  CONTAINER: DONE: Creating app user for default pluggable database.
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8439347Z  
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8439487Z  #########################
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8439666Z  DATABASE IS READY TO USE!
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8439832Z  #########################
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8439999Z  
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8440164Z  ####################################################################
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8440465Z  CONTAINER: The following output is now from the alert_FREE.log file:
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8440749Z  ####################################################################
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8440989Z  ===========================================================
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8441496Z  Unable to obtain current patch information due to error: 20013
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8441802Z  ===========================================================
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8442025Z  2026-11-26T18:26:49.984075+00:00
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8442288Z  PDB$SEED(2):Opening pdb with Resource Manager plan: DEFAULT_PLAN
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8442600Z  FREEPDB1(3):Autotune of undo retention is turned on. 
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8442837Z  2026-11-26T18:27:01.354555+00:00
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8443072Z  FREEPDB1(3):Opening pdb with Resource Manager plan: DEFAULT_PLAN
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8443392Z  Completed: Pluggable database FREEPDB1 opened read write 
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8443794Z  Completed: ALTER DATABASE OPEN
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8443990Z  2026-11-26T18:27:03.533499+00:00
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8444259Z  Thread 1 advanced to log sequence 12 (LGWR switch),  current SCN: 2290775
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8444598Z    Current log# 1 seq# 12 mem# 0: /opt/oracle/oradata/FREE/redo01.log
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8444854Z  2026-11-26T18:27:27.598030+00:00
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8445324Z  TABLE SYS.WRP$_REPORTS: ADDED AUTOLIST FRAGMENT SYS_P534 (3) VALUES (( 1521642644, TO_DATE(' 2026-11-23 00:00:00', 'syyyy-mm-dd hh24:mi:ss', 'nls_calendar=gregorian') ))
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8446105Z  TABLE SYS.WRP$_REPORTS_DETAILS: ADDED AUTOLIST FRAGMENT SYS_P535 (3) VALUES (( 1521642644, TO_DATE(' 2026-11-23 00:00:00', 'syyyy-mm-dd hh24:mi:ss', 'nls_calendar=gregorian') ))
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8446897Z  TABLE SYS.WRP$_REPORTS_TIME_BANDS: ADDED AUTOLIST FRAGMENT SYS_P538 (3) VALUES (( 1521642644, TO_DATE(' 2026-11-23 00:00:00', 'syyyy-mm-dd hh24:mi:ss', 'nls_calendar=gregorian') ))
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8453998Z Stop and remove container: 65e9485e01da4ef7a9b2e715e966cc9c_gvenzloraclefreesha256cebd977833411a42170777d8e9ccf616a028a2bb137ae96498354ab6c7510268_fd00b1
+Oracle candidate	Stop containers	2026-11-26T18:27:36.8458970Z ##[command]/usr/bin/docker rm --force 676dac7bd27d4f84c5bdba0a4bb15e15aa96f21c260f1262a07039d588f62169
+Oracle candidate	Stop containers	2026-11-26T18:27:37.6652678Z 676dac7bd27d4f84c5bdba0a4bb15e15aa96f21c260f1262a07039d588f62169
+Oracle candidate	Stop containers	2026-11-26T18:27:37.6683524Z Remove container network: github_network_18d13f9f86ca4953aef089e3a3243c50
+Oracle candidate	Stop containers	2026-11-26T18:27:37.6687582Z ##[command]/usr/bin/docker network rm github_network_18d13f9f86ca4953aef089e3a3243c50
+Oracle candidate	Stop containers	2026-11-26T18:27:37.7467080Z github_network_18d13f9f86ca4953aef089e3a3243c50
+Oracle candidate	Complete job	﻿2026-11-26T18:27:37.7540322Z Cleaning up orphan processes
+Oracle candidate	Complete job	2026-11-26T18:27:37.7971200Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

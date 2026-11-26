@@ -1,0 +1,43 @@
+name: Equivalent support check timings
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  compare:
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        include:
+          - replica: 1
+            first: javascript
+            second: python
+          - replica: 2
+            first: python
+            second: javascript
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Prepare identical bytes
+        run: node fixtures.cjs provenance valid
+      - name: Measure runtime setup availability
+        run: |
+          command -v python3
+          python3 --version
+          echo 'Python preinstalled: no installation step or cost claimed'
+      - name: Execute first runtime
+        uses: ./actions/benchmark
+        with:
+          runtime: ${{ matrix.first }}
+      - name: Execute second runtime
+        uses: ./actions/benchmark
+        with:
+          runtime: ${{ matrix.second }}
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: timing-javascript-${{ matrix.replica }}
+          path: measurement/javascript/
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: timing-python-${{ matrix.replica }}
+          path: measurement/python/

@@ -1,0 +1,5 @@
+Command: bash tests/run.sh --smoke --new-only progress/E.19/new_tests.manifest
+Snapshot of original execution log at 20261126_183918 UTC; original retained at test_run_A1_smoke.log.
+RUN smoke:test_javascript_actions.sh:test_javascript_actions_source
+PASS test_javascript_actions_source
+Tests: 1; failed: 0

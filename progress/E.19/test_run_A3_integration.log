@@ -1,0 +1,4 @@
+RUN integration:test_javascript_actions.sh:test_javascript_actions_real
+PASS real action matrix, actual SQLcl lifecycle/provenance/refusal preservation and equivalent timing receipts
+PASS test_javascript_actions_real
+Tests: 1; failed: 0

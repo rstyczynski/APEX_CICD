@@ -1,0 +1,403 @@
+name: Catalogued acceptance matrix
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  contracts:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - run: node --test actions/checks.test.cjs
+      - name: Prepare tool_valid
+        run: node fixtures.cjs tool valid
+      - name: Action tool_valid
+        id: tool_valid
+        uses: ./actions/tool
+        with:
+          log: fixtures/tool
+          config: fixtures/config
+      - name: Prepare tool_missing
+        run: node fixtures.cjs tool missing
+      - name: Action tool_missing
+        id: tool_missing
+        uses: ./actions/tool
+        continue-on-error: true
+        with:
+          log: fixtures/tool
+          config: fixtures/config
+      - name: Mutation forbidden tool_missing
+        if: steps.tool_missing.outcome == 'success'
+        run: touch forbidden-tool_missing
+      - name: Assert refused tool_missing
+        env:
+          OUTCOME: ${{ steps.tool_missing.outcome }}
+        run: |
+          test "$OUTCOME" = failure
+          test ! -e forbidden-tool_missing
+      - name: Prepare tool_malformed
+        run: node fixtures.cjs tool malformed
+      - name: Action tool_malformed
+        id: tool_malformed
+        uses: ./actions/tool
+        continue-on-error: true
+        with:
+          log: fixtures/tool
+          config: fixtures/config
+      - name: Mutation forbidden tool_malformed
+        if: steps.tool_malformed.outcome == 'success'
+        run: touch forbidden-tool_malformed
+      - name: Assert refused tool_malformed
+        env:
+          OUTCOME: ${{ steps.tool_malformed.outcome }}
+        run: |
+          test "$OUTCOME" = failure
+          test ! -e forbidden-tool_malformed
+      - name: Prepare tool_version
+        run: node fixtures.cjs tool version
+      - name: Action tool_version
+        id: tool_version
+        uses: ./actions/tool
+        continue-on-error: true
+        with:
+          log: fixtures/tool
+          config: fixtures/config
+      - name: Mutation forbidden tool_version
+        if: steps.tool_version.outcome == 'success'
+        run: touch forbidden-tool_version
+      - name: Assert refused tool_version
+        env:
+          OUTCOME: ${{ steps.tool_version.outcome }}
+        run: |
+          test "$OUTCOME" = failure
+          test ! -e forbidden-tool_version
+      - name: Prepare tool_metadata
+        run: node fixtures.cjs tool metadata
+      - name: Action tool_metadata
+        id: tool_metadata
+        uses: ./actions/tool
+        continue-on-error: true
+        with:
+          log: fixtures/tool
+          config: fixtures/config
+      - name: Mutation forbidden tool_metadata
+        if: steps.tool_metadata.outcome == 'success'
+        run: touch forbidden-tool_metadata
+      - name: Assert refused tool_metadata
+        env:
+          OUTCOME: ${{ steps.tool_metadata.outcome }}
+        run: |
+          test "$OUTCOME" = failure
+          test ! -e forbidden-tool_metadata
+      - name: Prepare output_valid
+        run: node fixtures.cjs output valid
+      - name: Action output_valid
+        id: output_valid
+        uses: ./actions/output
+        with:
+          log: fixtures/output
+      - name: Prepare output_missing
+        run: node fixtures.cjs output missing
+      - name: Action output_missing
+        id: output_missing
+        uses: ./actions/output
+        continue-on-error: true
+        with:
+          log: fixtures/output
+      - name: Mutation forbidden output_missing
+        if: steps.output_missing.outcome == 'success'
+        run: touch forbidden-output_missing
+      - name: Assert refused output_missing
+        env:
+          OUTCOME: ${{ steps.output_missing.outcome }}
+        run: |
+          test "$OUTCOME" = failure
+          test ! -e forbidden-output_missing
+      - name: Prepare output_malformed
+        run: node fixtures.cjs output malformed
+      - name: Action output_malformed
+        id: output_malformed
+        uses: ./actions/output
+        continue-on-error: true
+        with:
+          log: fixtures/output
+      - name: Mutation forbidden output_malformed
+        if: steps.output_malformed.outcome == 'success'
+        run: touch forbidden-output_malformed
+      - name: Assert refused output_malformed
+        env:
+          OUTCOME: ${{ steps.output_malformed.outcome }}
+        run: |
+          test "$OUTCOME" = failure
+          test ! -e forbidden-output_malformed
+      - name: Prepare output_error
+        run: node fixtures.cjs output error
+      - name: Action output_error
+        id: output_error
+        uses: ./actions/output
+        continue-on-error: true
+        with:
+          log: fixtures/output
+      - name: Mutation forbidden output_error
+        if: steps.output_error.outcome == 'success'
+        run: touch forbidden-output_error
+      - name: Assert refused output_error
+        env:
+          OUTCOME: ${{ steps.output_error.outcome }}
+        run: |
+          test "$OUTCOME" = failure
+          test ! -e forbidden-output_error
+      - name: Prepare provenance_valid
+        run: node fixtures.cjs provenance valid
+      - name: Action provenance_valid
+        id: provenance_valid
+        uses: ./actions/provenance
+        with:
+          archive: fixtures/archive
+          receipt: fixtures/receipt
+          source: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          build: 25.4.1.022.0618
+      - name: Prepare provenance_missing
+        run: node fixtures.cjs provenance missing
+      - name: Action provenance_missing
+        id: provenance_missing
+        uses: ./actions/provenance
+        continue-on-error: true
+        with:
+          archive: fixtures/archive
+          receipt: fixtures/receipt
+          source: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          build: 25.4.1.022.0618
+      - name: Mutation forbidden provenance_missing
+        if: steps.provenance_missing.outcome == 'success'
+        run: touch forbidden-provenance_missing
+      - name: Assert refused provenance_missing
+        env:
+          OUTCOME: ${{ steps.provenance_missing.outcome }}
+        run: |
+          test "$OUTCOME" = failure
+          test ! -e forbidden-provenance_missing
+      - name: Prepare provenance_malformed
+        run: node fixtures.cjs provenance malformed
+      - name: Action provenance_malformed
+        id: provenance_malformed
+        uses: ./actions/provenance
+        continue-on-error: true
+        with:
+          archive: fixtures/archive
+          receipt: fixtures/receipt
+          source: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          build: 25.4.1.022.0618
+      - name: Mutation forbidden provenance_malformed
+        if: steps.provenance_malformed.outcome == 'success'
+        run: touch forbidden-provenance_malformed
+      - name: Assert refused provenance_malformed
+        env:
+          OUTCOME: ${{ steps.provenance_malformed.outcome }}
+        run: |
+          test "$OUTCOME" = failure
+          test ! -e forbidden-provenance_malformed
+      - name: Prepare provenance_source
+        run: node fixtures.cjs provenance source
+      - name: Action provenance_source
+        id: provenance_source
+        uses: ./actions/provenance
+        continue-on-error: true
+        with:
+          archive: fixtures/archive
+          receipt: fixtures/receipt
+          source: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          build: 25.4.1.022.0618
+      - name: Mutation forbidden provenance_source
+        if: steps.provenance_source.outcome == 'success'
+        run: touch forbidden-provenance_source
+      - name: Assert refused provenance_source
+        env:
+          OUTCOME: ${{ steps.provenance_source.outcome }}
+        run: |
+          test "$OUTCOME" = failure
+          test ! -e forbidden-provenance_source
+      - name: Prepare provenance_artifact
+        run: node fixtures.cjs provenance artifact
+      - name: Action provenance_artifact
+        id: provenance_artifact
+        uses: ./actions/provenance
+        continue-on-error: true
+        with:
+          archive: fixtures/archive
+          receipt: fixtures/receipt
+          source: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          build: 25.4.1.022.0618
+      - name: Mutation forbidden provenance_artifact
+        if: steps.provenance_artifact.outcome == 'success'
+        run: touch forbidden-provenance_artifact
+      - name: Assert refused provenance_artifact
+        env:
+          OUTCOME: ${{ steps.provenance_artifact.outcome }}
+        run: |
+          test "$OUTCOME" = failure
+          test ! -e forbidden-provenance_artifact
+      - name: Prepare provenance_build
+        run: node fixtures.cjs provenance build
+      - name: Action provenance_build
+        id: provenance_build
+        uses: ./actions/provenance
+        continue-on-error: true
+        with:
+          archive: fixtures/archive
+          receipt: fixtures/receipt
+          source: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          build: 25.4.1.022.0618
+      - name: Mutation forbidden provenance_build
+        if: steps.provenance_build.outcome == 'success'
+        run: touch forbidden-provenance_build
+      - name: Assert refused provenance_build
+        env:
+          OUTCOME: ${{ steps.provenance_build.outcome }}
+        run: |
+          test "$OUTCOME" = failure
+          test ! -e forbidden-provenance_build
+      - name: Prepare candidate_valid
+        run: node fixtures.cjs candidate valid
+      - name: Action candidate_valid
+        id: candidate_valid
+        uses: ./actions/candidate
+        with:
+          event: fixtures/event
+      - name: Prepare candidate_missing
+        run: node fixtures.cjs candidate missing
+      - name: Action candidate_missing
+        id: candidate_missing
+        uses: ./actions/candidate
+        continue-on-error: true
+        with:
+          event: fixtures/event
+      - name: Mutation forbidden candidate_missing
+        if: steps.candidate_missing.outcome == 'success'
+        run: touch forbidden-candidate_missing
+      - name: Assert refused candidate_missing
+        env:
+          OUTCOME: ${{ steps.candidate_missing.outcome }}
+        run: |
+          test "$OUTCOME" = failure
+          test ! -e forbidden-candidate_missing
+      - name: Prepare candidate_malformed
+        run: node fixtures.cjs candidate malformed
+      - name: Action candidate_malformed
+        id: candidate_malformed
+        uses: ./actions/candidate
+        continue-on-error: true
+        with:
+          event: fixtures/event
+      - name: Mutation forbidden candidate_malformed
+        if: steps.candidate_malformed.outcome == 'success'
+        run: touch forbidden-candidate_malformed
+      - name: Assert refused candidate_malformed
+        env:
+          OUTCOME: ${{ steps.candidate_malformed.outcome }}
+        run: |
+          test "$OUTCOME" = failure
+          test ! -e forbidden-candidate_malformed
+      - name: Prepare candidate_state
+        run: node fixtures.cjs candidate state
+      - name: Action candidate_state
+        id: candidate_state
+        uses: ./actions/candidate
+        continue-on-error: true
+        with:
+          event: fixtures/event
+      - name: Mutation forbidden candidate_state
+        if: steps.candidate_state.outcome == 'success'
+        run: touch forbidden-candidate_state
+      - name: Assert refused candidate_state
+        env:
+          OUTCOME: ${{ steps.candidate_state.outcome }}
+        run: |
+          test "$OUTCOME" = failure
+          test ! -e forbidden-candidate_state
+      - name: Prepare review_valid
+        run: node fixtures.cjs review valid
+      - name: Action review_valid
+        id: review_valid
+        uses: ./actions/review
+        with:
+          changed: fixtures/changed
+          report: fixtures/report
+          sql: fixtures/sql
+      - name: Prepare review_missing
+        run: node fixtures.cjs review missing
+      - name: Action review_missing
+        id: review_missing
+        uses: ./actions/review
+        continue-on-error: true
+        with:
+          changed: fixtures/changed
+          report: fixtures/report
+          sql: fixtures/sql
+      - name: Mutation forbidden review_missing
+        if: steps.review_missing.outcome == 'success'
+        run: touch forbidden-review_missing
+      - name: Assert refused review_missing
+        env:
+          OUTCOME: ${{ steps.review_missing.outcome }}
+        run: |
+          test "$OUTCOME" = failure
+          test ! -e forbidden-review_missing
+      - name: Prepare review_malformed
+        run: node fixtures.cjs review malformed
+      - name: Action review_malformed
+        id: review_malformed
+        uses: ./actions/review
+        continue-on-error: true
+        with:
+          changed: fixtures/changed
+          report: fixtures/report
+          sql: fixtures/sql
+      - name: Mutation forbidden review_malformed
+        if: steps.review_malformed.outcome == 'success'
+        run: touch forbidden-review_malformed
+      - name: Assert refused review_malformed
+        env:
+          OUTCOME: ${{ steps.review_malformed.outcome }}
+        run: |
+          test "$OUTCOME" = failure
+          test ! -e forbidden-review_malformed
+      - name: Prepare review_files
+        run: node fixtures.cjs review files
+      - name: Action review_files
+        id: review_files
+        uses: ./actions/review
+        continue-on-error: true
+        with:
+          changed: fixtures/changed
+          report: fixtures/report
+          sql: fixtures/sql
+      - name: Mutation forbidden review_files
+        if: steps.review_files.outcome == 'success'
+        run: touch forbidden-review_files
+      - name: Assert refused review_files
+        env:
+          OUTCOME: ${{ steps.review_files.outcome }}
+        run: |
+          test "$OUTCOME" = failure
+          test ! -e forbidden-review_files
+      - name: Prepare review_stale
+        run: node fixtures.cjs review stale
+      - name: Action review_stale
+        id: review_stale
+        uses: ./actions/review
+        continue-on-error: true
+        with:
+          changed: fixtures/changed
+          report: fixtures/report
+          sql: fixtures/sql
+      - name: Mutation forbidden review_stale
+        if: steps.review_stale.outcome == 'success'
+        run: touch forbidden-review_stale
+      - name: Assert refused review_stale
+        env:
+          OUTCOME: ${{ steps.review_stale.outcome }}
+        run: |
+          test "$OUTCOME" = failure
+          test ! -e forbidden-review_stale

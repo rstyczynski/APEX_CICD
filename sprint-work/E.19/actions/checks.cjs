@@ -27,13 +27,23 @@ function check(kind, input) {
     if (receipt.build !== BUILD || input.build !== BUILD) throw Error('tool mismatch');
     const digest = crypto.createHash('sha256').update(file(input.archive)).digest('hex');
     if (receipt.sha256 !== digest) throw Error('artifact mismatch');
+  } else if (kind === 'candidate') {
+    const event = JSON.parse(file(input.event));
+    if (event.state !== 'open' || event.base?.ref !== 'main') throw Error('candidate state mismatch');
+    for (const side of ['base','head']) if (!/^[a-f0-9]{40}$/.test(event[side]?.sha || '')) throw Error('candidate source malformed');
+  } else if (kind === 'review') {
+    const changed = JSON.parse(file(input.changed));
+    if (JSON.stringify(changed) !== '["candidate.sql"]') throw Error('unreviewed files');
+    const report = JSON.parse(file(input.report));
+    if (report.decision !== 'accept') throw Error('review rejected');
+    if (crypto.createHash('sha256').update(file(input.sql)).digest('hex') !== report.sql_sha256) throw Error('stale Review');
   } else throw Error('unknown check');
   return true;
 }
 module.exports = {check};
 if (require.main === module) {
   try {
-    const input = Object.fromEntries(['log','config','receipt','source','build','archive'].map(k => [k, process.env[`INPUT_${k.toUpperCase()}`]]));
+    const input = Object.fromEntries(['log','config','receipt','source','build','archive','event','changed','report','sql'].map(k => [k, process.env[`INPUT_${k.toUpperCase()}`]]));
     check(process.argv[2], input);
     if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, 'validated=true\n');
     console.log('PASS support check');

@@ -1,0 +1,319 @@
+[
+  {
+    "path": "examples/git-pipeline/.github/actionlint.yaml",
+    "sha256": "47257ace324ea37488f80cf0316ef2ccd6db2a11f0c2959f880ad0fecd2cdf21",
+    "python_references": []
+  },
+  {
+    "path": "examples/git-pipeline/.github/actions/setup-native/action.yml",
+    "sha256": "f2b334250a37cf30a725534bd80101b33460f9c9862bd0a81da1d95226fdab25",
+    "python_references": []
+  },
+  {
+    "path": "examples/git-pipeline/.github/workflows/pr.yml",
+    "sha256": "d77facccdc4d9ec42624c8aefebbc33bbd95eaefe1cc354c95ca8df2212e92eb",
+    "python_references": [
+      {
+        "line": 38,
+        "text": "test -z \"$(find . -type f -name '*.py' -not -path './.git/*' -print -quit)\""
+      }
+    ]
+  },
+  {
+    "path": "examples/git-pipeline/.github/workflows/qualification.yml",
+    "sha256": "954bc2f518ae10b2d0d1477d5d260f49611ac657f3d74d9c6d9186a203a7064c",
+    "python_references": []
+  },
+  {
+    "path": "examples/git-pipeline/.github/workflows/release.yml",
+    "sha256": "23c7c9e4c611fe3d1df9785d8aeb66749b22b796ce43ef9c153be6ae5853c44d",
+    "python_references": []
+  },
+  {
+    "path": "examples/git-pipeline/.github/workflows/version.yml",
+    "sha256": "3c11a064d6c2776b9b868e25a38112b4b40e128c547ad8d1e28025a187b7de81",
+    "python_references": []
+  },
+  {
+    "path": "sprint-work/E.15/.github/workflows/authority.yml",
+    "sha256": "8347295e56471d514695db171eccd2568917b578535b7da08f99cd3c2dc89a5a",
+    "python_references": []
+  },
+  {
+    "path": "sprint-work/E.15/.github/workflows/propose.yml",
+    "sha256": "b02d0d0c436c7150961d868f0d1299947317fa58fa5d78d7d900f198f4fbc6e7",
+    "python_references": []
+  },
+  {
+    "path": "sprint-work/E.15/.github/workflows/testing.yml",
+    "sha256": "6748c3642d5455f7b13aa4f2d8059484889bed82af2bba7418b1a46838770a54",
+    "python_references": [
+      {
+        "line": 73,
+        "text": "python3 - <<'PYCODE'"
+      },
+      {
+        "line": 84,
+        "text": "SOURCE_HEAD=$(python3 -c \"import json; print(json.load(open('candidate-event.json'))['head']['sha'])\")"
+      },
+      {
+        "line": 102,
+        "text": "python3 - <<'PYCODE'"
+      },
+      {
+        "line": 112,
+        "text": "run: python3 -m pip install oracledb==3.4.1"
+      },
+      {
+        "line": 116,
+        "text": "run: python3 validate.py"
+      }
+    ]
+  },
+  {
+    "path": "sprint-work/E.16/.github/workflows/native.yml",
+    "sha256": "bd5715f85b9673424f30c0ed0cc84387cbf5b8d53405c7701ba33a61b2473a40",
+    "python_references": [
+      {
+        "line": 68,
+        "text": "sha256sum .github/workflows/native.yml sql.sh check_tool.py check_output.py provenance.py > result/reviewed-inputs.sha256"
+      },
+      {
+        "line": 139,
+        "text": "python3 \"$GITHUB_WORKSPACE/provenance.py\" \"$GITHUB_WORKSPACE/result/native16-1.0.0.zip\" \"$GITHUB_WORKSPACE/result/receipt-1.0.0.json\" \"$(git rev-parse HEAD)\" '25.4.1.022.0618'"
+      },
+      {
+        "line": 198,
+        "text": "python3 \"$GITHUB_WORKSPACE/provenance.py\" \"$GITHUB_WORKSPACE/result/native16-1.1.0.zip\" \"$GITHUB_WORKSPACE/result/receipt-1.1.0.json\" \"$(git rev-parse HEAD)\" '25.4.1.022.0618'"
+      },
+      {
+        "line": 215,
+        "text": "python3 \"$GITHUB_WORKSPACE/provenance.py\" \"$GITHUB_WORKSPACE/result/native16-1.1.0.zip\" \"$GITHUB_WORKSPACE/result/receipt-1.1.0.json\" \"$(git rev-parse HEAD)\" '25.4.1.022.0618'"
+      },
+      {
+        "line": 239,
+        "text": "if python3 \"$GITHUB_WORKSPACE/provenance.py\" \"$GITHUB_WORKSPACE/result/native16-1.1.0.zip\" \"$RUNNER_TEMP/wrong-receipt.json\" \"$(git rev-parse HEAD)\" '25.4.1.022.0618' > \"$GITHUB_WORKSPACE/result/reject-artifact.txt\" 2>&1; then exit 1; fi"
+      },
+      {
+        "line": 245,
+        "text": "if python3 \"$GITHUB_WORKSPACE/provenance.py\" \"$GITHUB_WORKSPACE/result/native16-1.1.0.zip\" \"$RUNNER_TEMP/wrong-receipt.json\" \"$(git rev-parse HEAD)\" '25.4.1.022.0618' > \"$GITHUB_WORKSPACE/result/reject-source.txt\" 2>&1; then exit 1; fi"
+      },
+      {
+        "line": 252,
+        "text": "if python3 \"$GITHUB_WORKSPACE/provenance.py\" \"$GITHUB_WORKSPACE/result/native16-1.1.0.zip\" \"$GITHUB_WORKSPACE/result/receipt-1.1.0.json\" \"$(git rev-parse HEAD)\" \"$wrong_build\" > \"$GITHUB_WORKSPACE/result/reject-tool.txt\" 2>&1; then exit 1; fi"
+      },
+      {
+        "line": 259,
+        "text": "if python3 \"$GITHUB_WORKSPACE/provenance.py\" \"$GITHUB_WORKSPACE/result/substituted.zip\" \"$GITHUB_WORKSPACE/result/receipt-1.1.0.json\" \"$(git rev-parse HEAD)\" '25.4.1.022.0618' > \"$GITHUB_WORKSPACE/result/reject-substituted-bytes.txt\" 2>&1; then exit 1; fi"
+      }
+    ]
+  },
+  {
+    "path": "sprint-work/E.17/.github/workflows/native.yml",
+    "sha256": "96444a26794d33c2a6b19d3faca81d8398217d60b891df98fbfcf3cf155d5688",
+    "python_references": [
+      {
+        "line": 57,
+        "text": "run: python3 provision_host.py inputs"
+      },
+      {
+        "line": 59,
+        "text": "run: python3 provision_host.py apex-download"
+      },
+      {
+        "line": 61,
+        "text": "run: python3 provision_host.py apex-install"
+      },
+      {
+        "line": 63,
+        "text": "run: python3 provision_host.py apex-configure"
+      },
+      {
+        "line": 65,
+        "text": "run: python3 provision_host.py ords-install"
+      },
+      {
+        "line": 67,
+        "text": "run: python3 provision_host.py ords-start"
+      },
+      {
+        "line": 71,
+        "text": "sha256sum .github/workflows/native.yml sql.sh check_tool.py check_output.py provenance.py provision_host.py application.sql browser.mjs > result/reviewed-inputs.sha256"
+      },
+      {
+        "line": 142,
+        "text": "python3 \"$GITHUB_WORKSPACE/provenance.py\" \"$GITHUB_WORKSPACE/result/native16-1.0.0.zip\" \"$GITHUB_WORKSPACE/result/receipt-1.0.0.json\" \"$(git rev-parse HEAD)\" '25.4.1.022.0618'"
+      },
+      {
+        "line": 154,
+        "text": "run: python3 provision_host.py application-import"
+      },
+      {
+        "line": 156,
+        "text": "run: python3 provision_host.py verify"
+      },
+      {
+        "line": 205,
+        "text": "python3 \"$GITHUB_WORKSPACE/provenance.py\" \"$GITHUB_WORKSPACE/result/native16-1.1.0.zip\" \"$GITHUB_WORKSPACE/result/receipt-1.1.0.json\" \"$(git rev-parse HEAD)\" '25.4.1.022.0618'"
+      },
+      {
+        "line": 222,
+        "text": "python3 \"$GITHUB_WORKSPACE/provenance.py\" \"$GITHUB_WORKSPACE/result/native16-1.1.0.zip\" \"$GITHUB_WORKSPACE/result/receipt-1.1.0.json\" \"$(git rev-parse HEAD)\" '25.4.1.022.0618'"
+      },
+      {
+        "line": 246,
+        "text": "if python3 \"$GITHUB_WORKSPACE/provenance.py\" \"$GITHUB_WORKSPACE/result/native16-1.1.0.zip\" \"$RUNNER_TEMP/wrong-receipt.json\" \"$(git rev-parse HEAD)\" '25.4.1.022.0618' > \"$GITHUB_WORKSPACE/result/reject-artifact.txt\" 2>&1; then exit 1; fi"
+      },
+      {
+        "line": 252,
+        "text": "if python3 \"$GITHUB_WORKSPACE/provenance.py\" \"$GITHUB_WORKSPACE/result/native16-1.1.0.zip\" \"$RUNNER_TEMP/wrong-receipt.json\" \"$(git rev-parse HEAD)\" '25.4.1.022.0618' > \"$GITHUB_WORKSPACE/result/reject-source.txt\" 2>&1; then exit 1; fi"
+      },
+      {
+        "line": 259,
+        "text": "if python3 \"$GITHUB_WORKSPACE/provenance.py\" \"$GITHUB_WORKSPACE/result/native16-1.1.0.zip\" \"$GITHUB_WORKSPACE/result/receipt-1.1.0.json\" \"$(git rev-parse HEAD)\" \"$wrong_build\" > \"$GITHUB_WORKSPACE/result/reject-tool.txt\" 2>&1; then exit 1; fi"
+      },
+      {
+        "line": 266,
+        "text": "if python3 \"$GITHUB_WORKSPACE/provenance.py\" \"$GITHUB_WORKSPACE/result/substituted.zip\" \"$GITHUB_WORKSPACE/result/receipt-1.1.0.json\" \"$(git rev-parse HEAD)\" '25.4.1.022.0618' > \"$GITHUB_WORKSPACE/result/reject-substituted-bytes.txt\" 2>&1; then exit 1; fi"
+      },
+      {
+        "line": 286,
+        "text": "python3 provision_host.py verify"
+      }
+    ]
+  },
+  {
+    "path": "sprint-work/E.17/.github/workflows/testing.yml",
+    "sha256": "b7d9c5f46122551564c4bd151b2301df9fd88d4ead22cb9f0334ebe8ba5424ed",
+    "python_references": [
+      {
+        "line": 73,
+        "text": "python3 - <<'PYCODE'"
+      },
+      {
+        "line": 84,
+        "text": "SOURCE_HEAD=$(python3 -c \"import json; print(json.load(open('candidate-event.json'))['head']['sha'])\")"
+      },
+      {
+        "line": 102,
+        "text": "python3 - <<'PYCODE'"
+      },
+      {
+        "line": 112,
+        "text": "run: python3 -m pip install oracledb==3.4.1"
+      },
+      {
+        "line": 116,
+        "text": "run: python3 validate.py"
+      }
+    ]
+  },
+  {
+    "path": "sprint-work/E.18/.github/workflows/native.yml",
+    "sha256": "5ab8e3769996945ff221d7921d05e43f921edcdc15fea0c2f5de9880bf38a86f",
+    "python_references": [
+      {
+        "line": 40,
+        "text": "nohup python3 sample_resources.py > result/resources.csv 2> \"$RUNNER_TEMP/sampler.err\" &"
+      },
+      {
+        "line": 90,
+        "text": "run: python3 provision_host.py inputs"
+      },
+      {
+        "line": 129,
+        "text": "run: python3 provision_host.py apex-download"
+      },
+      {
+        "line": 131,
+        "text": "run: python3 provision_host.py apex-install"
+      },
+      {
+        "line": 133,
+        "text": "run: python3 provision_host.py apex-configure"
+      },
+      {
+        "line": 135,
+        "text": "run: python3 provision_host.py ords-install"
+      },
+      {
+        "line": 137,
+        "text": "run: python3 provision_host.py ords-start"
+      },
+      {
+        "line": 141,
+        "text": "sha256sum .github/workflows/native.yml sql.sh check_tool.py check_output.py provenance.py provision_host.py application.sql browser.mjs > result/reviewed-inputs.sha256"
+      },
+      {
+        "line": 212,
+        "text": "python3 \"$GITHUB_WORKSPACE/provenance.py\" \"$GITHUB_WORKSPACE/result/native16-1.0.0.zip\" \"$GITHUB_WORKSPACE/result/receipt-1.0.0.json\" \"$(git rev-parse HEAD)\" '25.4.1.022.0618'"
+      },
+      {
+        "line": 224,
+        "text": "run: python3 provision_host.py application-import"
+      },
+      {
+        "line": 226,
+        "text": "run: python3 provision_host.py verify"
+      },
+      {
+        "line": 275,
+        "text": "python3 \"$GITHUB_WORKSPACE/provenance.py\" \"$GITHUB_WORKSPACE/result/native16-1.1.0.zip\" \"$GITHUB_WORKSPACE/result/receipt-1.1.0.json\" \"$(git rev-parse HEAD)\" '25.4.1.022.0618'"
+      },
+      {
+        "line": 292,
+        "text": "python3 \"$GITHUB_WORKSPACE/provenance.py\" \"$GITHUB_WORKSPACE/result/native16-1.1.0.zip\" \"$GITHUB_WORKSPACE/result/receipt-1.1.0.json\" \"$(git rev-parse HEAD)\" '25.4.1.022.0618'"
+      },
+      {
+        "line": 316,
+        "text": "if python3 \"$GITHUB_WORKSPACE/provenance.py\" \"$GITHUB_WORKSPACE/result/native16-1.1.0.zip\" \"$RUNNER_TEMP/wrong-receipt.json\" \"$(git rev-parse HEAD)\" '25.4.1.022.0618' > \"$GITHUB_WORKSPACE/result/reject-artifact.txt\" 2>&1; then exit 1; fi"
+      },
+      {
+        "line": 322,
+        "text": "if python3 \"$GITHUB_WORKSPACE/provenance.py\" \"$GITHUB_WORKSPACE/result/native16-1.1.0.zip\" \"$RUNNER_TEMP/wrong-receipt.json\" \"$(git rev-parse HEAD)\" '25.4.1.022.0618' > \"$GITHUB_WORKSPACE/result/reject-source.txt\" 2>&1; then exit 1; fi"
+      },
+      {
+        "line": 329,
+        "text": "if python3 \"$GITHUB_WORKSPACE/provenance.py\" \"$GITHUB_WORKSPACE/result/native16-1.1.0.zip\" \"$GITHUB_WORKSPACE/result/receipt-1.1.0.json\" \"$(git rev-parse HEAD)\" \"$wrong_build\" > \"$GITHUB_WORKSPACE/result/reject-tool.txt\" 2>&1; then exit 1; fi"
+      },
+      {
+        "line": 336,
+        "text": "if python3 \"$GITHUB_WORKSPACE/provenance.py\" \"$GITHUB_WORKSPACE/result/substituted.zip\" \"$GITHUB_WORKSPACE/result/receipt-1.1.0.json\" \"$(git rev-parse HEAD)\" '25.4.1.022.0618' > \"$GITHUB_WORKSPACE/result/reject-substituted-bytes.txt\" 2>&1; then exit 1; fi"
+      },
+      {
+        "line": 356,
+        "text": "python3 provision_host.py verify"
+      },
+      {
+        "line": 378,
+        "text": "python3 - <<'PYCODE'"
+      }
+    ]
+  },
+  {
+    "path": "sprint-work/E.18/.github/workflows/testing.yml",
+    "sha256": "ad0cbb151aa464f422af54219953a3b894eb02e4d25dae1378d7e177ea068bf9",
+    "python_references": [
+      {
+        "line": 73,
+        "text": "python3 - <<'PYCODE'"
+      },
+      {
+        "line": 84,
+        "text": "SOURCE_HEAD=$(python3 -c \"import json; print(json.load(open('candidate-event.json'))['head']['sha'])\")"
+      },
+      {
+        "line": 102,
+        "text": "python3 - <<'PYCODE'"
+      },
+      {
+        "line": 112,
+        "text": "run: python3 -m pip install oracledb==3.4.1"
+      },
+      {
+        "line": 116,
+        "text": "run: python3 validate.py"
+      }
+    ]
+  }
+]

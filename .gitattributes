@@ -38,3 +38,9 @@ progress/E.14/tests/** whitespace=-blank-at-eol,-blank-at-eof
 # E.18 preserves verbatim native/HTTP output and relocated regression receipts.
 # Executable source and maintained narrative whitespace checks remain strict.
 progress/E.18/tests/** whitespace=-blank-at-eol,-blank-at-eof
+
+# E.19 retains verbatim native/HTTP logs, relocated regression evidence and
+# the exact Oracle-generated application export plus its complete SQL listing.
+progress/E.19/tests/** whitespace=-blank-at-eol,-blank-at-eof
+sprint-work/E.19/application.sql whitespace=-blank-at-eol
+progress/E.19/sprint_E.19_increment_demo.md whitespace=-blank-at-eol

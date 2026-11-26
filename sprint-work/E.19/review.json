@@ -1,0 +1,7 @@
+{
+  "reviewer": "Codex reviewer role",
+  "sql_sha256": "f721926f5be833b4eff5b594b1caaf55d62af492cd3fd0e442d5721cc7c42d9b",
+  "scope": "candidate.sql only",
+  "decision": "accept",
+  "findings": "E.19 exact reviewed candidate preserves greeting, read-only SQL and no privilege access. Actual Oracle and isolation checks remain mandatory."
+}

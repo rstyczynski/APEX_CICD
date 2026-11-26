@@ -1,0 +1,548 @@
+contracts	Set up job	﻿2026-11-26T18:28:20.7082892Z Current runner version: '2.338.2'
+contracts	Set up job	2026-11-26T18:28:20.7115602Z ##[group]Runner Image Provisioner
+contracts	Set up job	2026-11-26T18:28:20.7116912Z Hosted Compute Agent
+contracts	Set up job	2026-11-26T18:28:20.7117679Z Version: 20261111.635
+contracts	Set up job	2026-11-26T18:28:20.7118797Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+contracts	Set up job	2026-11-26T18:28:20.7119910Z Build Date: 2026-11-11T01:49:01Z
+contracts	Set up job	2026-11-26T18:28:20.7120869Z Worker ID: {f3fc9dce-463e-4fa4-be49-e0a2378a0514}
+contracts	Set up job	2026-11-26T18:28:20.7122013Z Region: centralus
+contracts	Set up job	2026-11-26T18:28:20.7122767Z Cloud: Azure
+contracts	Set up job	2026-11-26T18:28:20.7123475Z ##[endgroup]
+contracts	Set up job	2026-11-26T18:28:20.7125528Z ##[group]Operating System
+contracts	Set up job	2026-11-26T18:28:20.7126342Z Ubuntu
+contracts	Set up job	2026-11-26T18:28:20.7127114Z 24.04.5
+contracts	Set up job	2026-11-26T18:28:20.7127772Z LTS
+contracts	Set up job	2026-11-26T18:28:20.7128715Z ##[endgroup]
+contracts	Set up job	2026-11-26T18:28:20.7129593Z ##[group]Runner Image
+contracts	Set up job	2026-11-26T18:28:20.7130386Z Image: ubuntu-24.04
+contracts	Set up job	2026-11-26T18:28:20.7131197Z Version: 20261122.23.1
+contracts	Set up job	2026-11-26T18:28:20.7132660Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261122.23/images/ubuntu/Ubuntu2404-Readme.md
+contracts	Set up job	2026-11-26T18:28:20.7135182Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261122.23
+contracts	Set up job	2026-11-26T18:28:20.7136567Z ##[endgroup]
+contracts	Set up job	2026-11-26T18:28:20.7138078Z ##[group]GITHUB_TOKEN Permissions
+contracts	Set up job	2026-11-26T18:28:20.7141219Z Contents: read
+contracts	Set up job	2026-11-26T18:28:20.7142089Z Metadata: read
+contracts	Set up job	2026-11-26T18:28:20.7142808Z ##[endgroup]
+contracts	Set up job	2026-11-26T18:28:20.7146090Z Secret source: Actions
+contracts	Set up job	2026-11-26T18:28:20.7147543Z Cache mode: write
+contracts	Set up job	2026-11-26T18:28:20.7168935Z Prepare workflow directory
+contracts	Set up job	2026-11-26T18:28:20.7856033Z Prepare all required actions
+contracts	Set up job	2026-11-26T18:28:20.7967918Z Getting action download info
+contracts	Set up job	2026-11-26T18:28:21.1319208Z Download action repository 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+contracts	Set up job	2026-11-26T18:28:21.3581435Z Complete job name: contracts
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	﻿2026-11-26T18:28:21.4719120Z ##[group]Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.4720621Z with:
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.4721478Z   persist-credentials: false
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.4722243Z   repository: rstyczynski/APEX_CICD_E.19
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.4726213Z   token: ***
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.4726715Z   ssh-strict: true
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.4727201Z   ssh-user: git
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.4727674Z   clean: true
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.4728181Z   sparse-checkout-cone-mode: true
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.4729058Z   fetch-depth: 1
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.4729570Z   fetch-tags: false
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.4730066Z   show-progress: true
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.4730573Z   lfs: false
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.4731027Z   submodules: false
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.4731533Z   set-safe-directory: true
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.4732350Z ##[endgroup]
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.7843937Z Syncing repository: rstyczynski/APEX_CICD_E.19
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.7851949Z ##[group]Getting Git version info
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.7854156Z Working directory is '/home/runner/work/APEX_CICD_E.19/APEX_CICD_E.19'
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.7862148Z [command]/usr/bin/git version
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.7863119Z git version 2.56.1
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.7866019Z ##[endgroup]
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.7872621Z Temporarily overriding HOME='/home/runner/work/_temp/d264140d-db66-42e4-ae62-422d05404b39' before making global git config changes
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.7874864Z Adding repository directory to the temporary git global config as a safe directory
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.7876776Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/APEX_CICD_E.19/APEX_CICD_E.19
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.7950433Z Deleting the contents of '/home/runner/work/APEX_CICD_E.19/APEX_CICD_E.19'
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.7952996Z ##[group]Initializing the repository
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.7954901Z [command]/usr/bin/git init /home/runner/work/APEX_CICD_E.19/APEX_CICD_E.19
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9433227Z hint: Using 'master' as the name for the initial branch. This default branch name
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9444645Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9447691Z hint: to use in all of your new repositories, which will suppress this warning,
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9450779Z hint: call:
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9451767Z hint:
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9452901Z hint: 	git config --global init.defaultBranch <name>
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9454829Z hint:
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9456179Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9458921Z hint: 'development'. The just-created branch can be renamed via this command:
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9461042Z hint:
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9462091Z hint: 	git branch -m <name>
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9464379Z hint:
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9465549Z hint: Disable this message with "git config set advice.defaultBranchName false"
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9467291Z Initialized empty Git repository in /home/runner/work/APEX_CICD_E.19/APEX_CICD_E.19/.git/
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9470795Z [command]/usr/bin/git remote add origin https://github.com/rstyczynski/APEX_CICD_E.19
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9473800Z ##[endgroup]
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9475504Z ##[group]Disabling automatic garbage collection
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9477251Z [command]/usr/bin/git config --local gc.auto 0
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9481024Z ##[endgroup]
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9482551Z ##[group]Setting up auth
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9483945Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9487610Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9492431Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9497380Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9510916Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9549957Z ##[endgroup]
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9551860Z ##[group]Fetching the repository
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:21.9566521Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +860eb1fdea5dc619f2e62af7d545aa959c6323f9:refs/remotes/origin/main
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:22.3959454Z From https://github.com/rstyczynski/APEX_CICD_E.19
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:22.3962507Z  * [new ref]         860eb1fdea5dc619f2e62af7d545aa959c6323f9 -> origin/main
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:22.3971815Z ##[endgroup]
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:22.3974219Z ##[group]Determining the checkout info
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:22.3982332Z ##[endgroup]
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:22.3984265Z [command]/usr/bin/git sparse-checkout disable
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:22.4018616Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:22.4045552Z ##[group]Checking out the ref
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:22.4049062Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:22.4119582Z Switched to a new branch 'main'
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:22.4127600Z branch 'main' set up to track 'origin/main'.
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:22.4138393Z ##[endgroup]
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:22.4182141Z [command]/usr/bin/git log -1 --format=%H
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:22.4216704Z 860eb1fdea5dc619f2e62af7d545aa959c6323f9
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:22.4227912Z ##[group]Removing auth
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:22.4231820Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:22.4266034Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:22.4459395Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:22.4484679Z http.https://github.com/.extraheader
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:22.4494968Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:22.4531615Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+contracts	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:22.4834632Z ##[endgroup]
+contracts	Run node --test actions/checks.test.cjs	﻿2026-11-26T18:28:22.5023248Z ##[group]Run node --test actions/checks.test.cjs
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.5025068Z ^[[36;1mnode --test actions/checks.test.cjs^[[0m
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.5060154Z shell: /usr/bin/bash -e {0}
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.5061694Z ##[endgroup]
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7203813Z TAP version 13
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7780716Z # Subtest: tool requires log and matching native metadata
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7791548Z ok 1 - tool requires log and matching native metadata
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7794339Z   ---
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7797308Z   duration_ms: 3.296279
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7799415Z   type: 'test'
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7805106Z   ...
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7806964Z # Subtest: output rejects error signatures and empty/missing files
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7809671Z ok 2 - output rejects error signatures and empty/missing files
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7811591Z   ---
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7813016Z   duration_ms: 5.312523
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7814455Z   type: 'test'
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7815775Z   ...
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7817730Z # Subtest: provenance explicit checks reject substitutions and malformed evidence
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7820981Z ok 3 - provenance explicit checks reject substitutions and malformed evidence
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7823041Z   ---
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7824404Z   duration_ms: 1.872879
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7825765Z   type: 'test'
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7827121Z   ...
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7829012Z # Subtest: candidate binds open PR and valid source identities
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7832622Z ok 4 - candidate binds open PR and valid source identities
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7834493Z   ---
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7835859Z   duration_ms: 1.500819
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7837285Z   type: 'test'
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7838689Z   ...
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7840537Z # Subtest: trusted review binds exact sole candidate file and decision
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7843142Z ok 5 - trusted review binds exact sole candidate file and decision
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7845002Z   ---
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7846498Z   duration_ms: 0.80213
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7847934Z   type: 'test'
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7849777Z   ...
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7936101Z 1..5
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7938364Z # tests 5
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7941134Z # suites 0
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7942892Z # pass 5
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7944493Z # fail 0
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7946839Z # cancelled 0
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7948703Z # skipped 0
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7951303Z # todo 0
+contracts	Run node --test actions/checks.test.cjs	2026-11-26T18:28:22.7952910Z # duration_ms 105.84674
+contracts	Prepare tool_valid	﻿2026-11-26T18:28:22.8076697Z ##[group]Run node fixtures.cjs tool valid
+contracts	Prepare tool_valid	2026-11-26T18:28:22.8078156Z ^[[36;1mnode fixtures.cjs tool valid^[[0m
+contracts	Prepare tool_valid	2026-11-26T18:28:22.8109074Z shell: /usr/bin/bash -e {0}
+contracts	Prepare tool_valid	2026-11-26T18:28:22.8110382Z ##[endgroup]
+contracts	Action tool_valid	﻿2026-11-26T18:28:22.8523910Z ##[group]Run ./actions/tool
+contracts	Action tool_valid	2026-11-26T18:28:22.8525085Z with:
+contracts	Action tool_valid	2026-11-26T18:28:22.8526024Z   log: fixtures/tool
+contracts	Action tool_valid	2026-11-26T18:28:22.8527114Z   config: fixtures/config
+contracts	Action tool_valid	2026-11-26T18:28:22.8528237Z ##[endgroup]
+contracts	Action tool_valid	2026-11-26T18:28:22.8864772Z PASS tool
+contracts	Prepare tool_missing	﻿2026-11-26T18:28:22.9010879Z ##[group]Run node fixtures.cjs tool missing
+contracts	Prepare tool_missing	2026-11-26T18:28:22.9012335Z ^[[36;1mnode fixtures.cjs tool missing^[[0m
+contracts	Prepare tool_missing	2026-11-26T18:28:22.9040831Z shell: /usr/bin/bash -e {0}
+contracts	Prepare tool_missing	2026-11-26T18:28:22.9042181Z ##[endgroup]
+contracts	Action tool_missing	﻿2026-11-26T18:28:22.9449374Z ##[group]Run ./actions/tool
+contracts	Action tool_missing	2026-11-26T18:28:22.9450524Z with:
+contracts	Action tool_missing	2026-11-26T18:28:22.9451447Z   log: fixtures/tool
+contracts	Action tool_missing	2026-11-26T18:28:22.9452458Z   config: fixtures/config
+contracts	Action tool_missing	2026-11-26T18:28:22.9453543Z ##[endgroup]
+contracts	Action tool_missing	2026-11-26T18:28:22.9783920Z Check rejected: ENOENT: no such file or directory, lstat 'fixtures/config'
+contracts	Assert refused tool_missing	﻿2026-11-26T18:28:22.9940968Z ##[group]Run test "$OUTCOME" = failure
+contracts	Assert refused tool_missing	2026-11-26T18:28:22.9942298Z ^[[36;1mtest "$OUTCOME" = failure^[[0m
+contracts	Assert refused tool_missing	2026-11-26T18:28:22.9943584Z ^[[36;1mtest ! -e forbidden-tool_missing^[[0m
+contracts	Assert refused tool_missing	2026-11-26T18:28:22.9972182Z shell: /usr/bin/bash -e {0}
+contracts	Assert refused tool_missing	2026-11-26T18:28:22.9973401Z env:
+contracts	Assert refused tool_missing	2026-11-26T18:28:22.9974523Z   OUTCOME: failure
+contracts	Assert refused tool_missing	2026-11-26T18:28:22.9975629Z ##[endgroup]
+contracts	Prepare tool_malformed	﻿2026-11-26T18:28:23.0118381Z ##[group]Run node fixtures.cjs tool malformed
+contracts	Prepare tool_malformed	2026-11-26T18:28:23.0120048Z ^[[36;1mnode fixtures.cjs tool malformed^[[0m
+contracts	Prepare tool_malformed	2026-11-26T18:28:23.0146256Z shell: /usr/bin/bash -e {0}
+contracts	Prepare tool_malformed	2026-11-26T18:28:23.0147515Z ##[endgroup]
+contracts	Action tool_malformed	﻿2026-11-26T18:28:23.0590246Z ##[group]Run ./actions/tool
+contracts	Action tool_malformed	2026-11-26T18:28:23.0591454Z with:
+contracts	Action tool_malformed	2026-11-26T18:28:23.0592388Z   log: fixtures/tool
+contracts	Action tool_malformed	2026-11-26T18:28:23.0593403Z   config: fixtures/config
+contracts	Action tool_malformed	2026-11-26T18:28:23.0594430Z ##[endgroup]
+contracts	Action tool_malformed	2026-11-26T18:28:23.0902031Z Check rejected: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+contracts	Assert refused tool_malformed	﻿2026-11-26T18:28:23.1033258Z ##[group]Run test "$OUTCOME" = failure
+contracts	Assert refused tool_malformed	2026-11-26T18:28:23.1034597Z ^[[36;1mtest "$OUTCOME" = failure^[[0m
+contracts	Assert refused tool_malformed	2026-11-26T18:28:23.1035888Z ^[[36;1mtest ! -e forbidden-tool_malformed^[[0m
+contracts	Assert refused tool_malformed	2026-11-26T18:28:23.1064549Z shell: /usr/bin/bash -e {0}
+contracts	Assert refused tool_malformed	2026-11-26T18:28:23.1065801Z env:
+contracts	Assert refused tool_malformed	2026-11-26T18:28:23.1066755Z   OUTCOME: failure
+contracts	Assert refused tool_malformed	2026-11-26T18:28:23.1067892Z ##[endgroup]
+contracts	Prepare tool_version	﻿2026-11-26T18:28:23.1198388Z ##[group]Run node fixtures.cjs tool version
+contracts	Prepare tool_version	2026-11-26T18:28:23.1199944Z ^[[36;1mnode fixtures.cjs tool version^[[0m
+contracts	Prepare tool_version	2026-11-26T18:28:23.1225551Z shell: /usr/bin/bash -e {0}
+contracts	Prepare tool_version	2026-11-26T18:28:23.1226832Z ##[endgroup]
+contracts	Action tool_version	﻿2026-11-26T18:28:23.1661975Z ##[group]Run ./actions/tool
+contracts	Action tool_version	2026-11-26T18:28:23.1663103Z with:
+contracts	Action tool_version	2026-11-26T18:28:23.1663999Z   log: fixtures/tool
+contracts	Action tool_version	2026-11-26T18:28:23.1665004Z   config: fixtures/config
+contracts	Action tool_version	2026-11-26T18:28:23.1666038Z ##[endgroup]
+contracts	Action tool_version	2026-11-26T18:28:23.2050703Z Check rejected: tool mismatch
+contracts	Assert refused tool_version	﻿2026-11-26T18:28:23.2206134Z ##[group]Run test "$OUTCOME" = failure
+contracts	Assert refused tool_version	2026-11-26T18:28:23.2207812Z ^[[36;1mtest "$OUTCOME" = failure^[[0m
+contracts	Assert refused tool_version	2026-11-26T18:28:23.2209763Z ^[[36;1mtest ! -e forbidden-tool_version^[[0m
+contracts	Assert refused tool_version	2026-11-26T18:28:23.2249529Z shell: /usr/bin/bash -e {0}
+contracts	Assert refused tool_version	2026-11-26T18:28:23.2251166Z env:
+contracts	Assert refused tool_version	2026-11-26T18:28:23.2252352Z   OUTCOME: failure
+contracts	Assert refused tool_version	2026-11-26T18:28:23.2253650Z ##[endgroup]
+contracts	Prepare tool_metadata	﻿2026-11-26T18:28:23.2437264Z ##[group]Run node fixtures.cjs tool metadata
+contracts	Prepare tool_metadata	2026-11-26T18:28:23.2439390Z ^[[36;1mnode fixtures.cjs tool metadata^[[0m
+contracts	Prepare tool_metadata	2026-11-26T18:28:23.2476900Z shell: /usr/bin/bash -e {0}
+contracts	Prepare tool_metadata	2026-11-26T18:28:23.2478683Z ##[endgroup]
+contracts	Action tool_metadata	﻿2026-11-26T18:28:23.2912860Z ##[group]Run ./actions/tool
+contracts	Action tool_metadata	2026-11-26T18:28:23.2913875Z with:
+contracts	Action tool_metadata	2026-11-26T18:28:23.2914705Z   log: fixtures/tool
+contracts	Action tool_metadata	2026-11-26T18:28:23.2915643Z   config: fixtures/config
+contracts	Action tool_metadata	2026-11-26T18:28:23.2916621Z ##[endgroup]
+contracts	Action tool_metadata	2026-11-26T18:28:23.3246680Z Check rejected: metadata version mismatch
+contracts	Assert refused tool_metadata	﻿2026-11-26T18:28:23.3364385Z ##[group]Run test "$OUTCOME" = failure
+contracts	Assert refused tool_metadata	2026-11-26T18:28:23.3365581Z ^[[36;1mtest "$OUTCOME" = failure^[[0m
+contracts	Assert refused tool_metadata	2026-11-26T18:28:23.3366749Z ^[[36;1mtest ! -e forbidden-tool_metadata^[[0m
+contracts	Assert refused tool_metadata	2026-11-26T18:28:23.3392091Z shell: /usr/bin/bash -e {0}
+contracts	Assert refused tool_metadata	2026-11-26T18:28:23.3393247Z env:
+contracts	Assert refused tool_metadata	2026-11-26T18:28:23.3394124Z   OUTCOME: failure
+contracts	Assert refused tool_metadata	2026-11-26T18:28:23.3395086Z ##[endgroup]
+contracts	Prepare output_valid	﻿2026-11-26T18:28:23.3514791Z ##[group]Run node fixtures.cjs output valid
+contracts	Prepare output_valid	2026-11-26T18:28:23.3516062Z ^[[36;1mnode fixtures.cjs output valid^[[0m
+contracts	Prepare output_valid	2026-11-26T18:28:23.3540953Z shell: /usr/bin/bash -e {0}
+contracts	Prepare output_valid	2026-11-26T18:28:23.3542106Z ##[endgroup]
+contracts	Action output_valid	﻿2026-11-26T18:28:23.3973582Z ##[group]Run ./actions/output
+contracts	Action output_valid	2026-11-26T18:28:23.3974660Z with:
+contracts	Action output_valid	2026-11-26T18:28:23.3975516Z   log: fixtures/output
+contracts	Action output_valid	2026-11-26T18:28:23.3976443Z ##[endgroup]
+contracts	Action output_valid	2026-11-26T18:28:23.4329795Z PASS output
+contracts	Prepare output_missing	﻿2026-11-26T18:28:23.4411087Z ##[group]Run node fixtures.cjs output missing
+contracts	Prepare output_missing	2026-11-26T18:28:23.4412424Z ^[[36;1mnode fixtures.cjs output missing^[[0m
+contracts	Prepare output_missing	2026-11-26T18:28:23.4440619Z shell: /usr/bin/bash -e {0}
+contracts	Prepare output_missing	2026-11-26T18:28:23.4441864Z ##[endgroup]
+contracts	Action output_missing	﻿2026-11-26T18:28:23.4966650Z ##[group]Run ./actions/output
+contracts	Action output_missing	2026-11-26T18:28:23.5104818Z with:
+contracts	Action output_missing	2026-11-26T18:28:23.5105751Z   log: fixtures/output
+contracts	Action output_missing	2026-11-26T18:28:23.5106652Z ##[endgroup]
+contracts	Action output_missing	2026-11-26T18:28:23.5437760Z Check rejected: ENOENT: no such file or directory, lstat 'fixtures/output'
+contracts	Assert refused output_missing	﻿2026-11-26T18:28:23.5522598Z ##[group]Run test "$OUTCOME" = failure
+contracts	Assert refused output_missing	2026-11-26T18:28:23.5523368Z ^[[36;1mtest "$OUTCOME" = failure^[[0m
+contracts	Assert refused output_missing	2026-11-26T18:28:23.5524292Z ^[[36;1mtest ! -e forbidden-output_missing^[[0m
+contracts	Assert refused output_missing	2026-11-26T18:28:23.5553608Z shell: /usr/bin/bash -e {0}
+contracts	Assert refused output_missing	2026-11-26T18:28:23.5554347Z env:
+contracts	Assert refused output_missing	2026-11-26T18:28:23.5554972Z   OUTCOME: failure
+contracts	Assert refused output_missing	2026-11-26T18:28:23.5555639Z ##[endgroup]
+contracts	Prepare output_malformed	﻿2026-11-26T18:28:23.5649785Z ##[group]Run node fixtures.cjs output malformed
+contracts	Prepare output_malformed	2026-11-26T18:28:23.5650582Z ^[[36;1mnode fixtures.cjs output malformed^[[0m
+contracts	Prepare output_malformed	2026-11-26T18:28:23.5675537Z shell: /usr/bin/bash -e {0}
+contracts	Prepare output_malformed	2026-11-26T18:28:23.5676319Z ##[endgroup]
+contracts	Action output_malformed	﻿2026-11-26T18:28:23.6052500Z ##[group]Run ./actions/output
+contracts	Action output_malformed	2026-11-26T18:28:23.6053206Z with:
+contracts	Action output_malformed	2026-11-26T18:28:23.6053818Z   log: fixtures/output
+contracts	Action output_malformed	2026-11-26T18:28:23.6054464Z ##[endgroup]
+contracts	Action output_malformed	2026-11-26T18:28:23.6365557Z Check rejected: empty native output
+contracts	Assert refused output_malformed	﻿2026-11-26T18:28:23.6461337Z ##[group]Run test "$OUTCOME" = failure
+contracts	Assert refused output_malformed	2026-11-26T18:28:23.6462072Z ^[[36;1mtest "$OUTCOME" = failure^[[0m
+contracts	Assert refused output_malformed	2026-11-26T18:28:23.6462796Z ^[[36;1mtest ! -e forbidden-output_malformed^[[0m
+contracts	Assert refused output_malformed	2026-11-26T18:28:23.6493129Z shell: /usr/bin/bash -e {0}
+contracts	Assert refused output_malformed	2026-11-26T18:28:23.6493935Z env:
+contracts	Assert refused output_malformed	2026-11-26T18:28:23.6494562Z   OUTCOME: failure
+contracts	Assert refused output_malformed	2026-11-26T18:28:23.6495214Z ##[endgroup]
+contracts	Prepare output_error	﻿2026-11-26T18:28:23.6591582Z ##[group]Run node fixtures.cjs output error
+contracts	Prepare output_error	2026-11-26T18:28:23.6592347Z ^[[36;1mnode fixtures.cjs output error^[[0m
+contracts	Prepare output_error	2026-11-26T18:28:23.6616073Z shell: /usr/bin/bash -e {0}
+contracts	Prepare output_error	2026-11-26T18:28:23.6616760Z ##[endgroup]
+contracts	Action output_error	﻿2026-11-26T18:28:23.7049621Z ##[group]Run ./actions/output
+contracts	Action output_error	2026-11-26T18:28:23.7050106Z with:
+contracts	Action output_error	2026-11-26T18:28:23.7050498Z   log: fixtures/output
+contracts	Action output_error	2026-11-26T18:28:23.7050911Z ##[endgroup]
+contracts	Action output_error	2026-11-26T18:28:23.7555213Z Check rejected: native output contains errors
+contracts	Assert refused output_error	﻿2026-11-26T18:28:23.7633999Z ##[group]Run test "$OUTCOME" = failure
+contracts	Assert refused output_error	2026-11-26T18:28:23.7634512Z ^[[36;1mtest "$OUTCOME" = failure^[[0m
+contracts	Assert refused output_error	2026-11-26T18:28:23.7634953Z ^[[36;1mtest ! -e forbidden-output_error^[[0m
+contracts	Assert refused output_error	2026-11-26T18:28:23.7673973Z shell: /usr/bin/bash -e {0}
+contracts	Assert refused output_error	2026-11-26T18:28:23.7674391Z env:
+contracts	Assert refused output_error	2026-11-26T18:28:23.7674683Z   OUTCOME: failure
+contracts	Assert refused output_error	2026-11-26T18:28:23.7674997Z ##[endgroup]
+contracts	Prepare provenance_valid	﻿2026-11-26T18:28:23.7787764Z ##[group]Run node fixtures.cjs provenance valid
+contracts	Prepare provenance_valid	2026-11-26T18:28:23.7788317Z ^[[36;1mnode fixtures.cjs provenance valid^[[0m
+contracts	Prepare provenance_valid	2026-11-26T18:28:23.7822312Z shell: /usr/bin/bash -e {0}
+contracts	Prepare provenance_valid	2026-11-26T18:28:23.7822789Z ##[endgroup]
+contracts	Action provenance_valid	﻿2026-11-26T18:28:23.8363575Z ##[group]Run ./actions/provenance
+contracts	Action provenance_valid	2026-11-26T18:28:23.8363878Z with:
+contracts	Action provenance_valid	2026-11-26T18:28:23.8364088Z   archive: fixtures/archive
+contracts	Action provenance_valid	2026-11-26T18:28:23.8364334Z   receipt: fixtures/receipt
+contracts	Action provenance_valid	2026-11-26T18:28:23.8364619Z   source: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+contracts	Action provenance_valid	2026-11-26T18:28:23.8364929Z   build: 25.4.1.022.0618
+contracts	Action provenance_valid	2026-11-26T18:28:23.8365155Z ##[endgroup]
+contracts	Action provenance_valid	2026-11-26T18:28:23.8699338Z PASS provenance
+contracts	Prepare provenance_missing	﻿2026-11-26T18:28:23.8757256Z ##[group]Run node fixtures.cjs provenance missing
+contracts	Prepare provenance_missing	2026-11-26T18:28:23.8757655Z ^[[36;1mnode fixtures.cjs provenance missing^[[0m
+contracts	Prepare provenance_missing	2026-11-26T18:28:23.8782686Z shell: /usr/bin/bash -e {0}
+contracts	Prepare provenance_missing	2026-11-26T18:28:23.8783023Z ##[endgroup]
+contracts	Action provenance_missing	﻿2026-11-26T18:28:23.9135408Z ##[group]Run ./actions/provenance
+contracts	Action provenance_missing	2026-11-26T18:28:23.9135726Z with:
+contracts	Action provenance_missing	2026-11-26T18:28:23.9135954Z   archive: fixtures/archive
+contracts	Action provenance_missing	2026-11-26T18:28:23.9136207Z   receipt: fixtures/receipt
+contracts	Action provenance_missing	2026-11-26T18:28:23.9136514Z   source: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+contracts	Action provenance_missing	2026-11-26T18:28:23.9136831Z   build: 25.4.1.022.0618
+contracts	Action provenance_missing	2026-11-26T18:28:23.9137059Z ##[endgroup]
+contracts	Action provenance_missing	2026-11-26T18:28:23.9422677Z Check rejected: ENOENT: no such file or directory, lstat 'fixtures/receipt'
+contracts	Assert refused provenance_missing	﻿2026-11-26T18:28:23.9484678Z ##[group]Run test "$OUTCOME" = failure
+contracts	Assert refused provenance_missing	2026-11-26T18:28:23.9485014Z ^[[36;1mtest "$OUTCOME" = failure^[[0m
+contracts	Assert refused provenance_missing	2026-11-26T18:28:23.9485323Z ^[[36;1mtest ! -e forbidden-provenance_missing^[[0m
+contracts	Assert refused provenance_missing	2026-11-26T18:28:23.9513134Z shell: /usr/bin/bash -e {0}
+contracts	Assert refused provenance_missing	2026-11-26T18:28:23.9513421Z env:
+contracts	Assert refused provenance_missing	2026-11-26T18:28:23.9513632Z   OUTCOME: failure
+contracts	Assert refused provenance_missing	2026-11-26T18:28:23.9513848Z ##[endgroup]
+contracts	Prepare provenance_malformed	﻿2026-11-26T18:28:23.9583352Z ##[group]Run node fixtures.cjs provenance malformed
+contracts	Prepare provenance_malformed	2026-11-26T18:28:23.9583736Z ^[[36;1mnode fixtures.cjs provenance malformed^[[0m
+contracts	Prepare provenance_malformed	2026-11-26T18:28:23.9604806Z shell: /usr/bin/bash -e {0}
+contracts	Prepare provenance_malformed	2026-11-26T18:28:23.9605314Z ##[endgroup]
+contracts	Action provenance_malformed	﻿2026-11-26T18:28:23.9952601Z ##[group]Run ./actions/provenance
+contracts	Action provenance_malformed	2026-11-26T18:28:23.9952889Z with:
+contracts	Action provenance_malformed	2026-11-26T18:28:23.9953101Z   archive: fixtures/archive
+contracts	Action provenance_malformed	2026-11-26T18:28:23.9953351Z   receipt: fixtures/receipt
+contracts	Action provenance_malformed	2026-11-26T18:28:23.9953635Z   source: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+contracts	Action provenance_malformed	2026-11-26T18:28:23.9953943Z   build: 25.4.1.022.0618
+contracts	Action provenance_malformed	2026-11-26T18:28:23.9954161Z ##[endgroup]
+contracts	Action provenance_malformed	2026-11-26T18:28:24.0259465Z Check rejected: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+contracts	Assert refused provenance_malformed	﻿2026-11-26T18:28:24.0334421Z ##[group]Run test "$OUTCOME" = failure
+contracts	Assert refused provenance_malformed	2026-11-26T18:28:24.0334910Z ^[[36;1mtest "$OUTCOME" = failure^[[0m
+contracts	Assert refused provenance_malformed	2026-11-26T18:28:24.0335349Z ^[[36;1mtest ! -e forbidden-provenance_malformed^[[0m
+contracts	Assert refused provenance_malformed	2026-11-26T18:28:24.0370827Z shell: /usr/bin/bash -e {0}
+contracts	Assert refused provenance_malformed	2026-11-26T18:28:24.0371279Z env:
+contracts	Assert refused provenance_malformed	2026-11-26T18:28:24.0371599Z   OUTCOME: failure
+contracts	Assert refused provenance_malformed	2026-11-26T18:28:24.0371938Z ##[endgroup]
+contracts	Prepare provenance_source	﻿2026-11-26T18:28:24.0476304Z ##[group]Run node fixtures.cjs provenance source
+contracts	Prepare provenance_source	2026-11-26T18:28:24.0476893Z ^[[36;1mnode fixtures.cjs provenance source^[[0m
+contracts	Prepare provenance_source	2026-11-26T18:28:24.0509016Z shell: /usr/bin/bash -e {0}
+contracts	Prepare provenance_source	2026-11-26T18:28:24.0509490Z ##[endgroup]
+contracts	Action provenance_source	﻿2026-11-26T18:28:24.1018771Z ##[group]Run ./actions/provenance
+contracts	Action provenance_source	2026-11-26T18:28:24.1019198Z with:
+contracts	Action provenance_source	2026-11-26T18:28:24.1019508Z   archive: fixtures/archive
+contracts	Action provenance_source	2026-11-26T18:28:24.1019880Z   receipt: fixtures/receipt
+contracts	Action provenance_source	2026-11-26T18:28:24.1020332Z   source: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+contracts	Action provenance_source	2026-11-26T18:28:24.1020819Z   build: 25.4.1.022.0618
+contracts	Action provenance_source	2026-11-26T18:28:24.1021161Z ##[endgroup]
+contracts	Action provenance_source	2026-11-26T18:28:24.1332204Z Check rejected: source mismatch
+contracts	Assert refused provenance_source	﻿2026-11-26T18:28:24.1396973Z ##[group]Run test "$OUTCOME" = failure
+contracts	Assert refused provenance_source	2026-11-26T18:28:24.1397313Z ^[[36;1mtest "$OUTCOME" = failure^[[0m
+contracts	Assert refused provenance_source	2026-11-26T18:28:24.1397617Z ^[[36;1mtest ! -e forbidden-provenance_source^[[0m
+contracts	Assert refused provenance_source	2026-11-26T18:28:24.1424466Z shell: /usr/bin/bash -e {0}
+contracts	Assert refused provenance_source	2026-11-26T18:28:24.1424762Z env:
+contracts	Assert refused provenance_source	2026-11-26T18:28:24.1424974Z   OUTCOME: failure
+contracts	Assert refused provenance_source	2026-11-26T18:28:24.1425194Z ##[endgroup]
+contracts	Prepare provenance_artifact	﻿2026-11-26T18:28:24.1495863Z ##[group]Run node fixtures.cjs provenance artifact
+contracts	Prepare provenance_artifact	2026-11-26T18:28:24.1496246Z ^[[36;1mnode fixtures.cjs provenance artifact^[[0m
+contracts	Prepare provenance_artifact	2026-11-26T18:28:24.1519622Z shell: /usr/bin/bash -e {0}
+contracts	Prepare provenance_artifact	2026-11-26T18:28:24.1519916Z ##[endgroup]
+contracts	Action provenance_artifact	﻿2026-11-26T18:28:24.1876841Z ##[group]Run ./actions/provenance
+contracts	Action provenance_artifact	2026-11-26T18:28:24.1877130Z with:
+contracts	Action provenance_artifact	2026-11-26T18:28:24.1877351Z   archive: fixtures/archive
+contracts	Action provenance_artifact	2026-11-26T18:28:24.1877604Z   receipt: fixtures/receipt
+contracts	Action provenance_artifact	2026-11-26T18:28:24.1877895Z   source: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+contracts	Action provenance_artifact	2026-11-26T18:28:24.1878210Z   build: 25.4.1.022.0618
+contracts	Action provenance_artifact	2026-11-26T18:28:24.1878619Z ##[endgroup]
+contracts	Action provenance_artifact	2026-11-26T18:28:24.2192704Z Check rejected: artifact mismatch
+contracts	Assert refused provenance_artifact	﻿2026-11-26T18:28:24.2251199Z ##[group]Run test "$OUTCOME" = failure
+contracts	Assert refused provenance_artifact	2026-11-26T18:28:24.2251547Z ^[[36;1mtest "$OUTCOME" = failure^[[0m
+contracts	Assert refused provenance_artifact	2026-11-26T18:28:24.2251853Z ^[[36;1mtest ! -e forbidden-provenance_artifact^[[0m
+contracts	Assert refused provenance_artifact	2026-11-26T18:28:24.2279507Z shell: /usr/bin/bash -e {0}
+contracts	Assert refused provenance_artifact	2026-11-26T18:28:24.2279806Z env:
+contracts	Assert refused provenance_artifact	2026-11-26T18:28:24.2280022Z   OUTCOME: failure
+contracts	Assert refused provenance_artifact	2026-11-26T18:28:24.2280261Z ##[endgroup]
+contracts	Prepare provenance_build	﻿2026-11-26T18:28:24.2352009Z ##[group]Run node fixtures.cjs provenance build
+contracts	Prepare provenance_build	2026-11-26T18:28:24.2352379Z ^[[36;1mnode fixtures.cjs provenance build^[[0m
+contracts	Prepare provenance_build	2026-11-26T18:28:24.2377031Z shell: /usr/bin/bash -e {0}
+contracts	Prepare provenance_build	2026-11-26T18:28:24.2377334Z ##[endgroup]
+contracts	Action provenance_build	﻿2026-11-26T18:28:24.2728292Z ##[group]Run ./actions/provenance
+contracts	Action provenance_build	2026-11-26T18:28:24.2728758Z with:
+contracts	Action provenance_build	2026-11-26T18:28:24.2728983Z   archive: fixtures/archive
+contracts	Action provenance_build	2026-11-26T18:28:24.2729231Z   receipt: fixtures/receipt
+contracts	Action provenance_build	2026-11-26T18:28:24.2729523Z   source: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+contracts	Action provenance_build	2026-11-26T18:28:24.2729835Z   build: 25.4.1.022.0618
+contracts	Action provenance_build	2026-11-26T18:28:24.2730056Z ##[endgroup]
+contracts	Action provenance_build	2026-11-26T18:28:24.3023139Z Check rejected: tool mismatch
+contracts	Assert refused provenance_build	﻿2026-11-26T18:28:24.3087468Z ##[group]Run test "$OUTCOME" = failure
+contracts	Assert refused provenance_build	2026-11-26T18:28:24.3087793Z ^[[36;1mtest "$OUTCOME" = failure^[[0m
+contracts	Assert refused provenance_build	2026-11-26T18:28:24.3088095Z ^[[36;1mtest ! -e forbidden-provenance_build^[[0m
+contracts	Assert refused provenance_build	2026-11-26T18:28:24.3114066Z shell: /usr/bin/bash -e {0}
+contracts	Assert refused provenance_build	2026-11-26T18:28:24.3114565Z env:
+contracts	Assert refused provenance_build	2026-11-26T18:28:24.3114826Z   OUTCOME: failure
+contracts	Assert refused provenance_build	2026-11-26T18:28:24.3115099Z ##[endgroup]
+contracts	Prepare candidate_valid	﻿2026-11-26T18:28:24.3184882Z ##[group]Run node fixtures.cjs candidate valid
+contracts	Prepare candidate_valid	2026-11-26T18:28:24.3185238Z ^[[36;1mnode fixtures.cjs candidate valid^[[0m
+contracts	Prepare candidate_valid	2026-11-26T18:28:24.3208771Z shell: /usr/bin/bash -e {0}
+contracts	Prepare candidate_valid	2026-11-26T18:28:24.3209073Z ##[endgroup]
+contracts	Action candidate_valid	﻿2026-11-26T18:28:24.3552853Z ##[group]Run ./actions/candidate
+contracts	Action candidate_valid	2026-11-26T18:28:24.3553133Z with:
+contracts	Action candidate_valid	2026-11-26T18:28:24.3553351Z   event: fixtures/event
+contracts	Action candidate_valid	2026-11-26T18:28:24.3553584Z ##[endgroup]
+contracts	Action candidate_valid	2026-11-26T18:28:24.3832962Z PASS candidate
+contracts	Prepare candidate_missing	﻿2026-11-26T18:28:24.3889736Z ##[group]Run node fixtures.cjs candidate missing
+contracts	Prepare candidate_missing	2026-11-26T18:28:24.3890103Z ^[[36;1mnode fixtures.cjs candidate missing^[[0m
+contracts	Prepare candidate_missing	2026-11-26T18:28:24.3916362Z shell: /usr/bin/bash -e {0}
+contracts	Prepare candidate_missing	2026-11-26T18:28:24.3916671Z ##[endgroup]
+contracts	Action candidate_missing	﻿2026-11-26T18:28:24.4393221Z ##[group]Run ./actions/candidate
+contracts	Action candidate_missing	2026-11-26T18:28:24.4393630Z with:
+contracts	Action candidate_missing	2026-11-26T18:28:24.4393927Z   event: fixtures/event
+contracts	Action candidate_missing	2026-11-26T18:28:24.4394281Z ##[endgroup]
+contracts	Action candidate_missing	2026-11-26T18:28:24.4747278Z Check rejected: ENOENT: no such file or directory, lstat 'fixtures/event'
+contracts	Assert refused candidate_missing	﻿2026-11-26T18:28:24.4810642Z ##[group]Run test "$OUTCOME" = failure
+contracts	Assert refused candidate_missing	2026-11-26T18:28:24.4810991Z ^[[36;1mtest "$OUTCOME" = failure^[[0m
+contracts	Assert refused candidate_missing	2026-11-26T18:28:24.4811303Z ^[[36;1mtest ! -e forbidden-candidate_missing^[[0m
+contracts	Assert refused candidate_missing	2026-11-26T18:28:24.4839260Z shell: /usr/bin/bash -e {0}
+contracts	Assert refused candidate_missing	2026-11-26T18:28:24.4839555Z env:
+contracts	Assert refused candidate_missing	2026-11-26T18:28:24.4839769Z   OUTCOME: failure
+contracts	Assert refused candidate_missing	2026-11-26T18:28:24.4839989Z ##[endgroup]
+contracts	Prepare candidate_malformed	﻿2026-11-26T18:28:24.4910872Z ##[group]Run node fixtures.cjs candidate malformed
+contracts	Prepare candidate_malformed	2026-11-26T18:28:24.4911263Z ^[[36;1mnode fixtures.cjs candidate malformed^[[0m
+contracts	Prepare candidate_malformed	2026-11-26T18:28:24.4935463Z shell: /usr/bin/bash -e {0}
+contracts	Prepare candidate_malformed	2026-11-26T18:28:24.4935767Z ##[endgroup]
+contracts	Action candidate_malformed	﻿2026-11-26T18:28:24.5303522Z ##[group]Run ./actions/candidate
+contracts	Action candidate_malformed	2026-11-26T18:28:24.5303803Z with:
+contracts	Action candidate_malformed	2026-11-26T18:28:24.5304018Z   event: fixtures/event
+contracts	Action candidate_malformed	2026-11-26T18:28:24.5304247Z ##[endgroup]
+contracts	Action candidate_malformed	2026-11-26T18:28:24.5659630Z Check rejected: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+contracts	Assert refused candidate_malformed	﻿2026-11-26T18:28:24.5743367Z ##[group]Run test "$OUTCOME" = failure
+contracts	Assert refused candidate_malformed	2026-11-26T18:28:24.5743700Z ^[[36;1mtest "$OUTCOME" = failure^[[0m
+contracts	Assert refused candidate_malformed	2026-11-26T18:28:24.5744003Z ^[[36;1mtest ! -e forbidden-candidate_malformed^[[0m
+contracts	Assert refused candidate_malformed	2026-11-26T18:28:24.5770183Z shell: /usr/bin/bash -e {0}
+contracts	Assert refused candidate_malformed	2026-11-26T18:28:24.5770470Z env:
+contracts	Assert refused candidate_malformed	2026-11-26T18:28:24.5770681Z   OUTCOME: failure
+contracts	Assert refused candidate_malformed	2026-11-26T18:28:24.5770902Z ##[endgroup]
+contracts	Prepare candidate_state	﻿2026-11-26T18:28:24.5840429Z ##[group]Run node fixtures.cjs candidate state
+contracts	Prepare candidate_state	2026-11-26T18:28:24.5840779Z ^[[36;1mnode fixtures.cjs candidate state^[[0m
+contracts	Prepare candidate_state	2026-11-26T18:28:24.5864237Z shell: /usr/bin/bash -e {0}
+contracts	Prepare candidate_state	2026-11-26T18:28:24.5864521Z ##[endgroup]
+contracts	Action candidate_state	﻿2026-11-26T18:28:24.6224666Z ##[group]Run ./actions/candidate
+contracts	Action candidate_state	2026-11-26T18:28:24.6224950Z with:
+contracts	Action candidate_state	2026-11-26T18:28:24.6225173Z   event: fixtures/event
+contracts	Action candidate_state	2026-11-26T18:28:24.6225405Z ##[endgroup]
+contracts	Action candidate_state	2026-11-26T18:28:24.6558316Z Check rejected: candidate state mismatch
+contracts	Assert refused candidate_state	﻿2026-11-26T18:28:24.6619231Z ##[group]Run test "$OUTCOME" = failure
+contracts	Assert refused candidate_state	2026-11-26T18:28:24.6619593Z ^[[36;1mtest "$OUTCOME" = failure^[[0m
+contracts	Assert refused candidate_state	2026-11-26T18:28:24.6619884Z ^[[36;1mtest ! -e forbidden-candidate_state^[[0m
+contracts	Assert refused candidate_state	2026-11-26T18:28:24.6647200Z shell: /usr/bin/bash -e {0}
+contracts	Assert refused candidate_state	2026-11-26T18:28:24.6647490Z env:
+contracts	Assert refused candidate_state	2026-11-26T18:28:24.6647705Z   OUTCOME: failure
+contracts	Assert refused candidate_state	2026-11-26T18:28:24.6647928Z ##[endgroup]
+contracts	Prepare review_valid	﻿2026-11-26T18:28:24.6719866Z ##[group]Run node fixtures.cjs review valid
+contracts	Prepare review_valid	2026-11-26T18:28:24.6720209Z ^[[36;1mnode fixtures.cjs review valid^[[0m
+contracts	Prepare review_valid	2026-11-26T18:28:24.6765375Z shell: /usr/bin/bash -e {0}
+contracts	Prepare review_valid	2026-11-26T18:28:24.6765831Z ##[endgroup]
+contracts	Action review_valid	﻿2026-11-26T18:28:24.7196400Z ##[group]Run ./actions/review
+contracts	Action review_valid	2026-11-26T18:28:24.7196685Z with:
+contracts	Action review_valid	2026-11-26T18:28:24.7196901Z   changed: fixtures/changed
+contracts	Action review_valid	2026-11-26T18:28:24.7197150Z   report: fixtures/report
+contracts	Action review_valid	2026-11-26T18:28:24.7197382Z   sql: fixtures/sql
+contracts	Action review_valid	2026-11-26T18:28:24.7197597Z ##[endgroup]
+contracts	Action review_valid	2026-11-26T18:28:24.7578782Z PASS review
+contracts	Prepare review_missing	﻿2026-11-26T18:28:24.7637644Z ##[group]Run node fixtures.cjs review missing
+contracts	Prepare review_missing	2026-11-26T18:28:24.7637996Z ^[[36;1mnode fixtures.cjs review missing^[[0m
+contracts	Prepare review_missing	2026-11-26T18:28:24.7664282Z shell: /usr/bin/bash -e {0}
+contracts	Prepare review_missing	2026-11-26T18:28:24.7664584Z ##[endgroup]
+contracts	Action review_missing	﻿2026-11-26T18:28:24.8031513Z ##[group]Run ./actions/review
+contracts	Action review_missing	2026-11-26T18:28:24.8032038Z with:
+contracts	Action review_missing	2026-11-26T18:28:24.8032287Z   changed: fixtures/changed
+contracts	Action review_missing	2026-11-26T18:28:24.8032543Z   report: fixtures/report
+contracts	Action review_missing	2026-11-26T18:28:24.8032780Z   sql: fixtures/sql
+contracts	Action review_missing	2026-11-26T18:28:24.8032998Z ##[endgroup]
+contracts	Action review_missing	2026-11-26T18:28:24.8376646Z Check rejected: ENOENT: no such file or directory, lstat 'fixtures/report'
+contracts	Assert refused review_missing	﻿2026-11-26T18:28:24.8433302Z ##[group]Run test "$OUTCOME" = failure
+contracts	Assert refused review_missing	2026-11-26T18:28:24.8433640Z ^[[36;1mtest "$OUTCOME" = failure^[[0m
+contracts	Assert refused review_missing	2026-11-26T18:28:24.8433930Z ^[[36;1mtest ! -e forbidden-review_missing^[[0m
+contracts	Assert refused review_missing	2026-11-26T18:28:24.8459778Z shell: /usr/bin/bash -e {0}
+contracts	Assert refused review_missing	2026-11-26T18:28:24.8460068Z env:
+contracts	Assert refused review_missing	2026-11-26T18:28:24.8460276Z   OUTCOME: failure
+contracts	Assert refused review_missing	2026-11-26T18:28:24.8460495Z ##[endgroup]
+contracts	Prepare review_malformed	﻿2026-11-26T18:28:24.8529805Z ##[group]Run node fixtures.cjs review malformed
+contracts	Prepare review_malformed	2026-11-26T18:28:24.8530178Z ^[[36;1mnode fixtures.cjs review malformed^[[0m
+contracts	Prepare review_malformed	2026-11-26T18:28:24.8553726Z shell: /usr/bin/bash -e {0}
+contracts	Prepare review_malformed	2026-11-26T18:28:24.8554019Z ##[endgroup]
+contracts	Action review_malformed	﻿2026-11-26T18:28:24.8926319Z ##[group]Run ./actions/review
+contracts	Action review_malformed	2026-11-26T18:28:24.8926828Z with:
+contracts	Action review_malformed	2026-11-26T18:28:24.8927043Z   changed: fixtures/changed
+contracts	Action review_malformed	2026-11-26T18:28:24.8927489Z   report: fixtures/report
+contracts	Action review_malformed	2026-11-26T18:28:24.8927855Z   sql: fixtures/sql
+contracts	Action review_malformed	2026-11-26T18:28:24.8928178Z ##[endgroup]
+contracts	Action review_malformed	2026-11-26T18:28:24.9276231Z Check rejected: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+contracts	Assert refused review_malformed	﻿2026-11-26T18:28:24.9344394Z ##[group]Run test "$OUTCOME" = failure
+contracts	Assert refused review_malformed	2026-11-26T18:28:24.9344757Z ^[[36;1mtest "$OUTCOME" = failure^[[0m
+contracts	Assert refused review_malformed	2026-11-26T18:28:24.9345054Z ^[[36;1mtest ! -e forbidden-review_malformed^[[0m
+contracts	Assert refused review_malformed	2026-11-26T18:28:24.9371335Z shell: /usr/bin/bash -e {0}
+contracts	Assert refused review_malformed	2026-11-26T18:28:24.9371631Z env:
+contracts	Assert refused review_malformed	2026-11-26T18:28:24.9371881Z   OUTCOME: failure
+contracts	Assert refused review_malformed	2026-11-26T18:28:24.9372151Z ##[endgroup]
+contracts	Prepare review_files	﻿2026-11-26T18:28:24.9546159Z ##[group]Run node fixtures.cjs review files
+contracts	Prepare review_files	2026-11-26T18:28:24.9546579Z ^[[36;1mnode fixtures.cjs review files^[[0m
+contracts	Prepare review_files	2026-11-26T18:28:24.9577477Z shell: /usr/bin/bash -e {0}
+contracts	Prepare review_files	2026-11-26T18:28:24.9577792Z ##[endgroup]
+contracts	Action review_files	﻿2026-11-26T18:28:25.0012507Z ##[group]Run ./actions/review
+contracts	Action review_files	2026-11-26T18:28:25.0012782Z with:
+contracts	Action review_files	2026-11-26T18:28:25.0013001Z   changed: fixtures/changed
+contracts	Action review_files	2026-11-26T18:28:25.0013250Z   report: fixtures/report
+contracts	Action review_files	2026-11-26T18:28:25.0013479Z   sql: fixtures/sql
+contracts	Action review_files	2026-11-26T18:28:25.0013687Z ##[endgroup]
+contracts	Action review_files	2026-11-26T18:28:25.0349532Z Check rejected: unreviewed files
+contracts	Assert refused review_files	﻿2026-11-26T18:28:25.0406069Z ##[group]Run test "$OUTCOME" = failure
+contracts	Assert refused review_files	2026-11-26T18:28:25.0406397Z ^[[36;1mtest "$OUTCOME" = failure^[[0m
+contracts	Assert refused review_files	2026-11-26T18:28:25.0406683Z ^[[36;1mtest ! -e forbidden-review_files^[[0m
+contracts	Assert refused review_files	2026-11-26T18:28:25.0434616Z shell: /usr/bin/bash -e {0}
+contracts	Assert refused review_files	2026-11-26T18:28:25.0434915Z env:
+contracts	Assert refused review_files	2026-11-26T18:28:25.0435138Z   OUTCOME: failure
+contracts	Assert refused review_files	2026-11-26T18:28:25.0435364Z ##[endgroup]
+contracts	Prepare review_stale	﻿2026-11-26T18:28:25.0513905Z ##[group]Run node fixtures.cjs review stale
+contracts	Prepare review_stale	2026-11-26T18:28:25.0514262Z ^[[36;1mnode fixtures.cjs review stale^[[0m
+contracts	Prepare review_stale	2026-11-26T18:28:25.0538951Z shell: /usr/bin/bash -e {0}
+contracts	Prepare review_stale	2026-11-26T18:28:25.0539246Z ##[endgroup]
+contracts	Action review_stale	﻿2026-11-26T18:28:25.0894838Z ##[group]Run ./actions/review
+contracts	Action review_stale	2026-11-26T18:28:25.0895117Z with:
+contracts	Action review_stale	2026-11-26T18:28:25.0895340Z   changed: fixtures/changed
+contracts	Action review_stale	2026-11-26T18:28:25.0895594Z   report: fixtures/report
+contracts	Action review_stale	2026-11-26T18:28:25.0895832Z   sql: fixtures/sql
+contracts	Action review_stale	2026-11-26T18:28:25.0896052Z ##[endgroup]
+contracts	Action review_stale	2026-11-26T18:28:25.1277809Z Check rejected: stale Review
+contracts	Assert refused review_stale	﻿2026-11-26T18:28:25.1320125Z ##[group]Run test "$OUTCOME" = failure
+contracts	Assert refused review_stale	2026-11-26T18:28:25.1320455Z ^[[36;1mtest "$OUTCOME" = failure^[[0m
+contracts	Assert refused review_stale	2026-11-26T18:28:25.1320741Z ^[[36;1mtest ! -e forbidden-review_stale^[[0m
+contracts	Assert refused review_stale	2026-11-26T18:28:25.1346525Z shell: /usr/bin/bash -e {0}
+contracts	Assert refused review_stale	2026-11-26T18:28:25.1346813Z env:
+contracts	Assert refused review_stale	2026-11-26T18:28:25.1347030Z   OUTCOME: failure
+contracts	Assert refused review_stale	2026-11-26T18:28:25.1347255Z ##[endgroup]
+contracts	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	﻿2026-11-26T18:28:25.1490080Z Post job cleanup.
+contracts	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:25.2454706Z [command]/usr/bin/git version
+contracts	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:25.2577926Z git version 2.56.1
+contracts	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:25.2638927Z Temporarily overriding HOME='/home/runner/work/_temp/4b38d9e7-bca9-4ac9-ab3a-7a6fb7393793' before making global git config changes
+contracts	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:25.2647625Z Adding repository directory to the temporary git global config as a safe directory
+contracts	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:25.2649338Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/APEX_CICD_E.19/APEX_CICD_E.19
+contracts	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:25.2651705Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+contracts	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:25.2702850Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+contracts	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:25.3078058Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+contracts	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:28:25.3158220Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+contracts	Complete job	﻿2026-11-26T18:28:25.3875543Z Cleaning up orphan processes
+contracts	Complete job	2026-11-26T18:28:25.4203541Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

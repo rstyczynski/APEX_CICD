@@ -1,0 +1,1 @@
+const {check}=require('./actions/checks.cjs');try{const [archive,receipt,source,build]=process.argv.slice(2);check('provenance',{archive,receipt,source,build});}catch(e){console.error(e.message);process.exitCode=1;}

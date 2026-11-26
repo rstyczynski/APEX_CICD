@@ -1,0 +1,12 @@
+name: Validate candidate
+description: Reject invalid trusted candidate evidence
+inputs:
+  event:
+    description: Required event evidence file
+    required: true
+outputs:
+  validated:
+    description: True only after successful validation
+runs:
+  using: node24
+  main: index.cjs

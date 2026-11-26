@@ -1,0 +1,3 @@
+RUN smoke:test_javascript_actions.sh:test_javascript_actions_source
+PASS test_javascript_actions_source
+Tests: 1; failed: 0

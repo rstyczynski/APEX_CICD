@@ -29,3 +29,15 @@ test('provenance explicit checks reject substitutions and malformed evidence',()
  assert.equal(check('provenance',input),true);
  for(const patch of [{source:'b'.repeat(40)},{source:''},{build:'wrong'},{archive:write('altered','changed')},{receipt:write('malformed','{')},{receipt:undefined}]) assert.throws(()=>check('provenance',{...input,...patch}));
 });
+test('candidate binds open PR and valid source identities',()=>{
+ const event=write('event',JSON.stringify({state:'open',base:{ref:'main',sha:'a'.repeat(40)},head:{sha:'b'.repeat(40)}}));
+ assert.equal(check('candidate',{event}),true);
+ for(const value of ['{}','{',JSON.stringify({state:'closed'}),JSON.stringify({state:'open',base:{ref:'main',sha:'wrong'},head:{sha:'b'.repeat(40)}})])assert.throws(()=>check('candidate',{event:write('bad-event',value)}));
+ assert.throws(()=>check('candidate',{}));
+});
+test('trusted review binds exact sole candidate file and decision',()=>{
+ const sql=write('sql','select 1 from dual');const changed=write('changed','["candidate.sql"]');
+ const report=write('report',JSON.stringify({decision:'accept',sql_sha256:crypto.createHash('sha256').update('select 1 from dual').digest('hex')}));
+ const input={sql,changed,report};assert.equal(check('review',input),true);
+ for(const patch of [{changed:write('wrong-files','["candidate.sql","other"]')},{report:write('reject','{"decision":"reject"}')},{sql:write('different-sql','select 2 from dual')},{report:write('bad-report','{')},{sql:undefined}])assert.throws(()=>check('review',{...input,...patch}));
+});

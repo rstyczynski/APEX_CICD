@@ -1,0 +1,16 @@
+RUN unit:test_javascript_actions.sh:test_javascript_actions_contracts
+✔ tool requires log and matching native metadata (2.739375ms)
+✔ output rejects error signatures and empty/missing files (3.822291ms)
+✔ provenance explicit checks reject substitutions and malformed evidence (3.390833ms)
+✔ candidate binds open PR and valid source identities (2.904ms)
+✔ trusted review binds exact sole candidate file and decision (3.371541ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 76.270459
+PASS test_javascript_actions_contracts
+Tests: 1; failed: 0

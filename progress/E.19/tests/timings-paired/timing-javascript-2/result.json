@@ -1,0 +1,57 @@
+{
+  "runtime": "javascript",
+  "version": "v24.22.1",
+  "runner_image": "ubuntu24",
+  "image_version": "20261122.23.1",
+  "source": "99b05eb54e01974b60e49aefe4dfe0192f9f7dd3",
+  "run": "45875517420",
+  "samples": [
+    {
+      "phase": "cold-first-process",
+      "milliseconds": 143.002324
+    },
+    {
+      "phase": "warm-repeat",
+      "milliseconds": 194.691838
+    },
+    {
+      "phase": "warm-repeat",
+      "milliseconds": 167.336678
+    },
+    {
+      "phase": "warm-repeat",
+      "milliseconds": 132.968035
+    },
+    {
+      "phase": "warm-repeat",
+      "milliseconds": 134.672126
+    },
+    {
+      "phase": "warm-repeat",
+      "milliseconds": 124.538075
+    },
+    {
+      "phase": "warm-repeat",
+      "milliseconds": 131.355592
+    },
+    {
+      "phase": "warm-repeat",
+      "milliseconds": 157.976264
+    },
+    {
+      "phase": "warm-repeat",
+      "milliseconds": 122.32947
+    },
+    {
+      "phase": "warm-repeat",
+      "milliseconds": 124.267482
+    },
+    {
+      "phase": "warm-repeat",
+      "milliseconds": 119.796178
+    }
+  ],
+  "setup": "runner preinstalled Python; action-provided Node24; no runtime installation",
+  "workload": "five independent helper processes over identical tool/output/archive bytes; valid shared domain only",
+  "limits": "cold is first invocation in a fresh job, not guaranteed cold physical host; warm is repeated process execution with filesystem caches"
+}

@@ -1,0 +1,1 @@
+PASS 162 new generated files retained in E.19 and 59 historical tracked outputs restored byte-for-byte. Initial session Git status confirmed those historical paths clean. Unrelated user edits and executable source were not restored or moved.

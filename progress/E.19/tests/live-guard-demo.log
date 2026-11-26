@@ -1,0 +1,9 @@
+DEMO valid receipt binds expected source/build and exact archive bytes
+PASS provenance
+validated=true
+DEMO substitute archive bytes; rejected guard must prevent the next step
+Check rejected: artifact mismatch
+PASS substituted archive refused and mutation absent
+DEMO restore correct producer output and retry
+PASS provenance
+PASS recovery with original validated evidence

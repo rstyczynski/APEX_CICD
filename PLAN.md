@@ -501,7 +501,7 @@ Backlog Items:
 
 ## Sprint E.19 - Validate catalogued JavaScript support actions
 
-Status: Progress
+Status: Done
 Mode: YOLO
 Test: smoke, unit, integration
 Regression: smoke, unit, integration

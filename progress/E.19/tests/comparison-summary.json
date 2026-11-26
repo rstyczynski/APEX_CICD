@@ -1,0 +1,30 @@
+{
+  "javascript": {
+    "cold_n": 2,
+    "cold_median_ms": 167.268616,
+    "warm_n": 20,
+    "warm_median_ms": 168.44883049999999,
+    "warm_min_ms": 119.796178,
+    "warm_max_ms": 228.231755,
+    "versions": [
+      "v24.22.1"
+    ],
+    "images": [
+      "20261122.23.1"
+    ]
+  },
+  "python": {
+    "cold_n": 2,
+    "cold_median_ms": 120.9738935,
+    "warm_n": 20,
+    "warm_median_ms": 138.6042555,
+    "warm_min_ms": 99.731727,
+    "warm_max_ms": 162.494075,
+    "versions": [
+      "Python 3.12.3"
+    ],
+    "images": [
+      "20261122.23.1"
+    ]
+  }
+}

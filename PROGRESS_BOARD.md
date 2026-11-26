@@ -70,4 +70,7 @@
 | Sprint E.16 | Done | PBI-084 | Done |
 | Sprint E.17 | Done | PBI-085 | Done |
 | Sprint E.18 | Done | PBI-086 | Done |
-| Sprint E.19 | under_construction | PBI-087 | under_construction |
+| Sprint E.19 | Done | PBI-087 | Done |
+| Sprint E.19 | Done | PBI-087.1 | Done |
+| Sprint E.19 | Done | PBI-087.2 | Done |
+| Sprint E.19 | Done | PBI-087.3 | Done |
