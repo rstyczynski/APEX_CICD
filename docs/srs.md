@@ -477,11 +477,11 @@ The [E.14 walkthrough](../progress/E.14/sprint_E.14_increment_demo.md) owns the 
 ## E.15 hosted validation
 
 The [E.15 checklist](../progress/E.15/sprint_E.15_checklist.md) tracks PBI-083 acceptance, and the [draft walkthrough](../progress/E.15/sprint_E.15_increment_demo.md) explains the current hosted Oracle experiment and its limits. The corrected companion boundary verified real Oracle Testing, exact Review, ordinary protected merge and the assigned negative authority/freshness/cleanup cases. Lifecycle status is owned by PLAN and the closure record. This work does not change production requirements or qualify native SQLcl release delivery.
-# E.16 evidence navigation
+## E.16 evidence navigation
 
 [PBI-084](../BACKLOG.md#pbi-084-validate-provenance-through-native-oracle-release-delivery)
 and [PLAN E.16](../PLAN.md#sprint-e16---validate-provenance-through-native-oracle-release-delivery)
 own this sprint's acceptance and assignment. The
 [E.16 checklist](../progress/E.16/sprint_E.16_checklist.md) tracks evidence without
 changing these product requirements. Native installation, upgrade, repeat and
-provenance refusal remain pending verification at this checkpoint.
+provenance refusal have current native evidence in the linked checklist; full regression and sprint closure remain separate gates.

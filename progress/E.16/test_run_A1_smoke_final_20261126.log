@@ -1,0 +1,3 @@
+RUN smoke:test_native_provenance.sh:test_native_source
+PASS test_native_source
+Tests: 1; failed: 0
