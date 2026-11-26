@@ -65,3 +65,7 @@ Replaced obsolete active/unresolved README and checklist wording after checking 
 The finalization helper initially rejected its own Git-status parser (leading status whitespace was stripped); corrected it before committing. The staged whitespace check then found an extra terminal blank line in the clean-clone log; preserved original bytes in tests/raw/clean-validator-clone.log.gz and normalized the readable view before retry. Neither failed precheck produced a completion commit.
 
 Final pre-completion checks passed: `python3 /tmp/e15-doc-check.py`, `git diff --check`, `git diff --cached --check`, six gate hashes, 253 regression source hashes, four qualified component hashes, canonical presentation hash, live candidate Actions disabled and strict/admin protection. The exact output is retained in [final reconciliation](tests/final-reconciliation.txt). Origin/main is an ancestor of the current root branch before publication.
+
+## Durable completion publication
+
+Completion commit 4823a085919ee0909fae8c85c8f7df6a0152d539 passed scoped staged whitespace and was pushed to root origin/main; remote SHA matched. The follow-up publication receipt records that actual result. This bookkeeping increment changes only publication/audit documentation, so no executable test rerun is warranted. Local-link and worktree/staged whitespace checks are repeated before its commit.
