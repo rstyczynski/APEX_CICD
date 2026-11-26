@@ -1,0 +1,12 @@
+Continue and finalize Sprint ${sprint} in this same chat.
+The previous attempt did not establish completion (process exit ${rc}).
+
+Inspect your previous response, repository state and evidence. Resolve
+unfinished work and verification failures, then complete sprint closure.
+Resume from verified progress. All original authorization, restrictions,
+acceptance criteria and plain-text final-answer requirements remain in force.
+Do not treat this retry as permission to bypass an external blocker,
+mandatory approval, failed check or missing evidence.
+
+Original task:
+${prompt}

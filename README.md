@@ -89,6 +89,36 @@ Current A–C scripts replay reviewed sequential Git snapshots. Independent task
 
 Workflows must prepare tools and generated files through explicit setup and obtain environment settings and credentials from their configuration platform. **`.local-apex/` is disposable scratch only**, never a new environment-settings or credential store. The sole temporary exception is the Product Owner-approved read-only prepared-host lookup of the existing E.1/E.2 credential record, with the scope/ending trigger in [R1-L1](progress/E.3/sprint_E.3_handover_review-1-decisions.md#r1-l1--product-owner-policy-choice-required). That retained dependency must not be discarded as scratch. E.3 uses GitHub variables/secrets and job-scoped temporary SQLcl connections, as described in the [configuration guide](progress/E.3/sprint_E.3_github_configuration.md). [SRS NFR-4](docs/srs.md#quality-requirements-and-initial-release) and [PBI-054](BACKLOG.md#pbi-054-generate-the-complete-local-environment-from-a-fresh-checkout) retain the broader independent-operator/lab setup proof; a machine-specific environment file is not the required solution.
 
+## Run a sprint with Codex
+
+Use [bin/sprint-finalize.sh](bin/sprint-finalize.sh) with the `codex-cli`
+broker launcher from [codex-cli](https://github.com/rstyczynski/codex-cli)
+on `PATH`:
+
+```bash
+bash bin/sprint-finalize.sh --sprint E.17 \
+  --extra-prompt "Also verify migration compatibility."
+```
+
+`--sprint` is required. Repeat `--extra-prompt` to append more instructions;
+they remain in every retry. `--help` prints usage without launching Codex.
+Edit the main instructions in [etc/sprint-finalize-master.prompt](etc/sprint-finalize-master.prompt)
+and retry instructions in [etc/sprint-finalize-retry.prompt](etc/sprint-finalize-retry.prompt).
+Both are plain text: `${sprint}` is replaced with the selected ID; the retry
+template also supports `${rc}` (previous exit status) and `${prompt}` (the full
+original prompt, including extra instructions). Template text is never executed.
+The script always runs from this checkout, stops the existing CLI broker, then
+starts a new chat and resumes its saved state for up to ten attempts. Output and
+chat state are retained in a printed temporary directory. Exit status is zero
+only when the CLI succeeds and the marked final answer ends with
+`Sprint status: COMPLETE`; interruption and exhausted attempts return nonzero.
+
+Running it submits the included Product Owner authorization to activate/resume
+the selected sprint in YOLO mode, accept CLI approvals, create sprint companion
+repositories, commit work and push the progress repository on finalization.
+The prompt requires the repository's RUP procedures, acceptance evidence and
+recorded closure. Adding or viewing the script does not execute a sprint.
+
 ## Run the walkthrough
 
 Clone with the delivery-method submodule:
