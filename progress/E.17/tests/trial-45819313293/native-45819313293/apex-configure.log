@@ -1,0 +1,14 @@
+
+Session altered.
+
+begin apex_instance_admin.create_or_update_admin_user(p_username=>'ADMIN',p_email=>'e17@example.invalid',p_password=>'[REDACTED]'); commit; end;
+      *
+ERROR at line 1:
+ORA-06550: line 1, column 7:
+PLS-00201: identifier 'APEX_INSTANCE_ADMIN.CREATE_OR_UPDATE_ADMIN_USER' must be
+declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+Help: https://docs.oracle.com/error-help/db/ora-06550/
+
+

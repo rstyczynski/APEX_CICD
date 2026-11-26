@@ -18,7 +18,7 @@ R3 — Database/APEX/ORDS provisioning and application access, mandated by PBI-0
 
 R4 — Native installation, upgrade, repeat and preserved data, mandated by PBI-085 test: pending E.17 named Actions outcomes, archive receipts and target SQL observations. E.16 results establish reusable source qualification only.
 
-R5 — Combined E.15/E.16 journey, mandated by PLAN E.17: pending fresh hosted candidate validation, review freshness and merge-control observations in E.17 repositories.
+R5 — Combined E.15/E.16 journey, mandated by PLAN E.17: verified fresh hosted run 45819877026, candidate PR 1 ordinary merge 1763f1b, stale-review refusal run 45820491077 before SQL execution, and protected merge refusal for PR 2. Raw records are under tests/; tests/clean_host.py independently rechecks terminal outcomes and branch/candidate execution policy. This establishes the combined reviewed candidate journey, not native platform delivery.
 
 R6 — Documented tool identities, inputs and cleanup, mandated by PBI-085 test and NFR-5: pending actual release/build, project metadata and private-state cleanup observations.
 

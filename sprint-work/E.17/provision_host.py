@@ -11,6 +11,7 @@ def run(args,body=None,label=None):
  output=p.stdout+p.stderr
  for secret in passwords:output=output.replace(secret,'[REDACTED]')
  if label:(OUT/(label+'.log')).write_text(output)
+ if label=='apex-install' and re.search(r'(?m)^\s*(ORA-|SP2-|PLS-)',output):raise RuntimeError('APEX native installation reported errors: '+output[-3000:])
  if p.returncode:raise RuntimeError(f'{label or args[0]} failed ({p.returncode}): '+output[-3000:])
  return output
 
@@ -54,7 +55,7 @@ if mode=='apex-download':
 if mode=='apex-install':
  run(['docker','exec','-i','--workdir','/tmp/apex',t,'sqlplus','-s','/ as sysdba'], 'whenever sqlerror exit failure\nalter session set container=FREEPDB1;\n@apexins.sql SYSAUX SYSAUX TEMP /i/\nexit\n','apex-install')
 if mode=='apex-configure':
- sql(t,f"begin apex_instance_admin.create_or_update_admin_user(p_username=>'ADMIN',p_email=>'e17@example.invalid',p_password=>'{admin}'); commit; end;\n/\nalter user APEX_PUBLIC_USER account unlock;\nbegin apex_instance_admin.add_workspace(p_workspace=>'E17',p_primary_schema=>'AUTHOR16'); end;\n/",'apex-configure')
+ sql(t,f"alter user APEX_PUBLIC_USER account unlock;\nbegin apex_instance_admin.add_workspace(p_workspace=>'E17',p_primary_schema=>'AUTHOR16'); apex_util.set_security_group_id(apex_util.find_security_group_id('E17')); apex_util.create_user(p_user_name=>'LAB_USER',p_email_address=>'e17@example.invalid',p_web_password=>'{admin}',p_change_password_on_first_use=>'N'); commit; end;\n/",'apex-configure')
 if mode=='application-import':
  app=Path('application.sql').read_text()
  sql(t,"begin apex_application_install.set_workspace('E17'); apex_application_install.set_schema('AUTHOR16'); apex_application_install.set_application_id(810503); apex_application_install.generate_offset; end;\n/\n"+app,'application-import')

@@ -1,0 +1,71 @@
+
+Session altered.
+
+...set_appun.sql
+
+PL/SQL procedure successfully completed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+...set_ufrom_and_upgrade.sql
+
+PL/SQL procedure successfully completed.
+
+
+
+
+
+
+Session altered.
+
+
+FOO3
+------------------------------
+install2026-11-26_12-29-06.log
+
+. ORACLE
+.
+. Oracle APEX Installation.
+..........................................
+.
+...set_appun.sql
+... Checking prerequisites (MANUAL)
+.
+. SYSDBA Privilege
+.   pass - Connection with SYSDBA privilege.
+. Database rolling upgrade
+.   pass - No rolling upgrade.
+. DB components
+.   pass - CATPROC: version=23.0.0.0.0
+.   pass - XDB: version=23.0.0.0.0, status=INVALID
+. XDB
+.   FAIL - Oracle APEX installation requires the Oracle XML Database database
+component.
+. DB parameters
+.   pass - workarea_size_policy is AUTO
+. PL/SQL Web Toolkit
+.   pass - version 20.0.0.0.1
+. Tablespaces
+.   pass - found SYSAUX
+.   pass - found SYSAUX
+.   pass - found TEMP
+. PHASES (1,2,3)...
+.
+. 1 error occurred
+declare
+*
+ERROR at line 1:
+ORA-20001: Prerequisite checks failed; unable to proceed with APEX installation
+ORA-06512: at line 339
+
+

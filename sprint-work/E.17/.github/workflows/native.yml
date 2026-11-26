@@ -17,8 +17,8 @@ jobs:
           df -h
       - name: Start isolated Oracle databases
         run: |
-          docker run -d --name e17-author -e ORACLE_RANDOM_PASSWORD=yes -p 127.0.0.1:1521:1521 --health-cmd healthcheck.sh --health-interval 10s --health-timeout 5s --health-retries 40 gvenzl/oracle-free@sha256:cebd977833411a42170777d8e9ccf616a028a2bb137ae96498354ab6c7510268
-          docker run -d --name e17-target -e ORACLE_RANDOM_PASSWORD=yes -p 127.0.0.1:1522:1521 --health-cmd healthcheck.sh --health-interval 10s --health-timeout 5s --health-retries 40 gvenzl/oracle-free@sha256:cebd977833411a42170777d8e9ccf616a028a2bb137ae96498354ab6c7510268
+          docker run -d --name e17-author -e ORACLE_RANDOM_PASSWORD=yes -p 127.0.0.1:1521:1521 --health-cmd healthcheck.sh --health-interval 10s --health-timeout 5s --health-retries 40 gvenzl/oracle-free@sha256:3251b285857ba46166279bcf9d4d00c0628335021bd2d0362dedf8b397e76eb5
+          docker run -d --name e17-target -e ORACLE_RANDOM_PASSWORD=yes -p 127.0.0.1:1522:1521 --health-cmd healthcheck.sh --health-interval 10s --health-timeout 5s --health-retries 40 gvenzl/oracle-free@sha256:3251b285857ba46166279bcf9d4d00c0628335021bd2d0362dedf8b397e76eb5
           for container in e17-author e17-target; do
             # shellcheck disable=SC2016
             timeout 480 bash -c 'until test "$(docker inspect --format="{{.State.Health.Status}}" "$1")" = healthy; do sleep 5; done' -- "$container"
@@ -61,7 +61,7 @@ jobs:
       - name: Initialize job-private workspace
         run: |
           mkdir -p "$RUNNER_TEMP/native" result
-          sha256sum .github/workflows/native.yml sql.sh check_tool.py check_output.py provenance.py > result/reviewed-inputs.sha256
+          sha256sum .github/workflows/native.yml sql.sh check_tool.py check_output.py provenance.py provision_host.py application.sql > result/reviewed-inputs.sha256
       - name: Save job-private SQLcl connections
         working-directory: ${{ runner.temp }}/native
         run: |

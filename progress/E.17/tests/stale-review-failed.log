@@ -1,0 +1,24 @@
+Oracle candidate	Verify trusted Review matches candidate bytes	﻿2026-11-26T12:34:04.6738391Z ##[group]Run gh api "repos/$SOURCE_REPO/compare/$BASE...$HEAD" --jq '[.files[].filename]' > changed.json
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:04.6739263Z ^[[36;1mgh api "repos/$SOURCE_REPO/compare/$BASE...$HEAD" --jq '[.files[].filename]' > changed.json^[[0m
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:04.6739680Z ^[[36;1mpython3 - <<'PYCODE'^[[0m
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:04.6739945Z ^[[36;1mimport hashlib, json^[[0m
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:04.6740192Z ^[[36;1mfrom pathlib import Path^[[0m
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:04.6740566Z ^[[36;1massert json.loads(Path('changed.json').read_text()) == ['candidate.sql'], 'unreviewed files'^[[0m
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:04.6741035Z ^[[36;1mreport = json.loads(Path('review.json').read_text())^[[0m
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:04.6741364Z ^[[36;1massert report['decision'] == 'accept'^[[0m
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:04.6741865Z ^[[36;1massert hashlib.sha256(Path('candidate.sql').read_bytes()).hexdigest() == report['sql_sha256'], 'stale Review'^[[0m
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:04.6742434Z ^[[36;1mprint('PASS trusted Review matches candidate bytes; candidate report cannot replace base report')^[[0m
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:04.6742922Z ^[[36;1mPYCODE^[[0m
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:04.6766787Z shell: /usr/bin/bash -e {0}
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:04.6767079Z env:
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:04.6767344Z   E15_SOURCE_HEAD: 754a8aadb51d02ece293960924906b7314e85cdd
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:04.6767702Z   E15_SOURCE_BASE: 1763f1b60fd6d034c193b97323fb522b1343bfae
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:04.6769981Z   GH_TOKEN: ***
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:04.6770305Z   SOURCE_REPO: rstyczynski/APEX_CICD_E.17-candidates
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:04.6770635Z   BASE: 1763f1b60fd6d034c193b97323fb522b1343bfae
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:04.6770935Z   HEAD: 754a8aadb51d02ece293960924906b7314e85cdd
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:04.6771229Z ##[endgroup]
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:05.5970247Z Traceback (most recent call last):
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:05.5989890Z   File "<stdin>", line 6, in <module>
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:05.5990573Z AssertionError: stale Review
+Oracle candidate	Verify trusted Review matches candidate bytes	2026-11-26T12:34:05.6203118Z ##[error]Process completed with exit code 1.
