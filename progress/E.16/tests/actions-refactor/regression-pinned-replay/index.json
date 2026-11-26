@@ -1,0 +1,890 @@
+[
+  {
+    "path": "progress/E.11/tests/benchmark.json",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.11/tests/second-operator/benchmark.json",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.11/tests/second-operator/denied-without-certificate.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.11/tests/second-operator/engine-info.json",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.11/tests/second-operator/receipt.json",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.11/tests/second-operator/source.bundle",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.12/tests/assertions.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.12/tests/baseline.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.12/tests/catchup.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.12/tests/concurrent.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.12/tests/expand-backfill.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.12/tests/experiment.json",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.12/tests/hello.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.12/tests/inventory.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-after.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-before.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.12/tests/rollback-check.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.12/tests/rollback-check.log.sql",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.12/tests/unsupported-language.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.12/tests/version.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.12/tests/world.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.5/tests/backend-results.json",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.5/tests/coverage-after.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.5/tests/coverage-after.xml",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.5/tests/mutation-detected.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.5/tests/utplsql-full.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.5/tests/utplsql-reordered.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.5/tests/utplsql-repeat.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.6/tests/compat-1.0.1.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.6/tests/compat-1.0.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.6/tests/compat-1.1.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.6/tests/compat-restored-consumers.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.6/tests/incompatible-detected.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.6/tests/sessions-after.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.6/tests/sessions-before.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.6/tests/unit.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.8/tests/candidate.bundle",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.8/tests/executions.json",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.8/tests/pr-None/result.json",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.8/tests/pr-backend/backend-failure.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.8/tests/pr-backend/backend.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.8/tests/pr-backend/result.json",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.8/tests/pr-compilation/result.json",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.8/tests/pr-migration/migration-failure.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.8/tests/pr-migration/migration.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.8/tests/pr-migration/result.json",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.8/tests/pr-source/result.json",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.8/tests/pr-state/result.json",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.8/tests/pr-state/state-failure.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.8/tests/pr-state/state.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.8/tests/prerelease-None/result.json",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.8/tests/scheduled-None/result.json",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.9/tests/candidate.bundle",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.9/tests/journey.json",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.9/tests/service/candidate.bundle",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.9/tests/service/direct-write.log",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.9/tests/service/direct-write.raw.gz",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.9/tests/service/events.json",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.9/tests/service/receipt.json",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.9/tests/service/results.json",
+    "kind": "modified"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/accepted-pr.json",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/assembly-rejection.html",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-active.json",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/capture.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/data-before-restore.txt",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/data-before.txt",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/create_application.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/delete_application.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/end_environment.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00000.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00001.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00010.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00020.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00100.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00101.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00110.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00111.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00200.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00201.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00210.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00211.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_09999.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_groups.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/plugin_settings.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/set_environment.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/files/icons_app_icon_144_rounded_png.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/files/icons_app_icon_192_png.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/files/icons_app_icon_256_rounded_png.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/files/icons_app_icon_32_png.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/files/icons_app_icon_512_png.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/globalization/dyntranslations.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/globalization/language.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/globalization/messages.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/logic/application_settings.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/logic/build_options.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/navigation/breadcrumbentry.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/navigation/breadcrumbs/breadcrumb.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/navigation/listentry.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/navigation/lists/navigation_bar.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/navigation/lists/navigation_menu.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/navigation/navigation_bar.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/navigation/tabs/parent.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/navigation/tabs/standard.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/security/authentications/oracle_apex_accounts.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/security/authorizations/administration_rights.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/user_interface/lovs/hello_entries_entry_text.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/user_interface/lovs/world_entries_entry_text.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/user_interface/template_opt_groups.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/user_interface/template_options.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/user_interface/templates/popuplov.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/user_interface/theme_files.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/user_interface/theme_style.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/user_interface/themes.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/user_interfaces.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/user_interfaces/combined_files.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/install.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/inject.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/restore.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/environment.json",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/http-integration_test-1.html",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/http-integration_test-2.html",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/http-integration_test-3.html",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/http-integration_test-4.html",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/http-user_acceptance_test-1.html",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/http-user_acceptance_test-2.html",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/integration_test-repeat-after.json",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/integration_test-repeat-before.json",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/lab-1.0.1-0cc6c6802e0e.tar",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/lab-1.0.1-0cc6c6802e0e.tar.sha256",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/native-export-stability.json",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/operations.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/ords-install.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/ords-uninstall.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/patch-selected.txt",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/q-before.json",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/rejected-stale-candidate.tar",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/rejected-stale-candidate.tar.sha256",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/runtime.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/source-snapshot-after.json",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/source-snapshot-before.json",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/source-snapshot-sha256.json",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/sqlcl-version.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/stable-native-exports.zip",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/uat-before.json",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/user_acceptance_test-repeat-after.json",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T124056-14665/user_acceptance_test-repeat-before.json",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/assertions.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/assertions.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/baseline.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/baseline.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/catchup.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/catchup.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/concurrent.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/concurrent.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/expand-backfill.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/expand-backfill.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/experiment.json",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/hello.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/hello.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/interruption.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/inventory.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/inventory.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/legacy-after.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/legacy-after.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/legacy-before.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/legacy-before.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/rollback-check.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/rollback-check.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/unsupported-language.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/unsupported-language.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/version.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/version.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/world.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_29333/world.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.13/tests/run_29355/assertions.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.13/tests/run_29355/assertions.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.13/tests/run_29355/failure-recovery.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.13/tests/run_29355/failure-recovery.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.13/tests/run_29355/hello.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.13/tests/run_29355/hello.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.13/tests/run_29355/interruption-check.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.13/tests/run_29355/interruption-check.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.13/tests/run_29355/interruption.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.13/tests/run_29355/receipt.json",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.13/tests/run_29355/setup.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.13/tests/run_29355/setup.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.13/tests/run_29355/world.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.13/tests/run_29355/world.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/Hello-complete.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/Hello-complete.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/Hello-interruption.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/Hello-recovery.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/Hello-recovery.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/Hello-reject.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/Hello-reject.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/Hello-start.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/Hello-start.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/Hello-traffic.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/Hello-traffic.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/World-complete.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/World-complete.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/World-interruption.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/World-recovery.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/World-recovery.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/World-reject.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/World-reject.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/World-start.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/World-start.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/World-traffic.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/World-traffic.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/assertions.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/assertions.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/receipt.json",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/setup.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/setup.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/window-setup.log",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.14/tests/run_29367/window-setup.log.sql",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.9/tests/reports/56388801fb647cd065327b37dcec0fcb9f4edf593ada21921c029230c4acdfc5.json",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.9/tests/service/060d604810e474b2bf29c3d5d99a136653b6bfa4894bf46b41aaa8134ccd91a2.json",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.9/tests/service/2400805b641e47ed8ecc1544e2ba5ddf5afec9cbddeb8962073aaa2e452d8270.json",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.9/tests/service/cfc41d31a41ddfe5d5e96174409660694e5c9266daf1cb2552212fee771ae583.json",
+    "kind": "new"
+  },
+  {
+    "path": "progress/E.9/tests/service/e1cf1054ee42c694219d5618795625ae0843c8812439f67242646814f6afa391.json",
+    "kind": "new"
+  }
+]

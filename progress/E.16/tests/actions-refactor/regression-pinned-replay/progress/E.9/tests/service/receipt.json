@@ -1,0 +1,9 @@
+{
+  "candidate": {
+    "base": "04bd59acaeb8badfc0eec1c0838f327b9eb7c383",
+    "head": "a390fc28c249c8d88967eb71800e14f13824fbb6",
+    "policy": "1ea8570f3e3dc8b4b98023e9765cfa3ad6d7b13cb4b5a5181402e37b97a70981"
+  },
+  "report": "cfc41d31a41ddfe5d5e96174409660694e5c9266daf1cb2552212fee771ae583",
+  "submitter": "developer"
+}

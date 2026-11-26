@@ -1,5 +1,7 @@
 # E.16 correction — native lifecycle in GitHub Actions
 
+Final outcome: the requested correction is verified. All R1–R8 requirements pass, all six gates pass, and the final documentation/presentation audit is accepted. Earlier checkpoint and retry sections below preserve the actual verification history; they do not override this final disposition.
+
 The Product Owner requests named GitHub Actions steps for the native release lifecycle, Python limited to small checks, all acceptance/regression tests rerun, updated documentation/presentation and commit/push. The follow-up instruction makes [native technology responsibilities](../../AGENTS.md#use-core-technologies-for-their-native-responsibilities) mandatory for this correction and every future sprint; [the local method rule](../../RUPStrikesBack.patch/RUP_patch.md#p14-use-core-technologies-in-their-native-areas) governs review and escalation.
 
 ## Design and responsibility review
@@ -18,8 +20,8 @@ R1–R6 retain their authoritative definitions in [the original checklist](sprin
 - [x] R2: bind current reviewed workflow/helpers, generated Git history, both archive digests and observed target state.
 - [x] R3: rerun mismatched receipt/source and substituted archive refusals, with unchanged target observations.
 - [x] R4: rerun qualified actual tool/build checks, metadata checks and actual older-build refusal before mutation.
-- [ ] R5: rerun A1/A2/A3 and unfiltered B1/B2/B3 against stable final executable source.
-- [ ] R6: reconcile docs, render/inspect presentation, demonstrate actual named steps, audit, commit and push.
+- [x] R5: rerun A1/A2/A3 and unfiltered B1/B2/B3 against stable final executable source.
+- [x] R6: reconcile docs, render/inspect presentation, demonstrate actual named steps, audit, commit and push.
 - [x] R7: independently visible successful Actions steps for export, stage, verify, release, package, install, upgrade, repeat and refusals. Source: Product Owner refactor request.
 - [x] R8: apply the standing native-responsibility/no-reinvention/technology-mismatch escalation rule in design and audit. Source: Product Owner follow-up instruction and linked project policy.
 
@@ -54,3 +56,17 @@ The first correction B3 attempt observed concurrent unrelated additions of scrip
 The first pinned-clone unit run exposed an invalid verification layout: symlinking the whole scratch directory changed path containment, so the checkout-profile rejection test no longer exercised an inside-checkout path. That failed run is retained under tests/actions-refactor/symlink-layout-attempt. Corrected the clone layout to use real scratch/tools directories and links only to installed tool payloads, cached artifacts and the same read-only retained prepared-host record. No credential is copied, no new credential store/profile is created, and no guard or test is weakened. All six gates rerun after this environment-only correction.
 
 The tool installation also contained historical SQLcl-home/profile and runtime.env entries. These are not executable payloads and must not be mirrored as verification configuration. The final clone layout excludes all SQLcl-home/profile directories and runtime.env; it links only installed tool payloads/caches and the existing approved read-only record. The checkout-profile fixture consequently resolves inside the clone, and the unchanged unit suite passes 17/17. Five gates now pass from the pinned checkout: 1/1, 1/1, 1/1, 15/15, 17/17; full B3 is running. The corrected layout neither relocates nor writes the retained record, nor introduces new persistent settings.
+
+## Final verification and acceptance
+
+All six gates pass against committed E.16 source a2e95ea7c90631ec62c25afb8914c36414d427eb in the stable local Git clone. [A1](tests/actions-refactor/A1-pinned.log), [A2](tests/actions-refactor/A2-pinned.log) and [A3](tests/actions-refactor/A3-pinned.log) pass 1/1 each. Unfiltered [B1](tests/actions-refactor/B1-pinned.log), [B2](tests/actions-refactor/B2-pinned.log) and [B3](tests/actions-refactor/B3-pinned.log) pass 15/15, 17/17 and 25/25. The enclosing full-integration wrapper exits zero after comparing its before/after source snapshots and cleaning its disposable ORDS resources. [The verification receipt](tests/actions-refactor/verification.json) records the tested source, counts, source stability and actual workflow identities. No failed criterion or source-stability failure is waived.
+
+Native workflow 45810907563 at 03f18ca passes all 39 job steps. The full suite also dispatches and verifies a fresh existing E.15 hosted Oracle regression, run 45815287016, which succeeds at 3f760373127b1ea5c2e74a80833ebfa6d8cd0536. That is regression of an existing dependency, not implementation in another sprint repository. The refactored E.16 implementation remains in APEX_CICD_E.16.
+
+The pinned run's 222 generated historical-path replay files are retained under [regression-pinned-replay](tests/actions-refactor/regression-pinned-replay/), indexed by [the replay index](tests/actions-refactor/regression-pinned-replay/index.json). The interrupted shared-checkout attempt and its generated outputs are retained separately under [shared-checkout-replay](tests/actions-refactor/shared-checkout-replay/). Original tracked historical output snapshots were restored in the shared checkout. Unrelated E.17/script changes were neither modified nor included in this correction's commits. Raw paths inside retained outputs describe their execution location.
+
+The revised [walkthrough](sprint_E.16_increment_demo.md), [manual](user_manual.md), [handover](sprint_E.16_handover.md) and 15-slide presentation explain the actual named-step journey, complete significant SQL, streamed native output, refusal paths and small-check boundaries. All final slide renders were inspected and changed command/result slides rechecked. [Final presentation validation](tests/actions-refactor/presentation-final.json) verifies the exact canonical package, layout, font policy and Artifact Tool import. [The link audit](tests/actions-refactor/links.json) checks current local targets/anchors and PBI-084 traceability.
+
+The [standing project rule](../../AGENTS.md#use-core-technologies-for-their-native-responsibilities) is applied to this correction and every future sprint. Actions sequences, SQLcl PROJECT executes native release behavior, Git owns history and supporting code only checks/adapts. No core-technology mismatch remains or is concealed by a substitute implementation. A future evidenced mismatch requires stopping implementation and reporting it to the Product Owner before any replacement, including in YOLO mode. The small validators and invocation adapter do not become another pipeline framework.
+
+Correction implementation/rule commit: a2e95ea. Native evidence/handover commit: e606937. Final accepted verification, documentation and presentation are committed together, then pushed with the requested origin publication. This is a verified correction to the existing closed E.16 baseline, not an invented sprint lifecycle transition. There are no remaining requirements or external blockers for the requested refactor. Broader production and independent-host/capacity work retain their own scope and lifecycle authority.

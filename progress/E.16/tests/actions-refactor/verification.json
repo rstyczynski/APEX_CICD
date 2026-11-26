@@ -1,0 +1,36 @@
+{
+  "source_commit": "a2e95ea7c90631ec62c25afb8914c36414d427eb",
+  "native_run": "45810907563",
+  "native_workflow": "03f18caa0ff3f1bd5c1d75e280d5bf038f9996e9",
+  "hosted_regression_run": "45815287016",
+  "full_wrapper_exit": 0,
+  "stable_source_files": 257,
+  "source_before_equals_after": true,
+  "gate_results": {
+    "A1": {
+      "selected": 1,
+      "failed": 0
+    },
+    "A2": {
+      "selected": 1,
+      "failed": 0
+    },
+    "A3": {
+      "selected": 1,
+      "failed": 0
+    },
+    "B1": {
+      "selected": 15,
+      "failed": 0
+    },
+    "B2": {
+      "selected": 17,
+      "failed": 0
+    },
+    "B3": {
+      "selected": 25,
+      "failed": 0
+    }
+  },
+  "replay_files": 222
+}

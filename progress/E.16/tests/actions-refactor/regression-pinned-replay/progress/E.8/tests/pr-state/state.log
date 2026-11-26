@@ -1,0 +1,10 @@
+
+Session altered.
+
+declare n number; begin select count(*) into n from dba_tab_columns where owner='E8_63B2BE0E40' and table_name='GREETINGS' and column_name='LANGUAGE_CODE' and char_length=2 and nullable='N'; if n<>1 then raise_application_error(-20802,'STATE'); end if; end;
+*
+ERROR at line 1:
+ORA-20802: STATE
+ORA-06512: at line 1
+
+

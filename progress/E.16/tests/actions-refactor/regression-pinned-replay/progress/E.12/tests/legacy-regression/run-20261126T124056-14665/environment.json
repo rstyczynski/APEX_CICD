@@ -1,0 +1,12 @@
+{
+  "container": "e12-regression-db",
+  "pdb": "FREEPDB1",
+  "service": "127.0.0.1:1551/FREEPDB1",
+  "server_context": "\n\"SERVER_HOST\",\"PDB\"\n\"0930d27d8bbc\",\"FREEPDB1\"\n",
+  "sqlcl_build": "25.3.0.274.1210",
+  "logical_configuration_sha256": "37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0",
+  "effective_configuration_sha256": "f99dfed1864813ba5c883324c2e338928110a2e0fffda171a22971210cc29f36",
+  "credential_lifecycle": "fresh OS-private temporary directory, deleted at suite exit",
+  "retained_uat_touched": false,
+  "http_base": "http://127.0.0.1:39205/ords/"
+}
