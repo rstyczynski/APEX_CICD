@@ -1,10 +1,10 @@
-# E.17 increment walkthrough — working draft
+# E.17 increment walkthrough — verified native journey
 
 ## Goal and starting state
 
-[PBI-085](../../BACKLOG.md#pbi-085-reproduce-complete-native-delivery-on-a-clean-host) asks for independent clean-host reproduction of Database/APEX/ORDS and native install, upgrade and repeat, with retained data, new private inputs and documented cleanup. [PLAN](../../PLAN.md#sprint-e17---reproduce-complete-native-delivery-on-a-clean-host) adds the combined E.15/E.16 reviewed journey. [Checklist](sprint_E.17_checklist.md) owns current requirement evidence. This walkthrough is in preparation: native qualification, final regression, complete demonstration and closure are pending. The [manual](user_manual.md) explains operating limits and recovery; [implementation](sprint_E.17_implementation.md) and [bugs](sprint_E.17_bugs.md) preserve measured outcomes and repairs.
+[PBI-085](../../BACKLOG.md#pbi-085-reproduce-complete-native-delivery-on-a-clean-host) asks for independent clean-host reproduction of Database/APEX/ORDS and native install, upgrade and repeat, with retained data, new private inputs and documented cleanup. [PLAN](../../PLAN.md#sprint-e17---reproduce-complete-native-delivery-on-a-clean-host) adds the combined E.15/E.16 reviewed journey. [Checklist](sprint_E.17_checklist.md) owns current requirement evidence. Native qualification and the complete automated live demonstration pass. Final regression and closure are recorded separately in the checklist. The [manual](user_manual.md) explains operating limits and recovery; [implementation](sprint_E.17_implementation.md) and [bugs](sprint_E.17_bugs.md) preserve measured outcomes and repairs.
 
-Slides 1–4 introduce goal, scope and architecture; 5–10 follow the journey; 11–15 cover failures; 16–19 cover verification and decisions. The deck remains a private draft until validated.
+Slides 1–4 introduce goal, scope and architecture; 5–10 follow the journey; 11–15 cover failures; 16–19 cover verification and decisions. The [19-slide presentation](sprint_E.17_increment_demo.pptx) accompanies this walkthrough; final regression status remains explicit.
 
 ## 1. Identify the experiment and inputs — slides 3–6
 
@@ -1329,19 +1329,19 @@ select id,message,extra from preserved;
 
 ## 3. Dispatch a genuinely new host — slides 5–8
 
-After inspecting the source and prerequisites above, the native GitHub command dispatches the declared workflow. GitHub provisions a fresh hosted job; the job itself generates credentials. This command is verified to dispatch real jobs. End-to-end completion of the current corrected source remains pending.
+After inspecting the source and prerequisites above, the native GitHub command dispatches the declared workflow. GitHub provisions a fresh hosted job; the job itself generates credentials. This command is verified to dispatch real jobs. The qualified source completed in rehearsal 45828709006 and live demonstration 45831994665.
 
 ```bash
 gh workflow run native.yml --repo rstyczynski/APEX_CICD_E.17 --ref main
 ```
 
-The command prints the new run URL. Open that run's native job in GitHub Actions and inspect each named step. The current diagnostic/rehearsal run is 45828709006; it must not be substituted for the new run's identity. A new run's receipt must identify its own source revision and run ID. Expected final outcomes remain subject to qualification: native 1.0.0 installation, 1.1.0 upgrade and identical repeat, with row 1/message retained in target SQL observations. The nullable EXTRA column distinguishes upgraded structure. R3/R4/R6 govern these outcomes.
+The command prints the new run URL. Open that run's native job in GitHub Actions and inspect each named step. The current diagnostic/rehearsal run is 45828709006; it must not be substituted for the new run's identity. A new run's receipt must identify its own source revision and run ID. Verified final outcomes in both runs: native 1.0.0 installation, 1.1.0 upgrade and identical repeat, with row 1/message retained in target SQL observations. The nullable EXTRA column distinguishes upgraded structure. R3/R4/R6 govern these outcomes.
 
 ## 4. Inspect application output and cleanup — slides 8–9
 
 The declared browser setup installs pinned Playwright and Chromium through their supported installer. The actual Chromium session navigates to the new ORDS listener, signs in as fresh LAB_USER, and waits for exactly `Row 1: retained across upgrade`. It retains a browser capture and authenticated receipt. The private password is supplied through job environment and is not logged or saved in evidence. A login page alone does not establish this chosen authenticated observation.
 
-Inspect native assert-upgrade/assert-repeat logs alongside the application receipt; the screenshot is supporting evidence and is not a substitute for a live demonstration. Inspect cleanup.txt and the always-run cleanup step. The target data exists throughout upgrade/repeat; containers and private state are removed only at job cleanup, then GitHub disposes of the host. R3/R4/R6 must be assessed from actual terminal observations.
+Inspect native assert-upgrade/assert-repeat logs alongside the application receipt; the screenshot is supporting evidence and is not a substitute for a live demonstration. Inspect cleanup.txt and the always-run cleanup step. The target data exists throughout upgrade/repeat; containers and private state are removed only at job cleanup, then GitHub disposes of the host. R3/R4/R6 pass from actual terminal observations and authenticated browser assertions.
 
 ## 5. Follow the reviewed candidate journey — slide 10
 
@@ -1351,4 +1351,8 @@ The trusted testing.yml workflow takes candidate SQL as data, checks file scope 
 
 The initial host exhausted disk and could not upload normal artifacts. The next host exposed XDB INVALID and a zero-exit APEX prerequisite failure; explicit native-output checks and a pinned full image addressed those observed causes. Native APEX then installed, but changing SYS from the PDB failed ORA-65066 before ORDS installation. The local DBA attempt also failed native ORDS grant authority. The correction uses a newly supplied SYS credential through the image’s supported resetPassword command and the native installer. The [bug record](sprint_E.17_bugs.md) links exact observations and repairs; only actual later execution may qualify a repair.
 
-PBI-085 remains under construction. Final native platform acceptance, all selected quality gates, final presentation inspection, complete demonstration, audit and closure remain pending. [PBI-086](../../BACKLOG.md#pbi-086-measure-complete-pipeline-feedback-and-runner-capacity) remains planned in E.18; this sprint does not invent a capacity benchmark or production readiness claim. No Product Owner satisfaction or feedback has been inferred.
+Native platform acceptance and live demonstration are verified. Final full integration regression and closure are tracked in the acceptance ledger. [PBI-086](../../BACKLOG.md#pbi-086-measure-complete-pipeline-feedback-and-runner-capacity) remains planned in E.18; this sprint does not invent a capacity benchmark or production readiness claim. No Product Owner satisfaction or feedback has been inferred.
+
+## Screenshot evidence
+
+The [local screenshot gallery](screenshots/index.html) provides original captures, captions, observed outcomes, requirement references and navigation. Capture gaps are explicitly labelled.

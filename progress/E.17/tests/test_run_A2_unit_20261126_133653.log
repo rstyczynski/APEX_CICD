@@ -1,0 +1,4 @@
+RUN unit:test_clean_host.sh:test_clean_host_receipt
+PASS synthetic reader contracts: missing, stale, failed access, lost data and substituted archive rejected; no platform behavior claimed
+PASS test_clean_host_receipt
+Tests: 1; failed: 0

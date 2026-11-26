@@ -23,3 +23,9 @@ Run 45824130390 creates the PDB-local installer account and grants successfully,
 ## ORDS installer grant authority — folded into PBI-085
 
 Run 45826292633 passes native AMD64/configuration preflight and invokes actual ORDS 25.3.0.r2671248. The installer creates ORDS_METADATA but ords_grant_privs.sql fails ORA-01031; its diagnostic states that E17_ADMIN lacks required installer privileges. A generic PDB-local DBA grant is insufficient for this native grant script. The selected remedy supplies a new SYS password through the image publisher's supported resetPassword command (correct container scope) and invokes Oracle's native installer as SYS. Passwords stay masked and job-private. The failed target is disposed of; it is never treated as a completed install or repaired by custom schema logic.
+
+## Full regression VM memory exhaustion during resume
+
+The resumed B3 command was `HOSTED_ORACLE_REPO=rstyczynski/APEX_CICD_E.17 tests/run.sh --integration`, with output in tests/test_run_B3_integration_resume.log. Its owned historical fixture setup stalled during native ORDS uninstall. `podman --connection apex-cicd ps` and `podman machine ssh apex-cicd uptime` also stalled. The VM console recorded repeated Out of memory kills of Java and Oracle processes. Native `podman machine stop apex-cicd` returned connection reset by peer; a targeted TERM of its identified VM process eventually stopped it without deleting disks. Cleanup failed while the engine was unavailable and remains to be retried. The prior interrupted gate is not a pass.
+
+System helper startup failed; the existing qualified historical helper configuration was selected explicitly. Supported `podman machine set --memory 12288 apex-cicd` succeeded after cancelling stalled startup commands. VM restart and regression retry are in progress. This recovery changes no E.17 hosted source or production tool pin. The retained credential record was neither read directly, moved nor copied.

@@ -1,0 +1,26 @@
+Cannot connect to Podman. Please verify your connection to the Linux system using `podman system connection list`, or try `podman machine init` and `podman machine start` to manage a new Linux VM
+Error: unable to connect to Podman socket: failed to connect: dial tcp 127.0.0.1:63816: connect: connection refused
+Cannot connect to Podman. Please verify your connection to the Linux system using `podman system connection list`, or try `podman machine init` and `podman machine start` to manage a new Linux VM
+Error: unable to connect to Podman socket: failed to connect: dial tcp 127.0.0.1:63816: connect: connection refused
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/.local-apex/e17/regression-pin/tests/legacy_database.py", line 17, in <module>
+    c('volume','create','--label','apex.cicd.fixture=E12','e12-regression-data')
+    ~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/.local-apex/e17/regression-pin/tests/legacy_database.py", line 7, in c
+    def c(*a,**kw):return subprocess.run(B+list(a),check=True,**kw)
+                          ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['podman', '--connection', 'apex-cicd', 'volume', 'create', '--label', 'apex.cicd.fixture=E12', 'e12-regression-data']' returned non-zero exit status 125.
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/.local-apex/e17/regression-pin/tests/legacy_regression.py", line 130, in <module>
+    raise SystemExit(suite(sys.argv[1:]))
+                     ~~~~~^^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/.local-apex/e17/regression-pin/tests/legacy_regression.py", line 27, in suite
+    subprocess.run([sys.executable,str(ROOT/'tests/legacy_database.py')],check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/opt/homebrew/opt/python@3.14/bin/python3.14', '/Users/rstyczynski/projects/APEX_CICD/.local-apex/e17/regression-pin/tests/legacy_database.py']' returned non-zero exit status 1.

@@ -1,0 +1,5 @@
+RUN integration:test_clean_host.sh:test_clean_host_real
+PASS fresh E17 Review and Oracle, stale rejection before execution, protected ordinary merge and candidate execution boundary
+PASS actual independent hosted platform, application access, native delivery and cleanup 45828709006
+PASS test_clean_host_real
+Tests: 1; failed: 0

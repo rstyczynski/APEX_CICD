@@ -1,12 +1,12 @@
-# E.17 clean-host reproduction — working draft
+# E.17 clean-host reproduction — operating reference
 
-This guide operates the sprint experiment, not a production deployment. [PBI-085](../../BACKLOG.md#pbi-085-reproduce-complete-native-delivery-on-a-clean-host) and [PLAN E.17](../../PLAN.md#sprint-e17---reproduce-complete-native-delivery-on-a-clean-host) own requirements. The [checklist](sprint_E.17_checklist.md) records observed acceptance; the [design](sprint_E.17_design.md) owns implementation choices. The end-to-end presentation walkthrough will be the handover entry point when verified. Platform qualification is still in progress; do not interpret draft commands as accepted reproduction evidence.
+This guide operates the sprint experiment, not a production deployment. [PBI-085](../../BACKLOG.md#pbi-085-reproduce-complete-native-delivery-on-a-clean-host) and [PLAN E.17](../../PLAN.md#sprint-e17---reproduce-complete-native-delivery-on-a-clean-host) own requirements. The [checklist](sprint_E.17_checklist.md) records observed acceptance; the [design](sprint_E.17_design.md) owns implementation choices. The [presentation walkthrough](sprint_E.17_increment_demo.md) is the handover entry point. Qualified rehearsal 45828709006 and live demonstration 45831994665 both completed successfully.
 
 ## Prerequisites and inputs
 
 Use GitHub CLI with access to rstyczynski/APEX_CICD_E.17 and its candidate companion. A GitHub-hosted Ubuntu 24.04 job provisions a new host and two digest-pinned Oracle Database containers. The job removes unused preinstalled SDK payloads to provide disk capacity, then installs the qualified SQLcl build, checksum-pinned APEX and digest-pinned ORDS. No local Oracle service, saved connection, laboratory credential or retained database is a prerequisite. Passwords are newly generated and masked within each job. Job-private connection state belongs in RUNNER_TEMP and is removed by an always-run cleanup step. The native project records SQLcl 25.4.1.0 and execution requires qualified build 25.4.1.022.0618; no project-version bypass is used.
 
-Discover the checkout root with `git rev-parse --show-toplevel`. To inspect delivered source locally, the `code` command must be available on PATH. Inspect `sprint-work/E.17/.github/workflows/native.yml`, `provision_host.py`, `sql.sh`, validators and `application.sql`. The workflow is the sequence; the Python platform adapter accepts one explicitly selected phase per invocation and does not run the release pipeline. SQLcl PROJECT owns native source export, staging, verification, release, archive construction and deployment. Git retains generated history. The source implementation record links trial identities and failures; final run identity remains pending.
+Discover the checkout root with `git rev-parse --show-toplevel`. To inspect delivered source locally, the `code` command must be available on PATH. Inspect `sprint-work/E.17/.github/workflows/native.yml`, `provision_host.py`, `sql.sh`, validators and `application.sql`. The workflow is the sequence; the Python platform adapter accepts one explicitly selected phase per invocation and does not run the release pipeline. SQLcl PROJECT owns native source export, staging, verification, release, archive construction and deployment. Git retains generated history. The source implementation record links trial identities and failures; qualified source 5f135bd and both successful runs are retained in the evidence.
 
 ## Read the native workflow before reproduction
 
@@ -16,9 +16,9 @@ Release steps create the preserved table on the author, initialize a new native 
 
 ## Inspect outcomes and recover
 
-A completed workflow alone is insufficient. Inspect individual named steps, archive receipts, native SQL logs, application HTTP observation and cleanup receipt. The first trial exhausted hosted disk and could not retain normal runner logs; its check annotation remains available. The second trial exposed a genuine APEX prerequisite failure that a zero process exit concealed. Its redacted install log is retained. The full-image retry and explicit output checks address those observed causes; final qualification is pending.
+A completed workflow alone is insufficient. Inspect individual named steps, archive receipts, native SQL logs, application HTTP observation and cleanup receipt. The first trial exhausted hosted disk and could not retain normal runner logs; its check annotation remains available. The second trial exposed a genuine APEX prerequisite failure that a zero process exit concealed. Its redacted install log is retained. The full-image retry and explicit output checks address those observed causes; both subsequent complete runs qualify these repairs.
 
-The initial HTTP check targets the imported login page. The final declared Chromium check signs in with a new LAB_USER and requires the native retained row on the small fixture page. That final authenticated observation remains pending; no greeting-component workflow or production application readiness is claimed. The native delivery fixture is the table/row experiment inherited from E.16; it does not establish a production release of every earlier product component. Report these boundaries alongside any successful observation.
+The initial HTTP check targets the imported login page. The final declared Chromium check signs in with a new LAB_USER and requires the native retained row on the small fixture page. Both runs pass that final authenticated observation; no greeting-component workflow or production application readiness is claimed. The native delivery fixture is the table/row experiment inherited from E.16; it does not establish a production release of every earlier product component. Report these boundaries alongside any successful observation.
 
 ## Candidate validation and merge
 
@@ -29,3 +29,13 @@ Real E.17 evidence: candidate PR 1 and run 45819877026 establish the accepted re
 ## Cleanup and limits
 
 Each hosted job removes only its RUNNER_TEMP private connection/configuration paths and named E.17 containers. GitHub disposes of the ephemeral host. Keep the sprint repositories and retained evidence for audit; repository deletion is not part of this reproduction. Never apply hosted SDK cleanup commands to the prepared laboratory host. The prepared-host retained credential accommodation is unrelated and is not read or expanded by E.17 provisioning. Capacity/latency benchmarking remains E.18 scope.
+
+## Independent operator handoff
+
+PBI-085's separate-operator attribution is still open. The SRS excludes the internal pipeline/runner from external actors; a runner uid is therefore execution evidence, not an independent A-03 participant. The source does not demand a human-only operator or a different GitHub account. An appropriate separately attributable external operator can perform the documented run; an explicitly authorized separate automated controller is a possible implementation, subject to Product Owner clarification/delegation. Do not invent another participant or infer acceptance from a repeated run launched by the same controller.
+
+The concrete reproduction is ready at qualified companion revision 5f135bd745d9c8ca00afa4bb804624622f3a3291. An external operator with authorized repository access can dispatch native.yml on main using the already demonstrated GitHub CLI command in the walkthrough; no local Oracle installation, lab password, saved connection or copied environment file is needed. Record who/controller context performed A-03, the actual new run URL/revision, host/new-input receipts, named native outcomes, authenticated retained row and cleanup. This is attribution evidence, not a new identity-management subsystem. Current runs launched by this Codex controller prove the automation and host boundary only; they do not silently close this separate criterion.
+
+## Screenshot evidence
+
+The [local screenshot gallery](screenshots/index.html) provides original captures, captions, observed outcomes, requirement references and navigation. Capture gaps are explicitly labelled.

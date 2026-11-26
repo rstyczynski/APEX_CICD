@@ -1,0 +1,3 @@
+RUN smoke:test_clean_host.sh:test_clean_host_source
+PASS test_clean_host_source
+Tests: 1; failed: 0
