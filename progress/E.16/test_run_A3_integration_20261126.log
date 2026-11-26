@@ -1,0 +1,4 @@
+RUN integration:test_native_provenance.sh:test_native_hosted
+PASS real native run, provenance bytes, rejection evidence and preserved observations 45802390235 bd4b2b59ece4255b3580ac0f76b3900ae9377f08
+PASS test_native_hosted
+Tests: 1; failed: 0

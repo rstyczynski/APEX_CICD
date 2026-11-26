@@ -16,6 +16,15 @@ jobs:
         options: >-
           --health-cmd healthcheck.sh --health-interval 10s
           --health-timeout 5s --health-retries 40
+      target:
+        image: gvenzl/oracle-free@sha256:cebd977833411a42170777d8e9ccf616a028a2bb137ae96498354ab6c7510268
+        env:
+          ORACLE_RANDOM_PASSWORD: 'yes'
+        ports:
+          - 127.0.0.1:1522:1521
+        options: >-
+          --health-cmd healthcheck.sh --health-interval 10s
+          --health-timeout 5s --health-retries 40
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
@@ -31,17 +40,27 @@ jobs:
           unzip -q "$RUNNER_TEMP/sqlcl.zip" -d "$RUNNER_TEMP/tools"
           chmod +x "$RUNNER_TEMP/tools/sqlcl/bin/sql"
           echo "SQL_EXE=$RUNNER_TEMP/tools/sqlcl/bin/sql" >> "$GITHUB_ENV"
+          curl --fail --location --retry 3 https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-25.3.0.274.1210.zip -o "$RUNNER_TEMP/incompatible.zip"
+          echo "4ce293bc11685050ea37baa3abac986018746df4baea492cdb8deaebee7e8ba7  $RUNNER_TEMP/incompatible.zip" | sha256sum -c -
+          unzip -q "$RUNNER_TEMP/incompatible.zip" -d "$RUNNER_TEMP/incompatible"
+          chmod +x "$RUNNER_TEMP/incompatible/sqlcl/bin/sql"
+          echo "INCOMPATIBLE_SQL_EXE=$RUNNER_TEMP/incompatible/sqlcl/bin/sql" >> "$GITHUB_ENV"
       - name: Initialize isolated native schemas
         env:
           ORACLE_CONTAINER: ${{ job.services.oracle.id }}
+          TARGET_CONTAINER: ${{ job.services.target.id }}
         run: |
           docker exec -i "$ORACLE_CONTAINER" sqlplus -s / as sysdba <<'SQL'
           whenever sqlerror exit failure
           alter session set container=FREEPDB1;
           create user AUTHOR16 identified by Disposable_Native_16 quota unlimited on users;
-          create user TARGET16 identified by Disposable_Native_16 quota unlimited on users;
           grant connect, resource, create view to AUTHOR16;
-          grant connect, resource, create view to TARGET16;
+          SQL
+          docker exec -i "$TARGET_CONTAINER" sqlplus -s / as sysdba <<'SQL'
+          whenever sqlerror exit failure
+          alter session set container=FREEPDB1;
+          create user AUTHOR16 identified by Disposable_Native_16 quota unlimited on users;
+          grant connect, resource, create view to AUTHOR16;
           SQL
       - name: Native preparation installation upgrade repeat and rejection
         run: python3 lifecycle.py

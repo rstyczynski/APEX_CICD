@@ -1,0 +1,7 @@
+# E.16 handover
+
+The [walkthrough](sprint_E.16_increment_demo.md), [editable deck](sprint_E.16_increment_demo.pptx) and [operator reference](user_manual.md) describe the bounded native provenance journey. [Source review](sprint_E.16_source_review.md) connects reviewed source, release preparation, archives and observations.
+
+On 2026-11-26 Codex opened the actual current workflow in authenticated Chrome and inspected its native job while running. The visible sequence included export, stage, release, package, install, seed, author upgrade, repeat and assert-repeat. The same browser job then visibly completed successfully in 5m 1s. This was current execution, not a replay of an earlier log. The browser API host was unavailable; native Chrome accessibility supplied the supported alternative. Terminal UI control was denied and was not bypassed. Retained artifacts were downloaded and independently checked through the CLI integration reader. The target row and zero-change repeat are recorded in current Oracle logs; the browser live job showed lifecycle stages rather than individual query output.
+
+The complete deck has 14 editable slides. Every slide was rendered and inspected; a malformed split bullet was repaired. No product screenshot or listening behavior is claimed. Package and geometry validation pass. Final gate counts and closure remain dependent on full regression. No Product Owner reaction or satisfaction is inferred. Under explicit YOLO delegation Codex performs technical/documentation acceptance once all required gates and audits pass.

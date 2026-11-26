@@ -396,3 +396,12 @@ The [E.14 walkthrough](../progress/E.14/sprint_E.14_increment_demo.md) owns the 
 The [E.15 checklist](../progress/E.15/sprint_E.15_checklist.md) tracks PBI-083 acceptance, and the [draft walkthrough](../progress/E.15/sprint_E.15_increment_demo.md) explains the current hosted Oracle experiment and its limits. The corrected companion boundary verified real Oracle Testing, exact Review, ordinary protected merge and the assigned negative authority/freshness/cleanup cases. Lifecycle status is owned by PLAN and the closure record. This work does not change production requirements or qualify native SQLcl release delivery.
 
 For E.15, new-code gates use `bash tests/run.sh --smoke --new-only progress/E.15/new_tests.manifest`, the corresponding `--unit` command and the corresponding `--integration` command. Regression uses unfiltered `bash tests/run.sh --smoke`, `--unit` and `--integration`. The [verification report](../progress/E.15/sprint_E.15_tests.md) records 1/2/1 new-code entries, 14/16/24 full-regression entries and the current timestamped logs. Additional actual companion GitHub/Oracle acceptance cases are linked from the checklist; the automatic Oracle preflight alone is not claimed to cover all controls. The full historical runner's source-stability and qualified-client checks remain enforced.
+# E.16 verification entry points
+
+The [E.16 test specification](../progress/E.16/sprint_E.16_design.md#test-specification)
+selects new smoke/unit/integration checks with
+`--new-only progress/E.16/new_tests.manifest`. Full regression retains all three
+unfiltered suite levels. The new integration reader requires `E16_RUN_ID` to
+identify the actual completed sprint workflow; it refuses a pending or failed
+run. [Verification](../progress/E.16/sprint_E.16_tests.md) owns observed outcomes,
+and [the checklist](../progress/E.16/sprint_E.16_checklist.md) owns acceptance coverage.
