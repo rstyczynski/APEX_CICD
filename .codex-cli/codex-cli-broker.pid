@@ -1,9 +1,0 @@
-{
-  "version": 1,
-  "pid": 9347,
-  "instanceId": "b3f5314abb160026a96c7d095d4c8f1d",
-  "socketPath": "/Users/rstyczynski/projects/APEX_CICD/.codex-cli/codex-cli-broker.sock",
-  "cwd": "/Users/rstyczynski/projects/APEX_CICD",
-  "experimentalApi": false,
-  "startedAt": "2026-11-25T17:09:42.451Z"
-}
