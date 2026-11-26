@@ -18,7 +18,7 @@ Release steps create the preserved table on the author, initialize a new native 
 
 A completed workflow alone is insufficient. Inspect individual named steps, archive receipts, native SQL logs, application HTTP observation and cleanup receipt. The first trial exhausted hosted disk and could not retain normal runner logs; its check annotation remains available. The second trial exposed a genuine APEX prerequisite failure that a zero process exit concealed. Its redacted install log is retained. The full-image retry and explicit output checks address those observed causes; final qualification is pending.
 
-The application HTTP check currently targets the imported application login page. It has not established an authenticated greeting workflow or production application readiness. The native delivery fixture is the table/row experiment inherited from E.16; it does not establish a production release of every earlier product component. Report these boundaries alongside any successful observation.
+The initial HTTP check targets the imported login page. The final declared Chromium check signs in with a new LAB_USER and requires the native retained row on the small fixture page. That final authenticated observation remains pending; no greeting-component workflow or production application readiness is claimed. The native delivery fixture is the table/row experiment inherited from E.16; it does not establish a production release of every earlier product component. Report these boundaries alongside any successful observation.
 
 ## Candidate validation and merge
 

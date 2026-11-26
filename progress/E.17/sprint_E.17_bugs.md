@@ -11,3 +11,7 @@ Run 45819313293 recorded APEX prerequisite rejection: XDB INVALID, followed by O
 ## Common-user password change from a PDB — folded into PBI-085
 
 Run 45820349969 completes native APEX installation/configuration and application import, then ORDS preparation fails with ORA-65066 while attempting ALTER USER SYS in FREEPDB1. The ORDS installer was not yet invoked. Preserved the exact redacted native output and failed-step log. Replaced the statement with a newly generated PDB-local E17_ADMIN account and native DBA grant; the installer uses that account as in the existing isolated-regression procedure. Run 45822055484 was cancelled to avoid re-executing the known defective statement; 45822242040 tests the corrected immutable source. No external blocker is established.
+
+## SQL*Plus statement boundary — folded into PBI-085
+
+Run 45822242040 completes APEX setup/import but ORDS preparation returns ORA-03405 because CREATE USER and GRANT were placed on one SQL*Plus input line. The retained ords-admin-input.log contains the redacted statement and exact error. The installer itself was not invoked. Split those top-level SQL statements onto separate lines and dispatched 45824130390 at immutable companion 4d2488c. Source smoke passes; actual installer and end-to-end qualification remain pending.

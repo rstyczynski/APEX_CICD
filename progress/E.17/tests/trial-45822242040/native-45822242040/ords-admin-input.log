@@ -1,0 +1,10 @@
+
+Session altered.
+
+create user E17_ADMIN identified by "[REDACTED]"; grant dba to E17_ADMIN
+                                                                                    *
+ERROR at line 1:
+ORA-03405: End of query reached; no additional text should follow.
+Help: https://docs.oracle.com/error-help/db/ora-03405/
+
+

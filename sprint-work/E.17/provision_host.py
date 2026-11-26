@@ -62,7 +62,7 @@ if mode=='application-import':
 if mode=='ords-install':
  run(['docker','pull',ORDS],label='ords-pull')
  # ORDS administrator uses a newly supplied private password, never a retained profile.
- sql(t,f'create user E17_ADMIN identified by "{admin}"; grant dba to E17_ADMIN;','ords-admin-input')
+ sql(t,f'create user E17_ADMIN identified by "{admin}";\ngrant dba to E17_ADMIN;','ords-admin-input')
  run(['docker','run','--user',str(os.getuid())+':'+str(os.getgid()),'--env','HOME=/tmp','--rm','--network','host','-i','-v',str(PRIVATE)+':/etc/ords/config',ORDS,'install','--admin-user','E17_ADMIN','--proxy-user','--db-hostname','127.0.0.1','--db-port','1522','--db-servicename','FREEPDB1','--gateway-mode','proxied','--gateway-user','APEX_PUBLIC_USER','--password-stdin'],admin+'\n'+pw+'\n','ords-install')
 if mode=='ords-start':
  run(['docker','run','--user',str(os.getuid())+':'+str(os.getgid()),'--env','HOME=/tmp','-d','--name','e17-ords','--network','host','-v',str(PRIVATE)+':/etc/ords/config','-v',str(TMP/'apex-install/apex/images')+':/opt/oracle/apex/images:ro',ORDS,'serve','--port','8080','--apex-images','/opt/oracle/apex/images'],'','ords-start')
