@@ -9,7 +9,7 @@ with tempfile.TemporaryDirectory() as d:
  try:validate(root,'1','a'*40)
  except FileNotFoundError:pass
  else:raise AssertionError('missing observations accepted')
- fixtures={'host.json':dict(run='1',source='a'*40,host='contract-host',identity='contract-operator',database_containers=['one','two'],fresh_inputs='new random per-run'), 'application-access.json':dict(status=200,login=True),'success.json':dict(preserved=True)}
+ fixtures={'host.json':dict(run='1',source='a'*40,host='contract-host',identity='contract-operator',database_containers=['one','two'],fresh_inputs='new random per-run'), 'application-access.json':dict(status=200,login=True),'success.json':dict(preserved=True),'authenticated-access.json':dict(authenticated=True,preserved_row='Row 1: retained across upgrade')}
  for name,data in fixtures.items():(root/name).write_text(json.dumps(data))
  for name,text in {'application.html':'APEX Delivery Laboratory','cleanup.txt':'PASS private inputs removed','assert-upgrade.log':'retained across upgrade','assert-repeat.log':'retained across upgrade'}.items():(root/name).write_text(text)
  for v in ['1.0.0','1.1.0']:

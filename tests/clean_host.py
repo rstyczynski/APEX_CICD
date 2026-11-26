@@ -9,6 +9,8 @@ def validate(root,run,source):
  assert 'new random per-run' in host['fresh_inputs']
  access=json.loads((root/'application-access.json').read_text())
  assert access['status']==200 and access['login']
+ authenticated=json.loads((root/'authenticated-access.json').read_text())
+ assert authenticated['authenticated'] and authenticated['preserved_row']=='Row 1: retained across upgrade'
  assert 'APEX Delivery Laboratory' in (root/'application.html').read_text()
  assert (root/'cleanup.txt').read_text().strip()=='PASS private inputs removed'
  assert json.loads((root/'success.json').read_text())['preserved']

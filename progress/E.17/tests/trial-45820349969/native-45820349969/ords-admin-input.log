@@ -1,0 +1,10 @@
+
+Session altered.
+
+alter user SYS identified by "[REDACTED]"
+*
+ERROR at line 1:
+ORA-65066: The specified changes must apply to all containers
+Help: https://docs.oracle.com/error-help/db/ora-65066/
+
+

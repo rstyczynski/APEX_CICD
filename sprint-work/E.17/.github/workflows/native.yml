@@ -61,7 +61,7 @@ jobs:
       - name: Initialize job-private workspace
         run: |
           mkdir -p "$RUNNER_TEMP/native" result
-          sha256sum .github/workflows/native.yml sql.sh check_tool.py check_output.py provenance.py provision_host.py application.sql > result/reviewed-inputs.sha256
+          sha256sum .github/workflows/native.yml sql.sh check_tool.py check_output.py provenance.py provision_host.py application.sql browser.mjs > result/reviewed-inputs.sha256
       - name: Save job-private SQLcl connections
         working-directory: ${{ runner.temp }}/native
         run: |
@@ -263,8 +263,17 @@ jobs:
           cmp "$GITHUB_WORKSPACE/result/negative-before.log" "$GITHUB_WORKSPACE/result/negative-after.log"
           git bundle create "$GITHUB_WORKSPACE/result/native-history.bundle" --all
           jq -n --arg source "$(git rev-parse HEAD)" '{native_install:true,native_upgrade:true,native_repeat:true,preserved:true,negatives:["artifact","source","tool","substituted-bytes"],source:$source}' > "$GITHUB_WORKSPACE/result/success.json"
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Install declared browser test dependencies
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
       - name: Verify application after native delivery
-        run: python3 provision_host.py verify
+        run: |
+          python3 provision_host.py verify
+          node browser.mjs
       - name: Clean job-private connection material
         if: always()
         run: |
