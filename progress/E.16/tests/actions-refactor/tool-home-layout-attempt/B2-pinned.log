@@ -1,0 +1,86 @@
+RUN unit:test_greeting.sh:test_UT1_composition
+
+PASS UT-1: defaults, trim, Unicode, prefixes, explicit selections, invalid/default deactivation rejection and 261-character boundary. Fixtures rolled back.
+
+
+PASS test_UT1_composition
+RUN unit:test_greeting.sh:test_UT2_history
+
+PASS UT-2: changed settings affect new greetings; all original snapshot fields preserved; update/delete denied. Fixtures rolled back.
+
+
+PASS test_UT2_history
+RUN unit:test_backend.sh:test_UT1_backend_runtime
+PASS real utPLSQL suite
+PASS test_UT1_backend_runtime
+RUN unit:test_contracts.sh:test_UT1_component_contracts
+PASS 3 real utPLSQL consumers
+PASS test_UT1_component_contracts
+RUN unit:test_candidate.sh:test_candidate_policy
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK
+PASS test_candidate_policy
+RUN unit:test_review.sh:test_review_policy
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+PASS test_review_policy
+RUN unit:test_execution.sh:test_execution_policy
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+OK
+PASS test_execution_policy
+RUN unit:test_reproducibility.sh:test_reproducibility_policy
+PASS wrong version, corrupt cache, valid cache and nearest-rank statistics
+PASS default and explicit connection selection
+PASS test_reproducibility_policy
+RUN unit:test_foundation.sh:test_foundation_unit
+PASS equality rejects stale, missing and duplicate rows; synthetic assertion checks only
+PASS test_foundation_unit
+RUN unit:test_runner.sh:test_runner_final_record
+PASS actual runner final record with/without newline and manifest protected from stdin-draining child
+PASS test_runner_final_record
+RUN unit:test_regression_boundary.sh:test_regression_private_boundary
+E........
+======================================================================
+ERROR: test_checkout_profile_is_rejected (__main__.PrivateRegressionRouting.test_checkout_profile_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/.local-apex/e16/regression-refactor/tests/unit/test_regression_boundary.py", line 58, in test_checkout_profile_is_rejected
+    with self.assertRaisesRegex(ValueError,'profiles must be outside'):sql.run('select 1 from dual;',connection='lab-dev-c')
+                                                                       ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/.local-apex/e16/regression-refactor/scripts/apex_sql.py", line 97, in run
+    raise RuntimeError(output.strip())
+RuntimeError: <MagicMock name='run().stdout.__add__().replace().replace().strip()' id='4397525920'>
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.045s
+
+FAILED (errors=1)
+FAIL test_regression_private_boundary
+RUN unit:test_runner.sh:test_private_sql_binding
+PASS invalid descriptors rejected before credential access; private profile keeps pinned tool path
+PASS test_private_sql_binding
+RUN unit:test_foundation.sh:test_bridge_unit
+PASS equality rejects stale, missing and duplicate rows; synthetic assertion checks only
+PASS test_bridge_unit
+RUN unit:test_foundation.sh:test_windows_unit
+PASS synthetic route validation only
+PASS test_windows_unit
+RUN unit:test_hosted.sh:test_hosted_input
+PASS bounded SQL input contract; no Oracle execution claimed
+PASS test_hosted_input
+RUN unit:test_hosted.sh:test_hosted_receipt
+PASS receipt binding contract only; actual GitHub/Oracle evidence is separate
+PASS test_hosted_receipt
+RUN unit:test_native_provenance.sh:test_native_guard
+PASS provenance, measured tool/metadata and native-output checks; no Oracle mutation claimed
+PASS test_native_guard
+Tests: 17; failed: 1

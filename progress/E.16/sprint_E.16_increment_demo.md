@@ -71,7 +71,7 @@ Expected visible result is ID 1, MESSAGE `retained across upgrade`, and null EXT
 
 The workflow exposes the preceding operations as named steps rather than calling a lifecycle script. “Export source”, “Stage changes”, “Verify changes”, “Prepare release” and “Package release” each appear separately for 1.0.0 and 1.1.0. Installation, upgrade, repeat, target assertions and each rejection case also have separate step outcomes. Open the `native` job and expand each step to inspect the actual command and SQLcl output.
 
-The sql.sh adapter performs exactly one SQLcl invocation. It checks the measured tool/build and current native metadata, adds SQL/OS failure handling and the selected saved connection, streams output to the Actions log and a retained file, and rejects native error output even if the process returns zero. It never chooses or loops through lifecycle stages. Git commands in Actions steps commit exported source and prepared releases; jq and sha256sum write provenance receipts. The always-run private-connection cleanup precedes the always-run evidence upload. These supporting operations leave sequencing and lifecycle behavior with their native technologies. It creates fresh disposable services for each run. From the checkout root:
+The sql.sh adapter performs one SQL payload invocation plus a preflight SQLcl version probe. It checks the measured tool/build and current native metadata, adds SQL/OS failure handling and the selected saved connection, streams output to the Actions log and a retained file, and rejects native error output even if the process returns zero. It never chooses or loops through lifecycle stages. Git commands in Actions steps commit exported source and prepared releases; jq and sha256sum write provenance receipts. The always-run private-connection cleanup precedes the always-run evidence upload. These supporting operations leave sequencing and lifecycle behavior with their native technologies. It creates fresh disposable services for each run. From the checkout root:
 
 ```bash
 cd "$(git rev-parse --show-toplevel)"
@@ -79,7 +79,7 @@ gh workflow run native.yml --repo rstyczynski/APEX_CICD_E.16
 gh run list --repo rstyczynski/APEX_CICD_E.16 --workflow native.yml --limit 5
 ```
 
-Inspect the chosen run's terminal conclusion before accepting it. The refactored run under validation is:
+Inspect the chosen run's terminal conclusion before accepting it. The verified refactored native run is:
 
 ```bash
 gh run view 45810907563 --repo rstyczynski/APEX_CICD_E.16

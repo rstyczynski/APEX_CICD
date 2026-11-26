@@ -1,0 +1,9 @@
+{
+  "workflow_source": "03f18caa0ff3f1bd5c1d75e280d5bf038f9996e9",
+  "source": "f8e905b8b0b5b6f3a46046c7959de4faf25f7d31",
+  "reviewed_manifest_matches_current_mirror": true,
+  "successful_job_steps": 39,
+  "archive_sha256": "335bca06022728816f6169c0c1c122aa6540cfebf4d2127a83a13848dec9fd91",
+  "native_repeat_new_changesets": 0,
+  "native_repeat_previous_changesets": 2
+}

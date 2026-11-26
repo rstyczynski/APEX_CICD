@@ -1,0 +1,280 @@
+Reusing owned regression database; private inputs will be replaced
+Provisioned control identity only: E1_CTRL
+
+
+No errors.
+No errors.
+No errors.
+No errors.
+
+
+Provisioned ONLY lab-dev: E1_DEV_A / E1_DEV_A
+Granted only this area its delivery interfaces; other areas unchanged.
+
+Provisioned ONLY lab-dev-b: E1_DEV_B / E1_DEV_B
+Granted only this area its delivery interfaces; other areas unchanged.
+
+Provisioned ONLY lab-dev-c: E1_DEV_C / E1_DEV_C
+Granted only this area its delivery interfaces; other areas unchanged.
+
+Provisioned ONLY integration_test: E1_INTEGRATION / E1_INTEGRATION
+Granted only this area its delivery interfaces; other areas unchanged.
+
+Provisioned ONLY user_acceptance_test: E1_UAT / E1_UAT
+Granted only this area its delivery interfaces; other areas unchanged.
+
+
+--Starting Liquibase at 2026-11-26T12:29:59.351027 using Java 21.0.12.1 (version 4.30.0 #0 built at 2025-04-01 10:24+0000)
+Running Changeset: db/changelog.xml::001-foundation::apex-lab
+
+Running Changeset: db/changelog.xml::002-foundation-runtime::apex-lab
+
+
+UPDATE SUMMARY
+Run:                          2
+Previously run:               0
+Filtered out:                 0
+-------------------------------
+Total change sets:            2
+
+Liquibase: Update has been successful. Rows affected: 2
+
+
+Operation completed successfully.
+
+--install
+--application/set_environment
+API Last Extended:20241130
+Your Current Version:20241130
+This import is compatible with version: 20241130
+COMPATIBLE (You should be able to run this import without issues.)
+ID offset during import: 27806365861279357
+New ID offset for application: 0
+
+--application/delete_application
+--application/create_application
+--application/user_interfaces
+--application/shared_components/navigation/lists/navigation_menu
+--application/shared_components/navigation/lists/navigation_bar
+--application/shared_components/navigation/listentry
+--application/shared_components/files/icons_app_icon_144_rounded_png
+--application/shared_components/files/icons_app_icon_32_png
+--application/shared_components/files/icons_app_icon_192_png
+--application/shared_components/files/icons_app_icon_256_rounded_png
+--application/shared_components/files/icons_app_icon_512_png
+--application/plugin_settings
+--application/shared_components/security/authorizations/administration_rights
+--application/shared_components/navigation/navigation_bar
+--application/shared_components/logic/application_settings
+--application/shared_components/navigation/tabs/standard
+--application/shared_components/navigation/tabs/parent
+--application/pages/page_groups
+--application/shared_components/navigation/breadcrumbs/breadcrumb
+--application/shared_components/navigation/breadcrumbentry
+--application/shared_components/user_interface/templates/popuplov
+--application/shared_components/user_interface/themes
+--application/shared_components/user_interface/theme_style
+--application/shared_components/user_interface/theme_files
+--application/shared_components/user_interface/template_opt_groups
+--application/shared_components/user_interface/template_options
+--application/shared_components/globalization/language
+--application/shared_components/logic/build_options
+--application/shared_components/globalization/messages
+--application/shared_components/globalization/dyntranslations
+--application/shared_components/security/authentications/oracle_apex_accounts
+--application/user_interfaces/combined_files
+--application/pages/page_00000
+--application/pages/page_00001
+--application/pages/page_00010
+--application/pages/page_09999
+--application/end_environment
+... elapsed: .87 sec
+
+...done
+
+PL/SQL procedure successfully completed.
+
+
+e12-reg-ef782bd844c6
+
+INFO : Running Oracle REST Data Services CLI command.
+2026-11-26T11:30:24Z INFO   ORDS has not detected the option '--config' and this will be set up to the default directory.
+
+ORDS: Release 25.3 Production on Thu Nov 26 11:30:25 2026
+
+Copyright (c) 2010, 2026, Oracle.
+
+Configuration:
+  /etc/ords/config
+
+The global setting named: standalone.static.path was set to: /opt/oracle/apex/images
+Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx256m
+
+35865ffa679e756aba9e2362cf836c09abe87a59ce3d4b83a9ca253bb7717718
+
+RUN integration:test_development.sh:test_IT11_isolation
+OPERATION identity: lab-dev as E1_DEV_A
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_A","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_A","E1_DEV_A"
+PASS identity: lab-dev
+OPERATION identity: lab-dev-b as E1_DEV_B
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_B","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_B","E1_DEV_B"
+PASS identity: lab-dev-b
+OPERATION identity: lab-dev-c as E1_DEV_C
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_DEV_C","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_DEV_C","E1_DEV_C"
+PASS identity: lab-dev-c
+OPERATION identity: integration_test as E1_INTEGRATION
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_INTEGRATION","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_INTEGRATION","E1_INTEGRATION"
+PASS identity: integration_test
+OPERATION identity: user_acceptance_test as E1_UAT
+SQL file: deploy/checks/identity.sql
+"CONNECTED_SCHEMA","PDB"
+"E1_UAT","FREEPDB1"
+"WORKSPACE_NAME","SCHEMA"
+"E1_UAT","E1_UAT"
+PASS identity: user_acceptance_test
+OPERATION create-probe: lab-dev as E1_DEV_A
+SQL file: deploy/checks/create_probe.sql
+Created E1_PRIVATE_PROBE in current schema.
+PASS create-probe: lab-dev
+OPERATION create-probe: lab-dev-b as E1_DEV_B
+SQL file: deploy/checks/create_probe.sql
+Created E1_PRIVATE_PROBE in current schema.
+PASS create-probe: lab-dev-b
+OPERATION create-probe: lab-dev-c as E1_DEV_C
+SQL file: deploy/checks/create_probe.sql
+Created E1_PRIVATE_PROBE in current schema.
+PASS create-probe: lab-dev-c
+OPERATION create-probe: integration_test as E1_INTEGRATION
+SQL file: deploy/checks/create_probe.sql
+Created E1_PRIVATE_PROBE in current schema.
+PASS create-probe: integration_test
+OPERATION create-probe: user_acceptance_test as E1_UAT
+SQL file: deploy/checks/create_probe.sql
+Created E1_PRIVATE_PROBE in current schema.
+PASS create-probe: user_acceptance_test
+OPERATION deny-read: lab-dev as E1_DEV_A
+SQL SELECT COUNT(*) FROM E1_DEV_B.E1_PRIVATE_PROBE;
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_B"."E1_PRIVATE_PROBE" does not exist
+PASS deny-read: lab-dev
+OPERATION deny-write: lab-dev as E1_DEV_A
+SQL INSERT INTO E1_DEV_B.E1_PRIVATE_PROBE VALUES (1);
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_B"."E1_PRIVATE_PROBE" does not exist
+PASS deny-write: lab-dev
+OPERATION deny-read: lab-dev-b as E1_DEV_B
+SQL SELECT COUNT(*) FROM E1_DEV_C.E1_PRIVATE_PROBE;
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_C"."E1_PRIVATE_PROBE" does not exist
+PASS deny-read: lab-dev-b
+OPERATION deny-write: lab-dev-b as E1_DEV_B
+SQL INSERT INTO E1_DEV_C.E1_PRIVATE_PROBE VALUES (1);
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_C"."E1_PRIVATE_PROBE" does not exist
+PASS deny-write: lab-dev-b
+OPERATION deny-read: lab-dev-c as E1_DEV_C
+SQL SELECT COUNT(*) FROM E1_INTEGRATION.E1_PRIVATE_PROBE;
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_INTEGRATION"."E1_PRIVATE_PROBE" does not exist
+PASS deny-read: lab-dev-c
+OPERATION deny-write: lab-dev-c as E1_DEV_C
+SQL INSERT INTO E1_INTEGRATION.E1_PRIVATE_PROBE VALUES (1);
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_INTEGRATION"."E1_PRIVATE_PROBE" does not exist
+PASS deny-write: lab-dev-c
+OPERATION deny-read: integration_test as E1_INTEGRATION
+SQL SELECT COUNT(*) FROM E1_UAT.E1_PRIVATE_PROBE;
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_UAT"."E1_PRIVATE_PROBE" does not exist
+PASS deny-read: integration_test
+OPERATION deny-write: integration_test as E1_INTEGRATION
+SQL INSERT INTO E1_UAT.E1_PRIVATE_PROBE VALUES (1);
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_UAT"."E1_PRIVATE_PROBE" does not exist
+PASS deny-write: integration_test
+OPERATION deny-read: user_acceptance_test as E1_UAT
+SQL SELECT COUNT(*) FROM E1_DEV_A.E1_PRIVATE_PROBE;
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_A"."E1_PRIVATE_PROBE" does not exist
+PASS deny-read: user_acceptance_test
+OPERATION deny-write: user_acceptance_test as E1_UAT
+SQL INSERT INTO E1_DEV_A.E1_PRIVATE_PROBE VALUES (1);
+EXPECTED Oracle denies access (ORA-00942 or ORA-01031).
+ACTUAL ORA-00942: table or view "E1_DEV_A"."E1_PRIVATE_PROBE" does not exist
+PASS deny-write: user_acceptance_test
+Provisioned ONLY integration_test: E1_INTEGRATION / E1_INTEGRATION
+Granted only this area its delivery interfaces; other areas unchanged.
+Disposable integration_test area recreated; other areas retained.
+PASS: Oracle failure propagates as failure.
+PASS: committed TEST marker survived integration_test-area recreation.
+PASS test_IT11_isolation
+RUN integration:test_development.sh:test_IT4_assembly
+PASS incomplete assembly metadata, native contract rejection and native HTTP unavailability
+PASS test_IT4_assembly
+RUN integration:test_release.sh:test_IT1_release
+BUILT accepted-PR source archive /Users/rstyczynski/projects/APEX_CICD/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/lab-1.0.1-0cc6c6802e0e.tar SHA256 137da07c87947e715fc12df2aed4d3243e521d7c92d857c1fe12a714582a18d3
+PASS actual authenticated HTTP greeting integration_test
+PASS actual authenticated HTTP greeting user_acceptance_test
+PASS actual authenticated HTTP greeting integration_test
+PASS actual authenticated HTTP greeting integration_test
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_release.py", line 200, in <module>
+    if __name__=='__main__':{'release':release,'result':result,'assembly':assembly}[sys.argv[1]]()
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_release.py", line 173, in release
+    patch('integration_test','1.0.0');compare('integration_test','q-before.json')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_release.py", line 79, in patch
+    command('bash','scripts/cicd-patch-step.sh',str(PATCH),target,operation,str(epoch),start)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_release.py", line 13, in command
+    r=subprocess.run(args,cwd=ROOT,capture_output=True,text=True,timeout=300)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 557, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1221, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 2153, in _communicate
+    ready = selector.select(timeout)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/selectors.py", line 398, in select
+    fd_event_list = self._selector.poll(timeout)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_regression.py", line 130, in <module>
+    raise SystemExit(suite(sys.argv[1:]))
+                     ~~~~~^^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_regression.py", line 114, in suite
+    result=subprocess.run(['bash','tests/run.sh',*args],cwd=ROOT)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 557, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1213, in communicate
+    self.wait()
+    ~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1279, in wait
+    return self._wait(timeout=timeout)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 2084, in _wait
+    (pid, sts) = self._try_wait(0)
+                 ~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 2042, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+                 ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

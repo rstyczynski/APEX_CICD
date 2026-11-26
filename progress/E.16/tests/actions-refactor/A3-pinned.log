@@ -1,0 +1,4 @@
+RUN integration:test_native_provenance.sh:test_native_hosted
+PASS named Actions lifecycle, real native run, provenance bytes, rejection evidence and preserved observations 45810907563 03f18caa0ff3f1bd5c1d75e280d5bf038f9996e9
+PASS test_native_hosted
+Tests: 1; failed: 0
