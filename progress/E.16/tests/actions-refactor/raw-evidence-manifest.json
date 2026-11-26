@@ -1,0 +1,1534 @@
+{
+  "archive": "raw-evidence.tar.gz",
+  "archive_sha256": "3546ef7345b989c1e1e5c8defaf13868c82659c6bf1d7fca85ebca1e50f2fe60",
+  "member_count": 305,
+  "all_original_bytes_verified": true,
+  "members": [
+    {
+      "path": "A1-pinned.log",
+      "sha256": "500d3286857c9b5e9ccba93112fdf9cddad6d7de108189fd6852b1e8aeab37d0",
+      "bytes": 159
+    },
+    {
+      "path": "A1.log",
+      "sha256": "500d3286857c9b5e9ccba93112fdf9cddad6d7de108189fd6852b1e8aeab37d0",
+      "bytes": 159
+    },
+    {
+      "path": "A2-pinned.log",
+      "sha256": "cdac8e0d5eab6e309b7eb0814b72a87ff605654b92e8889207436d1ffc91a32f",
+      "bytes": 189
+    },
+    {
+      "path": "A2.log",
+      "sha256": "cdac8e0d5eab6e309b7eb0814b72a87ff605654b92e8889207436d1ffc91a32f",
+      "bytes": 189
+    },
+    {
+      "path": "A3-pinned.log",
+      "sha256": "805e6473d249cb3a5e2df76810089bf4671ee2dd129cd2ae84812ed811f824d8",
+      "bytes": 269
+    },
+    {
+      "path": "A3.log",
+      "sha256": "805e6473d249cb3a5e2df76810089bf4671ee2dd129cd2ae84812ed811f824d8",
+      "bytes": 269
+    },
+    {
+      "path": "B1-pinned.log",
+      "sha256": "c9f20fa42e847934485e4b09660c0c5fe805b79ed9dee62532e32b54dcfe817f",
+      "bytes": 1704
+    },
+    {
+      "path": "B1.log",
+      "sha256": "c9f20fa42e847934485e4b09660c0c5fe805b79ed9dee62532e32b54dcfe817f",
+      "bytes": 1704
+    },
+    {
+      "path": "B2-pinned.log",
+      "sha256": "fd707fea8529f7d69684a5af109ad1fa7ccc67fddf3112a3d64d2b9640f737b0",
+      "bytes": 2858
+    },
+    {
+      "path": "B2.log",
+      "sha256": "a30b2090826cc1fff38393823e7b92bd02cf98bbe77a30a8ad94427e0ed5c2d1",
+      "bytes": 2858
+    },
+    {
+      "path": "B3-pinned.log",
+      "sha256": "6db6b2b527732cc8de701e1a1bcdfdd80afa84d9efa0f8dd1ba2e9b4117b13c4",
+      "bytes": 28374
+    },
+    {
+      "path": "B3.log",
+      "sha256": "ed0f9840ffa4aa290a179382873b23513047cd5c7be8108709c0dc7be5245e20",
+      "bytes": 13210
+    },
+    {
+      "path": "native/assert-repeat.log",
+      "sha256": "65fe18de5ea9dc23a736f8c7124dd2510c89584dabacf26ba9fcedbdd69165de",
+      "bytes": 195
+    },
+    {
+      "path": "native/assert-upgrade.log",
+      "sha256": "65fe18de5ea9dc23a736f8c7124dd2510c89584dabacf26ba9fcedbdd69165de",
+      "bytes": 195
+    },
+    {
+      "path": "native/author-initial.log",
+      "sha256": "511bbca7441a4ebea52d2ef77be9750083a41812cb23fd6fe8e1f1732ef20e2d",
+      "bytes": 27
+    },
+    {
+      "path": "native/author-upgrade.log",
+      "sha256": "145de48b7c96430128d4d3c9031585f26795b2db03ec0b44122257126f69ee22",
+      "bytes": 27
+    },
+    {
+      "path": "native/connections.log",
+      "sha256": "d5d96e2d60a343f7201553fdd0aea78202c20e765986ba999f0c24e2587ee4bc",
+      "bytes": 188
+    },
+    {
+      "path": "native/export-1.log",
+      "sha256": "cbe0a7eb152690f4b722aa1054ec58c1bacb0d80ccd4853df88ae4b014acc94e",
+      "bytes": 231
+    },
+    {
+      "path": "native/export-2.log",
+      "sha256": "bb5d1ff8a10f33b14d794bd32ee17f3daf5438f09a67e186be70e6274b295840",
+      "bytes": 230
+    },
+    {
+      "path": "native/incompatible-tool.txt",
+      "sha256": "6f1a0385dabd5f9e9a5b99bb89c8de8528a04f81898726786c44ca9d67c9d80f",
+      "bytes": 59
+    },
+    {
+      "path": "native/init.log",
+      "sha256": "aa829c0c9c7647df518e1412ed3d9b0576c7b6f90c0c7bb871c357484675b840",
+      "bytes": 281
+    },
+    {
+      "path": "native/install.log",
+      "sha256": "77cdb2bfe41e59b8340a56eeb261eb8175b7c446710ed4a261bbbe2a2bd532c3",
+      "bytes": 657
+    },
+    {
+      "path": "native/native-history.bundle",
+      "sha256": "236fee3786f4ade7e614c84f4def1ab629fd6c897a78fd1b316cab0b2007105e",
+      "bytes": 10926
+    },
+    {
+      "path": "native/native16-1.0.0.zip",
+      "sha256": "8fde7ed9cf2699b175a36f3ef9214f73d966f65a0cde0d235e5caaf5aaded293",
+      "bytes": 5693
+    },
+    {
+      "path": "native/native16-1.1.0.zip",
+      "sha256": "335bca06022728816f6169c0c1c122aa6540cfebf4d2127a83a13848dec9fd91",
+      "bytes": 7272
+    },
+    {
+      "path": "native/negative-after.log",
+      "sha256": "fc5d5fddf0cd10b9beb1a9087842cf552c647f670571adbe91f16d7f5bba9be8",
+      "bytes": 152
+    },
+    {
+      "path": "native/negative-before.log",
+      "sha256": "fc5d5fddf0cd10b9beb1a9087842cf552c647f670571adbe91f16d7f5bba9be8",
+      "bytes": 152
+    },
+    {
+      "path": "native/package-1.0.0.log",
+      "sha256": "b571011703524e17f0a44f3aa186eac50a7ca57d3768ee1312e5b5c268107a91",
+      "bytes": 63
+    },
+    {
+      "path": "native/package-1.1.0.log",
+      "sha256": "b8634e7a7a9385194198e89462bad6de9ce6c324e6b3d462bdf1b01acf50fa31",
+      "bytes": 63
+    },
+    {
+      "path": "native/receipt-1.0.0.json",
+      "sha256": "cf84a48402780eae04c2c671e8f735cbe92084f76f4e237ead6b9b258961e93c",
+      "bytes": 385
+    },
+    {
+      "path": "native/receipt-1.1.0.json",
+      "sha256": "021de8fc9de0951fa3db9d7c93294d25006a22d2c925b11ceb895f6a6301ce6b",
+      "bytes": 385
+    },
+    {
+      "path": "native/reject-artifact.txt",
+      "sha256": "dfa2351526bfafe815a8bc9acf742d3fe6774edd21f33a4da9d77b434f354d4c",
+      "bytes": 18
+    },
+    {
+      "path": "native/reject-source.txt",
+      "sha256": "d7ee3bd1e1b739c566479e9e80957dbde9b25bc6ba0ca1e8306433ff3b27e41c",
+      "bytes": 16
+    },
+    {
+      "path": "native/reject-substituted-bytes.txt",
+      "sha256": "dfa2351526bfafe815a8bc9acf742d3fe6774edd21f33a4da9d77b434f354d4c",
+      "bytes": 18
+    },
+    {
+      "path": "native/reject-tool.txt",
+      "sha256": "9a4e4f5753337d9f6312cd4b92391701e9dc0a47a0ad2a96a7dc0f3a1fa5a375",
+      "bytes": 14
+    },
+    {
+      "path": "native/release-1.log",
+      "sha256": "30c100c4a8077f3d6d38cdf3942443dfd3273e92a925e6b9ef491b306b8a1294",
+      "bytes": 42
+    },
+    {
+      "path": "native/release-2.log",
+      "sha256": "30c100c4a8077f3d6d38cdf3942443dfd3273e92a925e6b9ef491b306b8a1294",
+      "bytes": 42
+    },
+    {
+      "path": "native/repeat.log",
+      "sha256": "086ddf95d7970838e9aa15d0cae46fdffaca21d31e84f6d30a8f7b6135c0118b",
+      "bytes": 498
+    },
+    {
+      "path": "native/reviewed-inputs.sha256",
+      "sha256": "60690a14087b5f028f5803fa6a50cf57f659135230231fefbfb1e6fc3da38a61",
+      "bytes": 410
+    },
+    {
+      "path": "native/seed.log",
+      "sha256": "c5b4cf88559092ee0483aacfd078b9f6c4fa39d32fec6fdf07f4997bb6723020",
+      "bytes": 37
+    },
+    {
+      "path": "native/stage-1.log",
+      "sha256": "13c646fa0bc92ce734af75e36eb78cf658d113d4fd43e55fa03ccc52ec18e862",
+      "bytes": 353
+    },
+    {
+      "path": "native/stage-2.log",
+      "sha256": "0ed20a2937de462acaecb229e72b41162da0fd0d2eefb503509dd6304d97dde3",
+      "bytes": 588
+    },
+    {
+      "path": "native/substituted.zip",
+      "sha256": "11d4c40cbd0063cc3ee091a29d47fc17b56b0b005fc38c874403551fb907277e",
+      "bytes": 7279
+    },
+    {
+      "path": "native/success.json",
+      "sha256": "2acf21c05c20a5ce4558b6de0e56e91c93b8dccde177a506b4ab9faf57113664",
+      "bytes": 245
+    },
+    {
+      "path": "native/tool.txt",
+      "sha256": "1785ce91713e9912e437030743b7298f9066c8e27d9e7b7d7b494774947af846",
+      "bytes": 58
+    },
+    {
+      "path": "native/upgrade.log",
+      "sha256": "de9b8eafc267a3edc01f8abd21029b42b188b2cd8daea5401b6e27c7d63d7cc6",
+      "bytes": 621
+    },
+    {
+      "path": "native/verify-1.log",
+      "sha256": "0a617762c6acbb6d3154937974717c72edb717d35fe1ded31f5327ae36d28083",
+      "bytes": 7204
+    },
+    {
+      "path": "native/verify-2.log",
+      "sha256": "16dff6bc29d8431047b6c60a25d46386d3153abb37e8a393d0ec71bceba61914",
+      "bytes": 7204
+    },
+    {
+      "path": "regression-pinned-replay/index.json",
+      "sha256": "2235a2088a4d12903f9307f8de31f9a96adf3e3aa03fa5aa68926510009b926e",
+      "bytes": 26611
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.11/tests/benchmark.json",
+      "sha256": "8821e9b9418417220ebf4ab84c88b423bee540d5bd89671cc46a8376dcd21eba",
+      "bytes": 4706
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.11/tests/second-operator/benchmark.json",
+      "sha256": "b7afd1bbe0df904a0b9362db9906ba7bec22c8a12e371b5aede4a6e13b2a171c",
+      "bytes": 4883
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.11/tests/second-operator/denied-without-certificate.log",
+      "sha256": "40c8faf6af6aa3b04bcea6989b959710d5c5d87832bb765e4aa7b56fd8505889",
+      "bytes": 116
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.11/tests/second-operator/engine-info.json",
+      "sha256": "f61fd1f8e16eb5e05266c65821270085fdda239b1870805bd28b1bc7b8841c08",
+      "bytes": 7634
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.11/tests/second-operator/receipt.json",
+      "sha256": "240081f10382b38665f3bd85c953ed933c8fb5d8cc65bf18fb35f3a9ef6ad27e",
+      "bytes": 1512
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.11/tests/second-operator/source.bundle",
+      "sha256": "e36573f45da79013b3b27afd82ea51668ea2439d4776c33ae54c67cf51973c7e",
+      "bytes": 4507
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/assertions.log",
+      "sha256": "cbec662d38a5406428054d8b1d20596487343249cb1f7f1c38f77833ee5a710f",
+      "bytes": 81
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/baseline.log",
+      "sha256": "da77aa195667d49c83ab6e0f454dd273438d5dca1620d974658f59f540c29f1d",
+      "bytes": 43
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/catchup.log",
+      "sha256": "188061b00f0c00c4967572246f372dab4296be30452b5d7a572c9414df6a370f",
+      "bytes": 57
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/concurrent.log",
+      "sha256": "21ef6dce60d84b2ef775cd63a5fca8e8c0623be6af194c1b146583a1ca9945e3",
+      "bytes": 43
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/expand-backfill.log",
+      "sha256": "9ea493b7e3f6288d7fce24483687c4b9527d62388566cd19df4bd466e8a8e24d",
+      "bytes": 43
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/experiment.json",
+      "sha256": "8ccb4cdef89f979d3716c5a408d9a315cee4efbb86195821b4df5baddff7f59e",
+      "bytes": 472
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/hello.log",
+      "sha256": "47e6ed72213fecdca3d8b209fee75144dd2752de586a2610a61518f0fbdee12c",
+      "bytes": 3425
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/inventory.log",
+      "sha256": "44b54801023441a6e6af2e98bf1c5b692c63314fb651da195156371363e9dfcd",
+      "bytes": 47
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-after.log",
+      "sha256": "a55ef5452de467cb42d4bb2db8c0f53af523a60f609cdf3ae78684a30ee0cd15",
+      "bytes": 906
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-before.log",
+      "sha256": "b74317610d94554226fb41bacb78b04a72976daa39e6cc4b4390a702c9443189",
+      "bytes": 906
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/accepted-pr.json",
+      "sha256": "3bb7e072fcaa7e4c5c263f89fe7d1461d9e33d0d49831b3f3c99854f1704d818",
+      "bytes": 205
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/assembly-rejection.html",
+      "sha256": "8e333f633ef594659ddedd3f120aaf086567566d67d5e57a54be1ba803d6f2c8",
+      "bytes": 123
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-active.json",
+      "sha256": "2d976a6baf170d9e6a544897f684af9c02d3dd25cb840ae40649e75a1d4caad7",
+      "bytes": 705
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/capture.log",
+      "sha256": "22f68cfc410665b0f96138466b8d59d0ae893a1456f49d9604e56aedc841f922",
+      "bytes": 192
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/data-before-restore.txt",
+      "sha256": "5b3e14a0a040cec911eb92a42074948ab4547e23e40827e326989da657d392ea",
+      "bytes": 5947
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/data-before.txt",
+      "sha256": "5b3e14a0a040cec911eb92a42074948ab4547e23e40827e326989da657d392ea",
+      "bytes": 5947
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/create_application.sql",
+      "sha256": "439b316fc5336822a473f4a837b09ae637036298c50c537f16d2d190aff49afa",
+      "bytes": 2185
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/delete_application.sql",
+      "sha256": "8fec19a8ed772906de93e268428c8d17171e6a6b1202f2281a6ea5010dcc8ebe",
+      "bytes": 363
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/end_environment.sql",
+      "sha256": "11da7a7db8ec9ed63adcfffd444f2e5ac0f1742afb6a93d8e163391727349167",
+      "bytes": 229
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00000.sql",
+      "sha256": "f6aab8af52e225c467e3d045030896a1d6e14b567059bb1bc5d0159e1559a577",
+      "bytes": 582
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00001.sql",
+      "sha256": "5ba383e26f4551f10238525bd1acec4ab9e93df53f8437fdc9885f405ab96070",
+      "bytes": 3446
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00010.sql",
+      "sha256": "08a18b9199604cec3337bcea7c47e5e0b857933384727836cf25fd3471c3244b",
+      "bytes": 4965
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00020.sql",
+      "sha256": "254abec132e2fcb8940c39a97225a238027b27c0cf28b02aec9705685ca1ab55",
+      "bytes": 3333
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00100.sql",
+      "sha256": "93f1c151e59b4328b3b926da0cf706debf7d233db307f908fb60e353ec208fb9",
+      "bytes": 4615
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00101.sql",
+      "sha256": "c10d3d062ac0b90a439e0f01508a67d23f64c5c667751b8e3c9ed71a0c8608a9",
+      "bytes": 7427
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00110.sql",
+      "sha256": "f512873363a56aac6b9749dd6843577d64710a186345bb5d8482d6ba68abb989",
+      "bytes": 4791
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00111.sql",
+      "sha256": "4a68cbc812d5a9419eec2ed29feba23d619016c225b544f691a17ab320b1619b",
+      "bytes": 7438
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00200.sql",
+      "sha256": "4bb7289c114136716827967dd70931b7a715bde44c634b8ef680e6814c4e49f1",
+      "bytes": 4615
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00201.sql",
+      "sha256": "3e99e9a1b12157127647c2d1e8fdf2ec79a5b4bfa624719d2232f7268940e610",
+      "bytes": 7428
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00210.sql",
+      "sha256": "b9668a10abd8b8d526dacb5949626cb764ab2c3437c6a4124641ae4cfde44f45",
+      "bytes": 4791
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_00211.sql",
+      "sha256": "1e97d29b3de54bfc7c1d119c9c71c6e975c5aa98ef71bcccfd5aa4dbeb143cb0",
+      "bytes": 7438
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_09999.sql",
+      "sha256": "c68b6f81b7e978988b5b542305eb163edc2b3c1e57bd6baa3900dd2af4745e98",
+      "bytes": 6874
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/pages/page_groups.sql",
+      "sha256": "835126341d4016e164aa4dcdcc7d341a62db48355a8878c01bdc983709f5eec8",
+      "bytes": 488
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/plugin_settings.sql",
+      "sha256": "59a2a5bcd0ac6072136cdee1bc0d23040737d1c85ad683171d1e4ff5251352ce",
+      "bytes": 4149
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/set_environment.sql",
+      "sha256": "7fea815258c569625a478fa9565a0d18193670949348fbbe7587f1a6a10bba84",
+      "bytes": 1026
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/files/icons_app_icon_144_rounded_png.sql",
+      "sha256": "5461c7e47fa8a7fda57228c40974892d6e390815c860be9d5f55b988b48a3cf6",
+      "bytes": 7868
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/files/icons_app_icon_192_png.sql",
+      "sha256": "ded9cfc3d0e4bf43aa1b6f6174285d33702c8492e4c829c69a595409bd9c58be",
+      "bytes": 10073
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/files/icons_app_icon_256_rounded_png.sql",
+      "sha256": "306e2228f186f25c0d25ec7168c503cfe979f59a687679d3ff6682fa892dc32c",
+      "bytes": 15980
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/files/icons_app_icon_32_png.sql",
+      "sha256": "5811d9d7a2988ab7de83f2e599e30cd2d8c514570c440618a478ff06735e3654",
+      "bytes": 2005
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/files/icons_app_icon_512_png.sql",
+      "sha256": "7a4a82f59345564450c4490e123c202561d0b247df86156870a50cd2e67152de",
+      "bytes": 35537
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/globalization/dyntranslations.sql",
+      "sha256": "a1785a89bdc10831f07e7f997405fc3867aff398ff678c5469c9c1657229c0fe",
+      "bytes": 420
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/globalization/language.sql",
+      "sha256": "490535157a6e12661bd214a05761cdf47a292732ce529a88732c0368900d1c72",
+      "bytes": 405
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/globalization/messages.sql",
+      "sha256": "5a39592ccc4c7fc93ae7c61710d53f58b96f28df7e0a080aa0ab51b1cd70c18d",
+      "bytes": 401
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/logic/application_settings.sql",
+      "sha256": "0af9aef7a3327025f3bcba551d501d051c7771237c4eab9930308a89168afb0f",
+      "bytes": 417
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/logic/build_options.sql",
+      "sha256": "28a4b9e199fb3a933e6e0e4d5958b25e7dc4fc11d966d0737782accba3bcca6a",
+      "bytes": 578
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/navigation/breadcrumbentry.sql",
+      "sha256": "0ebb38e1080aa0193d00adf89c63a3970e4c161e77e43a4c40fa93674581d65f",
+      "bytes": 407
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/navigation/breadcrumbs/breadcrumb.sql",
+      "sha256": "1b9203325b5fc3d82ca468a7047c6d0012be66cb66e172c76704fe2eddb8f772",
+      "bytes": 1796
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/navigation/listentry.sql",
+      "sha256": "ba5c35b77251c8ab1712b9be49a1d662751a8b2b60eaf804fbd8ae305b48bca1",
+      "bytes": 395
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/navigation/lists/navigation_bar.sql",
+      "sha256": "0eab14534b8e048ca808dac82f1c26a77020c764fbbaab9b64be4c4ce1bd304b",
+      "bytes": 1562
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/navigation/lists/navigation_menu.sql",
+      "sha256": "06e0d31275a05c36da27c3bf7d45d4969b8a0800954c290713cf86c18754f888",
+      "bytes": 2974
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/navigation/navigation_bar.sql",
+      "sha256": "514c0f9a0d15b6fd974e9b6a077e9e3edb100c5d625b31db595205394af13cb1",
+      "bytes": 410
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/navigation/tabs/parent.sql",
+      "sha256": "27fb385093bdcf28875e899d40e7198ac9e4b276b6fd10c5523169ffa9eba4a9",
+      "bytes": 407
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/navigation/tabs/standard.sql",
+      "sha256": "355aa990a23dbbbb6503ae70242d0897bb10d213547ba332259ae590aa0a0087",
+      "bytes": 399
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/security/authentications/oracle_apex_accounts.sql",
+      "sha256": "de8a512f69c42136651cabe8b636a22b6bf9d47fe8bda83161c9f49f2857244c",
+      "bytes": 697
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/security/authorizations/administration_rights.sql",
+      "sha256": "065c6c9a6a4b3443f53c3e9aec40d9a29d7db30825770d65eee28221e7cb5613",
+      "bytes": 765
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/user_interface/lovs/hello_entries_entry_text.sql",
+      "sha256": "dadb6472eb73649679d65805b3e2dc599d92be6caeedf40b6450b1e504cb450a",
+      "bytes": 797
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/user_interface/lovs/world_entries_entry_text.sql",
+      "sha256": "fdeaceea4c484e7eae33ae1abe193a245fb413828b22e461a247d94ec69fd1db",
+      "bytes": 797
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/user_interface/template_opt_groups.sql",
+      "sha256": "64affcbeb5468ea51aaf262e64035cfdc725ee8cd474b863744dc143b51c804d",
+      "bytes": 424
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/user_interface/template_options.sql",
+      "sha256": "a0fdcb881fd78c3ef580eaaae16b6e71bf92ea39386f8f463970242ae5fd3209",
+      "bytes": 415
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/user_interface/templates/popuplov.sql",
+      "sha256": "b2a81bd17614352146fdd0da745f3accef6888196a4ba9c280f17a2dd66df484",
+      "bytes": 417
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/user_interface/theme_files.sql",
+      "sha256": "babc030f143065460fd9b89f34d4d05a4584f8c0fed041bc9fe9304e5cad324f",
+      "bytes": 408
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/user_interface/theme_style.sql",
+      "sha256": "9f5afb0abb04912136d9e391820b74ed19acc9957bd36ff81dd90d524e44fb15",
+      "bytes": 408
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/shared_components/user_interface/themes.sql",
+      "sha256": "1d38f701acafdde81d6eb4f35aa8c96bebca917db7cd32370819928b9d2bc88b",
+      "bytes": 2557
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/user_interfaces/combined_files.sql",
+      "sha256": "d2a5b0e9688c982f4b0f0ddcc43484b23102dd4eead9a49440e433e714708b90",
+      "bytes": 397
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/application/user_interfaces.sql",
+      "sha256": "de3373b750f8f4dcdccdb7beea2e25cf0ce9c866f09e5b3800ff09c60112f764",
+      "bytes": 1077
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/f810005/install.sql",
+      "sha256": "85b776a1485d01b2f2d8a25110706f860655b4bacb2904ff115c01f1cbe47ec4",
+      "bytes": 2638
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/inject.log",
+      "sha256": "9969563fb950727f872b2ae4e4fbbd0312834b00bd36206cbf7eae8019fc0f0a",
+      "bytes": 2876
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/drift-demo.ze2pod8r/restore.log",
+      "sha256": "8ffb5047a5ca26c9061c022f4f20b6365aa907fe21a96f24563b8574fe08028e",
+      "bytes": 2876
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/environment.json",
+      "sha256": "1b9f0b1a66bf943745f04b1c043bdb232e02619b0a31c6a84ac0afe3e10ad518",
+      "bytes": 592
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/http-integration_test-1.html",
+      "sha256": "0d9890d254049cf8d322d91b2def0ac2ff5c2c701fe94f8db3747cd48bd1a377",
+      "bytes": 12905
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/http-integration_test-2.html",
+      "sha256": "debd67c94515c4d7c62dd4b6915234355a5cfdf07c54db32c80b4a7e7330cf4f",
+      "bytes": 12905
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/http-integration_test-3.html",
+      "sha256": "7afe5a5010344f0ffa7b2e1ebcf918e2b267a7deebca248464e875d35c4aa4bc",
+      "bytes": 12905
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/http-integration_test-4.html",
+      "sha256": "cf4fefe591df56e09af94df5e6a32a2c389e2cdad6f49f9c58a4b0210e6588e0",
+      "bytes": 12905
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/http-user_acceptance_test-1.html",
+      "sha256": "f1d0418fdfa2934859420dfdb1bd7fa149536d3ae11dab2cd330095e416699da",
+      "bytes": 12817
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/http-user_acceptance_test-2.html",
+      "sha256": "204c3cdbbc30f657b9748c39aebf6e8122a5d0f202575c284850f126ee56cd45",
+      "bytes": 12817
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/integration_test-repeat-after.json",
+      "sha256": "edf17f64606fc5bffd3c3e9f7471c7bafc61de5eba17b8b4d811706d1d50c244",
+      "bytes": 9105
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/integration_test-repeat-before.json",
+      "sha256": "edf17f64606fc5bffd3c3e9f7471c7bafc61de5eba17b8b4d811706d1d50c244",
+      "bytes": 9105
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/lab-1.0.1-0cc6c6802e0e.tar",
+      "sha256": "cc006cd8196496d41b95c9a1f7353cc6d8286a8cad1ea53adc4a5a74dcb5f456",
+      "bytes": 890880
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/lab-1.0.1-0cc6c6802e0e.tar.sha256",
+      "sha256": "7a94043243f1d6721c42b3506586ebb2b8338b5dabd78db42c0fcfc4921fefda",
+      "bytes": 65
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/native-export-stability.json",
+      "sha256": "0f656b003ea1a907080cbe86a220a7d73df6acabbc6c7712154bc6fd7d3c0a8f",
+      "bytes": 5241
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/operations.log",
+      "sha256": "85365a581c48cf4c9811ff209f79514a32ba6ccc80f49a0350bea2615196fbda",
+      "bytes": 202003
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/ords-install.log",
+      "sha256": "553085c022c445eb1ce7993edba3fd5998af1831dd7b8b204d444ffe9a68c7ab",
+      "bytes": 2651
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/ords-uninstall.log",
+      "sha256": "da904a154d3bdc9f1de2640c8336c0f805c6ec1cc87d060f50d8aa39c42ba101",
+      "bytes": 872
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/patch-selected.txt",
+      "sha256": "971513f44ee3e441f5ae5e5d7aee45da909cd8d8ac7aabee91fb18d5fa3d3bb4",
+      "bytes": 165
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/q-before.json",
+      "sha256": "bd84031efec80e73a37dd29384002639a2abbc0f04a4c16ac8b64ec88ece820f",
+      "bytes": 8403
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/rejected-stale-candidate.tar",
+      "sha256": "8ddc73f19f6815634b0ae52be5961cc75d93a666c50be60c7bea87b351bbb1b9",
+      "bytes": 890880
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/rejected-stale-candidate.tar.sha256",
+      "sha256": "479128551d88296291ecbde5b74b38f64f0e5983b284c8d5cfb1ad643c3f282d",
+      "bytes": 65
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/runtime.log",
+      "sha256": "06c161c79b37b8f07a458bcb164acaee93995a84eda71a0d63e026ac67871fa3",
+      "bytes": 7827
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/source-snapshot-after.json",
+      "sha256": "3ad8b83f8019bbaabd0e89f26396c654a016a2dd80f4aea8e4fd2a5ef98868ad",
+      "bytes": 29919
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/source-snapshot-before.json",
+      "sha256": "3ad8b83f8019bbaabd0e89f26396c654a016a2dd80f4aea8e4fd2a5ef98868ad",
+      "bytes": 29919
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/source-snapshot-sha256.json",
+      "sha256": "3ad8b83f8019bbaabd0e89f26396c654a016a2dd80f4aea8e4fd2a5ef98868ad",
+      "bytes": 29919
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/sqlcl-version.log",
+      "sha256": "6f1a0385dabd5f9e9a5b99bb89c8de8528a04f81898726786c44ca9d67c9d80f",
+      "bytes": 59
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/stable-native-exports.zip",
+      "sha256": "c5e817db80ea0a6dc2695a0e27087a287f88de3f2d49c5e838e30a0cf41410df",
+      "bytes": 117954
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/uat-before.json",
+      "sha256": "54c15ccecc645bf48b3e90312a61e0b7db94dec0961a92f3528045a2fbc918b9",
+      "bytes": 7585
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/user_acceptance_test-repeat-after.json",
+      "sha256": "38faff44c76b0961ae28f8cd7e0e81ce51e61d921121eb7a095f00a9f88b75ca",
+      "bytes": 8287
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/legacy-regression/run-20261126T124056-14665/user_acceptance_test-repeat-before.json",
+      "sha256": "38faff44c76b0961ae28f8cd7e0e81ce51e61d921121eb7a095f00a9f88b75ca",
+      "bytes": 8287
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/rollback-check.log",
+      "sha256": "151cc8a5a75ce158a853e0e58c4dacabbb12a6214899b7d152e523a8f0261e70",
+      "bytes": 75
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/rollback-check.log.sql",
+      "sha256": "d554fea8988058150f3324333320932d36912a5cb9f2679c7b44ab67e73bcb5f",
+      "bytes": 248
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/assertions.log",
+      "sha256": "cbec662d38a5406428054d8b1d20596487343249cb1f7f1c38f77833ee5a710f",
+      "bytes": 81
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/assertions.log.sql",
+      "sha256": "d0146a6981fd8ddacb1d4fea608a4fd20be7a13fa389701022cfb0a4dcc7d280",
+      "bytes": 2059
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/baseline.log",
+      "sha256": "da77aa195667d49c83ab6e0f454dd273438d5dca1620d974658f59f540c29f1d",
+      "bytes": 43
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/baseline.log.sql",
+      "sha256": "62205a44b99f4d3ac9fb94d784045a1b29311d57adca8a98db86cffc1653652a",
+      "bytes": 1594
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/catchup.log",
+      "sha256": "188061b00f0c00c4967572246f372dab4296be30452b5d7a572c9414df6a370f",
+      "bytes": 57
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/catchup.log.sql",
+      "sha256": "47ec00b375a335136ca10a96264f007915c7b1f73f3a7a4ad7ca650f3a7f82d7",
+      "bytes": 710
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/concurrent.log",
+      "sha256": "21ef6dce60d84b2ef775cd63a5fca8e8c0623be6af194c1b146583a1ca9945e3",
+      "bytes": 43
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/concurrent.log.sql",
+      "sha256": "bbfe68dd3d90bd65d0c34e0227b1fb6f6d81875003ee074ebae0ad035d905ad5",
+      "bytes": 257
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/expand-backfill.log",
+      "sha256": "9ea493b7e3f6288d7fce24483687c4b9527d62388566cd19df4bd466e8a8e24d",
+      "bytes": 43
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/expand-backfill.log.sql",
+      "sha256": "2b8eb2bd5bada08245b777d6cc9618fd5bc6116b8dd9023f30aecd9a716aa633",
+      "bytes": 1234
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/experiment.json",
+      "sha256": "8ccb4cdef89f979d3716c5a408d9a315cee4efbb86195821b4df5baddff7f59e",
+      "bytes": 472
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/hello.log",
+      "sha256": "47e6ed72213fecdca3d8b209fee75144dd2752de586a2610a61518f0fbdee12c",
+      "bytes": 3425
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/hello.log.sql",
+      "sha256": "d1e13826d0f52659cd114b0ea8c8b036acdd4071cb86a6d96c3bef234a3d8a08",
+      "bytes": 18419
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/interruption.log",
+      "sha256": "828cf298dfcf3cafcd87e827891500f693b99d74fa6f66a8807d020a8dd53553",
+      "bytes": 65
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/inventory.log",
+      "sha256": "44b54801023441a6e6af2e98bf1c5b692c63314fb651da195156371363e9dfcd",
+      "bytes": 47
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/inventory.log.sql",
+      "sha256": "e414156815e996cc90b5d4678185802020534781f9adb48f614262d238be9858",
+      "bytes": 56
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/legacy-after.log",
+      "sha256": "a55ef5452de467cb42d4bb2db8c0f53af523a60f609cdf3ae78684a30ee0cd15",
+      "bytes": 906
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/legacy-after.log.sql",
+      "sha256": "cef60d5706621bc944be31bd0a12df9d82af7ae8f2f1c1806c01b7cea5997a5c",
+      "bytes": 117
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/legacy-before.log",
+      "sha256": "b74317610d94554226fb41bacb78b04a72976daa39e6cc4b4390a702c9443189",
+      "bytes": 906
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/legacy-before.log.sql",
+      "sha256": "cef60d5706621bc944be31bd0a12df9d82af7ae8f2f1c1806c01b7cea5997a5c",
+      "bytes": 117
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/rollback-check.log",
+      "sha256": "151cc8a5a75ce158a853e0e58c4dacabbb12a6214899b7d152e523a8f0261e70",
+      "bytes": 75
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/rollback-check.log.sql",
+      "sha256": "d554fea8988058150f3324333320932d36912a5cb9f2679c7b44ab67e73bcb5f",
+      "bytes": 248
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/unsupported-language.log",
+      "sha256": "35562b67e10acabd05f53dae1e08610a97d9861a68e86675f7e700b063909066",
+      "bytes": 222
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/unsupported-language.log.sql",
+      "sha256": "7a0604d3032a67ae344da80b094ad5aa9fa770cff6299b8c9b27baf911b0bc9f",
+      "bytes": 52
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/version.log",
+      "sha256": "fbc280d51ed35eba5b034be081846ff347ca16d749dacc480705151fd77408c7",
+      "bytes": 43
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/version.log.sql",
+      "sha256": "ed5346b34969426b85cb3db62312238bfcef64a20ff4e6d024944f3f2d5b4e5e",
+      "bytes": 61
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/world.log",
+      "sha256": "f07bad04a70ac004f5494afe6acb05f8faccf60a4458284cb502fa6e9cabacbf",
+      "bytes": 3425
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/runs/E12_RUN_29333/world.log.sql",
+      "sha256": "822c0a786bedf84ae9e16afb4c530f4d511f04d9341f6d96fb1ed1717c5917bd",
+      "bytes": 18419
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/unsupported-language.log",
+      "sha256": "35562b67e10acabd05f53dae1e08610a97d9861a68e86675f7e700b063909066",
+      "bytes": 222
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/version.log",
+      "sha256": "fbc280d51ed35eba5b034be081846ff347ca16d749dacc480705151fd77408c7",
+      "bytes": 43
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.12/tests/world.log",
+      "sha256": "f07bad04a70ac004f5494afe6acb05f8faccf60a4458284cb502fa6e9cabacbf",
+      "bytes": 3425
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.13/tests/run_29355/assertions.log",
+      "sha256": "d77433d8b0772826eb490a9f093e961b8c81cf9880a1cdd4c06d576fe36f8440",
+      "bytes": 161
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.13/tests/run_29355/assertions.log.sql",
+      "sha256": "6fe46a4f0216c029fcb7ea26af6c5a44c9e740bdb582ba96b1e9d87b9b677c2f",
+      "bytes": 2098
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.13/tests/run_29355/failure-recovery.log",
+      "sha256": "27faab02bd729e047269587b8ab609fe183bd224559d33001a4de75f4194d847",
+      "bytes": 72
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.13/tests/run_29355/failure-recovery.log.sql",
+      "sha256": "c2fb0b62734e1fbda54d49f9861388f55707f6a7abdc64ab8c7cc383aeb8d6d5",
+      "bytes": 646
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.13/tests/run_29355/hello.log",
+      "sha256": "5c9f5c4d812ae5beafc2c23eac8676fad0feb4fa78ffa5703c0b7e906f15287e",
+      "bytes": 2273
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.13/tests/run_29355/hello.log.sql",
+      "sha256": "ecb8b2a9570a4348283754ec6f9054ed2a3b4cdeab3dd4b7c3bbb116ee2ae2d4",
+      "bytes": 11270
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.13/tests/run_29355/interruption-check.log",
+      "sha256": "ea1b0215fbfe47b24ca7f86f78c2079853f9555f715aba55b9a146bc65b40c9b",
+      "bytes": 78
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.13/tests/run_29355/interruption-check.log.sql",
+      "sha256": "91a5abdfe8f212eee36e238ad75752164d966a00622c3e7fce30b21fa17e8c55",
+      "bytes": 223
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.13/tests/run_29355/interruption.log",
+      "sha256": "1fc979791dd7e2cfd9ef6b5b5f7ad9f7d236f4aed5c433077462ed7f479f6e72",
+      "bytes": 44
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.13/tests/run_29355/receipt.json",
+      "sha256": "f7bde7ef58da04086fcf9cec8d4bec327b5ba140480c8ec2dfcd80ee165f19ff",
+      "bytes": 236
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.13/tests/run_29355/setup.log",
+      "sha256": "33792f4f59f830207eba817b3d15afab2b8d54e7e82891f86398924c7fc5c68e",
+      "bytes": 43
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.13/tests/run_29355/setup.log.sql",
+      "sha256": "df66ff2c9d542536015b02cacb9ae3eb506cf73c9099d98598d4ed0e6006b895",
+      "bytes": 3656
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.13/tests/run_29355/world.log",
+      "sha256": "ff07d217200830393e4873488dca8e00ff039ed8874c903f0ea474ffaceb9bbf",
+      "bytes": 2273
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.13/tests/run_29355/world.log.sql",
+      "sha256": "ace54a3621318024775060bdda5322d1271674baef865440aea673e436a68569",
+      "bytes": 11270
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/Hello-complete.log",
+      "sha256": "296cbcaab0c0cb90c2f8ebf80c4a1de11c08dd8963d7d3019b6674c6e058b497",
+      "bytes": 43
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/Hello-complete.log.sql",
+      "sha256": "a22df99dd4621232b3805b48d62a81b8910ba904a913c9620eb6cb3a4c97ab58",
+      "bytes": 190
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/Hello-interruption.log",
+      "sha256": "97088e3c2053090994e3e0100905dc172d3925dc0abfe752ec810cfb44b7d042",
+      "bytes": 19
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/Hello-recovery.log",
+      "sha256": "9d9a4bb47beb8dd1da1354ac1efeed99c01afffc2a40fb23b8d07b0636859822",
+      "bytes": 57
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/Hello-recovery.log.sql",
+      "sha256": "c24dffb5bfd2b0a220c185ea8f8b8ba2a6a40f5ba45dce85346fd01d4acef110",
+      "bytes": 381
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/Hello-reject.log",
+      "sha256": "a67bec5ee711a1b0644af70cf89864a0ad81d14b69acbd2f3da846eb1ab16f35",
+      "bytes": 43
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/Hello-reject.log.sql",
+      "sha256": "f6f7817fd339a7e209fea29e71041d1ab6e685e15f7508d41bdbee33b15f35d6",
+      "bytes": 174
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/Hello-start.log",
+      "sha256": "a2acd13323c808d127d499f1a9a75522b87ccc88babe757ce2f4000326a7a25b",
+      "bytes": 43
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/Hello-start.log.sql",
+      "sha256": "12a357c86336d4fce26e4d2e48308592037c6dffdb98519f97fbd13cc6ab2849",
+      "bytes": 73
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/Hello-traffic.log",
+      "sha256": "d9651dccbf1a96eca4a8b400601fd27c661f44bdebf3b6922530a670e8b6f6ac",
+      "bytes": 2913
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/Hello-traffic.log.sql",
+      "sha256": "aa6f35c50b683ac068a4a2ea5e2ba1b1dbc1055a77aec95b1d0d6e0036dab913",
+      "bytes": 12710
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/World-complete.log",
+      "sha256": "f11784dd656da9da0d2d5b79cfccdd999f6795df1d2c340c3ece1cf6df223a28",
+      "bytes": 43
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/World-complete.log.sql",
+      "sha256": "71450f4b6572d9d3272d1ce08e9ab23c0a371072e636981e2b835956992cfb15",
+      "bytes": 190
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/World-interruption.log",
+      "sha256": "97088e3c2053090994e3e0100905dc172d3925dc0abfe752ec810cfb44b7d042",
+      "bytes": 19
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/World-recovery.log",
+      "sha256": "2c69c226fe3121f98e3e2230f8a6f249c1dd965e2895d2ca78fa762ab6c3c8b4",
+      "bytes": 57
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/World-recovery.log.sql",
+      "sha256": "33315fcc1ad0a26d4f77aa835b9a36ed1522d31714065b4e4b6f353704fa020b",
+      "bytes": 381
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/World-reject.log",
+      "sha256": "321aff7d922b6699e184151df123f93253c69d316d841c0b4154296c01b0ed79",
+      "bytes": 43
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/World-reject.log.sql",
+      "sha256": "3c731f61e1fe14e3947215a5d28a9d10f58c8ba34bef73734ace8f14ef99e97d",
+      "bytes": 174
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/World-start.log",
+      "sha256": "952c675733fe5c65a0937f68720549b8c19bff1912e19a64cccf298eb1845a9f",
+      "bytes": 43
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/World-start.log.sql",
+      "sha256": "b8a543359f8bd4b5fa3c8a6b5c465f6c7adc8ad006becec895f71fad69c35381",
+      "bytes": 73
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/World-traffic.log",
+      "sha256": "6b15045310b358035c4c3614eb081e8ccdf9add2441d645098ab90a3bb8933f2",
+      "bytes": 2913
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/World-traffic.log.sql",
+      "sha256": "b4588ccd5a11d6ee234c2d317141170c9e5aaedcfae5d78c391563d961ecd4e9",
+      "bytes": 12710
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/assertions.log",
+      "sha256": "3637029f65ce52326722c345f1fd20470d548150b1be5a2257b32f3bb77267ca",
+      "bytes": 79
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/assertions.log.sql",
+      "sha256": "516d989343d1fe0a79627f6f75816c63308d31248ec0d12b5bbd2761bf56c671",
+      "bytes": 921
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/receipt.json",
+      "sha256": "22c781f1f15629e47fcd5687510b73adb197dc7996405ceee7bf60052f9dad46",
+      "bytes": 244
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/setup.log",
+      "sha256": "a48d37ca54450d8c391531ad0e7b56395810a76539f4d20b39a65e62d77fcf9a",
+      "bytes": 43
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/setup.log.sql",
+      "sha256": "df66ff2c9d542536015b02cacb9ae3eb506cf73c9099d98598d4ed0e6006b895",
+      "bytes": 3656
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/window-setup.log",
+      "sha256": "ef427d4c64a882f4f6e2bf9f0443f9e09e4bc5af9039f5dbb2ed2f750264f3bc",
+      "bytes": 43
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.14/tests/run_29367/window-setup.log.sql",
+      "sha256": "a3d213f031424c915ad07556740e8862ed8ba2a0a90e606e35cf903ad72a9c8d",
+      "bytes": 514
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.5/tests/backend-results.json",
+      "sha256": "b63788b3c6f4eab71ba2516806339e3e79749ee9296d51bef4608632912c1bfa",
+      "bytes": 439
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.5/tests/coverage-after.log",
+      "sha256": "d9597f59a07e2c553eca5b1feebb6a2d1e7d3fa9990fb0b8e33af29930fc5c4b",
+      "bytes": 630
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.5/tests/coverage-after.xml",
+      "sha256": "35ee8f8493fac23ee6a42a83bfe6456e912227a75c452ad3afe5f952bf853828",
+      "bytes": 595
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.5/tests/mutation-detected.log",
+      "sha256": "577bfa276f266eefba6e41b8ac30724b1641681f721502973be994266a4e816c",
+      "bytes": 418
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.5/tests/utplsql-full.log",
+      "sha256": "48edf22f7e17963451c53af39a9eb4ad8fa3acbae62fbdd7eae348a4c981d67e",
+      "bytes": 377
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.5/tests/utplsql-reordered.log",
+      "sha256": "d938963899ff01db992c63c9a1273bff03a6021d2e5a7ed2e3e407a47b12562a",
+      "bytes": 379
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.5/tests/utplsql-repeat.log",
+      "sha256": "1d6b674e4d6822289b584da544ed7749a2de758f8a9be84243afdcbf316ed417",
+      "bytes": 377
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.6/tests/compat-1.0.1.log",
+      "sha256": "0379d9784a1fc46f29ba6bc63e5713b9b8269a4d5227453156848df2c247be21",
+      "bytes": 300
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.6/tests/compat-1.0.log",
+      "sha256": "a9e7c4e16b7ca5cf4a975e0340d50d3240535852ebd1621123a60324dde04535",
+      "bytes": 300
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.6/tests/compat-1.1.log",
+      "sha256": "0e262a832c37022000d10edc81e8994819dcc647bc310e5cdebe32d84458544d",
+      "bytes": 303
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.6/tests/compat-restored-consumers.log",
+      "sha256": "5b79bf14cc653d7fbc5aff52e7466f6d337999d0dd35a608a9fdd515e09ce738",
+      "bytes": 300
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.6/tests/incompatible-detected.log",
+      "sha256": "ff0bbace41d9274865247880d621d3901d1dccc4f068eb35f6208768bc2be6e4",
+      "bytes": 853
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.6/tests/sessions-after.log",
+      "sha256": "4d361364def025cc878281f0b3a76152feae52e8df65f97e741f2d57a7e52a6b",
+      "bytes": 28
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.6/tests/sessions-before.log",
+      "sha256": "4d361364def025cc878281f0b3a76152feae52e8df65f97e741f2d57a7e52a6b",
+      "bytes": 28
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.6/tests/unit.log",
+      "sha256": "7044f25ad596387d6a23af4943749c378284aceca36fb6314f18d660f50d08fb",
+      "bytes": 302
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.8/tests/candidate.bundle",
+      "sha256": "a188b0426106212199f40cf2ffbcabbc9ff1e719a500c71ea217038c43d26b3a",
+      "bytes": 1471
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.8/tests/executions.json",
+      "sha256": "4bdf386c4260833ee6f7c0c52f30a387fe73d2b5ab26b5fa8e35a27446e22211",
+      "bytes": 15194
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.8/tests/pr-None/result.json",
+      "sha256": "fc424ef9850cdb8d72b518de340c6a64e27a1890a96336b24d67dd78e2ad53fb",
+      "bytes": 2119
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.8/tests/pr-backend/backend-failure.log",
+      "sha256": "ec9929f931ebe56292db68052b25c2dfa76929a437e81d2703ff5eaa30dde874",
+      "bytes": 226
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.8/tests/pr-backend/backend.log",
+      "sha256": "ec9929f931ebe56292db68052b25c2dfa76929a437e81d2703ff5eaa30dde874",
+      "bytes": 226
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.8/tests/pr-backend/result.json",
+      "sha256": "6c27dc3ee46966b327751e732ea5132ad08201cc03c144c6543d41ea3b5dfd06",
+      "bytes": 2147
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.8/tests/pr-compilation/result.json",
+      "sha256": "97e1f1d647f5371d2d00ee76bd2cc48567607638b0c2c77f96679282fa04a5e6",
+      "bytes": 1577
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.8/tests/pr-migration/migration-failure.log",
+      "sha256": "ca230d20d5385c59065e89ead15223b8f3afe377ef5831e76545f27b358df183",
+      "bytes": 295
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.8/tests/pr-migration/migration.log",
+      "sha256": "ca230d20d5385c59065e89ead15223b8f3afe377ef5831e76545f27b358df183",
+      "bytes": 295
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.8/tests/pr-migration/result.json",
+      "sha256": "f071435c5d594c6c9a127d5e6c054371505f2487334213b09cadd8308f78816c",
+      "bytes": 1275
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.8/tests/pr-source/result.json",
+      "sha256": "88bfeaf71626dff49f4615c371cabeae2370b01322290c6f65c96c3bb5a9f798",
+      "bytes": 972
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.8/tests/pr-state/result.json",
+      "sha256": "68fdf28fb38c4b1d573bc68bc18cd319f128e7a24014dda724f70d5422c5f78c",
+      "bytes": 1849
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.8/tests/pr-state/state-failure.log",
+      "sha256": "625ef480f23a9cd49db037973d04f241031ebbaab428f82e096154a79e728478",
+      "bytes": 336
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.8/tests/pr-state/state.log",
+      "sha256": "625ef480f23a9cd49db037973d04f241031ebbaab428f82e096154a79e728478",
+      "bytes": 336
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.8/tests/prerelease-None/result.json",
+      "sha256": "0d4014509db74e7fbb1aadeb3081af8dbd100313d4603361a017c47702017fb0",
+      "bytes": 2167
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.8/tests/scheduled-None/result.json",
+      "sha256": "a0f06ab5e779b1fe4c0bd7a9f1ca7702c4d9683b011cddfd1a365452dd9c7341",
+      "bytes": 2161
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.9/tests/candidate.bundle",
+      "sha256": "76c081c4cb877e3efff954f37354913f1d10dca2b959e041e44eac59567d7a39",
+      "bytes": 1054
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.9/tests/journey.json",
+      "sha256": "8e0f4c8f8192290b52dabfc6235ac68359aa7e863e9bda44b5d67006c065713f",
+      "bytes": 1453
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.9/tests/reports/56388801fb647cd065327b37dcec0fcb9f4edf593ada21921c029230c4acdfc5.json",
+      "sha256": "acd00f9be4820e1d2b5744fdd32ae249dd7513c0ae39e20000187848db0aeabb",
+      "bytes": 958
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.9/tests/service/060d604810e474b2bf29c3d5d99a136653b6bfa4894bf46b41aaa8134ccd91a2.json",
+      "sha256": "b7ecdf2829f2d4ab05c1ebd6fc40fa9665e42fa3ab18e85613af98f9a8ac7bbd",
+      "bytes": 918
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.9/tests/service/2400805b641e47ed8ecc1544e2ba5ddf5afec9cbddeb8962073aaa2e452d8270.json",
+      "sha256": "311a6c00015402155b317d53a01a06e6be134e06fea4b929ea94216e6a0daa67",
+      "bytes": 895
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.9/tests/service/candidate.bundle",
+      "sha256": "cf5e355e3fd3e215591666f1a591e2486dd97862008457f85db4abd48f4139bd",
+      "bytes": 1239
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.9/tests/service/cfc41d31a41ddfe5d5e96174409660694e5c9266daf1cb2552212fee771ae583.json",
+      "sha256": "81feef521c0714d93f7e8ce354ffadd4ac0f500aba9afeddf6538af3ec714e86",
+      "bytes": 895
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.9/tests/service/direct-write.log",
+      "sha256": "4e32b7dc20887789fb69d2fe0973b7be2ce1ffeee8282e4d19a79c55ce2c33de",
+      "bytes": 227
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.9/tests/service/direct-write.raw.gz",
+      "sha256": "188e36aad55591add413b7ca6e06def1f15aaab71a38cd6ff455a441ff5a6974",
+      "bytes": 203
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.9/tests/service/e1cf1054ee42c694219d5618795625ae0843c8812439f67242646814f6afa391.json",
+      "sha256": "7370831b15f260f938eb9b89e8600f1b28228d96d93985f6ea207f3d5945bca1",
+      "bytes": 906
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.9/tests/service/events.json",
+      "sha256": "18e3f1c3d90ab9e22b2aa7aa7fa1ae344582f80bc7523e2cfe17d78230298f25",
+      "bytes": 9480
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.9/tests/service/receipt.json",
+      "sha256": "d37d8fd846d58eaabf9cfc0ace79960a356e6568ca8bdb8e5a2e278b4367c67e",
+      "bytes": 326
+    },
+    {
+      "path": "regression-pinned-replay/progress/E.9/tests/service/results.json",
+      "sha256": "98d7cd373b79fb8642a974b0cdb4213ca8b3a853ccc8b70bb52c810b3663bdad",
+      "bytes": 267941
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/accepted-pr.json",
+      "sha256": "3bb7e072fcaa7e4c5c263f89fe7d1461d9e33d0d49831b3f3c99854f1704d818",
+      "bytes": 205
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/assembly-rejection.html",
+      "sha256": "8e333f633ef594659ddedd3f120aaf086567566d67d5e57a54be1ba803d6f2c8",
+      "bytes": 123
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/environment.json",
+      "sha256": "0e1677c70034fba3354b509ab4bbf2511f5abf6c8cb6ac3fe3e16bf9d1179e2c",
+      "bytes": 592
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/http-integration_test-1.html",
+      "sha256": "56187d68cff7f1c17586bce945d3377e320cb9b02d80d68069ff15cede66eade",
+      "bytes": 12905
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/http-integration_test-2.html",
+      "sha256": "f90b41a207a07fa824b3106cb1ec2ce13d395eece02a8525dbe247478b348e76",
+      "bytes": 12905
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/http-integration_test-3.html",
+      "sha256": "aa15dcac291f383ad9fb122b968ae55b964e26e2b1c317f83502ad9112f0306a",
+      "bytes": 12905
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/http-user_acceptance_test-1.html",
+      "sha256": "410c3bb3bc6b881677f727e21d23ca3413792565104ab938a146797f8a1ebf0d",
+      "bytes": 12817
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/lab-1.0.1-0cc6c6802e0e.tar",
+      "sha256": "137da07c87947e715fc12df2aed4d3243e521d7c92d857c1fe12a714582a18d3",
+      "bytes": 890880
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/lab-1.0.1-0cc6c6802e0e.tar.sha256",
+      "sha256": "e0b4809e2ce7b000f49e4a4701569ab3d9d1c892e0b0d566915d29396f5ad7f4",
+      "bytes": 65
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/native-export-stability.json",
+      "sha256": "5540ec92d70c7b216f00bb0b5f0b18a0d815ad90518ebc9588ef533bfa131d58",
+      "bytes": 5241
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/operations.log",
+      "sha256": "e5dbe6959ba27d81046d72418443894bc302730c93ee62e6e2bf4c39e58dc7c8",
+      "bytes": 125381
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/ords-install.log",
+      "sha256": "fc6a9949768ff049cd91dd295e2bb6df5b89abe6ecbc1f51f9fd3330bc18e7c8",
+      "bytes": 2650
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/ords-uninstall.log",
+      "sha256": "ac96bcc1e4f9cc6d194401f7988b60cc929c276da56071167fbb155719146c35",
+      "bytes": 870
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/patch-selected.txt",
+      "sha256": "e28bd9a2b87d95891d637d1bc71f940f972c16010e2e41362c33352660e9799e",
+      "bytes": 129
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/q-before.json",
+      "sha256": "8915eb45b59acea4aee4f39b497562a8136c71922ade2bc9db06ea88ebda6f0e",
+      "bytes": 8403
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/rejected-stale-candidate.tar",
+      "sha256": "5829366ce6d8be347a8e048adef6f6e8a5e2abbcf90719b5de75f21b029650e7",
+      "bytes": 890880
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/rejected-stale-candidate.tar.sha256",
+      "sha256": "e7dba10f582fa1fa966a7a17e1e3d245dc412e4fd949bec33b478259f497c1c2",
+      "bytes": 65
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/runtime.log",
+      "sha256": "935a2b0b8676e63ebae42b3ac90d5c3565a29349654f330eb691a08ac410e310",
+      "bytes": 5857
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/source-snapshot-before.json",
+      "sha256": "3ad8b83f8019bbaabd0e89f26396c654a016a2dd80f4aea8e4fd2a5ef98868ad",
+      "bytes": 29919
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/sqlcl-version.log",
+      "sha256": "6f1a0385dabd5f9e9a5b99bb89c8de8528a04f81898726786c44ca9d67c9d80f",
+      "bytes": 59
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/stable-native-exports.zip",
+      "sha256": "316774b0ee0107981b0cc7e95f9d41cf5231e90272209488cafd6a9ffb78af59",
+      "bytes": 117952
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.12/tests/legacy-regression/run-20261126T122839-99301/uat-before.json",
+      "sha256": "9affe49407855aaf9fcfa7b92f5b3faf18544b3c6e38b2c6801c785463a25ed2",
+      "bytes": 7585
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.5/tests/utplsql-full.log",
+      "sha256": "fd1ce02ec4197c3bcd9f5b088846c61fd0ccb0a010148f1fc9300f97df3525f9",
+      "bytes": 377
+    },
+    {
+      "path": "shared-checkout-replay/progress/E.6/tests/unit.log",
+      "sha256": "003df3f0baaff1915df9de81a7a019820dbcbec74672a820d9193ac89bfe5fbd",
+      "bytes": 303
+    },
+    {
+      "path": "symlink-layout-attempt/A1-pinned.log",
+      "sha256": "500d3286857c9b5e9ccba93112fdf9cddad6d7de108189fd6852b1e8aeab37d0",
+      "bytes": 159
+    },
+    {
+      "path": "symlink-layout-attempt/A2-pinned.log",
+      "sha256": "cdac8e0d5eab6e309b7eb0814b72a87ff605654b92e8889207436d1ffc91a32f",
+      "bytes": 189
+    },
+    {
+      "path": "symlink-layout-attempt/A3-pinned.log",
+      "sha256": "805e6473d249cb3a5e2df76810089bf4671ee2dd129cd2ae84812ed811f824d8",
+      "bytes": 269
+    },
+    {
+      "path": "symlink-layout-attempt/B1-pinned.log",
+      "sha256": "c9f20fa42e847934485e4b09660c0c5fe805b79ed9dee62532e32b54dcfe817f",
+      "bytes": 1704
+    },
+    {
+      "path": "symlink-layout-attempt/B2-pinned.log",
+      "sha256": "61aa7f87d91ad9b6f74bea181a3498200e7835412f5ac6286c6fb243236ca605",
+      "bytes": 3840
+    },
+    {
+      "path": "tool-home-layout-attempt/A1-pinned.log",
+      "sha256": "500d3286857c9b5e9ccba93112fdf9cddad6d7de108189fd6852b1e8aeab37d0",
+      "bytes": 159
+    },
+    {
+      "path": "tool-home-layout-attempt/A2-pinned.log",
+      "sha256": "cdac8e0d5eab6e309b7eb0814b72a87ff605654b92e8889207436d1ffc91a32f",
+      "bytes": 189
+    },
+    {
+      "path": "tool-home-layout-attempt/A3-pinned.log",
+      "sha256": "805e6473d249cb3a5e2df76810089bf4671ee2dd129cd2ae84812ed811f824d8",
+      "bytes": 269
+    },
+    {
+      "path": "tool-home-layout-attempt/B1-pinned.log",
+      "sha256": "c9f20fa42e847934485e4b09660c0c5fe805b79ed9dee62532e32b54dcfe817f",
+      "bytes": 1704
+    },
+    {
+      "path": "tool-home-layout-attempt/B2-pinned.log",
+      "sha256": "95b0a238d45886aacc9ede7a0d331915d3a45f1fc5547c08c79f59768110f316",
+      "bytes": 3840
+    }
+  ],
+  "verified_against_commit": "c7218cd"
+}

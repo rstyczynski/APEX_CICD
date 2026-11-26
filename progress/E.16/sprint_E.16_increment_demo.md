@@ -86,7 +86,7 @@ gh run view 45810907563 --repo rstyczynski/APEX_CICD_E.16
 code progress/E.16/tests
 ```
 
-Read `receipt-1.0.0.json` and `receipt-1.1.0.json` alongside package, install, upgrade, repeat and assertion logs. The receipt names the source commit, actual SQLcl build, archive digest, workflow source and run. The bundle contains exported SQL and native release changesets. A successful exit alone does not establish provenance: compare archive hashes, reviewed workflow/helper hashes, history and actual SQL, as recorded in the [source review](sprint_E.16_source_review.md).
+Extract the [retained raw evidence](tests/actions-refactor/README.md#read-the-retained-evidence), then read `native/receipt-1.0.0.json` and `native/receipt-1.1.0.json` alongside package, install, upgrade, repeat and assertion logs. The receipt names the source commit, actual SQLcl build, archive digest, workflow source and run. The bundle contains exported SQL and native release changesets. A successful exit alone does not establish provenance: compare archive hashes, reviewed workflow/helper hashes, history and actual SQL, as recorded in the [source review](sprint_E.16_source_review.md).
 
 ## Failures and rejection — slides 11–13
 

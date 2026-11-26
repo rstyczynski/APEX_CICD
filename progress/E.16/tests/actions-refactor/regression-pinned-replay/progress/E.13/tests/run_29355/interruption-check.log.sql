@@ -1,2 +1,0 @@
-declare n number; begin select count(*) into n from e12_app.history where id=98; if n<>0 then raise_application_error(-20131,'interruption leaked'); end if; dbms_output.put_line('SESSION_INTERRUPTION_ROLLBACK_PASS'); end;
-/
