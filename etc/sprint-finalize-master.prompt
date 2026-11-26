@@ -1,24 +1,79 @@
-Sprint ${sprint}. As Product Owner, I authorize you to resume Sprint ${sprint} and complete it end to end in YOLO mode. If activation is still required, apply the required sprint-start procedure and change its PLAN.md status from Planned to Progress and Mode to YOLO. This overrides any local requirement that I personally edit those fields. Inspect existing work and continue from the verified state; do not restart unnecessarily or treat prior completion claims as evidence.
+Sprint ${sprint}. As Product Owner, I authorize you to resume Sprint ${sprint} and
+complete it end to end in YOLO mode. If activation is still required, apply the required
+sprint-start procedure and change its PLAN.md status from Planned to Progress and Mode
+to YOLO. This overrides any local requirement that I personally edit those fields.
+Inspect existing work and continue from the verified state; do not restart unnecessarily
+or treat prior completion claims as evidence.
 
-Execute the required RUP workflow through implementation, every acceptance criterion, tests and regression checks, documentation, demonstration, presentation, audit, local commits and recorded sprint closure. Make reasonable decisions autonomously and record material decisions.
+Execute the required RUP workflow through implementation, every acceptance criterion,
+tests and regression checks, documentation, demonstration, presentation, audit, local
+commits and recorded sprint closure. Make reasonable decisions autonomously and record
+material decisions.
 
-For any remote work github operations create repository to this sprint APEX_CICD_${sprint} and use it. If anything is needed from former sprints look for its repository. You are authorized to create additional companion repositories whenever it’s need to execute teh sprint.
+For any remote work github operations create repository to this sprint
+APEX_CICD_${sprint} and use it. If anything is needed from former sprints look for its
+repository. You are authorized to create additional companion repositories whenever it’s
+need to execute teh sprint.
 
-Maintain a requirement-to-evidence checklist derived from the assigned backlog items, sprint plan and applicable procedures. Distinguish mandatory acceptance requirements from your implementation choices. Trace every claimed requirement or blocker to its authoritative source. Do not invent stricter requirements, weaken existing criteria or substitute simulation for required real behavior. Clearly identify what each test proves and what remains unverified.
+Maintain a requirement-to-evidence checklist derived from the assigned backlog items,
+sprint plan and applicable procedures. Distinguish mandatory acceptance requirements
+from your implementation choices. Trace every claimed requirement or blocker to its
+authoritative source. Do not invent stricter requirements, weaken existing criteria or
+substitute simulation for required real behavior. Clearly identify what each test proves
+and what remains unverified.
 
-Capture screenshots during major UI interactions as they occur, including key starting states, significant user actions and their visible outcomes, and relevant error or recovery states. Save legible screenshots in progress/${sprint}/screenshots/ with descriptive filenames. Keep an evidence index linking each screenshot to the interaction, applicable requirement or acceptance criterion, observed result and relevant test or execution record. Exclude credentials, tokens and sensitive data from captures. Preserve the screenshots for reuse in the handover slide deck, and use representative captures with captions and evidence references in the demonstration and handover slides. Screenshots support the recorded observations; they do not replace required functional checks. If a required capture is unavailable, record the gap and its cause without inventing or presenting mock UI as execution evidence.
+Capture screenshots during major UI interactions as they occur, including key starting
+states, significant user actions and their visible outcomes, and relevant error or
+recovery states. Save legible screenshots in progress/${sprint}/screenshots/ with
+descriptive filenames. Keep an evidence index linking each screenshot to the
+interaction, applicable requirement or acceptance criterion, observed result and
+relevant test or execution record. Exclude credentials, tokens and sensitive data from
+captures. Preserve the screenshots for reuse in the handover slide deck, and use
+representative captures with captions and evidence references in the demonstration and
+handover slides. Screenshots support the recorded observations; they do not replace
+required functional checks. If a required capture is unavailable, record the gap and its
+cause without inventing or presenting mock UI as execution evidence.
 
-Create and maintain progress/${sprint}/screenshots/index.html as a convenient HTML gallery for navigating the captured screenshots. Group captures by interaction or scenario in execution order, provide a thumbnail overview and previous/next navigation, and let users open each full-resolution image. Include descriptive captions, observed outcomes and links to the associated requirements and evidence records. Use relative links and local assets so the gallery opens directly from the checkout without a server or external dependencies. Link the gallery from the sprint handover and demonstration documentation. Verify that the page renders, navigation works and all image and evidence links resolve before handover.
+Create and maintain progress/${sprint}/screenshots/index.html as a convenient HTML
+gallery for navigating the captured screenshots. Group captures by interaction or
+scenario in execution order, provide a thumbnail overview and previous/next navigation,
+and let users open each full-resolution image. Include descriptive captions, observed
+outcomes and links to the associated requirements and evidence records. Use relative
+links and local assets so the gallery opens directly from the checkout without a server
+or external dependencies. Link the gallery from the sprint handover and demonstration
+documentation. Verify that the page renders, navigation works and all image and evidence
+links resolve before handover.
 
-Missing implementation, failed tests, incomplete documentation, unavailable convenience tools and recoverable environment problems are work to resolve. Diagnose failures, implement fixes and retry appropriately. Use supported alternatives when the preferred approach is unavailable. If one activity is blocked, continue every independent activity. Passing a subset of tests, producing a checkpoint commit or writing a progress report is not permission to stop.
+Missing implementation, failed tests, incomplete documentation, unavailable convenience
+tools and recoverable environment problems are work to resolve. Diagnose failures,
+implement fixes and retry appropriately. Use supported alternatives when the preferred
+approach is unavailable. If one activity is blocked, continue every independent
+activity. Passing a subset of tests, producing a checkpoint commit or writing a progress
+report is not permission to stop.
 
-Before deciding that you are blocked, audit every unfinished requirement. Record: the exact unmet criterion; the attempted solution and observed failure; supported alternatives considered or tried; why each cannot satisfy the criterion within the authorized scope; and the specific unavailable access, mandatory approval or external change needed. Preserve exact commands, errors and relevant evidence without exposing secrets. An unimplemented alternative, unfamiliar tool, inconvenient approach or untested assumption is not an established blocker.
+Before deciding that you are blocked, audit every unfinished requirement. Record: the
+exact unmet criterion; the attempted solution and observed failure; supported
+alternatives considered or tried; why each cannot satisfy the criterion within the
+authorized scope; and the specific unavailable access, mandatory approval or external
+change needed. Preserve exact commands, errors and relevant evidence without exposing
+secrets. An unimplemented alternative, unfamiliar tool, inconvenient approach or
+untested assumption is not an established blocker.
 
-If an actual authorization conflict prevents a required action, ask one narrowly scoped clarification explaining the precise conflict and continue independent work while awaiting an answer. Never infer permission from silence. Do not introduce routine confirmation gates. Do not stop merely because the workflow reaches a phase boundary, checkpoint, estimated time limit or convenient reporting point.
+If an actual authorization conflict prevents a required action, ask one narrowly scoped
+clarification explaining the precise conflict and continue independent work while
+awaiting an answer. Never infer permission from silence. Do not introduce routine
+confirmation gates. Do not stop merely because the workflow reaches a phase boundary,
+checkpoint, estimated time limit or convenient reporting point.
 
-Commit after each bunch of work. On finalisation push to origin APEX_CICD repo. Note that progress repo is APEX_CICD what is not the repo dedicated to sprint work APEX_CICD_${sprint}.
+Commit after each bunch of work. On finalisation push to origin APEX_CICD repo. Note
+that progress repo is APEX_CICD what is not the repo dedicated to sprint work
+APEX_CICD_${sprint}.
 
-Continue until either: (1) all required outcomes are verified, audits pass, local commits exist and sprint closure is recorded; or (2) every remaining useful activity depends on an evidenced external blocker that cannot be resolved within the authorized scope. In the second case, leave truthful lifecycle states, preserve resumable work and identify exactly what must happen next. Never declare unfinished work complete.
+Continue until either: (1) all required outcomes are verified, audits pass, local
+commits exist and sprint closure is recorded; or (2) every remaining useful activity
+depends on an evidenced external blocker that cannot be resolved within the authorized
+scope. In the second case, leave truthful lifecycle states, preserve resumable work and
+identify exactly what must happen next. Never declare unfinished work complete.
 
 Communicate progress and questions normally in plain text. Do not output JSON.
 
@@ -31,4 +86,6 @@ End your final answer with exactly one of these standalone lines:
 Sprint status: COMPLETE
 Sprint status: INCOMPLETE
 
-Use COMPLETE only after all required outcomes are verified, audits pass, local commits exist, and sprint closure is recorded. Otherwise use INCOMPLETE. Do not print either status line in interim progress messages.
+Use COMPLETE only after all required outcomes are verified, audits pass, local commits
+exist, and sprint closure is recorded. Otherwise use INCOMPLETE. Do not print either
+status line in interim progress messages.
