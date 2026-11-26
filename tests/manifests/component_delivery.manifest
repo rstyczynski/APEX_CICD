@@ -59,3 +59,6 @@ integration:test_native_provenance.sh:test_native_hosted
 smoke:test_clean_host.sh:test_clean_host_source
 unit:test_clean_host.sh:test_clean_host_receipt
 integration:test_clean_host.sh:test_clean_host_real
+smoke:test_pipeline_capacity.sh:test_pipeline_capacity_source
+unit:test_pipeline_capacity.sh:test_pipeline_capacity_arithmetic
+integration:test_pipeline_capacity.sh:test_pipeline_capacity_real

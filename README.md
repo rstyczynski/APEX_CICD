@@ -364,3 +364,7 @@ E.17 delivers PBI-085 under the authorized YOLO workflow. The [end-to-end walkth
 
 
 The [E.17 acceptance amendment](progress/E.17/sprint_E.17_acceptance_amendment.md), explicitly approved by the Product Owner on 2026-11-26, accepts Codex-driven automated clean-host reproduction without a separate external operator. All sprint quality and closure gates were retained and verified; broader SRS independent-operator requirements retain their scope.
+
+### Sprint E.18 — pipeline feedback and capacity (in progress)
+
+The [requirement checklist](progress/E.18/sprint_E.18_checklist.md) and [experiment design](progress/E.18/sprint_E.18_design.md) describe the active complete-workload trials. The [local screenshot gallery](progress/E.18/screenshots/index.html) records actual UI observations. Native measurements, full regression, demonstration and closure remain pending.

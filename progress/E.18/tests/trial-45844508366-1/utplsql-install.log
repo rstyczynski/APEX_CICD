@@ -1,0 +1,933 @@
+
+Session altered.
+
+
+no rows selected
+
+
+
+
+
+
+
+
+
+Creating utPLSQL user UT3
+SP2-0310: unable to open file "params.sql.tmp"
+Help: https://docs.oracle.com/error-help/db/sp2-0310/
+SP2-0606: Cannot create SPOOL file "install.log"
+Help: https://docs.oracle.com/error-help/db/sp2-0606/
+--------------------------------------------------------------
+Installing utPLSQL v3 framework into UT3 schema
+--------------------------------------------------------------
+Switching current schema to UT3
+--------------------------------------------------------------
+Installing component UT_DBMS_OUTPUT_CACHE
+No errors.
+--------------------------------------------------------------
+Installing component UT_VARCHAR2_LIST
+No errors.
+--------------------------------------------------------------
+Installing component UT_VARCHAR2_ROWS
+No errors.
+--------------------------------------------------------------
+Installing component UT_INTEGER_LIST
+No errors.
+--------------------------------------------------------------
+Installing component UT_OBJECT_NAME
+No errors.
+--------------------------------------------------------------
+Installing component UT_OBJECT_NAME
+No errors.
+--------------------------------------------------------------
+Installing component UT_OBJECT_NAMES
+No errors.
+--------------------------------------------------------------
+Installing component UT_KEY_VALUE_PAIR
+No errors.
+--------------------------------------------------------------
+Installing component UT_KEY_VALUE_PAIRS
+No errors.
+--------------------------------------------------------------
+Installing component UT_REPORTER_INFO
+No errors.
+--------------------------------------------------------------
+Installing component UT_REPORTERS_INFO
+No errors.
+--------------------------------------------------------------
+Installing component UT_STACK
+No errors.
+--------------------------------------------------------------
+Installing component UT_STACK
+No errors.
+--------------------------------------------------------------
+Installing component UT_UTILS
+No errors.
+--------------------------------------------------------------
+Installing component UT_METADATA
+No errors.
+--------------------------------------------------------------
+Installing component UT_SAVEPOINT_SEQ
+No errors.
+--------------------------------------------------------------
+Installing component UT_UTILS
+No errors.
+--------------------------------------------------------------
+Installing component UT_METADATA
+No errors.
+--------------------------------------------------------------
+Installing component UT_ANSICONSOLE_HELPER
+No errors.
+--------------------------------------------------------------
+Installing component UT_ANSICONSOLE_HELPER
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE_ITEM_INFO
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE_ITEM_INFO
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE_ITEMS_INFO
+No errors.
+--------------------------------------------------------------
+Installing component UT_EVENT_ITEM
+No errors.
+--------------------------------------------------------------
+Installing component UT_EVENT_LISTENER
+No errors.
+--------------------------------------------------------------
+Installing component UT_EVENT_MANAGER
+No errors.
+--------------------------------------------------------------
+Installing component UT_EVENT_MANAGER
+No errors.
+--------------------------------------------------------------
+Installing component UT_RUN_INFO
+No errors.
+--------------------------------------------------------------
+Installing component UT_RUN_INFO
+No errors.
+--------------------------------------------------------------
+Installing component UT_EXPECTATION_RESULT
+No errors.
+--------------------------------------------------------------
+Installing component UT_EXPECTATION_RESULTS
+No errors.
+--------------------------------------------------------------
+Installing component UT_RESULTS_COUNTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE_ITEM
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE_ITEMS
+No errors.
+--------------------------------------------------------------
+Installing component UT_EXECUTABLE
+No errors.
+--------------------------------------------------------------
+Installing component UT_EXECUTABLES
+No errors.
+--------------------------------------------------------------
+Installing component UT_EXECUTABLE_TEST
+No errors.
+--------------------------------------------------------------
+Installing component UT_TEST
+No errors.
+--------------------------------------------------------------
+Installing component UT_LOGICAL_SUITE
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE_CONTEXT
+No errors.
+--------------------------------------------------------------
+Installing component UT_FILE_MAPPING
+No errors.
+--------------------------------------------------------------
+Installing component UT_FILE_MAPPINGS
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_OPTIONS
+No errors.
+--------------------------------------------------------------
+Installing component UT_RUN
+No errors.
+--------------------------------------------------------------
+Installing component UT_REPORTER_BASE
+No errors.
+--------------------------------------------------------------
+Installing component UT_REPORTERS
+No errors.
+--------------------------------------------------------------
+Installing component UT_PATH_ITEM
+No errors.
+--------------------------------------------------------------
+Installing component UT_PATH_ITEMS
+No errors.
+--------------------------------------------------------------
+Installing component JSON_OBJECTS_SPECS
+No errors.
+--------------------------------------------------------------
+Installing component UT_MATCHER_OPTIONS_ITEMS
+No errors.
+--------------------------------------------------------------
+Installing component UT_MATCHER_OPTIONS
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE
+No errors.
+--------------------------------------------------------------
+Installing component UT_KEY_ANYVAL_PAIR
+No errors.
+--------------------------------------------------------------
+Installing component UT_KEY_ANYVAL_PAIRS
+No errors.
+--------------------------------------------------------------
+Installing component UT_KEY_ANYVALUES
+No errors.
+--------------------------------------------------------------
+Installing component UT_SESSION_CONTEXT
+No errors.
+--------------------------------------------------------------
+Installing component UT_SESSION_CONTEXT
+No errors.
+--------------------------------------------------------------
+Installing component UT_SESSION_INFO
+No errors.
+--------------------------------------------------------------
+Installing component UT_SESSION_INFO
+No errors.
+--------------------------------------------------------------
+Installing component UT_OUTPUT_BUFFER_INFO_TMP
+No errors.
+--------------------------------------------------------------
+Installing component UT_OUTPUT_BUFFER_TMP
+No errors.
+--------------------------------------------------------------
+Installing component UT_OUTPUT_CLOB_BUFFER_TMP
+No errors.
+--------------------------------------------------------------
+Installing component UT_OUTPUT_DATA_ROW
+No errors.
+--------------------------------------------------------------
+Installing component UT_OUTPUT_DATA_ROWS
+No errors.
+--------------------------------------------------------------
+Installing component UT_OUTPUT_BUFFER_BASE
+No errors.
+--------------------------------------------------------------
+Installing component UT_OUTPUT_BUFFER_BASE
+No errors.
+--------------------------------------------------------------
+Installing component UT_OUTPUT_TABLE_BUFFER
+No errors.
+--------------------------------------------------------------
+Installing component UT_OUTPUT_TABLE_BUFFER
+No errors.
+--------------------------------------------------------------
+Installing component UT_OUTPUT_CLOB_TABLE_BUFFER
+No errors.
+--------------------------------------------------------------
+Installing component UT_OUTPUT_CLOB_TABLE_BUFFER
+No errors.
+--------------------------------------------------------------
+Installing component UT_OUTPUT_BULK_BUFFER
+No errors.
+--------------------------------------------------------------
+Installing component UT_OUTPUT_BULK_BUFFER
+No errors.
+--------------------------------------------------------------
+Installing component UT_OUTPUT_REPORTER_BASE
+No errors.
+--------------------------------------------------------------
+Installing component UT_TRIGGER_CHECK
+No errors.
+--------------------------------------------------------------
+Installing component UT_TRIGGER_CHECK
+No errors.
+--------------------------------------------------------------
+Installing component UT_ANNOTATION
+No errors.
+--------------------------------------------------------------
+Installing component UT_ANNOTATIONS
+No errors.
+--------------------------------------------------------------
+Installing component UT_ANNOTATED_OBJECT
+No errors.
+--------------------------------------------------------------
+Installing component UT_ANNOTATED_OBJECTS
+No errors.
+--------------------------------------------------------------
+Installing component UT_ANNOTATION_OBJ_CACHE_INFO
+No errors.
+--------------------------------------------------------------
+Installing component UT_ANNOTATION_OBJS_CACHE_INFO
+No errors.
+--------------------------------------------------------------
+Installing component UT_ANNOTATION_CACHE_SEQ
+No errors.
+--------------------------------------------------------------
+Installing component UT_ANNOTATION_CACHE_SCHEMA
+No errors.
+--------------------------------------------------------------
+Installing component UT_ANNOTATION_CACHE_INFO
+No errors.
+--------------------------------------------------------------
+Installing component UT_ANNOTATION_CACHE
+No errors.
+--------------------------------------------------------------
+Installing component UT_ANNOTATION_CACHE_MANAGER
+No errors.
+--------------------------------------------------------------
+Installing component UT_ANNOTATION_CACHE_MANAGER
+No errors.
+--------------------------------------------------------------
+Installing component UT_ANNOTATION_PARSER
+No errors.
+--------------------------------------------------------------
+Installing component UT_ANNOTATION_PARSER
+No errors.
+--------------------------------------------------------------
+Installing component UT_ANNOTATION_MANAGER
+No errors.
+--------------------------------------------------------------
+Installing component UT_ANNOTATION_MANAGER
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE_CACHE_ROW
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE_CACHE_ROWS
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE_CACHE_SCHEMA
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE_CACHE_PACKAGE
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE_CACHE_SEQ
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE_CACHE
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE_TAG_FILTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE_TAG_FILTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE_CACHE_MANAGER
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE_CACHE_MANAGER
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE_BUILDER
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE_BUILDER
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE_MANAGER
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE_MANAGER
+No errors.
+--------------------------------------------------------------
+Installing component UT_EXPECTATION_PROCESSOR
+No errors.
+--------------------------------------------------------------
+Installing component UT_EXPECTATION_PROCESSOR
+No errors.
+--------------------------------------------------------------
+Installing PLSQL profiler objects into UT3 schema
+PLSQL_PROFILER_RUNS table created
+PLSQL_PROFILER_UNITS table created
+PLSQL_PROFILER_DATA table created
+Sequence PLSQL_PROFILER_RUNNUMBER created
+Installing DBMSPLSQL Tables objects into UT3 schema
+Installing component UT_FILE_MAPPER
+No errors.
+--------------------------------------------------------------
+Installing component UT_FILE_MAPPER
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_SOURCES_TMP
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_RUNS
+UT_COVERAGE_RUNS table created
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_HELPER
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_HELPER_BLOCK
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_HELPER_PROFILER
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_BLOCK
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_PROFILER
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_REPORTER_BASE
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_HELPER
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_HELPER_BLOCK
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_HELPER_PROFILER
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_BLOCK
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_PROFILER
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_REPORTER_BASE
+No errors.
+--------------------------------------------------------------
+Installing component UT_RESULTS_COUNTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE_ITEM
+No errors.
+--------------------------------------------------------------
+Installing component UT_TEST
+No errors.
+--------------------------------------------------------------
+Installing component UT_LOGICAL_SUITE
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE
+No errors.
+--------------------------------------------------------------
+Installing component UT_SUITE_CONTEXT
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_OPTIONS
+No errors.
+--------------------------------------------------------------
+Installing component UT_RUN
+No errors.
+--------------------------------------------------------------
+Installing component UT_EXPECTATION_RESULT
+No errors.
+--------------------------------------------------------------
+Installing component UT_REPORTER_BASE
+No errors.
+--------------------------------------------------------------
+Installing component UT_OUTPUT_REPORTER_BASE
+No errors.
+--------------------------------------------------------------
+Installing component UT_FILE_MAPPING
+No errors.
+--------------------------------------------------------------
+Installing component UT_EXECUTABLE
+No errors.
+--------------------------------------------------------------
+Installing component UT_EXECUTABLE_TEST
+No errors.
+--------------------------------------------------------------
+Installing component UT_CONSOLE_REPORTER_BASE
+No errors.
+--------------------------------------------------------------
+Installing component UT_CONSOLE_REPORTER_BASE
+No errors.
+--------------------------------------------------------------
+Installing component UT_PATH_ITEM
+No errors.
+--------------------------------------------------------------
+Installing component UT_COMPOUND_DATA_TMP
+No errors.
+--------------------------------------------------------------
+Installing component UT_COMPOUND_DATA_DIFF_TMP
+No errors.
+--------------------------------------------------------------
+Installing component UT_JSON_DATA_DIFF_TMP
+No errors.
+--------------------------------------------------------------
+Installing component UT_COMPOUND_DATA_VALUE
+No errors.
+--------------------------------------------------------------
+Installing component UT_JSON_LEAF
+No errors.
+--------------------------------------------------------------
+Installing component UT_JSON_LEAF_TAB
+No errors.
+--------------------------------------------------------------
+Installing component UT_JSON_TREE_DETAILS
+No errors.
+--------------------------------------------------------------
+Installing component UT_CURSOR_COLUMN
+No errors.
+--------------------------------------------------------------
+Installing component UT_CURSOR_COLUMN_TAB
+No errors.
+--------------------------------------------------------------
+Installing component UT_CURSOR_DETAILS
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_BLOB
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_BOOLEAN
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_CLOB
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_DATE
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_DSINTERVAL
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_NUMBER
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_REFCURSOR
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_ANYDATA
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_TIMESTAMP
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_TIMESTAMP_TZ
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_TIMESTAMP_LTZ
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_VARCHAR2
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_YMINTERVAL
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_XMLTYPE
+No errors.
+--------------------------------------------------------------
+Installing component UT_COMPOUND_DATA_HELPER
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_JSON
+No errors.
+--------------------------------------------------------------
+Installing component UT_MATCHER_BASE
+No errors.
+--------------------------------------------------------------
+Installing component UT_EXPECTATION_BASE
+No errors.
+--------------------------------------------------------------
+Installing component UT_MATCHER
+No errors.
+--------------------------------------------------------------
+Installing component UT_COMPARISON_MATCHER
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_WITHIN_PCT
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_WITHIN
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_WITHIN_HELPER
+No errors.
+--------------------------------------------------------------
+Installing component UT_EXPECTATION
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_FALSE
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_GREATER_OR_EQUAL
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_GREATER_THAN
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_LESS_OR_EQUAL
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_LESS_THAN
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_LIKE
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_NOT_NULL
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_NULL
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_TRUE
+No errors.
+--------------------------------------------------------------
+Installing component UT_EQUAL
+No errors.
+--------------------------------------------------------------
+Installing component UT_CONTAIN
+No errors.
+--------------------------------------------------------------
+Installing component UT_HAVE_COUNT
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_BETWEEN
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_EMPTY
+No errors.
+--------------------------------------------------------------
+Installing component UT_MATCH
+No errors.
+--------------------------------------------------------------
+Installing component UT_JSON_LEAF
+No errors.
+--------------------------------------------------------------
+Installing component UT_JSON_TREE_DETAILS
+No errors.
+--------------------------------------------------------------
+Installing component UT_CURSOR_COLUMN
+No errors.
+--------------------------------------------------------------
+Installing component UT_CURSOR_DETAILS
+No errors.
+--------------------------------------------------------------
+Installing component UT_EXPECTATION_COMPOUND
+No errors.
+--------------------------------------------------------------
+Installing component UT_EXPECTATION_JSON
+No errors.
+--------------------------------------------------------------
+Installing component UT_MATCHER_OPTIONS_ITEMS
+No errors.
+--------------------------------------------------------------
+Installing component UT_MATCHER_OPTIONS
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE
+No errors.
+--------------------------------------------------------------
+Installing component UT_COMPOUND_DATA_VALUE
+No errors.
+--------------------------------------------------------------
+Installing component UT_COMPOUND_DATA_HELPER
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_BLOB
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_BOOLEAN
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_CLOB
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_DATE
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_DSINTERVAL
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_NUMBER
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_REFCURSOR
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_ANYDATA
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_TIMESTAMP
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_TIMESTAMP_TZ
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_TIMESTAMP_LTZ
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_VARCHAR2
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_YMINTERVAL
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_XMLTYPE
+No errors.
+--------------------------------------------------------------
+Installing component UT_DATA_VALUE_JSON
+No errors.
+--------------------------------------------------------------
+Installing component UT_MATCHER
+No errors.
+--------------------------------------------------------------
+Installing component UT_COMPARISON_MATCHER
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_FALSE
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_GREATER_OR_EQUAL
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_GREATER_THAN
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_LESS_OR_EQUAL
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_LESS_THAN
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_LIKE
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_NOT_NULL
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_NULL
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_TRUE
+No errors.
+--------------------------------------------------------------
+Installing component UT_EQUAL
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_WITHIN_PCT
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_WITHIN
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_WITHIN_HELPER
+No errors.
+--------------------------------------------------------------
+Installing component UT_CONTAIN
+No errors.
+--------------------------------------------------------------
+Installing component UT_HAVE_COUNT
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_BETWEEN
+No errors.
+--------------------------------------------------------------
+Installing component UT_BE_EMPTY
+No errors.
+--------------------------------------------------------------
+Installing component UT_MATCH
+No errors.
+--------------------------------------------------------------
+Installing component UT_EXPECTATION_BASE
+No errors.
+--------------------------------------------------------------
+Installing component UT_EXPECTATION
+No errors.
+--------------------------------------------------------------
+Installing component UT_EXPECTATION_COMPOUND
+No errors.
+--------------------------------------------------------------
+Installing component UT_EXPECTATION_JSON
+No errors.
+--------------------------------------------------------------
+Installing component UT_KEY_ANYVALUES
+No errors.
+--------------------------------------------------------------
+Installing component UT_DOCUMENTATION_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_DOCUMENTATION_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_RUNNER
+No errors.
+--------------------------------------------------------------
+Installing component UT_RUNNER
+No errors.
+--------------------------------------------------------------
+Installing component UT
+No errors.
+--------------------------------------------------------------
+Installing component UT
+No errors.
+--------------------------------------------------------------
+Installing component UT_DEBUG_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_DEBUG_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_TEAMCITY_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_TEAMCITY_REPORTER_HELPER
+No errors.
+--------------------------------------------------------------
+Installing component UT_TEAMCITY_REPORTER_HELPER
+No errors.
+--------------------------------------------------------------
+Installing component UT_TEAMCITY_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_JUNIT_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_JUNIT_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_TFS_JUNIT_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_TFS_JUNIT_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_XUNIT_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_XUNIT_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_SONAR_TEST_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_SONAR_TEST_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_HTML_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_REPORT_HTML_HELPER
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_REPORT_HTML_HELPER
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_HTML_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_SONAR_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_SONAR_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERALLS_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERALLS_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_COBERTURA_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_COVERAGE_COBERTURA_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_REALTIME_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component UT_REALTIME_REPORTER
+No errors.
+--------------------------------------------------------------
+Installing component BE_BETWEEN
+No errors.
+--------------------------------------------------------------
+Installing component BE_EMPTY
+No errors.
+--------------------------------------------------------------
+Installing component BE_FALSE
+No errors.
+--------------------------------------------------------------
+Installing component BE_GREATER_OR_EQUAL
+No errors.
+--------------------------------------------------------------
+Installing component BE_GREATER_THAN
+No errors.
+--------------------------------------------------------------
+Installing component BE_LESS_OR_EQUAL
+No errors.
+--------------------------------------------------------------
+Installing component BE_LESS_THAN
+No errors.
+--------------------------------------------------------------
+Installing component BE_LIKE
+No errors.
+--------------------------------------------------------------
+Installing component BE_NOT_NULL
+No errors.
+--------------------------------------------------------------
+Installing component BE_NULL
+No errors.
+--------------------------------------------------------------
+Installing component BE_TRUE
+No errors.
+--------------------------------------------------------------
+Installing component BE_WITHIN_PCT
+No errors.
+--------------------------------------------------------------
+Installing component BE_WITHIN
+No errors.
+--------------------------------------------------------------
+Installing component EQUAL
+No errors.
+--------------------------------------------------------------
+Installing component HAVE_COUNT
+No errors.
+--------------------------------------------------------------
+Installing component MATCH
+No errors.
+--------------------------------------------------------------
+Installing component CONTAIN
+No errors.
+--------------------------------------------------------------
+Validating installation
+--------------------------------------------------------------
+Installation completed successfully
+--------------------------------------------------------------
+not spooling currently
+SP2-0310: unable to open file "params.sql.tmp"
+Help: https://docs.oracle.com/error-help/db/sp2-0310/
+SP2-0310: unable to open file "params.sql.tmp"
+Help: https://docs.oracle.com/error-help/db/sp2-0310/
+SP2-0606: Cannot create SPOOL file "params.sql.tmp"
+Help: https://docs.oracle.com/error-help/db/sp2-0606/
+define ut3_user=PUBLIC
+not spooling currently
+SP2-0310: unable to open file "params.sql.tmp"
+Help: https://docs.oracle.com/error-help/db/sp2-0310/
+Enter value for ut3_user: Granting privileges on UTPLSQL objects in UT3 schema to user exit
+
+Session altered.
+
+grant execute on UT3.ut to exit
+                           *
+ERROR at line 1:
+ORA-01917: user or role 'EXIT' does not exist
+Help: https://docs.oracle.com/error-help/db/ora-01917/
+
+

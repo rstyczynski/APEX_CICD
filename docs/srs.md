@@ -492,3 +492,7 @@ provenance refusal have current native evidence in the linked checklist; all six
 
 
 E.17-specific [Product Owner amendment of 2026-11-26](../progress/E.17/sprint_E.17_acceptance_amendment.md) accepts Codex-driven automated clean-host reproduction without another external operator for PBI-085. This bounded sprint acceptance decision leaves the broader UC-6 and NFR-4 independent-operator requirements above unchanged.
+
+## E.18 measurement navigation
+
+[PBI-086 coverage](../progress/E.18/sprint_E.18_checklist.md) tracks the complete workload feedback and resource experiment assigned by PLAN. The SRS product requirements remain unchanged; measurements and runner recommendations require actual hosted evidence and do not establish broader production readiness.

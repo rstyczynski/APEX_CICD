@@ -1,0 +1,4 @@
+RUN unit:test_pipeline_capacity.sh:test_pipeline_capacity_arithmetic
+PASS synthetic arithmetic and failed-run refusal; no performance claim
+PASS test_pipeline_capacity_arithmetic
+Tests: 1; failed: 0

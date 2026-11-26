@@ -1,0 +1,11 @@
+INFO : Running Oracle REST Data Services CLI command.
+2026-11-26T15:01:38Z INFO   ORDS has not detected the option '--config' and this will be set up to the default directory.
+
+ORDS: Release 25.3 Production on Thu Nov 26 15:01:40 2026
+
+Copyright (c) 2010, 2026, Oracle.
+
+Configuration:
+  /etc/ords/config
+
+The global setting named: standalone.http.port was set to: 8080

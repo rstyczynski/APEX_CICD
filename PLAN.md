@@ -488,7 +488,7 @@ Backlog Items:
 
 ## Sprint E.18 - Measure complete pipeline feedback and runner capacity
 
-Status: Planned
+Status: Progress
 Mode: YOLO
 Test: smoke, unit, integration
 Regression: smoke, unit, integration
