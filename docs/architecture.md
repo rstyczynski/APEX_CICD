@@ -437,3 +437,7 @@ and target Oracle services avoid rewriting SQLcl 25.4 schema-qualified archives.
 The [checklist](../progress/E.16/sprint_E.16_checklist.md) owns evidence tracking;
 this architecture document continues to own product design and toolchain policy.
 The current native experiment passes; its source review binds the tested workflow, generated release history, verified archives and retained target observations. All six gates pass and the linked sprint closure records Done.
+
+## E.17 clean-host experiment
+
+[E.17 design](../progress/E.17/sprint_E.17_design.md) defines a fresh hosted Ubuntu operator and independent Oracle author/target containers with newly generated private inputs. Actions owns visible platform and native lifecycle steps; SQLcl PROJECT owns the native release operations; native APEX/ORDS tooling provisions application access. The small APEX fixture reads the preserved native table after authenticated login. It does not claim delivery of all earlier production components. Native platform qualification remains pending in the [requirement ledger](../progress/E.17/sprint_E.17_checklist.md). The [operating guide](../progress/E.17/user_manual.md) owns prerequisites and recovery. This experiment does not relax production toolchain or credential requirements.

@@ -1,6 +1,6 @@
 """Execute a newly correlated real GitHub-hosted Oracle run, never replay a pass."""
-import json, secrets, subprocess, time
-repo='rstyczynski/APEX_CICD_E.15'
+import json, os, secrets, subprocess, time
+repo=os.environ.get('HOSTED_ORACLE_REPO','rstyczynski/APEX_CICD_E.15')
 def gh(*args):
  return subprocess.check_output(['gh',*args],text=True,timeout=40)
 correlation='e15-'+secrets.token_hex(12)

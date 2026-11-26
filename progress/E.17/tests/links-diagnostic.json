@@ -1,0 +1,20 @@
+{
+  "files": [
+    "README.md",
+    "docs/srs.md",
+    "docs/architecture.md",
+    "docs/test-profile.md",
+    "PLAN.md",
+    "PROGRESS_BOARD.md",
+    "progress/E.17/sprint_E.17_bugs.md",
+    "progress/E.17/sprint_E.17_increment_demo.md",
+    "progress/E.17/sprint_E.17_checklist.md",
+    "progress/E.17/user_manual.md",
+    "progress/E.17/sprint_E.17_implementation.md",
+    "progress/E.17/sprint_E.17_setup.md",
+    "progress/E.17/sprint_E.17_documentation_audit.md",
+    "progress/E.17/sprint_E.17_design.md"
+  ],
+  "links": 482,
+  "errors": []
+}

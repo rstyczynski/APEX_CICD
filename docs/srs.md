@@ -485,3 +485,7 @@ own this sprint's acceptance and assignment. The
 [E.16 checklist](../progress/E.16/sprint_E.16_checklist.md) tracks evidence without
 changing these product requirements. Native installation, upgrade, repeat and
 provenance refusal have current native evidence in the linked checklist; all six gates pass and the sprint closure records Done.
+
+## E.17 validation navigation
+
+[PBI-085](../BACKLOG.md#pbi-085-reproduce-complete-native-delivery-on-a-clean-host) and [PLAN E.17](../PLAN.md#sprint-e17---reproduce-complete-native-delivery-on-a-clean-host) own this iteration's clean-host acceptance scope. Its [requirement-to-evidence ledger](../progress/E.17/sprint_E.17_checklist.md) distinguishes those requirements from fixture/host choices and current observations. The [architecture experiment](architecture.md#e17-clean-host-experiment) and [test profile](test-profile.md#e17-independent-host-reproduction) identify implementation and verification boundaries. Platform qualification and final sprint closure are pending; these links do not amend the production requirements above.
