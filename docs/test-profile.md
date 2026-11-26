@@ -405,3 +405,5 @@ unfiltered suite levels. The new integration reader requires `E16_RUN_ID` to
 identify the actual completed sprint workflow; it refuses a pending or failed
 run. [Verification](../progress/E.16/sprint_E.16_tests.md) owns observed outcomes,
 and [the checklist](../progress/E.16/sprint_E.16_checklist.md) owns acceptance coverage.
+
+The [named-Actions correction](../progress/E.16/sprint_E.16_actions_refactor.md) reruns all six gates. Its integration reader additionally requires each named lifecycle/refusal/cleanup step to succeed and verifies the reviewed-input manifest digest. The source smoke check rejects restoration of lifecycle.py; unit checks exercise qualified build/metadata and native error-output refusal.

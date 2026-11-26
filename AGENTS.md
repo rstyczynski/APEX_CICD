@@ -99,3 +99,28 @@ followed by native pipeline and data-preservation validation. Multiple tool
 versions may coexist; select the version required by the Git state being
 processed, including a previously released tag. See the
 [architecture policy](docs/architecture.md#sqlcl-project-toolchain-compatibility).
+
+## Use core technologies for their native responsibilities
+
+This rule applies to all work, including Sprint E.16 and every future sprint.
+Use each selected technology in its core area. Do not replace its native
+capabilities with a custom solution, parallel framework or second control
+plane. Supporting scripts and external code may provide small checks,
+adapters or glue; they must support the core technology rather than take over
+its responsibilities. Do not overengineer or reinvent existing capabilities.
+
+For this project, GitHub Actions owns workflow sequencing, dependencies,
+conditions and execution visibility; SQLcl PROJECT owns native export, stage,
+verification, release, packaging and deployment. Git owns version history.
+Keep these operations visible in their native tools. A script that conceals
+an entire pipeline is not a small supporting helper.
+
+If evidence shows that a selected core technology cannot meet an accepted
+requirement, stop implementation and report the technology/requirement
+mismatch, observed evidence and alternatives to the Product Owner. Obtain the
+Product Owner's decision before replacing that technology or implementing a
+custom substitute. YOLO mode does not waive this requirement. Apply this check
+during design, implementation review and the pre-commit audit. The local
+[method rule](RUPStrikesBack.patch/RUP_patch.md#p14-use-core-technologies-in-their-native-areas)
+and [architecture responsibilities](docs/architecture.md#native-technology-responsibilities)
+provide the related process and design guidance.

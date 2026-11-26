@@ -1,5 +1,7 @@
 # E.16 requirement and evidence checklist
 
+The original closure/evidence below describes the Python-controller baseline. The authorized [named-Actions correction](sprint_E.16_actions_refactor.md) owns current refactor acceptance and fresh verification; prior completion does not prove the changed workflow.
+
 Authoritative acceptance: [PBI-084](../../BACKLOG.md#pbi-084-validate-provenance-through-native-oracle-release-delivery), [E.16 plan](../../PLAN.md#sprint-e16---validate-provenance-through-native-oracle-release-delivery). [Design](sprint_E.16_design.md) owns implementation choices.
 
 - [x] R1: Native SQLcl PROJECT installation, upgrade and safe repeat; preserve existing data. Source: PBI-084 Test and PLAN E.16.

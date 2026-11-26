@@ -11,3 +11,7 @@ Test and Regression are smoke, unit, integration, full scope. New smoke checks s
 ## Test Specification
 
 SM-16 checks Python compilation and workflow shape. UT-16 rejects changed archive, changed source and incompatible tool. IT-16 performs native initial deployment, seeded-data upgrade, exact repeat and negative preflight cases on the E.15 hosted execution boundary. Any failed native operation remains a failure even if process exit is zero. No simulation substitutes for IT-16.
+
+## Authorized Actions refactor
+
+The Product Owner's correction replaces the Python lifecycle controller with named GitHub Actions steps. [The correction design/checklist](sprint_E.16_actions_refactor.md) owns the updated implementation boundaries and revalidation; the standing native-technology rule applies. The bounded native fixture and R1–R6 acceptance remain unchanged. Design self-reviewed under the existing YOLO delegation: Actions sequences, SQLcl PROJECT performs lifecycle operations, Git records history, and Python performs only small checks. The earlier controller design is retained as history, not the current architecture.

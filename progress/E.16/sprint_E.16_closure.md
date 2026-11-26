@@ -1,5 +1,7 @@
 # Sprint E.16 closure
 
+The original closure/evidence below describes the Python-controller baseline. The authorized [named-Actions correction](sprint_E.16_actions_refactor.md) owns current refactor acceptance and fresh verification; prior completion does not prove the changed workflow.
+
 Closed on 2026-11-26 in YOLO mode under the Product Owner’s explicit authorization. PBI-084 is Done. The [requirement checklist](sprint_E.16_checklist.md) verifies every assigned criterion without waiver. PLAN transitions Progress → Done and the board transitions implemented/tested → Done/Done after the six passing gates and documentation/handover audit. E.17 and E.18 remain Planned.
 
 Setup and accepted design were inspected and resumed rather than restarted. Construction implements the native provenance experiment in the authorized APEX_CICD_E.16 companion repository. [Source review](sprint_E.16_source_review.md) connects immutable workflow bd4b2b5, reviewed controller, generated native history, qualified archive bytes and target observations. Current native run 45802390235 passes installation, upgrade, identical repeat, preserved data and all refusal cases, including actual incompatible SQLcl build measurement. [Verification](sprint_E.16_tests.md#final-gate-results--pbi-084) records A1/A2/A3 1/1 each and B1/B2/B3 15/15, 17/17, 25/25. Full integration exits zero after source stability and scoped cleanup. No flaky exception or failed criterion is deferred.

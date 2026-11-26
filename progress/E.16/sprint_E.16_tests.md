@@ -1,5 +1,7 @@
 # E.16 verification
 
+The original closure/evidence below describes the Python-controller baseline. The authorized [named-Actions correction](sprint_E.16_actions_refactor.md) owns current refactor acceptance and fresh verification; prior completion does not prove the changed workflow.
+
 [Checklist](sprint_E.16_checklist.md) owns requirement coverage; [design](sprint_E.16_design.md) owns test scope. A1 smoke and A2 unit pass 1/1 each. A3 integration passes 1/1 against real hosted run 45802390235. Recovered full smoke and unit regression pass 15/15 and 17/17. Full B3 integration passes 25/25; the enclosing stable-source/cleanup wrapper exits zero.
 
 Smoke checks source syntax/workflow shape. Unit checks the real provenance guard on controlled inputs; it makes no Oracle claim. Hosted integration downloads actual archives and receipts, verifies both archive digests and immutable workflow identities, checks four rejection outcomes and unchanged target observations, and inspects actual incompatible-tool output. [Source review](sprint_E.16_source_review.md#verified-current-revision) independently reviews exported SQL and release preparation. The native repeat reports zero new changesets and two previously run; both target assertion logs retain ID 1 and the original message. This is bounded table evidence, not full application or independent-host qualification.

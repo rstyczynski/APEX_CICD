@@ -1,29 +1,21 @@
 # E.16 implementation
 
-[Design](sprint_E.16_design.md) owns the YOLO-approved experiment; [checklist](sprint_E.16_checklist.md) retains mandatory criteria. The dedicated private repository is rstyczynski/APEX_CICD_E.16. The mirrored source is [sprint-work/E.16](../../sprint-work/E.16).
+## Current named-Actions correction — PBI-084
 
-The workflow initializes E.15's pinned real Oracle image with isolated disposable schemas and installs checksum-pinned SQLcl 25.4.1.022.0618. Python drives actual native PROJECT init/export/stage/verify/release/gen-artifact/deploy commands and retains each native output. The guard independently checks source, approved build and archive hash before invoking deployment. Unit tests exercise actual guard logic; they do not establish Oracle results or a separate trust authority. The initial lifecycle run is pending; no installation/upgrade/repeat claim is accepted yet.
+The Product Owner requested removal of Python lifecycle orchestration. [The accepted correction design and checklist](sprint_E.16_actions_refactor.md) records implementation boundaries and fresh acceptance status. [The original closure](sprint_E.16_closure.md) preserves the earlier baseline; its passing results do not prove this refactor. The authorized implementation repository is `rstyczynski/APEX_CICD_E.16`, mirrored in [sprint-work/E.16](../../sprint-work/E.16).
 
-The default Podman connection failed, but the existing named apex-cicd connection works. No VM recreation or retained credential change was needed. Full regression can therefore use its existing owned E12 database. Generated historical-directory outputs will be retained under E.16 and historical tracked snapshots restored after the suite, preserving earlier sprint records.
+GitHub Actions sequences individual export, stage, verify, release, package, install, upgrade, repeat, assertion and refusal steps. SQLcl PROJECT performs native release operations. Git commands in the steps commit generated source and release preparation; jq/sha256sum bind source, build, reviewed inputs and archive bytes. Separate digest-pinned Oracle services retain native schema qualification and isolate author from target. Approved SQLcl 25.4.1.022.0618 is checksum-pinned and measured before each native invocation; native metadata must match 25.4.1.0. No production project metadata is upgraded or bypassed.
 
-## Verified native outcome
+## Supporting files and their limits
 
-The initial pending statement above is historical. Current hosted run 45802390235 passes the native lifecycle and all four refusal cases at companion bd4b2b5. [Source review](sprint_E.16_source_review.md#verified-current-revision) records the generated commits, actual build, archive digest and target observations. Integration now downloads the real artifact and validates both archive digests, workflow identity, wrong-tool measurement and unchanged target observations. [The walkthrough](sprint_E.16_increment_demo.md) supplies the complete significant SQL, usage, prerequisites, expected output and recovery; [manual](user_manual.md) owns supported tasks. Production source metadata remains unchanged.
+The [workflow](../../sprint-work/E.16/.github/workflows/native.yml) owns sequencing and visible stage outcomes. The [SQLcl adapter](../../sprint-work/E.16/sql.sh) performs one invocation per call: measured tool preflight, error-exit directives, selected connection, streamed/retained output and output validation. It contains no lifecycle loop or next-stage decision. Saved connections and temporary inputs live in RUNNER_TEMP; traps and an always-run cleanup remove private connection material. Hosted service disposal removes the experiment databases.
 
-The companion's later 9394dbc commit changes presentation tooling only; it does not replace the immutable tested native workflow revision. Presentation source uses Artifact Tool, with installed artifact dependencies and PRESENTATION_UTILS pointing to that tooling's helper module. Final PPTX and validation are retained in this progress repository.
+[check_tool.py](../../sprint-work/E.16/check_tool.py) reads measured identity and metadata. [check_output.py](../../sprint-work/E.16/check_output.py) rejects native SQL/PROJECT errors including nonzero verification counts even when the process returns zero. [provenance.py](../../sprint-work/E.16/provenance.py) compares selected source, measured approved build and exact archive digest before deployment. These Python checks launch no subprocesses. The former lifecycle.py is removed. The [integration evidence reader](../../tests/native_hosted.py) independently reads GitHub job steps and downloaded artifacts; it does not orchestrate delivery.
 
-## PBI-084 — implementation inventory
+These helpers fill narrow validation/invocation gaps and support Actions/SQLcl/Git rather than replace them. The [standing project rule](../../AGENTS.md#use-core-technologies-for-their-native-responsibilities) applies during this correction and all future sprints. A core-technology mismatch requires stopping and reporting to the Product Owner before any substitute is built. No such mismatch is established here: the native tools support the required behavior.
 
-Native acceptance is verified; final regression and closure status are owned by the test report and lifecycle records. The accepted design is implemented as a bounded Elaboration prototype. It is retained as reproducible experiment source, not promoted as a production release controller.
+## Operating procedure and verification
 
-| Artifact | Responsibility | Verified behavior |
-|---|---|---|
-| `sprint-work/E.16/lifecycle.py` | Real SQLcl PROJECT lifecycle | Install, additive upgrade, exact repeat, retained row |
-| `sprint-work/E.16/provenance.py` | Pre-deployment identity guard | Refuses wrong source, build and archive bytes |
-| `sprint-work/E.16/.github/workflows/native.yml` | Declared hosted tool/database setup | Pinned downloads, isolated Oracle services, retained evidence |
-| `tests/native_hosted.py` | Inspect real workflow artifacts | Workflow identity, both archive digests and refusal observations |
-| `sprint-work/E.16/build_deck.mjs` | Editable presentation source | Final rendered package and import audit |
+The [manual](user_manual.md) owns prerequisites, supported tasks and recovery. The [walkthrough](sprint_E.16_increment_demo.md) gives the complete significant SQL and commands, expected retained row, refusal behavior and current slide map before invocation. The public operator interface is native.yml workflow dispatch; there is no custom Python lifecycle CLI. E16_RUN_ID selects the actual run checked by the integration reader.
 
-The controller has no public CLI flags; the supported operator entry point is `native.yml` workflow dispatch. The test reader requires `E16_RUN_ID`. The [walkthrough](sprint_E.16_increment_demo.md) documents the commands, SQL, expected outputs and failure/recovery branches before invocation. The source review explains the schema and connection repairs. The guard is a trusted workflow preflight, not an independent signing authority.
-
-Final outcome: PBI-084 is Done after all six gates and wrap-up audit. See the [closure record](sprint_E.16_closure.md).
+[The correction record](sprint_E.16_actions_refactor.md) tracks fresh R1–R8 evidence. [The source review](sprint_E.16_source_review.md) links generated release history, native SQL, receipts and target observations. Production multi-user authority and full APEX/ORDS clean-host reproduction remain outside the bounded table experiment. The prototype is retained as experiment source, not promoted as a production delivery engine.

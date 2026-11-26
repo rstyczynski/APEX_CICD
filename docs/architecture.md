@@ -127,6 +127,24 @@ The reference stack is APEX 24.2.0, Oracle Database 23.26.3.0.0 and ORDS 25.3.0.
 
 Project scripts must supply scope checks, sequencing, retries/recovery policy, redacted receipts and reliable exit status around these interfaces. No generic REST endpoint for editing/deploying arbitrary APEX pages is assumed, and routine deployment does not automate clicks in App Builder. Any missing supported operation is recorded as a risk and resolved during Elaboration before accepting that part of the architecture. See [the test profile](test-profile.md#automation-interface-validation) for required validation evidence.
 
+## Native technology responsibilities
+
+The [project rule](../AGENTS.md#use-core-technologies-for-their-native-responsibilities)
+and [method policy](../RUPStrikesBack.patch/RUP_patch.md#p14-use-core-technologies-in-their-native-areas)
+apply to every sprint, including E.16. GitHub Actions owns job and step
+sequencing, dependencies, conditions, failure propagation and the visible
+execution timeline. SQLcl PROJECT owns native source export, staging,
+verification, release preparation, artifact generation and deployment. Git
+owns commits, branches and release history. Oracle owns database mutation,
+constraints and transactions.
+
+Helpers may check tool identity, inspect native error output, compare
+provenance or adapt invocation. They must not implement another workflow
+engine, migration engine or version-control system. Prefer the smallest
+native solution. If a core technology cannot satisfy a requirement, stop and
+report the evidenced mismatch to the Product Owner before substituting a
+technology or building an alternative. YOLO does not bypass that decision.
+
 ## SQLcl PROJECT toolchain compatibility
 
 [SRS NFR-5](srs.md#quality-requirements-and-initial-release) makes the SQLcl

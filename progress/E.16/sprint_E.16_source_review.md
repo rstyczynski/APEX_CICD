@@ -1,5 +1,7 @@
 # E.16 source review — bounded experiment
 
+The original closure/evidence below describes the Python-controller baseline. The authorized [named-Actions correction](sprint_E.16_actions_refactor.md) owns current refactor acceptance and fresh verification; prior completion does not prove the changed workflow.
+
 The initial review below is retained as checkpoint history. The Verified current revision section owns the current acceptance finding.
 
 The reviewing actor is Codex acting under the Product Owner's explicit YOLO delegation. No independent human review or protected merge is claimed. [PBI-084](../../BACKLOG.md#pbi-084-validate-provenance-through-native-oracle-release-delivery) requires reviewed source and traceability; it does not prescribe another reviewer identity or new E.15 merge-control qualification.

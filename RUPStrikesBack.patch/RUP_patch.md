@@ -127,6 +127,30 @@ Keep requirements focused on externally observable behavior. Put implementation 
 
 General RUP supplies the analysis discipline; the canonical RUP Strikes Back procedures and this local patch govern artifact routing, approvals and sprint transitions. References: [IBM Rational RUP best practices](https://public.dhe.ibm.com/software/rational/web/whitepapers/2003/rup_bestpractices.pdf), [actors in modeling](https://www.ibm.com/docs/en/dma?topic=diagrams-actors), and [use-case specification outline](https://www.ibm.com/docs/en/engineering-lifecycle-management-suite/doors-next/7.2.0?topic=cases-use-case-specification-outline).
 
+## P1.4. Use core technologies in their native areas
+
+By explicit Product Owner direction on 2026-11-26, every sprint, including
+E.16, must use selected core technologies for their native responsibilities.
+Do not replace their existing capabilities with custom orchestration,
+frameworks or competing control planes. External logic and scripts may supply
+small checks, adapters and glue; they support the core technology and never
+replace it. Do not overengineer or reinvent the wheel.
+
+Design and review must identify which native technology owns each operation,
+justify any helper by the narrow gap it fills, and remove duplicate lifecycle
+logic. The P8 audit verifies that implementation follows those boundaries.
+If the selected core technology cannot satisfy an accepted requirement, stop
+implementation and report the mismatch, exact evidence and alternatives to
+the Product Owner. A Product Owner decision is required before substituting
+technology or building a custom replacement, including in YOLO mode. Do not
+silently weaken the requirement or conceal a technology mismatch in a script.
+
+[AGENTS.md](../AGENTS.md#use-core-technologies-for-their-native-responsibilities)
+makes the rule applicable to all project work. The
+[architecture](../docs/architecture.md#native-technology-responsibilities)
+defines the current native responsibility boundaries. This is a local policy;
+it does not change the canonical method submodule.
+
 ## P2. Project lifecycle phases set emphasis; they do not prohibit refinement
 
 The project lifecycle remains Inception, Elaboration, Construction, and Transition. These phases establish the dominant emphasis of the work:
