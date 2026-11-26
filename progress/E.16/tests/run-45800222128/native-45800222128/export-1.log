@@ -1,0 +1,8 @@
+[0;33mWARN: In project.config.json, sqlcl.connectionName is not set.
+Please update project.config.json or use PROJECT CONFIG SET[0m
+*** TABLES ***
+[0;32m-------------------------------
+TABLE                         1
+-------------------------------[0m
+Exported 1 objects
+Elapsed 8 sec

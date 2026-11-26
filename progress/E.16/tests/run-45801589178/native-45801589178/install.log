@@ -1,0 +1,27 @@
+Name: native-target
+Connect String: //127.0.0.1:1522/FREEPDB1
+User: AUTHOR16
+Password: ******
+[0;32mStarting the migration...[0m
+Installing/updating schemas
+--Starting Liquibase at 2026-11-26T10:31:15.670030103 using Java 21.0.13 (version 4.33.0 #0 built at 2025-12-09 17:47+0000)
+Running Changeset: release/author16/tables/preserved.sql::1795689056275::AUTHOR16
+Table AUTHOR16.PRESERVED created.
+
+
+Table AUTHOR16.PRESERVED altered.
+
+UPDATE SUMMARY
+Run:                          1
+Previously run:               0
+Filtered out:                 0
+-------------------------------
+Total change sets:            1
+
+Liquibase: Update has been successful. Rows affected: 0
+
+Produced logfile: sqlcl-lb-1795689075471.log
+
+Operation completed successfully.
+
+

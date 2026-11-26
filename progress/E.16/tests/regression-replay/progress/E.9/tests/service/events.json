@@ -1,0 +1,364 @@
+[
+  {
+    "event": "submit",
+    "generation": 1
+  },
+  {
+    "event": "published",
+    "receipt": {
+      "candidate": {
+        "base": "b8b3b365160e3ce488d70cd0a4fd6119090c6684",
+        "head": "3f61d4fa99aa9146e36be5b95ac3a4d527aef756",
+        "policy": "aaf9f76bacf6bbda0285e1d538ae90cd5622654f6fac9759b2cf3c3b0b2081a7"
+      },
+      "report": "8486a93aea92669446cb0fb076289f58b997f8fb86a4072866e36adb14b850a2",
+      "submitter": "developer"
+    }
+  },
+  {
+    "event": "submit",
+    "generation": 2
+  },
+  {
+    "event": "published",
+    "receipt": {
+      "candidate": {
+        "base": "b8b3b365160e3ce488d70cd0a4fd6119090c6684",
+        "head": "3f61d4fa99aa9146e36be5b95ac3a4d527aef756",
+        "policy": "aaf9f76bacf6bbda0285e1d538ae90cd5622654f6fac9759b2cf3c3b0b2081a7"
+      },
+      "report": "8486a93aea92669446cb0fb076289f58b997f8fb86a4072866e36adb14b850a2",
+      "submitter": "developer"
+    }
+  },
+  {
+    "event": "submit",
+    "generation": 3
+  },
+  {
+    "event": "published",
+    "receipt": {
+      "candidate": {
+        "base": "b8b3b365160e3ce488d70cd0a4fd6119090c6684",
+        "head": "3f61d4fa99aa9146e36be5b95ac3a4d527aef756",
+        "policy": "aaf9f76bacf6bbda0285e1d538ae90cd5622654f6fac9759b2cf3c3b0b2081a7"
+      },
+      "report": "8486a93aea92669446cb0fb076289f58b997f8fb86a4072866e36adb14b850a2",
+      "submitter": "developer"
+    }
+  },
+  {
+    "event": "edit",
+    "generation": 4
+  },
+  {
+    "event": "submit",
+    "generation": 5
+  },
+  {
+    "event": "published",
+    "receipt": {
+      "candidate": {
+        "base": "b8b3b365160e3ce488d70cd0a4fd6119090c6684",
+        "head": "3f61d4fa99aa9146e36be5b95ac3a4d527aef756",
+        "policy": "aaf9f76bacf6bbda0285e1d538ae90cd5622654f6fac9759b2cf3c3b0b2081a7"
+      },
+      "report": "8486a93aea92669446cb0fb076289f58b997f8fb86a4072866e36adb14b850a2",
+      "submitter": "developer"
+    }
+  },
+  {
+    "event": "withdraw",
+    "generation": 6
+  },
+  {
+    "event": "submit",
+    "generation": 7
+  },
+  {
+    "event": "published",
+    "receipt": {
+      "candidate": {
+        "base": "b8b3b365160e3ce488d70cd0a4fd6119090c6684",
+        "head": "3f61d4fa99aa9146e36be5b95ac3a4d527aef756",
+        "policy": "aaf9f76bacf6bbda0285e1d538ae90cd5622654f6fac9759b2cf3c3b0b2081a7"
+      },
+      "report": "8486a93aea92669446cb0fb076289f58b997f8fb86a4072866e36adb14b850a2",
+      "submitter": "developer"
+    }
+  },
+  {
+    "event": "delete",
+    "generation": 8
+  },
+  {
+    "event": "submit",
+    "generation": 9
+  },
+  {
+    "event": "published",
+    "receipt": {
+      "candidate": {
+        "base": "b8b3b365160e3ce488d70cd0a4fd6119090c6684",
+        "head": "3f61d4fa99aa9146e36be5b95ac3a4d527aef756",
+        "policy": "aaf9f76bacf6bbda0285e1d538ae90cd5622654f6fac9759b2cf3c3b0b2081a7"
+      },
+      "report": "8486a93aea92669446cb0fb076289f58b997f8fb86a4072866e36adb14b850a2",
+      "submitter": "developer"
+    }
+  },
+  {
+    "event": "head",
+    "generation": 10
+  },
+  {
+    "event": "head",
+    "generation": 11
+  },
+  {
+    "event": "submit",
+    "generation": 12
+  },
+  {
+    "event": "published",
+    "receipt": {
+      "candidate": {
+        "base": "b8b3b365160e3ce488d70cd0a4fd6119090c6684",
+        "head": "3f61d4fa99aa9146e36be5b95ac3a4d527aef756",
+        "policy": "aaf9f76bacf6bbda0285e1d538ae90cd5622654f6fac9759b2cf3c3b0b2081a7"
+      },
+      "report": "8486a93aea92669446cb0fb076289f58b997f8fb86a4072866e36adb14b850a2",
+      "submitter": "developer"
+    }
+  },
+  {
+    "event": "base",
+    "generation": 13
+  },
+  {
+    "event": "base",
+    "generation": 14
+  },
+  {
+    "event": "submit",
+    "generation": 15
+  },
+  {
+    "event": "published",
+    "receipt": {
+      "candidate": {
+        "base": "b8b3b365160e3ce488d70cd0a4fd6119090c6684",
+        "head": "3f61d4fa99aa9146e36be5b95ac3a4d527aef756",
+        "policy": "aaf9f76bacf6bbda0285e1d538ae90cd5622654f6fac9759b2cf3c3b0b2081a7"
+      },
+      "report": "8486a93aea92669446cb0fb076289f58b997f8fb86a4072866e36adb14b850a2",
+      "submitter": "developer"
+    }
+  },
+  {
+    "event": "policy",
+    "generation": 16
+  },
+  {
+    "event": "submit",
+    "generation": 17
+  },
+  {
+    "event": "published",
+    "receipt": {
+      "candidate": {
+        "base": "b8b3b365160e3ce488d70cd0a4fd6119090c6684",
+        "head": "3f61d4fa99aa9146e36be5b95ac3a4d527aef756",
+        "policy": "1ea8570f3e3dc8b4b98023e9765cfa3ad6d7b13cb4b5a5181402e37b97a70981"
+      },
+      "report": "0973a82bef05dab193c21077481f152c8809164bc35fc1e360e2968a952237ff",
+      "submitter": "developer"
+    }
+  },
+  {
+    "event": "head",
+    "generation": 18
+  },
+  {
+    "event": "head",
+    "generation": 19
+  },
+  {
+    "event": "submit",
+    "generation": 20
+  },
+  {
+    "event": "published",
+    "receipt": {
+      "candidate": {
+        "base": "b8b3b365160e3ce488d70cd0a4fd6119090c6684",
+        "head": "3f61d4fa99aa9146e36be5b95ac3a4d527aef756",
+        "policy": "1ea8570f3e3dc8b4b98023e9765cfa3ad6d7b13cb4b5a5181402e37b97a70981"
+      },
+      "report": "0973a82bef05dab193c21077481f152c8809164bc35fc1e360e2968a952237ff",
+      "submitter": "developer"
+    }
+  },
+  {
+    "event": "edit",
+    "generation": 21
+  },
+  {
+    "event": "submit",
+    "generation": 22
+  },
+  {
+    "event": "published",
+    "receipt": {
+      "candidate": {
+        "base": "b8b3b365160e3ce488d70cd0a4fd6119090c6684",
+        "head": "3f61d4fa99aa9146e36be5b95ac3a4d527aef756",
+        "policy": "1ea8570f3e3dc8b4b98023e9765cfa3ad6d7b13cb4b5a5181402e37b97a70981"
+      },
+      "report": "0973a82bef05dab193c21077481f152c8809164bc35fc1e360e2968a952237ff",
+      "submitter": "developer"
+    }
+  },
+  {
+    "event": "withdraw",
+    "generation": 23
+  },
+  {
+    "event": "submit",
+    "generation": 24
+  },
+  {
+    "event": "published",
+    "receipt": {
+      "candidate": {
+        "base": "b8b3b365160e3ce488d70cd0a4fd6119090c6684",
+        "head": "3f61d4fa99aa9146e36be5b95ac3a4d527aef756",
+        "policy": "1ea8570f3e3dc8b4b98023e9765cfa3ad6d7b13cb4b5a5181402e37b97a70981"
+      },
+      "report": "0973a82bef05dab193c21077481f152c8809164bc35fc1e360e2968a952237ff",
+      "submitter": "developer"
+    }
+  },
+  {
+    "event": "delete",
+    "generation": 25
+  },
+  {
+    "event": "submit",
+    "generation": 26
+  },
+  {
+    "event": "published",
+    "receipt": {
+      "candidate": {
+        "base": "b8b3b365160e3ce488d70cd0a4fd6119090c6684",
+        "head": "3f61d4fa99aa9146e36be5b95ac3a4d527aef756",
+        "policy": "1ea8570f3e3dc8b4b98023e9765cfa3ad6d7b13cb4b5a5181402e37b97a70981"
+      },
+      "report": "0973a82bef05dab193c21077481f152c8809164bc35fc1e360e2968a952237ff",
+      "submitter": "developer"
+    }
+  },
+  {
+    "event": "head",
+    "generation": 27
+  },
+  {
+    "event": "head",
+    "generation": 28
+  },
+  {
+    "event": "submit",
+    "generation": 29
+  },
+  {
+    "event": "published",
+    "receipt": {
+      "candidate": {
+        "base": "b8b3b365160e3ce488d70cd0a4fd6119090c6684",
+        "head": "3f61d4fa99aa9146e36be5b95ac3a4d527aef756",
+        "policy": "1ea8570f3e3dc8b4b98023e9765cfa3ad6d7b13cb4b5a5181402e37b97a70981"
+      },
+      "report": "0973a82bef05dab193c21077481f152c8809164bc35fc1e360e2968a952237ff",
+      "submitter": "developer"
+    }
+  },
+  {
+    "event": "submit",
+    "generation": 30
+  },
+  {
+    "event": "published",
+    "receipt": {
+      "candidate": {
+        "base": "b8b3b365160e3ce488d70cd0a4fd6119090c6684",
+        "head": "3f61d4fa99aa9146e36be5b95ac3a4d527aef756",
+        "policy": "1ea8570f3e3dc8b4b98023e9765cfa3ad6d7b13cb4b5a5181402e37b97a70981"
+      },
+      "report": "0973a82bef05dab193c21077481f152c8809164bc35fc1e360e2968a952237ff",
+      "submitter": "developer"
+    }
+  },
+  {
+    "event": "submit",
+    "generation": 31
+  },
+  {
+    "event": "published",
+    "receipt": {
+      "candidate": {
+        "base": "b8b3b365160e3ce488d70cd0a4fd6119090c6684",
+        "head": "3f61d4fa99aa9146e36be5b95ac3a4d527aef756",
+        "policy": "1ea8570f3e3dc8b4b98023e9765cfa3ad6d7b13cb4b5a5181402e37b97a70981"
+      },
+      "report": "0973a82bef05dab193c21077481f152c8809164bc35fc1e360e2968a952237ff",
+      "submitter": "developer"
+    }
+  },
+  {
+    "event": "submit",
+    "generation": 32
+  },
+  {
+    "event": "published",
+    "receipt": {
+      "candidate": {
+        "base": "b8b3b365160e3ce488d70cd0a4fd6119090c6684",
+        "head": "3f61d4fa99aa9146e36be5b95ac3a4d527aef756",
+        "policy": "1ea8570f3e3dc8b4b98023e9765cfa3ad6d7b13cb4b5a5181402e37b97a70981"
+      },
+      "report": "0973a82bef05dab193c21077481f152c8809164bc35fc1e360e2968a952237ff",
+      "submitter": "developer"
+    }
+  },
+  {
+    "event": "merge",
+    "actor": "integrator",
+    "candidate": {
+      "base": "b8b3b365160e3ce488d70cd0a4fd6119090c6684",
+      "head": "3f61d4fa99aa9146e36be5b95ac3a4d527aef756",
+      "policy": "1ea8570f3e3dc8b4b98023e9765cfa3ad6d7b13cb4b5a5181402e37b97a70981"
+    },
+    "commit": "ba3f0f7da9e105a2106bf71c626e8062d040233e",
+    "reason": null
+  },
+  {
+    "event": "integrated",
+    "generation": 33
+  },
+  {
+    "event": "bypass",
+    "actor": "administrator",
+    "candidate": {
+      "base": "ba3f0f7da9e105a2106bf71c626e8062d040233e",
+      "head": "3f61d4fa99aa9146e36be5b95ac3a4d527aef756",
+      "policy": "1ea8570f3e3dc8b4b98023e9765cfa3ad6d7b13cb4b5a5181402e37b97a70981"
+    },
+    "commit": "591e7810a981a1e8bd6901f27e6f87afa38b55e2",
+    "reason": "E9 authorized exception experiment"
+  },
+  {
+    "event": "integrated",
+    "generation": 34
+  }
+]

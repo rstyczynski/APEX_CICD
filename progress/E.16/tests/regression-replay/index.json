@@ -1,0 +1,1254 @@
+[
+  {
+    "path": "progress/E.11/tests/benchmark.json",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.11/tests/second-operator/benchmark.json",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.11/tests/second-operator/engine-info.json",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.11/tests/second-operator/receipt.json",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.11/tests/second-operator/source.bundle",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.12/tests/assertions.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.12/tests/baseline.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.12/tests/catchup.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.12/tests/concurrent.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.12/tests/expand-backfill.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.12/tests/experiment.json",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.12/tests/hello.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.12/tests/inventory.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-after.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-before.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.12/tests/rollback-check.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.12/tests/rollback-check.log.sql",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.12/tests/unsupported-language.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.12/tests/version.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.12/tests/world.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.5/tests/backend-results.json",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.5/tests/coverage-before.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.5/tests/coverage-before.xml",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.5/tests/mutation-detected.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.5/tests/utplsql-full.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.5/tests/utplsql-reordered.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.5/tests/utplsql-repeat.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.6/tests/compat-1.0.1.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.6/tests/compat-1.0.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.6/tests/compat-1.1.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.6/tests/compat-restored-consumers.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.6/tests/incompatible-detected.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.6/tests/sessions-after.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.6/tests/sessions-before.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.6/tests/unit.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.8/tests/candidate.bundle",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.8/tests/executions.json",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.8/tests/pr-None/result.json",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.8/tests/pr-backend/backend-failure.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.8/tests/pr-backend/backend.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.8/tests/pr-backend/result.json",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.8/tests/pr-compilation/result.json",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.8/tests/pr-migration/migration-failure.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.8/tests/pr-migration/migration.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.8/tests/pr-migration/result.json",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.8/tests/pr-source/result.json",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.8/tests/pr-state/result.json",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.8/tests/pr-state/state-failure.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.8/tests/pr-state/state.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.8/tests/prerelease-None/result.json",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.8/tests/scheduled-None/result.json",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.9/tests/candidate.bundle",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.9/tests/journey.json",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.9/tests/service/candidate.bundle",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.9/tests/service/direct-write.log",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.9/tests/service/direct-write.raw.gz",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.9/tests/service/events.json",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.9/tests/service/receipt.json",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.9/tests/service/results.json",
+    "action": "saved replay and restored tracked historical snapshot"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/accepted-pr.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/assembly-rejection.html",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-active.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/capture.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/data-before-restore.txt",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/data-before.txt",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/create_application.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/delete_application.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/end_environment.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/pages/page_00000.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/pages/page_00001.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/pages/page_00010.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/pages/page_00020.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/pages/page_00100.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/pages/page_00101.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/pages/page_00110.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/pages/page_00111.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/pages/page_00200.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/pages/page_00201.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/pages/page_00210.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/pages/page_00211.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/pages/page_09999.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/pages/page_groups.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/plugin_settings.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/set_environment.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/files/icons_app_icon_144_rounded_png.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/files/icons_app_icon_192_png.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/files/icons_app_icon_256_rounded_png.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/files/icons_app_icon_32_png.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/files/icons_app_icon_512_png.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/globalization/dyntranslations.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/globalization/language.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/globalization/messages.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/logic/application_settings.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/logic/build_options.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/navigation/breadcrumbentry.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/navigation/breadcrumbs/breadcrumb.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/navigation/listentry.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/navigation/lists/navigation_bar.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/navigation/lists/navigation_menu.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/navigation/navigation_bar.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/navigation/tabs/parent.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/navigation/tabs/standard.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/security/authentications/oracle_apex_accounts.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/security/authorizations/administration_rights.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/user_interface/lovs/hello_entries_entry_text.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/user_interface/lovs/world_entries_entry_text.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/user_interface/template_opt_groups.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/user_interface/template_options.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/user_interface/templates/popuplov.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/user_interface/theme_files.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/user_interface/theme_style.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/shared_components/user_interface/themes.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/user_interfaces.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/application/user_interfaces/combined_files.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/f810005/install.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/inject.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/drift-demo.phmln67j/restore.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/environment.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/http-integration_test-1.html",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/http-integration_test-2.html",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/http-integration_test-3.html",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/http-integration_test-4.html",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/http-user_acceptance_test-1.html",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/http-user_acceptance_test-2.html",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/integration_test-repeat-after.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/integration_test-repeat-before.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/lab-1.0.1-0cc6c6802e0e.tar",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/lab-1.0.1-0cc6c6802e0e.tar.sha256",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/native-export-stability.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/operations.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/ords-install.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/ords-uninstall.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/patch-selected.txt",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/q-before.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/rejected-stale-candidate.tar",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/rejected-stale-candidate.tar.sha256",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/runtime.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/source-snapshot-before.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/sqlcl-version.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/stable-native-exports.zip",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/uat-before.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/user_acceptance_test-repeat-after.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T112131-60069/user_acceptance_test-repeat-before.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T113451-77349/environment.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T113451-77349/patch-selected.txt",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T113451-77349/source-snapshot-before.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T113451-77349/sqlcl-version.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114027-79360/source-snapshot-before.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114027-79360/sqlcl-version.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114350-80105/source-snapshot-before.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114350-80105/sqlcl-version.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/accepted-pr.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/assembly-rejection.html",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-active.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/capture.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/data-before-restore.txt",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/data-before.txt",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/create_application.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/delete_application.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/end_environment.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/pages/page_00000.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/pages/page_00001.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/pages/page_00010.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/pages/page_00020.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/pages/page_00100.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/pages/page_00101.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/pages/page_00110.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/pages/page_00111.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/pages/page_00200.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/pages/page_00201.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/pages/page_00210.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/pages/page_00211.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/pages/page_09999.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/pages/page_groups.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/plugin_settings.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/set_environment.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/files/icons_app_icon_144_rounded_png.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/files/icons_app_icon_192_png.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/files/icons_app_icon_256_rounded_png.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/files/icons_app_icon_32_png.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/files/icons_app_icon_512_png.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/globalization/dyntranslations.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/globalization/language.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/globalization/messages.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/logic/application_settings.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/logic/build_options.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/navigation/breadcrumbentry.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/navigation/breadcrumbs/breadcrumb.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/navigation/listentry.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/navigation/lists/navigation_bar.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/navigation/lists/navigation_menu.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/navigation/navigation_bar.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/navigation/tabs/parent.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/navigation/tabs/standard.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/security/authentications/oracle_apex_accounts.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/security/authorizations/administration_rights.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/user_interface/lovs/hello_entries_entry_text.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/user_interface/lovs/world_entries_entry_text.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/user_interface/template_opt_groups.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/user_interface/template_options.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/user_interface/templates/popuplov.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/user_interface/theme_files.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/user_interface/theme_style.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/shared_components/user_interface/themes.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/user_interfaces.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/application/user_interfaces/combined_files.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/f810005/install.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/inject.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/drift-demo.5caemewr/restore.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/environment.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/http-integration_test-1.html",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/http-integration_test-2.html",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/http-integration_test-3.html",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/http-integration_test-4.html",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/http-user_acceptance_test-1.html",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/http-user_acceptance_test-2.html",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/integration_test-repeat-after.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/integration_test-repeat-before.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/lab-1.0.1-0cc6c6802e0e.tar",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/lab-1.0.1-0cc6c6802e0e.tar.sha256",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/native-export-stability.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/operations.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/ords-install.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/ords-uninstall.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/patch-selected.txt",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/q-before.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/rejected-stale-candidate.tar",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/rejected-stale-candidate.tar.sha256",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/runtime.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/source-snapshot-after.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/source-snapshot-before.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/source-snapshot-sha256.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/sqlcl-version.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/stable-native-exports.zip",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/uat-before.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/user_acceptance_test-repeat-after.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/legacy-regression/run-20261126T114425-80613/user_acceptance_test-repeat-before.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/assertions.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/assertions.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/baseline.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/baseline.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/catchup.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/catchup.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/concurrent.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/concurrent.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/expand-backfill.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/expand-backfill.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/experiment.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/hello.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/hello.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/interruption.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/inventory.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/inventory.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/legacy-after.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/legacy-after.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/legacy-before.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/legacy-before.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/rollback-check.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/rollback-check.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/unsupported-language.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/unsupported-language.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/version.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/version.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/world.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.12/tests/runs/E12_RUN_95846/world.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.13/tests/run_95869/assertions.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.13/tests/run_95869/assertions.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.13/tests/run_95869/failure-recovery.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.13/tests/run_95869/failure-recovery.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.13/tests/run_95869/hello.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.13/tests/run_95869/hello.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.13/tests/run_95869/interruption-check.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.13/tests/run_95869/interruption-check.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.13/tests/run_95869/interruption.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.13/tests/run_95869/receipt.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.13/tests/run_95869/setup.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.13/tests/run_95869/setup.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.13/tests/run_95869/world.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.13/tests/run_95869/world.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/Hello-complete.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/Hello-complete.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/Hello-interruption.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/Hello-recovery.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/Hello-recovery.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/Hello-reject.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/Hello-reject.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/Hello-start.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/Hello-start.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/Hello-traffic.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/Hello-traffic.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/World-complete.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/World-complete.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/World-interruption.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/World-recovery.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/World-recovery.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/World-reject.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/World-reject.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/World-start.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/World-start.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/World-traffic.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/World-traffic.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/assertions.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/assertions.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/receipt.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/setup.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/setup.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/window-setup.log",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.14/tests/run_95894/window-setup.log.sql",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.9/tests/reports/3a0aa35aa001ce6a64fbda527dd97782a379ee3fd7c39c97c0f390eb1f83970e.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.9/tests/service/0973a82bef05dab193c21077481f152c8809164bc35fc1e360e2968a952237ff.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.9/tests/service/3804d0f8ba8b759eb5968814bfbb8f1951b1062dafa3020c8e85b6c212eceabc.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.9/tests/service/8486a93aea92669446cb0fb076289f58b997f8fb86a4072866e36adb14b850a2.json",
+    "action": "moved generated evidence to current sprint"
+  },
+  {
+    "path": "progress/E.9/tests/service/bb75893f4f982548f3247aaf52ba6062d1620f7f79ac1291035a65206a309cd9.json",
+    "action": "moved generated evidence to current sprint"
+  }
+]

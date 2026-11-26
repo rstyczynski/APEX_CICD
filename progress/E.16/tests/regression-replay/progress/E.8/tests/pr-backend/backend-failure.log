@@ -1,0 +1,10 @@
+
+Session altered.
+
+begin if E8_CBD7FE692A.greet<>'Hello World' then raise_application_error(-20803,'ASSERTION'); end if; dbms_output.put_line('Hello World'); end;
+*
+ERROR at line 1:
+ORA-20803: ASSERTION
+ORA-06512: at line 1
+
+

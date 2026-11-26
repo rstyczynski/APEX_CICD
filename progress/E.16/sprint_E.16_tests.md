@@ -1,6 +1,6 @@
 # E.16 verification
 
-[Checklist](sprint_E.16_checklist.md) owns requirement coverage; [design](sprint_E.16_design.md) owns test scope. A1 smoke and A2 unit pass 1/1 each. A3 integration passes 1/1 against real hosted run 45802390235. Recovered full smoke and unit regression pass 15/15 and 17/17. Full B3 integration is running; no passing result is claimed yet.
+[Checklist](sprint_E.16_checklist.md) owns requirement coverage; [design](sprint_E.16_design.md) owns test scope. A1 smoke and A2 unit pass 1/1 each. A3 integration passes 1/1 against real hosted run 45802390235. Recovered full smoke and unit regression pass 15/15 and 17/17. Full B3 integration passes 25/25; the enclosing stable-source/cleanup wrapper exits zero.
 
 Smoke checks source syntax/workflow shape. Unit checks the real provenance guard on controlled inputs; it makes no Oracle claim. Hosted integration downloads actual archives and receipts, verifies both archive digests and immutable workflow identities, checks four rejection outcomes and unchanged target observations, and inspects actual incompatible-tool output. [Source review](sprint_E.16_source_review.md#verified-current-revision) independently reviews exported SQL and release preparation. The native repeat reports zero new changesets and two previously run; both target assertion logs retain ID 1 and the original message. This is bounded table evidence, not full application or independent-host qualification.
 
@@ -40,3 +40,16 @@ Expected result is zero failed selected entries for each gate. New tests prove o
 - [test_run_B3_integration_resume_20261126](test_run_B3_integration_resume_20261126.log)
 
 Current native evidence: [retained artifacts](tests/native-current/). Presentation: [package](tests/presentation-package.json), [geometry](tests/presentation-layout.json), [local links](tests/local-links.json).
+
+## Final gate results — PBI-084
+
+| Gate | Passed / selected | Evidence |
+|---|---|---|
+| A1 smoke | 1 / 1 | test_run_A1_smoke_final_20261126.log |
+| A2 unit | 1 / 1 | test_run_A2_unit_final_20261126.log |
+| A3 integration | 1 / 1 | test_run_A3_integration_20261126.log |
+| B1 smoke | 15 / 15 | test_run_B1_smoke_recovered_20261126.log |
+| B2 unit | 17 / 17 | test_run_B2_unit_recovered_20261126.log |
+| B3 integration | 25 / 25 | test_run_B3_integration_ready_20261126.log |
+
+All selected gates pass with zero waived failures. The fresh E.15 hosted dependency run is 45806529936, success at 3f760373127b1ea5c2e74a80833ebfa6d8cd0536. The E.16 native reader checks immutable run 45802390235. The final full wrapper completed its source-hash comparison and removed its disposable ORDS container/volume. Its exact source snapshots and environment evidence are retained under [regression replay](tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T114425-80613/). Historical tracked artifacts were restored after retaining their fresh replay outputs under E.16; raw paths inside those outputs describe execution time. [The replay index](tests/regression-replay/index.json) maps all 313 preserved files. Failed/interrupted earlier attempts remain diagnostic evidence, not passing gates.

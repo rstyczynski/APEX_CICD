@@ -1,0 +1,72 @@
+[0;33mWARN: In project.config.json, sqlcl.connectionName is not set.
+Please update project.config.json or use PROJECT CONFIG SET[0m
+
+Stage is Comparing:
+[0;33mOld Branch	refs/heads/baseline[0m
+[0;32mNew Branch	refs/heads/release[0m
+
+[0;37m[0m
+[0;37m[0m
+[0;32mStage processing completed, please review and commit your changes to repository[0m
+[0;37m[0m
+[0;33m Untracked files:[0m
+[0;31m	dist[0m
+[0;33mWARN: In project.config.json, sqlcl.connectionName is not set.
+Please update project.config.json or use PROJECT CONFIG SET[0m
+-------- Results Summary ----------
+[0;31mErrors:     1[0m
+[0;33mWarnings:   1[0m
+[0;32mInfo:       13[0m
+---------------------------------
+
+ ------- ----------- -------------------------------------- ----------------------------------------------------------- 
+  Level   Group       Test Name                              Message                                                    
+          Name                                                                                                          
+ ------- ----------- -------------------------------------- ----------------------------------------------------------- 
+  [0;32mINFO[0m    init        verifyprojectname                      The final project name will be "native16"                  
+                                                                                                                        
+  [0;32mINFO[0m    init        initconfigfileschanges                 Comparison with current SQLcl version:                     
+                                                             There are no differences found.                            
+                                                                                                                        
+  [0;32mINFO[0m    stageapex   apexchangelogcomplete                  There is no apex application staged. (Apex folder isnt     
+                                                             mentioned in main changelog)                               
+                                                                                                                        
+  [0;32mINFO[0m    stageapex   apexchangelogfilesvalid                There is no apex application staged. (Apex folder isnt     
+                                                             mentioned in main changelog)                               
+                                                                                                                        
+  [0;31mERROR[0m   stageapex   apexinsrcmatchesdist                   EXCEPTION                                                  
+                                                             EXCEPTION: Cause=null                                      
+                                                             Message=/home/runner/work/_temp/native/dist/releases/apex  
+                                                                                                                        
+  [0;32mINFO[0m    stage       stagechangelogfilesvalid               .dbtools/project.config.json generated format: liquibase   
+                                                             All included scripts are present, not cross-referencing    
+                                                             and readable (3 checked)                                   
+                                                                                                                        
+  [0;33mWARN[0m    stage       stagesoftobjectisolationsprintchange   There are no soft objects present in changes folder,       
+                                                             SoftObjectIsolation value cannot be verified.              
+                                                                                                                        
+  [0;32mINFO[0m    stage       stagesoftobjectisolation               SoftObjectIsolation: Change                                
+                                                             OK: Code folder is absent.                                 
+                                                                                                                        
+  [0;32mINFO[0m    stage       stageduplicateentries                  .dbtools/project.config.json generated format: liquibase   
+                                                             dist/releases/main.changelog.xml - There are no duplicate  
+                                                             entries.                                                   
+                                                             Release Changelogs - There are no duplicate entries.       
+                                                             Stage Changelogs - There are no duplicate entries.         
+                                                                                                                        
+  [0;32mINFO[0m    stage       stagechangelogcomplete                 Stage Changelog validation found no issues.                
+                                                                                                                        
+  [0;32mINFO[0m    stage       stagesourcediff                        All modified files are represented in dist folder          
+                                                             All changes in dist folder are represented in src folder   
+                                                                                                                        
+  [0;32mINFO[0m    project     sqlclversion                           SQLcl Version check passed                                 
+                                                                                                                        
+  [0;32mINFO[0m    export      exportvalidatefilters                  Filters validation is successful.                          
+                                                                                                                        
+  [0;32mINFO[0m    export      exportformatterrules                   The XML parsing of project.sqlformat.xml file passed       
+                                                             successfully.                                              
+                                                             Keys and values for project.sqlformat.xml are all valid.   
+                                                                                                                        
+  [0;32mINFO[0m    snapshot    verifysnapshot                         Snapshot validation found no issues.                       
+                                                                                                                        
+

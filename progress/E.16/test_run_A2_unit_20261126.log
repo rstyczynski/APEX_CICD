@@ -1,0 +1,4 @@
+RUN unit:test_native_provenance.sh:test_native_guard
+PASS provenance contract; no Oracle mutation claimed
+PASS test_native_guard
+Tests: 1; failed: 0
