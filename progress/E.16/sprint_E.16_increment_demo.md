@@ -1,5 +1,7 @@
 # E.16 native release walkthrough
 
+The [native release workflow reference](native_release_workflow.md) documents all 33 declared Actions steps, their SQL payloads, Python checks and the [assert limitation](native_release_workflow.md#assert-limitation). This walkthrough remains the demonstration sequence and slide map.
+
 PBI-084 promises native installation, upgrade and safe repeat with preserved data and verifiable provenance. The [checklist](sprint_E.16_checklist.md) tracks acceptance; the [manual](user_manual.md) owns prerequisites and recovery. The [presentation](sprint_E.16_increment_demo.pptx) follows the slide map below. This is a disposable table experiment on the E.15 GitHub execution boundary, not full APEX/ORDS or clean-host qualification.
 
 ## Starting state and execution boundary — slides 1–5

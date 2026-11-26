@@ -74,3 +74,7 @@ Correction implementation/rule commit: a2e95ea. Native evidence/handover commit:
 ## Final retained-evidence packaging
 
 Native/generated captures contain formatting that the staged Git whitespace check reported during c7218cd. That command sequence incorrectly continued into publication; the audit records the failure and its correction explicitly. All 305 original raw files are now retained byte-for-byte in [the standard evidence archive](tests/actions-refactor/README.md#read-the-retained-evidence), with a per-member SHA-256/length manifest and verified native extraction. Every raw file matches its original c7218cd capture. No test or whitespace criterion is waived, and the cumulative E.16 diff now passes the unchanged whitespace check. Runtime code and the six passing gate results remain unchanged and applicable. The corrective packaging/audit commit is the final completion marker for this correction.
+
+## Native workflow technical reference
+
+The [native release workflow reference](native_release_workflow.md) documents the current steps, SQL and checks. Its [assert limitation](native_release_workflow.md#assert-limitation) qualifies the execution environment covered by the existing evidence; no new optimized-Python qualification or code change is claimed.

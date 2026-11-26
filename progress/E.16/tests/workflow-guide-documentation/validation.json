@@ -1,0 +1,34 @@
+{
+  "declared_steps_documented": 33,
+  "source_sql_payloads_matched": 24,
+  "python_check_sources_matched": 3,
+  "runtime_code_unchanged": true,
+  "validation_scope": "documentation source comparison and synthetic offline Python checks only; no Oracle mutation or workflow dispatch",
+  "provenance_optimization_probe": {
+    "normal": {
+      "exit_code": 1,
+      "stderr": "source mismatch"
+    },
+    "optimized_O": {
+      "exit_code": 0,
+      "stderr": ""
+    },
+    "optimized_OO": {
+      "exit_code": 0,
+      "stderr": ""
+    },
+    "environment_optimization": {
+      "exit_code": 0,
+      "stderr": ""
+    }
+  },
+  "explicit_checkers_still_reject_under_O": true,
+  "source_sha256": {
+    ".github/workflows/native.yml": "bd5715f85b9673424f30c0ed0cc84387cbf5b8d53405c7701ba33a61b2473a40",
+    "sql.sh": "34aebe1611287e7c92fb21bff2058156a146a3dba0f0d6b22f10ba6f2631f1e8",
+    "check_tool.py": "88a1ed963137bfad1d7ea49ab3539faf30508e5b9e6c156ba144a46c6cab1da9",
+    "check_output.py": "6eb0dc674fc9c9a829fc0cb7db066f9070ca0269293a1fc44fba77f6fb99d333",
+    "provenance.py": "82e1880fe3e88f88c31a8724224a6b19f91dc623f8eb24ecce05a57697285f64"
+  },
+  "guide_sha256": "282e6a653401c59937903f4dda5b6c9e413a71e48efa92d51909545f5beced77"
+}

@@ -1,5 +1,7 @@
 # E.16 operator reference
 
+For the technical sequence, exact per-step SQL payloads, helper contracts and qualification limits, use the [native release workflow reference](native_release_workflow.md). Its [assert limitation](native_release_workflow.md#assert-limitation) applies to the current provenance helper.
+
 The [walkthrough](sprint_E.16_increment_demo.md) owns the end-to-end journey. [Design](sprint_E.16_design.md) owns mechanisms; [checklist](sprint_E.16_checklist.md) owns acceptance. The supported experiment uses dedicated disposable Oracle services, SQLcl 25.4.1.022.0618 and Java 21 on GitHub-hosted Ubuntu. No local database credential is required. GitHub CLI authentication needs access to the private sprint repository. The original native baseline passed. The named-step correction and its fresh acceptance/regression status are tracked in the correction record.
 
 ## Explain the workflow before invocation

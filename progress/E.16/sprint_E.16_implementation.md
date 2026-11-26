@@ -21,3 +21,7 @@ The [manual](user_manual.md) owns prerequisites, supported tasks and recovery. T
 [The correction record](sprint_E.16_actions_refactor.md) tracks fresh R1–R8 evidence. [The source review](sprint_E.16_source_review.md) links generated release history, native SQL, receipts and target observations. Production multi-user authority and full APEX/ORDS clean-host reproduction remain outside the bounded table experiment. The prototype is retained as experiment source, not promoted as a production delivery engine.
 
 Final correction outcome: native run 45810907563 and all six fresh gates pass at pinned implementation a2e95ea. See the [accepted correction](sprint_E.16_actions_refactor.md#final-verification-and-acceptance) for exact evidence, verification isolation, the standing native technology rule and final audit.
+
+## Native workflow technical reference
+
+The [native release workflow reference](native_release_workflow.md) is the per-step technical reference for the current YAML, SQLcl adapter and all three Python checks. Its [assert limitation](native_release_workflow.md#assert-limitation) records that provenance assertions can be removed by optimized Python; this documentation does not fix or extend the implementation.
