@@ -17,3 +17,5 @@ JavaScript was slower than preinstalled Python in the paired five-helper samples
 ## Durable publication
 
 The completed increment is committed locally after the final pre-commit audit; the following commit/publication receipt identifies its actual Git hash. Companion source 17b2035 is retained independently in APEX_CICD_E.19. The final progress publication is to origin APEX_CICD, preserving all unrelated pre-existing user edits.
+
+The actual durable completion commit is `2989de96381045fd6b0c75e0aba1b0d8b980b2dc`; origin publication was verified at that exact hash. [Publication receipt](sprint_E.19_publication.md) records source tag, final checks, preserved user edits and the subsequent archive/receipt commit.

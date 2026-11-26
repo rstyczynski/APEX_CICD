@@ -1,0 +1,9 @@
+# E.19 completion report
+
+Sprint E.19 ran in YOLO mode with smoke/unit/integration acceptance and full regression. Contract/analysis resumed from verified activation; design and its recorded continuation refinement selected bounded guard migration; construction delivered five dependency-free native Node24 actions; quality gates verified real hosted/native/candidate behavior and paired timings; wrap-up delivered the audited walkthrough/PPTX/manual/gallery/archive and canonical closure. The initial sequencing/persistence deviation is explicitly retained in source review rather than rewritten.
+
+PBI-087 and children .1/.2/.3 are Done. A1/A2/A3 pass 1/1 each, full B1 18/18, B2 20/20 and B3 28/28. Actual native data preservation, source/archive/tool refusals, application rendering, trusted candidate/Review binding and private cleanup pass. The original Python -O provenance bypass is demonstrated and removed from migrated guards. Full integration also verifies stable executable source and scoped fixture cleanup. No gate failure is waived.
+
+The paired comparison runs five helper processes on each language on both hosts, with reversed order. JavaScript was slower in these samples; Python was preinstalled and no installation saving is claimed. Production rollout, larger measurement cohorts, Lifecycle Architecture and OCI features remain separate future decisions. There is no unfinished assigned requirement or external blocker.
+
+Completion commit 2989de9 and source tag e19-guards-v1 are published to their respective progress/sprint repositories. [Handover](sprint_E.19_handover.md), [checklist](sprint_E.19_checklist.md), [tests](sprint_E.19_tests.md), [audit](sprint_E.19_documentation_audit.md), [closure](sprint_E.19_closure.md) and [publication](sprint_E.19_publication.md) supply the evidence. Unrelated user changes are preserved.
