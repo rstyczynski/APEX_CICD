@@ -498,3 +498,36 @@ Measure cold and warm feedback, queue delay and resource demand for the complete
 Backlog Items:
 
 * PBI-086. Measure complete pipeline feedback and runner capacity
+
+## Sprint C.1 - Deliver catalogued JavaScript support actions
+
+Status: Planned
+Mode: managed
+Test: smoke, unit, integration
+Regression: smoke, unit, integration
+
+By Product Owner direction on 2026-11-26, schedule this production improvement
+at the end of the current queue, after E.18; it is not a prerequisite for
+Elaboration completion. Earlier scheduling is delegated to the implementor
+when justified, with the reason and revised assignment recorded in this plan;
+this reservation neither activates Construction nor accepts the Lifecycle
+Architecture milestone.
+
+By Product Owner direction on 2026-11-26, compare the JavaScript actions with
+the existing Python solution on equivalent workloads and runner conditions.
+Record tool versions, sample counts and cold/warm timings, separating runtime
+setup, check execution and overall workflow time. Assess simplicity through
+required installation/setup steps, dependencies and maintenance effort, and
+verify that the migrated actions require no Python installation or execution;
+distinguish preinstalled Python from an actual installation cost rather than
+assuming a timing improvement.
+
+For any OCI interactions needed by these actions, including secrets and
+Object Storage buckets, use Oracle's official OCI SDK for JavaScript/TypeScript.
+This technology choice does not add OCI features to the sprint scope; qualify
+the actual interactions used and retain GitHub Actions and SQLcl PROJECT
+ownership of their native responsibilities.
+
+Backlog Items:
+
+* PBI-087. Provide JavaScript support checks as catalogued GitHub Actions

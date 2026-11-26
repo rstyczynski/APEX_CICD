@@ -655,3 +655,11 @@ Measure feedback time and resource demand for the integrated JDK, SQLcl, utPLSQL
 Test: Report declared sample counts, cold/warm phase timings, median/p95 feedback, queue delay and resource use under serial and concurrent workloads, with a justified capacity recommendation and explicit measurement limits.
 
 Status: Proposed
+
+### PBI-087. Provide JavaScript support checks as catalogued GitHub Actions
+
+Inventory the existing Python support scripts used by delivery workflows and convert their supporting checks to reusable JavaScript GitHub Actions, removing the migrated checks' Python dependency. Provide a discoverable catalogue describing each action's purpose, inputs, outputs, failure behavior and usage, with explicit dispositions for scripts outside this scope and preserved historical evidence. Keep workflow orchestration in GitHub Actions and native release operations in SQLcl PROJECT, reuse existing native capabilities, and replace the documented optimization-sensitive provenance assertions with checks that cannot be disabled by runtime optimization.
+
+Test: Demonstrate every inventoried in-scope check through its catalogued action in a real GitHub workflow without Python, with passing valid cases, rejected malformed or missing inputs and source, artifact and tool mismatches before target mutation, plus passing applicable acceptance and regression tests and documented scope dispositions.
+
+Status: Proposed
