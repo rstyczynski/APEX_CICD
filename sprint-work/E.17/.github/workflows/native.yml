@@ -9,12 +9,26 @@ jobs:
     env:
       ORACLE_CONTAINER: e17-author
       TARGET_CONTAINER: e17-target
+      ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
     steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
       - name: Prepare declared clean host disk capacity
         run: |
           df -h
           sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc /usr/local/.ghcup /opt/hostedtoolcache/CodeQL
           df -h
+      - name: Qualify native ORDS architecture and private configuration
+        run: |
+          mkdir -p result
+          docker pull "$ORDS_IMAGE"
+          docker image inspect --format '{{.Architecture}}' "$ORDS_IMAGE" | tee result/ords-architecture.txt
+          grep -qx amd64 result/ords-architecture.txt
+          probe=$(mktemp -d "$RUNNER_TEMP/e17-ords-probe.XXXXXX")
+          trap 'rm -rf "$probe"' EXIT
+          docker run --rm --user "$(id -u):$(id -g)" --env HOME=/tmp -v "$probe:/etc/ords/config" "$ORDS_IMAGE" --version | tee result/ords-version.txt
+          docker run --rm --user "$(id -u):$(id -g)" --env HOME=/tmp -v "$probe:/etc/ords/config" "$ORDS_IMAGE" config set standalone.http.port 8080 | tee result/ords-private-config.txt
       - name: Start isolated Oracle databases
         run: |
           docker run -d --name e17-author -e ORACLE_RANDOM_PASSWORD=yes -p 127.0.0.1:1521:1521 --health-cmd healthcheck.sh --health-interval 10s --health-timeout 5s --health-retries 40 gvenzl/oracle-free@sha256:3251b285857ba46166279bcf9d4d00c0628335021bd2d0362dedf8b397e76eb5
@@ -23,9 +37,6 @@ jobs:
             # shellcheck disable=SC2016
             timeout 480 bash -c 'until test "$(docker inspect --format="{{.State.Health.Status}}" "$1")" = healthy; do sleep 5; done' -- "$container"
           done
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-        with:
-          persist-credentials: false
       - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3
         with:
           distribution: temurin

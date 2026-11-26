@@ -15,3 +15,7 @@ Run 45820349969 completes native APEX installation/configuration and application
 ## SQL*Plus statement boundary — folded into PBI-085
 
 Run 45822242040 completes APEX setup/import but ORDS preparation returns ORA-03405 because CREATE USER and GRANT were placed on one SQL*Plus input line. The retained ords-admin-input.log contains the redacted statement and exact error. The installer itself was not invoked. Split those top-level SQL statements onto separate lines and dispatched 45824130390 at immutable companion 4d2488c. Source smoke passes; actual installer and end-to-end qualification remain pending.
+
+## ORDS image architecture mismatch — folded into PBI-085
+
+Run 45824130390 creates the PDB-local installer account and grants successfully, then Docker reports that the retained ORDS digest is linux/arm64 on a linux/amd64 host and exits with `exec /usr/bin/docker-entrypoint.sh: exec format error`. This directly exposes a missing reproduction prerequisite; the prepared ARM host's image pin cannot qualify an independent AMD64 host. The Oracle registry's same-release 25.3.0 manifest f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e is inspected as amd64, with ORDS_VER=25.3.0. E.17 pins that digest in Actions and passes it to the adapter. An early native Docker/ORDS preflight now checks architecture, actual CLI version and mode-0700 configuration write access with the job uid/gid before Oracle/APEX provisioning. Run 45826292633 tests the corrected immutable source. No emulation or substitute technology is used.

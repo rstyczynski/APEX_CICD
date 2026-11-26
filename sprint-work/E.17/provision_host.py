@@ -4,7 +4,7 @@ from pathlib import Path
 OUT=Path('result');OUT.mkdir(exist_ok=True)
 TMP=Path(os.environ['RUNNER_TEMP']);PRIVATE=TMP/'e17-private'
 APEX_SHA='a7ad0ba94f70b2d581f7dde97fe27cd07afc98c32ecc146d89fd70cce9b76456'
-ORDS='container-registry.oracle.com/database/ords@sha256:1551b5c51faf47a1e961ddbacf7d75262e686108b165d96c42542f0bae79e6de'
+ORDS=os.environ['ORDS_IMAGE']
 passwords=[v for v in [os.environ.get('NATIVE_PASSWORD'),os.environ.get('APEX_ADMIN_PASSWORD')] if v]
 def run(args,body=None,label=None):
  p=subprocess.run(args,input=body,text=True,capture_output=True,timeout=1800)

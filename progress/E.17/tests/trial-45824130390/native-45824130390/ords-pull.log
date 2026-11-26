@@ -1,0 +1,36 @@
+container-registry.oracle.com/database/ords@sha256:1551b5c51faf47a1e961ddbacf7d75262e686108b165d96c42542f0bae79e6de: Pulling from database/ords
+720b16868171: Pulling fs layer
+5deca2d2316f: Pulling fs layer
+922671c63efc: Pulling fs layer
+93b0bed97b63: Pulling fs layer
+fbe91db4da7f: Pulling fs layer
+e616e9041540: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+fbe91db4da7f: Waiting
+e616e9041540: Waiting
+4f4fb700ef54: Waiting
+93b0bed97b63: Waiting
+5deca2d2316f: Verifying Checksum
+5deca2d2316f: Download complete
+93b0bed97b63: Verifying Checksum
+93b0bed97b63: Download complete
+720b16868171: Verifying Checksum
+720b16868171: Download complete
+e616e9041540: Verifying Checksum
+e616e9041540: Download complete
+4f4fb700ef54: Verifying Checksum
+4f4fb700ef54: Download complete
+fbe91db4da7f: Verifying Checksum
+fbe91db4da7f: Download complete
+720b16868171: Pull complete
+5deca2d2316f: Pull complete
+922671c63efc: Verifying Checksum
+922671c63efc: Download complete
+922671c63efc: Pull complete
+93b0bed97b63: Pull complete
+fbe91db4da7f: Pull complete
+e616e9041540: Pull complete
+4f4fb700ef54: Pull complete
+Digest: sha256:1551b5c51faf47a1e961ddbacf7d75262e686108b165d96c42542f0bae79e6de
+Status: Downloaded newer image for container-registry.oracle.com/database/ords@sha256:1551b5c51faf47a1e961ddbacf7d75262e686108b165d96c42542f0bae79e6de
+container-registry.oracle.com/database/ords@sha256:1551b5c51faf47a1e961ddbacf7d75262e686108b165d96c42542f0bae79e6de
