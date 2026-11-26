@@ -1,0 +1,23 @@
+2026-11-26 recovery observations (transcribed from native command output)
+Command: podman --connection apex-cicd ps --format '{{.Names}} {{.Status}}'
+Result: stalled, both sandboxed and escalated.
+Command: podman machine ssh apex-cicd uptime
+Result: stalled after escalation; sandboxed version first refused VM lockfile creation.
+Command: podman machine stop apex-cicd
+Error: Post "http://localhost:52323/vm/state": read tcp 127.0.0.1:63545->127.0.0.1:52323: read: connection reset by peer
+Console excerpt observed before restart:
+[11696.702865] Out of memory: Killed process 1958 (java) total-vm:5505544kB, anon-rss:837288kB
+[11711.125033] Out of memory: Killed process 40156 (java) total-vm:37072344kB, anon-rss:547648kB
+[11716.143590] Out of memory: Killed process 34490 (java) total-vm:4190688kB, anon-rss:509344kB
+[11727.696292] Out of memory: Killed process 1842 (ora_m000_free)
+[11770.866457] Out of memory: Killed process 1874 (ora_m006_free)
+Recovery: targeted TERM of identified apex-cicd VM PID 80050; disks preserved. A later KILL found no such process.
+System helper startup: krunkit exited unexpectedly with exit code 2.
+Cancelled stalled recovery CLI PIDs 63913, 63960, 63983 before sequential retry.
+Supported memory setting: podman machine set --memory 12288 apex-cicd, successful.
+Selected existing qualified krunkit 1.3.2 helper configuration explicitly for this historical fixture.
+Kept launching session alive while regression executes; successful engine and database health checks follow.
+VM restart: Machine "apex-cicd" started successfully.
+Started only owned e12-regression-db; retained apex-db/apex-ords remain stopped.
+Subsequent stats: e12-regression-db 1.794GB / 12.49GB.
+The launch-session lifetime explanation is a hypothesis, not a measured root cause. Console out-of-memory kills are observed.

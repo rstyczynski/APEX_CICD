@@ -1,0 +1,277 @@
+lab-dev
+
+Foundation verified; Hello/World absent; application remains in maintenance.
+
+PASS Foundation contract: compiled; incomplete runtime blocked; history empty.
+
+lab-dev-c
+
+--Starting Liquibase at 2026-11-26T14:43:33.374009 using Java 21.0.12.1 (version 4.30.0 #0 built at 2025-04-01 10:24+0000)
+Running Changeset: db/changelog.xml::001-foundation::apex-lab
+
+Running Changeset: db/changelog.xml::002-foundation-runtime::apex-lab
+
+Running Changeset: db/changelog.xml::003-hello::apex-lab
+
+Running Changeset: db/changelog.xml::004-world::apex-lab
+
+Running Changeset: db/changelog.xml::005-hello-1.0.1::apex-lab
+
+
+UPDATE SUMMARY
+Run:                          5
+Previously run:               0
+Filtered out:                 0
+-------------------------------
+Total change sets:            5
+
+Liquibase: Update has been successful. Rows affected: 5
+
+
+Operation completed successfully.
+
+--install
+--application/set_environment
+API Last Extended:20241130
+Your Current Version:20241130
+This import is compatible with version: 20241130
+COMPATIBLE (You should be able to run this import without issues.)
+ID offset during import: 30001121148080735
+New ID offset for application: 0
+
+--application/delete_application
+--application/create_application
+--application/user_interfaces
+--application/shared_components/navigation/lists/navigation_menu
+--application/shared_components/navigation/lists/navigation_bar
+--application/shared_components/navigation/listentry
+--application/shared_components/files/icons_app_icon_144_rounded_png
+--application/shared_components/files/icons_app_icon_32_png
+--application/shared_components/files/icons_app_icon_192_png
+--application/shared_components/files/icons_app_icon_256_rounded_png
+--application/shared_components/files/icons_app_icon_512_png
+--application/plugin_settings
+--application/shared_components/security/authorizations/administration_rights
+--application/shared_components/navigation/navigation_bar
+--application/shared_components/logic/application_settings
+--application/shared_components/navigation/tabs/standard
+--application/shared_components/navigation/tabs/parent
+--application/shared_components/user_interface/lovs/hello_entries_entry_text
+--application/shared_components/user_interface/lovs/world_entries_entry_text
+--application/pages/page_groups
+--application/shared_components/navigation/breadcrumbs/breadcrumb
+--application/shared_components/navigation/breadcrumbentry
+--application/shared_components/user_interface/templates/popuplov
+--application/shared_components/user_interface/themes
+--application/shared_components/user_interface/theme_style
+--application/shared_components/user_interface/theme_files
+--application/shared_components/user_interface/template_opt_groups
+--application/shared_components/user_interface/template_options
+--application/shared_components/globalization/language
+--application/shared_components/logic/build_options
+--application/shared_components/globalization/messages
+--application/shared_components/globalization/dyntranslations
+--application/shared_components/security/authentications/oracle_apex_accounts
+--application/user_interfaces/combined_files
+--application/pages/page_00000
+--application/pages/page_00001
+--application/pages/page_00010
+--application/pages/page_00020
+--application/pages/page_00100
+--application/pages/page_00101
+--application/pages/page_00110
+--application/pages/page_00111
+--application/pages/page_00200
+--application/pages/page_00201
+--application/pages/page_00210
+--application/pages/page_00211
+--application/pages/page_09999
+--application/end_environment
+... elapsed: 1.01 sec
+
+...done
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+PASS patch release integrity: Foundation/World 1.0.0, Hello 1.0.1, migrations and pages.
+
+
+PL/SQL procedure successfully completed.
+
+PASS UT-1: defaults, trim, Unicode, prefixes, explicit selections, invalid/default deactivation rejection and 261-character boundary. Fixtures rolled back.
+
+
+PL/SQL procedure successfully completed.
+
+PASS UT-2: changed settings affect new greetings; all original snapshot fields preserved; update/delete denied. Fixtures rolled back.
+
+
+PL/SQL procedure successfully completed.
+
+PASS Hello 1.0.1 whitespace normalization and specific blank rejection; fixtures rolled back.
+
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+lab-dev
+
+Exporting Workspace E1_DEV_A - application 810001:APEX Delivery Laboratory
+File ../../../../../../../var/folders/rt/g188dkwx2rl25f2xnjnqv8hr0000gn/T/e12-regression-private-wzm2u5s2/export-a/f810001/install.sql created
+
+lab-dev
+
+Exporting Workspace E1_DEV_A - application 810001:APEX Delivery Laboratory
+File ../../../../../../../var/folders/rt/g188dkwx2rl25f2xnjnqv8hr0000gn/T/e12-regression-private-wzm2u5s2/export-b/f810001/install.sql created
+
+integration_test
+
+integration_test
+
+PASS CLI runtime verification: NEW Hello World snapshot. No browser acceptance claimed.
+
+integration_test
+
+
+         1
+integration_test
+
+
+         2
+integration_test
+
+user_acceptance_test
+
+user_acceptance_test
+
+PASS CLI runtime verification: NEW Hello World snapshot. No browser acceptance claimed.
+
+user_acceptance_test
+
+
+         1
+user_acceptance_test
+
+
+         2
+user_acceptance_test
+
+user_acceptance_test
+
+PASS at least twenty verifier snapshots retained for later upgrade comparisons. Existing history unchanged; fixture is repeatable.
+
+integration_test
+
+integration_test
+
+PASS CLI runtime verification: NEW Hello World snapshot. No browser acceptance claimed.
+
+integration_test
+
+
+         1
+integration_test
+
+
+         2
+integration_test
+
+integration_test
+
+integration_test
+
+PASS CLI runtime verification: NEW Hello World snapshot. No browser acceptance claimed.
+
+integration_test
+
+
+         1
+integration_test
+
+
+         2
+integration_test
+
+integration_test
+
+integration_test
+
+integration_test
+
+integration_test
+
+integration_test
+
+PASS CLI runtime verification: NEW Hello World snapshot. No browser acceptance claimed.
+
+integration_test
+
+
+        23
+integration_test
+
+
+        24
+integration_test
+
+user_acceptance_test
+
+user_acceptance_test
+
+PASS CLI runtime verification: NEW Hello World snapshot. No browser acceptance claimed.
+
+user_acceptance_test
+
+
+        21
+user_acceptance_test
+
+
+        22
+user_acceptance_test
+
+integration_test
+
+TARGET=E1_INTEGRATION APP=810004 EPOCH=4 PHASE=ready
+ARTIFACT=798386624d46f738fa166db2a55c0faa52845ad8ad063f8c3b5b6587981c942c
+SOURCE=0cc6c6802e0ed9bd5286529a6e0216f35f811505
+CONFIG=37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+FINGERPRINT=SH256:6M4Xo7OvAjmpcgbthZGiMz7eGMi3lPwZmDgFhl5gnOs=
+
+integration_test
+
+TARGET=E1_INTEGRATION APP=810004 EPOCH=4 PHASE=ready
+ARTIFACT=798386624d46f738fa166db2a55c0faa52845ad8ad063f8c3b5b6587981c942c
+SOURCE=0cc6c6802e0ed9bd5286529a6e0216f35f811505
+CONFIG=37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+FINGERPRINT=SH256:6M4Xo7OvAjmpcgbthZGiMz7eGMi3lPwZmDgFhl5gnOs=
+
+user_acceptance_test
+
+TARGET=E1_UAT APP=810005 EPOCH=2 PHASE=ready
+ARTIFACT=798386624d46f738fa166db2a55c0faa52845ad8ad063f8c3b5b6587981c942c
+SOURCE=0cc6c6802e0ed9bd5286529a6e0216f35f811505
+CONFIG=37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+FINGERPRINT=SH256:ZB4jKvRR5f+qr0+mqeEBPLAap0n1xoN1Y2kuwTflA2U=
+
+user_acceptance_test
+
+TARGET=E1_UAT APP=810005 EPOCH=2 PHASE=ready
+ARTIFACT=798386624d46f738fa166db2a55c0faa52845ad8ad063f8c3b5b6587981c942c
+SOURCE=0cc6c6802e0ed9bd5286529a6e0216f35f811505
+CONFIG=37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0
+FINGERPRINT=SH256:ZB4jKvRR5f+qr0+mqeEBPLAap0n1xoN1Y2kuwTflA2U=
+
+user_acceptance_test
+
+PASS Hello 1.0.1 whitespace normalization and specific blank rejection; fixtures rolled back.
+
+lab-control
+
+PASS two patch qualification starts and successful same-artifact TEST upgrade receipt.
+

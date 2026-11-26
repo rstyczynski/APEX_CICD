@@ -1,0 +1,25 @@
+RUN integration:test_backend.sh:test_IT1_backend_runtime
+PASS real utPLSQL suite
+PASS runtime isolation, structural cleanup, mutation detection and coverage improvement
+PASS test_IT1_backend_runtime
+RUN integration:test_backend.sh:test_IT4_backend_page_and_release
+PASS live page mapping, invalid API rejection and native artifact exclusion; browser observations separately recorded
+PASS test_IT4_backend_page_and_release
+RUN integration:test_contracts.sh:test_IT1_compatibility
+PASS 3 real utPLSQL consumers
+PASS 3 real utPLSQL consumers
+PASS 3 real utPLSQL consumers
+PASS incompatible result detected
+PASS 3 real utPLSQL consumers
+PASS baseline/patch/minor consumers, additions, detected break and restoration
+PASS test_IT1_compatibility
+RUN integration:test_contracts.sh:test_IT2_sessions_transactions
+PASS native contexts, propagated init failure, caller rollback, partial failure and both controlled unique-key races
+PASS test_IT2_sessions_transactions
+RUN integration:test_contracts.sh:test_IT4_page_release
+PASS separate browser evidence, live business invariants and native whole-application artifact
+PASS test_IT4_page_release
+RUN integration:test_candidate.sh:test_candidate_lab
+PASS three real integrated candidate cadences and five fail-closed fault paths; scoped cleanup complete
+PASS test_candidate_lab
+Tests: 6; failed: 0

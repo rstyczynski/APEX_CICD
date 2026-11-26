@@ -1,0 +1,12 @@
+{
+  "source": "33df9047b73826bd1d5d6052e0638b952235b8a4",
+  "gate_log": "test_run_B3_integration_20261126_142430.log",
+  "tests": 26,
+  "failed": 0,
+  "wrapper_exit": 0,
+  "source_snapshots_equal": true,
+  "historical_native_run": "45810907563",
+  "fresh_hosted_run": "45841076840",
+  "preserved_files": 478,
+  "cleanup": "wrapper completed successfully; owned ORDS container/volume removed; OS-private temporary state cleaned"
+}

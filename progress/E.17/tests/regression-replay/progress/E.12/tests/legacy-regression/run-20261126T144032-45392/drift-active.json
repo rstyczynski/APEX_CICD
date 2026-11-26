@@ -1,0 +1,9 @@
+{
+  "phase": "restored",
+  "work": "/Users/rstyczynski/projects/APEX_CICD/.local-apex/e17/regression-pin/progress/E.12/tests/legacy-regression/run-20261126T144032-45392/drift-demo.estgxwlg",
+  "epoch": "2",
+  "state": "\nTARGET=E1_UAT APP=810005 EPOCH=2 PHASE=ready\nARTIFACT=798386624d46f738fa166db2a55c0faa52845ad8ad063f8c3b5b6587981c942c\nSOURCE=0cc6c6802e0ed9bd5286529a6e0216f35f811505\nCONFIG=37c23fd791f7ab4dc5746bb715f6438ce85099fa3e5a11e98f6a0231126d41d0\nFINGERPRINT=SH256:ZB4jKvRR5f+qr0+mqeEBPLAap0n1xoN1Y2kuwTflA2U=\n\n",
+  "before": "SH256:ZB4jKvRR5f+qr0+mqeEBPLAap0n1xoN1Y2kuwTflA2U=",
+  "offset": "30400183631090110",
+  "changed": "SH256:Ud5nRAKBKzM9e629fWO4LzFHEqgSzG8a4Jue3ZQLu3Q="
+}

@@ -1,0 +1,6 @@
+integration:test_backend.sh:test_IT1_backend_runtime
+integration:test_backend.sh:test_IT4_backend_page_and_release
+integration:test_contracts.sh:test_IT1_compatibility
+integration:test_contracts.sh:test_IT2_sessions_transactions
+integration:test_contracts.sh:test_IT4_page_release
+integration:test_candidate.sh:test_candidate_lab
