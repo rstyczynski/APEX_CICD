@@ -1,0 +1,6 @@
+# E.19 chat snapshots
+
+Native local session JSONL read interface. Snapshots preserve accessible records chronologically; readable companions retain structured content. No reconstruction. Coverage excludes pending writer buffers, future messages and any inaccessible records.
+
+- [20261126T180921667610Z_01a2190a-d633-7fe2-878a-23726aa58c72.jsonl](20261126T180921667610Z_01a2190a-d633-7fe2-878a-23726aa58c72.jsonl), [readable](20261126T180921667610Z_01a2190a-d633-7fe2-878a-23726aa58c72.md): thread 01a2190a-d633-7fe2-878a-23726aa58c72; exported 20261126T180921667610Z; initial execution; records 1–77 across 1 matching native files; writer lag and later messages excluded.
+- [20261126T181314993176Z_01a2190a-d633-7fe2-878a-23726aa58c72.jsonl](20261126T181314993176Z_01a2190a-d633-7fe2-878a-23726aa58c72.jsonl), [readable](20261126T181314993176Z_01a2190a-d633-7fe2-878a-23726aa58c72.md): thread 01a2190a-d633-7fe2-878a-23726aa58c72; exported 20261126T181314993176Z; initial execution; records 1–218 across 1 matching native files; writer lag and later messages excluded.

@@ -1,0 +1,43 @@
+RUN smoke:test_platform.sh:test_SM1_platform
+PASS live ORDS and database-backed APEX login; configuration read from GitHub environment
+PASS test_SM1_platform
+RUN smoke:test_pipeline.sh:test_SM1_pipeline_contract
+PASS native workflow boundary and 9 PR classification cases
+PASS test_SM1_pipeline_contract
+RUN smoke:test_pipeline.sh:test_SM58_native_release_boundary
+PASS frozen release accepted; unfrozen, mismatched, unsafe, missing and dirty inputs rejected
+PASS test_SM58_native_release_boundary
+RUN smoke:test_backend.sh:test_SM1_backend_source
+PASS backend source boundaries; runtime/page evidence is checked separately
+PASS test_SM1_backend_source
+RUN smoke:test_contracts.sh:test_SM1_contract_sources
+PASS explicit version/dependency declarations and caller-owned transaction boundary
+PASS test_SM1_contract_sources
+RUN smoke:test_candidate.sh:test_candidate_smoke
+PASS test_candidate_smoke
+RUN smoke:test_review.sh:test_review_smoke
+PASS test_review_smoke
+RUN smoke:test_execution.sh:test_execution_smoke
+PASS test_execution_smoke
+RUN smoke:test_reproducibility.sh:test_reproducibility_smoke
+PASS test_reproducibility_smoke
+RUN smoke:test_foundation.sh:test_foundation_smoke
+PASS test_foundation_smoke
+RUN smoke:test_platform.sh:test_e12_regression_source
+PASS isolated regression source parses
+PASS test_e12_regression_source
+RUN smoke:test_foundation.sh:test_bridge_smoke
+PASS test_bridge_smoke
+RUN smoke:test_foundation.sh:test_windows_smoke
+PASS test_windows_smoke
+RUN smoke:test_hosted.sh:test_hosted_source
+PASS test_hosted_source
+RUN smoke:test_native_provenance.sh:test_native_source
+PASS small Python checks do not launch lifecycle operations
+PASS test_native_source
+RUN smoke:test_clean_host.sh:test_clean_host_source
+PASS test_clean_host_source
+RUN smoke:test_pipeline_capacity.sh:test_pipeline_capacity_source
+PASS every named E17 native validation step retained
+PASS test_pipeline_capacity_source
+Tests: 17; failed: 0

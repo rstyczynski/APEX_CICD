@@ -1,0 +1,55 @@
+name: Catalogued support checks
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Record runtime and prepare contract fixtures
+        run: |
+          node --version
+          node --test actions/checks.test.cjs
+          mkdir fixtures
+          node - <<'JS'
+          const fs=require('fs'),crypto=require('crypto');
+          fs.writeFileSync('fixtures/tool','Release 25.4.1.0 Production Build: 25.4.1.022.0618');
+          fs.writeFileSync('fixtures/config',JSON.stringify({sqlcl:{version:'25.4.1.0'}}));
+          fs.writeFileSync('fixtures/output','Native successful result');
+          fs.writeFileSync('fixtures/archive','qualified bytes');
+          fs.writeFileSync('fixtures/receipt',JSON.stringify({source:'a'.repeat(40),build:'25.4.1.022.0618',sha256:crypto.createHash('sha256').update('qualified bytes').digest('hex')}));
+          fs.writeFileSync('fixtures/bad','{}');
+          JS
+      - uses: ./actions/tool
+        with:
+          log: fixtures/tool
+          config: fixtures/config
+      - uses: ./actions/output
+        with:
+          log: fixtures/output
+      - uses: ./actions/provenance
+        with:
+          archive: fixtures/archive
+          receipt: fixtures/receipt
+          source: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          build: 25.4.1.022.0618
+      - uses: ./actions/provenance
+        id: reject
+        continue-on-error: true
+        with:
+          archive: fixtures/archive
+          receipt: fixtures/bad
+          source: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          build: 25.4.1.022.0618
+      - name: Mutation forbidden after rejected provenance
+        if: steps.reject.outcome == 'success'
+        run: touch forbidden-mutation
+      - name: Assert rejection prevented mutation
+        env:
+          OUTCOME: ${{ steps.reject.outcome }}
+        run: |
+          test "$OUTCOME" = failure
+          test ! -e forbidden-mutation

@@ -1,0 +1,21 @@
+name: Validate provenance
+description: Fail closed on invalid provenance evidence
+inputs:
+  archive:
+    description: Required archive input
+    required: true
+  receipt:
+    description: Required receipt input
+    required: true
+  source:
+    description: Required source input
+    required: true
+  build:
+    description: Required build input
+    required: true
+outputs:
+  validated:
+    description: True only after successful validation
+runs:
+  using: node24
+  main: index.cjs

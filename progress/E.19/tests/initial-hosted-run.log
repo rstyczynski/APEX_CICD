@@ -1,0 +1,200 @@
+checks	Set up job	﻿2026-11-26T18:10:17.9652092Z Current runner version: '2.338.2'
+checks	Set up job	2026-11-26T18:10:17.9722044Z ##[group]Runner Image Provisioner
+checks	Set up job	2026-11-26T18:10:17.9722896Z Hosted Compute Agent
+checks	Set up job	2026-11-26T18:10:17.9723524Z Version: 20261111.635
+checks	Set up job	2026-11-26T18:10:17.9724207Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+checks	Set up job	2026-11-26T18:10:17.9725059Z Build Date: 2026-11-11T01:49:01Z
+checks	Set up job	2026-11-26T18:10:17.9725704Z Worker ID: {f30a7c3c-1683-4e6d-9419-de67a74c4aee}
+checks	Set up job	2026-11-26T18:10:17.9726351Z Region: us-east-1
+checks	Set up job	2026-11-26T18:10:17.9726896Z Cloud: AWS
+checks	Set up job	2026-11-26T18:10:17.9727381Z ##[endgroup]
+checks	Set up job	2026-11-26T18:10:17.9735028Z ##[group]Operating System
+checks	Set up job	2026-11-26T18:10:17.9735815Z Ubuntu
+checks	Set up job	2026-11-26T18:10:17.9736315Z 24.04.5
+checks	Set up job	2026-11-26T18:10:17.9736820Z LTS
+checks	Set up job	2026-11-26T18:10:17.9737305Z ##[endgroup]
+checks	Set up job	2026-11-26T18:10:17.9737902Z ##[group]Runner Image
+checks	Set up job	2026-11-26T18:10:17.9738478Z Image: ubuntu-24.04
+checks	Set up job	2026-11-26T18:10:17.9769298Z Version: 20261122.23.1
+checks	Set up job	2026-11-26T18:10:17.9770628Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261122.23/images/ubuntu/Ubuntu2404-Readme.md
+checks	Set up job	2026-11-26T18:10:17.9772562Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261122.23
+checks	Set up job	2026-11-26T18:10:17.9773540Z ##[endgroup]
+checks	Set up job	2026-11-26T18:10:17.9774623Z ##[group]GITHUB_TOKEN Permissions
+checks	Set up job	2026-11-26T18:10:17.9777233Z Contents: read
+checks	Set up job	2026-11-26T18:10:17.9777818Z Metadata: read
+checks	Set up job	2026-11-26T18:10:17.9778335Z ##[endgroup]
+checks	Set up job	2026-11-26T18:10:17.9781042Z Secret source: Actions
+checks	Set up job	2026-11-26T18:10:17.9781962Z Cache mode: write
+checks	Set up job	2026-11-26T18:10:17.9782879Z Prepare workflow directory
+checks	Set up job	2026-11-26T18:10:18.0468326Z Prepare all required actions
+checks	Set up job	2026-11-26T18:10:18.0583207Z Getting action download info
+checks	Set up job	2026-11-26T18:10:18.2212034Z Download action repository 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+checks	Set up job	2026-11-26T18:10:20.0033736Z Complete job name: checks
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	﻿2026-11-26T18:10:20.0689347Z ##[group]Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:20.0690428Z with:
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:20.0690886Z   persist-credentials: false
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:20.0691370Z   repository: rstyczynski/APEX_CICD_E.19
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:20.0694782Z   token: ***
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:20.0695207Z   ssh-strict: true
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:20.0695637Z   ssh-user: git
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:20.0696038Z   clean: true
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:20.0696450Z   sparse-checkout-cone-mode: true
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:20.0696963Z   fetch-depth: 1
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:20.0697390Z   fetch-tags: false
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:20.0697822Z   show-progress: true
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:20.0698256Z   lfs: false
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:20.0698661Z   submodules: false
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:20.0699381Z   set-safe-directory: true
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:20.0700100Z ##[endgroup]
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.1656305Z Syncing repository: rstyczynski/APEX_CICD_E.19
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.1657572Z ##[group]Getting Git version info
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.1658072Z Working directory is '/home/runner/work/APEX_CICD_E.19/APEX_CICD_E.19'
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.1672678Z [command]/usr/bin/git version
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.4971053Z git version 2.56.1
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.4984095Z ##[endgroup]
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.4996594Z Temporarily overriding HOME='/home/runner/work/_temp/07719c20-b8aa-4333-aaf8-cd69b509a2ec' before making global git config changes
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.4998025Z Adding repository directory to the temporary git global config as a safe directory
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.5002767Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/APEX_CICD_E.19/APEX_CICD_E.19
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.5461771Z Deleting the contents of '/home/runner/work/APEX_CICD_E.19/APEX_CICD_E.19'
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.5466379Z ##[group]Initializing the repository
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.5472112Z [command]/usr/bin/git init /home/runner/work/APEX_CICD_E.19/APEX_CICD_E.19
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.5977619Z hint: Using 'master' as the name for the initial branch. This default branch name
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.5978858Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.5979671Z hint: to use in all of your new repositories, which will suppress this warning,
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.5980519Z hint: call:
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.5980798Z hint:
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.5981201Z hint: 	git config --global init.defaultBranch <name>
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.5991146Z hint:
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.5991905Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.5992335Z hint: 'development'. The just-created branch can be renamed via this command:
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.5992815Z hint:
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.5993119Z hint: 	git branch -m <name>
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.5993378Z hint:
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.5993677Z hint: Disable this message with "git config set advice.defaultBranchName false"
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.5994185Z Initialized empty Git repository in /home/runner/work/APEX_CICD_E.19/APEX_CICD_E.19/.git/
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.6005016Z [command]/usr/bin/git remote add origin https://github.com/rstyczynski/APEX_CICD_E.19
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.6059404Z ##[endgroup]
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.6060631Z ##[group]Disabling automatic garbage collection
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.6061393Z [command]/usr/bin/git config --local gc.auto 0
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.6084648Z ##[endgroup]
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.6085422Z ##[group]Setting up auth
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.6090567Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:23.6120083Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.0330656Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.0368679Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.0514672Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.0554628Z ##[endgroup]
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.0555548Z ##[group]Fetching the repository
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.0570787Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +6b6a412ce13cfff7582755e40f06307b79d48f22:refs/remotes/origin/main
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.3434116Z From https://github.com/rstyczynski/APEX_CICD_E.19
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.3441373Z  * [new ref]         6b6a412ce13cfff7582755e40f06307b79d48f22 -> origin/main
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.3449166Z ##[endgroup]
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.3450170Z ##[group]Determining the checkout info
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.3451104Z ##[endgroup]
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.3454362Z [command]/usr/bin/git sparse-checkout disable
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.3526419Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.3549734Z ##[group]Checking out the ref
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.3553425Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.3623449Z Switched to a new branch 'main'
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.3642215Z branch 'main' set up to track 'origin/main'.
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.3652677Z ##[endgroup]
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.3702041Z [command]/usr/bin/git log -1 --format=%H
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.3732774Z 6b6a412ce13cfff7582755e40f06307b79d48f22
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.3785502Z ##[group]Removing auth
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.3795652Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.3804843Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.4044874Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.4072496Z http.https://github.com/.extraheader
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.4078267Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.4102073Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+checks	Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:24.4239200Z ##[endgroup]
+checks	Record runtime and prepare contract fixtures	﻿2026-11-26T18:10:24.4426901Z ##[group]Run node --version
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:24.4427321Z ^[[36;1mnode --version^[[0m
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:24.4427649Z ^[[36;1mnode --test actions/checks.test.cjs^[[0m
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:24.4428324Z ^[[36;1mmkdir fixtures^[[0m
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:24.4428591Z ^[[36;1mnode - <<'JS'^[[0m
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:24.4428862Z ^[[36;1mconst fs=require('fs'),crypto=require('crypto');^[[0m
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:24.4429584Z ^[[36;1mfs.writeFileSync('fixtures/tool','Release 25.4.1.0 Production Build: 25.4.1.022.0618');^[[0m
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:24.4430103Z ^[[36;1mfs.writeFileSync('fixtures/config',JSON.stringify({sqlcl:{version:'25.4.1.0'}}));^[[0m
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:24.4430543Z ^[[36;1mfs.writeFileSync('fixtures/output','Native successful result');^[[0m
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:24.4430929Z ^[[36;1mfs.writeFileSync('fixtures/archive','qualified bytes');^[[0m
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:24.4431590Z ^[[36;1mfs.writeFileSync('fixtures/receipt',JSON.stringify({source:'a'.repeat(40),build:'25.4.1.022.0618',sha256:crypto.createHash('sha256').update('qualified bytes').digest('hex')}));^[[0m
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:24.4432276Z ^[[36;1mfs.writeFileSync('fixtures/bad','{}');^[[0m
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:24.4432551Z ^[[36;1mJS^[[0m
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:25.1277803Z shell: /usr/bin/bash -e {0}
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:25.1278183Z ##[endgroup]
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:27.3485987Z v22.23.5
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.1431589Z TAP version 13
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.1984375Z # Subtest: tool requires log and matching native metadata
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2005385Z ok 1 - tool requires log and matching native metadata
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2006100Z   ---
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2008521Z   duration_ms: 3.849019
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2011193Z   type: 'test'
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2012053Z   ...
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2012548Z # Subtest: output rejects error signatures and empty/missing files
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2013249Z ok 2 - output rejects error signatures and empty/missing files
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2013873Z   ---
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2014537Z   duration_ms: 4.330534
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2014923Z   type: 'test'
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2015234Z   ...
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2015596Z # Subtest: provenance explicit checks reject substitutions and malformed evidence
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2016153Z ok 3 - provenance explicit checks reject substitutions and malformed evidence
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2016516Z   ---
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2016724Z   duration_ms: 2.826444
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2016961Z   type: 'test'
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2017145Z   ...
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2086924Z 1..3
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2087413Z # tests 3
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2087932Z # suites 0
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2088337Z # pass 3
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2088745Z # fail 0
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2089448Z # cancelled 0
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2089867Z # skipped 0
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2090236Z # todo 0
+checks	Record runtime and prepare contract fixtures	2026-11-26T18:10:29.2090582Z # duration_ms 149.281292
+checks	Run ./actions/tool	﻿2026-11-26T18:10:29.2394064Z ##[group]Run ./actions/tool
+checks	Run ./actions/tool	2026-11-26T18:10:29.2394361Z with:
+checks	Run ./actions/tool	2026-11-26T18:10:29.2394577Z   log: fixtures/tool
+checks	Run ./actions/tool	2026-11-26T18:10:29.2394809Z   config: fixtures/config
+checks	Run ./actions/tool	2026-11-26T18:10:29.2395039Z ##[endgroup]
+checks	Run ./actions/tool	2026-11-26T18:10:29.2648237Z PASS tool
+checks	Run ./actions/output	﻿2026-11-26T18:10:29.2702483Z ##[group]Run ./actions/output
+checks	Run ./actions/output	2026-11-26T18:10:29.2702760Z with:
+checks	Run ./actions/output	2026-11-26T18:10:29.2702979Z   log: fixtures/output
+checks	Run ./actions/output	2026-11-26T18:10:29.2703193Z ##[endgroup]
+checks	Run ./actions/output	2026-11-26T18:10:29.2959797Z PASS output
+checks	Run ./actions/provenance	﻿2026-11-26T18:10:29.3008847Z ##[group]Run ./actions/provenance
+checks	Run ./actions/provenance	2026-11-26T18:10:29.3009732Z with:
+checks	Run ./actions/provenance	2026-11-26T18:10:29.3009947Z   archive: fixtures/archive
+checks	Run ./actions/provenance	2026-11-26T18:10:29.3010222Z   receipt: fixtures/receipt
+checks	Run ./actions/provenance	2026-11-26T18:10:29.3010489Z   source: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+checks	Run ./actions/provenance	2026-11-26T18:10:29.3010781Z   build: 25.4.1.022.0618
+checks	Run ./actions/provenance	2026-11-26T18:10:29.3011012Z ##[endgroup]
+checks	Run ./actions/provenance	2026-11-26T18:10:29.3293360Z PASS provenance
+checks	Run ./actions/provenance	﻿2026-11-26T18:10:29.3364638Z ##[group]Run ./actions/provenance
+checks	Run ./actions/provenance	2026-11-26T18:10:29.3364916Z with:
+checks	Run ./actions/provenance	2026-11-26T18:10:29.3365351Z   archive: fixtures/archive
+checks	Run ./actions/provenance	2026-11-26T18:10:29.3365591Z   receipt: fixtures/bad
+checks	Run ./actions/provenance	2026-11-26T18:10:29.3365861Z   source: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+checks	Run ./actions/provenance	2026-11-26T18:10:29.3366181Z   build: 25.4.1.022.0618
+checks	Run ./actions/provenance	2026-11-26T18:10:29.3366398Z ##[endgroup]
+checks	Run ./actions/provenance	2026-11-26T18:10:29.3621541Z Check rejected: source mismatch
+checks	Assert rejection prevented mutation	﻿2026-11-26T18:10:29.3707863Z ##[group]Run test "$OUTCOME" = failure
+checks	Assert rejection prevented mutation	2026-11-26T18:10:29.3708159Z ^[[36;1mtest "$OUTCOME" = failure^[[0m
+checks	Assert rejection prevented mutation	2026-11-26T18:10:29.3708441Z ^[[36;1mtest ! -e forbidden-mutation^[[0m
+checks	Assert rejection prevented mutation	2026-11-26T18:10:29.3732198Z shell: /usr/bin/bash -e {0}
+checks	Assert rejection prevented mutation	2026-11-26T18:10:29.3732471Z env:
+checks	Assert rejection prevented mutation	2026-11-26T18:10:29.3732710Z   OUTCOME: failure
+checks	Assert rejection prevented mutation	2026-11-26T18:10:29.3732951Z ##[endgroup]
+checks	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	﻿2026-11-26T18:10:29.3860355Z Post job cleanup.
+checks	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:29.4545909Z [command]/usr/bin/git version
+checks	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:29.4579834Z git version 2.56.1
+checks	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:29.4630296Z Temporarily overriding HOME='/home/runner/work/_temp/277838ea-376d-4e48-a6d5-1550d8c88083' before making global git config changes
+checks	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:29.4631351Z Adding repository directory to the temporary git global config as a safe directory
+checks	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:29.4632259Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/APEX_CICD_E.19/APEX_CICD_E.19
+checks	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:29.4680266Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+checks	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:29.4731156Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+checks	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:29.4964905Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+checks	Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683	2026-11-26T18:10:29.5019110Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+checks	Complete job	﻿2026-11-26T18:10:29.5473627Z Cleaning up orphan processes
+checks	Complete job	2026-11-26T18:10:29.5775797Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

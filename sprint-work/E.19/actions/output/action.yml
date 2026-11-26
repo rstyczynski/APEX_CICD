@@ -1,0 +1,12 @@
+name: Validate output
+description: Fail closed on invalid output evidence
+inputs:
+  log:
+    description: Required log input
+    required: true
+outputs:
+  validated:
+    description: True only after successful validation
+runs:
+  using: node24
+  main: index.cjs
