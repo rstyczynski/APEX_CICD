@@ -347,3 +347,6 @@ The verified [E.16 Actions correction](progress/E.16/sprint_E.16_actions_refacto
 ### Sprint E.17 — Independent clean-host reproduction in progress
 
 E.17 is active in YOLO mode for PBI-085. The [draft end-to-end walkthrough](progress/E.17/sprint_E.17_increment_demo.md), [manual](progress/E.17/user_manual.md) and [requirement ledger](progress/E.17/sprint_E.17_checklist.md) distinguish actual observations from pending qualification. The reviewed candidate/ordinary protected merge and stale-review refusal are verified in the dedicated E.17 repositories. Native Database/APEX/ORDS delivery, final regression and handover are still in progress. Shared [architecture](docs/architecture.md#e17-clean-host-experiment), [requirements navigation](docs/srs.md#e17-validation-navigation) and [test profile](docs/test-profile.md#e17-independent-host-reproduction) link the experiment's scope and evidence.
+
+
+The [E.17 acceptance amendment](progress/E.17/sprint_E.17_acceptance_amendment.md), explicitly approved by the Product Owner on 2026-11-26, accepts Codex-driven automated clean-host reproduction without a separate external operator. Remaining sprint quality and closure gates still apply; broader SRS independent-operator requirements retain their scope.

@@ -480,7 +480,7 @@ Mode: YOLO
 Test: smoke, unit, integration
 Regression: smoke, unit, integration
 
-Have another attributable operator reproduce the combined E.15/E.16 journey on an independent clean host with declared prerequisites and newly supplied private inputs. Demonstrate the complete Database, APEX, ORDS and native delivery path with preserved test data and no dependency on retained laboratory state.
+Reproduce the combined E.15/E.16 journey on an independent clean host with declared prerequisites and newly supplied private inputs. By explicit Product Owner amendment on 2026-11-26, Codex-driven automated reproduction satisfies this sprint without another external operator; the [acceptance decision](progress/E.17/sprint_E.17_acceptance_amendment.md) records the limited change. Demonstrate the complete Database, APEX, ORDS and native delivery path with preserved test data and no dependency on retained laboratory state.
 
 Backlog Items:
 
