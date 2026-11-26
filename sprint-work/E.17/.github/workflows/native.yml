@@ -1,0 +1,282 @@
+name: Clean host delivery
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  native:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      ORACLE_CONTAINER: e17-author
+      TARGET_CONTAINER: e17-target
+    steps:
+      - name: Prepare declared clean host disk capacity
+        run: |
+          df -h
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc /usr/local/.ghcup /opt/hostedtoolcache/CodeQL
+          df -h
+      - name: Start isolated Oracle databases
+        run: |
+          docker run -d --name e17-author -e ORACLE_RANDOM_PASSWORD=yes -p 127.0.0.1:1521:1521 --health-cmd healthcheck.sh --health-interval 10s --health-timeout 5s --health-retries 40 gvenzl/oracle-free@sha256:cebd977833411a42170777d8e9ccf616a028a2bb137ae96498354ab6c7510268
+          docker run -d --name e17-target -e ORACLE_RANDOM_PASSWORD=yes -p 127.0.0.1:1522:1521 --health-cmd healthcheck.sh --health-interval 10s --health-timeout 5s --health-retries 40 gvenzl/oracle-free@sha256:cebd977833411a42170777d8e9ccf616a028a2bb137ae96498354ab6c7510268
+          for container in e17-author e17-target; do
+            # shellcheck disable=SC2016
+            timeout 480 bash -c 'until test "$(docker inspect --format="{{.State.Health.Status}}" "$1")" = healthy; do sleep 5; done' -- "$container"
+          done
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install qualified SQLcl
+        run: |
+          curl --fail --location --retry 3 https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-25.4.1.022.0618.zip -o "$RUNNER_TEMP/sqlcl.zip"
+          echo "b717d83aa1a7ada2ca38e7c8be5b369ea6a2f9f50c5fdb55e18d263b471ecab9  $RUNNER_TEMP/sqlcl.zip" | sha256sum -c -
+          unzip -q "$RUNNER_TEMP/sqlcl.zip" -d "$RUNNER_TEMP/tools"
+          chmod +x "$RUNNER_TEMP/tools/sqlcl/bin/sql"
+          echo "SQL_EXE=$RUNNER_TEMP/tools/sqlcl/bin/sql" >> "$GITHUB_ENV"
+          curl --fail --location --retry 3 https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-25.3.0.274.1210.zip -o "$RUNNER_TEMP/incompatible.zip"
+          echo "4ce293bc11685050ea37baa3abac986018746df4baea492cdb8deaebee7e8ba7  $RUNNER_TEMP/incompatible.zip" | sha256sum -c -
+          unzip -q "$RUNNER_TEMP/incompatible.zip" -d "$RUNNER_TEMP/incompatible"
+          chmod +x "$RUNNER_TEMP/incompatible/sqlcl/bin/sql"
+          echo "INCOMPATIBLE_SQL_EXE=$RUNNER_TEMP/incompatible/sqlcl/bin/sql" >> "$GITHUB_ENV"
+      - name: Supply fresh private inputs and schemas
+        run: python3 provision_host.py inputs
+      - name: Acquire checksum pinned APEX
+        run: python3 provision_host.py apex-download
+      - name: Install APEX natively
+        run: python3 provision_host.py apex-install
+      - name: Configure APEX workspace
+        run: python3 provision_host.py apex-configure
+      - name: Import application through native APEX API
+        run: python3 provision_host.py application-import
+      - name: Install ORDS natively
+        run: python3 provision_host.py ords-install
+      - name: Start ORDS listener
+        run: python3 provision_host.py ords-start
+      - name: Verify initial application access
+        run: python3 provision_host.py verify
+      - name: Initialize job-private workspace
+        run: |
+          mkdir -p "$RUNNER_TEMP/native" result
+          sha256sum .github/workflows/native.yml sql.sh check_tool.py check_output.py provenance.py > result/reviewed-inputs.sha256
+      - name: Save job-private SQLcl connections
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          bash "$GITHUB_WORKSPACE/sql.sh" - connections <<SQL
+          connect -save native-author -savepwd AUTHOR16/${NATIVE_PASSWORD}@//127.0.0.1:1521/FREEPDB1
+          connect -save native-target -savepwd AUTHOR16/${NATIVE_PASSWORD}@//127.0.0.1:1522/FREEPDB1
+          SQL
+      - name: Create author fixture
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          bash "$GITHUB_WORKSPACE/sql.sh" native-author author-initial <<'SQL'
+          create table preserved (id number primary key, message varchar2(80));
+          SQL
+      - name: Initialize native SQLcl project
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          bash "$GITHUB_WORKSPACE/sql.sh" native-author init <<'SQL'
+          project init -name native16 -schemas AUTHOR16
+          SQL
+          jq -e '.sqlcl.version == "25.4.1.0"' .dbtools/project.config.json
+          jq '.sqlcl.connectionName = "native-author"' .dbtools/project.config.json > config.json
+          mv config.json .dbtools/project.config.json
+          mkdir -p dist/releases/apex
+          git init -b baseline
+          git config user.email native16@example.invalid
+          git config user.name 'E16 experiment'
+          git add .
+          git commit -m 'chore: initialize native project'
+          git switch -c release
+      - name: Export source 1.0.0
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          bash "$GITHUB_WORKSPACE/sql.sh" native-author export-1 <<'SQL'
+          project export -schemas AUTHOR16
+          SQL
+          git add .
+          git commit -m 'feat: reviewed source 1.0.0'
+      - name: Stage changes 1.0.0
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          bash "$GITHUB_WORKSPACE/sql.sh" native-author stage-1 <<'SQL'
+          project stage -branch-name baseline
+          SQL
+      - name: Verify changes 1.0.0
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          bash "$GITHUB_WORKSPACE/sql.sh" native-author verify-1 <<'SQL'
+          project verify -compared-branch-name baseline -verbose
+          SQL
+      - name: Prepare release 1.0.0
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          bash "$GITHUB_WORKSPACE/sql.sh" native-author release-1 <<'SQL'
+          project release -version 1.0.0
+          SQL
+          git add .
+          git commit -m 'chore: prepare native release 1.0.0'
+      - name: Package release 1.0.0
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          bash "$GITHUB_WORKSPACE/sql.sh" native-author package-1.0.0 <<'SQL'
+          project gen-artifact -name native16 -version 1.0.0
+          SQL
+          archive=$(find . -name 'native16-1.0.0.zip')
+          test -f "$archive"
+          cp "$archive" "$GITHUB_WORKSPACE/result/native16-1.0.0.zip"
+          jq -n --arg source "$(git rev-parse HEAD)" --arg build '25.4.1.022.0618' --arg sha256 "$(sha256sum "$archive" | cut -d ' ' -f 1)" --arg version '1.0.0' --arg workflow_source "$GITHUB_SHA" --arg workflow_run "$GITHUB_RUN_ID" --arg reviewed_inputs_sha256 "$(sha256sum "$GITHUB_WORKSPACE/result/reviewed-inputs.sha256" | cut -d ' ' -f 1)" '$ARGS.named' > "$GITHUB_WORKSPACE/result/receipt-1.0.0.json"
+      - name: Install verified release 1.0.0
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          python3 "$GITHUB_WORKSPACE/provenance.py" "$GITHUB_WORKSPACE/result/native16-1.0.0.zip" "$GITHUB_WORKSPACE/result/receipt-1.0.0.json" "$(git rev-parse HEAD)" '25.4.1.022.0618'
+          bash "$GITHUB_WORKSPACE/sql.sh" native-target install <<SQL
+          project deploy -file $GITHUB_WORKSPACE/result/native16-1.0.0.zip
+          SQL
+      - name: Seed retained target data
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          bash "$GITHUB_WORKSPACE/sql.sh" native-target seed <<'SQL'
+          insert into preserved values (1,'retained across upgrade');
+          commit;
+          SQL
+      - name: Apply additive author change
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          git branch -f baseline HEAD
+          bash "$GITHUB_WORKSPACE/sql.sh" native-author author-upgrade <<'SQL'
+          alter table preserved add (extra varchar2(80));
+          SQL
+      - name: Export source 1.1.0
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          bash "$GITHUB_WORKSPACE/sql.sh" native-author export-2 <<'SQL'
+          project export -schemas AUTHOR16
+          SQL
+          git add .
+          git commit -m 'feat: reviewed source 1.1.0'
+      - name: Stage changes 1.1.0
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          bash "$GITHUB_WORKSPACE/sql.sh" native-author stage-2 <<'SQL'
+          project stage -branch-name baseline
+          SQL
+      - name: Verify changes 1.1.0
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          bash "$GITHUB_WORKSPACE/sql.sh" native-author verify-2 <<'SQL'
+          project verify -compared-branch-name baseline -verbose
+          SQL
+      - name: Prepare release 1.1.0
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          bash "$GITHUB_WORKSPACE/sql.sh" native-author release-2 <<'SQL'
+          project release -version 1.1.0
+          SQL
+          git add .
+          git commit -m 'chore: prepare native release 1.1.0'
+      - name: Package release 1.1.0
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          bash "$GITHUB_WORKSPACE/sql.sh" native-author package-1.1.0 <<'SQL'
+          project gen-artifact -name native16 -version 1.1.0
+          SQL
+          archive=$(find . -name 'native16-1.1.0.zip')
+          test -f "$archive"
+          cp "$archive" "$GITHUB_WORKSPACE/result/native16-1.1.0.zip"
+          jq -n --arg source "$(git rev-parse HEAD)" --arg build '25.4.1.022.0618' --arg sha256 "$(sha256sum "$archive" | cut -d ' ' -f 1)" --arg version '1.1.0' --arg workflow_source "$GITHUB_SHA" --arg workflow_run "$GITHUB_RUN_ID" --arg reviewed_inputs_sha256 "$(sha256sum "$GITHUB_WORKSPACE/result/reviewed-inputs.sha256" | cut -d ' ' -f 1)" '$ARGS.named' > "$GITHUB_WORKSPACE/result/receipt-1.1.0.json"
+      - name: Upgrade with verified release 1.1.0
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          python3 "$GITHUB_WORKSPACE/provenance.py" "$GITHUB_WORKSPACE/result/native16-1.1.0.zip" "$GITHUB_WORKSPACE/result/receipt-1.1.0.json" "$(git rev-parse HEAD)" '25.4.1.022.0618'
+          bash "$GITHUB_WORKSPACE/sql.sh" native-target upgrade <<SQL
+          project deploy -file $GITHUB_WORKSPACE/result/native16-1.1.0.zip
+          SQL
+      - name: Assert retained data after upgrade
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          bash "$GITHUB_WORKSPACE/sql.sh" native-target assert-upgrade <<'SQL'
+          select id,message,extra from preserved;
+          begin
+           declare n number; begin select count(*) into n from preserved where id=1 and message='retained across upgrade'; if n<>1 then raise_application_error(-20016,'lost data');end if;end;
+          end;
+          /
+          SQL
+      - name: Repeat identical verified release 1.1.0
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          python3 "$GITHUB_WORKSPACE/provenance.py" "$GITHUB_WORKSPACE/result/native16-1.1.0.zip" "$GITHUB_WORKSPACE/result/receipt-1.1.0.json" "$(git rev-parse HEAD)" '25.4.1.022.0618'
+          bash "$GITHUB_WORKSPACE/sql.sh" native-target repeat <<SQL
+          project deploy -file $GITHUB_WORKSPACE/result/native16-1.1.0.zip
+          SQL
+      - name: Assert retained data after repeat
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          bash "$GITHUB_WORKSPACE/sql.sh" native-target assert-repeat <<'SQL'
+          select id,message,extra from preserved;
+          begin
+           declare n number; begin select count(*) into n from preserved where id=1 and message='retained across upgrade'; if n<>1 then raise_application_error(-20016,'lost data');end if;end;
+          end;
+          /
+          SQL
+      - name: Observe target before refusal checks
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          bash "$GITHUB_WORKSPACE/sql.sh" native-target negative-before <<'SQL'
+          select id,message,extra from preserved;
+          SQL
+      - name: Reject mismatched artifact evidence
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          jq '.sha256 = "0000000000000000000000000000000000000000000000000000000000000000"' "$GITHUB_WORKSPACE/result/receipt-1.1.0.json" > "$RUNNER_TEMP/wrong-receipt.json"
+          if python3 "$GITHUB_WORKSPACE/provenance.py" "$GITHUB_WORKSPACE/result/native16-1.1.0.zip" "$RUNNER_TEMP/wrong-receipt.json" "$(git rev-parse HEAD)" '25.4.1.022.0618' > "$GITHUB_WORKSPACE/result/reject-artifact.txt" 2>&1; then exit 1; fi
+          grep -qx 'artifact mismatch' "$GITHUB_WORKSPACE/result/reject-artifact.txt"
+      - name: Reject mismatched source evidence
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          jq '.source = "0000000000000000000000000000000000000000"' "$GITHUB_WORKSPACE/result/receipt-1.1.0.json" > "$RUNNER_TEMP/wrong-receipt.json"
+          if python3 "$GITHUB_WORKSPACE/provenance.py" "$GITHUB_WORKSPACE/result/native16-1.1.0.zip" "$RUNNER_TEMP/wrong-receipt.json" "$(git rev-parse HEAD)" '25.4.1.022.0618' > "$GITHUB_WORKSPACE/result/reject-source.txt" 2>&1; then exit 1; fi
+          grep -qx 'source mismatch' "$GITHUB_WORKSPACE/result/reject-source.txt"
+      - name: Reject actual incompatible SQLcl build
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          "$INCOMPATIBLE_SQL_EXE" -version > "$GITHUB_WORKSPACE/result/incompatible-tool.txt" 2>&1
+          wrong_build=$(grep -oE '25[.]3[.]0[.]274[.]1210' "$GITHUB_WORKSPACE/result/incompatible-tool.txt")
+          if python3 "$GITHUB_WORKSPACE/provenance.py" "$GITHUB_WORKSPACE/result/native16-1.1.0.zip" "$GITHUB_WORKSPACE/result/receipt-1.1.0.json" "$(git rev-parse HEAD)" "$wrong_build" > "$GITHUB_WORKSPACE/result/reject-tool.txt" 2>&1; then exit 1; fi
+          grep -qx 'tool mismatch' "$GITHUB_WORKSPACE/result/reject-tool.txt"
+      - name: Reject substituted archive bytes
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          cp "$GITHUB_WORKSPACE/result/native16-1.1.0.zip" "$GITHUB_WORKSPACE/result/substituted.zip"
+          printf 'altered' >> "$GITHUB_WORKSPACE/result/substituted.zip"
+          if python3 "$GITHUB_WORKSPACE/provenance.py" "$GITHUB_WORKSPACE/result/substituted.zip" "$GITHUB_WORKSPACE/result/receipt-1.1.0.json" "$(git rev-parse HEAD)" '25.4.1.022.0618' > "$GITHUB_WORKSPACE/result/reject-substituted-bytes.txt" 2>&1; then exit 1; fi
+          grep -qx 'artifact mismatch' "$GITHUB_WORKSPACE/result/reject-substituted-bytes.txt"
+      - name: Assert refusal cases preserved target
+        working-directory: ${{ runner.temp }}/native
+        run: |
+          bash "$GITHUB_WORKSPACE/sql.sh" native-target negative-after <<'SQL'
+          select id,message,extra from preserved;
+          SQL
+          cmp "$GITHUB_WORKSPACE/result/negative-before.log" "$GITHUB_WORKSPACE/result/negative-after.log"
+          git bundle create "$GITHUB_WORKSPACE/result/native-history.bundle" --all
+          jq -n --arg source "$(git rev-parse HEAD)" '{native_install:true,native_upgrade:true,native_repeat:true,preserved:true,negatives:["artifact","source","tool","substituted-bytes"],source:$source}' > "$GITHUB_WORKSPACE/result/success.json"
+      - name: Verify application after native delivery
+        run: python3 provision_host.py verify
+      - name: Clean job-private connection material
+        if: always()
+        run: |
+          rm -rf "$RUNNER_TEMP/private-sqlcl" "$RUNNER_TEMP/e17-private"
+          docker rm -f e17-ords e17-author e17-target || true
+          test ! -e "$RUNNER_TEMP/private-sqlcl"
+          test ! -e "$RUNNER_TEMP/e17-private"
+          echo 'PASS private inputs removed' > result/cleanup.txt
+          rm -f "$RUNNER_TEMP/wrong-receipt.json"
+      - name: Preserve experiment evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: native-${{ github.run_id }}
+          path: result/
