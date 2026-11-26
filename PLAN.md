@@ -475,7 +475,7 @@ Backlog Items:
 
 ## Sprint E.17 - Reproduce complete native delivery on a clean host
 
-Status: Planned
+Status: Progress
 Mode: YOLO
 Test: smoke, unit, integration
 Regression: smoke, unit, integration
