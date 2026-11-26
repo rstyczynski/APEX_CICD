@@ -56,3 +56,6 @@ unit:test_hosted.sh:test_hosted_receipt
 smoke:test_native_provenance.sh:test_native_source
 unit:test_native_provenance.sh:test_native_guard
 integration:test_native_provenance.sh:test_native_hosted
+smoke:test_clean_host.sh:test_clean_host_source
+unit:test_clean_host.sh:test_clean_host_receipt
+integration:test_clean_host.sh:test_clean_host_real
