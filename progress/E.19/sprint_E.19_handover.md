@@ -1,0 +1,9 @@
+# E.19 handover — pending
+
+Sprint remains Progress, PBI-087 under_construction. This is a resumable engineering record, not accepted handover or closure. [Requirement checklist](sprint_E.19_checklist.md) identifies unfinished outcomes. [Screenshot gallery](screenshots/index.html) preserves actual initial hosted inspection. [Chat archive index](chat/index.md) links timestamped native snapshots and readable companions with exact coverage limitations.
+
+Progress commit 8aa28b9 preserves activation, initial implementation and evidence; it is not a PBI completion marker. Companion commits 6b6a412 and 0af293e contain the initial actions and catalogue. Three Node contract groups pass. Full smoke/unit regression passes 17/17 and 19/19. Hosted contract run 45873741697 passes. Native deployment integration, complete catalogue coverage, timing samples, full integration regression, rendered gallery validation and presentation/demonstration remain unfinished. No external blocker has been established. No actual Product Owner reaction is recorded.
+
+## Resume path
+
+Read setup/design/checklist and inspect the actual Git state. Finish the workflow-wide inventory, including inline trusted Review/candidate checks and embedded provisioner checks. Qualify action-level valid/negative cases and real native use, record equivalent Python/JavaScript measurements, register and run the required six gates, then prepare and operate the live demonstration and reviewed presentation pair. Complete P8 reconciliation against shared requirements/architecture/test profile/README and evidence before assigning completion. Preserve the four unrelated pre-existing edits. Refresh the native chat archive immediately on any continuation and before final handover. Only then apply canonical closure and final publication.
