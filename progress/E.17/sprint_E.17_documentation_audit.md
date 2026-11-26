@@ -1,3 +1,5 @@
 # E.17 documentation audit
 
 Activation/setup increment: read SRS, architecture references, test profile, E.15/E.16 design/implementation/handover and actual workflow source. Existing claims are historical, not E.17 proof. PLAN activation is explicitly authorized; board tracks analysis only. Setup, design and checklist distinguish acceptance from choices. README and product documents do not yet claim E.17 completion. Implementation, test execution and handover remain pending; this is a setup commit, not a completed PBI marker. No retained private input was opened or copied.
+
+Resumption design increment: verified E.16 final acceptance c7218cd and matching origin. Inspected existing E.17 source and found its unrun monolithic lifecycle invocation obsolete under native responsibilities. Revised design reuses E.16 named Actions phases. Acceptance checklist remains wholly pending; no test or implementation completion is claimed. Setup contract and plan scope remain unchanged. Design-only whitespace check passes; implementation trials are uncommitted scratch pending qualification.
