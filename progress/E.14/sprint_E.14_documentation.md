@@ -8,7 +8,7 @@ The manager-authorized combined setup file contains Contract and Analysis; a red
 
 The complete walkthrough contains the verified SQL before script invocation, with one canonical presentation pair and a separate operator reference. Narrative evidence uses paragraphs rather than the generic tables, following the explicit local Product Owner preference. Raw logs retain original paths while fresh historical-regression outputs are relocated into E.14 and original evidence bytes restored.
 
-The chronology deviation in executable test registration is disclosed, with an actual maintenance-mutation failure as sensitivity evidence. It does not fabricate a test-first run or waive any acceptance test. Earlier sprint lifecycle discrepancies are reported in the assessment and not silently corrected outside E.14.
+The chronology deviation in executable test registration is disclosed, with an actual maintenance-mutation failure as sensitivity evidence. It does not fabricate a test-first run or waive any acceptance test. Earlier sprint lifecycle discrepancies were reported in the original assessment. The subsequent Product Owner-authorized [resolution record](production_follow_up.md#recorded-lifecycle-inconsistencies) documents the 2026-11-26 correction of five backlog statuses against their closure evidence; earlier sprint artifacts remain historical evidence.
 
 ## Validation and traceability
 

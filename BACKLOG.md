@@ -358,7 +358,7 @@ Introduce a Foundation 2.0.0 public contract requiring greeting templates and st
 
 Test: Demonstrate continuous successful old and new contract traffic with one consumer migrated and the other unchanged, preserved data through interruption and return to legacy operation, and legacy retirement only after all old callers have left.
 
-Status: Proposed
+Status: Done
 
 ### PBI-050. Prove an in-place Foundation upgrade with component windows
 
@@ -542,7 +542,7 @@ Test whether candidate execution, review publication and release authority can b
 
 Test: Demonstrate denied privileged access from an untrusted candidate, inert review command text, protected validator-policy changes, and no marker in retained logs, reports or caches.
 
-Status: Proposed
+Status: Done
 
 ### PBI-073. Validate concurrent PR isolation and superseded-run cancellation
 
@@ -550,7 +550,7 @@ Determine whether two candidate streams can test concurrently without sharing mu
 
 Test: Demonstrate isolated data and external effects, cancellation of obsolete work only for its own PR, deduplicated authoritative results, a permitted deliberate retry and refusal of stale completion.
 
-Status: Proposed
+Status: Done
 
 ### PBI-074. Validate bounded waits and cleanup after interrupted testing
 
@@ -558,7 +558,7 @@ Evaluate how a small test run terminates and reclaims its resources when service
 
 Test: Demonstrate finite failure for unavailable services, bounded transient retries, no assertion retry-until-green, and scoped reclamation after success, failure, timeout, cancellation and forced termination without removing another run’s resources.
 
-Status: Proposed
+Status: Done
 
 ### PBI-075. Compare reproducible runner setup and feedback latency
 
@@ -622,4 +622,4 @@ Determine whether the proposed compatibility bridge preserves consistent shared 
 
 Test: Demonstrate either the declared consistency and recovery outcomes or a reproducible counterexample, including partial-write failure, old/new read visibility and the supported limits on return to legacy operation.
 
-Status: Proposed
+Status: Done

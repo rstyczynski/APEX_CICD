@@ -1,0 +1,75 @@
+{
+  "date": "2026-11-26",
+  "scope": "Five backlog status corrections and connected assessment guidance",
+  "backlog_status_changes": {
+    "PBI-049": "Proposed -> Done",
+    "PBI-072": "Proposed -> Done",
+    "PBI-073": "Proposed -> Done",
+    "PBI-074": "Proposed -> Done",
+    "PBI-082": "Proposed -> Done"
+  },
+  "only_five_backlog_lines_changed": true,
+  "sprints_checked": "E.5-E.14: PLAN and board Done; five PBI assignments and board rows Done",
+  "retained_gates": [
+    {
+      "path": "progress/E.10/test_run_A1_smoke_20261125_192728.log",
+      "expected_entries": 1,
+      "failed": 0
+    },
+    {
+      "path": "progress/E.10/test_run_A2_unit_20261125_192728.log",
+      "expected_entries": 1,
+      "failed": 0
+    },
+    {
+      "path": "progress/E.10/test_run_A3_integration_20261125_192849.log",
+      "expected_entries": 1,
+      "failed": 0
+    },
+    {
+      "path": "progress/E.10/test_run_B1_smoke_20261125_192812.log",
+      "expected_entries": 8,
+      "failed": 0
+    },
+    {
+      "path": "progress/E.10/test_run_B2_unit_20261125_192818.log",
+      "expected_entries": 7,
+      "failed": 0
+    },
+    {
+      "path": "progress/E.13/tests/test_run_A1_smoke_20261125_220026.log",
+      "expected_entries": 1,
+      "failed": 0
+    },
+    {
+      "path": "progress/E.13/tests/test_run_A2_unit_20261125_220026.log",
+      "expected_entries": 1,
+      "failed": 0
+    },
+    {
+      "path": "progress/E.13/tests/test_run_A3_integration_20261125_220026.log",
+      "expected_entries": 1,
+      "failed": 0
+    },
+    {
+      "path": "progress/E.13/tests/test_run_B1_smoke_20261125_220033.log",
+      "expected_entries": 12,
+      "failed": 0
+    },
+    {
+      "path": "progress/E.13/tests/test_run_B2_unit_20261125_220037.log",
+      "expected_entries": 13,
+      "failed": 0
+    },
+    {
+      "path": "progress/E.13/tests/test_run_B3_integration_20261125_220045.log",
+      "expected_entries": 22,
+      "failed": 0
+    }
+  ],
+  "local_links_checked": 303,
+  "markdown_anchors_checked": 73,
+  "scoped_diff_check_exit": 0,
+  "errors": [],
+  "limitations": "Retained gate logs inspected; no runtime re-execution. External URLs and non-Markdown fragments not validated. Production acceptance and Lifecycle Architecture decision unchanged."
+}

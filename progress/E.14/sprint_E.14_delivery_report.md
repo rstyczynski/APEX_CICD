@@ -8,7 +8,7 @@ Setup/contract/analysis are complete in [setup](sprint_E.14_setup.md). The self-
 
 ## Assigned outcomes
 
-[PBI-050 evidence](sprint_E.14_remaining_work.md) verifies separate component windows in one populated qualified fixture, unaffected real read/write traffic, old/new coexistence and interrupted migration recovery with retained history/configuration. This does not claim a production APEX release or universal availability. [PBI-080 assessment](architecture_assessment.md) delivers traceable risk findings, explicit untested cases and a proposed Construction sequence. The [existing production inventory](production_follow_up.md) preserves actual Proposed statuses and records earlier lifecycle discrepancies. Lifecycle Architecture acceptance remains a separate Product Owner decision.
+[PBI-050 evidence](sprint_E.14_remaining_work.md) verifies separate component windows in one populated qualified fixture, unaffected real read/write traffic, old/new coexistence and interrupted migration recovery with retained history/configuration. This does not claim a production APEX release or universal availability. [PBI-080 assessment](architecture_assessment.md) delivers traceable risk findings, explicit untested cases and a proposed Construction sequence. The [existing production inventory](production_follow_up.md) preserves actual Proposed statuses and records the evidence-backed resolution of five earlier lifecycle discrepancies on 2026-11-26. Lifecycle Architecture acceptance remains a separate Product Owner decision.
 
 ## Quality gates
 
@@ -36,8 +36,8 @@ The private sprint experiment repository contains commit `4750f729c0bc93c0d1befb
 
 ## Scoped changes
 
-The increment changes PLAN.md, PROGRESS_BOARD.md, README.md, .gitattributes, the maintained SRS/architecture/test profile/validation programme, the new Foundation window driver, three Foundation domain test files, both Foundation and default delivery registries, E.14 evidence/documents and assigned-PBI traceability links. BACKLOG.md statuses and earlier sprint files remain unchanged. Generated historical evidence is relocated to E.14 and original bytes restored. Separately staged .codex-cli removals and the .gitignore edit remain outside this work.
+The increment changes PLAN.md, PROGRESS_BOARD.md, README.md, .gitattributes, the maintained SRS/architecture/test profile/validation programme, the new Foundation window driver, three Foundation domain test files, both Foundation and default delivery registries, E.14 evidence/documents and assigned-PBI traceability links. The original delivery left BACKLOG.md statuses and earlier sprint files unchanged. The subsequent [2026-11-26 reconciliation](production_follow_up.md#recorded-lifecycle-inconsistencies) changes only five BACKLOG.md Status lines to Done; earlier sprint files remain unchanged. Generated historical evidence is relocated to E.14 and original bytes restored. Separately staged .codex-cli removals and the .gitignore edit remain outside this work.
 
 ## Remaining boundaries
 
-No assigned sprint requirement or finalization action remains open from the initial delivery. Lifecycle Architecture acceptance is separate. Production readiness, capacity characterization and the earlier lifecycle discrepancies remain explicit findings in the assessment. The current documentation-only correction does not change executable behavior or reopen the sprint.
+No assigned sprint requirement or finalization action remains open from the initial delivery. Lifecycle Architecture acceptance is separate. Production readiness and capacity characterization remain explicit findings in the assessment; the five earlier lifecycle discrepancies are resolved in the linked reconciliation record. The current documentation-only correction does not change executable behavior or reopen the sprint.

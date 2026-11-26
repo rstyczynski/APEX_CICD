@@ -291,7 +291,7 @@ The Product Owner clarified that actual project progress is published to APEX_CI
 
 The [E.14 walkthrough](progress/E.14/sprint_E.14_increment_demo.md) owns the separate-window laboratory journey; the [assessment](progress/E.14/architecture_assessment.md) links accumulated risk evidence and proposes conditional Construction planning. The [checklist](progress/E.14/sprint_E.14_remaining_work.md) distinguishes mandatory experiment criteria from implementation choices and unverified production behavior. Lifecycle Architecture acceptance remains a separate Product Owner decision.
 
-The [existing production follow-up inventory](progress/E.14/production_follow_up.md) preserves each Proposed item's definition/status and proposes dependency groups; it records earlier lifecycle discrepancies without changing their authoritative entries.
+The [existing production follow-up inventory](progress/E.14/production_follow_up.md) preserves each Proposed item's definition/status and proposes dependency groups; its [resolution record](progress/E.14/production_follow_up.md#recorded-lifecycle-inconsistencies) documents the Product Owner-authorized correction of five E.10/E.13 backlog statuses to Done on 2026-11-26, matching their acceptance and closure evidence.
 
 E.14 is closed and its progress is published to origin/main. The [closure record](progress/E.14/sprint_E.14_closure.md) owns the accepted bounded outcome; the [blocker disposition](progress/E.14/sprint_E.14_blockers.md) records resolved historical conditions.
 

@@ -14,6 +14,6 @@ The [walkthrough](sprint_E.14_increment_demo.md), [manual](user_manual.md), edit
 
 ## Boundaries and publication
 
-Lifecycle Architecture acceptance remains a separate Product Owner decision. No Construction sprint is created or activated. Production rollout, real caller discovery/fencing, host-crash recovery, unrestricted-load availability and complete clean-host reproduction remain unqualified. Earlier E.10/E.13 lifecycle discrepancies identified by the assessment are preserved for separate reconciliation.
+Lifecycle Architecture acceptance remains a separate Product Owner decision. No Construction sprint is created or activated. Production rollout, real caller discovery/fencing, host-crash recovery, unrestricted-load availability and complete clean-host reproduction remain unqualified. The earlier E.10/E.13 lifecycle discrepancies identified at closure were subsequently [resolved on 2026-11-26](production_follow_up.md#recorded-lifecycle-inconsistencies) by reconciling five backlog statuses with retained acceptance and closure evidence. This correction does not reopen the sprint or decide the Lifecycle Architecture milestone.
 
 Actual progress is published to the existing APEX_CICD origin/main, following the Product Owner's repository direction. Sprint-specific repositories are for experiments. Unrelated .codex-cli removals and .gitignore changes are excluded. No remote rewrite or force push is required. Remote publication is checked against the resulting local HEAD after push.

@@ -32,11 +32,11 @@ No completed experiment grants production acceptance or advances the project lif
 
 ## Existing backlog and governance disposition
 
-The [production follow-up inventory](production_follow_up.md) enumerates existing Proposed items, their exact root definitions and a proposed dependency grouping without changing Product Owner priorities or assigning sprints. It also exposes the root-backlog/PLAN status discrepancies for E.10 and E.13; prior closure claims are not substituted for behavior evidence or for consistent lifecycle records. Reconciliation belongs in the separate architecture baseline decision.
+The [production follow-up inventory](production_follow_up.md) enumerates existing Proposed items, their exact root definitions and a proposed dependency grouping without changing Product Owner priorities or assigning sprints. The five root-backlog/PLAN status discrepancies for E.10 and E.13 were resolved on 2026-11-26 at the Product Owner’s explicit request: PBI-072, PBI-073, PBI-074, PBI-049 and PBI-082 now record Done in BACKLOG, matching their existing sprint assignments and Done board rows. The [resolution record](production_follow_up.md#recorded-lifecycle-inconsistencies) traces the correction to acceptance tests, handover decisions and closure evidence, and explains the previous interpretation. This resolves the recorded inconsistency; the separate Product Owner Lifecycle Architecture decision remains pending.
 
 ## Evidence freshness
 
-Earlier sprint reports retain their recorded run dates, tool builds and experiment scopes. E.14's fresh full regression re-executes the registered current cases; it does not repeat every historical manual browser observation, hosted workflow or independent-operator journey. A test log or direct observation supports only its stated behavior. Prior closure prose is used to locate decisions, not to establish a successful behavior by itself. The root lifecycle discrepancies above remain explicit rather than being resolved by a passing test.
+Earlier sprint reports retain their recorded run dates, tool builds and experiment scopes. E.14's fresh full regression re-executes the registered current cases; it does not repeat every historical manual browser observation, hosted workflow or independent-operator journey. A test log or direct observation supports only its stated behavior. Prior closure prose is used to locate decisions, not to establish a successful behavior by itself. The five backlog status corrections use the retained acceptance and closure evidence under the Product Owner’s reconciliation request; no fresh runtime result or production acceptance is inferred.
 
 ## Newly observed operating risk
 

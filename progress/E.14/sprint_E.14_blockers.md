@@ -10,4 +10,4 @@ Earlier Git index access and escalation attempts failed during the initial run. 
 
 The real integration environment interruption was also recovered without SSH. [Recovery evidence](tests/environment-recovery.md) preserves observed errors, supported database/service recovery and the successful unchanged-source retry. Its root cause remains unconfirmed, as recorded in the [architecture assessment](architecture_assessment.md). That production operating-risk finding does not reopen this completed bounded experiment.
 
-Lifecycle Architecture acceptance remains a separate Product Owner decision under PLAN. Earlier E.10/E.13 record discrepancies and unqualified production cases remain assessment findings, not active E.14 commit or publication blockers.
+Lifecycle Architecture acceptance remains a separate Product Owner decision under PLAN. The earlier five E.10/E.13 record discrepancies were [resolved on 2026-11-26](production_follow_up.md#recorded-lifecycle-inconsistencies) through the backlog procedure. Unqualified production cases remain assessment findings, not active E.14 commit or publication blockers.

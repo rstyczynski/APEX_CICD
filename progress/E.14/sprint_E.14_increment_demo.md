@@ -720,7 +720,7 @@ code progress/E.14/architecture_assessment.md
 
 ## Existing production work and lifecycle records
 
-The [production follow-up inventory](production_follow_up.md) enumerates every existing Proposed item relevant to the proposed sequence, preserving literal root statuses and linking each definition. The proposed priority groups do not reorder BACKLOG or assign a sprint. It also identifies prior E.10/E.13 backlog-versus-plan discrepancies. Review those sources separately from test behavior before the Product Owner's Lifecycle Architecture decision. No new backlog item was registered during E.14.
+The [production follow-up inventory](production_follow_up.md) enumerates every existing Proposed item relevant to the proposed sequence, preserving literal root statuses and linking each definition. The proposed priority groups do not reorder BACKLOG or assign a sprint. Its [resolution record](production_follow_up.md#recorded-lifecycle-inconsistencies) documents the 2026-11-26 correction of five E.10/E.13 backlog statuses to Done against their acceptance and closure evidence. Review those sources separately from test behavior before the Product Owner's Lifecycle Architecture decision. No new backlog item was registered during E.14.
 
 ## Current slide map
 
