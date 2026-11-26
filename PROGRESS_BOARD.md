@@ -67,6 +67,6 @@
 | Sprint E.14 | Done | PBI-050 | Done |
 | Sprint E.14 | Done | PBI-080 | Done |
 | Sprint E.15 | Done | PBI-083 | Done |
-| Sprint E.16 | implemented | PBI-084 | tested |
+| Sprint E.16 | Done | PBI-084 | Done |
 | Sprint E.17 | Planned | PBI-085 | Planned |
 | Sprint E.18 | Planned | PBI-086 | Planned |

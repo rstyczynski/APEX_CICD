@@ -25,3 +25,5 @@ Native acceptance is verified; final regression and closure status are owned by 
 | `sprint-work/E.16/build_deck.mjs` | Editable presentation source | Final rendered package and import audit |
 
 The controller has no public CLI flags; the supported operator entry point is `native.yml` workflow dispatch. The test reader requires `E16_RUN_ID`. The [walkthrough](sprint_E.16_increment_demo.md) documents the commands, SQL, expected outputs and failure/recovery branches before invocation. The source review explains the schema and connection repairs. The guard is a trusted workflow preflight, not an independent signing authority.
+
+Final outcome: PBI-084 is Done after all six gates and wrap-up audit. See the [closure record](sprint_E.16_closure.md).

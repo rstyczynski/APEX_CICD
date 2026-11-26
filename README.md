@@ -306,11 +306,8 @@ E.14 is Done for PBI-050 and PBI-080 following explicit Product Owner finalizati
 PBI-083 is Done. Candidate Actions is disabled in the authorized companion repository; trusted validation executes immutable SQL against real Oracle and binds Review and Testing to current provenance before ordinary merge. Stale evidence, unauthorized publication, substituted peer evidence and interrupted cleanup were challenged with actual native and Oracle observations. All six gates passed: 1/1, 2/2, 1/1 new-code tests and 14/14, 16/16, 24/24 full regression tests.
 
 The [walkthrough](progress/E.15/sprint_E.15_increment_demo.md), [implementation](progress/E.15/sprint_E.15_implementation.md), [tests](progress/E.15/sprint_E.15_tests.md), [design](progress/E.15/sprint_E.15_design.md) and [closure](progress/E.15/sprint_E.15_closure.md) preserve the demonstrated behavior, earlier failures and explicit limits. Native SQLcl release delivery, independent-host reproduction and capacity work remain assigned to E.16–E.18; no later sprint is activated.
-### Sprint E.16 — native release provenance in progress
+### Sprint E.16 — native release provenance
 
-The [E.16 requirement checklist](progress/E.16/sprint_E.16_checklist.md) tracks
-PBI-084 against real native lifecycle evidence. The [walkthrough](progress/E.16/sprint_E.16_increment_demo.md)
-and [operator reference](progress/E.16/user_manual.md) explain the current experiment;
-the [test report](progress/E.16/sprint_E.16_tests.md) distinguishes passing contract
-checks from verified native behavior and pending full-regression outcomes. PLAN and the progress
-board own lifecycle status. This increment is not yet handed over or closed.
+PBI-084 is Done. The bounded native SQLcl PROJECT experiment verifies installation, additive upgrade and exact-archive repeat with retained data, reviewed-source-to-target provenance and refusal of substituted artifacts, mismatched evidence and incompatible tools before deployment. All six gates pass: new-code 1/1, 1/1, 1/1 and full regression 15/15, 17/17, 25/25.
+
+The [walkthrough](progress/E.16/sprint_E.16_increment_demo.md), [presentation](progress/E.16/sprint_E.16_increment_demo.pptx), [operator reference](progress/E.16/user_manual.md), [verification](progress/E.16/sprint_E.16_tests.md), [source review](progress/E.16/sprint_E.16_source_review.md) and [closure](progress/E.16/sprint_E.16_closure.md) preserve operating steps, evidence and limits. E.17 independent-host reproduction and E.18 capacity work remain Planned. This experiment does not claim complete APEX/ORDS or production qualification.

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "presentation-finalization.v1",
-  "finalSha256": "784c3f4dd9cc2ee8405bbe42180b0f8038a155e986f3ce4ea9729bdd4b47430d",
-  "byteCount": 55847,
+  "finalSha256": "84f3b8bb39e2f302e7a37bfca0b6c7fc1dff2a0a3ea967ece928bbf82e9639d7",
+  "byteCount": 55845,
   "packageIntegrity": {
     "chart_count": 0,
     "claim_boundary": "Structural package checks only; no slide text, notes, formulas, chart values, or native PowerPoint execution were inspected.",
@@ -82,7 +82,7 @@
     "performed": true,
     "passed": true,
     "slideCount": 14,
-    "sha256": "784c3f4dd9cc2ee8405bbe42180b0f8038a155e986f3ce4ea9729bdd4b47430d",
+    "sha256": "84f3b8bb39e2f302e7a37bfca0b6c7fc1dff2a0a3ea967ece928bbf82e9639d7",
     "runtimeNodeModules": "/Users/rstyczynski/projects/APEX_CICD/.local-apex/handover-build/node_modules",
     "nodeExecutable": "/opt/homebrew/Cellar/node/26.4.0/bin/node"
   },
@@ -110,7 +110,7 @@
     "native_chart_count": 0,
     "native_powerpoint_verified": false,
     "passed": true,
-    "presentation_sha256": "784c3f4dd9cc2ee8405bbe42180b0f8038a155e986f3ce4ea9729bdd4b47430d",
+    "presentation_sha256": "84f3b8bb39e2f302e7a37bfca0b6c7fc1dff2a0a3ea967ece928bbf82e9639d7",
     "schema_version": "presentation-native-chart-titles.v1",
     "slide_count": 14,
     "source_text_emitted": false,

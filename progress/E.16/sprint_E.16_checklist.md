@@ -7,10 +7,10 @@ Authoritative acceptance: [PBI-084](../../BACKLOG.md#pbi-084-validate-provenance
 - [x] R3: Reject substituted artifacts and mismatched evidence before mutation. Source: PBI-084 Test.
 - [x] R4: Reject incompatible tools before mutation for every processed Git state; record actual build. Source: PBI-084 and AGENTS SQLcl compatibility/NFR-5.
 - [x] R5: New smoke/unit/integration and full regression gates. Source: PLAN E.16 Test/Regression and manager Phase 4.
-- [ ] R6: Documentation audit, live demonstration, presentation pair, traceability, local commits and recorded closure. Source: local P8/P9, manager Phase 5 and user instruction.
+- [x] R6: Documentation audit, live demonstration, presentation pair, traceability, local commits and recorded closure. Source: local P8/P9, manager Phase 5 and user instruction.
 
-The pinned hosted image, bounded table fixture, Python controller and disposable users are implementation choices, not additional acceptance requirements. All acceptance remains unverified at activation.
+The pinned hosted image, bounded table fixture, Python controller and disposable users are implementation choices, not additional acceptance requirements.
 
-R1–R4 evidence: [current source review](sprint_E.16_source_review.md#verified-current-revision), [current native artifacts](tests/native-current/), [A3 integration](test_run_A3_integration_20261126.log). R5 full regression and R6 final audit/closure remain open.
+R1–R4 evidence: [current source review](sprint_E.16_source_review.md#verified-current-revision), [native artifacts](tests/native-current/) and [A3 integration](test_run_A3_integration_20261126.log). R5 evidence: [all six final gate results](sprint_E.16_tests.md#final-gate-results--pbi-084), including the full wrapper’s zero exit, source stability and cleanup. R6 evidence: [handover](sprint_E.16_handover.md), [presentation walkthrough](sprint_E.16_increment_demo.md), [documentation audit](sprint_E.16_documentation_audit.md), [documentation summary](sprint_E.16_documentation.md), traceability links and [closure](sprint_E.16_closure.md).
 
-R5 evidence: [final six-gate results](sprint_E.16_tests.md#final-gate-results--pbi-084), including full-wrapper zero exit, source stability and cleanup. R6 awaits the recorded closure operation.
+Every assigned acceptance requirement is verified. No remaining E.16 requirement or external blocker is deferred. Production and later-sprint boundaries are preserved in the closure record.

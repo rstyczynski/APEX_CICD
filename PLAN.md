@@ -462,7 +462,7 @@ Backlog Items:
 
 ## Sprint E.16 - Validate provenance through native Oracle release delivery
 
-Status: Progress
+Status: Done
 Mode: YOLO
 Test: smoke, unit, integration
 Regression: smoke, unit, integration

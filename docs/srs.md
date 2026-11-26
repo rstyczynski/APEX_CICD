@@ -484,4 +484,4 @@ and [PLAN E.16](../PLAN.md#sprint-e16---validate-provenance-through-native-oracl
 own this sprint's acceptance and assignment. The
 [E.16 checklist](../progress/E.16/sprint_E.16_checklist.md) tracks evidence without
 changing these product requirements. Native installation, upgrade, repeat and
-provenance refusal have current native evidence in the linked checklist; full regression and sprint closure remain separate gates.
+provenance refusal have current native evidence in the linked checklist; all six gates pass and the sprint closure records Done.

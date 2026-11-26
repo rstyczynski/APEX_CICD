@@ -414,8 +414,8 @@ The E.15 candidate repository has Actions disabled and supplies immutable SQL as
 
 The [E.16 design](../progress/E.16/sprint_E.16_design.md) and
 [implementation record](../progress/E.16/sprint_E.16_implementation.md) describe
-the active bounded native release provenance experiment. Its separate source
+the delivered bounded native release provenance experiment. Its separate source
 and target Oracle services avoid rewriting SQLcl 25.4 schema-qualified archives.
 The [checklist](../progress/E.16/sprint_E.16_checklist.md) owns evidence tracking;
 this architecture document continues to own product design and toolchain policy.
-The current native experiment passes; its source review binds the tested workflow, generated release history, verified archives and retained target observations. Full regression and lifecycle closure are tracked separately.
+The current native experiment passes; its source review binds the tested workflow, generated release history, verified archives and retained target observations. All six gates pass and the linked sprint closure records Done.
