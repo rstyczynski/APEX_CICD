@@ -499,18 +499,19 @@ Backlog Items:
 
 * PBI-086. Measure complete pipeline feedback and runner capacity
 
-## Sprint C.1 - Deliver catalogued JavaScript support actions
+## Sprint E.19 - Validate catalogued JavaScript support actions
 
 Status: Planned
 Mode: managed
 Test: smoke, unit, integration
 Regression: smoke, unit, integration
 
-By Product Owner direction on 2026-11-26, schedule this production improvement
-at the end of the current queue, after E.18; it is not a prerequisite for
-Elaboration completion. Earlier scheduling is delegated to the implementor
-when justified, with the reason and revised assignment recorded in this plan;
-this reservation neither activates Construction nor accepts the Lifecycle
+By Product Owner correction on 2026-11-26, retain this validation in
+Elaboration as E.19, at the end of the current queue after E.18, rather than
+opening a Construction sprint. The improvement targets production and is not
+critical to Elaboration; earlier scheduling remains delegated to the
+implementor when justified, with the reason and revised assignment recorded
+in this plan. Scheduling does not activate the sprint or accept the Lifecycle
 Architecture milestone.
 
 By Product Owner direction on 2026-11-26, compare the JavaScript actions with
