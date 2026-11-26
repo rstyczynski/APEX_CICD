@@ -1,0 +1,15 @@
+title:	Bot-proposed reviewed Oracle candidate
+state:	MERGED
+author:	github-actions
+labels:
+assignees:
+reviewers:	rstyczynski (Approved)
+projects:
+milestone:
+number:	4
+url:	https://github.com/rstyczynski/APEX_CICD_E.15/pull/4
+additions:	1
+deletions:	1
+auto-merge:	disabled
+--
+Requires trusted byte-bound Review, real Oracle Testing and independent code-owner approval. No candidate receives the owner OAuth credential.

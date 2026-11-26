@@ -1,5 +1,7 @@
 # Oracle APEX CI/CD Laboratory
 
+**E.15 is active.** The [walkthrough and presentation](progress/E.15/sprint_E.15_increment_demo.md) show the real hosted Oracle candidate and ordinary protected merge. The [acceptance checklist](progress/E.15/sprint_E.15_checklist.md) and [remaining-requirement audit](progress/E.15/sprint_E.15_blockers.md) keep the unresolved cross-run authority failure visible. The sprint remains open.
+
 E.3 accepted and closed on 2026-11-09. Historical correction:  [native release implementation and evidence](progress/E.3/sprint_E.3_release_correction.md), [final Oracle lifecycle gap reassessment](progress/E.3/sprint_E.3_final_gap_analysis.md) and [current walkthrough/presentation](progress/E.3/sprint_E.3_increment_demo.md). The paper is E.3's authoritative lifecycle reference. The corrected local seed includes native release preparation before tag/package; historical remote runs remain separately attributed.
 
 E.4 was accepted and closed on 2026-11-25; PBI-042/PBI-060 are Done. The prepared-host experiment delivered native
@@ -22,7 +24,7 @@ E.2 evaluates optional tool compatibility against this aim in its
 
 An executable delivery example for Oracle APEX and Oracle Database. A small Foundation/Hello/World application makes the important operations visible: capture source, review it in Git, build one release, validate it in integration testing, promote the same artifact to UAT and preserve application data through an upgrade.
 
-The prototype runs on one Podman host using supported Oracle automation interfaces and small Bash/Python scripts. The source is public at [rstyczynski/APEX_CICD](https://github.com/rstyczynski/APEX_CICD). Hosted CI automation and production operation remain future work.
+The prototype runs on one Podman host using supported Oracle automation interfaces and small Bash/Python scripts. The source is public at [rstyczynski/APEX_CICD](https://github.com/rstyczynski/APEX_CICD). E.15 adds a bounded hosted GitHub/Oracle experiment; complete hosted trust-boundary acceptance and production operation remain unfinished.
 
 ## Laboratory design validation — Elaboration
 

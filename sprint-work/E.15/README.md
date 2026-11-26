@@ -1,11 +1,22 @@
-# E.15 sanitized candidate experiment
+# E.15 sanitized Oracle candidate experiment
 
-This repository contains disposable SQL and a trusted Oracle candidate validator.
-The pull_request_target workflow loads validator code from the event base and
-only candidate.sql from the immutable head. Candidate SQL runs in a disposable
-Oracle application schema; it never runs as shell or Python on the runner.
-No retained credentials or production source are included.
+The trusted pull_request_target workflow selects base-owned validation code and
+retrieves only candidate.sql from the immutable event head. Oracle executes the
+SQL as a disposable application user. No retained laboratory credentials or
+production application source are included.
 
-This is work in progress. Passing this workflow alone does not enforce merge,
-prove review freshness, or establish all E.15 acceptance requirements.
-The private repository currently lacks protected branches on this account.
+PR 4 completed real Oracle Testing, byte-bound Review, separate code-owner
+approval and ordinary protected merge at 8ee003ad9f45ae62d5fe0d1a0bb389e311c1b27a.
+Native protection is enabled, including administrator enforcement, strict
+Integrated checking, code-owner approval and stale-review dismissal.
+
+The integrated isolation criterion remains unresolved. A candidate-owned
+workflow requesting write permissions cancelled another run in this repository.
+Code-owner approval protects merge authority but does not prevent that API
+interference. The positive merge is not full E.15 acceptance. A proposed
+separate candidate authority boundary still requires authorization and real
+validation. Do not merge the negative fixtures or declare the sprint complete.
+
+The APEX_CICD progress repository owns the requirement checklist, exact logs,
+regression results, operating walkthrough and lifecycle state. This README is
+an orientation, not a replacement for that evidence.

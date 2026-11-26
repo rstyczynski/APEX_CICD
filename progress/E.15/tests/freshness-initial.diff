@@ -1,0 +1,7 @@
+diff --git a/candidate.sql b/candidate.sql
+index 5a4210e..c2cf129 100644
+--- a/candidate.sql
++++ b/candidate.sql
+@@ -1 +1 @@
+-select concat('Hello', ' World') from dual
++select concat('Hello', ' World') from dual /* review freshness fixture */

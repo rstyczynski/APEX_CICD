@@ -1,0 +1,48 @@
+﻿2026-11-26T08:17:37.4809530Z Current runner version: '2.338.2'
+2026-11-26T08:17:37.4824968Z ##[group]Runner Image Provisioner
+2026-11-26T08:17:37.4825492Z Hosted Compute Agent
+2026-11-26T08:17:37.4825852Z Version: 20261111.635
+2026-11-26T08:17:37.4826259Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-26T08:17:37.4826740Z Build Date: 2026-11-11T01:49:01Z
+2026-11-26T08:17:37.4827155Z Worker ID: {4931fa40-fa15-43af-9fc6-3efa52fbf713}
+2026-11-26T08:17:37.4827577Z Region: northcentralus
+2026-11-26T08:17:37.4827918Z Cloud: Azure
+2026-11-26T08:17:37.4828271Z ##[endgroup]
+2026-11-26T08:17:37.4828994Z ##[group]Operating System
+2026-11-26T08:17:37.4829491Z Ubuntu
+2026-11-26T08:17:37.4829860Z 24.04.5
+2026-11-26T08:17:37.4830169Z LTS
+2026-11-26T08:17:37.4830496Z ##[endgroup]
+2026-11-26T08:17:37.4830896Z ##[group]Runner Image
+2026-11-26T08:17:37.4831318Z Image: ubuntu-24.04
+2026-11-26T08:17:37.4831668Z Version: 20261116.376.1
+2026-11-26T08:17:37.4832442Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261116.376/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-26T08:17:37.4833329Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261116.376
+2026-11-26T08:17:37.4833886Z ##[endgroup]
+2026-11-26T08:17:37.4834617Z ##[group]GITHUB_TOKEN Permissions
+2026-11-26T08:17:37.4835954Z Checks: write
+2026-11-26T08:17:37.4836307Z Contents: read
+2026-11-26T08:17:37.4836683Z Metadata: read
+2026-11-26T08:17:37.4837045Z PullRequests: read
+2026-11-26T08:17:37.4837396Z ##[endgroup]
+2026-11-26T08:17:37.4838591Z Secret source: Actions
+2026-11-26T08:17:37.4839473Z Cache mode: read
+2026-11-26T08:17:37.4840012Z Prepare workflow directory
+2026-11-26T08:17:37.5040189Z Prepare all required actions
+2026-11-26T08:17:37.5103995Z Complete job name: Trusted publisher
+2026-11-26T08:17:37.5815501Z ##[group]Run test "$(gh api "repos/$GITHUB_REPOSITORY/pulls/$NUMBER" --jq .head.sha)" = "$HEAD"
+2026-11-26T08:17:37.5816316Z [36;1mtest "$(gh api "repos/$GITHUB_REPOSITORY/pulls/$NUMBER" --jq .head.sha)" = "$HEAD"[0m
+2026-11-26T08:17:37.5817003Z [36;1mtest "$(gh api "repos/$GITHUB_REPOSITORY/commits/main" --jq .sha)" = "$BASE"[0m
+2026-11-26T08:17:37.5817572Z [36;1mresult=failure[0m
+2026-11-26T08:17:37.5883169Z [36;1mif test "$OUTCOME" = success; then result=success; fi[0m
+2026-11-26T08:17:37.5884323Z [36;1mgh api --method POST "repos/$GITHUB_REPOSITORY/check-runs" -f name=Integrated -f head_sha="$HEAD" -f status=completed -f conclusion="$result"[0m
+2026-11-26T08:17:37.6209678Z shell: /usr/bin/bash -e {0}
+2026-11-26T08:17:37.6210326Z env:
+2026-11-26T08:17:37.6213600Z   GH_TOKEN: ***
+2026-11-26T08:17:37.6214046Z   HEAD: 7662a01bf9b739a8e931c5b0e19f8c1a653e93f1
+2026-11-26T08:17:37.6214591Z   BASE: 22d33ea6107ba0974b4d5f3951d1f5ed5cdda162
+2026-11-26T08:17:37.6215094Z   NUMBER: 4
+2026-11-26T08:17:37.6215508Z   OUTCOME: success
+2026-11-26T08:17:37.6215866Z ##[endgroup]
+2026-11-26T08:17:41.2770073Z {"id":139779263758,"name":"Integrated","node_id":"CR_kwDOV8nRVM8AAAAgi35NDg","head_sha":"7662a01bf9b739a8e931c5b0e19f8c1a653e93f1","external_id":"","url":"https://api.github.com/repos/rstyczynski/APEX_CICD_E.15/check-runs/139779263758","html_url":"https://github.com/rstyczynski/APEX_CICD_E.15/runs/139779263758","details_url":"https://github.com/rstyczynski/APEX_CICD_E.15/runs/139779263758","status":"completed","conclusion":"success","started_at":"2026-11-26T08:17:41Z","completed_at":"2026-11-26T08:17:41Z","output":{"title":null,"summary":null,"text":null,"annotations_count":0,"annotations_url":"https://api.github.com/repos/rstyczynski/APEX_CICD_E.15/check-runs/139779263758/annotations"},"check_suite":{"id":123864275331},"app":{"id":15368,"client_id":"Iv1.05c79e9ad1f6bdfa","slug":"github-actions","node_id":"MDM6QXBwMTUzNjg=","owner":{"login":"github","id":9919,"node_id":"MDEyOk9yZ2FuaXphdGlvbjk5MTk=","avatar_url":"https://avatars.githubusercontent.com/u/9919?v=4","gravatar_id":"","url":"https://api.github.com/users/github","html_url":"https://github.com/github","followers_url":"https://api.github.com/users/github/followers","following_url":"https://api.github.com/users/github/following{/other_user}","gists_url":"https://api.github.com/users/github/gists{/gist_id}","starred_url":"https://api.github.com/users/github/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/github/subscriptions","organizations_url":"https://api.github.com/users/github/orgs","repos_url":"https://api.github.com/users/github/repos","events_url":"https://api.github.com/users/github/events{/privacy}","received_events_url":"https://api.github.com/users/github/received_events","type":"Organization","user_view_type":"public","site_admin":false},"name":"GitHub Actions","description":"Automate your workflow from idea to production","external_url":"https://help.github.com/en/actions","html_url":"https://github.com/apps/github-actions","created_at":"2018-07-30T09:30:17Z","updated_at":"2026-06-18T16:17:48Z","permissions":{"actions":"write","administration":"read","artifact_metadata":"write","attestations":"write","checks":"write","code_quality":"write","contents":"write","copilot_requests":"write","deployments":"write","discussions":"write","drives":"write","issues":"write","merge_queues":"write","metadata":"read","models":"read","packages":"write","pages":"write","pull_requests":"write","repository_hooks":"write","repository_projects":"write","security_events":"write","statuses":"write","vulnerability_alerts":"read"},"events":["branch_protection_rule","check_run","check_suite","create","delete","deployment","deployment_status","discussion","discussion_comment","fork","gollum","issues","issue_comment","label","merge_group","milestone","page_build","public","pull_request","pull_request_review","pull_request_review_comment","push","registry_package","release","repository","repository_dispatch","status","watch","workflow_dispatch","workflow_run"]},"pull_requests":[{"url":"https://api.github.com/repos/rstyczynski/APEX_CICD_E.15/pulls/4","id":5506371197,"number":4,"head":{"ref":"candidate-reviewed","sha":"7662a01bf9b739a8e931c5b0e19f8c1a653e93f1","repo":{"id":1472844116,"url":"https://api.github.com/repos/rstyczynski/APEX_CICD_E.15","name":"APEX_CICD_E.15"}},"base":{"ref":"main","sha":"22d33ea6107ba0974b4d5f3951d1f5ed5cdda162","repo":{"id":1472844116,"url":"https://api.github.com/repos/rstyczynski/APEX_CICD_E.15","name":"APEX_CICD_E.15"}}}]}
+2026-11-26T08:17:41.2866617Z Cleaning up orphan processes

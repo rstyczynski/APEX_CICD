@@ -19,3 +19,15 @@ The former private-protection blocker is resolved: repository visibility was cha
 Updated the requirement checklist, shared-document backlinks and design to distinguish the successful positive journey from the demonstrated unresolved cross-run defect. Historical regression scripts rewrite their own earlier-sprint output paths; those generated outputs will be preserved under E.15 and earlier evidence restored after the active run finishes. No earlier lifecycle outcome is being revised. The initial full integration result is invalidated for source mutation and the interrupted retry is not a pass. Current executable sources are frozen during the final retry.
 
 This is a resumable work checkpoint, not a PBI completion commit. It preserves the inherited Product Owner scheduling additions for E.15–E.18 unchanged, with only E.15 activated by the present request. Full P8 completion and closure remain pending the checklist.
+
+## Checkpoint whitespace correction
+
+The checkpoint command sequence did not stop after git diff --cached --check reported whitespace in raw timestamped logs. This was a process error; no passing whitespace audit is claimed for that checkpoint. Preserved exact log bytes losslessly in tests/raw/*.gz and normalized trailing whitespace in the readable log views. Subsequent commit checks use fail-fast shell execution. The live regression log will receive the same treatment after it completes.
+
+## Current evidence and presentation reconciliation
+
+Checkpoint fe61fa1 preserves the partial implementation; its log-whitespace check defect is corrected with lossless original archives and readable normalized views. Reviewed current CLI receipts for ordinary PR 4 merge, separate code-owner identity, actual stale-review dismissal on PR 5, stale report-byte rejection, and publication refusal after main changed. Preserved implementation source and qualified-tool selection; executable tests remain frozen for the running full integration gate.
+
+Updated manual, walkthrough, requirement checklist, implementation and shared links to remove the obsolete private-protection blocker. The sprint repository README is reconciled by documentation-only maintenance commit 565fd1d, with administrator enforcement restored and verified true. This explicitly recorded maintenance operation is not an ordinary candidate acceptance merge. The current presentation pair has 14 slides, with updated scope, architecture, actual positive journey, recovered failures, unresolved cross-run failure, pending scope decision and Q&A ending. Rendered all slides and inspected the complete contact sheet; package/layout/font/import checks passed without findings. Commands displayed for PR 4 inspection were executed and retained; no native PowerPoint or completed full integrated handover is claimed.
+
+The current 73-link check passes. Final artifact inventory, historical-output preservation, source-stable full regression and final commit/push reconciliation are still pending. The open cross-run criterion and pending scope decision remain visible; no approval is inferred.

@@ -1,5 +1,13 @@
-# E.15 handover — not yet accepted
+# E.15 handover — not accepted for closure
 
-The [walkthrough and draft deck](sprint_E.15_increment_demo.md) expose the partial increment. [Requirement checklist](sprint_E.15_checklist.md) controls outstanding acceptance. Real hosted Oracle execution, existing private-sentinel denial and a read-only token publication refusal have been observed. They do not establish ordinary enforced merge, full stale-evidence rejection, cross-candidate damage prevention or complete interrupted cleanup.
+The [walkthrough and presentation](sprint_E.15_increment_demo.md) explain the actual increment and limits. [Checklist](sprint_E.15_checklist.md) controls acceptance, [test report](sprint_E.15_tests.md) owns verification and [remaining-requirement audit](sprint_E.15_blockers.md) records exact unfinished work and attempted remedies.
 
-The Product Owner has been asked to choose the supported remedy for private repository HTTP 403 on merge protection. No answer or handover acceptance is inferred. There has been no completed end-to-end integrated live demonstration and no sprint closure. The live review must continue after the enforcement boundary is available. E.15 stays Progress/YOLO and PBI-083 stays under construction.
+PR 4 completed real hosted Oracle Testing, trusted Review, separate native code-owner approval and ordinary protected merge without --admin. The initial private-protection limitation was resolved; it is no longer a blocker. The repository now has enforced strict checking and review rules.
+
+The same-repository candidate authority still failed cross-run isolation: a candidate workflow cancelled another run. Positive retry and ordinary merge do not erase that result. The additional companion-repository scope question is pending. No answer, app installation, companion creation, Product Owner reaction or complete integrated live demonstration is inferred. The presentation is current review material for a partial increment, not accepted sprint handover.
+
+E.15 remains Progress/YOLO and PBI-083 remains under construction. Final closure requires the corrected authority boundary and all outstanding acceptance evidence, clean full regression, final audit and completed demonstration. Local checkpoints preserve resumability.
+
+## Live operations observed in this chat
+
+The operator inspected PR 4's actual diff and merged receipt, dispatched the current main Oracle preflight with a unique correlation and observed run 45782725015 complete successfully. [The result](tests/live-oracle-result.json) and [redacted log](tests/live-oracle.log) establish an initialized private sentinel, real greeting/schema checks and explicit publication HTTP 403. This current preflight does not replay the merged PR's Review/merge branches or resolve cross-run isolation. No Product Owner satisfaction or final handover approval is inferred.
