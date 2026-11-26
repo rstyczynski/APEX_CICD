@@ -1,4 +1,6 @@
-# E.17 implementation — in progress
+# E.17 implementation and qualification history
+
+Earlier trial entries below are historical. The final qualification section and linked source review own current observed behavior.
 
 The finalized E.16 correction c7218cd is published at origin and its immutable companion workflow 03f18ca has real native qualification. E.17 reuses those individual Actions steps and one-invocation SQLcl adapter, with generated private input provisioning and actual APEX/ORDS access checks. No historical run is counted as E.17 acceptance. Trial companion commit 5b5de5a dispatches run 45818534213. Outcomes are pending.
 
@@ -29,3 +31,7 @@ Run 45824130390 proves the corrected account/grant syntax but rejects the ARM64 
 ## Native SYS provisioning and database-before-application ordering
 
 The actual ORDS grant script rejects the attempted local DBA authority with ORA-01031. Use the native image resetPassword command for freshly generated SYS/SYSTEM input, then invoke Oracle's installer as SYS; source 7bded06 records that correction. Source review also aligns the small application fixture with SRS FR-5: native table installation and seeding precede the dependent APEX import. Actions source 5f135bd/run 45828709006 tests that complete corrected sequence. The earlier 45828501708 run was cancelled early; it is not counted as acceptance.
+
+## Qualified implementation at handover
+
+The preceding entries are chronological trial observations, superseded by successful native source 5f135bd. Qualified rehearsal 45828709006 and live demonstration 45831994665 both pass the full platform/native/application/cleanup journey. The obsolete monolithic drafts were removed; named Actions steps own sequencing and a platform adapter performs one selected native operation. Both real browser receipts establish authenticated native-row access. [Source review](sprint_E.17_source_review.md) owns final source/result verification and limits; [handover](sprint_E.17_handover.md) records live inspection. Full regression is tracked separately and is not inferred from the two hosted runs.

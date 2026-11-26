@@ -2,9 +2,9 @@
 
 ## Goal and starting state
 
-[PBI-085](../../BACKLOG.md#pbi-085-reproduce-complete-native-delivery-on-a-clean-host) asks for independent clean-host reproduction of Database/APEX/ORDS and native install, upgrade and repeat, with retained data, new private inputs and documented cleanup. [PLAN](../../PLAN.md#sprint-e17---reproduce-complete-native-delivery-on-a-clean-host) adds the combined E.15/E.16 reviewed journey. [Checklist](sprint_E.17_checklist.md) owns current requirement evidence. Native qualification and the complete automated live demonstration pass. Final regression and closure are recorded separately in the checklist. The [manual](user_manual.md) explains operating limits and recovery; [implementation](sprint_E.17_implementation.md) and [bugs](sprint_E.17_bugs.md) preserve measured outcomes and repairs.
+[PBI-085](../../BACKLOG.md#pbi-085-reproduce-complete-native-delivery-on-a-clean-host) asks for independent clean-host reproduction of Database/APEX/ORDS and native install, upgrade and repeat, with retained data, new private inputs and documented cleanup. [PLAN](../../PLAN.md#sprint-e17---reproduce-complete-native-delivery-on-a-clean-host) adds the combined E.15/E.16 reviewed journey. [Checklist](sprint_E.17_checklist.md) owns current requirement evidence. Native qualification and the complete automated live demonstration pass. All six gates pass; final regression and lifecycle evidence are recorded in the checklist. The [manual](user_manual.md) explains operating limits and recovery; [implementation](sprint_E.17_implementation.md) and [bugs](sprint_E.17_bugs.md) preserve measured outcomes and repairs.
 
-Slides 1–4 introduce goal, scope and architecture; 5–10 follow the journey; 11–15 cover failures; 16–19 cover verification and decisions. The [19-slide presentation](sprint_E.17_increment_demo.pptx) accompanies this walkthrough; final regression status remains explicit.
+Slides 1–4 introduce goal, scope and architecture; 5–10 follow the journey; 11–17 cover failures; 18–21 cover verification and decisions. The [21-slide presentation](sprint_E.17_increment_demo.pptx) accompanies this walkthrough; its verification and limits remain explicit.
 
 ## 1. Identify the experiment and inputs — slides 3–6
 
@@ -1347,11 +1347,11 @@ Inspect native assert-upgrade/assert-repeat logs alongside the application recei
 
 The trusted testing.yml workflow takes candidate SQL as data, checks file scope and trusted review digest, executes under the Oracle application user and challenges access/publication authority. Candidate repository Actions are disabled and branch protection requires TrustedOracle. The operator inspected actual successful terminal outcomes and exact current PR head before publishing through GitHub's native status API. Ordinary merge succeeded without an admin bypass. PR 1/run 45819877026 is the actual accepted journey; PR 2/run 45820491077 demonstrates stale review refusing changed bytes before execution. Both ordinary merge refusals are retained under tests/. R5 concerns these observations.
 
-## 6. Inspect failures, evidence and remaining work — slides 11–19
+## 6. Inspect failures, evidence and remaining work — slides 11–21
 
 The initial host exhausted disk and could not upload normal artifacts. The next host exposed XDB INVALID and a zero-exit APEX prerequisite failure; explicit native-output checks and a pinned full image addressed those observed causes. Native APEX then installed, but changing SYS from the PDB failed ORA-65066 before ORDS installation. The local DBA attempt also failed native ORDS grant authority. The correction uses a newly supplied SYS credential through the image’s supported resetPassword command and the native installer. The [bug record](sprint_E.17_bugs.md) links exact observations and repairs; only actual later execution may qualify a repair.
 
-Native platform acceptance and live demonstration are verified. Final full integration regression and closure are tracked in the acceptance ledger. [PBI-086](../../BACKLOG.md#pbi-086-measure-complete-pipeline-feedback-and-runner-capacity) remains planned in E.18; this sprint does not invent a capacity benchmark or production readiness claim. No Product Owner satisfaction or feedback has been inferred.
+Native platform acceptance and live demonstration are verified. Full integration regression passes 26/26; closure is recorded in the acceptance ledger. [PBI-086](../../BACKLOG.md#pbi-086-measure-complete-pipeline-feedback-and-runner-capacity) remains planned in E.18; this sprint does not invent a capacity benchmark or production readiness claim. No Product Owner satisfaction or feedback has been inferred.
 
 ## Screenshot evidence
 

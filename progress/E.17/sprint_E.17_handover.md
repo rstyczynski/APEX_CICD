@@ -1,14 +1,14 @@
-# E.17 handover — in progress
+# E.17 handover
 
 ## Scope and review entry point
 
-[PBI-085](../../BACKLOG.md#pbi-085-reproduce-complete-native-delivery-on-a-clean-host) and [PLAN E.17](../../PLAN.md#sprint-e17---reproduce-complete-native-delivery-on-a-clean-host) define the independent clean-host native journey. The [walkthrough](sprint_E.17_increment_demo.md) is the end-to-end entry point; [manual](user_manual.md) owns prerequisites/recovery and [source review](sprint_E.17_source_review.md) binds actual source and evidence. The canonical PPTX is not yet finalized. No sprint acceptance or closure is recorded here.
+[PBI-085](../../BACKLOG.md#pbi-085-reproduce-complete-native-delivery-on-a-clean-host) and [PLAN E.17](../../PLAN.md#sprint-e17---reproduce-complete-native-delivery-on-a-clean-host) define the independent clean-host native journey. The [walkthrough](sprint_E.17_increment_demo.md) is the end-to-end entry point; [manual](user_manual.md) owns prerequisites/recovery and [source review](sprint_E.17_source_review.md) binds actual source and evidence. The canonical [PPTX](sprint_E.17_increment_demo.pptx) passes package/layout/font/import checks; all 21 rendered slides were visually inspected. Final quality and lifecycle decisions are recorded below and in the closure record.
 
 ## Preflight and rehearsal
 
 Actual run 45828709006 at 5f135bd completes all 51 steps. It provisions fresh Database/APEX/ORDS, installs native 1.0.0, seeds data, imports/accesses the dependent APEX definition, upgrades to 1.1.0, repeats the archive and signs in through Chromium to the retained row. Native repeat applies zero new changesets/two already run. Refusal cases preserve observations; private paths and three owned containers are removed. The native job, input manifest, archives/receipts, generated Git history, target assertions and browser capture are retained under tests/native-qualified. The capture was visually inspected and shows authenticated lab_user and row 1's retained message. It is supporting evidence, not a claim that a saved image itself is a live demo.
 
-Initial platform failures and supported repairs are explained in the bug record, source review and presentation draft. Those failed attempts are not acceptance. Dedicated A1/A2/A3 pass 1/1 each, B1 16/16 and B2 18/18; full B3 is running. The standalone fresh-hosted regression also passes with its dispatch routed to E.17. The explicit acceptance amendment governs operator attribution.
+Initial platform failures and supported repairs are explained in the bug record, source review and presentation. Those failed attempts are not acceptance. Dedicated A1/A2/A3 pass 1/1 each, B1 16/16 and B2 18/18; full B3 passes 26/26. The standalone fresh-hosted regression also passes with its dispatch routed to E.17. The explicit acceptance amendment governs operator attribution.
 
 ## Live developer-operated workflow demonstration
 
@@ -22,8 +22,12 @@ The Product Owner explicitly accepts automated reproduction; the [acceptance ame
 
 Live run 45831994665 completed successfully in 13m44s, at the same immutable 5f135bd source. The developer followed native steps through provisioning, install, upgrade, repeat and refusal checks and inspected the successful final UI. [Run metadata](tests/live-demo-run.json), [full log](tests/live-demo-job.log), [retained artifacts](tests/live-demo/native-45831994665/cleanup.txt) and [independent result/source verification](tests/live-demo-verification.log) establish terminal behavior. Actual Chromium authenticated and observed the retained row before cleanup. Private inputs and owned containers were removed. This is a developer-operated automation demonstration; no manual remote browser login is claimed.
 
-Full B3 regression remains in progress; final closure is not yet recorded.
+Final full B3 passes 26/26 with wrapper exit zero, unchanged executable source and scoped cleanup. All six selected gates pass. Technical handover is self-approved under the authorized YOLO workflow after documentation/presentation review. [Delivery review](sprint_E.17_documentation.md) and [closure record](sprint_E.17_closure.md) distinguish verification, lifecycle and publication.
 
 ## Screenshot evidence
 
 The [local screenshot gallery](screenshots/index.html) provides original captures, captions, observed outcomes, requirement references and navigation. Capture gaps are explicitly labelled.
+
+## Capture limits
+
+The original browser source saved the final authenticated page only. Login-form/input-action captures and screenshots of earlier native failures are unavailable after job cleanup; logs, receipts and explicit assertions remain retained. Initial workflow dispatch used CLI, so the live starting UI observation is mid-run. The gallery labels these gaps and does not reconstruct them.
