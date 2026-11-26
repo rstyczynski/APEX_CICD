@@ -40,4 +40,4 @@ The increment changes PLAN.md, PROGRESS_BOARD.md, README.md, .gitattributes, the
 
 ## Remaining boundaries
 
-No assigned sprint requirement or finalization action remains open from the initial delivery. Lifecycle Architecture acceptance is separate. Production readiness and capacity characterization remain explicit findings in the assessment; the five earlier lifecycle discrepancies are resolved in the linked reconciliation record. The current documentation-only correction does not change executable behavior or reopen the sprint.
+No assigned sprint requirement or finalization action remains open from the initial delivery. Lifecycle Architecture acceptance is separate. Production readiness remains an explicit assessment boundary; the five earlier lifecycle discrepancies are resolved in the linked reconciliation record. The lab interruption’s cause remains undiagnosed. Recovery, data-preservation checks and regression passed. The current documentation-only correction does not change executable behavior or reopen the sprint.

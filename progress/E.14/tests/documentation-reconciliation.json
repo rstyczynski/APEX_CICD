@@ -1,7 +1,7 @@
 {
   "date": "2026-11-26",
   "scope": "E.14 documentation/presentation correction; no lifecycle or executable changes",
-  "base_commit": "e18f6631820c7c5152b7fd0378151be815ffbbc2",
+  "base_commit": "ae7d89bf4e03658fc275d33958d786156d38dc13",
   "executable_inventory_and_hashes_match": 249,
   "retained_successful_gate_counts": [
     1,
@@ -15,12 +15,30 @@
   "runtime_results_not_freshly_reexecuted": true,
   "complete_SQL_blocks_match": 13,
   "slide_count": 18,
-  "presentation_sha256": "b8633c188a31b0efca2bc5933e477dcdb14f3fb42b924d7e02729041cfc68e4e",
+  "presentation_sha256": "c0e6739162dcbe1523888cf38f456ed4399765ac42134a20b5cbb2e192557c4e",
   "presentation_receipt_matches": true,
   "stale_current_blocker_claims": 0,
   "lifecycle": "E.14/PBI-050/PBI-080 Done",
   "narrative_whitespace": "pass",
   "domain_bash_syntax": "pass",
-  "visual_review": "all 18 rendered slides, including changed slide 17 and Q&A ending inspected",
-  "errors": []
+  "visual_review": "18 slides rendered; changed slides 11/16 and closing slide 18 inspected; package/layout/font/import validation passed",
+  "errors": [],
+  "links_checked": 632,
+  "anchors_checked": 120,
+  "traceability_links": 26,
+  "approved_interruption_wording": "The lab interruption\u2019s cause remains undiagnosed. Recovery, data-preservation checks and regression passed.",
+  "narrative_files_checked": [
+    "architecture_assessment.md",
+    "sprint_E.14_bugs.md",
+    "sprint_E.14_blockers.md",
+    "sprint_E.14_delivery_report.md",
+    "sprint_E.14_tests.md",
+    "tests/environment-recovery.md"
+  ],
+  "changed_slides": [
+    11,
+    16
+  ],
+  "concurrent_reconciliation_commit": "dbd5e57",
+  "authorized_runtime_cleanup_commit": "ae7d89b"
 }

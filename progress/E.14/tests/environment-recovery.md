@@ -24,4 +24,4 @@ The failed B3 integration gate was retried with unchanged executable sources and
 
 ## Verified retry result
 
-The unchanged-source B3 retry passed all 23 registered integration entries, and its source snapshots match current files. Post-recovery full smoke passed 13/13 and unit 14/14. The monitored oom_kill counter stayed at 33 through the observed retry. No flaky test was deferred, no failure was waived, and no SSH command was executed. Root cause remains unconfirmed; operating-capacity qualification remains an assessment finding for future production work.
+The unchanged-source B3 retry passed all 23 registered integration entries, and its source snapshots match current files. Post-recovery full smoke passed 13/13 and unit 14/14. The monitored oom_kill counter stayed at 33 through the observed retry. No flaky test was deferred, no failure was waived, and no SSH command was executed. The lab interruption’s cause remains undiagnosed. Recovery, data-preservation checks and regression passed. This incident does not establish an additional E.14 acceptance gate.
