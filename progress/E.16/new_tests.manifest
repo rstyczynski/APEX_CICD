@@ -1,0 +1,3 @@
+smoke:test_native_provenance.sh:test_native_source
+unit:test_native_provenance.sh:test_native_guard
+integration:test_native_provenance.sh:test_native_hosted

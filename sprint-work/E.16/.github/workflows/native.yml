@@ -1,0 +1,53 @@
+name: Native release provenance
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  native:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    services:
+      oracle:
+        image: gvenzl/oracle-free@sha256:cebd977833411a42170777d8e9ccf616a028a2bb137ae96498354ab6c7510268
+        env:
+          ORACLE_RANDOM_PASSWORD: 'yes'
+        ports:
+          - 127.0.0.1:1521:1521
+        options: >-
+          --health-cmd healthcheck.sh --health-interval 10s
+          --health-timeout 5s --health-retries 40
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install qualified SQLcl
+        run: |
+          curl --fail --location --retry 3 https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-25.4.1.022.0618.zip -o "$RUNNER_TEMP/sqlcl.zip"
+          echo "b717d83aa1a7ada2ca38e7c8be5b369ea6a2f9f50c5fdb55e18d263b471ecab9  $RUNNER_TEMP/sqlcl.zip" | sha256sum -c -
+          unzip -q "$RUNNER_TEMP/sqlcl.zip" -d "$RUNNER_TEMP/tools"
+          chmod +x "$RUNNER_TEMP/tools/sqlcl/bin/sql"
+          echo "SQL_EXE=$RUNNER_TEMP/tools/sqlcl/bin/sql" >> "$GITHUB_ENV"
+      - name: Initialize isolated native schemas
+        env:
+          ORACLE_CONTAINER: ${{ job.services.oracle.id }}
+        run: |
+          docker exec -i "$ORACLE_CONTAINER" sqlplus -s / as sysdba <<'SQL'
+          whenever sqlerror exit failure
+          alter session set container=FREEPDB1;
+          create user AUTHOR16 identified by Disposable_Native_16 quota unlimited on users;
+          create user TARGET16 identified by Disposable_Native_16 quota unlimited on users;
+          grant connect, resource, create view to AUTHOR16;
+          grant connect, resource, create view to TARGET16;
+          SQL
+      - name: Native preparation installation upgrade repeat and rejection
+        run: python3 lifecycle.py
+      - name: Preserve experiment evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: native-${{ github.run_id }}
+          path: result/
