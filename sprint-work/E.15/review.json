@@ -1,0 +1,7 @@
+{
+  "reviewer": "Codex reviewer role",
+  "sql_sha256": "f1bc1a12451dba3355d85c9726b27120a6eabec4158d3a94c9e5343bfcd02ab9",
+  "scope": "candidate.sql only",
+  "decision": "accept",
+  "findings": "concat preserves the greeting. No new data or privilege access. Acceptance requires real Oracle result and isolation checks; this review alone does not establish hosted merge enforcement."
+}

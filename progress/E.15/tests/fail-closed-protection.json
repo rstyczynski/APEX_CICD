@@ -1,0 +1,1 @@
+{"url":"https://api.github.com/repos/rstyczynski/APEX_CICD_E.15/branches/main/protection/required_status_checks","strict":true,"contexts":["TrustedOraclePublisher"],"contexts_url":"https://api.github.com/repos/rstyczynski/APEX_CICD_E.15/branches/main/protection/required_status_checks/contexts","checks":[{"context":"TrustedOraclePublisher","app_id":null}]}

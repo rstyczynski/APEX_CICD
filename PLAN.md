@@ -42,8 +42,8 @@ The [validation programme](docs/validation-programme.md) owns questions, traceab
 and dependencies. This plan owns assignments and lifecycle states; the
 [backlog](BACKLOG.md) owns criteria and the [board](PROGRESS_BOARD.md) owns
 execution tracking. E.4 was accepted and closed on 2026-11-25.
-All future sprints remain Planned and managed; scheduling neither activates
-them nor approves implementation design.
+At that planning decision, future sprints were Planned and managed; subsequent
+mode and lifecycle decisions are recorded in the individual sprint entries.
 
 PBI-048 now belongs to E.12, PBI-049 to E.13 and PBI-050 to E.14. Catch-up and
 bridge experiments are grouped with the compatible and breaking transitions
@@ -55,6 +55,25 @@ experiments bounded around the shared greeting journey. Reproducible negative
 findings inform design decisions; failed mandatory checks do not become passes.
 The order can change when evidence justifies it, and the final planned sprint
 does not guarantee Construction readiness. No calendar duration is assumed.
+
+## Integrated validation planning — 2026-11-26
+
+By explicit Product Owner direction, E.15–E.18 are scheduled as Planned in
+YOLO mode, assigning PBI-083–PBI-086 respectively. These Elaboration iterations
+validate the combined hosted Oracle journey, native release provenance,
+complete clean-host reproduction and measured pipeline capacity, reusing the
+completed experiments. E.16 builds on E.15, E.17 reproduces their combined
+path, and E.18 measures that reproducible baseline. Both new-code tests and
+regression require smoke, unit and integration levels; exact scenarios and
+commands are refined during sprint preparation.
+
+The [backlog](BACKLOG.md#pbi-083-validate-integrated-github-and-oracle-execution)
+owns acceptance criteria and the explicit temporary-repository authorization;
+the [progress board](PROGRESS_BOARD.md) records Planned rows for these
+assignments. The authorized repository names resolve to APEX_CICD_E.15,
+APEX_CICD_E.16, APEX_CICD_E.17 and APEX_CICD_E.18 respectively. Scheduling
+does not activate a sprint or accept the Lifecycle Architecture milestone.
+Merge queues remain a conditional, unselected option.
 
 ## Sprint 0 - Vision and initial plan
 
@@ -427,3 +446,55 @@ Backlog Items:
 * PBI-080. Assess validation evidence and the Construction entry decision
 
 E.14 was finalized on 2026-11-26 by explicit Product Owner direction after six passing gates and delegated technical/documentation review. The [closure record](progress/E.14/sprint_E.14_closure.md) records evidence and remaining boundaries. Lifecycle Architecture acceptance remains a separate decision.
+
+## Sprint E.15 - Validate integrated GitHub and Oracle execution
+
+Status: Progress
+Mode: YOLO
+Test: smoke, unit, integration
+Regression: smoke, unit, integration
+
+Demonstrate one real GitHub pull-request journey combining Oracle Testing, Review and ordinary merge controls. Challenge stale evidence, unauthorized publication, concurrent candidate isolation and interrupted cleanup within the combined hosted trust boundary.
+
+Backlog Items:
+
+* PBI-083. Validate integrated GitHub and Oracle execution
+
+## Sprint E.16 - Validate provenance through native Oracle release delivery
+
+Status: Planned
+Mode: YOLO
+Test: smoke, unit, integration
+Regression: smoke, unit, integration
+
+Demonstrate one qualified native SQLcl PROJECT release traced from reviewed source through installation, upgrade and safe repeat deployment on the E.15 execution boundary. Preserve existing data and reject substituted artifacts, mismatched evidence and incompatible tool versions before target mutation.
+
+Backlog Items:
+
+* PBI-084. Validate provenance through native Oracle release delivery
+
+## Sprint E.17 - Reproduce complete native delivery on a clean host
+
+Status: Planned
+Mode: YOLO
+Test: smoke, unit, integration
+Regression: smoke, unit, integration
+
+Have another attributable operator reproduce the combined E.15/E.16 journey on an independent clean host with declared prerequisites and newly supplied private inputs. Demonstrate the complete Database, APEX, ORDS and native delivery path with preserved test data and no dependency on retained laboratory state.
+
+Backlog Items:
+
+* PBI-085. Reproduce complete native delivery on a clean host
+
+## Sprint E.18 - Measure complete pipeline feedback and runner capacity
+
+Status: Planned
+Mode: YOLO
+Test: smoke, unit, integration
+Regression: smoke, unit, integration
+
+Measure cold and warm feedback, queue delay and resource demand for the complete JDK, SQLcl, utPLSQL and Oracle workload on the reproducible E.17 baseline. Compare serial and concurrent execution to recommend runner capacity and caching with declared sample counts, measurement limits and unchanged mandatory validation.
+
+Backlog Items:
+
+* PBI-086. Measure complete pipeline feedback and runner capacity

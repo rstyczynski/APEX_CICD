@@ -1,0 +1,4 @@
+RUN unit:test_hosted.sh:test_hosted_input
+PASS bounded SQL input contract; no Oracle execution claimed
+PASS test_hosted_input
+Tests: 1; failed: 0

@@ -66,3 +66,7 @@
 | Sprint E.13 | Done | PBI-049 | Done |
 | Sprint E.14 | Done | PBI-050 | Done |
 | Sprint E.14 | Done | PBI-080 | Done |
+| Sprint E.15 | under_construction | PBI-083 | under_construction |
+| Sprint E.16 | Planned | PBI-084 | Planned |
+| Sprint E.17 | Planned | PBI-085 | Planned |
+| Sprint E.18 | Planned | PBI-086 | Planned |

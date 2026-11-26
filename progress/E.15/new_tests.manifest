@@ -1,0 +1,3 @@
+smoke:test_hosted.sh:test_hosted_source
+unit:test_hosted.sh:test_hosted_input
+integration:test_hosted.sh:test_hosted_oracle

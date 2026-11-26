@@ -1,0 +1,111 @@
+name: Trusted Oracle validation
+run-name: Oracle ${{ inputs.correlation || github.event.pull_request.head.sha }}
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+    inputs:
+      correlation:
+        type: string
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: oracle-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+jobs:
+  oracle:
+    name: Oracle candidate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    services:
+      oracle:
+        image: gvenzl/oracle-free@sha256:cebd977833411a42170777d8e9ccf616a028a2bb137ae96498354ab6c7510268
+        env:
+          ORACLE_RANDOM_PASSWORD: 'yes'
+          APP_USER: candidate
+          APP_USER_PASSWORD: Disposable_Candidate_15
+        ports:
+          - 127.0.0.1:1521:1521
+        options: >-
+          --health-cmd healthcheck.sh --health-interval 10s
+          --health-timeout 5s --health-retries 40
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Initialize private sentinel
+        env:
+          ORACLE_CONTAINER: ${{ job.services.oracle.id }}
+        run: |
+          docker exec -i "$ORACLE_CONTAINER" sqlplus -s / as sysdba <<'SQL'
+          whenever sqlerror exit failure
+          alter session set container=FREEPDB1;
+          create table system.e15_private (value varchar2(80));
+          insert into system.e15_private values ('private sentinel');
+          commit;
+          SQL
+      - name: Challenge publication authority
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" -f state=success -f context=Unauthorized > publication.log 2>&1; then
+            echo 'Unexpected publication authority'; exit 1
+          fi
+          cat publication.log
+          grep -q 'HTTP 403' publication.log
+      - name: Obtain candidate SQL as data
+        if: github.event_name == 'pull_request_target'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CANDIDATE: ${{ github.event.pull_request.head.sha }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/contents/candidate.sql?ref=$CANDIDATE" -H 'Accept: application/vnd.github.raw+json' > candidate.sql
+      - name: Verify trusted Review matches candidate bytes
+        if: github.event_name == 'pull_request_target'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/compare/$BASE...$HEAD" --jq '[.files[].filename]' > changed.json
+          python3 - <<'PYCODE'
+          import hashlib, json
+          from pathlib import Path
+          assert json.loads(Path('changed.json').read_text()) == ['candidate.sql'], 'unreviewed files'
+          report = json.loads(Path('review.json').read_text())
+          assert report['decision'] == 'accept'
+          assert hashlib.sha256(Path('candidate.sql').read_bytes()).hexdigest() == report['sql_sha256'], 'stale Review'
+          print('PASS trusted Review matches candidate bytes; candidate report cannot replace base report')
+          PYCODE
+      - name: Install Oracle driver
+        run: python3 -m pip install oracledb==3.4.1
+      - name: Execute bounded application-user SQL
+        env:
+          CANDIDATE_PASSWORD: Disposable_Candidate_15
+        run: python3 validate.py
+
+  publish:
+    name: Trusted publisher
+    needs: oracle
+    if: always() && github.event_name == 'pull_request_target'
+    runs-on: ubuntu-24.04
+    permissions:
+      checks: write
+      contents: read
+      pull-requests: read
+    steps:
+      - name: Publish only current candidate outcome
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+          BASE: ${{ github.sha }}
+          NUMBER: ${{ github.event.pull_request.number }}
+          OUTCOME: ${{ needs.oracle.result }}
+        run: |
+          test "$(gh api "repos/$GITHUB_REPOSITORY/pulls/$NUMBER" --jq .head.sha)" = "$HEAD"
+          test "$(gh api "repos/$GITHUB_REPOSITORY/commits/main" --jq .sha)" = "$BASE"
+          result=failure
+          if test "$OUTCOME" = success; then result=success; fi
+          gh api --method POST "repos/$GITHUB_REPOSITORY/check-runs" -f name=Integrated -f head_sha="$HEAD" -f status=completed -f conclusion="$result"

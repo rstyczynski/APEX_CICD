@@ -296,3 +296,7 @@ The [existing production follow-up inventory](progress/E.14/production_follow_up
 E.14 is closed and its progress is published to origin/main. The [closure record](progress/E.14/sprint_E.14_closure.md) owns the accepted bounded outcome; the [blocker disposition](progress/E.14/sprint_E.14_blockers.md) records resolved historical conditions.
 
 E.14 is Done for PBI-050 and PBI-080 following explicit Product Owner finalization on 2026-11-26. All six gates pass (new 1/1/1; regression 13/14/23, with one recovered infrastructure retry). The [closure record](progress/E.14/sprint_E.14_closure.md) records completed phases and remaining production/milestone boundaries.
+
+## E.15 hosted validation in progress
+
+The [E.15 checklist](progress/E.15/sprint_E.15_checklist.md) tracks PBI-083 acceptance, and the [draft walkthrough](progress/E.15/sprint_E.15_increment_demo.md) explains the current hosted Oracle experiment and its limits. A real Oracle candidate completed ordinary protected merge; a cross-candidate cancellation defect remains unresolved, so overall sprint acceptance remains open. This work does not change production requirements or qualify native SQLcl release delivery.

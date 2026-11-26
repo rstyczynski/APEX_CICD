@@ -473,3 +473,7 @@ The [E.13 walkthrough](../progress/E.13/sprint_E.13_increment_demo.md) owns oper
 ## E.14 component windows and architecture assessment
 
 The [E.14 walkthrough](../progress/E.14/sprint_E.14_increment_demo.md) owns the separate-window laboratory journey; the [assessment](../progress/E.14/architecture_assessment.md) links accumulated risk evidence and proposes conditional Construction planning. The [checklist](../progress/E.14/sprint_E.14_remaining_work.md) distinguishes mandatory experiment criteria from implementation choices and unverified production behavior. Lifecycle Architecture acceptance remains a separate Product Owner decision.
+
+## E.15 hosted validation in progress
+
+The [E.15 checklist](../progress/E.15/sprint_E.15_checklist.md) tracks PBI-083 acceptance, and the [draft walkthrough](../progress/E.15/sprint_E.15_increment_demo.md) explains the current hosted Oracle experiment and its limits. A real Oracle candidate completed ordinary protected merge; a cross-candidate cancellation defect remains unresolved, so overall sprint acceptance remains open. This work does not change production requirements or qualify native SQLcl release delivery.

@@ -1,0 +1,1 @@
+{"message":"Validation Failed","errors":["Source public repos cannot have push rules","Source only org-owned repos can have push rules"],"documentation_url":"https://docs.github.com/rest/repos/rules#create-a-repository-ruleset","status":"422"}gh: Validation Failed (HTTP 422)

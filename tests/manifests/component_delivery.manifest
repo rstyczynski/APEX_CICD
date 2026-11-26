@@ -49,3 +49,6 @@ integration:test_foundation.sh:test_bridge_live
 smoke:test_foundation.sh:test_windows_smoke
 unit:test_foundation.sh:test_windows_unit
 integration:test_foundation.sh:test_windows_integration
+smoke:test_hosted.sh:test_hosted_source
+unit:test_hosted.sh:test_hosted_input
+integration:test_hosted.sh:test_hosted_oracle

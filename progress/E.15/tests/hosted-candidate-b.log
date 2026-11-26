@@ -1,0 +1,399 @@
+﻿2026-11-26T08:00:40.7706210Z Current runner version: '2.338.2'
+2026-11-26T08:00:40.7726191Z ##[group]Runner Image Provisioner
+2026-11-26T08:00:40.7726892Z Hosted Compute Agent
+2026-11-26T08:00:40.7727294Z Version: 20261111.635
+2026-11-26T08:00:40.7727719Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-26T08:00:40.7728161Z Build Date: 2026-11-11T01:49:01Z
+2026-11-26T08:00:40.7728564Z Worker ID: {720c18b6-62fc-4180-9056-e48e7d7fb3a2}
+2026-11-26T08:00:40.7729066Z Region: centralus
+2026-11-26T08:00:40.7729419Z Cloud: Azure
+2026-11-26T08:00:40.7729778Z ##[endgroup]
+2026-11-26T08:00:40.7730581Z ##[group]Operating System
+2026-11-26T08:00:40.7730954Z Ubuntu
+2026-11-26T08:00:40.7731350Z 24.04.5
+2026-11-26T08:00:40.7731671Z LTS
+2026-11-26T08:00:40.7732046Z ##[endgroup]
+2026-11-26T08:00:40.7732412Z ##[group]Runner Image
+2026-11-26T08:00:40.7732789Z Image: ubuntu-24.04
+2026-11-26T08:00:40.7733205Z Version: 20261116.376.1
+2026-11-26T08:00:40.7734342Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261116.376/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-26T08:00:40.7735356Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261116.376
+2026-11-26T08:00:40.7735926Z ##[endgroup]
+2026-11-26T08:00:40.7736692Z ##[group]GITHUB_TOKEN Permissions
+2026-11-26T08:00:40.7737999Z Contents: read
+2026-11-26T08:00:40.7738413Z Metadata: read
+2026-11-26T08:00:40.7738759Z ##[endgroup]
+2026-11-26T08:00:40.7740172Z Secret source: Actions
+2026-11-26T08:00:40.7740818Z Cache mode: read
+2026-11-26T08:00:40.7741244Z Prepare workflow directory
+2026-11-26T08:00:40.8051105Z Prepare all required actions
+2026-11-26T08:00:40.8082595Z Getting action download info
+2026-11-26T08:00:41.0647710Z Download action repository 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+2026-11-26T08:00:41.2451071Z Complete job name: Oracle candidate
+2026-11-26T08:00:41.2892608Z ##[group]Checking docker version
+2026-11-26T08:00:41.2901068Z ##[command]/usr/bin/docker version --format '{{.Server.APIVersion}}'
+2026-11-26T08:00:41.3774920Z '1.48'
+2026-11-26T08:00:41.3792790Z Docker daemon API version: '1.48'
+2026-11-26T08:00:41.3793457Z ##[command]/usr/bin/docker version --format '{{.Client.APIVersion}}'
+2026-11-26T08:00:41.3954649Z '1.48'
+2026-11-26T08:00:41.3969829Z Docker client API version: '1.48'
+2026-11-26T08:00:41.3975655Z ##[endgroup]
+2026-11-26T08:00:41.3977125Z ##[group]Clean up resources from previous jobs
+2026-11-26T08:00:41.3981460Z ##[command]/usr/bin/docker ps --all --quiet --no-trunc --filter "label=3016bd"
+2026-11-26T08:00:41.4134024Z ##[command]/usr/bin/docker network prune --force --filter "label=3016bd"
+2026-11-26T08:00:41.4260677Z ##[endgroup]
+2026-11-26T08:00:41.4261003Z ##[group]Create local container network
+2026-11-26T08:00:41.4268265Z ##[command]/usr/bin/docker network create --label 3016bd github_network_15607afb3f6b4ab9967187ecd5c6e165
+2026-11-26T08:00:41.4859110Z b14be434aa024b728a1b285a69dbeec22318c5b8d165461af695a433e67536df
+2026-11-26T08:00:41.4875645Z ##[endgroup]
+2026-11-26T08:00:41.4894802Z ##[group]Starting oracle service container
+2026-11-26T08:00:41.4910288Z ##[command]/usr/bin/docker pull gvenzl/oracle-free:23-slim-faststart
+2026-11-26T08:00:42.0546237Z 23-slim-faststart: Pulling from gvenzl/oracle-free
+2026-11-26T08:00:42.2108241Z eaecd8d13da8: Pulling fs layer
+2026-11-26T08:00:42.2109133Z f842d7e2461c: Pulling fs layer
+2026-11-26T08:00:42.2109862Z 088b7bd13b0f: Pulling fs layer
+2026-11-26T08:00:42.2110566Z 966289cf0bb9: Pulling fs layer
+2026-11-26T08:00:42.2111316Z 184507b91329: Pulling fs layer
+2026-11-26T08:00:42.2112004Z 25d62a8e8759: Pulling fs layer
+2026-11-26T08:00:42.2112738Z 755cc3e4a003: Pulling fs layer
+2026-11-26T08:00:42.2113457Z 97c17f9f68d1: Pulling fs layer
+2026-11-26T08:00:42.2114378Z 33058011a10f: Pulling fs layer
+2026-11-26T08:00:42.2115137Z 966289cf0bb9: Waiting
+2026-11-26T08:00:42.2115855Z 184507b91329: Waiting
+2026-11-26T08:00:42.2116536Z 25d62a8e8759: Waiting
+2026-11-26T08:00:42.2117203Z 755cc3e4a003: Waiting
+2026-11-26T08:00:42.2118154Z 33058011a10f: Waiting
+2026-11-26T08:00:42.2118845Z 97c17f9f68d1: Waiting
+2026-11-26T08:00:42.7882514Z f842d7e2461c: Verifying Checksum
+2026-11-26T08:00:42.7884830Z f842d7e2461c: Download complete
+2026-11-26T08:00:42.7885459Z eaecd8d13da8: Verifying Checksum
+2026-11-26T08:00:42.7886155Z eaecd8d13da8: Download complete
+2026-11-26T08:00:43.3743307Z 184507b91329: Verifying Checksum
+2026-11-26T08:00:43.3744658Z 184507b91329: Download complete
+2026-11-26T08:00:43.8015050Z 088b7bd13b0f: Verifying Checksum
+2026-11-26T08:00:43.8026167Z 088b7bd13b0f: Download complete
+2026-11-26T08:00:43.8032462Z 966289cf0bb9: Verifying Checksum
+2026-11-26T08:00:43.8033272Z 966289cf0bb9: Download complete
+2026-11-26T08:00:44.3275112Z 97c17f9f68d1: Verifying Checksum
+2026-11-26T08:00:44.3275484Z 97c17f9f68d1: Download complete
+2026-11-26T08:00:44.8503328Z 25d62a8e8759: Verifying Checksum
+2026-11-26T08:00:44.8511088Z 25d62a8e8759: Download complete
+2026-11-26T08:00:44.9829462Z 755cc3e4a003: Verifying Checksum
+2026-11-26T08:00:44.9844062Z 755cc3e4a003: Download complete
+2026-11-26T08:00:45.6687872Z 33058011a10f: Verifying Checksum
+2026-11-26T08:00:45.6688691Z 33058011a10f: Download complete
+2026-11-26T08:00:47.5336348Z eaecd8d13da8: Pull complete
+2026-11-26T08:00:51.4727554Z f842d7e2461c: Pull complete
+2026-11-26T08:00:57.4460224Z 088b7bd13b0f: Pull complete
+2026-11-26T08:01:01.1176690Z 966289cf0bb9: Pull complete
+2026-11-26T08:01:05.0835951Z 184507b91329: Pull complete
+2026-11-26T08:01:08.6906433Z 25d62a8e8759: Pull complete
+2026-11-26T08:01:30.4362721Z 755cc3e4a003: Pull complete
+2026-11-26T08:01:38.5919061Z 97c17f9f68d1: Pull complete
+2026-11-26T08:01:42.9088809Z 33058011a10f: Pull complete
+2026-11-26T08:01:44.7218913Z Digest: sha256:cebd977833411a42170777d8e9ccf616a028a2bb137ae96498354ab6c7510268
+2026-11-26T08:01:45.7262350Z Status: Downloaded newer image for gvenzl/oracle-free:23-slim-faststart
+2026-11-26T08:01:45.9330959Z docker.io/gvenzl/oracle-free:23-slim-faststart
+2026-11-26T08:01:45.9385779Z ##[command]/usr/bin/docker create --name eb8ca883742c46a98aad9f89ab698fb9_gvenzloraclefree23slimfaststart_9a5586 --label 3016bd --network github_network_15607afb3f6b4ab9967187ecd5c6e165 --network-alias oracle -p 1521:1521 --health-cmd healthcheck.sh --health-interval 10s --health-timeout 5s --health-retries 40 -e "ORACLE_RANDOM_PASSWORD=yes" -e "APP_USER=candidate" -e "APP_USER_PASSWORD=Disposable_Candidate_15" -e GITHUB_ACTIONS=true -e CI=true gvenzl/oracle-free:23-slim-faststart
+2026-11-26T08:01:50.3234873Z 2518bd6cd491f5d7393ee678d7f1ebc83f9d597ab7417b88abd893d341f3b380
+2026-11-26T08:01:50.3249343Z ##[command]/usr/bin/docker start 2518bd6cd491f5d7393ee678d7f1ebc83f9d597ab7417b88abd893d341f3b380
+2026-11-26T08:01:50.5186473Z 2518bd6cd491f5d7393ee678d7f1ebc83f9d597ab7417b88abd893d341f3b380
+2026-11-26T08:01:50.5220855Z ##[command]/usr/bin/docker ps --all --filter id=2518bd6cd491f5d7393ee678d7f1ebc83f9d597ab7417b88abd893d341f3b380 --filter status=running --no-trunc --format "{{.ID}} {{.Status}}"
+2026-11-26T08:01:50.5384972Z 2518bd6cd491f5d7393ee678d7f1ebc83f9d597ab7417b88abd893d341f3b380 Up Less than a second (health: starting)
+2026-11-26T08:01:50.5414952Z ##[command]/usr/bin/docker port 2518bd6cd491f5d7393ee678d7f1ebc83f9d597ab7417b88abd893d341f3b380
+2026-11-26T08:01:50.5574892Z 1521/tcp -> 0.0.0.0:1521
+2026-11-26T08:01:50.5582979Z 1521/tcp -> [::]:1521
+2026-11-26T08:01:50.5630301Z ##[endgroup]
+2026-11-26T08:01:50.5639377Z ##[group]Waiting for all services to be ready
+2026-11-26T08:01:50.5652878Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 2518bd6cd491f5d7393ee678d7f1ebc83f9d597ab7417b88abd893d341f3b380
+2026-11-26T08:01:50.5850455Z starting
+2026-11-26T08:01:50.5863249Z oracle service is starting, waiting 2 seconds before checking again.
+2026-11-26T08:01:52.5875093Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 2518bd6cd491f5d7393ee678d7f1ebc83f9d597ab7417b88abd893d341f3b380
+2026-11-26T08:01:52.6063238Z starting
+2026-11-26T08:01:52.6085461Z oracle service is starting, waiting 3 seconds before checking again.
+2026-11-26T08:01:56.2650112Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 2518bd6cd491f5d7393ee678d7f1ebc83f9d597ab7417b88abd893d341f3b380
+2026-11-26T08:01:56.3161135Z starting
+2026-11-26T08:01:56.3162021Z oracle service is starting, waiting 8 seconds before checking again.
+2026-11-26T08:02:04.7540655Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 2518bd6cd491f5d7393ee678d7f1ebc83f9d597ab7417b88abd893d341f3b380
+2026-11-26T08:02:04.7683769Z starting
+2026-11-26T08:02:04.7701920Z oracle service is starting, waiting 15 seconds before checking again.
+2026-11-26T08:02:19.8323294Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 2518bd6cd491f5d7393ee678d7f1ebc83f9d597ab7417b88abd893d341f3b380
+2026-11-26T08:02:19.8494411Z starting
+2026-11-26T08:02:19.8496082Z oracle service is starting, waiting 26 seconds before checking again.
+2026-11-26T08:02:46.7052162Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 2518bd6cd491f5d7393ee678d7f1ebc83f9d597ab7417b88abd893d341f3b380
+2026-11-26T08:02:46.7199551Z healthy
+2026-11-26T08:02:46.7204962Z oracle service is healthy.
+2026-11-26T08:02:46.7205568Z ##[endgroup]
+2026-11-26T08:02:46.7516659Z ##[group]Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+2026-11-26T08:02:46.7517071Z with:
+2026-11-26T08:02:46.7517223Z   ref: 76e8aa6f3b1cf5e29a7c544d23750973a27c3e59
+2026-11-26T08:02:46.7517403Z   persist-credentials: false
+2026-11-26T08:02:46.7517562Z   repository: rstyczynski/APEX_CICD_E.15
+2026-11-26T08:02:46.7519018Z   token: ***
+2026-11-26T08:02:46.7519146Z   ssh-strict: true
+2026-11-26T08:02:46.7519269Z   ssh-user: git
+2026-11-26T08:02:46.7519389Z   clean: true
+2026-11-26T08:02:46.7519527Z   sparse-checkout-cone-mode: true
+2026-11-26T08:02:46.7519697Z   fetch-depth: 1
+2026-11-26T08:02:46.7519820Z   fetch-tags: false
+2026-11-26T08:02:46.7519946Z   show-progress: true
+2026-11-26T08:02:46.7520071Z   lfs: false
+2026-11-26T08:02:46.7520187Z   submodules: false
+2026-11-26T08:02:46.7520315Z   set-safe-directory: true
+2026-11-26T08:02:46.7520531Z ##[endgroup]
+2026-11-26T08:02:47.0306828Z Syncing repository: rstyczynski/APEX_CICD_E.15
+2026-11-26T08:02:47.0316141Z ##[group]Getting Git version info
+2026-11-26T08:02:47.0316710Z Working directory is '/home/runner/work/APEX_CICD_E.15/APEX_CICD_E.15'
+2026-11-26T08:02:47.0317323Z [command]/usr/bin/git version
+2026-11-26T08:02:47.0394718Z git version 2.56.1
+2026-11-26T08:02:47.0425324Z ##[endgroup]
+2026-11-26T08:02:47.0457328Z Temporarily overriding HOME='/home/runner/work/_temp/0b5ccce1-aacc-454d-bdc3-58c977fb3722' before making global git config changes
+2026-11-26T08:02:47.0458179Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-26T08:02:47.0463961Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/APEX_CICD_E.15/APEX_CICD_E.15
+2026-11-26T08:02:47.0543162Z Deleting the contents of '/home/runner/work/APEX_CICD_E.15/APEX_CICD_E.15'
+2026-11-26T08:02:47.0544353Z ##[group]Initializing the repository
+2026-11-26T08:02:47.0544887Z [command]/usr/bin/git init /home/runner/work/APEX_CICD_E.15/APEX_CICD_E.15
+2026-11-26T08:02:47.0672113Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-26T08:02:47.0695641Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-26T08:02:47.0720029Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-26T08:02:47.0724784Z hint: call:
+2026-11-26T08:02:47.0733920Z hint:
+2026-11-26T08:02:47.0734448Z hint: 	git config --global init.defaultBranch <name>
+2026-11-26T08:02:47.0734866Z hint:
+2026-11-26T08:02:47.0735218Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-26T08:02:47.0736062Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-26T08:02:47.0736773Z hint:
+2026-11-26T08:02:47.0737075Z hint: 	git branch -m <name>
+2026-11-26T08:02:47.0737355Z hint:
+2026-11-26T08:02:47.0738282Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-26T08:02:47.0738788Z Initialized empty Git repository in /home/runner/work/APEX_CICD_E.15/APEX_CICD_E.15/.git/
+2026-11-26T08:02:47.0742605Z [command]/usr/bin/git remote add origin https://github.com/rstyczynski/APEX_CICD_E.15
+2026-11-26T08:02:47.0770970Z ##[endgroup]
+2026-11-26T08:02:47.0771483Z ##[group]Disabling automatic garbage collection
+2026-11-26T08:02:47.0771881Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-26T08:02:47.0853906Z ##[endgroup]
+2026-11-26T08:02:47.0861292Z ##[group]Setting up auth
+2026-11-26T08:02:47.0861835Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-26T08:02:47.0920935Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-26T08:02:47.1377968Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-26T08:02:47.1384170Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-26T08:02:47.1596233Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-26T08:02:47.1643865Z ##[endgroup]
+2026-11-26T08:02:47.1644389Z ##[group]Fetching the repository
+2026-11-26T08:02:47.1652647Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 76e8aa6f3b1cf5e29a7c544d23750973a27c3e59
+2026-11-26T08:02:47.5324388Z From https://github.com/rstyczynski/APEX_CICD_E.15
+2026-11-26T08:02:47.5334848Z  * branch            76e8aa6f3b1cf5e29a7c544d23750973a27c3e59 -> FETCH_HEAD
+2026-11-26T08:02:47.5336449Z ##[endgroup]
+2026-11-26T08:02:47.5336945Z ##[group]Determining the checkout info
+2026-11-26T08:02:47.5337461Z ##[endgroup]
+2026-11-26T08:02:47.5343826Z [command]/usr/bin/git sparse-checkout disable
+2026-11-26T08:02:47.5484935Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-26T08:02:47.5522298Z ##[group]Checking out the ref
+2026-11-26T08:02:47.5522944Z [command]/usr/bin/git checkout --progress --force 76e8aa6f3b1cf5e29a7c544d23750973a27c3e59
+2026-11-26T08:02:47.5581638Z Note: switching to '76e8aa6f3b1cf5e29a7c544d23750973a27c3e59'.
+2026-11-26T08:02:47.5597371Z 
+2026-11-26T08:02:47.5634401Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-26T08:02:47.5649116Z changes and commit them, and you can discard any commits you make in this
+2026-11-26T08:02:47.5664593Z state without impacting any branches by switching back to a branch.
+2026-11-26T08:02:47.5670384Z 
+2026-11-26T08:02:47.5684574Z If you want to create a new branch to retain commits you create, you may
+2026-11-26T08:02:47.5696279Z do so (now or later) by using -c with the switch command. Example:
+2026-11-26T08:02:47.5696688Z 
+2026-11-26T08:02:47.5696913Z   git switch -c <new-branch-name>
+2026-11-26T08:02:47.5697249Z 
+2026-11-26T08:02:47.5700101Z Or undo this operation with:
+2026-11-26T08:02:47.5700409Z 
+2026-11-26T08:02:47.5700616Z   git switch -
+2026-11-26T08:02:47.5700860Z 
+2026-11-26T08:02:47.5701221Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-26T08:02:47.5712639Z 
+2026-11-26T08:02:47.5734177Z HEAD is now at 76e8aa6 test: require explicit HTTP 403 for denied publication
+2026-11-26T08:02:47.5759594Z ##[endgroup]
+2026-11-26T08:02:47.5798264Z [command]/usr/bin/git log -1 --format=%H
+2026-11-26T08:02:47.5798826Z 76e8aa6f3b1cf5e29a7c544d23750973a27c3e59
+2026-11-26T08:02:47.5800051Z ##[group]Removing auth
+2026-11-26T08:02:47.5800556Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-26T08:02:47.5802408Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-26T08:02:47.6157193Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-26T08:02:47.6184324Z http.https://github.com/.extraheader
+2026-11-26T08:02:47.6188059Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-26T08:02:47.6247108Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-26T08:02:47.6604233Z ##[endgroup]
+2026-11-26T08:02:47.6790722Z ##[group]Run docker exec -i "$ORACLE_CONTAINER" sqlplus -s / as sysdba <<'SQL'
+2026-11-26T08:02:47.6791090Z [36;1mdocker exec -i "$ORACLE_CONTAINER" sqlplus -s / as sysdba <<'SQL'[0m
+2026-11-26T08:02:47.6791318Z [36;1mwhenever sqlerror exit failure[0m
+2026-11-26T08:02:47.6791495Z [36;1malter session set container=FREEPDB1;[0m
+2026-11-26T08:02:47.6791703Z [36;1mcreate table system.e15_private (value varchar2(80));[0m
+2026-11-26T08:02:47.6791948Z [36;1minsert into system.e15_private values ('private sentinel');[0m
+2026-11-26T08:02:47.6792146Z [36;1mcommit;[0m
+2026-11-26T08:02:47.6792263Z [36;1mSQL[0m
+2026-11-26T08:02:47.6823104Z shell: /usr/bin/bash -e {0}
+2026-11-26T08:02:47.6823269Z env:
+2026-11-26T08:02:47.6823484Z   ORACLE_CONTAINER: 2518bd6cd491f5d7393ee678d7f1ebc83f9d597ab7417b88abd893d341f3b380
+2026-11-26T08:02:47.6823974Z ##[endgroup]
+2026-11-26T08:02:47.7518501Z 
+2026-11-26T08:02:47.7519819Z Session altered.
+2026-11-26T08:02:47.7520516Z 
+2026-11-26T08:02:47.7679021Z 
+2026-11-26T08:02:47.7679957Z Table created.
+2026-11-26T08:02:47.7680609Z 
+2026-11-26T08:02:47.7687640Z 
+2026-11-26T08:02:47.7691912Z 1 row created.
+2026-11-26T08:02:47.7692231Z 
+2026-11-26T08:02:47.7700616Z 
+2026-11-26T08:02:47.7704784Z Commit complete.
+2026-11-26T08:02:47.7705143Z 
+2026-11-26T08:02:47.7793457Z ##[group]Run if gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" -f state=success -f context=Unauthorized > publication.log 2>&1; then
+2026-11-26T08:02:47.7794724Z [36;1mif gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" -f state=success -f context=Unauthorized > publication.log 2>&1; then[0m
+2026-11-26T08:02:47.7795295Z [36;1m  echo 'Unexpected publication authority'; exit 1[0m
+2026-11-26T08:02:47.7795559Z [36;1mfi[0m
+2026-11-26T08:02:47.7795740Z [36;1mcat publication.log[0m
+2026-11-26T08:02:47.7795968Z [36;1mgrep -q 'HTTP 403' publication.log[0m
+2026-11-26T08:02:47.7820567Z shell: /usr/bin/bash -e {0}
+2026-11-26T08:02:47.7820816Z env:
+2026-11-26T08:02:47.7822929Z   GH_TOKEN: ***
+2026-11-26T08:02:47.7823113Z ##[endgroup]
+2026-11-26T08:02:48.2359294Z {"message":"Resource not accessible by integration","documentation_url":"https://docs.github.com/rest/commits/statuses#create-a-commit-status","status":"403"}gh: Resource not accessible by integration (HTTP 403)
+2026-11-26T08:02:48.2417056Z ##[group]Run gh api "repos/$GITHUB_REPOSITORY/contents/candidate.sql?ref=$CANDIDATE" -H 'Accept: application/vnd.github.raw+json' > candidate.sql
+2026-11-26T08:02:48.2417620Z [36;1mgh api "repos/$GITHUB_REPOSITORY/contents/candidate.sql?ref=$CANDIDATE" -H 'Accept: application/vnd.github.raw+json' > candidate.sql[0m
+2026-11-26T08:02:48.2434152Z shell: /usr/bin/bash -e {0}
+2026-11-26T08:02:48.2434314Z env:
+2026-11-26T08:02:48.2435716Z   GH_TOKEN: ***
+2026-11-26T08:02:48.2435868Z   CANDIDATE: 83031f28303550e7e265c3b8001528a1f05fcee1
+2026-11-26T08:02:48.2436047Z ##[endgroup]
+2026-11-26T08:02:48.5396511Z ##[group]Run python3 -m pip install oracledb==3.4.1
+2026-11-26T08:02:48.5396770Z [36;1mpython3 -m pip install oracledb==3.4.1[0m
+2026-11-26T08:02:48.5430196Z shell: /usr/bin/bash -e {0}
+2026-11-26T08:02:48.5430661Z ##[endgroup]
+2026-11-26T08:02:49.7006738Z Defaulting to user installation because normal site-packages is not writeable
+2026-11-26T08:02:50.5499669Z Collecting oracledb==3.4.1
+2026-11-26T08:02:50.6240171Z   Downloading oracledb-3.4.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (7.7 kB)
+2026-11-26T08:02:50.6358577Z Requirement already satisfied: cryptography>=3.2.1 in /usr/lib/python3/dist-packages (from oracledb==3.4.1) (41.0.7)
+2026-11-26T08:02:50.6632385Z Collecting typing_extensions>=4.14.0 (from oracledb==3.4.1)
+2026-11-26T08:02:50.6786411Z   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-11-26T08:02:50.7092633Z Downloading oracledb-3.4.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (2.4 MB)
+2026-11-26T08:02:50.7984149Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.4/2.4 MB 28.6 MB/s eta 0:00:00
+2026-11-26T08:02:50.8136240Z Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-11-26T08:02:50.8175306Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 17.6 MB/s eta 0:00:00
+2026-11-26T08:02:51.0022644Z Installing collected packages: typing_extensions, oracledb
+2026-11-26T08:02:51.0845788Z Successfully installed oracledb-3.4.1 typing_extensions-4.16.0
+2026-11-26T08:02:51.1606082Z ##[group]Run python3 validate.py
+2026-11-26T08:02:51.1606409Z [36;1mpython3 validate.py[0m
+2026-11-26T08:02:51.1628162Z shell: /usr/bin/bash -e {0}
+2026-11-26T08:02:51.1628406Z env:
+2026-11-26T08:02:51.1628624Z   CANDIDATE_PASSWORD: Disposable_Candidate_15
+2026-11-26T08:02:51.1628900Z ##[endgroup]
+2026-11-26T08:02:51.6188527Z PASS real Oracle greeting, schema identity and private-table refusal
+2026-11-26T08:02:51.6489418Z Post job cleanup.
+2026-11-26T08:02:51.7144309Z [command]/usr/bin/git version
+2026-11-26T08:02:51.7204313Z git version 2.56.1
+2026-11-26T08:02:51.7260600Z Temporarily overriding HOME='/home/runner/work/_temp/31c77f16-6dc4-4f50-9f46-63a73e03c372' before making global git config changes
+2026-11-26T08:02:51.7261273Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-26T08:02:51.7261823Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/APEX_CICD_E.15/APEX_CICD_E.15
+2026-11-26T08:02:51.7314822Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-26T08:02:51.7385034Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-26T08:02:51.7739588Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-26T08:02:51.7741621Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-26T08:02:51.8180035Z Print service container logs: eb8ca883742c46a98aad9f89ab698fb9_gvenzloraclefree23slimfaststart_9a5586
+2026-11-26T08:02:51.8183179Z ##[command]/usr/bin/docker logs --details 2518bd6cd491f5d7393ee678d7f1ebc83f9d597ab7417b88abd893d341f3b380
+2026-11-26T08:02:51.8311221Z  CONTAINER: starting up...
+2026-11-26T08:02:51.8312075Z  CONTAINER: first database startup, initializing...
+2026-11-26T08:02:51.8312513Z  CONTAINER: starting up Oracle Database...
+2026-11-26T08:02:51.8314045Z  
+2026-11-26T08:02:51.8314462Z  LSNRCTL for Linux: Version 23.26.4.0.0 - Production on 26-NOV-2026 08:01:50
+2026-11-26T08:02:51.8314938Z  
+2026-11-26T08:02:51.8315447Z  Copyright (c) 1991, 2026, Oracle.  All rights reserved.
+2026-11-26T08:02:51.8315780Z  
+2026-11-26T08:02:51.8316158Z  Starting /opt/oracle/product/26ai/dbhomeFree/bin/tnslsnr: please wait...
+2026-11-26T08:02:51.8316565Z  
+2026-11-26T08:02:51.8316872Z  TNSLSNR for Linux: Version 23.26.4.0.0 - Production
+2026-11-26T08:02:51.8317410Z  System parameter file is /opt/oracle/product/26ai/dbhomeFree/network/admin/listener.ora
+2026-11-26T08:02:51.8318820Z  Log messages written to /opt/oracle/diag/tnslsnr/2518bd6cd491/listener/alert/log.xml
+2026-11-26T08:02:51.8319350Z  Listening on: (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC_FOR_FREE)))
+2026-11-26T08:02:51.8319897Z  Listening on: (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=2518bd6cd491)(PORT=1521)))
+2026-11-26T08:02:51.8320310Z  
+2026-11-26T08:02:51.8320673Z  Connecting to (DESCRIPTION=(ADDRESS=(PROTOCOL=IPC)(KEY=EXTPROC_FOR_FREE)))
+2026-11-26T08:02:51.8321074Z  STATUS of the LISTENER
+2026-11-26T08:02:51.8321379Z  ------------------------
+2026-11-26T08:02:51.8321652Z  Alias                     LISTENER
+2026-11-26T08:02:51.8322056Z  Version                   TNSLSNR for Linux: Version 23.26.4.0.0 - Production
+2026-11-26T08:02:51.8322707Z  Start Date                26-NOV-2026 08:01:50
+2026-11-26T08:02:51.8323091Z  Uptime                    0 days 0 hr. 0 min. 0 sec
+2026-11-26T08:02:51.8323418Z  Trace Level               off
+2026-11-26T08:02:51.8323855Z  Security                  ON: Local OS Authentication
+2026-11-26T08:02:51.8328977Z  SNMP                      OFF
+2026-11-26T08:02:51.8329515Z  Default Service           FREE
+2026-11-26T08:02:51.8331159Z  Listener Parameter File   /opt/oracle/product/26ai/dbhomeFree/network/admin/listener.ora
+2026-11-26T08:02:51.8331545Z  Listener Log File         /opt/oracle/diag/tnslsnr/2518bd6cd491/listener/alert/log.xml
+2026-11-26T08:02:51.8331887Z  Listening Endpoints Summary...
+2026-11-26T08:02:51.8332137Z    (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC_FOR_FREE)))
+2026-11-26T08:02:51.8332478Z    (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=2518bd6cd491)(PORT=1521)))
+2026-11-26T08:02:51.8332762Z  The listener supports no services
+2026-11-26T08:02:51.8333021Z  The command completed successfully
+2026-11-26T08:02:51.8333242Z  ORACLE instance started.
+2026-11-26T08:02:51.8333473Z  
+2026-11-26T08:02:51.8333803Z  Total System Global Area 1603452272 bytes
+2026-11-26T08:02:51.8334064Z  Fixed Size		    5086576 bytes
+2026-11-26T08:02:51.8334294Z  Variable Size		  620756992 bytes
+2026-11-26T08:02:51.8334649Z  Database Buffers	  973078528 bytes
+2026-11-26T08:02:51.8334882Z  Redo Buffers		    4530176 bytes
+2026-11-26T08:02:51.8335099Z  Database mounted.
+2026-11-26T08:02:51.8335295Z  Database opened.
+2026-11-26T08:02:51.8335537Z  
+2026-11-26T08:02:51.8335706Z  ORACLE DATABASE VERSION
+2026-11-26T08:02:51.8336032Z  ------------------------------------------------------------------------------------
+2026-11-26T08:02:51.8336460Z  Oracle AI Database 26ai Free Release 23.26.4.0.0 - Develop, Learn, and Run for Free
+2026-11-26T08:02:51.8336806Z  Version 23.26.4.0.0
+2026-11-26T08:02:51.8336990Z  
+2026-11-26T08:02:51.8337147Z  
+2026-11-26T08:02:51.8337307Z  
+2026-11-26T08:02:51.8337508Z  CONTAINER: Resetting SYS and SYSTEM passwords.
+2026-11-26T08:02:51.8337788Z  
+2026-11-26T08:02:51.8337953Z  User altered.
+2026-11-26T08:02:51.8338138Z  
+2026-11-26T08:02:51.8338289Z  
+2026-11-26T08:02:51.8338736Z  User altered.
+2026-11-26T08:02:51.8338910Z  
+2026-11-26T08:02:51.8339086Z  ############################################
+2026-11-26T08:02:51.8339353Z  ORACLE PASSWORD FOR SYS AND SYSTEM: [REDACTED disposable generated password]
+2026-11-26T08:02:51.8339624Z  ############################################
+2026-11-26T08:02:51.8339920Z  CONTAINER: Creating app user for default pluggable database.
+2026-11-26T08:02:51.8340211Z  
+2026-11-26T08:02:51.8340373Z  Session altered.
+2026-11-26T08:02:51.8340550Z  
+2026-11-26T08:02:51.8340707Z  
+2026-11-26T08:02:51.8340866Z  User created.
+2026-11-26T08:02:51.8341037Z  
+2026-11-26T08:02:51.8341191Z  
+2026-11-26T08:02:51.8341376Z  Grant succeeded.
+2026-11-26T08:02:51.8341555Z  
+2026-11-26T08:02:51.8341795Z  CONTAINER: DONE: Creating app user for default pluggable database.
+2026-11-26T08:02:51.8342101Z  
+2026-11-26T08:02:51.8342282Z  #########################
+2026-11-26T08:02:51.8342509Z  DATABASE IS READY TO USE!
+2026-11-26T08:02:51.8342705Z  #########################
+2026-11-26T08:02:51.8342890Z  
+2026-11-26T08:02:51.8343075Z  ####################################################################
+2026-11-26T08:02:51.8343500Z  CONTAINER: The following output is now from the alert_FREE.log file:
+2026-11-26T08:02:51.8343884Z  ####################################################################
+2026-11-26T08:02:51.8344080Z  ===========================================================
+2026-11-26T08:02:51.8344289Z  Unable to obtain current patch information due to error: 20013
+2026-11-26T08:02:51.8344490Z  ===========================================================
+2026-11-26T08:02:51.8344655Z  2026-11-26T08:02:18.490461+00:00
+2026-11-26T08:02:51.8344852Z  PDB$SEED(2):Opening pdb with Resource Manager plan: DEFAULT_PLAN
+2026-11-26T08:02:51.8345078Z  FREEPDB1(3):Autotune of undo retention is turned on. 
+2026-11-26T08:02:51.8345255Z  2026-11-26T08:02:28.799049+00:00
+2026-11-26T08:02:51.8345436Z  FREEPDB1(3):Opening pdb with Resource Manager plan: DEFAULT_PLAN
+2026-11-26T08:02:51.8345666Z  Completed: Pluggable database FREEPDB1 opened read write 
+2026-11-26T08:02:51.8345858Z  Completed: ALTER DATABASE OPEN
+2026-11-26T08:02:51.8346000Z  2026-11-26T08:02:30.143521+00:00
+2026-11-26T08:02:51.8346193Z  Thread 1 advanced to log sequence 12 (LGWR switch),  current SCN: 2290550
+2026-11-26T08:02:51.8346449Z    Current log# 1 seq# 12 mem# 0: /opt/oracle/oradata/FREE/redo01.log
+2026-11-26T08:02:51.8352339Z Stop and remove container: eb8ca883742c46a98aad9f89ab698fb9_gvenzloraclefree23slimfaststart_9a5586
+2026-11-26T08:02:51.8356545Z ##[command]/usr/bin/docker rm --force 2518bd6cd491f5d7393ee678d7f1ebc83f9d597ab7417b88abd893d341f3b380
+2026-11-26T08:02:52.5438593Z 2518bd6cd491f5d7393ee678d7f1ebc83f9d597ab7417b88abd893d341f3b380
+2026-11-26T08:02:52.5464291Z Remove container network: github_network_15607afb3f6b4ab9967187ecd5c6e165
+2026-11-26T08:02:52.5468392Z ##[command]/usr/bin/docker network rm github_network_15607afb3f6b4ab9967187ecd5c6e165
+2026-11-26T08:02:52.6163169Z github_network_15607afb3f6b4ab9967187ecd5c6e165
+2026-11-26T08:02:52.6214372Z Cleaning up orphan processes
+2026-11-26T08:02:52.6528034Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

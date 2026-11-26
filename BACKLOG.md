@@ -623,3 +623,35 @@ Determine whether the proposed compatibility bridge preserves consistent shared 
 Test: Demonstrate either the declared consistency and recovery outcomes or a reproducible counterexample, including partial-write failure, old/new read visibility and the supported limits on return to legacy operation.
 
 Status: Done
+
+### PBI-083. Validate integrated GitHub and Oracle execution
+
+Validate the combined candidate-testing, review and isolated-execution journey on GitHub with real Oracle execution. Establish whether the intended hosted trust boundary preserves validation authority and freshness under concurrent changes and interrupted runs. For this item's YOLO sprint, the Product Owner explicitly grants Codex full permission to create, configure and use the temporary GitHub repository named APEX_CICD_${sprint}, substituting the assigned sprint ID, including pushing branches and tags, opening and merging pull requests, running workflows and publishing sprint artifacts without further Product Owner confirmation. This authorization covers sprint-related operations in that temporary repository and does not grant push permission to the main APEX_CICD repository or unrelated repositories.
+
+Test: Demonstrate an accepted candidate reaching ordinary merge, with stale evidence, unauthorized publication, cross-candidate access and interrupted cleanup unable to authorize an invalid merge or damage another run.
+
+Status: Proposed
+
+### PBI-084. Validate provenance through native Oracle release delivery
+
+Establish complete release traceability through the native SQLcl PROJECT lifecycle, connecting reviewed source, release preparation, qualified artifacts and observed deployment state. Preserve existing data and require the approved toolchain for every processed Git state. For this item's YOLO sprint, the Product Owner explicitly grants Codex full permission to create, configure and use the temporary GitHub repository named APEX_CICD_${sprint}, substituting the assigned sprint ID, including pushing branches and tags, opening and merging pull requests, running workflows and publishing sprint artifacts without further Product Owner confirmation. This authorization covers sprint-related operations in that temporary repository and does not grant push permission to the main APEX_CICD repository or unrelated repositories.
+
+Test: Demonstrate native installation, upgrade and safe repeat with verifiable source-to-target provenance, and rejection of substituted artifacts, mismatched evidence and incompatible tool versions before target mutation.
+
+Status: Proposed
+
+### PBI-085. Reproduce complete native delivery on a clean host
+
+Have another attributable operator reproduce the supported Oracle Database, APEX, ORDS and native delivery journey on a genuinely clean host. Require declared prerequisites and newly supplied private inputs so retained laboratory state cannot conceal missing dependencies. For this item's YOLO sprint, the Product Owner explicitly grants Codex full permission to create, configure and use the temporary GitHub repository named APEX_CICD_${sprint}, substituting the assigned sprint ID, including pushing branches and tags, opening and merging pull requests, running workflows and publishing sprint artifacts without further Product Owner confirmation. This authorization covers sprint-related operations in that temporary repository and does not grant push permission to the main APEX_CICD repository or unrelated repositories.
+
+Test: Demonstrate provisioning, application access, native installation, upgrade and repeat deployment on an independent host, with preserved test data and documented inputs, tool identities and cleanup.
+
+Status: Proposed
+
+### PBI-086. Measure complete pipeline feedback and runner capacity
+
+Measure feedback time and resource demand for the integrated JDK, SQLcl, utPLSQL and Oracle workload. Establish defensible runner and caching recommendations while preserving mandatory validation and candidate isolation. For this item's YOLO sprint, the Product Owner explicitly grants Codex full permission to create, configure and use the temporary GitHub repository named APEX_CICD_${sprint}, substituting the assigned sprint ID, including pushing branches and tags, opening and merging pull requests, running workflows and publishing sprint artifacts without further Product Owner confirmation. This authorization covers sprint-related operations in that temporary repository and does not grant push permission to the main APEX_CICD repository or unrelated repositories.
+
+Test: Report declared sample counts, cold/warm phase timings, median/p95 feedback, queue delay and resource use under serial and concurrent workloads, with a justified capacity recommendation and explicit measurement limits.
+
+Status: Proposed
