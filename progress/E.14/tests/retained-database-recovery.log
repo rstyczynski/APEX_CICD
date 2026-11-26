@@ -1,0 +1,15 @@
+EXIT=0
+ORACLE instance started.
+
+Total System Global Area 1603392144 bytes
+Fixed Size		    5026448 bytes
+Variable Size		  671088640 bytes
+Database Buffers	  922746880 bytes
+Redo Buffers		    4530176 bytes
+Database mounted.
+Database opened.
+
+STATUS
+------------
+OPEN
+

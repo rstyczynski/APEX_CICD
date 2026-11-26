@@ -1,0 +1,9 @@
+2026-11-25 22:38:03.451686000
+begin begin E14_RUN_24698.request('Hello',9999); raise_application_error(-20203,'maintenance bypass'); exception when others then if sqlcode<>-20201 then raise; end if; end; end;
+*
+ERROR at line 1:
+ORA-20203: maintenance bypass
+ORA-06512: at line 1
+ORA-06512: at line 1
+
+

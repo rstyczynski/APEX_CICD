@@ -1,0 +1,5 @@
+# E.14 operator reference
+
+[Walkthrough](sprint_E.14_increment_demo.md) is the complete explained operating sequence and SQL source. It requires the prepared apex-cicd Podman connection, apex-db/FREEPDB1, Python 3, Bash and optionally VS Code's code command for viewing. No new credentials are needed. Use the driver only for isolated laboratory fixtures; it uses privileged SQLPlus inside the prepared database container.
+
+Each invocation creates its own E14_RUN process-ID schema, retains original greeting/settings through both windows, and retains logs for diagnosis. If Oracle/transport fails, inspect the final exception and run SQL, fix the observed cause and repeat with a new process. Do not reuse a failed schema as a successful baseline or delete unrelated schemas. The maintenance flag prevents new requests only through this controlled request procedure; production APEX sessions/jobs are unqualified. Session-exit rollback does not prove database-host crash recovery. No production release or arbitrary-load guarantee is provided. [Assessment](architecture_assessment.md) explains remaining production work.

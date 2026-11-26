@@ -1,0 +1,2 @@
+declare n number; begin select count(*) into n from e12_app.history; if n<>163 then raise_application_error(-20211,'recovery history mismatch'); end if; select count(*) into n from e12_app.details; if n<>163 then raise_application_error(-20212,'recovery details mismatch'); end if; select count(*) into n from e12_app.settings where k='language' and v='en'; if n<>1 then raise_application_error(-20213,'recovery settings mismatch'); end if; dbms_output.put_line('POST_RECOVERY_PRESERVATION_PASS'); end;
+/

@@ -1,0 +1,119 @@
+Reusing owned regression database; private inputs will be replaced
+Provisioned control identity only: E1_CTRL
+
+
+No errors.
+No errors.
+No errors.
+No errors.
+
+
+Provisioned ONLY lab-dev: E1_DEV_A / E1_DEV_A
+Granted only this area its delivery interfaces; other areas unchanged.
+
+Provisioned ONLY lab-dev-b: E1_DEV_B / E1_DEV_B
+Granted only this area its delivery interfaces; other areas unchanged.
+
+Provisioned ONLY lab-dev-c: E1_DEV_C / E1_DEV_C
+Granted only this area its delivery interfaces; other areas unchanged.
+
+Provisioned ONLY integration_test: E1_INTEGRATION / E1_INTEGRATION
+Granted only this area its delivery interfaces; other areas unchanged.
+
+Provisioned ONLY user_acceptance_test: E1_UAT / E1_UAT
+Granted only this area its delivery interfaces; other areas unchanged.
+
+
+--Starting Liquibase at 2026-11-25T23:48:27.790819 using Java 21.0.12.1 (version 4.30.0 #0 built at 2025-04-01 10:24+0000)
+Running Changeset: db/changelog.xml::001-foundation::apex-lab
+
+Running Changeset: db/changelog.xml::002-foundation-runtime::apex-lab
+
+
+UPDATE SUMMARY
+Run:                          2
+Previously run:               0
+Filtered out:                 0
+-------------------------------
+Total change sets:            2
+
+Liquibase: Update has been successful. Rows affected: 2
+
+
+Operation completed successfully.
+
+--install
+--application/set_environment
+API Last Extended:20241130
+Your Current Version:20241130
+This import is compatible with version: 20241130
+COMPATIBLE (You should be able to run this import without issues.)
+ID offset during import: 18606323698975673
+New ID offset for application: 0
+
+--application/delete_application
+--application/create_application
+--application/user_interfaces
+--application/shared_components/navigation/lists/navigation_menu
+--application/shared_components/navigation/lists/navigation_bar
+--application/shared_components/navigation/listentry
+--application/shared_components/files/icons_app_icon_144_rounded_png
+--application/shared_components/files/icons_app_icon_32_png
+--application/shared_components/files/icons_app_icon_192_png
+--application/shared_components/files/icons_app_icon_256_rounded_png
+--application/shared_components/files/icons_app_icon_512_png
+--application/plugin_settings
+--application/shared_components/security/authorizations/administration_rights
+--application/shared_components/navigation/navigation_bar
+--application/shared_components/logic/application_settings
+--application/shared_components/navigation/tabs/standard
+--application/shared_components/navigation/tabs/parent
+--application/pages/page_groups
+--application/shared_components/navigation/breadcrumbs/breadcrumb
+--application/shared_components/navigation/breadcrumbentry
+--application/shared_components/user_interface/templates/popuplov
+--application/shared_components/user_interface/themes
+--application/shared_components/user_interface/theme_style
+--application/shared_components/user_interface/theme_files
+--application/shared_components/user_interface/template_opt_groups
+--application/shared_components/user_interface/template_options
+--application/shared_components/globalization/language
+--application/shared_components/logic/build_options
+--application/shared_components/globalization/messages
+--application/shared_components/globalization/dyntranslations
+--application/shared_components/security/authentications/oracle_apex_accounts
+--application/user_interfaces/combined_files
+--application/pages/page_00000
+--application/pages/page_00001
+--application/pages/page_00010
+--application/pages/page_09999
+--application/end_environment
+... elapsed: 1.01 sec
+
+...done
+
+PL/SQL procedure successfully completed.
+
+
+e12-reg-9b1a0e659b68
+
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_regression.py", line 130, in <module>
+    raise SystemExit(suite(sys.argv[1:]))
+                     ~~~~~^^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/legacy_regression.py", line 94, in suite
+    r=subprocess.run(BASE+['run','--rm','-i','--env','JAVA_TOOL_OPTIONS=-Xms64m -Xmx256m','--network','apex-net','-v',resource+':/etc/ords/config:z',image,'install','--admin-user','E12_ADMIN','--proxy-user','--db-hostname','e12-regression-db','--db-port','1521','--db-servicename','FREEPDB1','--gateway-mode','proxied','--gateway-user','APEX_PUBLIC_USER','--password-stdin'],input=values['ORACLE_PASSWORD']+'\n'+values['ORDS_PASSWORD']+'\n',capture_output=True,text=True,timeout=300)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 557, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1221, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 2154, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1268, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['podman', '--connection', 'apex-cicd', 'run', '--rm', '-i', '--env', 'JAVA_TOOL_OPTIONS=-Xms64m -Xmx256m', '--network', 'apex-net', '-v', 'e12-reg-9b1a0e659b68:/etc/ords/config:z', 'container-registry.oracle.com/database/ords@sha256:1551b5c51faf47a1e961ddbacf7d75262e686108b165d96c42542f0bae79e6de', 'install', '--admin-user', 'E12_ADMIN', '--proxy-user', '--db-hostname', 'e12-regression-db', '--db-port', '1521', '--db-servicename', 'FREEPDB1', '--gateway-mode', 'proxied', '--gateway-user', 'APEX_PUBLIC_USER', '--password-stdin']' timed out after 300 seconds

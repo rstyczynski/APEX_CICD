@@ -5,3 +5,6 @@ unit:test_regression_boundary.sh:test_regression_private_boundary
 smoke:test_foundation.sh:test_bridge_smoke
 unit:test_foundation.sh:test_bridge_unit
 integration:test_foundation.sh:test_bridge_live
+smoke:test_foundation.sh:test_windows_smoke
+unit:test_foundation.sh:test_windows_unit
+integration:test_foundation.sh:test_windows_integration

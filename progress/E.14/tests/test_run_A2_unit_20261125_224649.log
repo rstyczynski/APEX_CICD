@@ -1,0 +1,4 @@
+RUN unit:test_foundation.sh:test_windows_unit
+PASS synthetic route validation only
+PASS test_windows_unit
+Tests: 1; failed: 0

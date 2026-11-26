@@ -1,0 +1,4 @@
+COMMAND=['podman', '--connection', 'apex-cicd', 'ps', '--format', '{{.Names}} {{.Status}}']
+EXIT=0
+apex-db Up 6 hours
+e12-regression-db Up 2 hours

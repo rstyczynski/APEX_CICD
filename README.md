@@ -32,7 +32,7 @@ utPLSQL and fixtures into a testable-backend increment, then validate secure
 contracts, traceable upgrades, candidate testing, AI review and merge controls,
 isolated execution and reproducible delivery. The Foundation transition sprints
 include their related catch-up and bridge experiments. E.x validates ideas;
-production completion belongs to future C.n iterations. E.5–E.12 have completed their bounded experiments. E.13 is closed after verified YOLO execution; E.14 remains Planned. [PLAN](PLAN.md) owns
+production completion belongs to future C.n iterations. E.5–E.12 have completed their bounded experiments. E.13 is closed after verified YOLO execution; E.14 is closed; Lifecycle Architecture acceptance remains a separate Product Owner decision. [PLAN](PLAN.md) owns
 assignments and the [roadmap](ROADMAP.md) explains the lifecycle.
 
 ## What works today
@@ -180,7 +180,7 @@ The first remote run failed before deployment and its workflow correction is
 retained. The release/tag is 1.0.4 while APEX's display footer remains 1.0.0;
 automatic display-version stamping was not qualified.
 
-PBI-053 and its three children are Done. E.3 was previously closed on 2026-11-05, then reopened by explicit Product Owner direction for PBI-058. The Product Owner accepted the correction and closed E.3 on 2026-11-09. E.4 is Done; E.5 is Done for its bounded YOLO backend experiment and E.6 is Done for its bounded YOLO secure-contract experiment and E.7 is Done for its bounded YOLO upgrade/release experiment and E.8–E.14 are Planned under the [validation programme](docs/validation-programme.md). This is an architecture
+PBI-053 and its three children are Done. E.3 was previously closed on 2026-11-05, then reopened by explicit Product Owner direction for PBI-058. The Product Owner accepted the correction and closed E.3 on 2026-11-09. E.4 is Done; E.5 is Done for its bounded YOLO backend experiment and E.6 is Done for its bounded YOLO secure-contract experiment and E.7 is Done for its bounded YOLO upgrade/release experiment and E.8–E.14 have completed their bounded experiments under the [validation programme](docs/validation-programme.md). This is an architecture
 prototype, with concurrency, full identity preservation, drift/fencing and
 broader recovery still registered for later work.
 
@@ -235,7 +235,7 @@ The supplied [Oracle APEX lifecycle reference](refs/apex-lifecycle-management-v3
 
 [RUPStrikesBack](https://github.com/rstyczynski/RUPStrikesBack) is an iterative delivery method for collaboration between a Product Owner and AI agents. It combines RUP lifecycle phases with a prioritized backlog, bounded iterations, explicit requirements/design, executable validation and Product Owner review. Each increment connects its implementation, tests and documentation so decisions can be checked against evidence.
 
-This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1, E.1, E.2 and E.3 are closed. E.4 is Done for PBI-042/PBI-060 following explicit Product Owner closure on 2026-11-25; E.5 is Done for its bounded YOLO backend experiment and E.6 is Done for its bounded YOLO secure-contract experiment and E.7 is Done for its bounded YOLO upgrade/release experiment and E.8–E.14 are Planned under the [validation programme](docs/validation-programme.md). PLAN owns the current assignments and lifecycle states.
+This project includes the method as a [Git submodule](RUPStrikesBack/) and applies [project-specific policy](RUP_patch.md). [AGENTS.md](AGENTS.md) defines the agent entry points. [BACKLOG](BACKLOG.md), [PLAN](PLAN.md) and [PROGRESS_BOARD](PROGRESS_BOARD.md) track priorities, sprint selection and execution respectively. Sprint 0, I.1, E.1, E.2 and E.3 are closed. E.4 is Done for PBI-042/PBI-060 following explicit Product Owner closure on 2026-11-25; E.5 is Done for its bounded YOLO backend experiment and E.6 is Done for its bounded YOLO secure-contract experiment and E.7 is Done for its bounded YOLO upgrade/release experiment and E.8–E.14 have completed their bounded experiments under the [validation programme](docs/validation-programme.md). PLAN owns the current assignments and lifecycle states.
 
 For external expert review, use the [rup-external-review skill](.agents/skills/rup-external-review/SKILL.md). Codex prepares the prompts and engineering replies; the Product Owner relays them to the expert through the linked round files. Review outcomes and implementation evidence remain distinct from sprint acceptance.
 
@@ -275,7 +275,7 @@ E.11 is closed after verified technical second-operator reproduction; see [closu
 
 The [E.12 walkthrough](progress/E.12/sprint_E.12_increment_demo.md) owns operating steps for the isolated compatible-language and interrupted catch-up experiment. The real Oracle experiment verifies unchanged consumer reads/writes, optional language, retained history/configuration, interrupted recovery and exact source/target equality at the selected cutover. Its [design](progress/E.12/sprint_E.12_design.md) records mechanism choices; its [tests](progress/E.12/sprint_E.12_tests.md) distinguish executed gates from unverified production behavior. The [checklist](progress/E.12/sprint_E.12_remaining_work.md) and [handover](progress/E.12/sprint_E.12_handover.md) record acceptance and closure evidence. BACKLOG and PLAN retain requirement and lifecycle authority. This prototype does not replace the application-wide maintenance policy or qualify a production toolchain upgrade.
 
-E.12 is closed after six passing gates (new 2/4/1, regression 11/12/21), delegated technical handover and a passing documentation audit. [Closure](progress/E.12/sprint_E.12_closure.md) records the local completion marker and remaining prototype limits. E.13 is closed after verified YOLO execution; E.14 remains Planned.
+E.12 is closed after six passing gates (new 2/4/1, regression 11/12/21), delegated technical handover and a passing documentation audit. [Closure](progress/E.12/sprint_E.12_closure.md) records the local completion marker and remaining prototype limits. E.13 is closed after verified YOLO execution; E.14 is closed; Lifecycle Architecture acceptance remains a separate Product Owner decision.
 
 
 ### Sprint E.13 — Foundation bridge and recovery
@@ -285,3 +285,14 @@ The [E.13 walkthrough](progress/E.13/sprint_E.13_increment_demo.md) owns operati
 E.13 closure: all six gates pass (new 1/1/1, full 12/13/22), local completion commit `f5bc924` exists and [closure is recorded](progress/E.13/sprint_E.13_closure.md). The [handover](progress/E.13/sprint_E.13_handover.md) records actual Oracle demonstration and delegated technical acceptance.
 
 The Product Owner clarified that actual project progress is published to APEX_CICD (origin); APEX_CICD_E.13 is reserved for sprint experiments. The [E.13 publication audit](progress/E.13/sprint_E.13_publication_boundary.md) records the corrected destination and historical rejected attempt.
+
+
+### Sprint E.14 — Component windows and architecture assessment
+
+The [E.14 walkthrough](progress/E.14/sprint_E.14_increment_demo.md) owns the separate-window laboratory journey; the [assessment](progress/E.14/architecture_assessment.md) links accumulated risk evidence and proposes conditional Construction planning. The [checklist](progress/E.14/sprint_E.14_remaining_work.md) distinguishes mandatory experiment criteria from implementation choices and unverified production behavior. Lifecycle Architecture acceptance remains a separate Product Owner decision.
+
+The [existing production follow-up inventory](progress/E.14/production_follow_up.md) preserves each Proposed item's definition/status and proposes dependency groups; it records earlier lifecycle discrepancies without changing their authoritative entries.
+
+E.14 technical verification passes; local commit, recorded closure and final origin publication remain pending a rejected Git-write authorization. The [resumption record](progress/E.14/resume_after_git_authorization.md) and [authorization audit](progress/E.14/sprint_E.14_blockers.md) preserve the exact remaining actions. E.14 remains Progress.
+
+E.14 is Done for PBI-050 and PBI-080 following explicit Product Owner finalization on 2026-11-26. All six gates pass (new 1/1/1; regression 13/14/23, with one recovered infrastructure retry). The [closure record](progress/E.14/sprint_E.14_closure.md) records completed phases and remaining production/milestone boundaries.

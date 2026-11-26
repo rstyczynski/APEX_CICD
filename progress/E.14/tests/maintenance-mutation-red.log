@@ -1,0 +1,28 @@
+TEST-ONLY MUTATION: disable maintenance rejection; expected ORA-20203. Not a production gate run.
+Traceback (most recent call last):
+  File "<string>", line 6, in <module>
+    w.integration()
+    ~~~~~~~~~~~~~^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/foundation_windows.py", line 49, in integration
+    sql(f"begin begin e12_app.request('{component}',9999); raise_application_error(-20203,'maintenance bypass'); exception when others then if sqlcode<>-20201 then raise; end if; end; end;\n/",component+'-reject.log')
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 5, in <lambda>
+    w.sql=lambda body,name: original(body.replace('if m=1 then','if m=999 then'),name)
+                            ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/foundation_windows.py", line 16, in sql
+    return db.sql(body.replace('; commit;', ';\ncommit;').replace('; insert into', ';\ninsert into'),name)
+           ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/foundation_lab.py", line 24, in sql
+    if r.returncode or re.search(r'(?m)^\s*(ORA-|PLS-|SP2-|Warning:)',out) or 'E12_COMPLETE' not in out:raise RuntimeError(out[-2500:])
+                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: 2026-11-25 22:38:03.451686000
+begin begin E14_RUN_24698.request('Hello',9999); raise_application_error(-20203,'maintenance bypass'); exception when others then if sqlcode<>-20201 then raise; end if; end; end;
+*
+ERROR at line 1:
+ORA-20203: maintenance bypass
+ORA-06512: at line 1
+ORA-06512: at line 1
+
+
+
+PROCESS_EXIT=1

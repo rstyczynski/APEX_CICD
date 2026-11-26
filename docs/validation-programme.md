@@ -105,3 +105,8 @@ Demonstrate the actual capability and its material failure cases at handover.
 A reproducible negative finding can inform a design decision; a failed mandatory
 test cannot be recorded as a pass. Preserve backlog criteria when refining or
 splitting scope. All future iterations remain Planned until explicitly activated.
+
+
+## E.14 component windows and architecture assessment
+
+The [E.14 walkthrough](../progress/E.14/sprint_E.14_increment_demo.md) owns the separate-window laboratory journey; the [assessment](../progress/E.14/architecture_assessment.md) links accumulated risk evidence and proposes conditional Construction planning. The [checklist](../progress/E.14/sprint_E.14_remaining_work.md) distinguishes mandatory experiment criteria from implementation choices and unverified production behavior. Lifecycle Architecture acceptance remains a separate Product Owner decision.

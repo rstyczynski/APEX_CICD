@@ -366,7 +366,7 @@ Upgrade the existing Foundation deployment from 1.1.0 to the breaking 2.0.0 cont
 
 Test: Demonstrate separate Hello and World maintenance windows in the existing deployment, uninterrupted reads and writes by the other component, correct operation against Foundation 1.1.0 and 2.0.0 during coexistence, and preserved data through migration and interrupted-migration recovery.
 
-Status: Proposed
+Status: Done
 
 ### PBI-051. Assess the E.1 delivery approach against Oracle lifecycle guidance
 
@@ -606,7 +606,7 @@ Synthesize the experiments into an evidence-backed recommendation for the reusab
 
 Test: Review traceable results for each targeted design risk, explicit remaining blockers and conditional cases, and a proposed Construction sequence with a separate Product Owner Lifecycle Architecture decision.
 
-Status: Proposed
+Status: Done
 
 ### PBI-081. Validate migration catch-up while legacy writes continue
 

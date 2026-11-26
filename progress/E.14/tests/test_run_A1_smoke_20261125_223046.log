@@ -1,0 +1,3 @@
+RUN smoke:test_foundation.sh:test_windows_smoke
+PASS test_windows_smoke
+Tests: 1; failed: 0

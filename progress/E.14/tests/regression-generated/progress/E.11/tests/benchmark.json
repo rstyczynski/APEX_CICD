@@ -1,0 +1,153 @@
+{
+  "checkout_seconds": 1.727726499986602,
+  "source_revision": "0a1ff434953f4e66c17d544787ecf90e6ca3d24f",
+  "source_file": "scripts/isolated_execution.py",
+  "source_sha256": "defda5eebaefa2ce95a351901072e72cb4c83c7e74ae757add2f4eea0935ed33",
+  "tools": {
+    "alpine": "3.23.0",
+    "sha256": "5552106ac866be0c46fdff7a2991a1ed85c0464301a1ac87454c41739d5b6431",
+    "url": "https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/aarch64/alpine-minirootfs-3.23.0-aarch64.tar.gz",
+    "busybox": "1.37.0",
+    "podman": "Client:        Podman Engine\nVersion:       6.0.0\nAPI Version:   6.0.0\nGo Version:    go1.26.4\nBuilt:         Wed Jun 24 16:28:09 2026\nBuild Origin:  brew\nOS/Arch:       darwin/arm64\n\nServer:       Podman Engine\nVersion:      6.0.2\nAPI Version:  6.0.2\nGo Version:   go1.26.5-X:nodwarf5\nGit Commit:   b28edb9ad70ce4317dc762ee9ce0a6d081d154e9\nBuilt:        Tue Jul 21 02:00:00 2026\nOS/Arch:      linux/arm64\n",
+    "python": "Python 3.14.7\n",
+    "git": "git version 2.54.0\n"
+  },
+  "samples": [
+    {
+      "sample": 1,
+      "mode": "cold",
+      "download_bytes": 4038406,
+      "seconds": {
+        "acquire": 1.673058874992421,
+        "validate": 0.0036454159999266267,
+        "import": 0.40872087501338683,
+        "execute": 0.2705541669856757,
+        "cleanup": 0.3024056249996647
+      }
+    },
+    {
+      "sample": 1,
+      "mode": "warm",
+      "download_bytes": 0,
+      "seconds": {
+        "acquire": 7.416598964482546e-05,
+        "validate": 0.0016591669991612434,
+        "import": 0.3546512500033714,
+        "execute": 0.2575667089840863,
+        "cleanup": 0.3200055419874843
+      }
+    },
+    {
+      "sample": 2,
+      "mode": "cold",
+      "download_bytes": 4038406,
+      "seconds": {
+        "acquire": 1.6050871670013294,
+        "validate": 0.005344459001207724,
+        "import": 0.40170162499998696,
+        "execute": 0.27676666699699126,
+        "cleanup": 0.3185445000126492
+      }
+    },
+    {
+      "sample": 2,
+      "mode": "warm",
+      "download_bytes": 0,
+      "seconds": {
+        "acquire": 7.599999662488699e-05,
+        "validate": 0.0016727909969631582,
+        "import": 0.3345543750037905,
+        "execute": 0.2924389579857234,
+        "cleanup": 0.32064458398963325
+      }
+    },
+    {
+      "sample": 3,
+      "mode": "cold",
+      "download_bytes": 4038406,
+      "seconds": {
+        "acquire": 1.5405316250107717,
+        "validate": 0.0040618750208523124,
+        "import": 0.4007163330097683,
+        "execute": 0.286441875010496,
+        "cleanup": 0.33030937498551793
+      }
+    },
+    {
+      "sample": 3,
+      "mode": "warm",
+      "download_bytes": 0,
+      "seconds": {
+        "acquire": 7.379200542345643e-05,
+        "validate": 0.001762749976478517,
+        "import": 0.3503157499944791,
+        "execute": 0.2900545830198098,
+        "cleanup": 0.3106584170018323
+      }
+    }
+  ],
+  "statistics": {
+    "cold": {
+      "acquire": {
+        "n": 3,
+        "median": 1.6050871670013294,
+        "p95": 1.673058874992421
+      },
+      "validate": {
+        "n": 3,
+        "median": 0.0040618750208523124,
+        "p95": 0.005344459001207724
+      },
+      "import": {
+        "n": 3,
+        "median": 0.40170162499998696,
+        "p95": 0.40872087501338683
+      },
+      "execute": {
+        "n": 3,
+        "median": 0.27676666699699126,
+        "p95": 0.286441875010496
+      },
+      "cleanup": {
+        "n": 3,
+        "median": 0.3185445000126492,
+        "p95": 0.33030937498551793
+      }
+    },
+    "warm": {
+      "acquire": {
+        "n": 3,
+        "median": 7.416598964482546e-05,
+        "p95": 7.599999662488699e-05
+      },
+      "validate": {
+        "n": 3,
+        "median": 0.0016727909969631582,
+        "p95": 0.001762749976478517
+      },
+      "import": {
+        "n": 3,
+        "median": 0.3503157499944791,
+        "p95": 0.3546512500033714
+      },
+      "execute": {
+        "n": 3,
+        "median": 0.2900545830198098,
+        "p95": 0.2924389579857234
+      },
+      "cleanup": {
+        "n": 3,
+        "median": 0.3200055419874843,
+        "p95": 0.32064458398963325
+      }
+    }
+  },
+  "limitations": [
+    "Same operator and prepared Podman VM; no independent operator or fresh host claim",
+    "Clean source controller executes candidate; workload is the bounded container boundary, not SQLcl/APEX delivery",
+    "Cold refers to empty download cache; host/VM storage caches are uncontrolled",
+    "Three samples per mode; nearest-rank p95 is the maximum, not a reliable tail estimate"
+  ],
+  "integrity_challenges": "wrong release and corrupt bytes rejected before import",
+  "credentials": "fresh per run; no private files or cache persistence"
+}

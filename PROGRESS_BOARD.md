@@ -64,5 +64,5 @@
 | Sprint E.12 | Done | PBI-081 | Done |
 | Sprint E.13 | Done | PBI-082 | Done |
 | Sprint E.13 | Done | PBI-049 | Done |
-| Sprint E.14 | Planned | PBI-050 | Planned |
-| Sprint E.14 | Planned | PBI-080 | Planned |
+| Sprint E.14 | Done | PBI-050 | Done |
+| Sprint E.14 | Done | PBI-080 | Done |

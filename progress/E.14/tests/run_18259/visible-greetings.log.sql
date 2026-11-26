@@ -1,0 +1,2 @@
+select id||': '||message from e12_app.history where id in (0,1000,1500,2000,2500) order by id;
+select id||': template='||template||', person='||person from e12_app.details where id in (0,1000,1500,2000,2500) order by id;

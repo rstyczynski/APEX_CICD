@@ -1,0 +1,32 @@
+[
+  {
+    "command": "bash tests/run.sh --smoke --new-only progress/E.14/new_tests.manifest",
+    "exit": 0,
+    "log": "progress/E.14/tests/test_run_A1_smoke_20261125_224649.log"
+  },
+  {
+    "command": "bash tests/run.sh --unit --new-only progress/E.14/new_tests.manifest",
+    "exit": 0,
+    "log": "progress/E.14/tests/test_run_A2_unit_20261125_224649.log"
+  },
+  {
+    "command": "bash tests/run.sh --integration --new-only progress/E.14/new_tests.manifest",
+    "exit": 0,
+    "log": "progress/E.14/tests/test_run_A3_integration_20261125_224649.log"
+  },
+  {
+    "command": "bash tests/run.sh --smoke",
+    "exit": 0,
+    "log": "progress/E.14/tests/test_run_B1_smoke_20261125_231149.log"
+  },
+  {
+    "command": "bash tests/run.sh --unit",
+    "exit": 0,
+    "log": "progress/E.14/tests/test_run_B2_unit_20261125_231149.log"
+  },
+  {
+    "command": "bash tests/run.sh --integration",
+    "exit": 0,
+    "log": "progress/E.14/tests/test_run_B3_integration_20261125_225614.log"
+  }
+]

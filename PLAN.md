@@ -414,8 +414,8 @@ Backlog Items:
 
 ## Sprint E.14 - Validate component windows and assess the architecture
 
-Status: Planned
-Mode: managed
+Status: Done
+Mode: YOLO
 Test: smoke, unit, integration
 Regression: smoke, unit, integration
 
@@ -425,3 +425,5 @@ Backlog Items:
 
 * PBI-050. Prove an in-place Foundation upgrade with component windows
 * PBI-080. Assess validation evidence and the Construction entry decision
+
+E.14 was finalized on 2026-11-26 by explicit Product Owner direction after six passing gates and delegated technical/documentation review. The [closure record](progress/E.14/sprint_E.14_closure.md) records evidence and remaining boundaries. Lifecycle Architecture acceptance remains a separate decision.

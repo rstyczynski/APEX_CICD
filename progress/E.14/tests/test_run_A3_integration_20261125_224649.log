@@ -1,0 +1,4 @@
+RUN integration:test_foundation.sh:test_windows_integration
+PASS real Oracle separate windows and interrupted component recovery /Users/rstyczynski/projects/APEX_CICD/progress/E.14/tests/run_33326
+PASS test_windows_integration
+Tests: 1; failed: 0

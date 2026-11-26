@@ -1,0 +1,18 @@
+{
+  "gate_counts": [
+    1,
+    1,
+    1,
+    13,
+    14,
+    23
+  ],
+  "all_exit_zero": true,
+  "source_snapshot": "progress/E.14/tests/regression-generated/progress/E.12/tests/legacy-regression/run-20261125T235615-35769/source-snapshot-after.json",
+  "source_file_count": 249,
+  "source_matches_current": true,
+  "no_waivers": true,
+  "integration_retries": 1,
+  "source_scope": "scripts/ and tests/ .py, .sh, .sql and .manifest files",
+  "failed_infrastructure_log": "progress/E.14/tests/test_run_B3_integration_20261125_224649.log"
+}

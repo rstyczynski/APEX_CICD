@@ -5,3 +5,7 @@ test_foundation_live() (
 test_bridge_live() (
  python3 tests/foundation_bridge.py integration
 )
+
+test_windows_integration() (
+ python3 tests/foundation_windows.py integration
+)

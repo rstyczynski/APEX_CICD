@@ -1,0 +1,13 @@
+e12-regression-db EXIT=0
+
+NAME
+--------------------------------------------------------------------------------
+OPEN_MODE
+----------
+PDB$SEED
+READ ONLY
+
+FREEPDB1
+READ WRITE
+
+

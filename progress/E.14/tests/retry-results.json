@@ -1,0 +1,7 @@
+[
+  {
+    "command": "bash tests/run.sh --integration",
+    "exit": 0,
+    "log": "progress/E.14/tests/test_run_B3_integration_20261125_225614.log"
+  }
+]

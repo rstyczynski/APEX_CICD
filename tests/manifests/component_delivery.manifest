@@ -46,3 +46,6 @@ unit:test_runner.sh:test_private_sql_binding
 smoke:test_foundation.sh:test_bridge_smoke
 unit:test_foundation.sh:test_bridge_unit
 integration:test_foundation.sh:test_bridge_live
+smoke:test_foundation.sh:test_windows_smoke
+unit:test_foundation.sh:test_windows_unit
+integration:test_foundation.sh:test_windows_integration

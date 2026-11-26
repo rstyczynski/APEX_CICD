@@ -1,0 +1,8 @@
+{
+  "six_gate_logs_exist": true,
+  "fixture_sources_match": true,
+  "complete_verified_SQL_blocks": 13,
+  "no_exit_in_bash_examples": true,
+  "presentation_receipt_matches": true,
+  "default_registry_has_each_new_entry_once": true
+}

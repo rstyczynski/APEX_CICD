@@ -385,3 +385,8 @@ The unscoped integration runner selects the E.1 development/release/control case
 ## E.13 Foundation bridge experiment
 
 The [E.13 walkthrough](../progress/E.13/sprint_E.13_increment_demo.md) owns operating steps and the [design](../progress/E.13/sprint_E.13_design.md) owns the transactional bridge mechanism. [Verification](../progress/E.13/sprint_E.13_tests.md) and the [requirement checklist](../progress/E.13/sprint_E.13_remaining_work.md) record real Oracle outcomes, six passing gates and the lifecycle evidence. BACKLOG and PLAN retain acceptance and lifecycle authority. This isolated prototype does not qualify production rollout, caller discovery or E.14 component maintenance windows.
+
+
+## E.14 component windows and architecture assessment
+
+The [E.14 walkthrough](../progress/E.14/sprint_E.14_increment_demo.md) owns the separate-window laboratory journey; the [assessment](../progress/E.14/architecture_assessment.md) links accumulated risk evidence and proposes conditional Construction planning. The [checklist](../progress/E.14/sprint_E.14_remaining_work.md) distinguishes mandatory experiment criteria from implementation choices and unverified production behavior. Lifecycle Architecture acceptance remains a separate Product Owner decision.

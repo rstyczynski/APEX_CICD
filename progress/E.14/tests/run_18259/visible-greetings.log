@@ -1,0 +1,12 @@
+2026-11-25 23:05:19.601055000
+0: retained greeting
+1000: Hello World
+1500: Hello Hello
+2000: Hello Hello
+2500: Hello World
+0: template=literal, person=retained greeting
+1000: template=literal, person=Hello World
+1500: template=greeting, person=Hello
+2000: template=greeting, person=Hello
+2500: template=greeting, person=World
+E12_COMPLETE

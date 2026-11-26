@@ -1,0 +1,6 @@
+{
+  "experiment_repository": "https://github.com/rstyczynski/APEX_CICD_E.14",
+  "experiment_commit": "4750f72",
+  "progress_repository": "https://github.com/rstyczynski/APEX_CICD",
+  "scope": "Only three fixture Python sources and README published to sprint experiment repository; project evidence and lifecycle publish to existing origin after final audit."
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "command": "bash tests/run.sh --smoke",
+    "exit": 0,
+    "log": "progress/E.14/tests/test_run_B1_smoke_20261125_231149.log"
+  },
+  {
+    "command": "bash tests/run.sh --unit",
+    "exit": 0,
+    "log": "progress/E.14/tests/test_run_B2_unit_20261125_231149.log"
+  }
+]

@@ -1,0 +1,10 @@
+EXIT=1
+select status from v$instance
+*
+ERROR at line 1:
+ORA-01034: The Oracle instance is not available for use. Start the instance.
+Process ID: 0
+Session ID: 0 Serial number: 0
+Help: https://docs.oracle.com/error-help/db/ora-01034/
+
+
