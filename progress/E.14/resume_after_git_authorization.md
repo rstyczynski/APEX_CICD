@@ -1,5 +1,10 @@
 # Resume E.14 after Git authorization
 
+## Historical authorization snapshot — superseded locally
+
+The Git-write authorization was subsequently granted during the Product Owner's explicit finalization request on 2026-11-26. Scoped staging, cached whitespace checks and completion/closure commit `3150aed` succeeded. PLAN, board and the two assigned backlog items now record Done. The text below preserves the earlier blocked snapshot and proposed continuation; it is not current operating guidance. The [closure record](sprint_E.14_closure.md) owns current disposition. Publication follows the authorized normal push to APEX_CICD origin/main and is verified separately.
+
+
 [Authorization audit](sprint_E.14_blockers.md) owns the exact remaining requirements, attempts, alternatives and needed permission. [Test record](sprint_E.14_tests.md) and [documentation audit](sprint_E.14_documentation_audit.md) own verified technical evidence. Preserve unrelated staged .codex-cli removals and the separate .gitignore edit.
 
 ## Pending actions — not represented as executed

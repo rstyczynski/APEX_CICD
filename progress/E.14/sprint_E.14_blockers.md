@@ -1,5 +1,10 @@
 # E.14 finalization authorization audit
 
+## Historical authorization snapshot — superseded locally
+
+The Git-write authorization was subsequently granted during the Product Owner's explicit finalization request on 2026-11-26. Scoped staging, cached whitespace checks and completion/closure commit `3150aed` succeeded. PLAN, board and the two assigned backlog items now record Done. The text below preserves the earlier blocked snapshot and proposed continuation; it is not current operating guidance. The [closure record](sprint_E.14_closure.md) owns current disposition. Publication follows the authorized normal push to APEX_CICD origin/main and is verified separately.
+
+
 ## Current verified state
 
 The [checklist](sprint_E.14_remaining_work.md) and [test record](sprint_E.14_tests.md) establish the bounded PBI-050 experiment and PBI-080 assessment. Final gates pass: new smoke/unit/integration 1/1/1; full smoke/unit/integration 13/14/23. One infrastructure setup failed, supported recovery succeeded, and the unchanged-source retry passed. The 249-file executable snapshot matches current source. The actual Oracle demonstration, presentation and technical documentation review are recorded. Neither earlier closure claims nor simulation substitutes for those observations.
