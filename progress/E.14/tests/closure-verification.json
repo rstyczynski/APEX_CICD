@@ -11,11 +11,14 @@
   ],
   "runtime_gates_reused": "Same executable source and registry as retained final gate run; closure changes only narrative/lifecycle records.",
   "presentation_hash_matches": true,
-  "links_checked": 635,
-  "anchors_checked": 114,
+  "links_checked": 609,
+  "anchors_checked": 109,
   "traceability_links": 26,
   "bash_syntax": "pass",
   "worktree_scoped_whitespace": "pass",
   "lifecycle_consistency": "E.14 and both assigned PBIs Done; no active sprint",
-  "errors": []
+  "errors": [],
+  "presentation_slide_count": 18,
+  "presentation_sha256": "b8633c188a31b0efca2bc5933e477dcdb14f3fb42b924d7e02729041cfc68e4e",
+  "documentation_correction": "tests/documentation-reconciliation.json"
 }

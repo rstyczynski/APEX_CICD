@@ -293,6 +293,6 @@ The [E.14 walkthrough](progress/E.14/sprint_E.14_increment_demo.md) owns the sep
 
 The [existing production follow-up inventory](progress/E.14/production_follow_up.md) preserves each Proposed item's definition/status and proposes dependency groups; it records earlier lifecycle discrepancies without changing their authoritative entries.
 
-E.14 technical verification passes; local commit, recorded closure and final origin publication remain pending a rejected Git-write authorization. The [resumption record](progress/E.14/resume_after_git_authorization.md) and [authorization audit](progress/E.14/sprint_E.14_blockers.md) preserve the exact remaining actions. E.14 remains Progress.
+E.14 is closed and its progress is published to origin/main. The [closure record](progress/E.14/sprint_E.14_closure.md) owns the accepted bounded outcome; the [blocker disposition](progress/E.14/sprint_E.14_blockers.md) records resolved historical conditions.
 
 E.14 is Done for PBI-050 and PBI-080 following explicit Product Owner finalization on 2026-11-26. All six gates pass (new 1/1/1; regression 13/14/23, with one recovered infrastructure retry). The [closure record](progress/E.14/sprint_E.14_closure.md) records completed phases and remaining production/milestone boundaries.

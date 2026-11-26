@@ -1,7 +1,7 @@
 {
   "schemaVersion": "presentation-finalization.v1",
-  "finalSha256": "c14b925924b80b8f00eddfb6f413d2711a6d74b071a0bf30d722b94f4f4bf7b7",
-  "byteCount": 64611,
+  "finalSha256": "b8633c188a31b0efca2bc5933e477dcdb14f3fb42b924d7e02729041cfc68e4e",
+  "byteCount": 64597,
   "packageIntegrity": {
     "chart_count": 0,
     "claim_boundary": "Structural package checks only; no slide text, notes, formulas, chart values, or native PowerPoint execution were inspected.",
@@ -82,7 +82,7 @@
     "performed": true,
     "passed": true,
     "slideCount": 18,
-    "sha256": "c14b925924b80b8f00eddfb6f413d2711a6d74b071a0bf30d722b94f4f4bf7b7",
+    "sha256": "b8633c188a31b0efca2bc5933e477dcdb14f3fb42b924d7e02729041cfc68e4e",
     "runtimeNodeModules": "/Users/rstyczynski/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules",
     "nodeExecutable": "/Users/rstyczynski/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node"
   },
@@ -110,7 +110,7 @@
     "native_chart_count": 0,
     "native_powerpoint_verified": false,
     "passed": true,
-    "presentation_sha256": "c14b925924b80b8f00eddfb6f413d2711a6d74b071a0bf30d722b94f4f4bf7b7",
+    "presentation_sha256": "b8633c188a31b0efca2bc5933e477dcdb14f3fb42b924d7e02729041cfc68e4e",
     "schema_version": "presentation-native-chart-titles.v1",
     "slide_count": 18,
     "source_text_emitted": false,

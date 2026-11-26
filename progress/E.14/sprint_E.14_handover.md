@@ -20,12 +20,8 @@ A fresh read-only inspection of the actual live fixture after service recovery s
 
 ## Final technical review
 
-All six required gates pass on the corrected registry, including the recovered B3 retry and post-recovery smoke/unit checks. The 18-slide deck has agenda, dedicated section headers, the real journey, failure/recovery, source boundaries, proposed production work and Q&A. The complete rendered deck was visually inspected and package/layout/import checks pass with zero findings. YOLO technical documentation self-review is accepted for both assigned PBIs; local completion commit and recorded sprint closure follow. No Product Owner reaction or Lifecycle Architecture acceptance is inferred.
-
-## Current lifecycle disposition
-
-Technical self-review is accepted; sprint finalization is incomplete because the scoped progress-repository Git write/commit action was rejected. PLAN remains Progress, board rows remain implemented/tested, and no sprint closure or origin publication is claimed. [Authorization audit](sprint_E.14_blockers.md) and [resumption](resume_after_git_authorization.md) identify the exact next permission and actions. The separate experiment repository commit exists; it does not substitute for the missing progress completion commit.
+All six required gates pass on the corrected registry, including the recovered B3 retry and post-recovery smoke/unit checks. The 18-slide deck has agenda, dedicated section headers, the real journey, failure/recovery, source boundaries, proposed production work and Q&A. The complete rendered deck was visually inspected and package/layout/import checks pass with zero findings. YOLO technical documentation self-review is accepted for both assigned PBIs; completion/closure commit `3150aed` and follow-up `e18f663` record the accepted sprint outcome. No Product Owner reaction or Lifecycle Architecture acceptance is inferred.
 
 ## Finalization — 2026-11-26
 
-The Product Owner explicitly requested finalization. The [closure record](sprint_E.14_closure.md) records Done for E.14, PBI-050 and PBI-080, the six passing gates and preserved production/milestone boundaries. This supersedes earlier statements that local commit and closure were still pending.
+The Product Owner explicitly requested finalization. The [closure record](sprint_E.14_closure.md) records Done for E.14, PBI-050 and PBI-080, the six passing gates and preserved production/milestone boundaries. The former authorization blocker is resolved and no sprint-finalization requirement remains open.

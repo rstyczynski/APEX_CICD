@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-26",
+  "scope": "E.14 documentation/presentation correction; no lifecycle or executable changes",
+  "base_commit": "e18f6631820c7c5152b7fd0378151be815ffbbc2",
+  "executable_inventory_and_hashes_match": 249,
+  "retained_successful_gate_counts": [
+    1,
+    1,
+    1,
+    13,
+    14,
+    23
+  ],
+  "runtime_gates_reused": true,
+  "runtime_results_not_freshly_reexecuted": true,
+  "complete_SQL_blocks_match": 13,
+  "slide_count": 18,
+  "presentation_sha256": "b8633c188a31b0efca2bc5933e477dcdb14f3fb42b924d7e02729041cfc68e4e",
+  "presentation_receipt_matches": true,
+  "stale_current_blocker_claims": 0,
+  "lifecycle": "E.14/PBI-050/PBI-080 Done",
+  "narrative_whitespace": "pass",
+  "domain_bash_syntax": "pass",
+  "visual_review": "all 18 rendered slides, including changed slide 17 and Q&A ending inspected",
+  "errors": []
+}

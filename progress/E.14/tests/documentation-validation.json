@@ -4,5 +4,8 @@
   "complete_verified_SQL_blocks": 13,
   "no_exit_in_bash_examples": true,
   "presentation_receipt_matches": true,
-  "default_registry_has_each_new_entry_once": true
+  "default_registry_has_each_new_entry_once": true,
+  "presentation_slide_count": 18,
+  "current_executable_files_match": 249,
+  "finalization": "closed; resolved authorization; documentation correction verified"
 }
