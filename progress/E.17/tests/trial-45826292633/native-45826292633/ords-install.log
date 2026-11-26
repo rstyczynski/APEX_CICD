@@ -1,0 +1,97 @@
+INFO : Running Oracle REST Data Services CLI command.
+2026-11-26T13:20:52Z INFO   ORDS has not detected the option '--config' and this will be set up to the default directory.
+
+ORDS: Release 25.3 Production on Thu Nov 26 13:20:55 2026
+
+Copyright (c) 2010, 2026, Oracle.
+
+Configuration:
+  /etc/ords/config
+
+Oracle REST Data Services - Non-Interactive Install
+
+Retrieving information.
+The setting named: db.connectionType was set to: basic in configuration: default
+The setting named: db.hostname was set to: 127.0.0.1 in configuration: default
+The setting named: db.port was set to: 1522 in configuration: default
+The setting named: db.servicename was set to: FREEPDB1 in configuration: default
+The setting named: plsql.gateway.mode was set to: proxied in configuration: default
+The setting named: db.username was set to: ORDS_PUBLIC_USER in configuration: default
+The setting named: db.password was set to: ****** in configuration: default
+The setting named: security.requestValidationFunction was set to: ords_util.authorize_plsql_gateway in configuration: default
+------------------------------------------------------------
+Date       : 26 Nov 2026 13:20:58
+Release    : Oracle REST Data Services 25.3.0.r2671248
+Type       : ORDS Install
+Database   : Oracle AI Database 26ai Free 
+DB Version : 23.26.3.0.0
+------------------------------------------------------------
+Container Name: FREEPDB1
+Executing scripts for core
+------------------------------------------------------------
+
+[*** script: ords_prereq_env.sql] 
+
+INFO: Checking prerequisites for Oracle REST Data Services
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+INFO: Prerequisites verified.
+
+[*** script: ords_verify_tablespace.sql] 
+
+PL/SQL procedure successfully completed.
+
+[*** script: ords_alter_session_script.sql] 
+
+PL/SQL procedure successfully completed.
+
+[*** script: ords_create_rest_users.sql] 
+
+PL/SQL procedure successfully completed.
+
+[*** script: ords_alter_session_script.sql] 
+
+PL/SQL procedure successfully completed.
+
+[*** script: ords_create_schema.sql] 
+INFO: Creating schema for Oracle REST Data Services
+
+PL/SQL procedure successfully completed.
+
+INFO: Created schema ORDS_METADATA
+[*** script: ords_grant_privs.sql] 
+INFO: Grant object and system privileges to ORDS owner
+declare
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges
+ORA-06512: at line 71
+
+https://docs.oracle.com/error-help/db/ora-01031/
+
+
+More Details :
+https://docs.oracle.com/error-help/db/ora-01031/
+https://docs.oracle.com/error-help/db/ora-06512/
+2026-11-26T13:20:58.198Z INFO        Cannot create or write to the log folder in the current working directory: /opt/oracle/ords/logs. Logging will be displayed on the console.
+2026-11-26T13:20:58.322Z INFO        Installing Oracle REST Data Services version 25.3.0.r2671248 in FREEPDB1
+2026-11-26T13:21:02.495Z INFO        ... Verified database prerequisites
+2026-11-26T13:21:02.936Z INFO        ... Created Oracle REST Data Services proxy user
+2026-11-26T13:21:03.817Z INFO        ... Created Oracle REST Data Services schema
+Error executing script: ords_grant_privs.sql Error: ORA-01031: insufficient privileges
+ORA-06512: at line 71
+
+https://docs.oracle.com/error-help/db/ora-01031/
+ Refer to log file  for details
+Error, the administrator user: E17_ADMIN does not have the privileges to install ORDS.
+You will need to do the following to provide privileges and reinstall ORDS in the database:
+- Ensure that the administrator user: E17_ADMIN has the appropriate privileges to install ORDS.
+- To reinstall ORDS in the database, you will need to uninstall ORDS and then install ORDS in the database.
+See Oracle REST Data Services documentation on how to 1) provide privileges to a non-SYS user to install ORDS, and 2) uninstall ORDS from the database and install ORDS again.

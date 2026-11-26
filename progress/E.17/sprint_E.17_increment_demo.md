@@ -4,7 +4,7 @@
 
 [PBI-085](../../BACKLOG.md#pbi-085-reproduce-complete-native-delivery-on-a-clean-host) asks for independent clean-host reproduction of Database/APEX/ORDS and native install, upgrade and repeat, with retained data, new private inputs and documented cleanup. [PLAN](../../PLAN.md#sprint-e17---reproduce-complete-native-delivery-on-a-clean-host) adds the combined E.15/E.16 reviewed journey. [Checklist](sprint_E.17_checklist.md) owns current requirement evidence. This walkthrough is in preparation: native qualification, final regression, complete demonstration and closure are pending. The [manual](user_manual.md) explains operating limits and recovery; [implementation](sprint_E.17_implementation.md) and [bugs](sprint_E.17_bugs.md) preserve measured outcomes and repairs.
 
-Slides 1–4 introduce goal, scope and architecture; 5–10 follow the journey; 11–13 cover failures; 14–16 cover verification and decisions. The deck remains a private draft until validated.
+Slides 1–4 introduce goal, scope and architecture; 5–10 follow the journey; 11–15 cover failures; 16–19 cover verification and decisions. The deck remains a private draft until validated.
 
 ## 1. Identify the experiment and inputs — slides 3–6
 
@@ -1335,7 +1335,7 @@ After inspecting the source and prerequisites above, the native GitHub command d
 gh workflow run native.yml --repo rstyczynski/APEX_CICD_E.17 --ref main
 ```
 
-The command prints the new run URL. Open that run's native job in GitHub Actions and inspect each named step. The current diagnostic/rehearsal run is 45824130390; it must not be substituted for the new run's identity. A new run's receipt must identify its own source revision and run ID. Expected final outcomes remain subject to qualification: native 1.0.0 installation, 1.1.0 upgrade and identical repeat, with row 1/message retained in target SQL observations. The nullable EXTRA column distinguishes upgraded structure. R3/R4/R6 govern these outcomes.
+The command prints the new run URL. Open that run's native job in GitHub Actions and inspect each named step. The current diagnostic/rehearsal run is 45828709006; it must not be substituted for the new run's identity. A new run's receipt must identify its own source revision and run ID. Expected final outcomes remain subject to qualification: native 1.0.0 installation, 1.1.0 upgrade and identical repeat, with row 1/message retained in target SQL observations. The nullable EXTRA column distinguishes upgraded structure. R3/R4/R6 govern these outcomes.
 
 ## 4. Inspect application output and cleanup — slides 8–9
 
@@ -1347,8 +1347,8 @@ Inspect native assert-upgrade/assert-repeat logs alongside the application recei
 
 The trusted testing.yml workflow takes candidate SQL as data, checks file scope and trusted review digest, executes under the Oracle application user and challenges access/publication authority. Candidate repository Actions are disabled and branch protection requires TrustedOracle. The operator inspected actual successful terminal outcomes and exact current PR head before publishing through GitHub's native status API. Ordinary merge succeeded without an admin bypass. PR 1/run 45819877026 is the actual accepted journey; PR 2/run 45820491077 demonstrates stale review refusing changed bytes before execution. Both ordinary merge refusals are retained under tests/. R5 concerns these observations.
 
-## 6. Inspect failures, evidence and remaining work — slides 11–16
+## 6. Inspect failures, evidence and remaining work — slides 11–19
 
-The initial host exhausted disk and could not upload normal artifacts. The next host exposed XDB INVALID and a zero-exit APEX prerequisite failure; explicit native-output checks and a pinned full image addressed those observed causes. Native APEX then installed, but changing SYS from the PDB failed ORA-65066 before ORDS installation. The correction uses a fresh PDB-local installer account. The [bug record](sprint_E.17_bugs.md) links exact observations and repairs; only actual later execution may qualify a repair.
+The initial host exhausted disk and could not upload normal artifacts. The next host exposed XDB INVALID and a zero-exit APEX prerequisite failure; explicit native-output checks and a pinned full image addressed those observed causes. Native APEX then installed, but changing SYS from the PDB failed ORA-65066 before ORDS installation. The local DBA attempt also failed native ORDS grant authority. The correction uses a newly supplied SYS credential through the image’s supported resetPassword command and the native installer. The [bug record](sprint_E.17_bugs.md) links exact observations and repairs; only actual later execution may qualify a repair.
 
 PBI-085 remains under construction. Final native platform acceptance, all selected quality gates, final presentation inspection, complete demonstration, audit and closure remain pending. [PBI-086](../../BACKLOG.md#pbi-086-measure-complete-pipeline-feedback-and-runner-capacity) remains planned in E.18; this sprint does not invent a capacity benchmark or production readiness claim. No Product Owner satisfaction or feedback has been inferred.

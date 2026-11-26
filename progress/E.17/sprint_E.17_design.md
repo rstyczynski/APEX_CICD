@@ -25,3 +25,9 @@ The ORDS container's inspected image configuration declares user oracle and ORDS
 ## Full regression remote boundary
 
 The existing hosted Oracle regression defaults to its historical E.15 repository. E.17 adds HOSTED_ORACLE_REPO selection and uses rstyczynski/APEX_CICD_E.17 for dispatches, preserving the same fresh-run, real greeting, sentinel denial, denied publication and terminal-job assertions. The trusted E.17 baseline includes the already reviewed harmless greeting candidate for standalone regression dispatch. This routes new remote execution into the sprint repository without weakening or replaying a historical regression. E.16 immutable run reads remain read-only evidence verification.
+
+## Native installer authority and dependency order correction
+
+Actual ORDS execution shows that the attempted PDB-local DBA account lacks required grant authority. This supersedes that implementation choice: use the image's supported resetPassword command to supply a fresh common SYS credential at the correct native database scope, then use the native ORDS installer as SYS. Do not implement custom ORDS grants or copy an earlier credential. The earlier PDB ALTER USER statement and local-DBA attempt remain failed historical evidence.
+
+[SRS FR-5](../../docs/srs.md#functional-requirements) requires database changes before dependent application definitions. The fixture's APEX page reads preserved; therefore Actions imports that page only after native 1.0.0 installation and row seeding. Initial application availability is checked at that point, then native 1.1.0 upgrade/repeat and final authenticated access follow. Run 45828501708 was cancelled early to avoid qualifying the obsolete dependency order; immutable 5f135bd/run 45828709006 is the corrected trial. This records a sourced ordering correction, not an additional acceptance criterion or a production pipeline claim.

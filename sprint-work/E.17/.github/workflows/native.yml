@@ -61,14 +61,10 @@ jobs:
         run: python3 provision_host.py apex-install
       - name: Configure APEX workspace
         run: python3 provision_host.py apex-configure
-      - name: Import application through native APEX API
-        run: python3 provision_host.py application-import
       - name: Install ORDS natively
         run: python3 provision_host.py ords-install
       - name: Start ORDS listener
         run: python3 provision_host.py ords-start
-      - name: Verify initial application access
-        run: python3 provision_host.py verify
       - name: Initialize job-private workspace
         run: |
           mkdir -p "$RUNNER_TEMP/native" result
@@ -154,6 +150,10 @@ jobs:
           insert into preserved values (1,'retained across upgrade');
           commit;
           SQL
+      - name: Import application through native APEX API
+        run: python3 provision_host.py application-import
+      - name: Verify initial application access
+        run: python3 provision_host.py verify
       - name: Apply additive author change
         working-directory: ${{ runner.temp }}/native
         run: |

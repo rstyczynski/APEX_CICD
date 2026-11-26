@@ -25,3 +25,7 @@ Run 45820349969 progresses beyond the previous XDB failure through native APEX i
 ## Architecture-qualified ORDS retry
 
 Run 45824130390 proves the corrected account/grant syntax but rejects the ARM64 ORDS executable on AMD64. Source 1414877 moves ORDS_IMAGE to the declared job environment, pins the same release's inspected AMD64 digest and introduces early native CLI/private-configuration qualification. Checkout precedes that preflight so its nonsecret results survive in result/. Current run 45826292633 remains a trial until the entire native/application/cleanup journey succeeds.
+
+## Native SYS provisioning and database-before-application ordering
+
+The actual ORDS grant script rejects the attempted local DBA authority with ORA-01031. Use the native image resetPassword command for freshly generated SYS/SYSTEM input, then invoke Oracle's installer as SYS; source 7bded06 records that correction. Source review also aligns the small application fixture with SRS FR-5: native table installation and seeding precede the dependent APEX import. Actions source 5f135bd/run 45828709006 tests that complete corrected sequence. The earlier 45828501708 run was cancelled early; it is not counted as acceptance.
