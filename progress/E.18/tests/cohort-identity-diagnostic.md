@@ -1,0 +1,5 @@
+# Cohort identity diagnostic
+
+The first supplemental receipt audit failed with `ValueError: runner identity reused in cohort` because it incorrectly required a unique hostname across all eight jobs, in addition to unique runner IDs. Actual records show hostname `runnervmeozm8` in cold concurrent replica 1 (15:09:05–15:22:07 UTC) and warm serial replica 2 (15:31:30–15:44:23 UTC), with distinct runner IDs 1000014345 and 1000014354. Those executions do not overlap. All eight API runner IDs are distinct.
+
+Unique hostnames/physical machines across serial samples are not an acceptance criterion in PBI-086 or PLAN. The corrected audit checks run/source binding, distinct runner execution IDs, two author/target namespaces per job and actual cleanup receipts; it records the repeated hostname as a measurement limit. Hostnames alone cannot establish physical-host identity or physical freshness. No required native check or candidate isolation criterion was removed. See [cohort audit](cohort-isolation.log), [measurements](measurements/capacity-results.json) and [requirement checklist](../sprint_E.18_checklist.md).

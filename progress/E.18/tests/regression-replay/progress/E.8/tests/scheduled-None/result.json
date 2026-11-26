@@ -1,0 +1,66 @@
+{
+  "success": true,
+  "first_failure": null,
+  "failures": [],
+  "identity": {
+    "merge": "3f0a414292c247a0b0564230ad9e532ea9e65f3c",
+    "tree": "1ce0061dd41ee56b998ac0c8e4114247a99fdb53",
+    "cadence": "scheduled",
+    "policy": "7cc3a6e096d0208b9083ef856179e28582aeede951a8f1f763039ee3d9a026d8"
+  },
+  "reports": {
+    "source": {
+      "merge": "3f0a414292c247a0b0564230ad9e532ea9e65f3c",
+      "tree": "1ce0061dd41ee56b998ac0c8e4114247a99fdb53",
+      "cadence": "scheduled",
+      "policy": "7cc3a6e096d0208b9083ef856179e28582aeede951a8f1f763039ee3d9a026d8",
+      "status": "success",
+      "count": 1
+    },
+    "migration": {
+      "merge": "3f0a414292c247a0b0564230ad9e532ea9e65f3c",
+      "tree": "1ce0061dd41ee56b998ac0c8e4114247a99fdb53",
+      "cadence": "scheduled",
+      "policy": "7cc3a6e096d0208b9083ef856179e28582aeede951a8f1f763039ee3d9a026d8",
+      "status": "success",
+      "count": 1
+    },
+    "compilation": {
+      "merge": "3f0a414292c247a0b0564230ad9e532ea9e65f3c",
+      "tree": "1ce0061dd41ee56b998ac0c8e4114247a99fdb53",
+      "cadence": "scheduled",
+      "policy": "7cc3a6e096d0208b9083ef856179e28582aeede951a8f1f763039ee3d9a026d8",
+      "status": "success",
+      "count": 1
+    },
+    "state": {
+      "merge": "3f0a414292c247a0b0564230ad9e532ea9e65f3c",
+      "tree": "1ce0061dd41ee56b998ac0c8e4114247a99fdb53",
+      "cadence": "scheduled",
+      "policy": "7cc3a6e096d0208b9083ef856179e28582aeede951a8f1f763039ee3d9a026d8",
+      "status": "success",
+      "count": 1
+    },
+    "backend": {
+      "merge": "3f0a414292c247a0b0564230ad9e532ea9e65f3c",
+      "tree": "1ce0061dd41ee56b998ac0c8e4114247a99fdb53",
+      "cadence": "scheduled",
+      "policy": "7cc3a6e096d0208b9083ef856179e28582aeede951a8f1f763039ee3d9a026d8",
+      "status": "success",
+      "count": 1
+    }
+  },
+  "base": "5c9fd2407a1fc9a9d10b37796bfecee066c6e4a2",
+  "head": "781003e6f8e5baad98efcf757b102033b7b65fa6",
+  "ancestor": "e077ed673af436a456faab081afe3cc006c4146b",
+  "stages": [
+    "source",
+    "migration",
+    "compilation",
+    "state",
+    "backend"
+  ],
+  "fault": null,
+  "elapsed_seconds": 1.253,
+  "schema": "E8_7E9927384C"
+}

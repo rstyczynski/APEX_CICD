@@ -1,0 +1,1408 @@
+[
+  {
+    "original_path": "progress/E.11/tests/benchmark.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.11/tests/benchmark.json",
+    "kind": "tracked",
+    "sha256": "b9502b9f793d6100113e9e224290639bd333ba4ec24eda1066a0a326998b0804",
+    "restored_sha256": "44ff83066864b056f609c5f8e9ec7efdb19e06fff25344883eb1e5795213a1e3"
+  },
+  {
+    "original_path": "progress/E.11/tests/second-operator/benchmark.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.11/tests/second-operator/benchmark.json",
+    "kind": "tracked",
+    "sha256": "f77fe604f3e114409134b12c961be765a7039f8c553e56407ebb5ddb83c4107d",
+    "restored_sha256": "7041211cce1474014d1ff00a6e72b59a187f37d3b4482dc74c106b7d07795f2b"
+  },
+  {
+    "original_path": "progress/E.11/tests/second-operator/denied-without-certificate.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.11/tests/second-operator/denied-without-certificate.log",
+    "kind": "tracked",
+    "sha256": "40c8faf6af6aa3b04bcea6989b959710d5c5d87832bb765e4aa7b56fd8505889",
+    "restored_sha256": "279de3b8ca71a8a44cc2d79459b8e094d1ab456daa42b9d3bf27984a3a070a1f"
+  },
+  {
+    "original_path": "progress/E.11/tests/second-operator/engine-info.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.11/tests/second-operator/engine-info.json",
+    "kind": "tracked",
+    "sha256": "2dfb7baf4ad7c0547c2a753da188c010b77248b751b1b9d7b9ee6abbe93bf3c6",
+    "restored_sha256": "c1f58e10e310a665bc79ca476ce12c8f8d26b9531bdf2de9e622aafc6c328e7b"
+  },
+  {
+    "original_path": "progress/E.11/tests/second-operator/receipt.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.11/tests/second-operator/receipt.json",
+    "kind": "tracked",
+    "sha256": "b977a139849a0c5693191ec6929f8f030f2cb305ef245450bf374c75ae13a5be",
+    "restored_sha256": "6660721b7a87e857ba1f21b7b179d44238c99fcc12490b7c5d735b380e407345"
+  },
+  {
+    "original_path": "progress/E.11/tests/second-operator/source.bundle",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.11/tests/second-operator/source.bundle",
+    "kind": "tracked",
+    "sha256": "88323d2a8174fa1f36cc9ca098701889db5afd96b81e633ca7ed536c1dd7682a",
+    "restored_sha256": "c5ee8668654bfbe5a1f79aee651008f9f21d4018c58e3f66af8780ddafe7e0d7"
+  },
+  {
+    "original_path": "progress/E.12/tests/assertions.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/assertions.log",
+    "kind": "tracked",
+    "sha256": "27881f2d05114a3954d707c12b5ce454d97867dfcc314752ea08bcdcd9380d4d",
+    "restored_sha256": "f1d83e153f15414964a42dee97eee56be2117348003019c0979cae11d76db630"
+  },
+  {
+    "original_path": "progress/E.12/tests/baseline.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/baseline.log",
+    "kind": "tracked",
+    "sha256": "7f495b60fad3c1809467debcc57a4e1c813e835292d0f8af05dbcc7427a178ae",
+    "restored_sha256": "050e5effed4cfc06faf1e7e61a2d5e0f9d1960c9bc3adf9aab042e21570971d3"
+  },
+  {
+    "original_path": "progress/E.12/tests/catchup.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/catchup.log",
+    "kind": "tracked",
+    "sha256": "17fc689a446ebfd49ba5a406cae826a3340049e9937d175886f249ea2b72867e",
+    "restored_sha256": "d32947a8d955ab61a18d2f5c6c2377e85d507c449d541e1d0f601f3763b57699"
+  },
+  {
+    "original_path": "progress/E.12/tests/concurrent.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/concurrent.log",
+    "kind": "tracked",
+    "sha256": "513b1b295aba5f622c0ab0e24da7871fd89a0035b41378c0b6726691fca5a718",
+    "restored_sha256": "17a0201d924313d43a125134dfee6119c2d8c85dc8a8b7abcde39e105d1840b1"
+  },
+  {
+    "original_path": "progress/E.12/tests/expand-backfill.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/expand-backfill.log",
+    "kind": "tracked",
+    "sha256": "a8f116ff2771b9cefbf2c971cf5c7d241fcc016ece158761959f927b919572f7",
+    "restored_sha256": "143f84426f71df8a7a5fd61c75f38b9f29eb3fc6735c7857a4b6911501fa65fe"
+  },
+  {
+    "original_path": "progress/E.12/tests/experiment.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/experiment.json",
+    "kind": "tracked",
+    "sha256": "7d6dde09dad43dd90dfb7546a2ed1c8d98e2ca6303817b20ee2f5af5a2f7fefe",
+    "restored_sha256": "bf5bfe5accb98e21d6511996db9c7e9a4a139394cb2109d970d26a07778f6604"
+  },
+  {
+    "original_path": "progress/E.12/tests/hello.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/hello.log",
+    "kind": "tracked",
+    "sha256": "7964e6f7a2254a9a53cbb83e5e232fcc2911dee736132c09b0a59a38ac120b41",
+    "restored_sha256": "354538659eb6e0406a30a9095817b95699ad59d3c9184f24d74385bcc493c270"
+  },
+  {
+    "original_path": "progress/E.12/tests/inventory.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/inventory.log",
+    "kind": "tracked",
+    "sha256": "5faefbc571d1e390dab90957156f8929c17b4f1ffbaa75b1fe5e0e5e94657373",
+    "restored_sha256": "46e544acd3cf5aaf7f2e5ee490a66d4d264350136daaeb7222a4b1ee11414ebd"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-after.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-after.log",
+    "kind": "tracked",
+    "sha256": "5087eb7ba885c3f86576e05cc1b32d05f3467410732cbb20e31efe75da821d0a",
+    "restored_sha256": "f73ce3fc5779cf8f323f978a209590495373dfc216f1d69ac70dbeb5b2c4acb0"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-before.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-before.log",
+    "kind": "tracked",
+    "sha256": "23ad38456924211c562cdd8bc89499c5f695b8221ba992dc84e309fc30c709b9",
+    "restored_sha256": "f47582cc3625c856182f3e456bda217c7808848d33b9463ca405c628eaca69b2"
+  },
+  {
+    "original_path": "progress/E.12/tests/rollback-check.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/rollback-check.log",
+    "kind": "tracked",
+    "sha256": "e0f9b4b0446f1cb228ed111847b08ba652f3d9e1f53fae220bd0df773df6dfbb",
+    "restored_sha256": "cb30e199cda6bf572d3ec41fcdc3b7a6d937f976ca780d5a29c72b359683740d"
+  },
+  {
+    "original_path": "progress/E.12/tests/rollback-check.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/rollback-check.log.sql",
+    "kind": "tracked",
+    "sha256": "d554fea8988058150f3324333320932d36912a5cb9f2679c7b44ab67e73bcb5f",
+    "restored_sha256": "2066b0225f50d7e588b61370d54817fc3de6c516d103cef1d7cae1572b9b016c"
+  },
+  {
+    "original_path": "progress/E.12/tests/unsupported-language.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/unsupported-language.log",
+    "kind": "tracked",
+    "sha256": "f0c9f0357c2890f267150d0d07537ed35a4286f7f0b0c1e3de4e120c10d4afc8",
+    "restored_sha256": "06e30a509bceaf7f58d0a0caa74d19654a22e09a196b501d26599015173fc88c"
+  },
+  {
+    "original_path": "progress/E.12/tests/version.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/version.log",
+    "kind": "tracked",
+    "sha256": "68755302bda016e8b022825d288c120b81cdb10b32e4ac4a9003465dab752b58",
+    "restored_sha256": "502b090e94f546500304f24ec435adcc09c92574e3eb8c2b7a122bb7bcc140ce"
+  },
+  {
+    "original_path": "progress/E.12/tests/world.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/world.log",
+    "kind": "tracked",
+    "sha256": "29a2997ec3a47d48c8a7a04730a8122410e5a825c1a00207db997a7c83edd516",
+    "restored_sha256": "2e54cfc0d9dc53fd755ee1dff9530a21d4ce1f7e7d8df41378e54166dae71dad"
+  },
+  {
+    "original_path": "progress/E.5/tests/backend-results.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.5/tests/backend-results.json",
+    "kind": "tracked",
+    "sha256": "9aaec03781cad9bc0b4833f94fbd66ec76aaf504f26937e4313025c9377edc27",
+    "restored_sha256": "68641114946ac07aeb7a19bfcd00674318dc5fde297e4322b21929afa923936a"
+  },
+  {
+    "original_path": "progress/E.5/tests/coverage-after.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.5/tests/coverage-after.log",
+    "kind": "tracked",
+    "sha256": "d9597f59a07e2c553eca5b1feebb6a2d1e7d3fa9990fb0b8e33af29930fc5c4b",
+    "restored_sha256": "c4bba3ab48f10c330d9c119fe7247305dc4a134fa872f9ce43d609d27b45d79d"
+  },
+  {
+    "original_path": "progress/E.5/tests/coverage-after.xml",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.5/tests/coverage-after.xml",
+    "kind": "tracked",
+    "sha256": "35ee8f8493fac23ee6a42a83bfe6456e912227a75c452ad3afe5f952bf853828",
+    "restored_sha256": "33f2b8df01d05440f81480ee40dee060fe14d0fa0f899f25e248bd787aa62db3"
+  },
+  {
+    "original_path": "progress/E.5/tests/coverage-before.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.5/tests/coverage-before.log",
+    "kind": "tracked",
+    "sha256": "71cefe8bd9bd9f6336c035e979ac1d36c213743f99eaaa44ce1277aa69a41cc2",
+    "restored_sha256": "bc8fe583c5109892078043b938ffe3225f2b1e4de43f6ddf57cd0265379f3b21"
+  },
+  {
+    "original_path": "progress/E.5/tests/coverage-before.xml",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.5/tests/coverage-before.xml",
+    "kind": "tracked",
+    "sha256": "34b555ddf96b884f11f7014d8187ab3645a6064f3300b1b1bdf543d4ade7b9dc",
+    "restored_sha256": "e4f1308ddcbff697c62bbe87cad60f9b6d9ae8aabc7107d3f26d29af97545eeb"
+  },
+  {
+    "original_path": "progress/E.5/tests/mutation-detected.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.5/tests/mutation-detected.log",
+    "kind": "tracked",
+    "sha256": "5a8698cc0595693469b9b49cc3fa2d150a68b55b9b80ebbdd677daf9822f9605",
+    "restored_sha256": "0ef5a32ab1a914f43035be51baa2d69e4a9487428f715022d220cdc1dcf3b697"
+  },
+  {
+    "original_path": "progress/E.5/tests/utplsql-full.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.5/tests/utplsql-full.log",
+    "kind": "tracked",
+    "sha256": "a7f178acd73a4d0e7cd32b521141593e9ca0bf0ea49259d35bd8c3379d7d09f7",
+    "restored_sha256": "7c3d977f674bec77247a769fd8888452295d00a66475826a89f7a14717c45c22"
+  },
+  {
+    "original_path": "progress/E.5/tests/utplsql-reordered.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.5/tests/utplsql-reordered.log",
+    "kind": "tracked",
+    "sha256": "3cc7aac6bea29313ed64fc5553bf312a13dab6d80c7b9c8872f1e21ff24fca89",
+    "restored_sha256": "5ee4598469c4755b6803a28fba520f9b96dbb6a5e87d236b5f5bf54efb5d2747"
+  },
+  {
+    "original_path": "progress/E.5/tests/utplsql-repeat.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.5/tests/utplsql-repeat.log",
+    "kind": "tracked",
+    "sha256": "577b979b7c0cfe2721eea7ac2838903a166dfb34cd3bef222fb4f90ef631b918",
+    "restored_sha256": "a56a5465663ea1c320dfb1dcb77537dffadf496d3189e7f7894554aaf030b23d"
+  },
+  {
+    "original_path": "progress/E.6/tests/compat-1.0.1.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.6/tests/compat-1.0.1.log",
+    "kind": "tracked",
+    "sha256": "229da1a510dc681f9c9ac68f29d185d282534ff77825f083bea96b08c1a31790",
+    "restored_sha256": "c9f9211f6a24dbe1a062e687b371b6de0a237eb65aa356908ad82a2da62cf2d7"
+  },
+  {
+    "original_path": "progress/E.6/tests/compat-1.0.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.6/tests/compat-1.0.log",
+    "kind": "tracked",
+    "sha256": "0d588eef08263176419d0b4929b5989accec6352e11ed6ef8aaf22fb9f4faf47",
+    "restored_sha256": "5588ed28d890639b4b90893cad72c9cce7952a93cd3cc6dbfb94d55a55324936"
+  },
+  {
+    "original_path": "progress/E.6/tests/compat-1.1.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.6/tests/compat-1.1.log",
+    "kind": "tracked",
+    "sha256": "85b7b174acf203fd0908b7477896fad17266d509242e3d61b745c14ff5a24a46",
+    "restored_sha256": "00e329f6a3bb3275b4eedbd3d9c0bc1da58956ee7c3a22ed680b1d17aab5438f"
+  },
+  {
+    "original_path": "progress/E.6/tests/compat-restored-consumers.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.6/tests/compat-restored-consumers.log",
+    "kind": "tracked",
+    "sha256": "424b37b34ba11aa4e069687f47b4a6c54e8168c4a9745bc295594b8f5ce9eb0c",
+    "restored_sha256": "6dfb9540f7af0480a6857b432941df5ba0185e46b49fc02615841deb76aa7d20"
+  },
+  {
+    "original_path": "progress/E.6/tests/incompatible-detected.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.6/tests/incompatible-detected.log",
+    "kind": "tracked",
+    "sha256": "ff778b250499a66aac9a5070b0adac709579134b2733bb92f065224a01ecfc5c",
+    "restored_sha256": "e8079802a00e01ada80fa61c441670d0203c6adee4b8e8f57f06d5135d611b65"
+  },
+  {
+    "original_path": "progress/E.6/tests/sessions-after.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.6/tests/sessions-after.log",
+    "kind": "tracked",
+    "sha256": "4d361364def025cc878281f0b3a76152feae52e8df65f97e741f2d57a7e52a6b",
+    "restored_sha256": "89b39cd33a38da912eed46ede93ffe81fb02c66b453ac04de330b0013ed0c798"
+  },
+  {
+    "original_path": "progress/E.6/tests/sessions-before.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.6/tests/sessions-before.log",
+    "kind": "tracked",
+    "sha256": "4d361364def025cc878281f0b3a76152feae52e8df65f97e741f2d57a7e52a6b",
+    "restored_sha256": "89b39cd33a38da912eed46ede93ffe81fb02c66b453ac04de330b0013ed0c798"
+  },
+  {
+    "original_path": "progress/E.6/tests/unit.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.6/tests/unit.log",
+    "kind": "tracked",
+    "sha256": "d5eaf6c8c98fb99b8abb1117f31141600bbfdf5f5f6a46e74149e6ea8f819542",
+    "restored_sha256": "340ab14ec83e6b1e98d98082ca573b6f2b97dc4598e3acc54331f06a99005432"
+  },
+  {
+    "original_path": "progress/E.8/tests/candidate.bundle",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.8/tests/candidate.bundle",
+    "kind": "tracked",
+    "sha256": "cb8a1966048bbdb1841e6ef390ec0441db90490f6008fb0f8d84d92e9d793302",
+    "restored_sha256": "35f0ad255095507ba1c16f38448995ad442e57403841f2762e2355e7553f3324"
+  },
+  {
+    "original_path": "progress/E.8/tests/executions.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.8/tests/executions.json",
+    "kind": "tracked",
+    "sha256": "302fd96c340d3180fe6762282eb58f70cd8c521bd2c272b1b55bb30a84617a32",
+    "restored_sha256": "a6bc143a7b2e15cbc9b053e7283bd3e67df3976529c0d9a1fd6cb7263f53d7b5"
+  },
+  {
+    "original_path": "progress/E.8/tests/pr-None/result.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.8/tests/pr-None/result.json",
+    "kind": "tracked",
+    "sha256": "f7bf86b8793f01f9f0b9e87bea3c276266481e157f7166dc81134475e4e7e90e",
+    "restored_sha256": "078f227bf1349a050bc353ca5adfce783a640ae8a60a80d8492ef0120bb438b7"
+  },
+  {
+    "original_path": "progress/E.8/tests/pr-backend/backend-failure.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.8/tests/pr-backend/backend-failure.log",
+    "kind": "tracked",
+    "sha256": "d24ecb4be94c5f69113738b25ca4180ab8e617b0cdb1fa9b914a8427493be282",
+    "restored_sha256": "fcf12da09a5354de03c09a44f73702db3a69dae40f23f04dd9124f8b9b99bb59"
+  },
+  {
+    "original_path": "progress/E.8/tests/pr-backend/backend.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.8/tests/pr-backend/backend.log",
+    "kind": "tracked",
+    "sha256": "d24ecb4be94c5f69113738b25ca4180ab8e617b0cdb1fa9b914a8427493be282",
+    "restored_sha256": "fcf12da09a5354de03c09a44f73702db3a69dae40f23f04dd9124f8b9b99bb59"
+  },
+  {
+    "original_path": "progress/E.8/tests/pr-backend/result.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.8/tests/pr-backend/result.json",
+    "kind": "tracked",
+    "sha256": "4f6e8488ca2bccd457a08ca49ba2fec7f89463fe1880cf0ebc7abb4844bef277",
+    "restored_sha256": "9a44d7324cd22cef3a63383b518b4971ebd3fbc997dd5c132b0ccbca4ed5f45b"
+  },
+  {
+    "original_path": "progress/E.8/tests/pr-compilation/result.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.8/tests/pr-compilation/result.json",
+    "kind": "tracked",
+    "sha256": "b9880cf8cd9c5844f4d4f360cca1c0da41d181696fc86391882f2a5f6d35ce73",
+    "restored_sha256": "d06e7ea6adba69fbb67317c6dbf7d26e6c3d14db0a458d0126434f0dd392cfb6"
+  },
+  {
+    "original_path": "progress/E.8/tests/pr-migration/migration-failure.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.8/tests/pr-migration/migration-failure.log",
+    "kind": "tracked",
+    "sha256": "3bf7a1ed72d4938613917b0e9c67371004f3e9289365af43dbeb2ad70ed87688",
+    "restored_sha256": "5efa09136a152c529ddfea582605dca3d9bdf29d9c9c9e91b951b788f12ff8b1"
+  },
+  {
+    "original_path": "progress/E.8/tests/pr-migration/migration.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.8/tests/pr-migration/migration.log",
+    "kind": "tracked",
+    "sha256": "3bf7a1ed72d4938613917b0e9c67371004f3e9289365af43dbeb2ad70ed87688",
+    "restored_sha256": "5efa09136a152c529ddfea582605dca3d9bdf29d9c9c9e91b951b788f12ff8b1"
+  },
+  {
+    "original_path": "progress/E.8/tests/pr-migration/result.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.8/tests/pr-migration/result.json",
+    "kind": "tracked",
+    "sha256": "07e2fba71c42ee6fff0f5d3217ed3639f9e7a151c7a323704b383c894e942f58",
+    "restored_sha256": "ef336ba6fa0e72668d6d84424d94203a10e9a589cf52435a0c832bfa6520fcc2"
+  },
+  {
+    "original_path": "progress/E.8/tests/pr-source/result.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.8/tests/pr-source/result.json",
+    "kind": "tracked",
+    "sha256": "b49d23189be4b89774aee28f8a7a749cf97e81ad77225674f8f13ed7b848ab64",
+    "restored_sha256": "393f08baa5019d8288fb52b81e1d8230fa20798df944b8368c52697afd12d82a"
+  },
+  {
+    "original_path": "progress/E.8/tests/pr-state/result.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.8/tests/pr-state/result.json",
+    "kind": "tracked",
+    "sha256": "62f7b466f4a155bf6ca1bf29461e893f1fae9aa25af01080991009594c135749",
+    "restored_sha256": "346391c5067c1633a57e1003566606d03ae66b8fd32156ad5ff6bada5c4424ca"
+  },
+  {
+    "original_path": "progress/E.8/tests/pr-state/state-failure.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.8/tests/pr-state/state-failure.log",
+    "kind": "tracked",
+    "sha256": "203bb7cba9ac9332db69b6cce4ee79cdd37a5de0895ca7e96490ee755fbd2133",
+    "restored_sha256": "24bec99783ed0c9fd5cbade1d67f32d3e87ca6bcd9be92f29d37593ee2524d18"
+  },
+  {
+    "original_path": "progress/E.8/tests/pr-state/state.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.8/tests/pr-state/state.log",
+    "kind": "tracked",
+    "sha256": "203bb7cba9ac9332db69b6cce4ee79cdd37a5de0895ca7e96490ee755fbd2133",
+    "restored_sha256": "24bec99783ed0c9fd5cbade1d67f32d3e87ca6bcd9be92f29d37593ee2524d18"
+  },
+  {
+    "original_path": "progress/E.8/tests/prerelease-None/result.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.8/tests/prerelease-None/result.json",
+    "kind": "tracked",
+    "sha256": "b9a60d2a9fdc1bf82963fd3ccabfea16196295f8cdf77ccb333433379896be0f",
+    "restored_sha256": "bb58a67dfa0576260ffcee39c6bcc887622d5d69c43fc62f735095a7940ede92"
+  },
+  {
+    "original_path": "progress/E.8/tests/scheduled-None/result.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.8/tests/scheduled-None/result.json",
+    "kind": "tracked",
+    "sha256": "6138b9ebce4f0f0e1e6c3be9e5800668653b0622a3553a5b3c88f30c162b22bc",
+    "restored_sha256": "73c12453a600efd83c4e3d378ee48c9fd545c543348b26ca2fb3bf53cd497a45"
+  },
+  {
+    "original_path": "progress/E.9/tests/candidate.bundle",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.9/tests/candidate.bundle",
+    "kind": "tracked",
+    "sha256": "87a46b192e0041bec732eef7ffcd04022dffe74b82f224a51a345e60854cbe0d",
+    "restored_sha256": "578b89349dd1c056c8ee4073077aa812f39dacfb23427d1bb44a426d293fb31b"
+  },
+  {
+    "original_path": "progress/E.9/tests/journey.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.9/tests/journey.json",
+    "kind": "tracked",
+    "sha256": "1bc4d25654eff09cf5b5473de01e495767f06da9a32eda5867872c8bfdbf2f53",
+    "restored_sha256": "fb638a564c0f52c38600d5e9c387e2428aa8d4f1686113db35a463ffb17c6561"
+  },
+  {
+    "original_path": "progress/E.9/tests/service/candidate.bundle",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.9/tests/service/candidate.bundle",
+    "kind": "tracked",
+    "sha256": "6b32891ce30d8c0241ea9c64b70ed268d77d3bb55da1ce2f1daa835c1504cc72",
+    "restored_sha256": "7e0f76a09805a9f77e1834d4cb16b165a0c71c460219c366123bcda26a086b0b"
+  },
+  {
+    "original_path": "progress/E.9/tests/service/direct-write.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.9/tests/service/direct-write.log",
+    "kind": "tracked",
+    "sha256": "3c566c888c5960b3c19426eef587eced6e0145dbced234ca105813ed58704e3a",
+    "restored_sha256": "b912614324e3e41cf48ce8fe7bf2ddb49bd5abfe0f27f3eb895713ec5f70f997"
+  },
+  {
+    "original_path": "progress/E.9/tests/service/direct-write.raw.gz",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.9/tests/service/direct-write.raw.gz",
+    "kind": "tracked",
+    "sha256": "798cbc3a0b3ed4f54279a60ec8c8ed20816064f858937d368bdd1e792e5c67cd",
+    "restored_sha256": "d6a0ca1b4f006fc9dba5ab7c5485397e0617a202de47678d6593ac83d7b7bcf4"
+  },
+  {
+    "original_path": "progress/E.9/tests/service/events.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.9/tests/service/events.json",
+    "kind": "tracked",
+    "sha256": "4bfd3e429b56d331323c0c5129168aef3aefa115490cfc0d154e6794e595e3c1",
+    "restored_sha256": "77346eb540284acc34a684abf2c9a69922fe0ed5b3ba7024012a948c980876f2"
+  },
+  {
+    "original_path": "progress/E.9/tests/service/receipt.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.9/tests/service/receipt.json",
+    "kind": "tracked",
+    "sha256": "30b53ca4912778724db07da85c57fadf0446751e9969e51b6ebcc8cf8d3b48d3",
+    "restored_sha256": "83b866eca130aee76871507f801851fec45496145c1f9e37a1960d43683f9a9b"
+  },
+  {
+    "original_path": "progress/E.9/tests/service/results.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.9/tests/service/results.json",
+    "kind": "tracked",
+    "sha256": "6da4d355b78b1f083aed10fbb6e91e9c5272140720606cdce42edfd6ac39fb4b",
+    "restored_sha256": "29533cf633d3fe94a90ca0557d166ecb94f33c51b37e8f19be8231a8f8741400"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/accepted-pr.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/accepted-pr.json",
+    "kind": "generated",
+    "sha256": "3bb7e072fcaa7e4c5c263f89fe7d1461d9e33d0d49831b3f3c99854f1704d818"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/assembly-rejection.html",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/assembly-rejection.html",
+    "kind": "generated",
+    "sha256": "8e333f633ef594659ddedd3f120aaf086567566d67d5e57a54be1ba803d6f2c8"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-active.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-active.json",
+    "kind": "generated",
+    "sha256": "daef3fb54e727280a430a88e30c9b127b13dabcf0bda5bbcb5891c7958659944"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/capture.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/capture.log",
+    "kind": "generated",
+    "sha256": "ad37a9446b1f326e528853a7df2187ffa147bb5de42a72ad55a17d44fe7e5131"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/data-before-restore.txt",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/data-before-restore.txt",
+    "kind": "generated",
+    "sha256": "6420b23e105d0da82afd58af64745ebc7bfb5d01602cd98edfba208b44915261"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/data-before.txt",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/data-before.txt",
+    "kind": "generated",
+    "sha256": "6420b23e105d0da82afd58af64745ebc7bfb5d01602cd98edfba208b44915261"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/create_application.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/create_application.sql",
+    "kind": "generated",
+    "sha256": "8c9e34b1fe7a601624c140709c97e53e1bccbae0d888433c0240441b7367f551"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/delete_application.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/delete_application.sql",
+    "kind": "generated",
+    "sha256": "7f4bfdaf88fb9cc8531206fb51f089d5f2d13ad3f5be8a93bc7c9db68a54c16d"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/end_environment.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/end_environment.sql",
+    "kind": "generated",
+    "sha256": "11da7a7db8ec9ed63adcfffd444f2e5ac0f1742afb6a93d8e163391727349167"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00000.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00000.sql",
+    "kind": "generated",
+    "sha256": "d9220943e0b1e354207e5e88b1947244a2f30a5fa88a8e1ee1591958d60e45f3"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00001.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00001.sql",
+    "kind": "generated",
+    "sha256": "4095a135d18b310bb5c5e229ba793948d6ea83baa90817ff41fd586db8e75276"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00010.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00010.sql",
+    "kind": "generated",
+    "sha256": "c68115269bea145749beb8eee5706838ea6766109e376eba3d5c1d1de90cde56"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00020.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00020.sql",
+    "kind": "generated",
+    "sha256": "5949d00af37fce5e1a49e83d41f22780bf2ef3ae8ff4ff6d1ca3b7301c779c0c"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00100.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00100.sql",
+    "kind": "generated",
+    "sha256": "7f35ae38495868b48f65cf7bc05a4e4dded3813b38e6bf1007b5e73bfc909629"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00101.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00101.sql",
+    "kind": "generated",
+    "sha256": "ded41b88774c1c5cb0d3b547aa919d9dad54363f43eb76fd6eb57ffd58fa6a3b"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00110.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00110.sql",
+    "kind": "generated",
+    "sha256": "4ff8807c2287743a2ed5f4e62c2c5556fde96fb93000a7990cbb1aeb08e3d377"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00111.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00111.sql",
+    "kind": "generated",
+    "sha256": "f8cf7a635f85e632c2e68783f19ee544b463cf27183c47a605103bea62e5cb51"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00200.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00200.sql",
+    "kind": "generated",
+    "sha256": "839c2e5c1633871c3ea36a3af44bc04a70f7a0a52777aa6bda7ad9687e7ae587"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00201.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00201.sql",
+    "kind": "generated",
+    "sha256": "af9d60b6cd6b140559d43b817e3f75819b3de64ddae3ab522f265783de751009"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00210.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00210.sql",
+    "kind": "generated",
+    "sha256": "0e6897823549ce2880a262aadefffd6d3def9cb2c943940e1fab900f1d2becb8"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00211.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_00211.sql",
+    "kind": "generated",
+    "sha256": "bd5fed14bedb722df0a9bb63258bf1607a46e913d1d9d43d76d2bef5300f7292"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_09999.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_09999.sql",
+    "kind": "generated",
+    "sha256": "acfd0d2ff2dc0c8f496cb989956f53f6a11d783d949ba4e04f13e5ce77689035"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_groups.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/pages/page_groups.sql",
+    "kind": "generated",
+    "sha256": "9d17a9d8e2a84acdc48a641f498a4dbe0ccd31998c625cc2b9ab8f0d20838cbb"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/plugin_settings.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/plugin_settings.sql",
+    "kind": "generated",
+    "sha256": "c6ce808608218f83fef03403de3634f6b3e0a6a192f2a9eca189213bd74d50f7"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/set_environment.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/set_environment.sql",
+    "kind": "generated",
+    "sha256": "8941c2846584a2ab0aa5ce71cc86d39aa9c95f367fdb03c2c75a1e20ef761e88"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/files/icons_app_icon_144_rounded_png.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/files/icons_app_icon_144_rounded_png.sql",
+    "kind": "generated",
+    "sha256": "768f94d099970754fe27f3933e3a43cd72247c816b05d741e5b15ab73d59a151"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/files/icons_app_icon_192_png.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/files/icons_app_icon_192_png.sql",
+    "kind": "generated",
+    "sha256": "49e768363ab00b81f4dc0fd8a65f00b58530cc711a7f1804960f3bcdd3657a8e"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/files/icons_app_icon_256_rounded_png.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/files/icons_app_icon_256_rounded_png.sql",
+    "kind": "generated",
+    "sha256": "7ff206641778fb3b99d5b0eda553748b330d780effcc08471e385d77ac21d5cc"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/files/icons_app_icon_32_png.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/files/icons_app_icon_32_png.sql",
+    "kind": "generated",
+    "sha256": "91d9d05f1239595b0d7560b907df5ac2cfa9b97f83f5ef4651efd0420872b968"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/files/icons_app_icon_512_png.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/files/icons_app_icon_512_png.sql",
+    "kind": "generated",
+    "sha256": "41ae5bbea8b1ff5b4b45b507412f74ba8af14a6b3719cf23173ce21049de420b"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/globalization/dyntranslations.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/globalization/dyntranslations.sql",
+    "kind": "generated",
+    "sha256": "98afe92672af6dc6e440f1f68d169faba235b611132222b131e56087cab4bff3"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/globalization/language.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/globalization/language.sql",
+    "kind": "generated",
+    "sha256": "9b678f5ad0cee3611a327541c6026cfe2fd36bad78e08a6b7951747a40390563"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/globalization/messages.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/globalization/messages.sql",
+    "kind": "generated",
+    "sha256": "fa55d4d24f10d96985a85d9aff5e749049816401408a78c5a965c389ff3b8c0d"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/logic/application_settings.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/logic/application_settings.sql",
+    "kind": "generated",
+    "sha256": "379fc4aee7ac2a5e387a25cb1712f639131b99d83e2e046f399a1b40028fc695"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/logic/build_options.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/logic/build_options.sql",
+    "kind": "generated",
+    "sha256": "1697b2d77211fe4e255aaf440fbbef30c46f051b44596406514e19895a8dd149"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/navigation/breadcrumbentry.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/navigation/breadcrumbentry.sql",
+    "kind": "generated",
+    "sha256": "322f322494f47795cc071eecefaa69f7fdf7c6079c66912db34a1a018b649117"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/navigation/breadcrumbs/breadcrumb.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/navigation/breadcrumbs/breadcrumb.sql",
+    "kind": "generated",
+    "sha256": "55160a4bb3240c4504b5f1d1ab978ebbfcd9dbc6aa34c0c71c8f76f0a6cb5bdf"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/navigation/listentry.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/navigation/listentry.sql",
+    "kind": "generated",
+    "sha256": "bf4b6a768bfd979a58b7d42760269cfd6995f25046d468e3e123d0f51e16022e"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/navigation/lists/navigation_bar.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/navigation/lists/navigation_bar.sql",
+    "kind": "generated",
+    "sha256": "cd71ed0ef6f28bc05aadd715bdf45b508f9307892b54fd4e1bde47019ca38fbf"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/navigation/lists/navigation_menu.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/navigation/lists/navigation_menu.sql",
+    "kind": "generated",
+    "sha256": "d9ae7a65feea6e075b9be2d0db7a39c5ecbebaa2474a314fd197525c2a41361f"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/navigation/navigation_bar.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/navigation/navigation_bar.sql",
+    "kind": "generated",
+    "sha256": "de34505000cc6679d5fa7c53b2faf0f995489d1c7d3c6285b598ca8c3249030d"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/navigation/tabs/parent.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/navigation/tabs/parent.sql",
+    "kind": "generated",
+    "sha256": "be3d5447c0607637aee7eddb3b872b2a5b7ceb6878b8d2749f932288cde81cb0"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/navigation/tabs/standard.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/navigation/tabs/standard.sql",
+    "kind": "generated",
+    "sha256": "325191fc5c48a4e0915f0a49b0a270111967713bf03c80c11d0de99441948433"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/security/authentications/oracle_apex_accounts.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/security/authentications/oracle_apex_accounts.sql",
+    "kind": "generated",
+    "sha256": "3d575cbdd5189d54d46bc2ac2689b270b89a6f912f29e04d494310153cb66d1f"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/security/authorizations/administration_rights.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/security/authorizations/administration_rights.sql",
+    "kind": "generated",
+    "sha256": "7ffb85fbc72c81c466089395442adbaf4c5e888a05f96b05be090cfa7252f8fd"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/user_interface/lovs/hello_entries_entry_text.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/user_interface/lovs/hello_entries_entry_text.sql",
+    "kind": "generated",
+    "sha256": "b549e42c6d7417c546cc73b749c7ec9fa74785beb28ae8b5f7d26813afc5edb1"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/user_interface/lovs/world_entries_entry_text.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/user_interface/lovs/world_entries_entry_text.sql",
+    "kind": "generated",
+    "sha256": "a3c7a4be01552621b3ab0d3af005c666836a7c481fbf0645dd1f6346e2ac382a"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/user_interface/template_opt_groups.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/user_interface/template_opt_groups.sql",
+    "kind": "generated",
+    "sha256": "df7a1c1a0585f18d036e0eae4ccad3830c46b3a8c6c26b884c02f88aa6fcb8cb"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/user_interface/template_options.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/user_interface/template_options.sql",
+    "kind": "generated",
+    "sha256": "6219b2c611297e0cb10811b405f4127436d617810a9a9c8e6f92d4c908b18add"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/user_interface/templates/popuplov.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/user_interface/templates/popuplov.sql",
+    "kind": "generated",
+    "sha256": "e4d1dd3ba9711ce17d3a73d6246b09b474e108026b2a2f22e79b64a9c1803e1a"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/user_interface/theme_files.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/user_interface/theme_files.sql",
+    "kind": "generated",
+    "sha256": "196164f8539f6f6dc21ea813583771e81830923f260cf0bc19297f17324e55a3"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/user_interface/theme_style.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/user_interface/theme_style.sql",
+    "kind": "generated",
+    "sha256": "82d688b14d18d5abf794dce870371097b87a6f1036ec596fdf15d681db479e18"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/user_interface/themes.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/shared_components/user_interface/themes.sql",
+    "kind": "generated",
+    "sha256": "d538bb1b07bf0e85059d06aefb2ce8ea31babd4f8a65d63b82b55dc1ead28b0e"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/user_interfaces.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/user_interfaces.sql",
+    "kind": "generated",
+    "sha256": "b76458f6ebdc8ea98a5b705c8c558ca31c78ecd05aa07b6f8eba3225a9c174ae"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/user_interfaces/combined_files.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/application/user_interfaces/combined_files.sql",
+    "kind": "generated",
+    "sha256": "cb9cf9856cab4bd705c0069046a21d565295ac19c396ec1763c6d3c982d1e541"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/install.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/f810005/install.sql",
+    "kind": "generated",
+    "sha256": "85b776a1485d01b2f2d8a25110706f860655b4bacb2904ff115c01f1cbe47ec4"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/inject.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/inject.log",
+    "kind": "generated",
+    "sha256": "9b45461cc547a0c7964b6ab70af702a699ea7c3fb8316a7340568045ac11eb53"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/restore.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/drift-demo.zoe0v7dj/restore.log",
+    "kind": "generated",
+    "sha256": "e660bc494020faddf98430ce1adab0969b88d630ce1cd02223c699c82d5494f2"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/environment.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/environment.json",
+    "kind": "generated",
+    "sha256": "7464354681e26984669dbd7c2b1e1b808c098fbba41a9484e91f6f14132eaf5e"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/http-integration_test-1.html",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/http-integration_test-1.html",
+    "kind": "generated",
+    "sha256": "b0413ec23e9d59f8ba0b697624ecff539de196f8ad0cb4fc8a31447aa1429d3c"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/http-integration_test-2.html",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/http-integration_test-2.html",
+    "kind": "generated",
+    "sha256": "d444e6aa692a64eb347f35cfeb4106f4dd3ca74000118982bb7a693f9611e7ff"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/http-integration_test-3.html",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/http-integration_test-3.html",
+    "kind": "generated",
+    "sha256": "3daeeec94770b3d5f93edcd502486149c07251aaa2ccb8bed670c9e1d7822ba4"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/http-integration_test-4.html",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/http-integration_test-4.html",
+    "kind": "generated",
+    "sha256": "1c1a71899a68e52929b61059d6f79bb025bfe29b1dd6e83a5fb2d123be937ea8"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/http-user_acceptance_test-1.html",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/http-user_acceptance_test-1.html",
+    "kind": "generated",
+    "sha256": "ce923dad12e35366ef92e3620b24cd675941830bb3d090779adf124cc156efe0"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/http-user_acceptance_test-2.html",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/http-user_acceptance_test-2.html",
+    "kind": "generated",
+    "sha256": "cef551639241b114b262ff0e4350ff69aa2b6ab8af8f9ca808354e51f0b7ae39"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/integration_test-repeat-after.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/integration_test-repeat-after.json",
+    "kind": "generated",
+    "sha256": "acd102b34f7c1cb1bb42fbcc6c13a21523c116a913069e41d41c7dccc1acfd21"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/integration_test-repeat-before.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/integration_test-repeat-before.json",
+    "kind": "generated",
+    "sha256": "acd102b34f7c1cb1bb42fbcc6c13a21523c116a913069e41d41c7dccc1acfd21"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/lab-1.0.1-0cc6c6802e0e.tar",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/lab-1.0.1-0cc6c6802e0e.tar",
+    "kind": "generated",
+    "sha256": "7e586a276e5bf6c9fadf6cfea52cb456614d54ab2164edbfc6e5914bad0e36a5"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/lab-1.0.1-0cc6c6802e0e.tar.sha256",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/lab-1.0.1-0cc6c6802e0e.tar.sha256",
+    "kind": "generated",
+    "sha256": "368b51cedaf20ae7be50a2d154265f53b94319869605230ce3a6f41ed847a214"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/native-export-stability.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/native-export-stability.json",
+    "kind": "generated",
+    "sha256": "1eff14952e109d6ffb7b9e690811f0453e8aafa0dbe91cdec7a01db449bab172"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/operations.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/operations.log",
+    "kind": "generated",
+    "sha256": "495e1c17ca55c49bf3228cd60d80975219768f66bece06993eeed404e7bf4cbd"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/ords-install.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/ords-install.log",
+    "kind": "generated",
+    "sha256": "add19d123addb9c12974de8c84e597f6ee048263299c53534559ca7dcbb966e5"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/ords-uninstall.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/ords-uninstall.log",
+    "kind": "generated",
+    "sha256": "9a10ec22bb4236397c64df5ef39ac645ec0943eb414e4ecc7cd9e279000cc88d"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/patch-selected.txt",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/patch-selected.txt",
+    "kind": "generated",
+    "sha256": "40894d86f9629ab0d1387f225df95d475ea8cbde3c03e28901d1497a9f28fdd1"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/q-before.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/q-before.json",
+    "kind": "generated",
+    "sha256": "e270435a7c532876d1468372ad0249048b9abb0024c682250cce6b1679307748"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/rejected-stale-candidate.tar",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/rejected-stale-candidate.tar",
+    "kind": "generated",
+    "sha256": "4818e966d829003ab0a72fa1b8e52c5e3a419125120379775d4c76209f99a062"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/rejected-stale-candidate.tar.sha256",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/rejected-stale-candidate.tar.sha256",
+    "kind": "generated",
+    "sha256": "2b27c5224524e42742ccb22e6e45eba644e255ce326ed41881da1b1efc045351"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/runtime.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/runtime.log",
+    "kind": "generated",
+    "sha256": "46d7db6503c609fbebc6ebef0a8eb9d63e673db7f73bedb65fe72fc26a3a9963"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/source-snapshot-after.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/source-snapshot-after.json",
+    "kind": "generated",
+    "sha256": "3a11ec292bbf4529d4bbe0079fb1afe789aba31b09213318a239b8c9a6265e1f"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/source-snapshot-before.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/source-snapshot-before.json",
+    "kind": "generated",
+    "sha256": "3a11ec292bbf4529d4bbe0079fb1afe789aba31b09213318a239b8c9a6265e1f"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/source-snapshot-sha256.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/source-snapshot-sha256.json",
+    "kind": "generated",
+    "sha256": "3a11ec292bbf4529d4bbe0079fb1afe789aba31b09213318a239b8c9a6265e1f"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/sqlcl-version.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/sqlcl-version.log",
+    "kind": "generated",
+    "sha256": "6f1a0385dabd5f9e9a5b99bb89c8de8528a04f81898726786c44ca9d67c9d80f"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/stable-native-exports.zip",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/stable-native-exports.zip",
+    "kind": "generated",
+    "sha256": "8cc42824eafd58fd214b2b797eb0924a6843cf335118432cac5ef175911ab2ea"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/uat-before.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/uat-before.json",
+    "kind": "generated",
+    "sha256": "9f33a5c683ffcd903f1113a2b75ab83fdf9473539a699fc27f1c9d169361258d"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/user_acceptance_test-repeat-after.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/user_acceptance_test-repeat-after.json",
+    "kind": "generated",
+    "sha256": "884a3a923c8ff1a676d599cabb9ae5d4b92f6549052abcbc5164744425970efc"
+  },
+  {
+    "original_path": "progress/E.12/tests/legacy-regression/run-20261126T164709-4128/user_acceptance_test-repeat-before.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/legacy-regression/run-20261126T164709-4128/user_acceptance_test-repeat-before.json",
+    "kind": "generated",
+    "sha256": "884a3a923c8ff1a676d599cabb9ae5d4b92f6549052abcbc5164744425970efc"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/assertions.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/assertions.log",
+    "kind": "generated",
+    "sha256": "27881f2d05114a3954d707c12b5ce454d97867dfcc314752ea08bcdcd9380d4d"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/assertions.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/assertions.log.sql",
+    "kind": "generated",
+    "sha256": "d0146a6981fd8ddacb1d4fea608a4fd20be7a13fa389701022cfb0a4dcc7d280"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/baseline.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/baseline.log",
+    "kind": "generated",
+    "sha256": "7f495b60fad3c1809467debcc57a4e1c813e835292d0f8af05dbcc7427a178ae"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/baseline.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/baseline.log.sql",
+    "kind": "generated",
+    "sha256": "62205a44b99f4d3ac9fb94d784045a1b29311d57adca8a98db86cffc1653652a"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/catchup.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/catchup.log",
+    "kind": "generated",
+    "sha256": "17fc689a446ebfd49ba5a406cae826a3340049e9937d175886f249ea2b72867e"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/catchup.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/catchup.log.sql",
+    "kind": "generated",
+    "sha256": "47ec00b375a335136ca10a96264f007915c7b1f73f3a7a4ad7ca650f3a7f82d7"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/concurrent.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/concurrent.log",
+    "kind": "generated",
+    "sha256": "513b1b295aba5f622c0ab0e24da7871fd89a0035b41378c0b6726691fca5a718"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/concurrent.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/concurrent.log.sql",
+    "kind": "generated",
+    "sha256": "bbfe68dd3d90bd65d0c34e0227b1fb6f6d81875003ee074ebae0ad035d905ad5"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/expand-backfill.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/expand-backfill.log",
+    "kind": "generated",
+    "sha256": "a8f116ff2771b9cefbf2c971cf5c7d241fcc016ece158761959f927b919572f7"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/expand-backfill.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/expand-backfill.log.sql",
+    "kind": "generated",
+    "sha256": "2b8eb2bd5bada08245b777d6cc9618fd5bc6116b8dd9023f30aecd9a716aa633"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/experiment.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/experiment.json",
+    "kind": "generated",
+    "sha256": "7d6dde09dad43dd90dfb7546a2ed1c8d98e2ca6303817b20ee2f5af5a2f7fefe"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/hello.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/hello.log",
+    "kind": "generated",
+    "sha256": "7964e6f7a2254a9a53cbb83e5e232fcc2911dee736132c09b0a59a38ac120b41"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/hello.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/hello.log.sql",
+    "kind": "generated",
+    "sha256": "d1e13826d0f52659cd114b0ea8c8b036acdd4071cb86a6d96c3bef234a3d8a08"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/interruption.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/interruption.log",
+    "kind": "generated",
+    "sha256": "828cf298dfcf3cafcd87e827891500f693b99d74fa6f66a8807d020a8dd53553"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/inventory.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/inventory.log",
+    "kind": "generated",
+    "sha256": "5faefbc571d1e390dab90957156f8929c17b4f1ffbaa75b1fe5e0e5e94657373"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/inventory.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/inventory.log.sql",
+    "kind": "generated",
+    "sha256": "e414156815e996cc90b5d4678185802020534781f9adb48f614262d238be9858"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/legacy-after.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/legacy-after.log",
+    "kind": "generated",
+    "sha256": "5087eb7ba885c3f86576e05cc1b32d05f3467410732cbb20e31efe75da821d0a"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/legacy-after.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/legacy-after.log.sql",
+    "kind": "generated",
+    "sha256": "cef60d5706621bc944be31bd0a12df9d82af7ae8f2f1c1806c01b7cea5997a5c"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/legacy-before.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/legacy-before.log",
+    "kind": "generated",
+    "sha256": "23ad38456924211c562cdd8bc89499c5f695b8221ba992dc84e309fc30c709b9"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/legacy-before.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/legacy-before.log.sql",
+    "kind": "generated",
+    "sha256": "cef60d5706621bc944be31bd0a12df9d82af7ae8f2f1c1806c01b7cea5997a5c"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/rollback-check.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/rollback-check.log",
+    "kind": "generated",
+    "sha256": "e0f9b4b0446f1cb228ed111847b08ba652f3d9e1f53fae220bd0df773df6dfbb"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/rollback-check.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/rollback-check.log.sql",
+    "kind": "generated",
+    "sha256": "d554fea8988058150f3324333320932d36912a5cb9f2679c7b44ab67e73bcb5f"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/unsupported-language.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/unsupported-language.log",
+    "kind": "generated",
+    "sha256": "f0c9f0357c2890f267150d0d07537ed35a4286f7f0b0c1e3de4e120c10d4afc8"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/unsupported-language.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/unsupported-language.log.sql",
+    "kind": "generated",
+    "sha256": "7a0604d3032a67ae344da80b094ad5aa9fa770cff6299b8c9b27baf911b0bc9f"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/version.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/version.log",
+    "kind": "generated",
+    "sha256": "68755302bda016e8b022825d288c120b81cdb10b32e4ac4a9003465dab752b58"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/version.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/version.log.sql",
+    "kind": "generated",
+    "sha256": "ed5346b34969426b85cb3db62312238bfcef64a20ff4e6d024944f3f2d5b4e5e"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/world.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/world.log",
+    "kind": "generated",
+    "sha256": "29a2997ec3a47d48c8a7a04730a8122410e5a825c1a00207db997a7c83edd516"
+  },
+  {
+    "original_path": "progress/E.12/tests/runs/E12_RUN_18523/world.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.12/tests/runs/E12_RUN_18523/world.log.sql",
+    "kind": "generated",
+    "sha256": "822c0a786bedf84ae9e16afb4c530f4d511f04d9341f6d96fb1ed1717c5917bd"
+  },
+  {
+    "original_path": "progress/E.13/tests/run_18556/assertions.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.13/tests/run_18556/assertions.log",
+    "kind": "generated",
+    "sha256": "30f394da655ce225510a838b371c8c8a042e5f05650c46f31320960f34c286fa"
+  },
+  {
+    "original_path": "progress/E.13/tests/run_18556/assertions.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.13/tests/run_18556/assertions.log.sql",
+    "kind": "generated",
+    "sha256": "6fe46a4f0216c029fcb7ea26af6c5a44c9e740bdb582ba96b1e9d87b9b677c2f"
+  },
+  {
+    "original_path": "progress/E.13/tests/run_18556/failure-recovery.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.13/tests/run_18556/failure-recovery.log",
+    "kind": "generated",
+    "sha256": "625b0dc547883ca999e4096fd9fa39a1593a6866afc91b1c7385a8a708b0978c"
+  },
+  {
+    "original_path": "progress/E.13/tests/run_18556/failure-recovery.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.13/tests/run_18556/failure-recovery.log.sql",
+    "kind": "generated",
+    "sha256": "c2fb0b62734e1fbda54d49f9861388f55707f6a7abdc64ab8c7cc383aeb8d6d5"
+  },
+  {
+    "original_path": "progress/E.13/tests/run_18556/hello.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.13/tests/run_18556/hello.log",
+    "kind": "generated",
+    "sha256": "8deaa9556eb8ee009905ccb13786646480c0c40b7afc0cf40f8a32b63d28fa10"
+  },
+  {
+    "original_path": "progress/E.13/tests/run_18556/hello.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.13/tests/run_18556/hello.log.sql",
+    "kind": "generated",
+    "sha256": "ecb8b2a9570a4348283754ec6f9054ed2a3b4cdeab3dd4b7c3bbb116ee2ae2d4"
+  },
+  {
+    "original_path": "progress/E.13/tests/run_18556/interruption-check.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.13/tests/run_18556/interruption-check.log",
+    "kind": "generated",
+    "sha256": "19da716557d665849376b50b64cf9ce419d645862f3caaef7801368c362d2407"
+  },
+  {
+    "original_path": "progress/E.13/tests/run_18556/interruption-check.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.13/tests/run_18556/interruption-check.log.sql",
+    "kind": "generated",
+    "sha256": "91a5abdfe8f212eee36e238ad75752164d966a00622c3e7fce30b21fa17e8c55"
+  },
+  {
+    "original_path": "progress/E.13/tests/run_18556/interruption.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.13/tests/run_18556/interruption.log",
+    "kind": "generated",
+    "sha256": "1fc979791dd7e2cfd9ef6b5b5f7ad9f7d236f4aed5c433077462ed7f479f6e72"
+  },
+  {
+    "original_path": "progress/E.13/tests/run_18556/receipt.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.13/tests/run_18556/receipt.json",
+    "kind": "generated",
+    "sha256": "d78022de9b7900d74e58b60b0c1335ffd3b985139074996e04ff22d9f10614a1"
+  },
+  {
+    "original_path": "progress/E.13/tests/run_18556/setup.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.13/tests/run_18556/setup.log",
+    "kind": "generated",
+    "sha256": "589339282eed786b8f71ed913fbd980b0b9a42e341ba2f5a7742189451aacd0b"
+  },
+  {
+    "original_path": "progress/E.13/tests/run_18556/setup.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.13/tests/run_18556/setup.log.sql",
+    "kind": "generated",
+    "sha256": "df66ff2c9d542536015b02cacb9ae3eb506cf73c9099d98598d4ed0e6006b895"
+  },
+  {
+    "original_path": "progress/E.13/tests/run_18556/world.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.13/tests/run_18556/world.log",
+    "kind": "generated",
+    "sha256": "2bb25cea76ec32a5f7d03e2669be19e4845be8d072e54269928f83e2acfe5bca"
+  },
+  {
+    "original_path": "progress/E.13/tests/run_18556/world.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.13/tests/run_18556/world.log.sql",
+    "kind": "generated",
+    "sha256": "ace54a3621318024775060bdda5322d1271674baef865440aea673e436a68569"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/Hello-complete.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/Hello-complete.log",
+    "kind": "generated",
+    "sha256": "3cfeb219d8e9e194f30f08f55ab5b2d7fb371cae283b0bbef1d7d8f67f8e2d29"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/Hello-complete.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/Hello-complete.log.sql",
+    "kind": "generated",
+    "sha256": "a22df99dd4621232b3805b48d62a81b8910ba904a913c9620eb6cb3a4c97ab58"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/Hello-interruption.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/Hello-interruption.log",
+    "kind": "generated",
+    "sha256": "97088e3c2053090994e3e0100905dc172d3925dc0abfe752ec810cfb44b7d042"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/Hello-recovery.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/Hello-recovery.log",
+    "kind": "generated",
+    "sha256": "5225a7159a44711204e5b40644ffd88ff15c35252d1b8cfa07a29a3fa6a39e6b"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/Hello-recovery.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/Hello-recovery.log.sql",
+    "kind": "generated",
+    "sha256": "c24dffb5bfd2b0a220c185ea8f8b8ba2a6a40f5ba45dce85346fd01d4acef110"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/Hello-reject.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/Hello-reject.log",
+    "kind": "generated",
+    "sha256": "2f96e17decfa5556efebc86817e98c7d75ca0a4396d0cee42b62ece8c908c5cb"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/Hello-reject.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/Hello-reject.log.sql",
+    "kind": "generated",
+    "sha256": "f6f7817fd339a7e209fea29e71041d1ab6e685e15f7508d41bdbee33b15f35d6"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/Hello-start.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/Hello-start.log",
+    "kind": "generated",
+    "sha256": "42784b377584f94b7ab4b2eb6b6558e6e8b4e259fd3bc902de1d60676d133149"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/Hello-start.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/Hello-start.log.sql",
+    "kind": "generated",
+    "sha256": "12a357c86336d4fce26e4d2e48308592037c6dffdb98519f97fbd13cc6ab2849"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/Hello-traffic.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/Hello-traffic.log",
+    "kind": "generated",
+    "sha256": "f0d9259d896af352a154e373dacbcfe8cd57b52566ea9162d2047f04996a1b39"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/Hello-traffic.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/Hello-traffic.log.sql",
+    "kind": "generated",
+    "sha256": "aa6f35c50b683ac068a4a2ea5e2ba1b1dbc1055a77aec95b1d0d6e0036dab913"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/World-complete.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/World-complete.log",
+    "kind": "generated",
+    "sha256": "3c86ed558cdec8088216eed5b839ac7a7f23df0d3e4913a7a669f01c7823daf1"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/World-complete.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/World-complete.log.sql",
+    "kind": "generated",
+    "sha256": "71450f4b6572d9d3272d1ce08e9ab23c0a371072e636981e2b835956992cfb15"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/World-interruption.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/World-interruption.log",
+    "kind": "generated",
+    "sha256": "97088e3c2053090994e3e0100905dc172d3925dc0abfe752ec810cfb44b7d042"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/World-recovery.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/World-recovery.log",
+    "kind": "generated",
+    "sha256": "3b3e02b2cb7052557b00a28dbafa2135d902540261354d764b521186a99eb03b"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/World-recovery.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/World-recovery.log.sql",
+    "kind": "generated",
+    "sha256": "33315fcc1ad0a26d4f77aa835b9a36ed1522d31714065b4e4b6f353704fa020b"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/World-reject.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/World-reject.log",
+    "kind": "generated",
+    "sha256": "389fc994554756e8c1655e8232ac4187525c5571c8b8e3de1566090697b2fa72"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/World-reject.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/World-reject.log.sql",
+    "kind": "generated",
+    "sha256": "3c731f61e1fe14e3947215a5d28a9d10f58c8ba34bef73734ace8f14ef99e97d"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/World-start.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/World-start.log",
+    "kind": "generated",
+    "sha256": "d011b4090be342dec58db85efb8cdccd762b145c00850d82f9563b23a5b32867"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/World-start.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/World-start.log.sql",
+    "kind": "generated",
+    "sha256": "b8a543359f8bd4b5fa3c8a6b5c465f6c7adc8ad006becec895f71fad69c35381"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/World-traffic.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/World-traffic.log",
+    "kind": "generated",
+    "sha256": "4a85a3af41f6855efc0f5931a470be6bde772204ae11c9b551991158be5e7cbf"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/World-traffic.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/World-traffic.log.sql",
+    "kind": "generated",
+    "sha256": "b4588ccd5a11d6ee234c2d317141170c9e5aaedcfae5d78c391563d961ecd4e9"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/assertions.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/assertions.log",
+    "kind": "generated",
+    "sha256": "3edd0cc15d6fbf1976939bb8a13af339047b04185f5729b53edbd08a88502778"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/assertions.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/assertions.log.sql",
+    "kind": "generated",
+    "sha256": "516d989343d1fe0a79627f6f75816c63308d31248ec0d12b5bbd2761bf56c671"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/receipt.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/receipt.json",
+    "kind": "generated",
+    "sha256": "0b872a107be858c9b580471a27fc0022571da03a4c3b1917df37e15495d22365"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/setup.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/setup.log",
+    "kind": "generated",
+    "sha256": "99792c0c49e04c117eb73d7a58b98c6a8b77425e75680ad3c9c045f129b50880"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/setup.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/setup.log.sql",
+    "kind": "generated",
+    "sha256": "df66ff2c9d542536015b02cacb9ae3eb506cf73c9099d98598d4ed0e6006b895"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/window-setup.log",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/window-setup.log",
+    "kind": "generated",
+    "sha256": "c0787909ea8f7682084b43b1f6879f3ac81aeb5cfad370993c77e3e3834d92f9"
+  },
+  {
+    "original_path": "progress/E.14/tests/run_18566/window-setup.log.sql",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.14/tests/run_18566/window-setup.log.sql",
+    "kind": "generated",
+    "sha256": "a3d213f031424c915ad07556740e8862ed8ba2a0a90e606e35cf903ad72a9c8d"
+  },
+  {
+    "original_path": "progress/E.9/tests/reports/e493258221dc4689231c8ef936b5a5af4b420ef42cd0d10acee142ef026cfc44.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.9/tests/reports/e493258221dc4689231c8ef936b5a5af4b420ef42cd0d10acee142ef026cfc44.json",
+    "kind": "generated",
+    "sha256": "82ea10745fad3fd4126535118869a9db04400cadf7920182bc30636609a68286"
+  },
+  {
+    "original_path": "progress/E.9/tests/service/0194468b384999e0437c149059820e0a301ad17b45fb769906c278fbb2b334f9.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.9/tests/service/0194468b384999e0437c149059820e0a301ad17b45fb769906c278fbb2b334f9.json",
+    "kind": "generated",
+    "sha256": "06c4b562b5fae509dd8c7247e68b5ee25e4deaf878526ab50407a63aa31e1932"
+  },
+  {
+    "original_path": "progress/E.9/tests/service/1b92325a9f491ff508b72312cc8e52f82d994cf5dd2778f860380f3de2126173.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.9/tests/service/1b92325a9f491ff508b72312cc8e52f82d994cf5dd2778f860380f3de2126173.json",
+    "kind": "generated",
+    "sha256": "34faae8fec88f219ea5a0dbd3f57de07b6eb20bf3fdfd7d98a4f4a1d27c38e3a"
+  },
+  {
+    "original_path": "progress/E.9/tests/service/5000a94feb8dd4449f1b7216667e569682c2deebed858cd45bc5ab4024dd84d9.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.9/tests/service/5000a94feb8dd4449f1b7216667e569682c2deebed858cd45bc5ab4024dd84d9.json",
+    "kind": "generated",
+    "sha256": "fdd65c326642f8b4c36353d7889d6e666b08c0e04a057aa6d6618e3658838218"
+  },
+  {
+    "original_path": "progress/E.9/tests/service/6a61004a3ca77257d82bebd87b51174d749c863a561aa96f42af0d16157327ab.json",
+    "retained_path": "progress/E.18/tests/regression-replay/progress/E.9/tests/service/6a61004a3ca77257d82bebd87b51174d749c863a561aa96f42af0d16157327ab.json",
+    "kind": "generated",
+    "sha256": "310ba82f68a23f1ae26b4e68565fce798a500f8dce4256fefc215d09cd75d10e"
+  }
+]

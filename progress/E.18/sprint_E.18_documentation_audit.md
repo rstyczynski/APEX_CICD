@@ -1,6 +1,6 @@
 # E.18 documentation audit
 
-## Checkpoint audit — execution still pending
+## Historical first checkpoint audit — superseded by final audit below
 
 The [SRS](../../docs/srs.md#e18-measurement-navigation), [architecture](../../docs/architecture.md#e18-capacity-experiment) and [test profile](../../docs/test-profile.md#e18-pipeline-capacity-experiment) retain their requirement/design/test authority and add navigation to the current experiment. No acceptance criterion or production toolchain metadata was changed. [PLAN](../../PLAN.md#sprint-e18---measure-complete-pipeline-feedback-and-runner-capacity) is Progress/YOLO under the explicit Product Owner authorization. The board names only assigned PBI-086 as under construction. Existing sprint states are preserved.
 
@@ -8,14 +8,36 @@ The [SRS](../../docs/srs.md#e18-measurement-navigation), [architecture](../../do
 
 Source smoke and arithmetic contracts pass, one entry each. `git diff --check` passes. The corrected hosted trials, complete integration gate, full regression, performance report, PPTX, final visual/link checks and live demonstration remain pending. This commit is a resumable implementation checkpoint requested by the Product Owner, not a PBI completion marker or phase gate waiver. No closure or handover acceptance is recorded.
 
-## Environment recovery
+## Historical environment recovery
 
 Native installed krunkit exits code 2. The previously qualified cached helper starts the existing VM through an OS-temporary configuration outside checkout scratch. Direct tool-session child cleanup stopped that VM; launchd with an OS-temporary plist restored it independently. Existing apex-db, e12-regression-db and apex-ords were started. No retained credential record was moved, deleted or copied; no new persistent setting was created in scratch. Historical full-regression output routing remains to be audited after execution.
 
-## Backend-workload correction checkpoint
+## Historical backend-workload correction checkpoint
 
 The initial implementation checkpoint is d4bc918. The corrected source now reuses all three existing backend SQL fixtures byte for byte, installs native utPLSQL with writable source, and runs its five cases through E5_TEST without SYS inheritance. Current workflow aea3a77 retains all named E.17 lifecycle/refusal/cleanup checks. Smoke checks fixture equality and zero failed/errored gating; unit contracts additionally exercise valid synthetic receipt parsing and warm-cache-miss refusal. Actual concurrent run 45846150456 has visibly passed five cases and entered APEX installation; this is partial runtime evidence only. The linked test report remains in progress and no PBI or sprint completion is claimed.
 
 The gallery adds corrected concurrent and actual five-case result views. Framing removes blank native-capture padding, and the admitted framed views were directly inspected. Several raw search/framing attempts remain excluded from evidence navigation. The current walkthrough source ledger was regenerated after workflow changes. Report/deck builders are drafts awaiting actual measurements; they are not represented as executed reports or accepted presentations. Shared SRS/architecture/test-profile/README/PLAN/board still describe an active experiment, preserving mandatory criteria and current lifecycle truth.
 
 The corrected source smoke and expanded unit receipt contracts pass again in timestamped A1/A2 logs. `git diff --check` passes. Cache population run 45846157988 has now completed successfully for both independent replicas, including native delivery, preserved data, browser authentication and cleanup. It is excluded from warm measurements because it populates the cache. Tag capacity-v1 freezes measured source aea3a77; demonstration revision 920b1c4 adds only a blank-login screenshot before private input. Its extra capture is not mixed into timing samples. Complete measured-cell integration and full regression remain pending. The second checkpoint preserves the repaired experiment and reporting sources without declaring PBI completion.
+
+## Qualified-increment audit — 2026-11-26
+
+Result: PASS for PBI-086 implementation, acceptance, regression and handover materials. Sprint closure is a subsequent lifecycle transaction. Checkpoints d4bc918 and 54bc0d2 are historical partial commits; this audit supports the scoped completion increment.
+
+Reviewed root SRS actors/measurement navigation without changing requirements, architecture native responsibilities and the evidence-based capacity recommendation, test profile with exact six-gate scope/results, README navigation, setup scope, self-approved design/test specification, implementation chronology, test record, report, manual, complete walkthrough, PPTX, handover and canonical board. Corrected stale pending claims in maintained guidance; historical checkpoints and early failures remain labeled historical. PLAN is Progress/YOLO and the board implemented/tested until the completion commit and closure procedure. PBI-087/E.19 and BACKLOG remain unchanged.
+
+The frozen measured tag is aea3a77; current sprint-work mirror/main 920b1c4 adds only two blank-login-capture lines. Every named E.17 native stage remains visible in Actions. SQLcl qualified build/metadata, download hashes, actual backend/native/browser/refusal/cleanup evidence and source/run binding were reviewed. No custom controller, hidden pipeline, production toolchain bypass or scratch credential store was introduced. The retained prepared-host credential exception was not expanded.
+
+All six gates pass in exact timestamped logs: A1/A2/A3 1/1 each, B1 17/17, B2 19/19, B3 27/27. B3's successful wrapper includes source-snapshot equality and owned-fixture cleanup. Current source smoke/unit pass again in tests/final-source-smoke.log and tests/final-arithmetic-unit.log. Actual measurement integration and separate two-job live verification pass. Historical immutable receipt revalidation is not described as a fresh execution; synthetic arithmetic is not a performance observation. Regression-generated outputs are preserved inside E.18 and prior tracked evidence restored byte for byte.
+
+All 25 rendered slides inspected; revised slides and Q&A ending rechecked. Revision 4 finalizer passes package, geometry, bullet/heading, font and native-chart workbook checks. PowerPoint/Excel opened, edited, resized, saved and reopened a disposable copy. Numeric values are equivalent within 1e-12-minute Office serialization tolerance. Canonical data remains unchanged; the B1/display-legend distinction is disclosed. Sixteen real UI scenarios and every original/framing/excluded attempt are indexed. Actual Chrome file-URL gallery thumbnail/previous/next/full-image/evidence navigation and cyclic boundary pass. Static handover check resolves 158 gallery targets and 288 Markdown links, verifies every PNG indexed and complete synchronized SQL sources before dispatch.
+
+Copyable original warm dispatches and gate commands are evidenced by actual execution. Cold tag dispatches are explicitly labeled reproduction variants; original cold jobs executed the exact same frozen source under main. No unrun variation is represented as an observed result. Local source/read/verification commands were executed; editor commands are navigation aids.
+
+The bounded secret-pattern scan finds no generated secret prefixes, GitHub tokens or private keys in E.18 files/archives; captures were visually inspected. No pending acceptance requirement, failed gate, mandatory approval dependency or external blocker remains. Measurement uncertainty is disclosed rather than turned into an invented blocker or guarantee.
+
+Unrelated concurrent launcher changes in bin/sprint-finalize.sh, etc/sprint-finalize-master.prompt, tests/test_sprint_finalize.py and the README launcher hunk are preserved and excluded from the sprint commit. Only the E.18 README section is staged. The pre-commit diff/whitespace audit passes; no historical source, prior sprint status or RUP submodule changes are staged.
+
+### Staged-byte audit correction
+
+The initial unstaged diff check did not inspect untracked raw downloads. After scoped staging, `git diff --cached --check` correctly reported native SQLcl/APEX/HTTP whitespace in new verbatim evidence, and the commit stopped. The exact diagnostic is preserved compressed in tests/staged-raw-evidence-whitespace.txt.gz. Following the repository's existing E.13/E.14 evidence policy, .gitattributes now preserves E.18 test evidence whitespace only. No raw bytes/hashes were normalized and executable source/narrative checks remain strict. The staged audit is rerun before committing; the earlier general PASS statement applies only after this correction.

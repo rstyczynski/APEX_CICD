@@ -1,0 +1,38 @@
+INFO : Running Oracle REST Data Services CLI command.
+2026-11-26T15:48:59Z INFO   ORDS has not detected the option '--config' and this will be set up to the default directory.
+
+ORDS: Release 25.3 Production on Thu Nov 26 15:49:00 2026
+
+Copyright (c) 2010, 2026, Oracle.
+
+Configuration:
+  /etc/ords/config
+
+Oracle REST Data Services - Non-Interactive Install
+
+Retrieving information.
+The setting named: db.connectionType was set to: basic in configuration: default
+The setting named: db.hostname was set to: e12-regression-db in configuration: default
+The setting named: db.port was set to: 1521 in configuration: default
+The setting named: db.servicename was set to: FREEPDB1 in configuration: default
+The setting named: plsql.gateway.mode was set to: proxied in configuration: default
+The setting named: db.username was set to: ORDS_PUBLIC_USER in configuration: default
+The setting named: db.password was set to: ****** in configuration: default
+The setting named: security.requestValidationFunction was set to: ords_util.authorize_plsql_gateway in configuration: default
+Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx256m
+2026-11-26T15:49:01.736Z INFO        Created folder /opt/oracle/ords/logs
+2026-11-26T15:49:01.737Z INFO        The log file is defaulted to the current working directory located at /opt/oracle/ords/logs
+2026-11-26T15:49:01.798Z INFO        Installing Oracle REST Data Services version 25.3.0.r2671248 in FREEPDB1
+2026-11-26T15:49:02.879Z INFO        ... Verified database prerequisites
+2026-11-26T15:49:03.045Z INFO        ... Created Oracle REST Data Services proxy user
+2026-11-26T15:49:03.270Z INFO        ... Created Oracle REST Data Services schema
+2026-11-26T15:49:03.518Z INFO        ... Granted privileges to Oracle REST Data Services
+2026-11-26T15:49:04.905Z INFO        ... Created Oracle REST Data Services database objects
+2026-11-26T15:49:12.947Z INFO        Completed installation for Oracle REST Data Services version 25.3.0.r2671248. Elapsed time: 00:00:11.133 
+
+2026-11-26T15:49:13.038Z INFO        Completed configuring PL/SQL gateway user for Oracle REST Data Services version 25.3.0.r2671248. Elapsed time: 00:00:00.91 
+
+2026-11-26T15:49:13.039Z INFO        Log file written to /opt/oracle/ords/logs/ords_install_2026-11-26_154901_73764.log
+2026-11-26T15:49:13.043Z INFO        To run in standalone mode, use the ords serve command:
+2026-11-26T15:49:13.043Z INFO        ords --config /etc/ords/config serve
+2026-11-26T15:49:13.043Z INFO        Visit the ORDS Documentation to access tutorials, developer guides and more to help you get started with the new ORDS Command Line Interface (http://oracle.com/rest).

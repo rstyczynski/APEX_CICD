@@ -1,0 +1,1 @@
+PASS 162 new generated files moved into E.18 after exact hash checks; 62 tracked historical outputs restored byte-for-byte from pre-existing Git history. No executable source or user changes were reverted.

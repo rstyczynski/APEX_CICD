@@ -2,7 +2,7 @@
 
 ## Goal and real starting state
 
-Measure the complete native delivery workload to choose runner slots and download caching. [PBI-086](../../BACKLOG.md#pbi-086-measure-complete-pipeline-feedback-and-runner-capacity) owns acceptance; the [design](sprint_E.18_design.md) defines measurement choices. The dedicated public repository contains Actions source, no private inputs. Each job starts fresh databases, generates private inputs and removes them on completion. The [gallery](screenshots/index.html) records actual UI states. This walkthrough is a draft while trials remain pending; it is not a completed demonstration.
+Measure the complete native delivery workload to choose runner slots and download caching. [PBI-086](../../BACKLOG.md#pbi-086-measure-complete-pipeline-feedback-and-runner-capacity) owns acceptance; the [design](sprint_E.18_design.md) defines measurement choices. The dedicated public repository contains Actions source, no private inputs. Each job starts fresh databases, generates private inputs and removes them on completion. The [gallery](screenshots/index.html) records actual UI states. Eight measured jobs and a separate two-job live demonstration passed. This walkthrough distinguishes immutable measurement evidence from the screenshot-only live revision.
 
 Prerequisites: authenticated GitHub CLI with repository workflow dispatch/read access; Git and VS Code's `code` command; Python for local reporting. Oracle/JDK/SQLcl dependencies are declared in the workflow, not inherited from this checkout.
 
@@ -1313,30 +1313,8 @@ prompt  ...done
 
 </details>
 
-```bash
-gh workflow run native.yml -R rstyczynski/APEX_CICD_E.18 -f cache=cold -f parallel=1
-gh workflow run native.yml -R rstyczynski/APEX_CICD_E.18 -f cache=cold -f parallel=2
-gh workflow run native.yml -R rstyczynski/APEX_CICD_E.18 -f cache=warm -f parallel=2
-```
-
-The first warm dispatch populates caches and is excluded. Wait for successful terminal outcomes before dispatching measured warm trials with parallel one and two. These warm measurement commands remain pending execution. Never relabel a miss as warm.
-
-## 3. Inspect intermediate and final outcomes
-
-In GitHub Actions open the run, select a replica and inspect named phases in order. Serial execution should show one active replica and one waiting. Concurrent execution should overlap two independent hosted jobs. Inspect the utPLSQL report, source/release phases, preserved row after upgrade/repeat, refused substitutions, authenticated application receipt and cleanup. A green summary alone is insufficient. Downloaded artifacts must match source/run identities.
-
-```bash
-gh run list -R rstyczynski/APEX_CICD_E.18 --limit 10
-code progress/E.18/screenshots/index.html
-```
-
-## 4. Compare feedback and resources
-
-The reporting reader obtains authoritative API timestamps and downloads actual artifacts. It rejects failed runs, absent mandatory phases, wrong source/run IDs, missing resource samples and unestablished cache conditions. It reports both execution and workflow-to-completion feedback; queue includes matrix admission and scheduler delay, separately exposed where available. Median and nearest-rank p95 use declared samples. With two replicas p95 equals the maximum and cannot support a production tail estimate. Host CPU/memory includes background runner services; five-second sampling may miss peaks. No shared-host contention or production capacity guarantee is implied. Report generation and final comparison remain pending four qualified cells.
-
-## 5. Failure and recovery
-
-A cache miss in a warm trial invalidates that cell. Populate the cache, inspect successful save and retry as a new run. A failed native step remains a failed attempt and does not enter successful timing distributions. Keep its logs, fix the actual cause and rerun; do not replace native operations with synthetic timing or waive checks. Each failure path still attempts job-private cleanup.
+<details>
+<summary>Complete native SQL commands and assertions before execution</summary>
 
 ## Native SQL ledger
 
@@ -1516,3 +1494,50 @@ select id,message,extra from preserved;
 ```sql
 select id,message,extra from preserved;
 ```
+
+</details>
+
+The cold tag forms below are reproduction variants, not separately replayed dispatches: original cold jobs used main at the exact aea3a77 source now frozen as capacity-v1. Warm tag forms were executed as shown. Current main includes the extra blank-login capture. A new dispatch creates a new observation and must qualify independently.
+
+```bash
+gh workflow run native.yml -R rstyczynski/APEX_CICD_E.18 --ref capacity-v1 -f cache=cold -f parallel=1
+gh workflow run native.yml -R rstyczynski/APEX_CICD_E.18 --ref capacity-v1 -f cache=cold -f parallel=2
+gh workflow run native.yml -R rstyczynski/APEX_CICD_E.18 --ref capacity-v1 -f cache=warm -f parallel=1
+gh workflow run native.yml -R rstyczynski/APEX_CICD_E.18 --ref capacity-v1 -f cache=warm -f parallel=2
+```
+
+Population run 45846157988 passed and is excluded from timings. Qualified warm runs 45848134832 and 45848140354 subsequently passed with actual archive-cache hits. Never relabel a miss as warm. The measured source is tag capacity-v1 (aea3a77); current main 920b1c4 adds only the blank-login capture.
+
+## 3. Inspect intermediate and final outcomes
+
+In GitHub Actions open the run, select a replica and inspect named phases in order. Serial execution should show one active replica and one waiting. Concurrent execution should overlap two independent hosted jobs. Inspect the utPLSQL report, source/release phases, preserved row after upgrade/repeat, refused substitutions, authenticated application receipt and cleanup. A green summary alone is insufficient. Downloaded artifacts must match source/run identities.
+
+```bash
+gh run list -R rstyczynski/APEX_CICD_E.18 --limit 10
+code progress/E.18/screenshots/index.html
+```
+
+## 4. Compare feedback and resources
+
+The reporting reader obtains authoritative API timestamps and downloads actual artifacts. It rejects failed runs, absent mandatory phases, wrong source/run IDs, missing resource samples and unestablished cache conditions. It reports both execution and workflow-to-completion feedback; queue includes matrix admission and scheduler delay; raw API creation/start intervals are reported without attributing either interval to infrastructure. Median and nearest-rank p95 use declared samples. With two replicas p95 equals the maximum and cannot support a production tail estimate. Host CPU/memory includes background runner services; five-second sampling may miss peaks. No shared-host contention or production capacity guarantee is implied. The [capacity report](capacity_report.md) records all four qualified cells and raw evidence. All six gates pass: new smoke/unit/integration 1/1 each; full smoke 17/17, unit 19/19 and integration 27/27. See the [test record](sprint_E.18_tests.md) for exact commands, historical replay scope and live hosted run.
+
+## 5. Failure and recovery
+
+A cache miss in a warm trial invalidates that cell. Populate the cache, inspect successful save and retry as a new run. A failed native step remains a failed attempt and does not enter successful timing distributions. Keep its logs, fix the actual cause and rerun; do not replace native operations with synthetic timing or waive checks. Each failure path still attempts job-private cleanup.
+
+
+## 6. Present and verify the increment
+
+Open [the 25-slide presentation](sprint_E.18_increment_demo.pptx) alongside the [offline gallery](screenshots/index.html). Slides 1–2 introduce the goal and agenda; 3–4 explain architecture; 5–12 walk through dispatch, actual backend/native processing, blank login, authentication and warm variants; 13–16 compare feedback/resources; 17–20 explain observed failures and recovery; 21–24 give the capacity/cache decision, limits and assigned-item state; 25 invites questions. Full-resolution captures and associated receipts remain linked from the gallery.
+
+The developer dispatched and observed actual live run 45848145737 at 920b1c4. Both replicas passed; the verification reader checked five backend cases, native source/release/install/upgrade/repeat/refusal receipts, retained data, actual browser authentication and cleanup. Actions screenshots 06/09 show running and successful states; application screenshots 07/08 show the blank login and authenticated row. No Product Owner interaction or satisfaction is inferred.
+
+The reader verifies evidence rather than simulating native behavior. To inspect retained results, open the report and test record with the editor. Re-fetching with the integration gate requires authenticated GitHub read access and the exact four accepted run IDs; cached receipts alone do not become new executions.
+
+```bash
+code progress/E.18/capacity_report.md
+code progress/E.18/sprint_E.18_tests.md
+python3 progress/E.18/verify_handover.py
+```
+
+The two-job batch completed in 22.6→13.1 minutes cold and 23.7→11.1 minutes warm when moving from one to two slots. Retain two independently isolated four-CPU, approximately 16-GiB-class slots for this workload; optional immutable archive caching saved only 2–3.5 seconds including cache overhead. Samples are descriptive and hardware-confounded. Serial means within-run matrix admission; other cohorts ran during overlapping wall-clock intervals, so account-wide quiet conditions are not established. No production tail, shared-host packing or cost guarantee follows.

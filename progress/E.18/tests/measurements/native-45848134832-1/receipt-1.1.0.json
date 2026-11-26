@@ -1,0 +1,9 @@
+{
+  "source": "8695cfd9e18ce959db474de5b136f797380e3583",
+  "build": "25.4.1.022.0618",
+  "sha256": "01b79e62e69bdb3424f37639cba2357afed6b52f3c2b06187280176e0795473a",
+  "version": "1.1.0",
+  "workflow_source": "aea3a771cac687fa32ac09d24faf6d2d55bd2342",
+  "workflow_run": "45848134832",
+  "reviewed_inputs_sha256": "f7d37ba9d2bd2629dbe772acd9650c08c48df9549c9b41cf9a6054f22a5e942c"
+}

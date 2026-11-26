@@ -1,0 +1,3 @@
+PASS actual live replica 1 source 920b1c4a15eaafb000ce73c432322efa20e247f1 native archives, preserved row, five backend cases, authenticated access, blank-login capture and private cleanup
+PASS actual live replica 2 source 920b1c4a15eaafb000ce73c432322efa20e247f1 native archives, preserved row, five backend cases, authenticated access, blank-login capture and private cleanup
+PASS live pipeline demonstration; no Product Owner reaction inferred; timing samples remain separate

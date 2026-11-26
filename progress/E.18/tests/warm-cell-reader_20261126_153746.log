@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/pipeline_capacity.py", line 69, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/Users/rstyczynski/projects/APEX_CICD/tests/pipeline_capacity.py", line 65, in main
+    if len(groups)!=4:raise ValueError('missing comparison cell')
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: missing comparison cell

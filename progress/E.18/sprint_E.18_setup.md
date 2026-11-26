@@ -6,7 +6,7 @@ The Product Owner explicitly authorizes activation, YOLO execution, companion re
 
 ## Analysis
 
-[PBI-086](../../BACKLOG.md#pbi-086-measure-complete-pipeline-feedback-and-runner-capacity) and [PLAN](../../PLAN.md#sprint-e18---measure-complete-pipeline-feedback-and-runner-capacity) require complete workload timing on the E.17 baseline. E.17 source has JDK, pinned SQLcl, Oracle, APEX, ORDS and native release checks; utPLSQL must be added to the measured workload. Fresh hosted jobs preserve candidate isolation. The single actor is the delivery engineer; Actions and Oracle are external actors. The actor dispatches a declared experiment, inspects phase/resource/queue receipts, compares distributions and chooses capacity without dropping validation.
+[PBI-086](../../BACKLOG.md#pbi-086-measure-complete-pipeline-feedback-and-runner-capacity) and [PLAN](../../PLAN.md#sprint-e18---measure-complete-pipeline-feedback-and-runner-capacity) require complete workload timing on the E.17 baseline. E.17 source has JDK, pinned SQLcl, Oracle, APEX, ORDS and native release checks; utPLSQL must be added to the measured workload. Fresh hosted jobs preserve candidate isolation. The primary actor is SRS A-03 Delivery operator, supported by A-05 Git hosting service; browser validation exercises A-04 application-user behavior. Actions, Oracle and the project-owned pipeline remain internal components under the [SRS actor model](../../docs/srs.md#actors). The operator dispatches a declared experiment, inspects phase/resource/queue receipts, compares distributions and chooses capacity without dropping validation.
 
 ## Decisions
 

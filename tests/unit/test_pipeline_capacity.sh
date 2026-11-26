@@ -28,7 +28,7 @@ with tempfile.TemporaryDirectory() as temporary:
   (folder/'utplsql-tests.log').write_text('5 tests, 0 failed, 0 errored')
   (folder/'job.log').write_text('JAVA_HOME: /opt/Java_Temurin-Hotspot_jdk/21.0.13-9/x64')
   (folder/'tool.txt').write_text('SQLcl build 25.4.1.022.0618')
-  (folder/'cpu.txt').write_text('Model name: synthetic unit fixture')
+  (folder/'cpu.txt').write_text('CPU(s): 4\nModel name: synthetic unit fixture')
   (folder/'memory-start.txt').write_text('Mem: 10000000 0 0 0 0 0')
   (folder/'resources.csv').write_text('unix_seconds,mem_available_kib,cpu_counters,disk_free_bytes\n0,100,1:0:1:5:0:0:0:0,1000\n5,90,2:0:2:6:0:0:0:0,900\n')
   jobs.append(dict(name='native ('+replica+')',conclusion='success',created_at=start,started_at=start,completed_at=end,steps=[dict(name=n,conclusion='success',started_at=start,completed_at=end) for n in required]))

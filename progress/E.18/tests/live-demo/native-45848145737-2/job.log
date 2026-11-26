@@ -1,0 +1,1784 @@
+﻿2026-11-26T15:20:49.3017183Z Current runner version: '2.338.2'
+2026-11-26T15:20:49.3033329Z ##[group]Runner Image Provisioner
+2026-11-26T15:20:49.3034030Z Hosted Compute Agent
+2026-11-26T15:20:49.3034477Z Version: 20261111.635
+2026-11-26T15:20:49.3034927Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-26T15:20:49.3035535Z Build Date: 2026-11-11T01:49:01Z
+2026-11-26T15:20:49.3036043Z Worker ID: {dd8f89e8-4a69-4ebf-abdd-cf81970651a8}
+2026-11-26T15:20:49.3036589Z Region: us-west-2
+2026-11-26T15:20:49.3036999Z Cloud: AWS
+2026-11-26T15:20:49.3037366Z ##[endgroup]
+2026-11-26T15:20:49.3038253Z ##[group]Operating System
+2026-11-26T15:20:49.3038926Z Ubuntu
+2026-11-26T15:20:49.3039315Z 24.04.5
+2026-11-26T15:20:49.3039699Z LTS
+2026-11-26T15:20:49.3040063Z ##[endgroup]
+2026-11-26T15:20:49.3040514Z ##[group]Runner Image
+2026-11-26T15:20:49.3040959Z Image: ubuntu-24.04
+2026-11-26T15:20:49.3041364Z Version: 20261122.23.1
+2026-11-26T15:20:49.3042375Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261122.23/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-26T15:20:49.3043640Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261122.23
+2026-11-26T15:20:49.3044364Z ##[endgroup]
+2026-11-26T15:20:49.3045162Z ##[group]GITHUB_TOKEN Permissions
+2026-11-26T15:20:49.3046685Z Contents: read
+2026-11-26T15:20:49.3047236Z Metadata: read
+2026-11-26T15:20:49.3047652Z ##[endgroup]
+2026-11-26T15:20:49.3049425Z Secret source: Actions
+2026-11-26T15:20:49.3050149Z Cache mode: write
+2026-11-26T15:20:49.3050641Z Prepare workflow directory
+2026-11-26T15:20:49.3305273Z Prepare all required actions
+2026-11-26T15:20:49.3340855Z Getting action download info
+2026-11-26T15:20:49.7439427Z Download action repository 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+2026-11-26T15:20:51.2817991Z Download action repository 'actions/cache@5a3ec84eff668545956fd18022155c47e93e2684' (SHA:5a3ec84eff668545956fd18022155c47e93e2684)
+2026-11-26T15:20:51.4482062Z Download action repository 'actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3' (SHA:cf277c60eb25467037889841efdb72551f06f6c3)
+2026-11-26T15:20:51.8641539Z Download action repository 'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-11-26T15:20:52.0712168Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-26T15:20:52.4668717Z Complete job name: native (2)
+2026-11-26T15:20:52.5723943Z ##[group]Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+2026-11-26T15:20:52.5725241Z with:
+2026-11-26T15:20:52.5725905Z   persist-credentials: false
+2026-11-26T15:20:52.5726744Z   repository: rstyczynski/APEX_CICD_E.18
+2026-11-26T15:20:52.5733100Z   token: ***
+2026-11-26T15:20:52.5733749Z   ssh-strict: true
+2026-11-26T15:20:52.5734465Z   ssh-user: git
+2026-11-26T15:20:52.5735130Z   clean: true
+2026-11-26T15:20:52.5735835Z   sparse-checkout-cone-mode: true
+2026-11-26T15:20:52.5736675Z   fetch-depth: 1
+2026-11-26T15:20:52.5737334Z   fetch-tags: false
+2026-11-26T15:20:52.5738028Z   show-progress: true
+2026-11-26T15:20:52.5738882Z   lfs: false
+2026-11-26T15:20:52.5739530Z   submodules: false
+2026-11-26T15:20:52.5740250Z   set-safe-directory: true
+2026-11-26T15:20:52.5741161Z env:
+2026-11-26T15:20:52.5741820Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:20:52.5742666Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:20:52.5744294Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:20:52.5745839Z ##[endgroup]
+2026-11-26T15:20:55.2358645Z Syncing repository: rstyczynski/APEX_CICD_E.18
+2026-11-26T15:20:55.2360136Z ##[group]Getting Git version info
+2026-11-26T15:20:55.2360520Z Working directory is '/home/runner/work/APEX_CICD_E.18/APEX_CICD_E.18'
+2026-11-26T15:20:55.2360971Z [command]/usr/bin/git version
+2026-11-26T15:20:55.3856215Z git version 2.56.1
+2026-11-26T15:20:55.3869153Z ##[endgroup]
+2026-11-26T15:20:55.3879257Z Temporarily overriding HOME='/home/runner/work/_temp/eafc91d6-027c-49e9-89f9-70ecdfd6e2fe' before making global git config changes
+2026-11-26T15:20:55.3880139Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-26T15:20:55.3883229Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/APEX_CICD_E.18/APEX_CICD_E.18
+2026-11-26T15:20:55.3929015Z Deleting the contents of '/home/runner/work/APEX_CICD_E.18/APEX_CICD_E.18'
+2026-11-26T15:20:55.3931342Z ##[group]Initializing the repository
+2026-11-26T15:20:55.3934346Z [command]/usr/bin/git init /home/runner/work/APEX_CICD_E.18/APEX_CICD_E.18
+2026-11-26T15:20:55.4446713Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-26T15:20:55.4447293Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-26T15:20:55.4447671Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-26T15:20:55.4447992Z hint: call:
+2026-11-26T15:20:55.4448162Z hint:
+2026-11-26T15:20:55.4448383Z hint: 	git config --global init.defaultBranch <name>
+2026-11-26T15:20:55.4448781Z hint:
+2026-11-26T15:20:55.4449010Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-26T15:20:55.4449364Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-26T15:20:55.4449631Z hint:
+2026-11-26T15:20:55.4449788Z hint: 	git branch -m <name>
+2026-11-26T15:20:55.4449964Z hint:
+2026-11-26T15:20:55.4450203Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-26T15:20:55.4463156Z Initialized empty Git repository in /home/runner/work/APEX_CICD_E.18/APEX_CICD_E.18/.git/
+2026-11-26T15:20:55.4469852Z [command]/usr/bin/git remote add origin https://github.com/rstyczynski/APEX_CICD_E.18
+2026-11-26T15:20:55.4508766Z ##[endgroup]
+2026-11-26T15:20:55.4509223Z ##[group]Disabling automatic garbage collection
+2026-11-26T15:20:55.4511842Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-26T15:20:55.4534734Z ##[endgroup]
+2026-11-26T15:20:55.4535131Z ##[group]Setting up auth
+2026-11-26T15:20:55.4538657Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-26T15:20:55.4566808Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-26T15:20:55.7289139Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-26T15:20:55.7321597Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-26T15:20:55.7470140Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-26T15:20:55.7495589Z ##[endgroup]
+2026-11-26T15:20:55.7496042Z ##[group]Fetching the repository
+2026-11-26T15:20:55.7503701Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +920b1c4a15eaafb000ce73c432322efa20e247f1:refs/remotes/origin/main
+2026-11-26T15:20:56.3549113Z From https://github.com/rstyczynski/APEX_CICD_E.18
+2026-11-26T15:20:56.3549586Z  * [new ref]         920b1c4a15eaafb000ce73c432322efa20e247f1 -> origin/main
+2026-11-26T15:20:56.3556369Z ##[endgroup]
+2026-11-26T15:20:56.3556801Z ##[group]Determining the checkout info
+2026-11-26T15:20:56.3557138Z ##[endgroup]
+2026-11-26T15:20:56.3557385Z [command]/usr/bin/git sparse-checkout disable
+2026-11-26T15:20:56.3607179Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-26T15:20:56.3630202Z ##[group]Checking out the ref
+2026-11-26T15:20:56.3630668Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-11-26T15:20:56.3674301Z Switched to a new branch 'main'
+2026-11-26T15:20:56.3681822Z branch 'main' set up to track 'origin/main'.
+2026-11-26T15:20:56.3685507Z ##[endgroup]
+2026-11-26T15:20:56.3712816Z [command]/usr/bin/git log -1 --format=%H
+2026-11-26T15:20:56.3768094Z 920b1c4a15eaafb000ce73c432322efa20e247f1
+2026-11-26T15:20:56.3773232Z ##[group]Removing auth
+2026-11-26T15:20:56.3776979Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-26T15:20:56.3798723Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-26T15:20:56.3953604Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-26T15:20:56.3975481Z http.https://github.com/.extraheader
+2026-11-26T15:20:56.3980854Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-26T15:20:56.4005981Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-26T15:20:56.4151488Z ##[endgroup]
+2026-11-26T15:20:56.4287989Z ##[group]Run mkdir -p result
+2026-11-26T15:20:56.4288273Z [36;1mmkdir -p result[0m
+2026-11-26T15:20:56.4288843Z [36;1mdate -u +%FT%TZ > result/measurement-start.txt[0m
+2026-11-26T15:20:56.4289102Z [36;1mlscpu > result/cpu.txt[0m
+2026-11-26T15:20:56.4289308Z [36;1mfree -b > result/memory-start.txt[0m
+2026-11-26T15:20:56.4289530Z [36;1mdf -B1 > result/disk-start.txt[0m
+2026-11-26T15:20:56.4289875Z [36;1mnohup python3 sample_resources.py > result/resources.csv 2> "$RUNNER_TEMP/sampler.err" &[0m
+2026-11-26T15:20:56.4290221Z [36;1mecho $! > "$RUNNER_TEMP/sampler.pid"[0m
+2026-11-26T15:20:56.8761776Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:20:56.8762056Z env:
+2026-11-26T15:20:56.8762215Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:20:56.8762406Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:20:56.8762809Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:20:56.8763247Z ##[endgroup]
+2026-11-26T15:20:56.9051293Z ##[group]Run actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
+2026-11-26T15:20:56.9051676Z with:
+2026-11-26T15:20:56.9052060Z   path: /home/runner/work/_temp/sqlcl.zip
+/home/runner/work/_temp/incompatible.zip
+/home/runner/work/_temp/apex.zip
+
+2026-11-26T15:20:56.9052488Z   key: e18-pinned-downloads-v1-warm-2
+2026-11-26T15:20:56.9052778Z   enableCrossOsArchive: false
+2026-11-26T15:20:56.9053026Z   fail-on-cache-miss: false
+2026-11-26T15:20:56.9053273Z   lookup-only: false
+2026-11-26T15:20:56.9053508Z   save-always: false
+2026-11-26T15:20:56.9053738Z env:
+2026-11-26T15:20:56.9053968Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:20:56.9054205Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:20:56.9054651Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:20:56.9055179Z ##[endgroup]
+2026-11-26T15:20:56.9820915Z (node:2210) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T15:20:56.9821778Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T15:20:57.3077163Z Cache hit for: e18-pinned-downloads-v1-warm-2
+2026-11-26T15:20:57.3143674Z (node:2210) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-26T15:20:58.6446884Z Received 0 of 491451328 (0.0%), 0.0 MBs/sec
+2026-11-26T15:20:59.6449051Z Received 62914560 of 491451328 (12.8%), 30.0 MBs/sec
+2026-11-26T15:21:00.6445519Z Received 171966464 of 491451328 (35.0%), 54.7 MBs/sec
+2026-11-26T15:21:01.6445618Z Received 285212672 of 491451328 (58.0%), 68.0 MBs/sec
+2026-11-26T15:21:02.6625322Z Received 402653184 of 491451328 (81.9%), 76.5 MBs/sec
+2026-11-26T15:21:03.5458014Z Received 491451328 of 491451328 (100.0%), 79.4 MBs/sec
+2026-11-26T15:21:03.5460311Z Cache Size: ~469 MB (491451328 B)
+2026-11-26T15:21:03.5557610Z [command]/usr/bin/tar -xf /home/runner/work/_temp/505bf3aa-263b-4465-939b-3d3a3c23da7b/cache.tzst -P -C /home/runner/work/APEX_CICD_E.18/APEX_CICD_E.18 --use-compress-program unzstd
+2026-11-26T15:21:03.8174132Z Cache restored successfully
+2026-11-26T15:21:04.2093741Z Cache restored from key: e18-pinned-downloads-v1-warm-2
+2026-11-26T15:21:04.2196688Z ##[group]Run df -h
+2026-11-26T15:21:04.2196892Z [36;1mdf -h[0m
+2026-11-26T15:21:04.2197228Z [36;1msudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc /usr/local/.ghcup /opt/hostedtoolcache/CodeQL[0m
+2026-11-26T15:21:04.2197584Z [36;1mdf -h[0m
+2026-11-26T15:21:04.2221228Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:21:04.2221433Z env:
+2026-11-26T15:21:04.2221615Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:21:04.2221817Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:21:04.2222229Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:21:04.2222627Z ##[endgroup]
+2026-11-26T15:21:04.2269976Z Filesystem            Size  Used Avail Use% Mounted on
+2026-11-26T15:21:04.2270321Z tmpfs                 1.6G  1.2M  1.6G   1% /run
+2026-11-26T15:21:04.2270601Z efivarfs              128K  3.6K  120K   3% /sys/firmware/efi/efivars
+2026-11-26T15:21:04.2270909Z /dev/mapper/cow-root  145G   57G   88G  40% /
+2026-11-26T15:21:04.2271150Z tmpfs                 7.7G   84K  7.7G   1% /dev/shm
+2026-11-26T15:21:04.2271391Z tmpfs                 5.0M     0  5.0M   0% /run/lock
+2026-11-26T15:21:04.2271613Z /dev/nvme0n1p16       881M  114M  705M  14% /boot
+2026-11-26T15:21:04.2271845Z /dev/nvme0n1p15       105M  6.2M   99M   6% /boot/efi
+2026-11-26T15:21:04.2272086Z tmpfs                 1.6G   12K  1.6G   1% /run/user/1001
+2026-11-26T15:22:37.9823243Z Filesystem            Size  Used Avail Use% Mounted on
+2026-11-26T15:22:37.9823651Z tmpfs                 1.6G  1.2M  1.6G   1% /run
+2026-11-26T15:22:37.9823986Z efivarfs              128K  3.6K  120K   3% /sys/firmware/efi/efivars
+2026-11-26T15:22:37.9824358Z /dev/mapper/cow-root  145G   35G  110G  24% /
+2026-11-26T15:22:37.9824656Z tmpfs                 7.7G   84K  7.7G   1% /dev/shm
+2026-11-26T15:22:37.9824897Z tmpfs                 5.0M     0  5.0M   0% /run/lock
+2026-11-26T15:22:37.9825120Z /dev/nvme0n1p16       881M  114M  705M  14% /boot
+2026-11-26T15:22:37.9825368Z /dev/nvme0n1p15       105M  6.2M   99M   6% /boot/efi
+2026-11-26T15:22:37.9825603Z tmpfs                 1.6G   12K  1.6G   1% /run/user/1001
+2026-11-26T15:22:37.9851115Z ##[group]Run mkdir -p result
+2026-11-26T15:22:37.9851686Z [36;1mmkdir -p result[0m
+2026-11-26T15:22:37.9851892Z [36;1mdocker pull "$ORDS_IMAGE"[0m
+2026-11-26T15:22:37.9852248Z [36;1mdocker image inspect --format '{{.Architecture}}' "$ORDS_IMAGE" | tee result/ords-architecture.txt[0m
+2026-11-26T15:22:37.9852656Z [36;1mgrep -qx amd64 result/ords-architecture.txt[0m
+2026-11-26T15:22:37.9852941Z [36;1mprobe=$(mktemp -d "$RUNNER_TEMP/e17-ords-probe.XXXXXX")[0m
+2026-11-26T15:22:37.9853203Z [36;1mtrap 'rm -rf "$probe"' EXIT[0m
+2026-11-26T15:22:37.9853607Z [36;1mdocker run --rm --user "$(id -u):$(id -g)" --env HOME=/tmp -v "$probe:/etc/ords/config" "$ORDS_IMAGE" --version | tee result/ords-version.txt[0m
+2026-11-26T15:22:37.9854301Z [36;1mdocker run --rm --user "$(id -u):$(id -g)" --env HOME=/tmp -v "$probe:/etc/ords/config" "$ORDS_IMAGE" config set standalone.http.port 8080 | tee result/ords-private-config.txt[0m
+2026-11-26T15:22:37.9877762Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:22:37.9877994Z env:
+2026-11-26T15:22:37.9878164Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:22:37.9878355Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:22:37.9878889Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:22:37.9879452Z ##[endgroup]
+2026-11-26T15:22:40.2437420Z container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e: Pulling from database/ords
+2026-11-26T15:22:40.2782136Z ac06ceafe5b9: Pulling fs layer
+2026-11-26T15:22:40.2782451Z 65bac2151d4f: Pulling fs layer
+2026-11-26T15:22:40.2782710Z 7f913bcae915: Pulling fs layer
+2026-11-26T15:22:40.2782965Z 9ec2e0821caf: Pulling fs layer
+2026-11-26T15:22:40.2783160Z ecad684571b1: Pulling fs layer
+2026-11-26T15:22:40.2783468Z 1381efdf013a: Pulling fs layer
+2026-11-26T15:22:40.2783647Z 9ec2e0821caf: Waiting
+2026-11-26T15:22:40.2783817Z ecad684571b1: Waiting
+2026-11-26T15:22:40.2784031Z 1381efdf013a: Waiting
+2026-11-26T15:22:40.6575962Z 65bac2151d4f: Verifying Checksum
+2026-11-26T15:22:40.6576271Z 65bac2151d4f: Download complete
+2026-11-26T15:22:40.9627702Z 9ec2e0821caf: Verifying Checksum
+2026-11-26T15:22:40.9628088Z 9ec2e0821caf: Download complete
+2026-11-26T15:22:41.2622665Z ac06ceafe5b9: Verifying Checksum
+2026-11-26T15:22:41.2623461Z ac06ceafe5b9: Download complete
+2026-11-26T15:22:41.2830953Z ecad684571b1: Verifying Checksum
+2026-11-26T15:22:41.2831330Z ecad684571b1: Download complete
+2026-11-26T15:22:41.5740577Z 1381efdf013a: Verifying Checksum
+2026-11-26T15:22:41.5741777Z 1381efdf013a: Download complete
+2026-11-26T15:22:42.0185436Z ac06ceafe5b9: Pull complete
+2026-11-26T15:22:42.0564937Z 65bac2151d4f: Pull complete
+2026-11-26T15:22:51.9766310Z 7f913bcae915: Download complete
+2026-11-26T15:22:57.3742504Z 7f913bcae915: Pull complete
+2026-11-26T15:22:57.3791741Z 9ec2e0821caf: Pull complete
+2026-11-26T15:22:57.3826952Z ecad684571b1: Pull complete
+2026-11-26T15:22:57.3868884Z 1381efdf013a: Pull complete
+2026-11-26T15:22:57.3888229Z Digest: sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:22:57.3894404Z Status: Downloaded newer image for container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:22:57.3905296Z container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:22:57.4038674Z amd64
+2026-11-26T15:23:01.3333712Z INFO : Running Oracle REST Data Services CLI command.
+2026-11-26T15:23:01.3871847Z 2026-11-26T15:23:01Z INFO   ORDS has not detected the option '--config' and this will be set up to the default directory.
+2026-11-26T15:23:02.9194121Z 
+2026-11-26T15:23:02.9208123Z ORDS: Release 25.3 Production on Thu Nov 26 15:23:02 2026
+2026-11-26T15:23:02.9211395Z 
+2026-11-26T15:23:02.9211648Z Copyright (c) 2010, 2026, Oracle.
+2026-11-26T15:23:02.9211915Z 
+2026-11-26T15:23:02.9212086Z Configuration:
+2026-11-26T15:23:02.9212858Z   /etc/ords/config
+2026-11-26T15:23:02.9213085Z 
+2026-11-26T15:23:02.9262493Z Oracle REST Data Services 25.3.0.r2671248
+2026-11-26T15:23:03.0852876Z INFO : Running Oracle REST Data Services CLI command.
+2026-11-26T15:23:03.1452286Z 2026-11-26T15:23:03Z INFO   ORDS has not detected the option '--config' and this will be set up to the default directory.
+2026-11-26T15:23:04.6577231Z 
+2026-11-26T15:23:04.6578191Z ORDS: Release 25.3 Production on Thu Nov 26 15:23:04 2026
+2026-11-26T15:23:04.6578762Z 
+2026-11-26T15:23:04.6578978Z Copyright (c) 2010, 2026, Oracle.
+2026-11-26T15:23:04.6579257Z 
+2026-11-26T15:23:04.6579432Z Configuration:
+2026-11-26T15:23:04.6579723Z   /etc/ords/config
+2026-11-26T15:23:04.6579945Z 
+2026-11-26T15:23:04.6790250Z The global setting named: standalone.http.port was set to: 8080
+2026-11-26T15:23:04.7588084Z ##[group]Run docker run -d --name e17-author -e ORACLE_RANDOM_PASSWORD=yes -p 127.0.0.1:1521:1521 --health-cmd healthcheck.sh --health-interval 10s --health-timeout 5s --health-retries 40 gvenzl/oracle-free@sha256:3251b285857ba46166279bcf9d4d00c0628335021bd2d0362dedf8b397e76eb5
+2026-11-26T15:23:04.7590134Z [36;1mdocker run -d --name e17-author -e ORACLE_RANDOM_PASSWORD=yes -p 127.0.0.1:1521:1521 --health-cmd healthcheck.sh --health-interval 10s --health-timeout 5s --health-retries 40 gvenzl/oracle-free@sha256:3251b285857ba46166279bcf9d4d00c0628335021bd2d0362dedf8b397e76eb5[0m
+2026-11-26T15:23:04.7591950Z [36;1mdocker run -d --name e17-target -e ORACLE_RANDOM_PASSWORD=yes -p 127.0.0.1:1522:1521 --health-cmd healthcheck.sh --health-interval 10s --health-timeout 5s --health-retries 40 gvenzl/oracle-free@sha256:3251b285857ba46166279bcf9d4d00c0628335021bd2d0362dedf8b397e76eb5[0m
+2026-11-26T15:23:04.7592990Z [36;1mfor container in e17-author e17-target; do[0m
+2026-11-26T15:23:04.7593370Z [36;1m  # shellcheck disable=SC2016[0m
+2026-11-26T15:23:04.7593892Z [36;1m  timeout 480 bash -c 'until test "$(docker inspect --format="{{.State.Health.Status}}" "$1")" = healthy; do sleep 5; done' -- "$container"[0m
+2026-11-26T15:23:04.7594411Z [36;1mdone[0m
+2026-11-26T15:23:04.7625458Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:23:04.7625757Z env:
+2026-11-26T15:23:04.7625965Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:23:04.7626223Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:23:04.7626725Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:23:04.7627324Z ##[endgroup]
+2026-11-26T15:23:04.7765916Z Unable to find image 'gvenzl/oracle-free@sha256:3251b285857ba46166279bcf9d4d00c0628335021bd2d0362dedf8b397e76eb5' locally
+2026-11-26T15:23:05.3218208Z docker.io/gvenzl/oracle-free@sha256:3251b285857ba46166279bcf9d4d00c0628335021bd2d0362dedf8b397e76eb5: Pulling from gvenzl/oracle-free
+2026-11-26T15:23:05.5712349Z 43257bb1f50d: Pulling fs layer
+2026-11-26T15:23:05.5712616Z d8ac9b5b1295: Pulling fs layer
+2026-11-26T15:23:05.5712807Z 83c8093c7ceb: Pulling fs layer
+2026-11-26T15:23:05.5714465Z d72149dd8465: Pulling fs layer
+2026-11-26T15:23:05.5714841Z 2f3c1f272292: Pulling fs layer
+2026-11-26T15:23:05.5715114Z 267b19e9a17c: Pulling fs layer
+2026-11-26T15:23:05.5715338Z d72149dd8465: Waiting
+2026-11-26T15:23:05.5715560Z 2f3c1f272292: Waiting
+2026-11-26T15:23:05.5715759Z 267b19e9a17c: Waiting
+2026-11-26T15:23:06.0519526Z 43257bb1f50d: Verifying Checksum
+2026-11-26T15:23:06.0520363Z 43257bb1f50d: Download complete
+2026-11-26T15:23:06.2923284Z 83c8093c7ceb: Verifying Checksum
+2026-11-26T15:23:06.2924021Z 83c8093c7ceb: Download complete
+2026-11-26T15:23:06.7376697Z 2f3c1f272292: Verifying Checksum
+2026-11-26T15:23:06.7377768Z 2f3c1f272292: Download complete
+2026-11-26T15:23:07.4075943Z d72149dd8465: Verifying Checksum
+2026-11-26T15:23:07.4076545Z d72149dd8465: Download complete
+2026-11-26T15:23:07.6761698Z 267b19e9a17c: Verifying Checksum
+2026-11-26T15:23:07.6762017Z 267b19e9a17c: Download complete
+2026-11-26T15:23:08.3767861Z 43257bb1f50d: Pull complete
+2026-11-26T15:23:09.3747287Z d8ac9b5b1295: Verifying Checksum
+2026-11-26T15:23:09.3747701Z d8ac9b5b1295: Download complete
+2026-11-26T15:23:19.1310594Z d8ac9b5b1295: Pull complete
+2026-11-26T15:23:21.6024466Z 83c8093c7ceb: Pull complete
+2026-11-26T15:23:24.8182402Z d72149dd8465: Pull complete
+2026-11-26T15:23:25.8889801Z 2f3c1f272292: Pull complete
+2026-11-26T15:23:26.8330367Z 267b19e9a17c: Pull complete
+2026-11-26T15:23:27.0030756Z Digest: sha256:3251b285857ba46166279bcf9d4d00c0628335021bd2d0362dedf8b397e76eb5
+2026-11-26T15:23:27.0456546Z Status: Downloaded newer image for gvenzl/oracle-free@sha256:3251b285857ba46166279bcf9d4d00c0628335021bd2d0362dedf8b397e76eb5
+2026-11-26T15:23:33.4299161Z c0260b4eb380c7c79f0f8bd18337f24df294a129cebfbb8c33ec70e3f10e2759
+2026-11-26T15:23:33.6484326Z 41d9ac1fc49b131c7a8bbfb6c1b2b6e09b8e74c6801bb7d70007bbc7fc04424b
+2026-11-26T15:24:18.9979869Z ##[group]Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3
+2026-11-26T15:24:18.9980169Z with:
+2026-11-26T15:24:18.9980331Z   distribution: temurin
+2026-11-26T15:24:18.9980497Z   java-version: 21
+2026-11-26T15:24:18.9980666Z   java-package: jdk
+2026-11-26T15:24:18.9980825Z   check-latest: false
+2026-11-26T15:24:18.9980984Z   server-id: github
+2026-11-26T15:24:18.9981148Z   server-username: GITHUB_ACTOR
+2026-11-26T15:24:18.9981350Z   server-password: GITHUB_TOKEN
+2026-11-26T15:24:18.9981539Z   overwrite-settings: true
+2026-11-26T15:24:18.9981845Z   job-status: success
+2026-11-26T15:24:18.9983516Z   token: ***
+2026-11-26T15:24:18.9983671Z env:
+2026-11-26T15:24:18.9983824Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:24:18.9984010Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:24:18.9984402Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:24:18.9984797Z ##[endgroup]
+2026-11-26T15:24:19.1340273Z ##[warning]setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+2026-11-26T15:24:19.1349742Z ##[group]Installed distributions
+2026-11-26T15:24:19.1380342Z Resolved Java 21.0.13+2 from tool-cache
+2026-11-26T15:24:19.1380624Z Setting Java 21.0.13+2 as the default
+2026-11-26T15:24:19.1387709Z (node:4074) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T15:24:19.1388640Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T15:24:19.1390546Z Creating toolchains.xml for JDK version 21 from temurin
+2026-11-26T15:24:19.1462063Z Writing to /home/runner/.m2/toolchains.xml
+2026-11-26T15:24:19.1462323Z 
+2026-11-26T15:24:19.1462424Z Java configuration:
+2026-11-26T15:24:19.1462659Z   Distribution: temurin
+2026-11-26T15:24:19.1462895Z   Version: 21.0.13+2
+2026-11-26T15:24:19.1463239Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:24:19.1463568Z 
+2026-11-26T15:24:19.1463931Z ##[endgroup]
+2026-11-26T15:24:19.1507129Z Creating settings.xml with server-id: github
+2026-11-26T15:24:19.1507416Z Writing to /home/runner/.m2/settings.xml
+2026-11-26T15:24:19.1590011Z ##[group]Run test -f "$RUNNER_TEMP/sqlcl.zip" || curl --fail --location --retry 3 https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-25.4.1.022.0618.zip -o "$RUNNER_TEMP/sqlcl.zip"
+2026-11-26T15:24:19.1590904Z [36;1mtest -f "$RUNNER_TEMP/sqlcl.zip" || curl --fail --location --retry 3 https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-25.4.1.022.0618.zip -o "$RUNNER_TEMP/sqlcl.zip"[0m
+2026-11-26T15:24:19.1591621Z [36;1mecho "b717d83aa1a7ada2ca38e7c8be5b369ea6a2f9f50c5fdb55e18d263b471ecab9  $RUNNER_TEMP/sqlcl.zip" | sha256sum -c -[0m
+2026-11-26T15:24:19.1592064Z [36;1munzip -q "$RUNNER_TEMP/sqlcl.zip" -d "$RUNNER_TEMP/tools"[0m
+2026-11-26T15:24:19.1592335Z [36;1mchmod +x "$RUNNER_TEMP/tools/sqlcl/bin/sql"[0m
+2026-11-26T15:24:19.1592613Z [36;1mecho "SQL_EXE=$RUNNER_TEMP/tools/sqlcl/bin/sql" >> "$GITHUB_ENV"[0m
+2026-11-26T15:24:19.1593239Z [36;1mtest -f "$RUNNER_TEMP/incompatible.zip" || curl --fail --location --retry 3 https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-25.3.0.274.1210.zip -o "$RUNNER_TEMP/incompatible.zip"[0m
+2026-11-26T15:24:19.1593983Z [36;1mecho "4ce293bc11685050ea37baa3abac986018746df4baea492cdb8deaebee7e8ba7  $RUNNER_TEMP/incompatible.zip" | sha256sum -c -[0m
+2026-11-26T15:24:19.1594463Z [36;1munzip -q "$RUNNER_TEMP/incompatible.zip" -d "$RUNNER_TEMP/incompatible"[0m
+2026-11-26T15:24:19.1594790Z [36;1mchmod +x "$RUNNER_TEMP/incompatible/sqlcl/bin/sql"[0m
+2026-11-26T15:24:19.1595129Z [36;1mecho "INCOMPATIBLE_SQL_EXE=$RUNNER_TEMP/incompatible/sqlcl/bin/sql" >> "$GITHUB_ENV"[0m
+2026-11-26T15:24:19.1647009Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:24:19.1647279Z env:
+2026-11-26T15:24:19.1647445Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:24:19.1647646Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:24:19.1648053Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:24:19.1648843Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:24:19.1649211Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:24:19.1649609Z ##[endgroup]
+2026-11-26T15:24:19.2600053Z /home/runner/work/_temp/sqlcl.zip: OK
+2026-11-26T15:24:20.0182018Z /home/runner/work/_temp/incompatible.zip: OK
+2026-11-26T15:24:20.6510093Z ##[group]Run python3 provision_host.py inputs
+2026-11-26T15:24:20.6510362Z [36;1mpython3 provision_host.py inputs[0m
+2026-11-26T15:24:20.6533365Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:24:20.6533582Z env:
+2026-11-26T15:24:20.6533749Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:24:20.6533938Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:24:20.6534342Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:24:20.6534810Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:24:20.6535156Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:24:20.6535461Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:24:20.6535759Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:24:20.6536019Z ##[endgroup]
+2026-11-26T15:24:20.9586390Z ##[group]Run git clone https://github.com/utPLSQL/utPLSQL.git "$RUNNER_TEMP/utplsql"
+2026-11-26T15:24:20.9586840Z [36;1mgit clone https://github.com/utPLSQL/utPLSQL.git "$RUNNER_TEMP/utplsql"[0m
+2026-11-26T15:24:20.9587233Z [36;1mgit -C "$RUNNER_TEMP/utplsql" checkout 072dfbc1d0ed37f8da9c0ff87823906483ea3887[0m
+2026-11-26T15:24:20.9587620Z [36;1mdocker cp "$RUNNER_TEMP/utplsql/source" e17-author:/tmp/utplsql[0m
+2026-11-26T15:24:20.9587968Z [36;1mdocker exec --user root e17-author chown -R oracle:oinstall /tmp/utplsql[0m
+2026-11-26T15:24:20.9588838Z [36;1mdocker exec -i --workdir /tmp/utplsql e17-author sqlplus -s / as sysdba <<'SQL' > result/utplsql-install.log[0m
+2026-11-26T15:24:20.9589358Z [36;1mwhenever sqlerror exit failure[0m
+2026-11-26T15:24:20.9589594Z [36;1malter session set container=FREEPDB1;[0m
+2026-11-26T15:24:20.9589819Z [36;1m@install_headless.sql[0m
+2026-11-26T15:24:20.9590007Z [36;1mexit[0m
+2026-11-26T15:24:20.9590165Z [36;1mSQL[0m
+2026-11-26T15:24:20.9613489Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:24:20.9613701Z env:
+2026-11-26T15:24:20.9613877Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:24:20.9614078Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:24:20.9614474Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:24:20.9614957Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:24:20.9615301Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:24:20.9615637Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:24:20.9615943Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:24:20.9616393Z   NATIVE_PASSWORD: ***
+2026-11-26T15:24:20.9616636Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:24:20.9616816Z ##[endgroup]
+2026-11-26T15:24:20.9665954Z Cloning into '/home/runner/work/_temp/utplsql'...
+2026-11-26T15:24:23.2089410Z Note: switching to '072dfbc1d0ed37f8da9c0ff87823906483ea3887'.
+2026-11-26T15:24:23.2089692Z 
+2026-11-26T15:24:23.2089868Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-26T15:24:23.2090260Z changes and commit them, and you can discard any commits you make in this
+2026-11-26T15:24:23.2090596Z state without impacting any branches by switching back to a branch.
+2026-11-26T15:24:23.2090909Z 
+2026-11-26T15:24:23.2091053Z If you want to create a new branch to retain commits you create, you may
+2026-11-26T15:24:23.2091395Z do so (now or later) by using -c with the switch command. Example:
+2026-11-26T15:24:23.2091583Z 
+2026-11-26T15:24:23.2091694Z   git switch -c <new-branch-name>
+2026-11-26T15:24:23.2091835Z 
+2026-11-26T15:24:23.2091924Z Or undo this operation with:
+2026-11-26T15:24:23.2092040Z 
+2026-11-26T15:24:23.2092116Z   git switch -
+2026-11-26T15:24:23.2092216Z 
+2026-11-26T15:24:23.2092381Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-26T15:24:23.2092618Z 
+2026-11-26T15:24:23.2092760Z HEAD is now at 072dfbc1 Updated project version after build [skip ci]
+2026-11-26T15:24:28.5048654Z ##[group]Run for file in backend-bootstrap.sql backend-api.sql backend-tests.sql; do
+2026-11-26T15:24:28.5049161Z [36;1mfor file in backend-bootstrap.sql backend-api.sql backend-tests.sql; do[0m
+2026-11-26T15:24:28.5049490Z [36;1m  docker cp "$file" "e17-author:/tmp/$file"[0m
+2026-11-26T15:24:28.5049719Z [36;1mdone[0m
+2026-11-26T15:24:28.5050003Z [36;1mdocker exec -i e17-author sqlplus -s / as sysdba <<SQL > result/backend-bootstrap.log[0m
+2026-11-26T15:24:28.5050332Z [36;1mwhenever sqlerror exit failure[0m
+2026-11-26T15:24:28.5050543Z [36;1mset echo off verify off[0m
+2026-11-26T15:24:28.5050755Z [36;1malter session set container=FREEPDB1;[0m
+2026-11-26T15:24:28.5050990Z [36;1m@/tmp/backend-bootstrap.sql[0m
+2026-11-26T15:24:28.5051236Z [36;1malter user e5_test identified by "${NATIVE_PASSWORD}";[0m
+2026-11-26T15:24:28.5051477Z [36;1mexit[0m
+2026-11-26T15:24:28.5051635Z [36;1mSQL[0m
+2026-11-26T15:24:28.5051927Z [36;1mdocker exec -i e17-author sqlplus -s /nolog <<SQL > result/utplsql-tests.log[0m
+2026-11-26T15:24:28.5052242Z [36;1mwhenever sqlerror exit failure[0m
+2026-11-26T15:24:28.5052458Z [36;1mset echo off verify off[0m
+2026-11-26T15:24:28.5052712Z [36;1mconnect e5_test/${NATIVE_PASSWORD}@//localhost:1521/FREEPDB1[0m
+2026-11-26T15:24:28.5053022Z [36;1mset serveroutput on[0m
+2026-11-26T15:24:28.5053228Z [36;1m@/tmp/backend-api.sql[0m
+2026-11-26T15:24:28.5053429Z [36;1m@/tmp/backend-tests.sql[0m
+2026-11-26T15:24:28.5053661Z [36;1mexec ut3.ut.run('E5_TEST.TEST_HELLO_ENTRY_API');[0m
+2026-11-26T15:24:28.5053900Z [36;1mexit[0m
+2026-11-26T15:24:28.5054049Z [36;1mSQL[0m
+2026-11-26T15:24:28.5054211Z [36;1mcat result/utplsql-tests.log[0m
+2026-11-26T15:24:28.5054474Z [36;1mgrep -E '5 tests, 0 failed, 0 errored' result/utplsql-tests.log[0m
+2026-11-26T15:24:28.5076662Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:24:28.5076903Z env:
+2026-11-26T15:24:28.5077069Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:24:28.5077273Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:24:28.5077705Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:24:28.5078192Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:24:28.5078677Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:24:28.5078988Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:24:28.5079343Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:24:28.5079839Z   NATIVE_PASSWORD: ***
+2026-11-26T15:24:28.5080085Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:24:28.5080262Z ##[endgroup]
+2026-11-26T15:24:29.7600060Z 
+2026-11-26T15:24:29.7600475Z Package created.
+2026-11-26T15:24:29.7600639Z 
+2026-11-26T15:24:29.7600643Z 
+2026-11-26T15:24:29.7600728Z Package body created.
+2026-11-26T15:24:29.7600853Z 
+2026-11-26T15:24:29.7600857Z 
+2026-11-26T15:24:29.7600923Z Package created.
+2026-11-26T15:24:29.7601074Z 
+2026-11-26T15:24:29.7601078Z 
+2026-11-26T15:24:29.7601153Z Package body created.
+2026-11-26T15:24:29.7601250Z 
+2026-11-26T15:24:29.7601325Z backend
+2026-11-26T15:24:29.7601475Z Hello entry API
+2026-11-26T15:24:29.7601659Z Trims valid text [.045 sec]
+2026-11-26T15:24:29.7601869Z Rejects blank input without writes [.005 sec]
+2026-11-26T15:24:29.7602129Z Accepts exactly one hundred characters [.002 sec]
+2026-11-26T15:24:29.7602442Z Rejects one hundred and one characters without writes [.002 sec]
+2026-11-26T15:24:29.7602740Z Rejects invalid active flag without writes [.002 sec]
+2026-11-26T15:24:29.7602970Z Finished in .063123 seconds
+2026-11-26T15:24:29.7603183Z 5 tests, 0 failed, 0 errored, 0 disabled, 0 warning(s)
+2026-11-26T15:24:29.7603345Z 
+2026-11-26T15:24:29.7603447Z PL/SQL procedure successfully completed.
+2026-11-26T15:24:29.7603594Z 
+2026-11-26T15:24:29.7609708Z 5 tests, 0 failed, 0 errored, 0 disabled, 0 warning(s)
+2026-11-26T15:24:29.7639454Z ##[group]Run python3 provision_host.py apex-download
+2026-11-26T15:24:29.7640184Z [36;1mpython3 provision_host.py apex-download[0m
+2026-11-26T15:24:29.7664716Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:24:29.7664937Z env:
+2026-11-26T15:24:29.7665119Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:24:29.7665319Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:24:29.7665726Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:24:29.7666201Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:24:29.7666552Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:24:29.7666873Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:24:29.7667166Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:24:29.7667721Z   NATIVE_PASSWORD: ***
+2026-11-26T15:24:29.7668076Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:24:29.7668295Z ##[endgroup]
+2026-11-26T15:24:36.6495802Z ##[group]Run python3 provision_host.py apex-install
+2026-11-26T15:24:36.6496248Z [36;1mpython3 provision_host.py apex-install[0m
+2026-11-26T15:24:36.6555601Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:24:36.6555840Z env:
+2026-11-26T15:24:36.6556018Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:24:36.6556216Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:24:36.6556632Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:24:36.6557117Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:24:36.6557470Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:24:36.6557790Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:24:36.6558089Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:24:36.6558735Z   NATIVE_PASSWORD: ***
+2026-11-26T15:24:36.6559107Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:24:36.6559349Z ##[endgroup]
+2026-11-26T15:28:24.3613735Z ##[group]Run python3 provision_host.py apex-configure
+2026-11-26T15:28:24.3614181Z [36;1mpython3 provision_host.py apex-configure[0m
+2026-11-26T15:28:24.3637088Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:28:24.3637397Z env:
+2026-11-26T15:28:24.3637647Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:28:24.3637954Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:28:24.3638582Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:28:24.3639235Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:28:24.3639659Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:28:24.3640101Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:28:24.3640491Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:28:24.3641078Z   NATIVE_PASSWORD: ***
+2026-11-26T15:28:24.3641472Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:28:24.3641770Z ##[endgroup]
+2026-11-26T15:28:25.0764018Z ##[group]Run python3 provision_host.py ords-install
+2026-11-26T15:28:25.0764596Z [36;1mpython3 provision_host.py ords-install[0m
+2026-11-26T15:28:25.0793832Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:28:25.0794229Z env:
+2026-11-26T15:28:25.0794491Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:28:25.0794830Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:28:25.0795437Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:28:25.0796198Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:28:25.0796753Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:28:25.0797217Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:28:25.0797707Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:28:25.0798765Z   NATIVE_PASSWORD: ***
+2026-11-26T15:28:25.0799227Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:28:25.0799571Z ##[endgroup]
+2026-11-26T15:28:40.2069988Z ##[group]Run python3 provision_host.py ords-start
+2026-11-26T15:28:40.2070359Z [36;1mpython3 provision_host.py ords-start[0m
+2026-11-26T15:28:40.2094253Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:28:40.2094596Z env:
+2026-11-26T15:28:40.2094860Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:28:40.2095157Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:28:40.2095636Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:28:40.2096204Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:28:40.2096645Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:28:40.2097057Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:28:40.2097445Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:28:40.2098001Z   NATIVE_PASSWORD: ***
+2026-11-26T15:28:40.2098393Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:28:40.2098925Z ##[endgroup]
+2026-11-26T15:28:40.3349443Z ##[group]Run mkdir -p "$RUNNER_TEMP/native" result
+2026-11-26T15:28:40.3349860Z [36;1mmkdir -p "$RUNNER_TEMP/native" result[0m
+2026-11-26T15:28:40.3350506Z [36;1msha256sum .github/workflows/native.yml sql.sh check_tool.py check_output.py provenance.py provision_host.py application.sql browser.mjs > result/reviewed-inputs.sha256[0m
+2026-11-26T15:28:40.3381974Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:28:40.3382506Z env:
+2026-11-26T15:28:40.3382806Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:28:40.3383167Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:28:40.3383882Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:28:40.3384690Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:28:40.3385363Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:28:40.3385954Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:28:40.3386462Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:28:40.3387121Z   NATIVE_PASSWORD: ***
+2026-11-26T15:28:40.3387682Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:28:40.3388023Z ##[endgroup]
+2026-11-26T15:28:40.3571059Z ##[group]Run bash "$GITHUB_WORKSPACE/sql.sh" - connections <<SQL
+2026-11-26T15:28:40.3571552Z [36;1mbash "$GITHUB_WORKSPACE/sql.sh" - connections <<SQL[0m
+2026-11-26T15:28:40.3571995Z [36;1mconnect -save native-author -savepwd AUTHOR16/${NATIVE_PASSWORD}@//127.0.0.1:1521/FREEPDB1[0m
+2026-11-26T15:28:40.3572512Z [36;1mconnect -save native-target -savepwd AUTHOR16/${NATIVE_PASSWORD}@//127.0.0.1:1522/FREEPDB1[0m
+2026-11-26T15:28:40.3572913Z [36;1mSQL[0m
+2026-11-26T15:28:40.3600519Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:28:40.3600917Z env:
+2026-11-26T15:28:40.3601167Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:28:40.3601439Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:28:40.3601983Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:28:40.3602703Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:28:40.3603258Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:28:40.3603667Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:28:40.3604073Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:28:40.3604576Z   NATIVE_PASSWORD: ***
+2026-11-26T15:28:40.3604896Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:28:40.3605205Z ##[endgroup]
+2026-11-26T15:28:48.2026729Z Name: native-author
+2026-11-26T15:28:48.2027499Z Connect String: //127.0.0.1:1521/FREEPDB1
+2026-11-26T15:28:48.2028179Z User: AUTHOR16
+2026-11-26T15:28:48.2029232Z Password: ******
+2026-11-26T15:28:48.3081834Z Name: native-target
+2026-11-26T15:28:48.3129660Z Connect String: //127.0.0.1:1522/FREEPDB1
+2026-11-26T15:28:48.3163754Z User: AUTHOR16
+2026-11-26T15:28:48.3176594Z Password: ******
+2026-11-26T15:28:48.9312306Z ##[group]Run bash "$GITHUB_WORKSPACE/sql.sh" native-author author-initial <<'SQL'
+2026-11-26T15:28:48.9312859Z [36;1mbash "$GITHUB_WORKSPACE/sql.sh" native-author author-initial <<'SQL'[0m
+2026-11-26T15:28:48.9313268Z [36;1mcreate table preserved (id number primary key, message varchar2(80));[0m
+2026-11-26T15:28:48.9313603Z [36;1mSQL[0m
+2026-11-26T15:28:48.9337154Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:28:48.9337524Z env:
+2026-11-26T15:28:48.9337745Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:28:48.9338018Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:28:48.9338609Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:28:48.9339211Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:28:48.9339645Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:28:48.9340081Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:28:48.9340430Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:28:48.9340951Z   NATIVE_PASSWORD: ***
+2026-11-26T15:28:48.9341240Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:28:48.9341480Z ##[endgroup]
+2026-11-26T15:28:52.1606631Z 
+2026-11-26T15:28:52.1607629Z Table PRESERVED created.
+2026-11-26T15:28:52.1608243Z 
+2026-11-26T15:28:52.7926001Z ##[group]Run bash "$GITHUB_WORKSPACE/sql.sh" native-author init <<'SQL'
+2026-11-26T15:28:52.7926503Z [36;1mbash "$GITHUB_WORKSPACE/sql.sh" native-author init <<'SQL'[0m
+2026-11-26T15:28:52.7926863Z [36;1mproject init -name native16 -schemas AUTHOR16[0m
+2026-11-26T15:28:52.7927294Z [36;1mSQL[0m
+2026-11-26T15:28:52.7927601Z [36;1mjq -e '.sqlcl.version == "25.4.1.0"' .dbtools/project.config.json[0m
+2026-11-26T15:28:52.7928078Z [36;1mjq '.sqlcl.connectionName = "native-author"' .dbtools/project.config.json > config.json[0m
+2026-11-26T15:28:52.7929038Z [36;1mmv config.json .dbtools/project.config.json[0m
+2026-11-26T15:28:52.7929369Z [36;1mmkdir -p dist/releases/apex[0m
+2026-11-26T15:28:52.7929737Z [36;1mgit init -b baseline[0m
+2026-11-26T15:28:52.7930036Z [36;1mgit config user.email native16@example.invalid[0m
+2026-11-26T15:28:52.7930375Z [36;1mgit config user.name 'E16 experiment'[0m
+2026-11-26T15:28:52.7930687Z [36;1mgit add .[0m
+2026-11-26T15:28:52.7931074Z [36;1mgit commit -m 'chore: initialize native project'[0m
+2026-11-26T15:28:52.7931400Z [36;1mgit switch -c release[0m
+2026-11-26T15:28:52.7952623Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:28:52.7952906Z env:
+2026-11-26T15:28:52.7953236Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:28:52.7953512Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:28:52.7954024Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:28:52.7954585Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:28:52.7954989Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:28:52.7955397Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:28:52.7955764Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:28:52.7956302Z   NATIVE_PASSWORD: ***
+2026-11-26T15:28:52.7956601Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:28:52.7956894Z ##[endgroup]
+2026-11-26T15:28:56.1809158Z 
+2026-11-26T15:28:56.1810208Z ------------------------
+2026-11-26T15:28:56.1812413Z PROJECT DETAILS
+2026-11-26T15:28:56.1812898Z ------------------------
+2026-11-26T15:28:56.1813452Z Project name:    native16 
+2026-11-26T15:28:56.1814001Z Schema(s):       AUTHOR16 
+2026-11-26T15:28:56.1814535Z Directory:       /home/runner/work/_temp/native 
+2026-11-26T15:28:56.1815424Z Connection name: native-author 
+2026-11-26T15:28:56.1815982Z Project root:     native
+2026-11-26T15:28:56.1816827Z [0;32mYour project has been successfully created[0m
+2026-11-26T15:28:56.7831016Z true
+2026-11-26T15:28:56.7967993Z Initialized empty Git repository in /home/runner/work/_temp/native/.git/
+2026-11-26T15:28:56.8061436Z [baseline (root-commit) 51a3baf] chore: initialize native project
+2026-11-26T15:28:56.8061963Z  5 files changed, 226 insertions(+)
+2026-11-26T15:28:56.8062367Z  create mode 100644 .dbtools/filters/project.filters
+2026-11-26T15:28:56.8062833Z  create mode 100644 .dbtools/project.config.json
+2026-11-26T15:28:56.8063267Z  create mode 100644 .dbtools/project.sqlformat.xml
+2026-11-26T15:28:56.8063708Z  create mode 100644 .gitignore
+2026-11-26T15:28:56.8064083Z  create mode 100644 README.md
+2026-11-26T15:28:56.8073587Z Switched to a new branch 'release'
+2026-11-26T15:28:56.8105239Z ##[group]Run bash "$GITHUB_WORKSPACE/sql.sh" native-author export-1 <<'SQL'
+2026-11-26T15:28:56.8105793Z [36;1mbash "$GITHUB_WORKSPACE/sql.sh" native-author export-1 <<'SQL'[0m
+2026-11-26T15:28:56.8106133Z [36;1mproject export -schemas AUTHOR16[0m
+2026-11-26T15:28:56.8106419Z [36;1mSQL[0m
+2026-11-26T15:28:56.8106624Z [36;1mgit add .[0m
+2026-11-26T15:28:56.8106919Z [36;1mgit commit -m 'feat: reviewed source 1.0.0'[0m
+2026-11-26T15:28:56.8130070Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:28:56.8130334Z env:
+2026-11-26T15:28:56.8130592Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:28:56.8130865Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:28:56.8131355Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:28:56.8131906Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:28:56.8132412Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:28:56.8132821Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:28:56.8133198Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:28:56.8133731Z   NATIVE_PASSWORD: ***
+2026-11-26T15:28:56.8134051Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:28:56.8134303Z ##[endgroup]
+2026-11-26T15:29:00.5666526Z [0;37mThe current connection AUTHOR16 will be used for all operations[0m
+2026-11-26T15:29:04.6211457Z *** TABLES ***
+2026-11-26T15:29:06.0763739Z [0;32m-------------------------------
+2026-11-26T15:29:06.0764463Z TABLE                         1
+2026-11-26T15:29:06.0766165Z -------------------------------[0m
+2026-11-26T15:29:06.0766567Z Exported 1 objects
+2026-11-26T15:29:06.0766820Z Elapsed 5 sec
+2026-11-26T15:29:06.6733202Z [release 2f30044] feat: reviewed source 1.0.0
+2026-11-26T15:29:06.6733678Z  1 file changed, 10 insertions(+)
+2026-11-26T15:29:06.6734178Z  create mode 100644 src/database/author16/tables/preserved.sql
+2026-11-26T15:29:06.6762544Z ##[group]Run bash "$GITHUB_WORKSPACE/sql.sh" native-author stage-1 <<'SQL'
+2026-11-26T15:29:06.6763073Z [36;1mbash "$GITHUB_WORKSPACE/sql.sh" native-author stage-1 <<'SQL'[0m
+2026-11-26T15:29:06.6763411Z [36;1mproject stage -branch-name baseline[0m
+2026-11-26T15:29:06.6763698Z [36;1mSQL[0m
+2026-11-26T15:29:06.6787153Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:29:06.6787431Z env:
+2026-11-26T15:29:06.6787707Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:29:06.6787964Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:29:06.6788579Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:29:06.6789165Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:29:06.6789577Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:29:06.6789995Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:29:06.6790429Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:29:06.6790980Z   NATIVE_PASSWORD: ***
+2026-11-26T15:29:06.6791422Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:29:06.6791679Z ##[endgroup]
+2026-11-26T15:29:10.8525748Z [0;37mThe current connection AUTHOR16 will be used for all operations[0m
+2026-11-26T15:29:14.9619477Z 
+2026-11-26T15:29:14.9620601Z Stage is Comparing:
+2026-11-26T15:29:14.9621527Z [0;33mOld Branch	refs/heads/baseline[0m
+2026-11-26T15:29:14.9622130Z [0;32mNew Branch	refs/heads/release[0m
+2026-11-26T15:29:14.9622557Z 
+2026-11-26T15:29:15.6664846Z [0;37m[0m
+2026-11-26T15:29:15.8681454Z [0;37m[0m
+2026-11-26T15:29:15.8682274Z [0;32mStage processing completed, please review and commit your changes to repository[0m
+2026-11-26T15:29:15.8683085Z [0;37m[0m
+2026-11-26T15:29:16.0831055Z [0;33m Untracked files:[0m
+2026-11-26T15:29:16.0837886Z [0;31m	dist[0m
+2026-11-26T15:29:16.6551928Z ##[group]Run bash "$GITHUB_WORKSPACE/sql.sh" native-author verify-1 <<'SQL'
+2026-11-26T15:29:16.6552437Z [36;1mbash "$GITHUB_WORKSPACE/sql.sh" native-author verify-1 <<'SQL'[0m
+2026-11-26T15:29:16.6552856Z [36;1mproject verify -compared-branch-name baseline -verbose[0m
+2026-11-26T15:29:16.6553253Z [36;1mSQL[0m
+2026-11-26T15:29:16.6576726Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:29:16.6577049Z env:
+2026-11-26T15:29:16.6577355Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:29:16.6577614Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:29:16.6578144Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:29:16.6578869Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:29:16.6579332Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:29:16.6579720Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:29:16.6580190Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:29:16.6580760Z   NATIVE_PASSWORD: ***
+2026-11-26T15:29:16.6581082Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:29:16.6581390Z ##[endgroup]
+2026-11-26T15:29:20.4669469Z [0;37mThe current connection AUTHOR16 will be used for all operations[0m
+2026-11-26T15:29:21.3903472Z -------- Results Summary ----------
+2026-11-26T15:29:21.3905299Z [0;31mErrors:     0[0m
+2026-11-26T15:29:21.3905884Z [0;33mWarnings:   1[0m
+2026-11-26T15:29:21.3906488Z [0;32mInfo:       14[0m
+2026-11-26T15:29:21.3907045Z ---------------------------------
+2026-11-26T15:29:21.3907403Z 
+2026-11-26T15:29:21.3907845Z  ------- ----------- -------------------------------------- ---------------------------------- 
+2026-11-26T15:29:21.3908735Z   Level   Group       Test Name                              Message                           
+2026-11-26T15:29:21.3909589Z           Name                                                                                 
+2026-11-26T15:29:21.3910285Z  ------- ----------- -------------------------------------- ---------------------------------- 
+2026-11-26T15:29:21.3911272Z   [0;32mINFO[0m    init        verifyprojectname                      The final project name will be    
+2026-11-26T15:29:21.3912084Z                                                              "native16"                        
+2026-11-26T15:29:21.3912713Z                                                                                                
+2026-11-26T15:29:21.3913575Z   [0;32mINFO[0m    init        initconfigfileschanges                 Comparison with current SQLcl     
+2026-11-26T15:29:21.3914363Z                                                              version:                          
+2026-11-26T15:29:21.3914990Z                                                              There are no differences found.   
+2026-11-26T15:29:21.3928098Z                                                                                                
+2026-11-26T15:29:21.3929593Z   [0;32mINFO[0m    stageapex   apexchangelogcomplete                  There is no apex application      
+2026-11-26T15:29:21.3930606Z                                                              staged. (Apex folder isnt         
+2026-11-26T15:29:21.3931811Z                                                              mentioned in main changelog)      
+2026-11-26T15:29:21.3932450Z                                                                                                
+2026-11-26T15:29:21.3933354Z   [0;32mINFO[0m    stageapex   apexchangelogfilesvalid                There is no apex application      
+2026-11-26T15:29:21.3934114Z                                                              staged. (Apex folder isnt         
+2026-11-26T15:29:21.3934780Z                                                              mentioned in main changelog)      
+2026-11-26T15:29:21.3935570Z                                                                                                
+2026-11-26T15:29:21.3937721Z   [0;32mINFO[0m    stageapex   apexinsrcmatchesdist                   All Apex applications and their   
+2026-11-26T15:29:21.3938675Z                                                              contents in dist match the Apex   
+2026-11-26T15:29:21.3939977Z                                                              applications in src, no issues    
+2026-11-26T15:29:21.3940607Z                                                              found.                            
+2026-11-26T15:29:21.3941248Z                                                                                                
+2026-11-26T15:29:21.3942135Z   [0;32mINFO[0m    stage       stagechangelogfilesvalid               .dbtools/project.config.json      
+2026-11-26T15:29:21.3943013Z                                                              generated format: liquibase       
+2026-11-26T15:29:21.3943664Z                                                              All included scripts are          
+2026-11-26T15:29:21.3944258Z                                                              present, not cross-referencing    
+2026-11-26T15:29:21.3944937Z                                                              and readable (3 checked)          
+2026-11-26T15:29:21.3945542Z                                                                                                
+2026-11-26T15:29:21.3946492Z   [0;33mWARN[0m    stage       stagesoftobjectisolationsprintchange   There are no soft objects         
+2026-11-26T15:29:21.3947924Z                                                              present in changes folder,        
+2026-11-26T15:29:21.3948819Z                                                              SoftObjectIsolation value cannot  
+2026-11-26T15:29:21.3949482Z                                                              be verified.                      
+2026-11-26T15:29:21.3950123Z                                                                                                
+2026-11-26T15:29:21.3951009Z   [0;32mINFO[0m    stage       stagesoftobjectisolation               SoftObjectIsolation: Change       
+2026-11-26T15:29:21.3951743Z                                                              OK: Code folder is absent.        
+2026-11-26T15:29:21.3952456Z                                                                                                
+2026-11-26T15:29:21.3953262Z   [0;32mINFO[0m    stage       stageduplicateentries                  .dbtools/project.config.json      
+2026-11-26T15:29:21.3954594Z                                                              generated format: liquibase       
+2026-11-26T15:29:21.3955320Z                                                              dist/releases/main.changelog.xml  
+2026-11-26T15:29:21.3956213Z                                                              - There are no duplicate          
+2026-11-26T15:29:21.3956825Z                                                              entries.                          
+2026-11-26T15:29:21.3957470Z                                                              Release Changelogs - There are    
+2026-11-26T15:29:21.3958112Z                                                              no duplicate entries.             
+2026-11-26T15:29:21.3959266Z                                                              Stage Changelogs - There are no   
+2026-11-26T15:29:21.3959900Z                                                              duplicate entries.                
+2026-11-26T15:29:21.3960549Z                                                                                                
+2026-11-26T15:29:21.3961485Z   [0;32mINFO[0m    stage       stagechangelogcomplete                 Stage Changelog validation found  
+2026-11-26T15:29:21.3962230Z                                                              no issues.                        
+2026-11-26T15:29:21.3962852Z                                                                                                
+2026-11-26T15:29:21.3963834Z   [0;32mINFO[0m    stage       stagesourcediff                        All modified files are            
+2026-11-26T15:29:21.3964582Z                                                              represented in dist folder        
+2026-11-26T15:29:21.3965290Z                                                              All changes in dist folder are    
+2026-11-26T15:29:21.3965956Z                                                              represented in src folder         
+2026-11-26T15:29:21.3966568Z                                                                                                
+2026-11-26T15:29:21.3967541Z   [0;32mINFO[0m    project     sqlclversion                           SQLcl Version check passed        
+2026-11-26T15:29:21.3968315Z                                                                                                
+2026-11-26T15:29:21.3969401Z   [0;32mINFO[0m    export      exportvalidatefilters                  Filters validation is             
+2026-11-26T15:29:21.3970154Z                                                              successful.                       
+2026-11-26T15:29:21.3971067Z                                                                                                
+2026-11-26T15:29:21.3972254Z   [0;32mINFO[0m    export      exportformatterrules                   The XML parsing of                
+2026-11-26T15:29:21.3973096Z                                                              project.sqlformat.xml file        
+2026-11-26T15:29:21.3973676Z                                                              passed successfully.              
+2026-11-26T15:29:21.3974359Z                                                              Keys and values for               
+2026-11-26T15:29:21.3974985Z                                                              project.sqlformat.xml are all     
+2026-11-26T15:29:21.3975649Z                                                              valid.                            
+2026-11-26T15:29:21.3976256Z                                                                                                
+2026-11-26T15:29:21.3977014Z   [0;32mINFO[0m    snapshot    verifysnapshot                         Snapshot validation found no      
+2026-11-26T15:29:21.3977742Z                                                              issues.                           
+2026-11-26T15:29:21.3978309Z                                                                                                
+2026-11-26T15:29:21.3978888Z 
+2026-11-26T15:29:21.9691392Z ##[group]Run bash "$GITHUB_WORKSPACE/sql.sh" native-author release-1 <<'SQL'
+2026-11-26T15:29:21.9692085Z [36;1mbash "$GITHUB_WORKSPACE/sql.sh" native-author release-1 <<'SQL'[0m
+2026-11-26T15:29:21.9692619Z [36;1mproject release -version 1.0.0[0m
+2026-11-26T15:29:21.9692964Z [36;1mSQL[0m
+2026-11-26T15:29:21.9693308Z [36;1mgit add .[0m
+2026-11-26T15:29:21.9693760Z [36;1mgit commit -m 'chore: prepare native release 1.0.0'[0m
+2026-11-26T15:29:21.9721424Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:29:21.9721818Z env:
+2026-11-26T15:29:21.9722038Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:29:21.9722352Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:29:21.9722825Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:29:21.9723504Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:29:21.9724086Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:29:21.9724511Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:29:21.9724899Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:29:21.9725419Z   NATIVE_PASSWORD: ***
+2026-11-26T15:29:21.9725732Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:29:21.9726024Z ##[endgroup]
+2026-11-26T15:29:25.9179085Z [0;32mProcess completed successfully[0m
+2026-11-26T15:29:26.5616172Z [release cb853e0] chore: prepare native release 1.0.0
+2026-11-26T15:29:26.5616741Z  9 files changed, 396 insertions(+), 53 deletions(-)
+2026-11-26T15:29:26.5617123Z  create mode 100644 dist/install.sql
+2026-11-26T15:29:26.5617642Z  create mode 100644 dist/releases/1.0.0/changes/release/author16/tables/preserved.sql
+2026-11-26T15:29:26.5618275Z  create mode 100644 dist/releases/1.0.0/changes/release/stage.changelog.xml
+2026-11-26T15:29:26.5619039Z  create mode 100644 dist/releases/1.0.0/release.changelog.xml
+2026-11-26T15:29:26.5619547Z  create mode 100644 dist/releases/main.changelog.xml
+2026-11-26T15:29:26.5619960Z  create mode 100644 dist/releases/next/release.changelog.xml
+2026-11-26T15:29:26.5620409Z  create mode 100644 dist/utils/prechecks.sql
+2026-11-26T15:29:26.5620815Z  create mode 100644 dist/utils/recompile.sql
+2026-11-26T15:29:26.5646182Z ##[group]Run bash "$GITHUB_WORKSPACE/sql.sh" native-author package-1.0.0 <<'SQL'
+2026-11-26T15:29:26.5646691Z [36;1mbash "$GITHUB_WORKSPACE/sql.sh" native-author package-1.0.0 <<'SQL'[0m
+2026-11-26T15:29:26.5647189Z [36;1mproject gen-artifact -name native16 -version 1.0.0[0m
+2026-11-26T15:29:26.5647513Z [36;1mSQL[0m
+2026-11-26T15:29:26.5647803Z [36;1marchive=$(find . -name 'native16-1.0.0.zip')[0m
+2026-11-26T15:29:26.5648121Z [36;1mtest -f "$archive"[0m
+2026-11-26T15:29:26.5648617Z [36;1mcp "$archive" "$GITHUB_WORKSPACE/result/native16-1.0.0.zip"[0m
+2026-11-26T15:29:26.5649802Z [36;1mjq -n --arg source "$(git rev-parse HEAD)" --arg build '25.4.1.022.0618' --arg sha256 "$(sha256sum "$archive" | cut -d ' ' -f 1)" --arg version '1.0.0' --arg workflow_source "$GITHUB_SHA" --arg workflow_run "$GITHUB_RUN_ID" --arg reviewed_inputs_sha256 "$(sha256sum "$GITHUB_WORKSPACE/result/reviewed-inputs.sha256" | cut -d ' ' -f 1)" '$ARGS.named' > "$GITHUB_WORKSPACE/result/receipt-1.0.0.json"[0m
+2026-11-26T15:29:26.5673887Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:29:26.5674272Z env:
+2026-11-26T15:29:26.5674494Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:29:26.5674812Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:29:26.5675279Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:29:26.5675851Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:29:26.5676293Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:29:26.5676661Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:29:26.5677056Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:29:26.5677540Z   NATIVE_PASSWORD: ***
+2026-11-26T15:29:26.5677903Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:29:26.5678143Z ##[endgroup]
+2026-11-26T15:29:30.2389977Z [0;32mYour artifact has been generated native16-1.0.0.zip[0m
+2026-11-26T15:29:30.8617762Z ##[group]Run python3 "$GITHUB_WORKSPACE/provenance.py" "$GITHUB_WORKSPACE/result/native16-1.0.0.zip" "$GITHUB_WORKSPACE/result/receipt-1.0.0.json" "$(git rev-parse HEAD)" '25.4.1.022.0618'
+2026-11-26T15:29:30.8619335Z [36;1mpython3 "$GITHUB_WORKSPACE/provenance.py" "$GITHUB_WORKSPACE/result/native16-1.0.0.zip" "$GITHUB_WORKSPACE/result/receipt-1.0.0.json" "$(git rev-parse HEAD)" '25.4.1.022.0618'[0m
+2026-11-26T15:29:30.8620446Z [36;1mbash "$GITHUB_WORKSPACE/sql.sh" native-target install <<SQL[0m
+2026-11-26T15:29:30.8621033Z [36;1mproject deploy -file $GITHUB_WORKSPACE/result/native16-1.0.0.zip[0m
+2026-11-26T15:29:30.8621487Z [36;1mSQL[0m
+2026-11-26T15:29:30.8650116Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:29:30.8650405Z env:
+2026-11-26T15:29:30.8650627Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:29:30.8650947Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:29:30.8651494Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:29:30.8652045Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:29:30.8652454Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:29:30.8652851Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:29:30.8653230Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:29:30.8653738Z   NATIVE_PASSWORD: ***
+2026-11-26T15:29:30.8654053Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:29:30.8654282Z ##[endgroup]
+2026-11-26T15:29:34.4881390Z [0;32mStarting the migration...[0m
+2026-11-26T15:29:37.4659331Z Installing/updating schemas
+2026-11-26T15:29:37.4670412Z --Starting Liquibase at 2026-11-26T15:29:34.872215326 using Java 21.0.13.1 (version 4.33.0 #0 built at 2025-12-09 17:47+0000)
+2026-11-26T15:29:37.4710046Z Running Changeset: release/author16/tables/preserved.sql::1795706955388::AUTHOR16
+2026-11-26T15:29:37.4710752Z Table AUTHOR16.PRESERVED created.
+2026-11-26T15:29:37.4711102Z 
+2026-11-26T15:29:37.4711109Z 
+2026-11-26T15:29:37.4711262Z Table AUTHOR16.PRESERVED altered.
+2026-11-26T15:29:37.4711502Z 
+2026-11-26T15:29:37.4711681Z UPDATE SUMMARY
+2026-11-26T15:29:37.4711999Z Run:                          1
+2026-11-26T15:29:37.4712348Z Previously run:               0
+2026-11-26T15:29:37.4712698Z Filtered out:                 0
+2026-11-26T15:29:37.4713057Z -------------------------------
+2026-11-26T15:29:37.4713468Z Total change sets:            1
+2026-11-26T15:29:37.4713637Z 
+2026-11-26T15:29:37.4713888Z Liquibase: Update has been successful. Rows affected: 0
+2026-11-26T15:29:37.4714191Z 
+2026-11-26T15:29:37.4714344Z Produced logfile: sqlcl-lb-1795706974724.log
+2026-11-26T15:29:37.4714668Z 
+2026-11-26T15:29:37.4714836Z Operation completed successfully.
+2026-11-26T15:29:37.4715090Z 
+2026-11-26T15:29:37.4715094Z 
+2026-11-26T15:29:38.1277388Z ##[group]Run bash "$GITHUB_WORKSPACE/sql.sh" native-target seed <<'SQL'
+2026-11-26T15:29:38.1277800Z [36;1mbash "$GITHUB_WORKSPACE/sql.sh" native-target seed <<'SQL'[0m
+2026-11-26T15:29:38.1278114Z [36;1minsert into preserved values (1,'retained across upgrade');[0m
+2026-11-26T15:29:38.1278361Z [36;1mcommit;[0m
+2026-11-26T15:29:38.1278689Z [36;1mSQL[0m
+2026-11-26T15:29:38.1301217Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:29:38.1301443Z env:
+2026-11-26T15:29:38.1301611Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:29:38.1301806Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:29:38.1302224Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:29:38.1302694Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:29:38.1303044Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:29:38.1303382Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:29:38.1303677Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:29:38.1304088Z   NATIVE_PASSWORD: ***
+2026-11-26T15:29:38.1304433Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:29:38.1304621Z ##[endgroup]
+2026-11-26T15:29:41.2486723Z 
+2026-11-26T15:29:41.2487374Z 1 row inserted.
+2026-11-26T15:29:41.2487646Z 
+2026-11-26T15:29:41.2571233Z 
+2026-11-26T15:29:41.2571991Z Commit complete.
+2026-11-26T15:29:41.2572377Z 
+2026-11-26T15:29:41.8459096Z ##[group]Run python3 provision_host.py application-import
+2026-11-26T15:29:41.8459531Z [36;1mpython3 provision_host.py application-import[0m
+2026-11-26T15:29:41.8483620Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:29:41.8483844Z env:
+2026-11-26T15:29:41.8484023Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:29:41.8484222Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:29:41.8484627Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:29:41.8485111Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:29:41.8485452Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:29:41.8485761Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:29:41.8486053Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:29:41.8486462Z   NATIVE_PASSWORD: ***
+2026-11-26T15:29:41.8486735Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:29:41.8486918Z ##[endgroup]
+2026-11-26T15:29:43.4779390Z ##[group]Run python3 provision_host.py verify
+2026-11-26T15:29:43.4779674Z [36;1mpython3 provision_host.py verify[0m
+2026-11-26T15:29:43.4802321Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:29:43.4802544Z env:
+2026-11-26T15:29:43.4802726Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:29:43.4802925Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:29:43.4803338Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:29:43.4803821Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:29:43.4804168Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:29:43.4804484Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:29:43.4804786Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:29:43.4805220Z   NATIVE_PASSWORD: ***
+2026-11-26T15:29:43.4805630Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:29:43.4805832Z ##[endgroup]
+2026-11-26T15:29:44.9422590Z PASS actual ORDS APEX application login page
+2026-11-26T15:29:44.9580462Z ##[group]Run git branch -f baseline HEAD
+2026-11-26T15:29:44.9580771Z [36;1mgit branch -f baseline HEAD[0m
+2026-11-26T15:29:44.9581172Z [36;1mbash "$GITHUB_WORKSPACE/sql.sh" native-author author-upgrade <<'SQL'[0m
+2026-11-26T15:29:44.9581653Z [36;1malter table preserved add (extra varchar2(80));[0m
+2026-11-26T15:29:44.9581993Z [36;1mSQL[0m
+2026-11-26T15:29:44.9612501Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:29:44.9612810Z env:
+2026-11-26T15:29:44.9613170Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:29:44.9613478Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:29:44.9614047Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:29:44.9614725Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:29:44.9615221Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:29:44.9615758Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:29:44.9616195Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:29:44.9616769Z   NATIVE_PASSWORD: ***
+2026-11-26T15:29:44.9617121Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:29:44.9617388Z ##[endgroup]
+2026-11-26T15:29:48.1807314Z 
+2026-11-26T15:29:48.1807842Z Table PRESERVED altered.
+2026-11-26T15:29:48.1808135Z 
+2026-11-26T15:29:48.8172573Z ##[group]Run bash "$GITHUB_WORKSPACE/sql.sh" native-author export-2 <<'SQL'
+2026-11-26T15:29:48.8172968Z [36;1mbash "$GITHUB_WORKSPACE/sql.sh" native-author export-2 <<'SQL'[0m
+2026-11-26T15:29:48.8173273Z [36;1mproject export -schemas AUTHOR16[0m
+2026-11-26T15:29:48.8173485Z [36;1mSQL[0m
+2026-11-26T15:29:48.8173647Z [36;1mgit add .[0m
+2026-11-26T15:29:48.8173847Z [36;1mgit commit -m 'feat: reviewed source 1.1.0'[0m
+2026-11-26T15:29:48.8195652Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:29:48.8196037Z env:
+2026-11-26T15:29:48.8196217Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:29:48.8196413Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:29:48.8196815Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:29:48.8197290Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:29:48.8197676Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:29:48.8197985Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:29:48.8198287Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:29:48.8198854Z   NATIVE_PASSWORD: ***
+2026-11-26T15:29:48.8199099Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:29:48.8199275Z ##[endgroup]
+2026-11-26T15:29:52.5170070Z [0;37mThe current connection AUTHOR16 will be used for all operations[0m
+2026-11-26T15:29:55.1080263Z *** TABLES ***
+2026-11-26T15:29:56.4191804Z [0;32m-------------------------------
+2026-11-26T15:29:56.4192276Z TABLE                         1
+2026-11-26T15:29:56.4192581Z -------------------------------[0m
+2026-11-26T15:29:56.4192865Z Exported 1 objects
+2026-11-26T15:29:56.4193103Z Elapsed 3 sec
+2026-11-26T15:29:57.0373348Z [release b956b46] feat: reviewed source 1.1.0
+2026-11-26T15:29:57.0373749Z  1 file changed, 3 insertions(+), 2 deletions(-)
+2026-11-26T15:29:57.0397362Z ##[group]Run bash "$GITHUB_WORKSPACE/sql.sh" native-author stage-2 <<'SQL'
+2026-11-26T15:29:57.0397744Z [36;1mbash "$GITHUB_WORKSPACE/sql.sh" native-author stage-2 <<'SQL'[0m
+2026-11-26T15:29:57.0398040Z [36;1mproject stage -branch-name baseline[0m
+2026-11-26T15:29:57.0398250Z [36;1mSQL[0m
+2026-11-26T15:29:57.0419766Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:29:57.0419971Z env:
+2026-11-26T15:29:57.0420142Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:29:57.0420356Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:29:57.0420759Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:29:57.0421247Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:29:57.0421599Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:29:57.0421902Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:29:57.0422231Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:29:57.0422617Z   NATIVE_PASSWORD: ***
+2026-11-26T15:29:57.0422850Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:29:57.0423039Z ##[endgroup]
+2026-11-26T15:30:00.7027848Z [0;37mThe current connection AUTHOR16 will be used for all operations[0m
+2026-11-26T15:30:01.7829791Z 
+2026-11-26T15:30:01.7839770Z Stage is Comparing:
+2026-11-26T15:30:01.7840507Z [0;33mOld Branch	refs/heads/baseline[0m
+2026-11-26T15:30:01.7840926Z [0;32mNew Branch	refs/heads/release[0m
+2026-11-26T15:30:01.7841165Z 
+2026-11-26T15:30:02.5106251Z [0;37m[0m
+2026-11-26T15:30:02.7120888Z [0;37m[0m
+2026-11-26T15:30:02.7121307Z [0;32mStage processing completed, please review and commit your changes to repository[0m
+2026-11-26T15:30:02.7121709Z [0;37m[0m
+2026-11-26T15:30:02.9314969Z [0;33mChanges not staged for commit[0m
+2026-11-26T15:30:02.9323444Z [0;31m	modified: dist/releases/next/release.changelog.xml[0m
+2026-11-26T15:30:02.9324088Z 
+2026-11-26T15:30:02.9324500Z [0;33m Untracked files:[0m
+2026-11-26T15:30:02.9324938Z [0;31m	artifact[0m
+2026-11-26T15:30:02.9325380Z [0;31m	dist/releases/1.0.0/changes/release/_custom[0m
+2026-11-26T15:30:02.9325859Z [0;31m	dist/releases/next/changes[0m
+2026-11-26T15:30:02.9326291Z [0;31m	dist/releases/apex[0m
+2026-11-26T15:30:03.5374339Z ##[group]Run bash "$GITHUB_WORKSPACE/sql.sh" native-author verify-2 <<'SQL'
+2026-11-26T15:30:03.5374732Z [36;1mbash "$GITHUB_WORKSPACE/sql.sh" native-author verify-2 <<'SQL'[0m
+2026-11-26T15:30:03.5375072Z [36;1mproject verify -compared-branch-name baseline -verbose[0m
+2026-11-26T15:30:03.5375444Z [36;1mSQL[0m
+2026-11-26T15:30:03.5398215Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:30:03.5398574Z env:
+2026-11-26T15:30:03.5398752Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:30:03.5398952Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:30:03.5399355Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:30:03.5399838Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:03.5400193Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:03.5400506Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:30:03.5400844Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:30:03.5401230Z   NATIVE_PASSWORD: ***
+2026-11-26T15:30:03.5401469Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:30:03.5401649Z ##[endgroup]
+2026-11-26T15:30:07.3631510Z [0;37mThe current connection AUTHOR16 will be used for all operations[0m
+2026-11-26T15:30:08.2169941Z -------- Results Summary ----------
+2026-11-26T15:30:08.2209918Z [0;31mErrors:     0[0m
+2026-11-26T15:30:08.2215040Z [0;33mWarnings:   1[0m
+2026-11-26T15:30:08.2215546Z [0;32mInfo:       14[0m
+2026-11-26T15:30:08.2215954Z ---------------------------------
+2026-11-26T15:30:08.2216240Z 
+2026-11-26T15:30:08.2216579Z  ------- ----------- -------------------------------------- ---------------------------------- 
+2026-11-26T15:30:08.2217240Z   Level   Group       Test Name                              Message                           
+2026-11-26T15:30:08.2217872Z           Name                                                                                 
+2026-11-26T15:30:08.2218624Z  ------- ----------- -------------------------------------- ---------------------------------- 
+2026-11-26T15:30:08.2219492Z   [0;32mINFO[0m    init        verifyprojectname                      The final project name will be    
+2026-11-26T15:30:08.2220126Z                                                              "native16"                        
+2026-11-26T15:30:08.2220638Z                                                                                                
+2026-11-26T15:30:08.2221357Z   [0;32mINFO[0m    init        initconfigfileschanges                 Comparison with current SQLcl     
+2026-11-26T15:30:08.2222009Z                                                              version:                          
+2026-11-26T15:30:08.2222498Z                                                              There are no differences found.   
+2026-11-26T15:30:08.2222941Z                                                                                                
+2026-11-26T15:30:08.2223571Z   [0;32mINFO[0m    stageapex   apexchangelogcomplete                  There is no apex application      
+2026-11-26T15:30:08.2224198Z                                                              staged. (Apex folder isnt         
+2026-11-26T15:30:08.2224698Z                                                              mentioned in main changelog)      
+2026-11-26T15:30:08.2225185Z                                                                                                
+2026-11-26T15:30:08.2225931Z   [0;32mINFO[0m    stageapex   apexchangelogfilesvalid                There is no apex application      
+2026-11-26T15:30:08.2226523Z                                                              staged. (Apex folder isnt         
+2026-11-26T15:30:08.2238972Z                                                              mentioned in main changelog)      
+2026-11-26T15:30:08.2242105Z                                                                                                
+2026-11-26T15:30:08.2243008Z   [0;32mINFO[0m    stageapex   apexinsrcmatchesdist                   All Apex applications and their   
+2026-11-26T15:30:08.2244333Z                                                              contents in dist match the Apex   
+2026-11-26T15:30:08.2250783Z                                                              applications in src, no issues    
+2026-11-26T15:30:08.2263550Z                                                              found.                            
+2026-11-26T15:30:08.2264289Z                                                                                                
+2026-11-26T15:30:08.2265052Z   [0;32mINFO[0m    stage       stagechangelogfilesvalid               .dbtools/project.config.json      
+2026-11-26T15:30:08.2265623Z                                                              generated format: liquibase       
+2026-11-26T15:30:08.2266143Z                                                              All included scripts are          
+2026-11-26T15:30:08.2266651Z                                                              present, not cross-referencing    
+2026-11-26T15:30:08.2267162Z                                                              and readable (6 checked)          
+2026-11-26T15:30:08.2267596Z                                                                                                
+2026-11-26T15:30:08.2268350Z   [0;33mWARN[0m    stage       stagesoftobjectisolationsprintchange   There are no soft objects         
+2026-11-26T15:30:08.2269350Z                                                              present in changes folder,        
+2026-11-26T15:30:08.2269826Z                                                              SoftObjectIsolation value cannot  
+2026-11-26T15:30:08.2270291Z                                                              be verified.                      
+2026-11-26T15:30:08.2270713Z                                                                                                
+2026-11-26T15:30:08.2271387Z   [0;32mINFO[0m    stage       stagesoftobjectisolation               SoftObjectIsolation: Change       
+2026-11-26T15:30:08.2271974Z                                                              OK: Code folder is absent.        
+2026-11-26T15:30:08.2272424Z                                                                                                
+2026-11-26T15:30:08.2273117Z   [0;32mINFO[0m    stage       stageduplicateentries                  .dbtools/project.config.json      
+2026-11-26T15:30:08.2273737Z                                                              generated format: liquibase       
+2026-11-26T15:30:08.2274322Z                                                              dist/releases/main.changelog.xml  
+2026-11-26T15:30:08.2274786Z                                                              - There are no duplicate          
+2026-11-26T15:30:08.2275256Z                                                              entries.                          
+2026-11-26T15:30:08.2275709Z                                                              Release Changelogs - There are    
+2026-11-26T15:30:08.2276165Z                                                              no duplicate entries.             
+2026-11-26T15:30:08.2276661Z                                                              Stage Changelogs - There are no   
+2026-11-26T15:30:08.2277172Z                                                              duplicate entries.                
+2026-11-26T15:30:08.2277608Z                                                                                                
+2026-11-26T15:30:08.2278267Z   [0;32mINFO[0m    stage       stagechangelogcomplete                 Stage Changelog validation found  
+2026-11-26T15:30:08.2279064Z                                                              no issues.                        
+2026-11-26T15:30:08.2279516Z                                                                                                
+2026-11-26T15:30:08.2280430Z   [0;32mINFO[0m    stage       stagesourcediff                        All modified files are            
+2026-11-26T15:30:08.2281033Z                                                              represented in dist folder        
+2026-11-26T15:30:08.2281547Z                                                              All changes in dist folder are    
+2026-11-26T15:30:08.2282152Z                                                              represented in src folder         
+2026-11-26T15:30:08.2282627Z                                                                                                
+2026-11-26T15:30:08.2283269Z   [0;32mINFO[0m    project     sqlclversion                           SQLcl Version check passed        
+2026-11-26T15:30:08.2283729Z                                                                                                
+2026-11-26T15:30:08.2284280Z   [0;32mINFO[0m    export      exportvalidatefilters                  Filters validation is             
+2026-11-26T15:30:08.2284832Z                                                              successful.                       
+2026-11-26T15:30:08.2285278Z                                                                                                
+2026-11-26T15:30:08.2285921Z   [0;32mINFO[0m    export      exportformatterrules                   The XML parsing of                
+2026-11-26T15:30:08.2286538Z                                                              project.sqlformat.xml file        
+2026-11-26T15:30:08.2287020Z                                                              passed successfully.              
+2026-11-26T15:30:08.2287599Z                                                              Keys and values for               
+2026-11-26T15:30:08.2288127Z                                                              project.sqlformat.xml are all     
+2026-11-26T15:30:08.2288770Z                                                              valid.                            
+2026-11-26T15:30:08.2289215Z                                                                                                
+2026-11-26T15:30:08.2289872Z   [0;32mINFO[0m    snapshot    verifysnapshot                         Snapshot validation found no      
+2026-11-26T15:30:08.2290464Z                                                              issues.                           
+2026-11-26T15:30:08.2290953Z                                                                                                
+2026-11-26T15:30:08.2291265Z 
+2026-11-26T15:30:08.8101631Z ##[group]Run bash "$GITHUB_WORKSPACE/sql.sh" native-author release-2 <<'SQL'
+2026-11-26T15:30:08.8102173Z [36;1mbash "$GITHUB_WORKSPACE/sql.sh" native-author release-2 <<'SQL'[0m
+2026-11-26T15:30:08.8102559Z [36;1mproject release -version 1.1.0[0m
+2026-11-26T15:30:08.8102851Z [36;1mSQL[0m
+2026-11-26T15:30:08.8103041Z [36;1mgit add .[0m
+2026-11-26T15:30:08.8103318Z [36;1mgit commit -m 'chore: prepare native release 1.1.0'[0m
+2026-11-26T15:30:08.8129689Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:30:08.8129966Z env:
+2026-11-26T15:30:08.8130155Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:30:08.8130359Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:30:08.8130793Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:30:08.8131300Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:08.8131693Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:08.8132000Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:30:08.8132306Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:30:08.8132709Z   NATIVE_PASSWORD: ***
+2026-11-26T15:30:08.8132955Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:30:08.8133136Z ##[endgroup]
+2026-11-26T15:30:12.7873397Z [0;32mProcess completed successfully[0m
+2026-11-26T15:30:13.4099326Z [release ddc40d9] chore: prepare native release 1.1.0
+2026-11-26T15:30:13.4099712Z  5 files changed, 26 insertions(+), 1 deletion(-)
+2026-11-26T15:30:13.4100139Z  create mode 100644 dist/releases/1.1.0/changes/release/author16/tables/preserved.sql
+2026-11-26T15:30:13.4100639Z  create mode 100644 dist/releases/1.1.0/changes/release/stage.changelog.xml
+2026-11-26T15:30:13.4101334Z  create mode 100644 dist/releases/1.1.0/release.changelog.xml
+2026-11-26T15:30:13.4120927Z ##[group]Run bash "$GITHUB_WORKSPACE/sql.sh" native-author package-1.1.0 <<'SQL'
+2026-11-26T15:30:13.4121322Z [36;1mbash "$GITHUB_WORKSPACE/sql.sh" native-author package-1.1.0 <<'SQL'[0m
+2026-11-26T15:30:13.4121796Z [36;1mproject gen-artifact -name native16 -version 1.1.0[0m
+2026-11-26T15:30:13.4122043Z [36;1mSQL[0m
+2026-11-26T15:30:13.4122243Z [36;1marchive=$(find . -name 'native16-1.1.0.zip')[0m
+2026-11-26T15:30:13.4122479Z [36;1mtest -f "$archive"[0m
+2026-11-26T15:30:13.4122719Z [36;1mcp "$archive" "$GITHUB_WORKSPACE/result/native16-1.1.0.zip"[0m
+2026-11-26T15:30:13.4123774Z [36;1mjq -n --arg source "$(git rev-parse HEAD)" --arg build '25.4.1.022.0618' --arg sha256 "$(sha256sum "$archive" | cut -d ' ' -f 1)" --arg version '1.1.0' --arg workflow_source "$GITHUB_SHA" --arg workflow_run "$GITHUB_RUN_ID" --arg reviewed_inputs_sha256 "$(sha256sum "$GITHUB_WORKSPACE/result/reviewed-inputs.sha256" | cut -d ' ' -f 1)" '$ARGS.named' > "$GITHUB_WORKSPACE/result/receipt-1.1.0.json"[0m
+2026-11-26T15:30:13.4146773Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:30:13.4146979Z env:
+2026-11-26T15:30:13.4147151Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:30:13.4147351Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:30:13.4147749Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:30:13.4148233Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:13.4148732Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:13.4149041Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:30:13.4149346Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:30:13.4149737Z   NATIVE_PASSWORD: ***
+2026-11-26T15:30:13.4150066Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:30:13.4150284Z ##[endgroup]
+2026-11-26T15:30:16.9996248Z [0;32mYour artifact has been generated native16-1.1.0.zip[0m
+2026-11-26T15:30:17.6326863Z ##[group]Run python3 "$GITHUB_WORKSPACE/provenance.py" "$GITHUB_WORKSPACE/result/native16-1.1.0.zip" "$GITHUB_WORKSPACE/result/receipt-1.1.0.json" "$(git rev-parse HEAD)" '25.4.1.022.0618'
+2026-11-26T15:30:17.6327780Z [36;1mpython3 "$GITHUB_WORKSPACE/provenance.py" "$GITHUB_WORKSPACE/result/native16-1.1.0.zip" "$GITHUB_WORKSPACE/result/receipt-1.1.0.json" "$(git rev-parse HEAD)" '25.4.1.022.0618'[0m
+2026-11-26T15:30:17.6328353Z [36;1mbash "$GITHUB_WORKSPACE/sql.sh" native-target upgrade <<SQL[0m
+2026-11-26T15:30:17.6328937Z [36;1mproject deploy -file $GITHUB_WORKSPACE/result/native16-1.1.0.zip[0m
+2026-11-26T15:30:17.6329220Z [36;1mSQL[0m
+2026-11-26T15:30:17.6350900Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:30:17.6351119Z env:
+2026-11-26T15:30:17.6351288Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:30:17.6351482Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:30:17.6352035Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:30:17.6352615Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:17.6352968Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:17.6353284Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:30:17.6353587Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:30:17.6353992Z   NATIVE_PASSWORD: ***
+2026-11-26T15:30:17.6354292Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:30:17.6354478Z ##[endgroup]
+2026-11-26T15:30:21.2642002Z [0;32mStarting the migration...[0m
+2026-11-26T15:30:23.8540276Z Installing/updating schemas
+2026-11-26T15:30:23.8550223Z --Starting Liquibase at 2026-11-26T15:30:21.570982715 using Java 21.0.13.1 (version 4.33.0 #0 built at 2025-12-09 17:47+0000)
+2026-11-26T15:30:23.8559748Z Running Changeset: release/author16/tables/preserved.sql::1795707002338::AUTHOR16
+2026-11-26T15:30:23.8575533Z Table AUTHOR16.PRESERVED altered.
+2026-11-26T15:30:23.8575752Z 
+2026-11-26T15:30:23.8575857Z UPDATE SUMMARY
+2026-11-26T15:30:23.8576092Z Run:                          1
+2026-11-26T15:30:23.8576379Z Previously run:               1
+2026-11-26T15:30:23.8576657Z Filtered out:                 0
+2026-11-26T15:30:23.8576895Z -------------------------------
+2026-11-26T15:30:23.8577157Z Total change sets:            2
+2026-11-26T15:30:23.8577323Z 
+2026-11-26T15:30:23.8577489Z Liquibase: Update has been successful. Rows affected: 0
+2026-11-26T15:30:23.8577722Z 
+2026-11-26T15:30:23.8577836Z Produced logfile: sqlcl-lb-1795707021472.log
+2026-11-26T15:30:23.8578047Z 
+2026-11-26T15:30:23.8578155Z Operation completed successfully.
+2026-11-26T15:30:23.8578330Z 
+2026-11-26T15:30:23.8578334Z 
+2026-11-26T15:30:24.4512844Z ##[group]Run bash "$GITHUB_WORKSPACE/sql.sh" native-target assert-upgrade <<'SQL'
+2026-11-26T15:30:24.4513262Z [36;1mbash "$GITHUB_WORKSPACE/sql.sh" native-target assert-upgrade <<'SQL'[0m
+2026-11-26T15:30:24.4513588Z [36;1mselect id,message,extra from preserved;[0m
+2026-11-26T15:30:24.4513812Z [36;1mbegin[0m
+2026-11-26T15:30:24.4514267Z [36;1m declare n number; begin select count(*) into n from preserved where id=1 and message='retained across upgrade'; if n<>1 then raise_application_error(-20016,'lost data');end if;end;[0m
+2026-11-26T15:30:24.4514754Z [36;1mend;[0m
+2026-11-26T15:30:24.4514910Z [36;1m/[0m
+2026-11-26T15:30:24.4515056Z [36;1mSQL[0m
+2026-11-26T15:30:24.4538128Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:30:24.4538346Z env:
+2026-11-26T15:30:24.4538660Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:30:24.4538869Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:30:24.4539314Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:30:24.4539792Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:24.4540151Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:24.4540468Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:30:24.4540770Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:30:24.4541191Z   NATIVE_PASSWORD: ***
+2026-11-26T15:30:24.4541476Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:30:24.4541667Z ##[endgroup]
+2026-11-26T15:30:28.1777686Z 
+2026-11-26T15:30:28.1833704Z    [1mID[m [1mMESSAGE[m                    [1mEXTRA[m    
+2026-11-26T15:30:28.1834356Z _____ __________________________ ________ 
+2026-11-26T15:30:28.1834947Z     1 retained across upgrade             
+2026-11-26T15:30:28.1835328Z 
+2026-11-26T15:30:28.2960057Z 
+2026-11-26T15:30:28.2960705Z PL/SQL procedure successfully completed.
+2026-11-26T15:30:28.2960932Z 
+2026-11-26T15:30:28.8803295Z ##[group]Run python3 "$GITHUB_WORKSPACE/provenance.py" "$GITHUB_WORKSPACE/result/native16-1.1.0.zip" "$GITHUB_WORKSPACE/result/receipt-1.1.0.json" "$(git rev-parse HEAD)" '25.4.1.022.0618'
+2026-11-26T15:30:28.8804106Z [36;1mpython3 "$GITHUB_WORKSPACE/provenance.py" "$GITHUB_WORKSPACE/result/native16-1.1.0.zip" "$GITHUB_WORKSPACE/result/receipt-1.1.0.json" "$(git rev-parse HEAD)" '25.4.1.022.0618'[0m
+2026-11-26T15:30:28.8804655Z [36;1mbash "$GITHUB_WORKSPACE/sql.sh" native-target repeat <<SQL[0m
+2026-11-26T15:30:28.8805005Z [36;1mproject deploy -file $GITHUB_WORKSPACE/result/native16-1.1.0.zip[0m
+2026-11-26T15:30:28.8805278Z [36;1mSQL[0m
+2026-11-26T15:30:28.8828104Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:30:28.8828333Z env:
+2026-11-26T15:30:28.8828656Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:30:28.8828917Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:30:28.8829378Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:30:28.8829860Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:28.8830207Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:28.8830652Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:30:28.8830956Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:30:28.8831352Z   NATIVE_PASSWORD: ***
+2026-11-26T15:30:28.8831581Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:30:28.8831761Z ##[endgroup]
+2026-11-26T15:30:32.5575759Z [0;32mStarting the migration...[0m
+2026-11-26T15:30:33.6659823Z Installing/updating schemas
+2026-11-26T15:30:33.6669205Z --Starting Liquibase at 2026-11-26T15:30:32.808797589 using Java 21.0.13.1 (version 4.33.0 #0 built at 2025-12-09 17:47+0000)
+2026-11-26T15:30:33.6689716Z Database is up to date, no changesets to execute
+2026-11-26T15:30:33.6719006Z 
+2026-11-26T15:30:33.6746123Z UPDATE SUMMARY
+2026-11-26T15:30:33.6759961Z Run:                          0
+2026-11-26T15:30:33.6789247Z Previously run:               2
+2026-11-26T15:30:33.6799143Z Filtered out:                 0
+2026-11-26T15:30:33.6799795Z -------------------------------
+2026-11-26T15:30:33.6802666Z Total change sets:            2
+2026-11-26T15:30:33.6814730Z 
+2026-11-26T15:30:33.6814762Z 
+2026-11-26T15:30:33.6815064Z Produced logfile: sqlcl-lb-1795707032761.log
+2026-11-26T15:30:33.6815255Z 
+2026-11-26T15:30:33.6815352Z Operation completed successfully.
+2026-11-26T15:30:33.6815522Z 
+2026-11-26T15:30:33.6815749Z 
+2026-11-26T15:30:34.2987412Z ##[group]Run bash "$GITHUB_WORKSPACE/sql.sh" native-target assert-repeat <<'SQL'
+2026-11-26T15:30:34.2987814Z [36;1mbash "$GITHUB_WORKSPACE/sql.sh" native-target assert-repeat <<'SQL'[0m
+2026-11-26T15:30:34.2988122Z [36;1mselect id,message,extra from preserved;[0m
+2026-11-26T15:30:34.2988339Z [36;1mbegin[0m
+2026-11-26T15:30:34.2988980Z [36;1m declare n number; begin select count(*) into n from preserved where id=1 and message='retained across upgrade'; if n<>1 then raise_application_error(-20016,'lost data');end if;end;[0m
+2026-11-26T15:30:34.2989457Z [36;1mend;[0m
+2026-11-26T15:30:34.2989621Z [36;1m/[0m
+2026-11-26T15:30:34.2989772Z [36;1mSQL[0m
+2026-11-26T15:30:34.3010628Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:30:34.3010861Z env:
+2026-11-26T15:30:34.3011030Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:30:34.3011228Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:30:34.3011667Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:30:34.3012155Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:34.3012505Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:34.3012823Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:30:34.3013124Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:30:34.3013519Z   NATIVE_PASSWORD: ***
+2026-11-26T15:30:34.3013756Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:30:34.3013937Z ##[endgroup]
+2026-11-26T15:30:38.0939802Z 
+2026-11-26T15:30:38.1016532Z    [1mID[m [1mMESSAGE[m                    [1mEXTRA[m    
+2026-11-26T15:30:38.1019037Z _____ __________________________ ________ 
+2026-11-26T15:30:38.1019512Z     1 retained across upgrade             
+2026-11-26T15:30:38.1019812Z 
+2026-11-26T15:30:38.2089627Z 
+2026-11-26T15:30:38.2090807Z PL/SQL procedure successfully completed.
+2026-11-26T15:30:38.2091229Z 
+2026-11-26T15:30:38.7947451Z ##[group]Run bash "$GITHUB_WORKSPACE/sql.sh" native-target negative-before <<'SQL'
+2026-11-26T15:30:38.7947920Z [36;1mbash "$GITHUB_WORKSPACE/sql.sh" native-target negative-before <<'SQL'[0m
+2026-11-26T15:30:38.7948233Z [36;1mselect id,message,extra from preserved;[0m
+2026-11-26T15:30:38.7948627Z [36;1mSQL[0m
+2026-11-26T15:30:38.7970712Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:30:38.7970934Z env:
+2026-11-26T15:30:38.7971103Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:30:38.7971298Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:30:38.7971698Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:30:38.7972314Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:38.7972669Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:38.7972976Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:30:38.7973315Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:30:38.7973699Z   NATIVE_PASSWORD: ***
+2026-11-26T15:30:38.7973942Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:30:38.7974123Z ##[endgroup]
+2026-11-26T15:30:42.4717294Z 
+2026-11-26T15:30:42.4770124Z    [1mID[m [1mMESSAGE[m                    [1mEXTRA[m    
+2026-11-26T15:30:42.4770822Z _____ __________________________ ________ 
+2026-11-26T15:30:42.4799826Z     1 retained across upgrade             
+2026-11-26T15:30:42.4823018Z 
+2026-11-26T15:30:43.1151314Z ##[group]Run jq '.sha256 = "0000000000000000000000000000000000000000000000000000000000000000"' "$GITHUB_WORKSPACE/result/receipt-1.1.0.json" > "$RUNNER_TEMP/wrong-receipt.json"
+2026-11-26T15:30:43.1152117Z [36;1mjq '.sha256 = "0000000000000000000000000000000000000000000000000000000000000000"' "$GITHUB_WORKSPACE/result/receipt-1.1.0.json" > "$RUNNER_TEMP/wrong-receipt.json"[0m
+2026-11-26T15:30:43.1152993Z [36;1mif python3 "$GITHUB_WORKSPACE/provenance.py" "$GITHUB_WORKSPACE/result/native16-1.1.0.zip" "$RUNNER_TEMP/wrong-receipt.json" "$(git rev-parse HEAD)" '25.4.1.022.0618' > "$GITHUB_WORKSPACE/result/reject-artifact.txt" 2>&1; then exit 1; fi[0m
+2026-11-26T15:30:43.1153716Z [36;1mgrep -qx 'artifact mismatch' "$GITHUB_WORKSPACE/result/reject-artifact.txt"[0m
+2026-11-26T15:30:43.1177832Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:30:43.1178062Z env:
+2026-11-26T15:30:43.1178233Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:30:43.1178569Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:30:43.1179050Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:30:43.1179545Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:43.1179898Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:43.1180217Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:30:43.1180518Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:30:43.1180910Z   NATIVE_PASSWORD: ***
+2026-11-26T15:30:43.1181144Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:30:43.1181323Z ##[endgroup]
+2026-11-26T15:30:43.1499197Z ##[group]Run jq '.source = "0000000000000000000000000000000000000000"' "$GITHUB_WORKSPACE/result/receipt-1.1.0.json" > "$RUNNER_TEMP/wrong-receipt.json"
+2026-11-26T15:30:43.1500134Z [36;1mjq '.source = "0000000000000000000000000000000000000000"' "$GITHUB_WORKSPACE/result/receipt-1.1.0.json" > "$RUNNER_TEMP/wrong-receipt.json"[0m
+2026-11-26T15:30:43.1501342Z [36;1mif python3 "$GITHUB_WORKSPACE/provenance.py" "$GITHUB_WORKSPACE/result/native16-1.1.0.zip" "$RUNNER_TEMP/wrong-receipt.json" "$(git rev-parse HEAD)" '25.4.1.022.0618' > "$GITHUB_WORKSPACE/result/reject-source.txt" 2>&1; then exit 1; fi[0m
+2026-11-26T15:30:43.1502324Z [36;1mgrep -qx 'source mismatch' "$GITHUB_WORKSPACE/result/reject-source.txt"[0m
+2026-11-26T15:30:43.1521357Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:30:43.1521575Z env:
+2026-11-26T15:30:43.1521750Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:30:43.1521947Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:30:43.1522386Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:30:43.1522863Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:43.1523212Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:43.1523517Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:30:43.1523826Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:30:43.1524354Z   NATIVE_PASSWORD: ***
+2026-11-26T15:30:43.1524594Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:30:43.1524872Z ##[endgroup]
+2026-11-26T15:30:43.1831458Z ##[group]Run "$INCOMPATIBLE_SQL_EXE" -version > "$GITHUB_WORKSPACE/result/incompatible-tool.txt" 2>&1
+2026-11-26T15:30:43.1831957Z [36;1m"$INCOMPATIBLE_SQL_EXE" -version > "$GITHUB_WORKSPACE/result/incompatible-tool.txt" 2>&1[0m
+2026-11-26T15:30:43.1832420Z [36;1mwrong_build=$(grep -oE '25[.]3[.]0[.]274[.]1210' "$GITHUB_WORKSPACE/result/incompatible-tool.txt")[0m
+2026-11-26T15:30:43.1833159Z [36;1mif python3 "$GITHUB_WORKSPACE/provenance.py" "$GITHUB_WORKSPACE/result/native16-1.1.0.zip" "$GITHUB_WORKSPACE/result/receipt-1.1.0.json" "$(git rev-parse HEAD)" "$wrong_build" > "$GITHUB_WORKSPACE/result/reject-tool.txt" 2>&1; then exit 1; fi[0m
+2026-11-26T15:30:43.1833859Z [36;1mgrep -qx 'tool mismatch' "$GITHUB_WORKSPACE/result/reject-tool.txt"[0m
+2026-11-26T15:30:43.1850579Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:30:43.1850795Z env:
+2026-11-26T15:30:43.1850960Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:30:43.1851164Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:30:43.1851587Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:30:43.1852063Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:43.1852417Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:43.1852726Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:30:43.1853025Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:30:43.1853403Z   NATIVE_PASSWORD: ***
+2026-11-26T15:30:43.1853639Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:30:43.1853826Z ##[endgroup]
+2026-11-26T15:30:44.7981872Z ##[group]Run cp "$GITHUB_WORKSPACE/result/native16-1.1.0.zip" "$GITHUB_WORKSPACE/result/substituted.zip"
+2026-11-26T15:30:44.7982433Z [36;1mcp "$GITHUB_WORKSPACE/result/native16-1.1.0.zip" "$GITHUB_WORKSPACE/result/substituted.zip"[0m
+2026-11-26T15:30:44.7982829Z [36;1mprintf 'altered' >> "$GITHUB_WORKSPACE/result/substituted.zip"[0m
+2026-11-26T15:30:44.7983537Z [36;1mif python3 "$GITHUB_WORKSPACE/provenance.py" "$GITHUB_WORKSPACE/result/substituted.zip" "$GITHUB_WORKSPACE/result/receipt-1.1.0.json" "$(git rev-parse HEAD)" '25.4.1.022.0618' > "$GITHUB_WORKSPACE/result/reject-substituted-bytes.txt" 2>&1; then exit 1; fi[0m
+2026-11-26T15:30:44.7984326Z [36;1mgrep -qx 'artifact mismatch' "$GITHUB_WORKSPACE/result/reject-substituted-bytes.txt"[0m
+2026-11-26T15:30:44.8004630Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:30:44.8004857Z env:
+2026-11-26T15:30:44.8005030Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:30:44.8005225Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:30:44.8005662Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:30:44.8006164Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:44.8006521Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:44.8006839Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:30:44.8007217Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:30:44.8007654Z   NATIVE_PASSWORD: ***
+2026-11-26T15:30:44.8007900Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:30:44.8008084Z ##[endgroup]
+2026-11-26T15:30:44.8299547Z ##[group]Run bash "$GITHUB_WORKSPACE/sql.sh" native-target negative-after <<'SQL'
+2026-11-26T15:30:44.8299944Z [36;1mbash "$GITHUB_WORKSPACE/sql.sh" native-target negative-after <<'SQL'[0m
+2026-11-26T15:30:44.8300257Z [36;1mselect id,message,extra from preserved;[0m
+2026-11-26T15:30:44.8300479Z [36;1mSQL[0m
+2026-11-26T15:30:44.8300793Z [36;1mcmp "$GITHUB_WORKSPACE/result/negative-before.log" "$GITHUB_WORKSPACE/result/negative-after.log"[0m
+2026-11-26T15:30:44.8301333Z [36;1mgit bundle create "$GITHUB_WORKSPACE/result/native-history.bundle" --all[0m
+2026-11-26T15:30:44.8302066Z [36;1mjq -n --arg source "$(git rev-parse HEAD)" '{native_install:true,native_upgrade:true,native_repeat:true,preserved:true,negatives:["artifact","source","tool","substituted-bytes"],source:$source}' > "$GITHUB_WORKSPACE/result/success.json"[0m
+2026-11-26T15:30:44.8320926Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:30:44.8321180Z env:
+2026-11-26T15:30:44.8321344Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:30:44.8321571Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:30:44.8321970Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:30:44.8322455Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:44.8322805Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:44.8323113Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:30:44.8323427Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:30:44.8323796Z   NATIVE_PASSWORD: ***
+2026-11-26T15:30:44.8324039Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:30:44.8324214Z ##[endgroup]
+2026-11-26T15:30:48.6859289Z 
+2026-11-26T15:30:48.6909918Z    [1mID[m [1mMESSAGE[m                    [1mEXTRA[m    
+2026-11-26T15:30:48.6930505Z _____ __________________________ ________ 
+2026-11-26T15:30:48.6945925Z     1 retained across upgrade             
+2026-11-26T15:30:48.6957584Z 
+2026-11-26T15:30:49.3217493Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+2026-11-26T15:30:49.3217778Z with:
+2026-11-26T15:30:49.3217944Z   node-version: 22
+2026-11-26T15:30:49.3218112Z   always-auth: false
+2026-11-26T15:30:49.3218279Z   check-latest: false
+2026-11-26T15:30:49.3220131Z   token: ***
+2026-11-26T15:30:49.3220288Z env:
+2026-11-26T15:30:49.3220456Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:30:49.3220664Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:30:49.3221048Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:30:49.3221553Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:49.3221900Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:49.3222258Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:30:49.3222595Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:30:49.3222932Z   NATIVE_PASSWORD: ***
+2026-11-26T15:30:49.3223173Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:30:49.3223347Z ##[endgroup]
+2026-11-26T15:30:49.5859149Z Found in cache @ /opt/hostedtoolcache/node/22.23.5/x64
+2026-11-26T15:30:49.5863482Z (node:12192) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T15:30:49.5864315Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T15:30:49.5865855Z ##[group]Environment details
+2026-11-26T15:30:51.9716335Z node: v22.23.5
+2026-11-26T15:30:51.9716621Z npm: 10.9.9
+2026-11-26T15:30:51.9716808Z yarn: 1.22.22
+2026-11-26T15:30:51.9717278Z ##[endgroup]
+2026-11-26T15:30:51.9806910Z ##[group]Run npm install --no-save playwright@1.56.1
+2026-11-26T15:30:51.9807414Z [36;1mnpm install --no-save playwright@1.56.1[0m
+2026-11-26T15:30:51.9807755Z [36;1mnpx playwright install --with-deps chromium[0m
+2026-11-26T15:30:51.9840974Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:30:51.9841256Z env:
+2026-11-26T15:30:51.9841474Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:30:51.9841725Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:30:51.9842314Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:30:51.9842992Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:51.9843617Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:30:51.9844022Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:30:51.9844444Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:30:51.9845015Z   NATIVE_PASSWORD: ***
+2026-11-26T15:30:51.9845345Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:30:51.9845582Z ##[endgroup]
+2026-11-26T15:30:54.3087782Z 
+2026-11-26T15:30:54.3096563Z added 2 packages in 2s
+2026-11-26T15:30:54.8671125Z Installing dependencies...
+2026-11-26T15:30:54.8729860Z Switching to root user to install dependencies...
+2026-11-26T15:30:54.9971097Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [152 B]
+2026-11-26T15:30:55.0204186Z Hit:2 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble InRelease
+2026-11-26T15:30:55.0212261Z Get:3 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+2026-11-26T15:30:55.0584432Z Get:4 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+2026-11-26T15:30:55.0595727Z Get:5 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+2026-11-26T15:30:55.1025617Z Get:6 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+2026-11-26T15:30:55.1891875Z Get:7 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1492 kB]
+2026-11-26T15:30:55.2031301Z Get:8 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [321 kB]
+2026-11-26T15:30:55.2072580Z Get:9 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1716 kB]
+2026-11-26T15:30:55.2177780Z Get:10 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1949 kB]
+2026-11-26T15:30:55.2278047Z Get:11 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [448 kB]
+2026-11-26T15:30:55.2632665Z Get:12 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1231 kB]
+2026-11-26T15:30:55.2761310Z Get:13 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble-security/main Translation-en [243 kB]
+2026-11-26T15:30:55.2803736Z Get:14 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1233 kB]
+2026-11-26T15:30:55.2878839Z Get:15 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [249 kB]
+2026-11-26T15:30:55.2917243Z Get:16 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1842 kB]
+2026-11-26T15:30:55.3019923Z Get:17 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [429 kB]
+2026-11-26T15:30:55.3077424Z Get:18 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [804 kB]
+2026-11-26T15:30:55.3958781Z Get:19 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [880 kB]
+2026-11-26T15:31:04.0549397Z Fetched 13.2 MB in 1s (11.3 MB/s)
+2026-11-26T15:31:05.0961450Z Reading package lists...
+2026-11-26T15:31:05.1229256Z Reading package lists...
+2026-11-26T15:31:05.3437372Z Building dependency tree...
+2026-11-26T15:31:05.3443331Z Reading state information...
+2026-11-26T15:31:05.4897092Z libatk-bridge2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-11-26T15:31:05.4898053Z libatk-bridge2.0-0t64 set to manually installed.
+2026-11-26T15:31:05.4898718Z libatk1.0-0t64 is already the newest version (2.52.0-1build1).
+2026-11-26T15:31:05.4899276Z libatk1.0-0t64 set to manually installed.
+2026-11-26T15:31:05.4899699Z libatspi2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-11-26T15:31:05.4900071Z libatspi2.0-0t64 set to manually installed.
+2026-11-26T15:31:05.4900439Z libcairo2 is already the newest version (1.18.0-3build1).
+2026-11-26T15:31:05.4900794Z libcairo2 set to manually installed.
+2026-11-26T15:31:05.4901182Z libcups2t64 is already the newest version (2.4.7-1.2ubuntu7.14).
+2026-11-26T15:31:05.4901562Z libcups2t64 set to manually installed.
+2026-11-26T15:31:05.4902185Z libdbus-1-3 is already the newest version (1.14.10-4ubuntu4.1).
+2026-11-26T15:31:05.4902481Z libdbus-1-3 set to manually installed.
+2026-11-26T15:31:05.4902784Z libdrm2 is already the newest version (2.4.125-1ubuntu0.1~24.04.2).
+2026-11-26T15:31:05.4903087Z libdrm2 set to manually installed.
+2026-11-26T15:31:05.4903380Z libgbm1 is already the newest version (25.2.8-0ubuntu0.24.04.5).
+2026-11-26T15:31:05.4903660Z libgbm1 set to manually installed.
+2026-11-26T15:31:05.4904009Z libglib2.0-0t64 is already the newest version (2.80.0-6ubuntu3.10).
+2026-11-26T15:31:05.4904381Z libglib2.0-0t64 set to manually installed.
+2026-11-26T15:31:05.4904713Z libnspr4 is already the newest version (2:4.35-1.1build1).
+2026-11-26T15:31:05.4904985Z libnspr4 set to manually installed.
+2026-11-26T15:31:05.4905273Z libnss3 is already the newest version (2:3.98-1ubuntu0.3).
+2026-11-26T15:31:05.4905541Z libnss3 set to manually installed.
+2026-11-26T15:31:05.4905888Z libpango-1.0-0 is already the newest version (1.52.1+ds-1build1).
+2026-11-26T15:31:05.4906222Z libpango-1.0-0 set to manually installed.
+2026-11-26T15:31:05.4906519Z libx11-6 is already the newest version (2:1.8.7-1ubuntu0.1).
+2026-11-26T15:31:05.4906903Z libx11-6 set to manually installed.
+2026-11-26T15:31:05.4907180Z libxcb1 is already the newest version (1.15-1ubuntu2).
+2026-11-26T15:31:05.4907452Z libxcb1 set to manually installed.
+2026-11-26T15:31:05.4907748Z libxcomposite1 is already the newest version (1:0.4.5-1build3).
+2026-11-26T15:31:05.4908054Z libxcomposite1 set to manually installed.
+2026-11-26T15:31:05.4908348Z libxdamage1 is already the newest version (1:1.1.6-1build1).
+2026-11-26T15:31:05.4908844Z libxdamage1 set to manually installed.
+2026-11-26T15:31:05.4909201Z libxext6 is already the newest version (2:1.3.4-1build2).
+2026-11-26T15:31:05.4909499Z libxext6 set to manually installed.
+2026-11-26T15:31:05.4909837Z libxfixes3 is already the newest version (1:6.0.0-2build1).
+2026-11-26T15:31:05.4910210Z libxfixes3 set to manually installed.
+2026-11-26T15:31:05.4910606Z libxkbcommon0 is already the newest version (1.6.0-1build1).
+2026-11-26T15:31:05.4910977Z libxkbcommon0 set to manually installed.
+2026-11-26T15:31:05.4911370Z libxrandr2 is already the newest version (2:1.5.2-2build1).
+2026-11-26T15:31:05.4911735Z libxrandr2 set to manually installed.
+2026-11-26T15:31:05.4912150Z xvfb is already the newest version (2:21.1.12-1ubuntu1.9).
+2026-11-26T15:31:05.4912691Z fonts-noto-color-emoji is already the newest version (2.047-0ubuntu0.24.04.1).
+2026-11-26T15:31:05.4913189Z libfontconfig1 is already the newest version (2.15.0-1.1ubuntu2).
+2026-11-26T15:31:05.4913548Z libfontconfig1 set to manually installed.
+2026-11-26T15:31:05.4913973Z libfreetype6 is already the newest version (2.13.2+dfsg-1ubuntu0.2).
+2026-11-26T15:31:05.4914377Z libfreetype6 set to manually installed.
+2026-11-26T15:31:05.4914799Z fonts-liberation is already the newest version (1:2.1.5-3).
+2026-11-26T15:31:05.4915240Z fonts-liberation set to manually installed.
+2026-11-26T15:31:05.4915604Z The following additional packages will be installed:
+2026-11-26T15:31:05.4915969Z   libasound2-data xfonts-encodings xfonts-utils
+2026-11-26T15:31:05.4919764Z Suggested packages:
+2026-11-26T15:31:05.4920060Z   alsa-utils libasound2-plugins
+2026-11-26T15:31:05.4920297Z Recommended packages:
+2026-11-26T15:31:05.4920817Z   fonts-ipafont-mincho fonts-tlwg-loma alsa-ucm-conf alsa-topology-conf
+2026-11-26T15:31:05.5882781Z The following NEW packages will be installed:
+2026-11-26T15:31:05.5883449Z   fonts-freefont-ttf fonts-ipafont-gothic fonts-tlwg-loma-otf fonts-unifont
+2026-11-26T15:31:05.5891872Z   fonts-wqy-zenhei xfonts-cyrillic xfonts-encodings xfonts-scalable
+2026-11-26T15:31:05.5892316Z   xfonts-utils
+2026-11-26T15:31:05.5897130Z The following packages will be upgraded:
+2026-11-26T15:31:05.5903519Z   libasound2-data libasound2t64
+2026-11-26T15:31:05.6064178Z 2 upgraded, 9 newly installed, 0 to remove and 30 not upgraded.
+2026-11-26T15:31:05.6064634Z Need to get 21.5 MB of archives.
+2026-11-26T15:31:05.6065393Z After this operation, 79.6 MB of additional disk space will be used.
+2026-11-26T15:31:05.6065857Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [152 B]
+2026-11-26T15:31:05.6997447Z Get:2 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-ipafont-gothic all 00303-21ubuntu1 [3513 kB]
+2026-11-26T15:31:06.1941727Z Get:3 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble/main amd64 fonts-freefont-ttf all 20211204+svn4273-2 [5641 kB]
+2026-11-26T15:31:06.8178241Z Get:4 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-tlwg-loma-otf all 1:0.7.3-1 [107 kB]
+2026-11-26T15:31:06.8999260Z Get:5 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-unifont all 1:15.1.01-1build1 [2993 kB]
+2026-11-26T15:31:07.2393316Z Get:6 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-wqy-zenhei all 0.9.45-8 [7472 kB]
+2026-11-26T15:31:08.0362690Z Get:7 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble-updates/main amd64 libasound2t64 amd64 1.2.11-1ubuntu0.5 [400 kB]
+2026-11-26T15:31:08.2000878Z Get:8 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble-updates/main amd64 libasound2-data all 1.2.11-1ubuntu0.5 [21.6 kB]
+2026-11-26T15:31:08.2737476Z Get:9 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-encodings all 1:1.0.5-0ubuntu2 [578 kB]
+2026-11-26T15:31:08.4217945Z Get:10 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-utils amd64 1:7.7+6build3 [94.4 kB]
+2026-11-26T15:31:08.5108235Z Get:11 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble/universe amd64 xfonts-cyrillic all 1:1.0.5+nmu1 [384 kB]
+2026-11-26T15:31:13.2602636Z Get:12 http://us-west-2.ec2.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-scalable all 1:1.0.3-1.3 [304 kB]
+2026-11-26T15:31:14.6537979Z Fetched 21.5 MB in 8s (2647 kB/s)
+2026-11-26T15:31:14.7438958Z Selecting previously unselected package fonts-ipafont-gothic.
+2026-11-26T15:31:14.9319774Z (Reading database ... 
+2026-11-26T15:31:14.9320103Z (Reading database ... 5%
+2026-11-26T15:31:14.9320353Z (Reading database ... 10%
+2026-11-26T15:31:14.9320549Z (Reading database ... 15%
+2026-11-26T15:31:14.9320746Z (Reading database ... 20%
+2026-11-26T15:31:14.9320929Z (Reading database ... 25%
+2026-11-26T15:31:14.9321117Z (Reading database ... 30%
+2026-11-26T15:31:14.9321315Z (Reading database ... 35%
+2026-11-26T15:31:14.9321503Z (Reading database ... 40%
+2026-11-26T15:31:14.9321687Z (Reading database ... 45%
+2026-11-26T15:31:14.9321872Z (Reading database ... 50%
+2026-11-26T15:31:14.9985090Z (Reading database ... 55%
+2026-11-26T15:31:15.1847605Z (Reading database ... 60%
+2026-11-26T15:31:15.2447902Z (Reading database ... 65%
+2026-11-26T15:31:15.2935516Z (Reading database ... 70%
+2026-11-26T15:31:15.4053714Z (Reading database ... 75%
+2026-11-26T15:31:15.7595728Z (Reading database ... 80%
+2026-11-26T15:31:16.4279824Z (Reading database ... 85%
+2026-11-26T15:31:16.9371278Z (Reading database ... 90%
+2026-11-26T15:31:17.7344573Z (Reading database ... 95%
+2026-11-26T15:31:17.7344947Z (Reading database ... 100%
+2026-11-26T15:31:17.7345284Z (Reading database ... 216824 files and directories currently installed.)
+2026-11-26T15:31:17.7385640Z Preparing to unpack .../00-fonts-ipafont-gothic_00303-21ubuntu1_all.deb ...
+2026-11-26T15:31:17.7461010Z Unpacking fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-11-26T15:31:17.9410639Z Selecting previously unselected package fonts-freefont-ttf.
+2026-11-26T15:31:17.9514425Z Preparing to unpack .../01-fonts-freefont-ttf_20211204+svn4273-2_all.deb ...
+2026-11-26T15:31:17.9519629Z Unpacking fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-11-26T15:31:18.0211875Z Selecting previously unselected package fonts-tlwg-loma-otf.
+2026-11-26T15:31:18.0316159Z Preparing to unpack .../02-fonts-tlwg-loma-otf_1%3a0.7.3-1_all.deb ...
+2026-11-26T15:31:18.0318170Z Unpacking fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-11-26T15:31:18.0472548Z Selecting previously unselected package fonts-unifont.
+2026-11-26T15:31:18.0574192Z Preparing to unpack .../03-fonts-unifont_1%3a15.1.01-1build1_all.deb ...
+2026-11-26T15:31:18.0576255Z Unpacking fonts-unifont (1:15.1.01-1build1) ...
+2026-11-26T15:31:18.1516969Z Selecting previously unselected package fonts-wqy-zenhei.
+2026-11-26T15:31:18.1620177Z Preparing to unpack .../04-fonts-wqy-zenhei_0.9.45-8_all.deb ...
+2026-11-26T15:31:18.1713117Z Unpacking fonts-wqy-zenhei (0.9.45-8) ...
+2026-11-26T15:31:18.5815481Z Preparing to unpack .../05-libasound2t64_1.2.11-1ubuntu0.5_amd64.deb ...
+2026-11-26T15:31:18.5836924Z Unpacking libasound2t64:amd64 (1.2.11-1ubuntu0.5) over (1.2.11-1ubuntu0.3) ...
+2026-11-26T15:31:18.6147365Z Preparing to unpack .../06-libasound2-data_1.2.11-1ubuntu0.5_all.deb ...
+2026-11-26T15:31:18.6155895Z Unpacking libasound2-data (1.2.11-1ubuntu0.5) over (1.2.11-1ubuntu0.3) ...
+2026-11-26T15:31:18.6353142Z Selecting previously unselected package xfonts-encodings.
+2026-11-26T15:31:18.6447332Z Preparing to unpack .../07-xfonts-encodings_1%3a1.0.5-0ubuntu2_all.deb ...
+2026-11-26T15:31:18.6450557Z Unpacking xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-11-26T15:31:18.6629801Z Selecting previously unselected package xfonts-utils.
+2026-11-26T15:31:18.6722597Z Preparing to unpack .../08-xfonts-utils_1%3a7.7+6build3_amd64.deb ...
+2026-11-26T15:31:18.6725566Z Unpacking xfonts-utils (1:7.7+6build3) ...
+2026-11-26T15:31:18.8343217Z Selecting previously unselected package xfonts-cyrillic.
+2026-11-26T15:31:18.8446426Z Preparing to unpack .../09-xfonts-cyrillic_1%3a1.0.5+nmu1_all.deb ...
+2026-11-26T15:31:18.8449577Z Unpacking xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-11-26T15:31:18.8649435Z Selecting previously unselected package xfonts-scalable.
+2026-11-26T15:31:18.8750441Z Preparing to unpack .../10-xfonts-scalable_1%3a1.0.3-1.3_all.deb ...
+2026-11-26T15:31:18.8753881Z Unpacking xfonts-scalable (1:1.0.3-1.3) ...
+2026-11-26T15:31:18.9025349Z Setting up fonts-wqy-zenhei (0.9.45-8) ...
+2026-11-26T15:31:18.9100737Z Setting up fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-11-26T15:31:18.9108363Z Setting up libasound2-data (1.2.11-1ubuntu0.5) ...
+2026-11-26T15:31:18.9116290Z Setting up libasound2t64:amd64 (1.2.11-1ubuntu0.5) ...
+2026-11-26T15:31:18.9125297Z Setting up fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-11-26T15:31:18.9134414Z Setting up xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-11-26T15:31:18.9141537Z Setting up fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-11-26T15:31:18.9568331Z update-alternatives: using /usr/share/fonts/opentype/ipafont-gothic/ipag.ttf to provide /usr/share/fonts/truetype/fonts-japanese-gothic.ttf (fonts-japanese-gothic.ttf) in auto mode
+2026-11-26T15:31:18.9581662Z Setting up fonts-unifont (1:15.1.01-1build1) ...
+2026-11-26T15:31:18.9591713Z Setting up xfonts-utils (1:7.7+6build3) ...
+2026-11-26T15:31:18.9616838Z Setting up xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-11-26T15:31:18.9863290Z Setting up xfonts-scalable (1:1.0.3-1.3) ...
+2026-11-26T15:31:19.0051306Z Processing triggers for libc-bin (2.39-0ubuntu8.12) ...
+2026-11-26T15:31:23.3004351Z Processing triggers for man-db (2.12.0-4build2) ...
+2026-11-26T15:31:23.3290142Z Not building database; man-db/auto-update is not 'true'.
+2026-11-26T15:31:23.3300661Z Processing triggers for fontconfig (2.15.0-1.1ubuntu2) ...
+2026-11-26T15:31:24.4102596Z 
+2026-11-26T15:31:24.4103523Z Running kernel seems to be up-to-date.
+2026-11-26T15:31:24.4103808Z 
+2026-11-26T15:31:24.4104314Z No services need to be restarted.
+2026-11-26T15:31:24.4104515Z 
+2026-11-26T15:31:24.4104669Z No containers need to be restarted.
+2026-11-26T15:31:24.4104862Z 
+2026-11-26T15:31:24.4105039Z No user sessions are running outdated binaries.
+2026-11-26T15:31:24.4105258Z 
+2026-11-26T15:31:24.4105547Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-11-26T15:31:25.2753167Z Downloading Chromium 141.0.7390.37 (playwright build v1194) from https://cdn.playwright.dev/dbazure/download/playwright/builds/chromium/1194/chromium-linux.zip
+2026-11-26T15:31:25.4903236Z |                                                                                |   0% of 173.9 MiB
+2026-11-26T15:31:25.7392568Z |■■■■■■■■                                                                        |  10% of 173.9 MiB
+2026-11-26T15:31:25.8615282Z |■■■■■■■■■■■■■■■■                                                                |  20% of 173.9 MiB
+2026-11-26T15:31:25.9839285Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 173.9 MiB
+2026-11-26T15:31:26.1015116Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 173.9 MiB
+2026-11-26T15:31:26.2219216Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 173.9 MiB
+2026-11-26T15:31:26.3412622Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 173.9 MiB
+2026-11-26T15:31:26.4607553Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 173.9 MiB
+2026-11-26T15:31:26.5753816Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 173.9 MiB
+2026-11-26T15:31:26.7034522Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 173.9 MiB
+2026-11-26T15:31:26.8139307Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 173.9 MiB
+2026-11-26T15:31:29.5085565Z Chromium 141.0.7390.37 (playwright build v1194) downloaded to /home/runner/.cache/ms-playwright/chromium-1194
+2026-11-26T15:31:29.5087575Z Downloading FFMPEG playwright build v1011 from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1011/ffmpeg-linux.zip
+2026-11-26T15:31:29.7147629Z |                                                                                |   0% of 2.3 MiB
+2026-11-26T15:31:29.7631662Z |■■■■■■■■                                                                        |  10% of 2.3 MiB
+2026-11-26T15:31:29.7904320Z |■■■■■■■■■■■■■■■■                                                                |  20% of 2.3 MiB
+2026-11-26T15:31:29.8028957Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.3 MiB
+2026-11-26T15:31:29.8121688Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.3 MiB
+2026-11-26T15:31:29.8217709Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.3 MiB
+2026-11-26T15:31:29.8290765Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.3 MiB
+2026-11-26T15:31:29.8343869Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.3 MiB
+2026-11-26T15:31:29.8391247Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.3 MiB
+2026-11-26T15:31:29.8429874Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.3 MiB
+2026-11-26T15:31:29.8459313Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.3 MiB
+2026-11-26T15:31:29.8856969Z FFMPEG playwright build v1011 downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1011
+2026-11-26T15:31:29.8859972Z Downloading Chromium Headless Shell 141.0.7390.37 (playwright build v1194) from https://cdn.playwright.dev/dbazure/download/playwright/builds/chromium/1194/chromium-headless-shell-linux.zip
+2026-11-26T15:31:30.0944853Z |                                                                                |   0% of 104.3 MiB
+2026-11-26T15:31:30.3270178Z |■■■■■■■■                                                                        |  10% of 104.3 MiB
+2026-11-26T15:31:30.4261815Z |■■■■■■■■■■■■■■■■                                                                |  20% of 104.3 MiB
+2026-11-26T15:31:30.5102359Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 104.3 MiB
+2026-11-26T15:31:30.6446215Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 104.3 MiB
+2026-11-26T15:31:30.7357663Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 104.3 MiB
+2026-11-26T15:31:30.8149511Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 104.3 MiB
+2026-11-26T15:31:30.9117735Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 104.3 MiB
+2026-11-26T15:31:31.0201623Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 104.3 MiB
+2026-11-26T15:31:31.1098661Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 104.3 MiB
+2026-11-26T15:31:31.2250627Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 104.3 MiB
+2026-11-26T15:31:32.6892007Z Chromium Headless Shell 141.0.7390.37 (playwright build v1194) downloaded to /home/runner/.cache/ms-playwright/chromium_headless_shell-1194
+2026-11-26T15:31:32.7458012Z ##[group]Run python3 provision_host.py verify
+2026-11-26T15:31:32.7458418Z [36;1mpython3 provision_host.py verify[0m
+2026-11-26T15:31:32.7458807Z [36;1mnode browser.mjs[0m
+2026-11-26T15:31:32.7482047Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:31:32.7482266Z env:
+2026-11-26T15:31:32.7482442Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:31:32.7482638Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:31:32.7483042Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:31:32.7483535Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:31:32.7483878Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:31:32.7484188Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:31:32.7484487Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:31:32.7484914Z   NATIVE_PASSWORD: ***
+2026-11-26T15:31:32.7485155Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:31:32.7485335Z ##[endgroup]
+2026-11-26T15:31:33.4073716Z PASS actual ORDS APEX application login page
+2026-11-26T15:31:35.9724304Z OBSERVE actual blank application login before entering private inputs
+2026-11-26T15:31:36.8671190Z PASS actual Chromium login and native retained row rendered through ORDS/APEX
+2026-11-26T15:31:36.9005299Z ##[group]Run rm -rf "$RUNNER_TEMP/private-sqlcl" "$RUNNER_TEMP/e17-private"
+2026-11-26T15:31:36.9005701Z [36;1mrm -rf "$RUNNER_TEMP/private-sqlcl" "$RUNNER_TEMP/e17-private"[0m
+2026-11-26T15:31:36.9006022Z [36;1mdocker rm -f e17-ords e17-author e17-target || true[0m
+2026-11-26T15:31:36.9006301Z [36;1mtest ! -e "$RUNNER_TEMP/private-sqlcl"[0m
+2026-11-26T15:31:36.9006544Z [36;1mtest ! -e "$RUNNER_TEMP/e17-private"[0m
+2026-11-26T15:31:36.9006828Z [36;1mecho 'PASS private inputs removed' > result/cleanup.txt[0m
+2026-11-26T15:31:36.9007106Z [36;1mrm -f "$RUNNER_TEMP/wrong-receipt.json"[0m
+2026-11-26T15:31:36.9031509Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:31:36.9031736Z env:
+2026-11-26T15:31:36.9031910Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:31:36.9032104Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:31:36.9032530Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:31:36.9033047Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:31:36.9033396Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:31:36.9033705Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:31:36.9034004Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:31:36.9034390Z   NATIVE_PASSWORD: ***
+2026-11-26T15:31:36.9034629Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:31:36.9034805Z ##[endgroup]
+2026-11-26T15:31:39.3337473Z e17-ords
+2026-11-26T15:31:39.3585894Z e17-author
+2026-11-26T15:31:39.6859077Z e17-target
+2026-11-26T15:31:39.6908325Z ##[group]Run kill "$(cat "$RUNNER_TEMP/sampler.pid")" || true
+2026-11-26T15:31:39.6908863Z [36;1mkill "$(cat "$RUNNER_TEMP/sampler.pid")" || true[0m
+2026-11-26T15:31:39.6909142Z [36;1mfree -b > result/memory-end.txt[0m
+2026-11-26T15:31:39.6909364Z [36;1mdf -B1 > result/disk-end.txt[0m
+2026-11-26T15:31:39.6909581Z [36;1mpython3 - <<'PYCODE'[0m
+2026-11-26T15:31:39.6909775Z [36;1mimport json,os[0m
+2026-11-26T15:31:39.6909970Z [36;1mfrom pathlib import Path[0m
+2026-11-26T15:31:39.6910424Z [36;1mPath('result/measurement.json').write_text(json.dumps({k:os.environ[k] for k in ['CACHE_HIT','CACHE_MODE','PARALLEL','REPLICA','GITHUB_RUN_ID','GITHUB_SHA']}))[0m
+2026-11-26T15:31:39.6910876Z [36;1mPYCODE[0m
+2026-11-26T15:31:39.6932631Z shell: /usr/bin/bash -e {0}
+2026-11-26T15:31:39.6932859Z env:
+2026-11-26T15:31:39.6933023Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:31:39.6933220Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:31:39.6933656Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:31:39.6934149Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:31:39.6934511Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:31:39.6934831Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:31:39.6935135Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:31:39.6935542Z   NATIVE_PASSWORD: ***
+2026-11-26T15:31:39.6935783Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:31:39.6935962Z   CACHE_HIT: true
+2026-11-26T15:31:39.6936129Z   CACHE_MODE: warm
+2026-11-26T15:31:39.6936290Z   PARALLEL: 2
+2026-11-26T15:31:39.6936452Z   REPLICA: 2
+2026-11-26T15:31:39.6936601Z ##[endgroup]
+2026-11-26T15:31:39.7263478Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-26T15:31:39.7263780Z with:
+2026-11-26T15:31:39.7263945Z   name: native-45848145737-2
+2026-11-26T15:31:39.7264128Z   path: result/
+2026-11-26T15:31:39.7264298Z   if-no-files-found: warn
+2026-11-26T15:31:39.7264481Z   compression-level: 6
+2026-11-26T15:31:39.7264648Z   overwrite: false
+2026-11-26T15:31:39.7264927Z   include-hidden-files: false
+2026-11-26T15:31:39.7265108Z env:
+2026-11-26T15:31:39.7265262Z   ORACLE_CONTAINER: e17-author
+2026-11-26T15:31:39.7265462Z   TARGET_CONTAINER: e17-target
+2026-11-26T15:31:39.7265850Z   ORDS_IMAGE: container-registry.oracle.com/database/ords@sha256:f0202468fa9386b7a995d4fb9a44332a5de6266a10fc92c353a0a9c618d69e6e
+2026-11-26T15:31:39.7266318Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:31:39.7266662Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-2/x64
+2026-11-26T15:31:39.7266992Z   SQL_EXE: /home/runner/work/_temp/tools/sqlcl/bin/sql
+2026-11-26T15:31:39.7267287Z   INCOMPATIBLE_SQL_EXE: /home/runner/work/_temp/incompatible/sqlcl/bin/sql
+2026-11-26T15:31:39.7267657Z   NATIVE_PASSWORD: ***
+2026-11-26T15:31:39.7267890Z   APEX_ADMIN_PASSWORD: ***
+2026-11-26T15:31:39.7268063Z ##[endgroup]
+2026-11-26T15:31:39.8516243Z (node:13512) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T15:31:39.8516828Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T15:31:39.8617125Z With the provided path, there will be 67 files uploaded
+2026-11-26T15:31:39.8617925Z Artifact name is valid!
+2026-11-26T15:31:39.8618248Z Root directory input is valid!
+2026-11-26T15:31:40.2791739Z Beginning upload of artifact content to blob storage
+2026-11-26T15:31:40.3401943Z (node:13512) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-26T15:31:40.8961741Z Uploaded bytes 138849
+2026-11-26T15:31:40.9850984Z Finished uploading artifact content to blob storage!
+2026-11-26T15:31:40.9851706Z SHA256 digest of uploaded artifact zip is ab918915493e208e7c8ac8fc6f03528142bc941c93ba04c9aec15190dd37334a
+2026-11-26T15:31:40.9852269Z Finalizing artifact upload
+2026-11-26T15:31:41.4384758Z Artifact native-45848145737-2.zip successfully finalized. Artifact ID 15134350588
+2026-11-26T15:31:41.4385452Z Artifact native-45848145737-2 has been successfully uploaded! Final size is 138849 bytes. Artifact ID is 15134350588
+2026-11-26T15:31:41.4390194Z Artifact download URL: https://github.com/rstyczynski/APEX_CICD_E.18/actions/runs/45848145737/artifacts/15134350588
+2026-11-26T15:31:41.4540795Z Post job cleanup.
+2026-11-26T15:31:41.5477979Z (node:13524) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T15:31:41.5479046Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T15:31:41.5629826Z Post job cleanup.
+2026-11-26T15:31:41.6686374Z (node:13532) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T15:31:41.6686944Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T15:31:41.6783982Z Post job cleanup.
+2026-11-26T15:31:41.7661191Z Cache hit occurred on the primary key e18-pinned-downloads-v1-warm-2, not saving cache.
+2026-11-26T15:31:41.7662218Z (node:13540) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T15:31:41.7662923Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T15:31:41.7765268Z Post job cleanup.
+2026-11-26T15:31:41.8457049Z [command]/usr/bin/git version
+2026-11-26T15:31:41.8486760Z git version 2.56.1
+2026-11-26T15:31:41.8514918Z Temporarily overriding HOME='/home/runner/work/_temp/e0ef5161-4d29-40e6-8a29-724f9fec6a35' before making global git config changes
+2026-11-26T15:31:41.8515997Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-26T15:31:41.8516931Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/APEX_CICD_E.18/APEX_CICD_E.18
+2026-11-26T15:31:41.8551012Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-26T15:31:41.8575958Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-26T15:31:41.8782731Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-26T15:31:41.8822335Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-26T15:31:41.9079193Z Cleaning up orphan processes
+2026-11-26T15:31:41.9416326Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684, actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683, actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3, actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

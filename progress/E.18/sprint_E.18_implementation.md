@@ -1,6 +1,10 @@
 # E.18 implementation record
 
-## Current execution
+## Current verified state
+
+Measured source capacity-v1 at aea3a77 passes all four two-replica cells. [Report](capacity_report.md) derives timings/resources/recommendations from actual receipts; [checklist](sprint_E.18_checklist.md) owns acceptance coverage. Separate live revision 920b1c4 passes both complete replicas and preserves blank-login/final-result captures. All six new/full gates pass, including unfiltered 27/27 integration with stable executable-source snapshots and scoped cleanup. Presentation/handover technical review passes; the final audit and lifecycle transaction are recorded in the handover and closure records. The historical trial sections below are retained observations, not the current status.
+
+## Initial exploratory execution — historical
 
 Dedicated repository: https://github.com/rstyczynski/APEX_CICD_E.18 at f2be037f2bbd6a3f8757954077e6c9c811f5d041. Maintained source is mirrored in [sprint-work/E.18](../../sprint-work/E.18/). [Design](sprint_E.18_design.md) owns measurement definitions and [checklist](sprint_E.18_checklist.md) tracks acceptance.
 

@@ -69,5 +69,5 @@
 | Sprint E.15 | Done | PBI-083 | Done |
 | Sprint E.16 | Done | PBI-084 | Done |
 | Sprint E.17 | Done | PBI-085 | Done |
-| Sprint E.18 | under_construction | PBI-086 | under_construction |
+| Sprint E.18 | implemented | PBI-086 | tested |
 | Sprint E.19 | Planned | PBI-087 | Planned |

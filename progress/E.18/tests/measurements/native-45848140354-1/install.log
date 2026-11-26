@@ -1,0 +1,23 @@
+[0;32mStarting the migration...[0m
+Installing/updating schemas
+--Starting Liquibase at 2026-11-26T15:29:27.738710506 using Java 21.0.13.1 (version 4.33.0 #0 built at 2025-12-09 17:47+0000)
+Running Changeset: release/author16/tables/preserved.sql::1795706947181::AUTHOR16
+Table AUTHOR16.PRESERVED created.
+
+
+Table AUTHOR16.PRESERVED altered.
+
+UPDATE SUMMARY
+Run:                          1
+Previously run:               0
+Filtered out:                 0
+-------------------------------
+Total change sets:            1
+
+Liquibase: Update has been successful. Rows affected: 0
+
+Produced logfile: sqlcl-lb-1795706967592.log
+
+Operation completed successfully.
+
+

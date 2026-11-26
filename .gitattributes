@@ -34,3 +34,7 @@ progress/E.13/tests/** whitespace=-blank-at-eol,-blank-at-eof
 
 # E.14 preserves verbatim Oracle output and relocated native regression evidence.
 progress/E.14/tests/** whitespace=-blank-at-eol,-blank-at-eof
+
+# E.18 preserves verbatim native/HTTP output and relocated regression receipts.
+# Executable source and maintained narrative whitespace checks remain strict.
+progress/E.18/tests/** whitespace=-blank-at-eol,-blank-at-eof

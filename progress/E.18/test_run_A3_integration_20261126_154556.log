@@ -1,0 +1,11 @@
+Command: bash tests/run.sh --integration --new-only progress/E.18/new_tests.manifest
+E18_RUN_IDS=45846143379 45846150456 45848134832 45848140354
+E16_RUN_ID=45810907563
+E17_RUN_ID=45828709006
+HOSTED_ORACLE_REPO=rstyczynski/APEX_CICD_E.18
+RUN integration:test_pipeline_capacity.sh:test_pipeline_capacity_real
+PASS four real comparison cells with complete validation; percentiles use nearest rank, n=2 per cell
+PASS test_pipeline_capacity_real
+Tests: 1; failed: 0
+
+Gate exit: 0

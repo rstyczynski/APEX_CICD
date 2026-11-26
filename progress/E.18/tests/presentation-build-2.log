@@ -1,0 +1,18 @@
+MONO_WASM: WebAssembly resource does not have the expected content type "application/wasm", so falling back to slower ArrayBuffer instantiation.
+Inspect result written to file: .local-apex/e18-deck/candidate.pptx.inspect.ndjson
+node:internal/fs/promises:1345
+  return new FileHandle(await PromisePrototypeThen(
+                        ^
+
+Error: EEXIST: file already exists, open '/Users/rstyczynski/projects/APEX_CICD/.local-apex/e18-deck/validation.json'
+    at async open (node:internal/fs/promises:1345:25)
+    at async Object.writeFile (node:internal/fs/promises:1972:14)
+    at async finalizePresentation (file:///Users/rstyczynski/.codex/plugins/cache/openai-primary-runtime/presentations/26.1123.11515/skills/presentations/container_tools/artifact_tool_utils.mjs:1058:5)
+    at async file:///Users/rstyczynski/projects/APEX_CICD/.local-apex/e18-deck/build.mjs:79:1 {
+  errno: -17,
+  code: 'EEXIST',
+  syscall: 'open',
+  path: '/Users/rstyczynski/projects/APEX_CICD/.local-apex/e18-deck/validation.json'
+}
+
+Node.js v24.22.3
